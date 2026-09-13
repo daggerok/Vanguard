@@ -2,12 +2,32 @@
   "ticker": "VOOG",
   "name": "Vanguard S&P 500 Growth ETF",
   "category": "US Equity",
+  "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/voog",
   "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 83.73999786376953,
+  "netAssets": null,
+  "netExpenseRatio": 0.07,
+  "trailingYield": null,
+  "secYield": null,
+  "ytdReturn": 15.821057648891323,
+  "asOfDate": "2026-09-11",
+  "totalReturn": {
+    "1Y": 15.821057648891323,
+    "3Y": 106.93092350632392,
+    "5Y": 95.26754183871522,
+    "10Y": 406.4097392796817
+  },
+  "performance": {
+    "1Y": 15.821057648891323,
+    "3Y": 27.431011968540965,
+    "5Y": 14.32099924101804,
+    "10Y": 17.611612659302956
+  },
   "officialMetrics": {
     "nav": null,
     "marketPrice": null,
-    "expenseRatio": null,
+    "expenseRatio": 0.07,
     "returns": {}
   },
   "holdings": {

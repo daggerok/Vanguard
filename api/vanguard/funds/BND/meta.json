@@ -2,12 +2,32 @@
   "ticker": "BND",
   "name": "Vanguard Total Bond Market ETF",
   "category": "Bond",
+  "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/bnd",
   "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 71.22000122070312,
+  "netAssets": null,
+  "netExpenseRatio": 0.03,
+  "trailingYield": null,
+  "secYield": null,
+  "ytdReturn": -0.3527117343208097,
+  "asOfDate": "2026-09-11",
+  "totalReturn": {
+    "1Y": -0.3527117343208097,
+    "3Y": 14.304263358489822,
+    "5Y": -1.6118565593005618,
+    "10Y": 14.16264960083522
+  },
+  "performance": {
+    "1Y": -0.3527117343208097,
+    "3Y": 4.557247802944042,
+    "5Y": -0.32447010785702224,
+    "10Y": 1.3333508533488025
+  },
   "officialMetrics": {
     "nav": null,
     "marketPrice": null,
-    "expenseRatio": null,
+    "expenseRatio": 0.03,
     "returns": {}
   },
   "holdings": {

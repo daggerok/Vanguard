@@ -2,12 +2,32 @@
   "ticker": "VEA",
   "name": "Vanguard FTSE Developed Markets ETF",
   "category": "International Equity",
+  "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vea",
   "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 72.69000244140625,
+  "netAssets": null,
+  "netExpenseRatio": 0.05,
+  "trailingYield": null,
+  "secYield": null,
+  "ytdReturn": 24.22459566740498,
+  "asOfDate": "2026-09-11",
+  "totalReturn": {
+    "1Y": 24.22459566740498,
+    "3Y": 81.33148391266663,
+    "5Y": 67.50049269380352,
+    "10Y": 160.0613357357022
+  },
+  "performance": {
+    "1Y": 24.22459566740498,
+    "3Y": 21.943242413967546,
+    "5Y": 10.867235330201574,
+    "10Y": 10.029104633905273
+  },
   "officialMetrics": {
     "nav": null,
     "marketPrice": null,
-    "expenseRatio": null,
+    "expenseRatio": 0.05,
     "returns": {}
   },
   "holdings": {

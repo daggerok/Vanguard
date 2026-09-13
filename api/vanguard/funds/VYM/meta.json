@@ -2,12 +2,32 @@
   "ticker": "VYM",
   "name": "Vanguard High Dividend Yield ETF",
   "category": "US Equity",
+  "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vym",
   "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 162.9199981689453,
+  "netAssets": null,
+  "netExpenseRatio": 0.06,
+  "trailingYield": null,
+  "secYield": null,
+  "ytdReturn": 17.762676517865582,
+  "asOfDate": "2026-09-11",
+  "totalReturn": {
+    "1Y": 17.762676517865582,
+    "3Y": 70.17121714346956,
+    "5Y": 81.04854145038072,
+    "10Y": 204.08256754664998
+  },
+  "performance": {
+    "1Y": 17.762676517865582,
+    "3Y": 19.388373353253808,
+    "5Y": 12.605345148511372,
+    "10Y": 11.763283475517628
+  },
   "officialMetrics": {
     "nav": null,
     "marketPrice": null,
-    "expenseRatio": null,
+    "expenseRatio": 0.06,
     "returns": {}
   },
   "holdings": {

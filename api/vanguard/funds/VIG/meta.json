@@ -2,12 +2,32 @@
   "ticker": "VIG",
   "name": "Vanguard Dividend Appreciation ETF",
   "category": "US Equity",
+  "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vig",
   "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 239.42999267578125,
+  "netAssets": null,
+  "netExpenseRatio": 0.05,
+  "trailingYield": null,
+  "secYield": null,
+  "ytdReturn": 12.313369458202118,
+  "asOfDate": "2026-09-11",
+  "totalReturn": {
+    "1Y": 12.313369458202118,
+    "3Y": 61.753424454188746,
+    "5Y": 70.21574517587953,
+    "10Y": 243.08150973684684
+  },
+  "performance": {
+    "1Y": 12.313369458202118,
+    "3Y": 17.386411901908684,
+    "5Y": 11.224367847810313,
+    "10Y": 13.120087204937537
+  },
   "officialMetrics": {
     "nav": null,
     "marketPrice": null,
-    "expenseRatio": null,
+    "expenseRatio": 0.05,
     "returns": {}
   },
   "holdings": {

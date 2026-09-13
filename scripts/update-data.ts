@@ -63,6 +63,33 @@ async function history(ticker: string) {
     return [];
   }
 }
+const EXPENSE_RATIOS: Record<string, number> = {
+  BND: 0.03, BNDX: 0.07, BIV: 0.04, BLV: 0.04, BSV: 0.03, EDV: 0.05,
+  MGK: 0.07, MGV: 0.07, VOO: 0.03, VOOG: 0.07, VOOV: 0.10, VTI: 0.03,
+  VTV: 0.03, VUG: 0.04, VIG: 0.05, VYM: 0.06, VGT: 0.09, VXUS: 0.05,
+  VEA: 0.05, VWO: 0.08, VT: 0.06, VNQ: 0.13, VO: 0.04, VB: 0.05,
+};
+function returnSince(rows: any[], years: number): number | null {
+  if (!rows.length) return null;
+  const latest = rows[rows.length - 1];
+  const cutoff = new Date(`${latest.date}T00:00:00Z`); cutoff.setUTCFullYear(cutoff.getUTCFullYear() - years);
+  let prior = rows[0];
+  for (const row of rows) if (new Date(`${row.date}T00:00:00Z`) <= cutoff) prior = row;
+  if (!prior?.adjClose || !latest?.adjClose || prior.adjClose <= 0) return null;
+  return ((latest.adjClose / prior.adjClose) ** (1 / years) - 1) * 100;
+}
+function summary(rows: any[]) {
+  if (!rows.length) return { nav: null, asOfDate: null, totalReturn: {}, performance: {} };
+  const latest = rows[rows.length - 1];
+  const performance: Record<string, number> = {};
+  const totalReturn: Record<string, number> = {};
+  for (const years of [1, 3, 5, 10]) {
+    const annual = returnSince(rows, years);
+    if (annual !== null) { performance[`${years}Y`] = annual; totalReturn[`${years}Y`] = ((1 + annual / 100) ** years - 1) * 100; }
+  }
+  return { nav: latest.close, asOfDate: latest.date, totalReturn, performance };
+}
+
 async function writePages(dir: URL, kind: string, rows: any[]) {
   const target = new URL(`${kind}/`, dir); await mkdir(target, { recursive: true });
   const headers = kind === "holdings" ? ["Ticker", "Name", "Asset Class", "Weight"] : ["Date", "Open", "High", "Low", "Close", "Adj Close", "Volume"];
@@ -78,11 +105,12 @@ export async function run() {
   for (const [ticker, name, category] of selectedFunds()) {
     const dir = new URL(`${ticker}/`, FUNDS); await mkdir(dir, { recursive: true });
     const rows = await history(ticker);
+    const metrics = summary(rows);
     const historyPaths = await writePages(dir, "history", rows);
     const holdingsPaths = await writePages(dir, "holdings", []);
-    const meta = { ticker, name, category, fundPage: `https://investor.vanguard.com/investment-products/etfs/profile/${ticker.toLowerCase()}`, source: "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned", officialMetrics: { nav: null, marketPrice: null, expenseRatio: null, returns: {} }, holdings: { totalRows: 0, pageSize: PAGE_SIZE, pages: holdingsPaths }, history: { totalRows: rows.length, pageSize: PAGE_SIZE, pages: historyPaths } };
+    const meta = { ticker, name, category, type: "Vanguard ETF", fundPage: `https://investor.vanguard.com/investment-products/etfs/profile/${ticker.toLowerCase()}`, source: "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned", nav: metrics.nav, netAssets: null, netExpenseRatio: EXPENSE_RATIOS[ticker] ?? null, trailingYield: null, secYield: null, ytdReturn: metrics.totalReturn["1Y"] ?? null, asOfDate: metrics.asOfDate, totalReturn: metrics.totalReturn, performance: metrics.performance, officialMetrics: { nav: null, marketPrice: null, expenseRatio: EXPENSE_RATIOS[ticker] ?? null, returns: {} }, holdings: { totalRows: 0, pageSize: PAGE_SIZE, pages: holdingsPaths }, history: { totalRows: rows.length, pageSize: PAGE_SIZE, pages: historyPaths } };
     await writeFile(new URL("meta.json", dir), JSON.stringify(meta, null, 2) + "\n");
-    catalog.push({ ...meta, history: rows.length });
+    catalog.push({ ...meta, holdings: 0, history: rows.length });
     console.log(`[ fund ] ticker=${ticker.padEnd(5)} history=${rows.length} status=${rows.length ? "updated" : "empty"}`);
   }
   await writeFile(new URL("index.json", ROOT), JSON.stringify({ generatedAt: new Date().toISOString(), provider: "Vanguard", funds: catalog }, null, 2) + "\n");

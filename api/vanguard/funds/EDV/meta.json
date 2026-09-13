@@ -2,12 +2,32 @@
   "ticker": "EDV",
   "name": "Vanguard Extended Duration Treasury ETF",
   "category": "Bond",
+  "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/edv",
   "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 59.02000045776367,
+  "netAssets": null,
+  "netExpenseRatio": 0.05,
+  "trailingYield": null,
+  "secYield": null,
+  "ytdReturn": -9.420237588542445,
+  "asOfDate": "2026-09-11",
+  "totalReturn": {
+    "1Y": -9.420237588542445,
+    "3Y": -3.5467370760764783,
+    "5Y": -47.39979529363018,
+    "10Y": -36.82819518881754
+  },
+  "performance": {
+    "1Y": -9.420237588542445,
+    "3Y": -1.1965048319950378,
+    "5Y": -12.057767409311115,
+    "10Y": -4.489233924304115
+  },
   "officialMetrics": {
     "nav": null,
     "marketPrice": null,
-    "expenseRatio": null,
+    "expenseRatio": 0.05,
     "returns": {}
   },
   "holdings": {

@@ -2,12 +2,32 @@
   "ticker": "VTV",
   "name": "Vanguard Value ETF",
   "category": "US Equity",
+  "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vtv",
   "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 223.97000122070312,
+  "netAssets": null,
+  "netExpenseRatio": 0.03,
+  "trailingYield": null,
+  "secYield": null,
+  "ytdReturn": 21.985743104959397,
+  "asOfDate": "2026-09-11",
+  "totalReturn": {
+    "1Y": 21.985743104959397,
+    "3Y": 72.8745831421907,
+    "5Y": 85.36985921115546,
+    "10Y": 228.93924413054182
+  },
+  "performance": {
+    "1Y": 21.985743104959397,
+    "3Y": 20.017262132951828,
+    "5Y": 13.137824624194039,
+    "10Y": 12.644909129513614
+  },
   "officialMetrics": {
     "nav": null,
     "marketPrice": null,
-    "expenseRatio": null,
+    "expenseRatio": 0.03,
     "returns": {}
   },
   "holdings": {

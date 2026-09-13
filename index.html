@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Vanguard ETF holdings and catalog to watchlist with multi-ETF selection from static API or SpreadsheetML (.xls) exports."
+      content="Vanguard ETF holdings and catalog to watchlist with multi-ETF selection from static API and daily history."
     />
-    <title>Vanguard Excel .xls file to Watchlist</title>
+    <title>Vanguard ETF Holdings to Watchlist</title>
     <link rel="icon" type="image/x-icon" href="./favicon.ico" />
 
     <!-- Inter font (same as csv / youtube / amplify apps) -->
@@ -226,7 +226,7 @@
             <h1
               class="min-w-0 text-xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight"
             >
-              Vanguard Excel .xls file to Watchlist
+Vanguard ETF Holdings to Watchlist
             </h1>
           </div>
           <span
@@ -243,7 +243,7 @@
                 class="font-semibold text-blue-600 dark:text-blue-400 hover:underline"
                 >api/vanguard/index.json</a
               >
-              · Upload SpreadsheetML (.xls) file from Vanguard.</span
+              · Data includes daily history and derived return metrics.</span
             >
           </span>
         </div>
@@ -455,7 +455,7 @@
     <script>
       /**
        * @file Vanguard Watchlist Application
-       * Client-side static feed viewer and SpreadsheetML parser with multi-ETF Watchlist aggregation.
+       * Client-side static feed viewer with multi-ETF Watchlist aggregation.
        */
 
       // =========================================================================
@@ -1326,7 +1326,7 @@
           return;
         }
 
-        const baseText = `<span class="block sm:inline">Search Vanguard ETFs, select rows, then use the Watchlist tab. Data comes from <a href="./api/vanguard/index.json" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">api/vanguard/index.json</a> · Upload SpreadsheetML (.xls) file from Vanguard.</span>`;
+        const baseText = `<span class="block sm:inline">Search Vanguard ETFs, select rows, then use the Watchlist tab. Data comes from <a href="./api/vanguard/index.json" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">api/vanguard/index.json</a> · Data includes daily history and derived return metrics.</span>`;
 
         const selected = selectedETFs.size;
         const allCount = staticCatalogSheet?.data?.length || 0;

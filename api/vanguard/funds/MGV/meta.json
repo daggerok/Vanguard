@@ -2,12 +2,32 @@
   "ticker": "MGV",
   "name": "Vanguard Mega Cap Value ETF",
   "category": "US Equity",
+  "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/mgv",
   "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 166.3000030517578,
+  "netAssets": null,
+  "netExpenseRatio": 0.07,
+  "trailingYield": null,
+  "secYield": null,
+  "ytdReturn": 22.651059449425937,
+  "asOfDate": "2026-09-11",
+  "totalReturn": {
+    "1Y": 22.651059449425937,
+    "3Y": 74.50692226641753,
+    "5Y": 90.28332015732991,
+    "10Y": 239.099666466215
+  },
+  "performance": {
+    "1Y": 22.651059449425937,
+    "3Y": 20.393826983616712,
+    "5Y": 13.731336862625266,
+    "10Y": 12.988107966959838
+  },
   "officialMetrics": {
     "nav": null,
     "marketPrice": null,
-    "expenseRatio": null,
+    "expenseRatio": 0.07,
     "returns": {}
   },
   "holdings": {

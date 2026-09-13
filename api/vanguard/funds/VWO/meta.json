@@ -2,12 +2,32 @@
   "ticker": "VWO",
   "name": "Vanguard FTSE Emerging Markets ETF",
   "category": "International Equity",
+  "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vwo",
   "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 60.349998474121094,
+  "netAssets": null,
+  "netExpenseRatio": 0.08,
+  "trailingYield": null,
+  "secYield": null,
+  "ytdReturn": 13.712677716602206,
+  "asOfDate": "2026-09-11",
+  "totalReturn": {
+    "1Y": 13.712677716602206,
+    "3Y": 67.17022549777613,
+    "5Y": 39.73240755387848,
+    "10Y": 110.97729689534978
+  },
+  "performance": {
+    "1Y": 13.712677716602206,
+    "3Y": 18.682397096536143,
+    "5Y": 6.920117752888766,
+    "10Y": 7.751561460621792
+  },
   "officialMetrics": {
     "nav": null,
     "marketPrice": null,
-    "expenseRatio": null,
+    "expenseRatio": 0.08,
     "returns": {}
   },
   "holdings": {

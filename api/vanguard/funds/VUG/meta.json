@@ -2,12 +2,32 @@
   "ticker": "VUG",
   "name": "Vanguard Growth ETF",
   "category": "US Equity",
+  "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vug",
   "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 88.0199966430664,
+  "netAssets": null,
+  "netExpenseRatio": 0.04,
+  "trailingYield": null,
+  "secYield": null,
+  "ytdReturn": 10.471326613615584,
+  "asOfDate": "2026-09-11",
+  "totalReturn": {
+    "1Y": 10.471326613615584,
+    "3Y": 96.61420789631299,
+    "5Y": 86.84524865596678,
+    "10Y": 408.5407235767602
+  },
+  "performance": {
+    "1Y": 10.471326613615584,
+    "3Y": 25.277083030674575,
+    "5Y": 13.317350520865823,
+    "10Y": 17.661010439101666
+  },
   "officialMetrics": {
     "nav": null,
     "marketPrice": null,
-    "expenseRatio": null,
+    "expenseRatio": 0.04,
     "returns": {}
   },
   "holdings": {

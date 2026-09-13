@@ -2,12 +2,32 @@
   "ticker": "VB",
   "name": "Vanguard Small-Cap ETF",
   "category": "US Equity",
+  "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vb",
   "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 293.45001220703125,
+  "netAssets": null,
+  "netExpenseRatio": 0.05,
+  "trailingYield": null,
+  "secYield": null,
+  "ytdReturn": 16.596515298353754,
+  "asOfDate": "2026-09-11",
+  "totalReturn": {
+    "1Y": 16.596515298353754,
+    "3Y": 61.46384175426203,
+    "5Y": 44.199988093019016,
+    "10Y": 177.19148953343606
+  },
+  "performance": {
+    "1Y": 16.596515298353754,
+    "3Y": 17.316318836842683,
+    "5Y": 7.595236601621891,
+    "10Y": 10.733235379639904
+  },
   "officialMetrics": {
     "nav": null,
     "marketPrice": null,
-    "expenseRatio": null,
+    "expenseRatio": 0.05,
     "returns": {}
   },
   "holdings": {
