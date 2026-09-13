@@ -1,0 +1,25 @@
+{
+  "ticker": "BSV",
+  "name": "Vanguard Short-Term Bond ETF",
+  "category": "Bond",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/bsv",
+  "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "officialMetrics": {
+    "nav": null,
+    "marketPrice": null,
+    "expenseRatio": null,
+    "returns": {}
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 234,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

@@ -1,0 +1,462 @@
+{
+  "generatedAt": "2026-09-13T08:07:53.825Z",
+  "provider": "Vanguard",
+  "funds": [
+    {
+      "ticker": "BND",
+      "name": "Vanguard Total Bond Market ETF",
+      "category": "Bond",
+      "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/bnd",
+      "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "officialMetrics": {
+        "nav": null,
+        "marketPrice": null,
+        "expenseRatio": null,
+        "returns": {}
+      },
+      "holdings": {
+        "totalRows": 0,
+        "pageSize": 1000,
+        "pages": []
+      },
+      "history": 234
+    },
+    {
+      "ticker": "BNDX",
+      "name": "Vanguard Total International Bond ETF",
+      "category": "Bond",
+      "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/bndx",
+      "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "officialMetrics": {
+        "nav": null,
+        "marketPrice": null,
+        "expenseRatio": null,
+        "returns": {}
+      },
+      "holdings": {
+        "totalRows": 0,
+        "pageSize": 1000,
+        "pages": []
+      },
+      "history": 160
+    },
+    {
+      "ticker": "BIV",
+      "name": "Vanguard Intermediate-Term Bond ETF",
+      "category": "Bond",
+      "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/biv",
+      "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "officialMetrics": {
+        "nav": null,
+        "marketPrice": null,
+        "expenseRatio": null,
+        "returns": {}
+      },
+      "holdings": {
+        "totalRows": 0,
+        "pageSize": 1000,
+        "pages": []
+      },
+      "history": 234
+    },
+    {
+      "ticker": "BLV",
+      "name": "Vanguard Long-Term Bond ETF",
+      "category": "Bond",
+      "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/blv",
+      "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "officialMetrics": {
+        "nav": null,
+        "marketPrice": null,
+        "expenseRatio": null,
+        "returns": {}
+      },
+      "holdings": {
+        "totalRows": 0,
+        "pageSize": 1000,
+        "pages": []
+      },
+      "history": 234
+    },
+    {
+      "ticker": "BSV",
+      "name": "Vanguard Short-Term Bond ETF",
+      "category": "Bond",
+      "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/bsv",
+      "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "officialMetrics": {
+        "nav": null,
+        "marketPrice": null,
+        "expenseRatio": null,
+        "returns": {}
+      },
+      "holdings": {
+        "totalRows": 0,
+        "pageSize": 1000,
+        "pages": []
+      },
+      "history": 234
+    },
+    {
+      "ticker": "EDV",
+      "name": "Vanguard Extended Duration Treasury ETF",
+      "category": "Bond",
+      "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/edv",
+      "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "officialMetrics": {
+        "nav": null,
+        "marketPrice": null,
+        "expenseRatio": null,
+        "returns": {}
+      },
+      "holdings": {
+        "totalRows": 0,
+        "pageSize": 1000,
+        "pages": []
+      },
+      "history": 225
+    },
+    {
+      "ticker": "MGK",
+      "name": "Vanguard Mega Cap Growth ETF",
+      "category": "US Equity",
+      "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/mgk",
+      "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "officialMetrics": {
+        "nav": null,
+        "marketPrice": null,
+        "expenseRatio": null,
+        "returns": {}
+      },
+      "holdings": {
+        "totalRows": 0,
+        "pageSize": 1000,
+        "pages": []
+      },
+      "history": 226
+    },
+    {
+      "ticker": "MGV",
+      "name": "Vanguard Mega Cap Value ETF",
+      "category": "US Equity",
+      "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/mgv",
+      "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "officialMetrics": {
+        "nav": null,
+        "marketPrice": null,
+        "expenseRatio": null,
+        "returns": {}
+      },
+      "holdings": {
+        "totalRows": 0,
+        "pageSize": 1000,
+        "pages": []
+      },
+      "history": 226
+    },
+    {
+      "ticker": "VOO",
+      "name": "Vanguard S&P 500 ETF",
+      "category": "US Equity",
+      "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/voo",
+      "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "officialMetrics": {
+        "nav": null,
+        "marketPrice": null,
+        "expenseRatio": null,
+        "returns": {}
+      },
+      "holdings": {
+        "totalRows": 0,
+        "pageSize": 1000,
+        "pages": []
+      },
+      "history": 193
+    },
+    {
+      "ticker": "VOOG",
+      "name": "Vanguard S&P 500 Growth ETF",
+      "category": "US Equity",
+      "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/voog",
+      "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "officialMetrics": {
+        "nav": null,
+        "marketPrice": null,
+        "expenseRatio": null,
+        "returns": {}
+      },
+      "holdings": {
+        "totalRows": 0,
+        "pageSize": 1000,
+        "pages": []
+      },
+      "history": 193
+    },
+    {
+      "ticker": "VOOV",
+      "name": "Vanguard S&P 500 Value ETF",
+      "category": "US Equity",
+      "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/voov",
+      "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "officialMetrics": {
+        "nav": null,
+        "marketPrice": null,
+        "expenseRatio": null,
+        "returns": {}
+      },
+      "holdings": {
+        "totalRows": 0,
+        "pageSize": 1000,
+        "pages": []
+      },
+      "history": 193
+    },
+    {
+      "ticker": "VTI",
+      "name": "Vanguard Total Stock Market ETF",
+      "category": "US Equity",
+      "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vti",
+      "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "officialMetrics": {
+        "nav": null,
+        "marketPrice": null,
+        "expenseRatio": null,
+        "returns": {}
+      },
+      "holdings": {
+        "totalRows": 0,
+        "pageSize": 1000,
+        "pages": []
+      },
+      "history": 304
+    },
+    {
+      "ticker": "VTV",
+      "name": "Vanguard Value ETF",
+      "category": "US Equity",
+      "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vtv",
+      "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "officialMetrics": {
+        "nav": null,
+        "marketPrice": null,
+        "expenseRatio": null,
+        "returns": {}
+      },
+      "holdings": {
+        "totalRows": 0,
+        "pageSize": 1000,
+        "pages": []
+      },
+      "history": 273
+    },
+    {
+      "ticker": "VUG",
+      "name": "Vanguard Growth ETF",
+      "category": "US Equity",
+      "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vug",
+      "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "officialMetrics": {
+        "nav": null,
+        "marketPrice": null,
+        "expenseRatio": null,
+        "returns": {}
+      },
+      "holdings": {
+        "totalRows": 0,
+        "pageSize": 1000,
+        "pages": []
+      },
+      "history": 273
+    },
+    {
+      "ticker": "VIG",
+      "name": "Vanguard Dividend Appreciation ETF",
+      "category": "US Equity",
+      "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vig",
+      "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "officialMetrics": {
+        "nav": null,
+        "marketPrice": null,
+        "expenseRatio": null,
+        "returns": {}
+      },
+      "holdings": {
+        "totalRows": 0,
+        "pageSize": 1000,
+        "pages": []
+      },
+      "history": 245
+    },
+    {
+      "ticker": "VYM",
+      "name": "Vanguard High Dividend Yield ETF",
+      "category": "US Equity",
+      "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vym",
+      "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "officialMetrics": {
+        "nav": null,
+        "marketPrice": null,
+        "expenseRatio": null,
+        "returns": {}
+      },
+      "holdings": {
+        "totalRows": 0,
+        "pageSize": 1000,
+        "pages": []
+      },
+      "history": 239
+    },
+    {
+      "ticker": "VGT",
+      "name": "Vanguard Information Technology ETF",
+      "category": "Sector",
+      "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vgt",
+      "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "officialMetrics": {
+        "nav": null,
+        "marketPrice": null,
+        "expenseRatio": null,
+        "returns": {}
+      },
+      "holdings": {
+        "totalRows": 0,
+        "pageSize": 1000,
+        "pages": []
+      },
+      "history": 273
+    },
+    {
+      "ticker": "VXUS",
+      "name": "Vanguard Total International Stock ETF",
+      "category": "International Equity",
+      "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vxus",
+      "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "officialMetrics": {
+        "nav": null,
+        "marketPrice": null,
+        "expenseRatio": null,
+        "returns": {}
+      },
+      "holdings": {
+        "totalRows": 0,
+        "pageSize": 1000,
+        "pages": []
+      },
+      "history": 189
+    },
+    {
+      "ticker": "VEA",
+      "name": "Vanguard FTSE Developed Markets ETF",
+      "category": "International Equity",
+      "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vea",
+      "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "officialMetrics": {
+        "nav": null,
+        "marketPrice": null,
+        "expenseRatio": null,
+        "returns": {}
+      },
+      "holdings": {
+        "totalRows": 0,
+        "pageSize": 1000,
+        "pages": []
+      },
+      "history": 231
+    },
+    {
+      "ticker": "VWO",
+      "name": "Vanguard FTSE Emerging Markets ETF",
+      "category": "International Equity",
+      "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vwo",
+      "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "officialMetrics": {
+        "nav": null,
+        "marketPrice": null,
+        "expenseRatio": null,
+        "returns": {}
+      },
+      "holdings": {
+        "totalRows": 0,
+        "pageSize": 1000,
+        "pages": []
+      },
+      "history": 259
+    },
+    {
+      "ticker": "VT",
+      "name": "Vanguard Total World Stock ETF",
+      "category": "Global Equity",
+      "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vt",
+      "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "officialMetrics": {
+        "nav": null,
+        "marketPrice": null,
+        "expenseRatio": null,
+        "returns": {}
+      },
+      "holdings": {
+        "totalRows": 0,
+        "pageSize": 1000,
+        "pages": []
+      },
+      "history": 220
+    },
+    {
+      "ticker": "VNQ",
+      "name": "Vanguard Real Estate ETF",
+      "category": "Real Estate",
+      "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vnq",
+      "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "officialMetrics": {
+        "nav": null,
+        "marketPrice": null,
+        "expenseRatio": null,
+        "returns": {}
+      },
+      "holdings": {
+        "totalRows": 0,
+        "pageSize": 1000,
+        "pages": []
+      },
+      "history": 265
+    },
+    {
+      "ticker": "VO",
+      "name": "Vanguard Mid-Cap ETF",
+      "category": "US Equity",
+      "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vo",
+      "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "officialMetrics": {
+        "nav": null,
+        "marketPrice": null,
+        "expenseRatio": null,
+        "returns": {}
+      },
+      "holdings": {
+        "totalRows": 0,
+        "pageSize": 1000,
+        "pages": []
+      },
+      "history": 273
+    },
+    {
+      "ticker": "VB",
+      "name": "Vanguard Small-Cap ETF",
+      "category": "US Equity",
+      "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vb",
+      "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "officialMetrics": {
+        "nav": null,
+        "marketPrice": null,
+        "expenseRatio": null,
+        "returns": {}
+      },
+      "holdings": {
+        "totalRows": 0,
+        "pageSize": 1000,
+        "pages": []
+      },
+      "history": 273
+    }
+  ]
+}
