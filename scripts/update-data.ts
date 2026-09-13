@@ -1,0 +1,90 @@
+#!/usr/bin/env bun
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+
+const ROOT = new URL("../api/vanguard/", import.meta.url);
+const FUNDS = new URL("funds/", ROOT);
+const PAGE_SIZE = 1000;
+const FUNDS_SEED = [
+  ["BND", "Vanguard Total Bond Market ETF", "Bond"],
+  ["BNDX", "Vanguard Total International Bond ETF", "Bond"],
+  ["BIV", "Vanguard Intermediate-Term Bond ETF", "Bond"],
+  ["BLV", "Vanguard Long-Term Bond ETF", "Bond"],
+  ["BSV", "Vanguard Short-Term Bond ETF", "Bond"],
+  ["EDV", "Vanguard Extended Duration Treasury ETF", "Bond"],
+  ["MGK", "Vanguard Mega Cap Growth ETF", "US Equity"],
+  ["MGV", "Vanguard Mega Cap Value ETF", "US Equity"],
+  ["VOO", "Vanguard S&P 500 ETF", "US Equity"],
+  ["VOOG", "Vanguard S&P 500 Growth ETF", "US Equity"],
+  ["VOOV", "Vanguard S&P 500 Value ETF", "US Equity"],
+  ["VTI", "Vanguard Total Stock Market ETF", "US Equity"],
+  ["VTV", "Vanguard Value ETF", "US Equity"],
+  ["VUG", "Vanguard Growth ETF", "US Equity"],
+  ["VIG", "Vanguard Dividend Appreciation ETF", "US Equity"],
+  ["VYM", "Vanguard High Dividend Yield ETF", "US Equity"],
+  ["VGT", "Vanguard Information Technology ETF", "Sector"],
+  ["VXUS", "Vanguard Total International Stock ETF", "International Equity"],
+  ["VEA", "Vanguard FTSE Developed Markets ETF", "International Equity"],
+  ["VWO", "Vanguard FTSE Emerging Markets ETF", "International Equity"],
+  ["VT", "Vanguard Total World Stock ETF", "Global Equity"],
+  ["VNQ", "Vanguard Real Estate ETF", "Real Estate"],
+  ["VO", "Vanguard Mid-Cap ETF", "US Equity"],
+  ["VB", "Vanguard Small-Cap ETF", "US Equity"],
+] as const;
+
+function env(name: string): string { return process.env[name]?.trim() ?? ""; }
+function selectedFunds() {
+  const wanted = env("TICKERS").split(/[\s,;]+/).filter(Boolean).map((x) => x.toUpperCase());
+  return wanted.length ? FUNDS_SEED.filter(([ticker]) => wanted.includes(ticker)) : FUNDS_SEED;
+}
+function pagePaths(kind: string, count: number): string[] {
+  if (!count) return [];
+  return Array.from({ length: Math.ceil(count / PAGE_SIZE) }, (_, i) => `./${kind}/${String(i + 1).padStart(3, "0")}.json`);
+}
+async function fetchJson(url: string): Promise<any> {
+  const response = await fetch(url, { headers: { "User-Agent": "daggerok/Vanguard ETF research contact=github.com/daggerok" } });
+  if (!response.ok) throw new Error(`${response.status} ${response.statusText} for ${url}`);
+  return response.json();
+}
+async function history(ticker: string) {
+  const url = `https://query1.finance.yahoo.com/v8/finance/chart/${ticker}?range=max&interval=1d&events=div%2Csplits`;
+  try {
+    const data = await fetchJson(url);
+    const result = data.chart?.result?.[0];
+    const timestamps = result?.timestamp ?? [];
+    const q = result?.indicators?.quote?.[0] ?? {};
+    const adj = result?.indicators?.adjclose?.[0]?.adjclose ?? [];
+    return timestamps.map((time: number, i: number) => ({
+      date: new Date(time * 1000).toISOString().slice(0, 10),
+      open: q.open?.[i] ?? null, high: q.high?.[i] ?? null, low: q.low?.[i] ?? null,
+      close: q.close?.[i] ?? null, adjClose: adj[i] ?? q.close?.[i] ?? null, volume: q.volume?.[i] ?? null,
+    })).filter((row: any) => row.close !== null);
+  } catch (error) {
+    console.warn(`[history] ${ticker} ${error}`);
+    return [];
+  }
+}
+async function writePages(dir: URL, kind: string, rows: any[]) {
+  const target = new URL(`${kind}/`, dir); await mkdir(target, { recursive: true });
+  const headers = kind === "holdings" ? ["Ticker", "Name", "Asset Class", "Weight"] : ["Date", "Open", "High", "Low", "Close", "Adj Close", "Volume"];
+  for (let i = 0; i < rows.length; i += PAGE_SIZE) {
+    const page = { headers, rows: rows.slice(i, i + PAGE_SIZE) };
+    await writeFile(new URL(`${kind}/${String(i / PAGE_SIZE + 1).padStart(3, "0")}.json`, dir), JSON.stringify(page) + "\n");
+  }
+  return pagePaths(kind, rows.length);
+}
+export async function run() {
+  await mkdir(FUNDS, { recursive: true });
+  const catalog: any[] = [];
+  for (const [ticker, name, category] of selectedFunds()) {
+    const dir = new URL(`${ticker}/`, FUNDS); await mkdir(dir, { recursive: true });
+    const rows = await history(ticker);
+    const historyPaths = await writePages(dir, "history", rows);
+    const holdingsPaths = await writePages(dir, "holdings", []);
+    const meta = { ticker, name, category, fundPage: `https://investor.vanguard.com/investment-products/etfs/profile/${ticker.toLowerCase()}`, source: "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned", officialMetrics: { nav: null, marketPrice: null, expenseRatio: null, returns: {} }, holdings: { totalRows: 0, pageSize: PAGE_SIZE, pages: holdingsPaths }, history: { totalRows: rows.length, pageSize: PAGE_SIZE, pages: historyPaths } };
+    await writeFile(new URL("meta.json", dir), JSON.stringify(meta, null, 2) + "\n");
+    catalog.push({ ...meta, history: rows.length });
+    console.log(`[ fund ] ticker=${ticker.padEnd(5)} history=${rows.length} status=${rows.length ? "updated" : "empty"}`);
+  }
+  await writeFile(new URL("index.json", ROOT), JSON.stringify({ generatedAt: new Date().toISOString(), provider: "Vanguard", funds: catalog }, null, 2) + "\n");
+}
+if (import.meta.main) await run();

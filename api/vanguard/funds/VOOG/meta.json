@@ -1,0 +1,25 @@
+{
+  "ticker": "VOOG",
+  "name": "Vanguard S&P 500 Growth ETF",
+  "category": "US Equity",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/voog",
+  "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "officialMetrics": {
+    "nav": null,
+    "marketPrice": null,
+    "expenseRatio": null,
+    "returns": {}
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 193,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

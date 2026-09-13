@@ -1,4 +1,4 @@
-name: Update iShares ETF data
+name: Update Vanguard ETF data
 on:
   workflow_dispatch:
     inputs:
@@ -137,9 +137,9 @@ jobs:
         run: bun scripts/update-data.ts
       - name: Commit changed data
         run: |
-          git add api/ishares
+          git add api/vanguard
           git diff --cached --quiet && exit 0
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git commit -m 'Update iShares ETF data'
+          git commit -m 'Update Vanguard ETF data'
           git push

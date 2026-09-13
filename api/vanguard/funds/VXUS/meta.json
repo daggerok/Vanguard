@@ -1,0 +1,25 @@
+{
+  "ticker": "VXUS",
+  "name": "Vanguard Total International Stock ETF",
+  "category": "International Equity",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vxus",
+  "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "officialMetrics": {
+    "nav": null,
+    "marketPrice": null,
+    "expenseRatio": null,
+    "returns": {}
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 189,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

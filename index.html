@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="iShares ETF holdings and catalog to watchlist with multi-ETF selection from static API or SpreadsheetML (.xls) exports."
+      content="Vanguard ETF holdings and catalog to watchlist with multi-ETF selection from static API or SpreadsheetML (.xls) exports."
     />
-    <title>iShares Excel .xls file to Watchlist</title>
+    <title>Vanguard Excel .xls file to Watchlist</title>
     <link rel="icon" type="image/x-icon" href="./favicon.ico" />
 
     <!-- Inter font (same as csv / youtube / amplify apps) -->
@@ -36,7 +36,7 @@
     <!-- Synchronous theme init to prevent flash of unstyled content (FOUC) -->
     <script>
       (function () {
-        var dark = localStorage.getItem("ishares-theme") === "dark";
+        var dark = localStorage.getItem("vanguard-theme") === "dark";
         document.documentElement.classList.toggle("dark", dark);
         document.documentElement.style.backgroundColor = dark
           ? "#020617"
@@ -226,7 +226,7 @@
             <h1
               class="min-w-0 text-xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight"
             >
-              iShares Excel .xls file to Watchlist
+              Vanguard Excel .xls file to Watchlist
             </h1>
           </div>
           <span
@@ -234,16 +234,16 @@
             class="basis-full sm:basis-auto text-sm text-slate-500 dark:text-slate-400"
           >
             <span class="block sm:inline"
-              >Search iShares ETFs, select rows, then use the Watchlist tab.
+              >Search Vanguard ETFs, select rows, then use the Watchlist tab.
               Data comes from
               <a
-                href="./api/ishares/index.json"
+                href="./api/vanguard/index.json"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="font-semibold text-blue-600 dark:text-blue-400 hover:underline"
-                >api/ishares/index.json</a
+                >api/vanguard/index.json</a
               >
-              · Upload SpreadsheetML (.xls) file from iShares.</span
+              · Upload SpreadsheetML (.xls) file from Vanguard.</span
             >
           </span>
         </div>
@@ -435,7 +435,7 @@
                     colspan="10"
                     class="py-12 text-center text-slate-400 dark:text-slate-500"
                   >
-                    Loading iShares ETF catalog…
+                    Loading Vanguard ETF catalog…
                   </td>
                 </tr>
               </tbody>
@@ -454,7 +454,7 @@
 
     <script>
       /**
-       * @file iShares Watchlist Application
+       * @file Vanguard Watchlist Application
        * Client-side static feed viewer and SpreadsheetML parser with multi-ETF Watchlist aggregation.
        */
 
@@ -473,9 +473,9 @@
         Ticker:
           "Ticker Symbol — Unique stock market identifier for the fund or security.",
         "Fund Name":
-          "Fund Name — Official legal name of the iShares Exchange-Traded Fund (ETF).",
+          "Fund Name — Official legal name of the Vanguard Exchange-Traded Fund (ETF).",
         Name: "Security Name — Full registered legal name of the company or underlying financial asset.",
-        Type: "Asset / Fund Type — Investment category or asset classification (e.g. iShares ETF, Equity, Fixed Income).",
+        Type: "Asset / Fund Type — Investment category or asset classification (e.g. Vanguard ETF, Equity, Fixed Income).",
         NAV: "NAV (Net Asset Value) — Per-share dollar value of the fund (total assets minus liabilities divided by shares outstanding).",
         "Net Assets":
           "Net Assets (AUM) — Total market value of all financial assets managed by the fund minus its liabilities.",
@@ -613,11 +613,11 @@
       // 2. Storage Keys & Theme Initialization
       // =========================================================================
 
-      const THEME_KEY = "ishares-theme";
-      const SITE_STATE_KEY = "ishares-site-state";
-      const SELECTED_KEY = "ishares-selected-etfs";
-      const BLACKLIST_KEY = "ishares-blacklisted-etfs";
-      const ACTIVE_FUND_KEY = "ishares-active-fund";
+      const THEME_KEY = "vanguard-theme";
+      const SITE_STATE_KEY = "vanguard-site-state";
+      const SELECTED_KEY = "vanguard-selected-etfs";
+      const BLACKLIST_KEY = "vanguard-blacklisted-etfs";
+      const ACTIVE_FUND_KEY = "vanguard-active-fund";
 
       const themeToggle = document.getElementById("theme-toggle");
       const appSubtitle = document.getElementById("app-subtitle");
@@ -649,7 +649,7 @@
       // 3. IndexedDB Persistence Layer
       // =========================================================================
 
-      const DB_NAME = "iSharesWatchlistDB";
+      const DB_NAME = "VanguardWatchlistDB";
       const DB_VERSION = 1;
       const STORE_NAME = "app_state";
 
@@ -1073,7 +1073,7 @@
 
         try {
           const metaRes = await fetch(
-            `./api/ishares/funds/${encodeURIComponent(cleanTicker)}/meta.json`,
+            `./api/vanguard/funds/${encodeURIComponent(cleanTicker)}/meta.json`,
             { cache: "no-cache" },
           );
           if (!metaRes.ok) return [];
@@ -1326,7 +1326,7 @@
           return;
         }
 
-        const baseText = `<span class="block sm:inline">Search iShares ETFs, select rows, then use the Watchlist tab. Data comes from <a href="./api/ishares/index.json" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">api/ishares/index.json</a> · Upload SpreadsheetML (.xls) file from iShares.</span>`;
+        const baseText = `<span class="block sm:inline">Search Vanguard ETFs, select rows, then use the Watchlist tab. Data comes from <a href="./api/vanguard/index.json" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">api/vanguard/index.json</a> · Upload SpreadsheetML (.xls) file from Vanguard.</span>`;
 
         const selected = selectedETFs.size;
         const allCount = staticCatalogSheet?.data?.length || 0;
@@ -1364,12 +1364,12 @@
       // =========================================================================
 
       /**
-       * Fetches the root ETF catalog from api/ishares/index.json.
+       * Fetches the root ETF catalog from api/vanguard/index.json.
        */
       async function loadStaticCatalog() {
         try {
           isUploadedFile = false;
-          const response = await fetch("./api/ishares/index.json", {
+          const response = await fetch("./api/vanguard/index.json", {
             cache: "no-cache",
           });
           if (!response.ok)
@@ -1421,7 +1421,7 @@
               return {
                 Ticker: fund.ticker,
                 "Fund Name": fund.name,
-                Type: fund.type || "iShares ETF",
+                Type: fund.type || "Vanguard ETF",
                 NAV: fund.nav || "—",
                 "Net Assets": fund.netAssets || "—",
                 Expense: fund.netExpenseRatio || fund.grossExpenseRatio || "—",
@@ -1450,7 +1450,7 @@
             "ETF Catalog": staticCatalogSheet,
           };
 
-          currentFileName = "iShares static data";
+          currentFileName = "Vanguard static data";
           if (!activeSheetName) {
             activeSheetName = "ETF Catalog";
           }
@@ -1496,7 +1496,7 @@
           }
         } catch (error) {
           console.info(
-            "Static iShares data is unavailable; upload an .xls file to begin.",
+            "Static Vanguard data is unavailable; upload an .xls file to begin.",
             error,
           );
         }
@@ -1505,7 +1505,7 @@
       async function fetchStaticPage(ticker, pagePath) {
         const path = String(pagePath).replace(/^\.\/+/, "");
         const response = await fetch(
-          `./api/ishares/funds/${encodeURIComponent(ticker)}/${path}`,
+          `./api/vanguard/funds/${encodeURIComponent(ticker)}/${path}`,
           { cache: "no-cache" },
         );
         if (!response.ok)
@@ -1616,7 +1616,7 @@
         if (!fund) return;
         try {
           const response = await fetch(
-            `./api/ishares/funds/${encodeURIComponent(ticker)}/meta.json`,
+            `./api/vanguard/funds/${encodeURIComponent(ticker)}/meta.json`,
             { cache: "no-cache" },
           );
           if (!response.ok) return;
@@ -2568,7 +2568,7 @@
       // =========================================================================
 
       function getExportFileName(targetExtension) {
-        if (!currentFileName) return `iShares_Watchlist.${targetExtension}`;
+        if (!currentFileName) return `Vanguard_Watchlist.${targetExtension}`;
         const lastDotIndex = currentFileName.lastIndexOf(".");
         const baseName =
           lastDotIndex !== -1
