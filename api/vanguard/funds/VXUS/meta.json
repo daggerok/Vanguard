@@ -2,12 +2,32 @@
   "ticker": "VXUS",
   "name": "Vanguard Total International Stock ETF",
   "category": "International Equity",
+  "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vxus",
   "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 87.13999938964844,
+  "netAssets": null,
+  "netExpenseRatio": 0.05,
+  "trailingYield": null,
+  "secYield": null,
+  "ytdReturn": 21.4708272451406,
+  "asOfDate": "2026-09-11",
+  "totalReturn": {
+    "1Y": 21.4708272451406,
+    "3Y": 77.55957859966334,
+    "5Y": 60.22638949921944,
+    "10Y": 146.52382536233546
+  },
+  "performance": {
+    "1Y": 21.4708272451406,
+    "3Y": 21.09179078726622,
+    "5Y": 9.887124572051231,
+    "10Y": 9.442470948633774
+  },
   "officialMetrics": {
     "nav": null,
     "marketPrice": null,
-    "expenseRatio": null,
+    "expenseRatio": 0.05,
     "returns": {}
   },
   "holdings": {

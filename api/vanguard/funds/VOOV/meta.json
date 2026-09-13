@@ -2,12 +2,32 @@
   "ticker": "VOOV",
   "name": "Vanguard S&P 500 Value ETF",
   "category": "US Equity",
+  "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/voov",
   "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 227.1999969482422,
+  "netAssets": null,
+  "netExpenseRatio": 0.1,
+  "trailingYield": null,
+  "secYield": null,
+  "ytdReturn": 15.438630277451448,
+  "asOfDate": "2026-09-11",
+  "totalReturn": {
+    "1Y": 15.438630277451448,
+    "3Y": 61.247371433905705,
+    "5Y": 77.70561106932618,
+    "10Y": 207.29492660722357
+  },
+  "performance": {
+    "1Y": 15.438630277451448,
+    "3Y": 17.263867756913285,
+    "5Y": 12.186404186593403,
+    "10Y": 11.880793791182743
+  },
   "officialMetrics": {
     "nav": null,
     "marketPrice": null,
-    "expenseRatio": null,
+    "expenseRatio": 0.1,
     "returns": {}
   },
   "holdings": {

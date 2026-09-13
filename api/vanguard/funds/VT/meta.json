@@ -2,12 +2,32 @@
   "ticker": "VT",
   "name": "Vanguard Total World Stock ETF",
   "category": "Global Equity",
+  "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vt",
   "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 159.94000244140625,
+  "netAssets": null,
+  "netExpenseRatio": 0.06,
+  "trailingYield": null,
+  "secYield": null,
+  "ytdReturn": 17.69407011793742,
+  "asOfDate": "2026-09-11",
+  "totalReturn": {
+    "1Y": 17.69407011793742,
+    "3Y": 81.04180369095062,
+    "5Y": 73.01321017645348,
+    "10Y": 222.9167109521453
+  },
+  "performance": {
+    "1Y": 17.69407011793742,
+    "3Y": 21.87827231615611,
+    "5Y": 11.587578388214869,
+    "10Y": 12.436948899365818
+  },
   "officialMetrics": {
     "nav": null,
     "marketPrice": null,
-    "expenseRatio": null,
+    "expenseRatio": 0.06,
     "returns": {}
   },
   "holdings": {

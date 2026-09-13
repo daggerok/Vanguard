@@ -2,12 +2,32 @@
   "ticker": "BNDX",
   "name": "Vanguard Total International Bond ETF",
   "category": "Bond",
+  "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/bndx",
   "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 46.9900016784668,
+  "netAssets": null,
+  "netExpenseRatio": 0.07,
+  "trailingYield": null,
+  "secYield": null,
+  "ytdReturn": -0.6218442487454401,
+  "asOfDate": "2026-09-11",
+  "totalReturn": {
+    "1Y": -0.6218442487454401,
+    "3Y": 12.524489404983829,
+    "5Y": 0.03442448977208912,
+    "10Y": 13.91432335764138
+  },
+  "performance": {
+    "1Y": -0.6218442487454401,
+    "3Y": 4.011737273976146,
+    "5Y": 0.006883950113789616,
+    "10Y": 1.3112872488049598
+  },
   "officialMetrics": {
     "nav": null,
     "marketPrice": null,
-    "expenseRatio": null,
+    "expenseRatio": 0.07,
     "returns": {}
   },
   "holdings": {

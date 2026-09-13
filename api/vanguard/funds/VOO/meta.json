@@ -2,12 +2,32 @@
   "ticker": "VOO",
   "name": "Vanguard S&P 500 ETF",
   "category": "US Equity",
+  "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/voo",
   "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 702.5599975585938,
+  "netAssets": null,
+  "netExpenseRatio": 0.03,
+  "trailingYield": null,
+  "secYield": null,
+  "ytdReturn": 15.750097692407783,
+  "asOfDate": "2026-09-11",
+  "totalReturn": {
+    "1Y": 15.750097692407783,
+    "3Y": 85.36422483985993,
+    "5Y": 90.58903609235232,
+    "10Y": 315.2768732138903
+  },
+  "performance": {
+    "1Y": 15.750097692407783,
+    "3Y": 22.840612471190425,
+    "5Y": 13.767858359857744,
+    "10Y": 15.301186019822
+  },
   "officialMetrics": {
     "nav": null,
     "marketPrice": null,
-    "expenseRatio": null,
+    "expenseRatio": 0.03,
     "returns": {}
   },
   "holdings": {

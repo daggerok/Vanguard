@@ -2,12 +2,32 @@
   "ticker": "BSV",
   "name": "Vanguard Short-Term Bond ETF",
   "category": "Bond",
+  "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/bsv",
   "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 76.73999786376953,
+  "netAssets": null,
+  "netExpenseRatio": 0.03,
+  "trailingYield": null,
+  "secYield": null,
+  "ytdReturn": 1.214793058624375,
+  "asOfDate": "2026-09-11",
+  "totalReturn": {
+    "1Y": 1.214793058624375,
+    "3Y": 13.837574939416974,
+    "5Y": 8.281668313208247,
+    "10Y": 20.164944985385436
+  },
+  "performance": {
+    "1Y": 1.214793058624375,
+    "3Y": 4.414756132277842,
+    "5Y": 1.6040425464498576,
+    "10Y": 1.8539272861763711
+  },
   "officialMetrics": {
     "nav": null,
     "marketPrice": null,
-    "expenseRatio": null,
+    "expenseRatio": 0.03,
     "returns": {}
   },
   "holdings": {

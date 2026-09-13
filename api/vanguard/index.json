@@ -1,461 +1,845 @@
 {
-  "generatedAt": "2026-09-13T08:07:53.825Z",
+  "generatedAt": "2026-09-13T21:35:54.252Z",
   "provider": "Vanguard",
   "funds": [
     {
       "ticker": "BND",
       "name": "Vanguard Total Bond Market ETF",
       "category": "Bond",
+      "type": "Vanguard ETF",
       "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/bnd",
       "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "nav": 71.22000122070312,
+      "netAssets": null,
+      "netExpenseRatio": 0.03,
+      "trailingYield": null,
+      "secYield": null,
+      "ytdReturn": -0.35272237131739326,
+      "asOfDate": "2026-09-11",
+      "totalReturn": {
+        "1Y": -0.35272237131739326,
+        "3Y": 14.304298349227352,
+        "5Y": -1.6118565593005618,
+        "10Y": 14.162600735145304
+      },
+      "performance": {
+        "1Y": -0.35272237131739326,
+        "3Y": 4.557258471939041,
+        "5Y": -0.32447010785702224,
+        "10Y": 1.3333465159187652
+      },
       "officialMetrics": {
         "nav": null,
         "marketPrice": null,
-        "expenseRatio": null,
+        "expenseRatio": 0.03,
         "returns": {}
       },
-      "holdings": {
-        "totalRows": 0,
-        "pageSize": 1000,
-        "pages": []
-      },
+      "holdings": 0,
       "history": 234
     },
     {
       "ticker": "BNDX",
       "name": "Vanguard Total International Bond ETF",
       "category": "Bond",
+      "type": "Vanguard ETF",
       "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/bndx",
       "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "nav": 46.9900016784668,
+      "netAssets": null,
+      "netExpenseRatio": 0.07,
+      "trailingYield": null,
+      "secYield": null,
+      "ytdReturn": -0.6218442487454401,
+      "asOfDate": "2026-09-11",
+      "totalReturn": {
+        "1Y": -0.6218442487454401,
+        "3Y": 12.524489404983829,
+        "5Y": 0.03442448977208912,
+        "10Y": 13.91432335764138
+      },
+      "performance": {
+        "1Y": -0.6218442487454401,
+        "3Y": 4.011737273976146,
+        "5Y": 0.006883950113789616,
+        "10Y": 1.3112872488049598
+      },
       "officialMetrics": {
         "nav": null,
         "marketPrice": null,
-        "expenseRatio": null,
+        "expenseRatio": 0.07,
         "returns": {}
       },
-      "holdings": {
-        "totalRows": 0,
-        "pageSize": 1000,
-        "pages": []
-      },
+      "holdings": 0,
       "history": 160
     },
     {
       "ticker": "BIV",
       "name": "Vanguard Intermediate-Term Bond ETF",
       "category": "Bond",
+      "type": "Vanguard ETF",
       "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/biv",
       "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "nav": 74.05999755859375,
+      "netAssets": null,
+      "netExpenseRatio": 0.04,
+      "trailingYield": null,
+      "secYield": null,
+      "ytdReturn": -1.0471041942068382,
+      "asOfDate": "2026-09-11",
+      "totalReturn": {
+        "1Y": -1.0471041942068382,
+        "3Y": 15.303091349315245,
+        "5Y": -1.003660456716271,
+        "10Y": 15.717408110071807
+      },
+      "performance": {
+        "1Y": -1.0471041942068382,
+        "3Y": 4.860916788498426,
+        "5Y": -0.20154284605375938,
+        "10Y": 1.4705162086020795
+      },
       "officialMetrics": {
         "nav": null,
         "marketPrice": null,
-        "expenseRatio": null,
+        "expenseRatio": 0.04,
         "returns": {}
       },
-      "holdings": {
-        "totalRows": 0,
-        "pageSize": 1000,
-        "pages": []
-      },
+      "holdings": 0,
       "history": 234
     },
     {
       "ticker": "BLV",
       "name": "Vanguard Long-Term Bond ETF",
       "category": "Bond",
+      "type": "Vanguard ETF",
       "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/blv",
       "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "nav": 64.83999633789062,
+      "netAssets": null,
+      "netExpenseRatio": 0.04,
+      "trailingYield": null,
+      "secYield": null,
+      "ytdReturn": -4.022888035729688,
+      "asOfDate": "2026-09-11",
+      "totalReturn": {
+        "1Y": -4.022888035729688,
+        "3Y": 11.518714930643492,
+        "5Y": -21.197234919123066,
+        "10Y": 0.8647200851474635
+      },
+      "performance": {
+        "1Y": -4.022888035729688,
+        "3Y": 3.7009142922530547,
+        "5Y": -4.652723732490694,
+        "10Y": 0.08613735643938636
+      },
       "officialMetrics": {
         "nav": null,
         "marketPrice": null,
-        "expenseRatio": null,
+        "expenseRatio": 0.04,
         "returns": {}
       },
-      "holdings": {
-        "totalRows": 0,
-        "pageSize": 1000,
-        "pages": []
-      },
+      "holdings": 0,
       "history": 234
     },
     {
       "ticker": "BSV",
       "name": "Vanguard Short-Term Bond ETF",
       "category": "Bond",
+      "type": "Vanguard ETF",
       "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/bsv",
       "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "nav": 76.73999786376953,
+      "netAssets": null,
+      "netExpenseRatio": 0.03,
+      "trailingYield": null,
+      "secYield": null,
+      "ytdReturn": 1.214793058624375,
+      "asOfDate": "2026-09-11",
+      "totalReturn": {
+        "1Y": 1.214793058624375,
+        "3Y": 13.837574939416974,
+        "5Y": 8.281668313208247,
+        "10Y": 20.164944985385436
+      },
+      "performance": {
+        "1Y": 1.214793058624375,
+        "3Y": 4.414756132277842,
+        "5Y": 1.6040425464498576,
+        "10Y": 1.8539272861763711
+      },
       "officialMetrics": {
         "nav": null,
         "marketPrice": null,
-        "expenseRatio": null,
+        "expenseRatio": 0.03,
         "returns": {}
       },
-      "holdings": {
-        "totalRows": 0,
-        "pageSize": 1000,
-        "pages": []
-      },
+      "holdings": 0,
       "history": 234
     },
     {
       "ticker": "EDV",
       "name": "Vanguard Extended Duration Treasury ETF",
       "category": "Bond",
+      "type": "Vanguard ETF",
       "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/edv",
       "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "nav": 59.02000045776367,
+      "netAssets": null,
+      "netExpenseRatio": 0.05,
+      "trailingYield": null,
+      "secYield": null,
+      "ytdReturn": -9.42021637645949,
+      "asOfDate": "2026-09-11",
+      "totalReturn": {
+        "1Y": -9.42021637645949,
+        "3Y": -3.5467370760764783,
+        "5Y": -47.399798870191745,
+        "10Y": -36.82818487148325
+      },
+      "performance": {
+        "1Y": -9.42021637645949,
+        "3Y": -1.1965048319950378,
+        "5Y": -12.057768605241126,
+        "10Y": -4.489232364404994
+      },
       "officialMetrics": {
         "nav": null,
         "marketPrice": null,
-        "expenseRatio": null,
+        "expenseRatio": 0.05,
         "returns": {}
       },
-      "holdings": {
-        "totalRows": 0,
-        "pageSize": 1000,
-        "pages": []
-      },
+      "holdings": 0,
       "history": 225
     },
     {
       "ticker": "MGK",
       "name": "Vanguard Mega Cap Growth ETF",
       "category": "US Equity",
+      "type": "Vanguard ETF",
       "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/mgk",
       "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "nav": 89.9000015258789,
+      "netAssets": null,
+      "netExpenseRatio": 0.07,
+      "trailingYield": null,
+      "secYield": null,
+      "ytdReturn": 12.015818798497978,
+      "asOfDate": "2026-09-11",
+      "totalReturn": {
+        "1Y": 12.015818798497978,
+        "3Y": 100.506005120458,
+        "5Y": 95.9933657439292,
+        "10Y": 452.3008428027811
+      },
+      "performance": {
+        "1Y": 12.015818798497978,
+        "3Y": 26.098269923531415,
+        "5Y": 14.40586108261388,
+        "10Y": 18.636293726369924
+      },
       "officialMetrics": {
         "nav": null,
         "marketPrice": null,
-        "expenseRatio": null,
+        "expenseRatio": 0.07,
         "returns": {}
       },
-      "holdings": {
-        "totalRows": 0,
-        "pageSize": 1000,
-        "pages": []
-      },
+      "holdings": 0,
       "history": 226
     },
     {
       "ticker": "MGV",
       "name": "Vanguard Mega Cap Value ETF",
       "category": "US Equity",
+      "type": "Vanguard ETF",
       "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/mgv",
       "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "nav": 166.3000030517578,
+      "netAssets": null,
+      "netExpenseRatio": 0.07,
+      "trailingYield": null,
+      "secYield": null,
+      "ytdReturn": 22.651059449425937,
+      "asOfDate": "2026-09-11",
+      "totalReturn": {
+        "1Y": 22.651059449425937,
+        "3Y": 74.50695020814162,
+        "5Y": 90.28335337960188,
+        "10Y": 239.099666466215
+      },
+      "performance": {
+        "1Y": 22.651059449425937,
+        "3Y": 20.39383340936165,
+        "5Y": 13.731340833980333,
+        "10Y": 12.988107966959838
+      },
       "officialMetrics": {
         "nav": null,
         "marketPrice": null,
-        "expenseRatio": null,
+        "expenseRatio": 0.07,
         "returns": {}
       },
-      "holdings": {
-        "totalRows": 0,
-        "pageSize": 1000,
-        "pages": []
-      },
+      "holdings": 0,
       "history": 226
     },
     {
       "ticker": "VOO",
       "name": "Vanguard S&P 500 ETF",
       "category": "US Equity",
+      "type": "Vanguard ETF",
       "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/voo",
       "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "nav": 702.5599975585938,
+      "netAssets": null,
+      "netExpenseRatio": 0.03,
+      "trailingYield": null,
+      "secYield": null,
+      "ytdReturn": 15.750097692407783,
+      "asOfDate": "2026-09-11",
+      "totalReturn": {
+        "1Y": 15.750097692407783,
+        "3Y": 85.36422483985993,
+        "5Y": 90.58903609235232,
+        "10Y": 315.2768732138903
+      },
+      "performance": {
+        "1Y": 15.750097692407783,
+        "3Y": 22.840612471190425,
+        "5Y": 13.767858359857744,
+        "10Y": 15.301186019822
+      },
       "officialMetrics": {
         "nav": null,
         "marketPrice": null,
-        "expenseRatio": null,
+        "expenseRatio": 0.03,
         "returns": {}
       },
-      "holdings": {
-        "totalRows": 0,
-        "pageSize": 1000,
-        "pages": []
-      },
+      "holdings": 0,
       "history": 193
     },
     {
       "ticker": "VOOG",
       "name": "Vanguard S&P 500 Growth ETF",
       "category": "US Equity",
+      "type": "Vanguard ETF",
       "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/voog",
       "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "nav": 83.73999786376953,
+      "netAssets": null,
+      "netExpenseRatio": 0.07,
+      "trailingYield": null,
+      "secYield": null,
+      "ytdReturn": 15.82106987060843,
+      "asOfDate": "2026-09-11",
+      "totalReturn": {
+        "1Y": 15.82106987060843,
+        "3Y": 106.9309625192031,
+        "5Y": 95.26750709972684,
+        "10Y": 406.4097392796817
+      },
+      "performance": {
+        "1Y": 15.82106987060843,
+        "3Y": 27.431019976769466,
+        "5Y": 14.320995173372065,
+        "10Y": 17.611612659302956
+      },
       "officialMetrics": {
         "nav": null,
         "marketPrice": null,
-        "expenseRatio": null,
+        "expenseRatio": 0.07,
         "returns": {}
       },
-      "holdings": {
-        "totalRows": 0,
-        "pageSize": 1000,
-        "pages": []
-      },
+      "holdings": 0,
       "history": 193
     },
     {
       "ticker": "VOOV",
       "name": "Vanguard S&P 500 Value ETF",
       "category": "US Equity",
+      "type": "Vanguard ETF",
       "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/voov",
       "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "nav": 227.1999969482422,
+      "netAssets": null,
+      "netExpenseRatio": 0.1,
+      "trailingYield": null,
+      "secYield": null,
+      "ytdReturn": 15.438630277451448,
+      "asOfDate": "2026-09-11",
+      "totalReturn": {
+        "1Y": 15.438630277451448,
+        "3Y": 61.247371433905705,
+        "5Y": 77.70561106932618,
+        "10Y": 207.29492660722357
+      },
+      "performance": {
+        "1Y": 15.438630277451448,
+        "3Y": 17.263867756913285,
+        "5Y": 12.186404186593403,
+        "10Y": 11.880793791182743
+      },
       "officialMetrics": {
         "nav": null,
         "marketPrice": null,
-        "expenseRatio": null,
+        "expenseRatio": 0.1,
         "returns": {}
       },
-      "holdings": {
-        "totalRows": 0,
-        "pageSize": 1000,
-        "pages": []
-      },
+      "holdings": 0,
       "history": 193
     },
     {
       "ticker": "VTI",
       "name": "Vanguard Total Stock Market ETF",
       "category": "US Equity",
+      "type": "Vanguard ETF",
       "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vti",
       "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "nav": 376.30999755859375,
+      "netAssets": null,
+      "netExpenseRatio": 0.03,
+      "trailingYield": null,
+      "secYield": null,
+      "ytdReturn": 15.686578775236647,
+      "asOfDate": "2026-09-11",
+      "totalReturn": {
+        "1Y": 15.686578775236647,
+        "3Y": 83.61156785132893,
+        "5Y": 81.19974169587437,
+        "10Y": 295.3348856997302
+      },
+      "performance": {
+        "1Y": 15.686578775236647,
+        "3Y": 22.45222467994985,
+        "5Y": 12.62414703550081,
+        "10Y": 14.735156924120263
+      },
       "officialMetrics": {
         "nav": null,
         "marketPrice": null,
-        "expenseRatio": null,
+        "expenseRatio": 0.03,
         "returns": {}
       },
-      "holdings": {
-        "totalRows": 0,
-        "pageSize": 1000,
-        "pages": []
-      },
+      "holdings": 0,
       "history": 304
     },
     {
       "ticker": "VTV",
       "name": "Vanguard Value ETF",
       "category": "US Equity",
+      "type": "Vanguard ETF",
       "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vtv",
       "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "nav": 223.97000122070312,
+      "netAssets": null,
+      "netExpenseRatio": 0.03,
+      "trailingYield": null,
+      "secYield": null,
+      "ytdReturn": 21.9857532428688,
+      "asOfDate": "2026-09-11",
+      "totalReturn": {
+        "1Y": 21.9857532428688,
+        "3Y": 72.87454242081863,
+        "5Y": 85.3698475059662,
+        "10Y": 228.93928098853218
+      },
+      "performance": {
+        "1Y": 21.9857532428688,
+        "3Y": 20.01725270941892,
+        "5Y": 13.137823195375265,
+        "10Y": 12.644910391711672
+      },
       "officialMetrics": {
         "nav": null,
         "marketPrice": null,
-        "expenseRatio": null,
+        "expenseRatio": 0.03,
         "returns": {}
       },
-      "holdings": {
-        "totalRows": 0,
-        "pageSize": 1000,
-        "pages": []
-      },
+      "holdings": 0,
       "history": 273
     },
     {
       "ticker": "VUG",
       "name": "Vanguard Growth ETF",
       "category": "US Equity",
+      "type": "Vanguard ETF",
       "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vug",
       "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "nav": 88.0199966430664,
+      "netAssets": null,
+      "netExpenseRatio": 0.04,
+      "trailingYield": null,
+      "secYield": null,
+      "ytdReturn": 10.471316035511812,
+      "asOfDate": "2026-09-11",
+      "totalReturn": {
+        "1Y": 10.471316035511812,
+        "3Y": 96.61420789631299,
+        "5Y": 86.84524865596678,
+        "10Y": 408.54077961703456
+      },
+      "performance": {
+        "1Y": 10.471316035511812,
+        "3Y": 25.277083030674575,
+        "5Y": 13.317350520865823,
+        "10Y": 17.6610117357048
+      },
       "officialMetrics": {
         "nav": null,
         "marketPrice": null,
-        "expenseRatio": null,
+        "expenseRatio": 0.04,
         "returns": {}
       },
-      "holdings": {
-        "totalRows": 0,
-        "pageSize": 1000,
-        "pages": []
-      },
+      "holdings": 0,
       "history": 273
     },
     {
       "ticker": "VIG",
       "name": "Vanguard Dividend Appreciation ETF",
       "category": "US Equity",
+      "type": "Vanguard ETF",
       "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vig",
       "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "nav": 239.42999267578125,
+      "netAssets": null,
+      "netExpenseRatio": 0.05,
+      "trailingYield": null,
+      "secYield": null,
+      "ytdReturn": 12.313369458202118,
+      "asOfDate": "2026-09-11",
+      "totalReturn": {
+        "1Y": 12.313369458202118,
+        "3Y": 61.753441128523946,
+        "5Y": 70.21578210517893,
+        "10Y": 243.08150973684684
+      },
+      "performance": {
+        "1Y": 12.313369458202118,
+        "3Y": 17.3864159354973,
+        "5Y": 11.224372673965055,
+        "10Y": 13.120087204937537
+      },
       "officialMetrics": {
         "nav": null,
         "marketPrice": null,
-        "expenseRatio": null,
+        "expenseRatio": 0.05,
         "returns": {}
       },
-      "holdings": {
-        "totalRows": 0,
-        "pageSize": 1000,
-        "pages": []
-      },
+      "holdings": 0,
       "history": 245
     },
     {
       "ticker": "VYM",
       "name": "Vanguard High Dividend Yield ETF",
       "category": "US Equity",
+      "type": "Vanguard ETF",
       "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vym",
       "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "nav": 162.9199981689453,
+      "netAssets": null,
+      "netExpenseRatio": 0.06,
+      "trailingYield": null,
+      "secYield": null,
+      "ytdReturn": 17.762689506427122,
+      "asOfDate": "2026-09-11",
+      "totalReturn": {
+        "1Y": 17.762689506427122,
+        "3Y": 70.17124426523486,
+        "5Y": 81.0485261004755,
+        "10Y": 204.08256754664998
+      },
+      "performance": {
+        "1Y": 17.762689506427122,
+        "3Y": 19.388379695930947,
+        "5Y": 12.60534323909921,
+        "10Y": 11.763283475517628
+      },
       "officialMetrics": {
         "nav": null,
         "marketPrice": null,
-        "expenseRatio": null,
+        "expenseRatio": 0.06,
         "returns": {}
       },
-      "holdings": {
-        "totalRows": 0,
-        "pageSize": 1000,
-        "pages": []
-      },
+      "holdings": 0,
       "history": 239
     },
     {
       "ticker": "VGT",
       "name": "Vanguard Information Technology ETF",
       "category": "Sector",
+      "type": "Vanguard ETF",
       "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vgt",
       "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "nav": 121.06999969482422,
+      "netAssets": null,
+      "netExpenseRatio": 0.09,
+      "trailingYield": null,
+      "secYield": null,
+      "ytdReturn": 30.145608458630857,
+      "asOfDate": "2026-09-11",
+      "totalReturn": {
+        "1Y": 30.145608458630857,
+        "3Y": 136.93792910684257,
+        "5Y": 148.92752477390846,
+        "10Y": 776.7058134243872
+      },
+      "performance": {
+        "1Y": 30.145608458630857,
+        "3Y": 33.31474800593428,
+        "5Y": 20.009212008948985,
+        "10Y": 24.246850472994087
+      },
       "officialMetrics": {
         "nav": null,
         "marketPrice": null,
-        "expenseRatio": null,
+        "expenseRatio": 0.09,
         "returns": {}
       },
-      "holdings": {
-        "totalRows": 0,
-        "pageSize": 1000,
-        "pages": []
-      },
+      "holdings": 0,
       "history": 273
     },
     {
       "ticker": "VXUS",
       "name": "Vanguard Total International Stock ETF",
       "category": "International Equity",
+      "type": "Vanguard ETF",
       "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vxus",
       "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "nav": 87.13999938964844,
+      "netAssets": null,
+      "netExpenseRatio": 0.05,
+      "trailingYield": null,
+      "secYield": null,
+      "ytdReturn": 21.4708272451406,
+      "asOfDate": "2026-09-11",
+      "totalReturn": {
+        "1Y": 21.4708272451406,
+        "3Y": 77.55957859966334,
+        "5Y": 60.22638949921944,
+        "10Y": 146.52382536233546
+      },
+      "performance": {
+        "1Y": 21.4708272451406,
+        "3Y": 21.09179078726622,
+        "5Y": 9.887124572051231,
+        "10Y": 9.442470948633774
+      },
       "officialMetrics": {
         "nav": null,
         "marketPrice": null,
-        "expenseRatio": null,
+        "expenseRatio": 0.05,
         "returns": {}
       },
-      "holdings": {
-        "totalRows": 0,
-        "pageSize": 1000,
-        "pages": []
-      },
+      "holdings": 0,
       "history": 189
     },
     {
       "ticker": "VEA",
       "name": "Vanguard FTSE Developed Markets ETF",
       "category": "International Equity",
+      "type": "Vanguard ETF",
       "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vea",
       "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "nav": 72.69000244140625,
+      "netAssets": null,
+      "netExpenseRatio": 0.05,
+      "trailingYield": null,
+      "secYield": null,
+      "ytdReturn": 24.22459566740498,
+      "asOfDate": "2026-09-11",
+      "totalReturn": {
+        "1Y": 24.22459566740498,
+        "3Y": 81.33148391266663,
+        "5Y": 67.5005074175257,
+        "10Y": 160.0612824969163
+      },
+      "performance": {
+        "1Y": 24.22459566740498,
+        "3Y": 21.943242413967546,
+        "5Y": 10.867237279304277,
+        "10Y": 10.02910238143031
+      },
       "officialMetrics": {
         "nav": null,
         "marketPrice": null,
-        "expenseRatio": null,
+        "expenseRatio": 0.05,
         "returns": {}
       },
-      "holdings": {
-        "totalRows": 0,
-        "pageSize": 1000,
-        "pages": []
-      },
+      "holdings": 0,
       "history": 231
     },
     {
       "ticker": "VWO",
       "name": "Vanguard FTSE Emerging Markets ETF",
       "category": "International Equity",
+      "type": "Vanguard ETF",
       "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vwo",
       "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "nav": 60.349998474121094,
+      "netAssets": null,
+      "netExpenseRatio": 0.08,
+      "trailingYield": null,
+      "secYield": null,
+      "ytdReturn": 13.712677716602206,
+      "asOfDate": "2026-09-11",
+      "totalReturn": {
+        "1Y": 13.712677716602206,
+        "3Y": 67.17022549777613,
+        "5Y": 39.732395212119506,
+        "10Y": 110.9773109630884
+      },
+      "performance": {
+        "1Y": 13.712677716602206,
+        "3Y": 18.682397096536143,
+        "5Y": 6.920115864161036,
+        "10Y": 7.75156217909756
+      },
       "officialMetrics": {
         "nav": null,
         "marketPrice": null,
-        "expenseRatio": null,
+        "expenseRatio": 0.08,
         "returns": {}
       },
-      "holdings": {
-        "totalRows": 0,
-        "pageSize": 1000,
-        "pages": []
-      },
+      "holdings": 0,
       "history": 259
     },
     {
       "ticker": "VT",
       "name": "Vanguard Total World Stock ETF",
       "category": "Global Equity",
+      "type": "Vanguard ETF",
       "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vt",
       "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "nav": 159.94000244140625,
+      "netAssets": null,
+      "netExpenseRatio": 0.06,
+      "trailingYield": null,
+      "secYield": null,
+      "ytdReturn": 17.69407011793742,
+      "asOfDate": "2026-09-11",
+      "totalReturn": {
+        "1Y": 17.69407011793742,
+        "3Y": 81.04180369095062,
+        "5Y": 73.01321017645348,
+        "10Y": 222.9167109521453
+      },
+      "performance": {
+        "1Y": 17.69407011793742,
+        "3Y": 21.87827231615611,
+        "5Y": 11.587578388214869,
+        "10Y": 12.436948899365818
+      },
       "officialMetrics": {
         "nav": null,
         "marketPrice": null,
-        "expenseRatio": null,
+        "expenseRatio": 0.06,
         "returns": {}
       },
-      "holdings": {
-        "totalRows": 0,
-        "pageSize": 1000,
-        "pages": []
-      },
+      "holdings": 0,
       "history": 220
     },
     {
       "ticker": "VNQ",
       "name": "Vanguard Real Estate ETF",
       "category": "Real Estate",
+      "type": "Vanguard ETF",
       "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vnq",
       "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "nav": 94.80000305175781,
+      "netAssets": null,
+      "netExpenseRatio": 0.13,
+      "trailingYield": null,
+      "secYield": null,
+      "ytdReturn": 6.69420225866042,
+      "asOfDate": "2026-09-11",
+      "totalReturn": {
+        "1Y": 6.69420225866042,
+        "3Y": 39.74515142494071,
+        "5Y": 12.180206594383147,
+        "10Y": 61.3587946631305
+      },
+      "performance": {
+        "1Y": 6.69420225866042,
+        "3Y": 11.800972910671149,
+        "5Y": 2.3253519529983446,
+        "10Y": 4.900912042609451
+      },
       "officialMetrics": {
         "nav": null,
         "marketPrice": null,
-        "expenseRatio": null,
+        "expenseRatio": 0.13,
         "returns": {}
       },
-      "holdings": {
-        "totalRows": 0,
-        "pageSize": 1000,
-        "pages": []
-      },
+      "holdings": 0,
       "history": 265
     },
     {
       "ticker": "VO",
       "name": "Vanguard Mid-Cap ETF",
       "category": "US Equity",
+      "type": "Vanguard ETF",
       "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vo",
       "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "nav": 81.02999877929688,
+      "netAssets": null,
+      "netExpenseRatio": 0.04,
+      "trailingYield": null,
+      "secYield": null,
+      "ytdReturn": 11.546290060827214,
+      "asOfDate": "2026-09-11",
+      "totalReturn": {
+        "1Y": 11.546290060827214,
+        "3Y": 62.547359365517096,
+        "5Y": 47.40921609129272,
+        "10Y": 191.27607934946974
+      },
+      "performance": {
+        "1Y": 11.546290060827214,
+        "3Y": 17.57815458117278,
+        "5Y": 8.069944225993652,
+        "10Y": 11.283424599471271
+      },
       "officialMetrics": {
         "nav": null,
         "marketPrice": null,
-        "expenseRatio": null,
+        "expenseRatio": 0.04,
         "returns": {}
       },
-      "holdings": {
-        "totalRows": 0,
-        "pageSize": 1000,
-        "pages": []
-      },
+      "holdings": 0,
       "history": 273
     },
     {
       "ticker": "VB",
       "name": "Vanguard Small-Cap ETF",
       "category": "US Equity",
+      "type": "Vanguard ETF",
       "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vb",
       "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+      "nav": 293.45001220703125,
+      "netAssets": null,
+      "netExpenseRatio": 0.05,
+      "trailingYield": null,
+      "secYield": null,
+      "ytdReturn": 16.596501160384825,
+      "asOfDate": "2026-09-11",
+      "totalReturn": {
+        "1Y": 16.596501160384825,
+        "3Y": 61.46382819810885,
+        "5Y": 44.19994484400136,
+        "10Y": 177.19146955710633
+      },
+      "performance": {
+        "1Y": 16.596501160384825,
+        "3Y": 17.316315553634887,
+        "5Y": 7.595230147545284,
+        "10Y": 10.733234581619833
+      },
       "officialMetrics": {
         "nav": null,
         "marketPrice": null,
-        "expenseRatio": null,
+        "expenseRatio": 0.05,
         "returns": {}
       },
-      "holdings": {
-        "totalRows": 0,
-        "pageSize": 1000,
-        "pages": []
-      },
+      "holdings": 0,
       "history": 273
     }
   ]

@@ -2,12 +2,32 @@
   "ticker": "BLV",
   "name": "Vanguard Long-Term Bond ETF",
   "category": "Bond",
+  "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/blv",
   "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 64.83999633789062,
+  "netAssets": null,
+  "netExpenseRatio": 0.04,
+  "trailingYield": null,
+  "secYield": null,
+  "ytdReturn": -4.022888035729688,
+  "asOfDate": "2026-09-11",
+  "totalReturn": {
+    "1Y": -4.022888035729688,
+    "3Y": 11.518714930643492,
+    "5Y": -21.197234919123066,
+    "10Y": 0.8647200851474635
+  },
+  "performance": {
+    "1Y": -4.022888035729688,
+    "3Y": 3.7009142922530547,
+    "5Y": -4.652723732490694,
+    "10Y": 0.08613735643938636
+  },
   "officialMetrics": {
     "nav": null,
     "marketPrice": null,
-    "expenseRatio": null,
+    "expenseRatio": 0.04,
     "returns": {}
   },
   "holdings": {

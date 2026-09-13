@@ -2,12 +2,32 @@
   "ticker": "VNQ",
   "name": "Vanguard Real Estate ETF",
   "category": "Real Estate",
+  "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vnq",
   "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 94.80000305175781,
+  "netAssets": null,
+  "netExpenseRatio": 0.13,
+  "trailingYield": null,
+  "secYield": null,
+  "ytdReturn": 6.69420225866042,
+  "asOfDate": "2026-09-11",
+  "totalReturn": {
+    "1Y": 6.69420225866042,
+    "3Y": 39.74515142494071,
+    "5Y": 12.180206594383147,
+    "10Y": 61.3587946631305
+  },
+  "performance": {
+    "1Y": 6.69420225866042,
+    "3Y": 11.800972910671149,
+    "5Y": 2.3253519529983446,
+    "10Y": 4.900912042609451
+  },
   "officialMetrics": {
     "nav": null,
     "marketPrice": null,
-    "expenseRatio": null,
+    "expenseRatio": 0.13,
     "returns": {}
   },
   "holdings": {

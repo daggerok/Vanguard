@@ -2,12 +2,32 @@
   "ticker": "VO",
   "name": "Vanguard Mid-Cap ETF",
   "category": "US Equity",
+  "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vo",
   "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 81.02999877929688,
+  "netAssets": null,
+  "netExpenseRatio": 0.04,
+  "trailingYield": null,
+  "secYield": null,
+  "ytdReturn": 11.546290060827214,
+  "asOfDate": "2026-09-11",
+  "totalReturn": {
+    "1Y": 11.546290060827214,
+    "3Y": 62.547359365517096,
+    "5Y": 47.40921609129272,
+    "10Y": 191.27607934946974
+  },
+  "performance": {
+    "1Y": 11.546290060827214,
+    "3Y": 17.57815458117278,
+    "5Y": 8.069944225993652,
+    "10Y": 11.283424599471271
+  },
   "officialMetrics": {
     "nav": null,
     "marketPrice": null,
-    "expenseRatio": null,
+    "expenseRatio": 0.04,
     "returns": {}
   },
   "holdings": {

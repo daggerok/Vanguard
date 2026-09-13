@@ -2,12 +2,32 @@
   "ticker": "BIV",
   "name": "Vanguard Intermediate-Term Bond ETF",
   "category": "Bond",
+  "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/biv",
   "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 74.05999755859375,
+  "netAssets": null,
+  "netExpenseRatio": 0.04,
+  "trailingYield": null,
+  "secYield": null,
+  "ytdReturn": -1.0471041942068382,
+  "asOfDate": "2026-09-11",
+  "totalReturn": {
+    "1Y": -1.0471041942068382,
+    "3Y": 15.303091349315245,
+    "5Y": -1.003660456716271,
+    "10Y": 15.717408110071807
+  },
+  "performance": {
+    "1Y": -1.0471041942068382,
+    "3Y": 4.860916788498426,
+    "5Y": -0.20154284605375938,
+    "10Y": 1.4705162086020795
+  },
   "officialMetrics": {
     "nav": null,
     "marketPrice": null,
-    "expenseRatio": null,
+    "expenseRatio": 0.04,
     "returns": {}
   },
   "holdings": {

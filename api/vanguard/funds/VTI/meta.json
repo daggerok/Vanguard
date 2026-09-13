@@ -2,12 +2,32 @@
   "ticker": "VTI",
   "name": "Vanguard Total Stock Market ETF",
   "category": "US Equity",
+  "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vti",
   "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 376.30999755859375,
+  "netAssets": null,
+  "netExpenseRatio": 0.03,
+  "trailingYield": null,
+  "secYield": null,
+  "ytdReturn": 15.686578775236647,
+  "asOfDate": "2026-09-11",
+  "totalReturn": {
+    "1Y": 15.686578775236647,
+    "3Y": 83.61156785132893,
+    "5Y": 81.19974169587437,
+    "10Y": 295.3348856997302
+  },
+  "performance": {
+    "1Y": 15.686578775236647,
+    "3Y": 22.45222467994985,
+    "5Y": 12.62414703550081,
+    "10Y": 14.735156924120263
+  },
   "officialMetrics": {
     "nav": null,
     "marketPrice": null,
-    "expenseRatio": null,
+    "expenseRatio": 0.03,
     "returns": {}
   },
   "holdings": {

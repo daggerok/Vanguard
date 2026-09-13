@@ -2,12 +2,32 @@
   "ticker": "VGT",
   "name": "Vanguard Information Technology ETF",
   "category": "Sector",
+  "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vgt",
   "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 121.06999969482422,
+  "netAssets": null,
+  "netExpenseRatio": 0.09,
+  "trailingYield": null,
+  "secYield": null,
+  "ytdReturn": 30.145608458630857,
+  "asOfDate": "2026-09-11",
+  "totalReturn": {
+    "1Y": 30.145608458630857,
+    "3Y": 136.93792910684257,
+    "5Y": 148.92752477390846,
+    "10Y": 776.7058134243872
+  },
+  "performance": {
+    "1Y": 30.145608458630857,
+    "3Y": 33.31474800593428,
+    "5Y": 20.009212008948985,
+    "10Y": 24.246850472994087
+  },
   "officialMetrics": {
     "nav": null,
     "marketPrice": null,
-    "expenseRatio": null,
+    "expenseRatio": 0.09,
     "returns": {}
   },
   "holdings": {
