@@ -27,3 +27,5 @@ Data refresh will be exposed through the manually triggered GitHub Actions workf
 ## Data limitations
 
 Vanguard public endpoints may rate-limit automated requests. The updater will use conservative throttling, retries, cached data preservation, and SEC fallback behavior. Official Vanguard performance metrics remain authoritative; daily history is stored separately for charts and historical browsing.
+
+Implementation scaffold review notes.
