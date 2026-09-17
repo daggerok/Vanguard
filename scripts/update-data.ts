@@ -1,4 +1,5 @@
 #!/usr/bin/env bun
+/// <reference types="bun" />
 import { mkdir, writeFile } from "node:fs/promises";
 
 const ROOT = new URL("../api/vanguard/", import.meta.url);
