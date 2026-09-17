@@ -1,0 +1,54 @@
+{
+  "ticker": "VBCB",
+  "name": "Vanguard Target Maturity 2028 Corporate Bond ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vbcb",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vbcb/vanguard-target-maturity-2028-corporate-bond-etf",
+  "portId": "V073",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 75.01000213623047,
+  "netAssets": "$104.1M",
+  "totalFundNetAssets": "$104.1M",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.08,
+  "trailingYield": null,
+  "dividendYieldAsOf": null,
+  "secYield": 4.73,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": 1.422002619388918,
+  "asOfDate": "",
+  "totalReturn": {
+    "1Y": 1.422002619388918,
+    "3Y": 1.422002619388918,
+    "5Y": 1.4220026193888957,
+    "10Y": 1.4220026193888957
+  },
+  "performance": {
+    "1Y": 1.422002619388918,
+    "3Y": 0.47177168782435164,
+    "5Y": 0.2827965168135327,
+    "10Y": 0.14129843217209892
+  },
+  "officialMetrics": {
+    "nav": null,
+    "marketPrice": null,
+    "expenseRatio": 0.08,
+    "returns": {
+      "YTD": null,
+      "1Y": null
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 120,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

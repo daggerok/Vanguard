@@ -1,0 +1,54 @@
+{
+  "ticker": "VDG",
+  "name": "Vanguard Developed Markets ex-US Growth Index ETF",
+  "category": "International Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vdg",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vdg/vanguard-developed-markets-ex-us-growth-index-etf",
+  "portId": "V071",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 79.20999908447266,
+  "netAssets": "$32.7M",
+  "totalFundNetAssets": "$32.7M",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.08,
+  "trailingYield": 1.77387,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": null,
+  "secYieldAsOf": null,
+  "ytdReturn": 5.495810483743546,
+  "asOfDate": "",
+  "totalReturn": {
+    "1Y": 5.495810483743546,
+    "3Y": 5.495810483743568,
+    "5Y": 5.495810483743546,
+    "10Y": 5.495810483743546
+  },
+  "performance": {
+    "1Y": 5.495810483743546,
+    "3Y": 1.7993654723964747,
+    "5Y": 1.07576630081887,
+    "10Y": 0.5364442880385845
+  },
+  "officialMetrics": {
+    "nav": null,
+    "marketPrice": null,
+    "expenseRatio": 0.08,
+    "returns": {
+      "YTD": null,
+      "1Y": null
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 106,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

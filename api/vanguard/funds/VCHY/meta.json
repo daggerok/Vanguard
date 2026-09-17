@@ -1,0 +1,54 @@
+{
+  "ticker": "VCHY",
+  "name": "Vanguard U.S. High-Yield Corporate Bond Index ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vchy",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vchy/vanguard-u-s-high-yield-corporate-bond-index-etf",
+  "portId": "V118",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 73.9800033569336,
+  "netAssets": "$78.7M",
+  "totalFundNetAssets": "$78.7M",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.05,
+  "trailingYield": null,
+  "dividendYieldAsOf": null,
+  "secYield": 7.28,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": -1.43884124272331,
+  "asOfDate": "",
+  "totalReturn": {
+    "1Y": -1.43884124272331,
+    "3Y": -1.43884124272331,
+    "5Y": -1.43884124272331,
+    "10Y": -1.4388412427233654
+  },
+  "performance": {
+    "1Y": -1.43884124272331,
+    "3Y": -0.4819326068430385,
+    "5Y": -0.289438903595296,
+    "10Y": -0.14482432221918362
+  },
+  "officialMetrics": {
+    "nav": null,
+    "marketPrice": null,
+    "expenseRatio": 0.05,
+    "returns": {
+      "YTD": null,
+      "1Y": null
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 489,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

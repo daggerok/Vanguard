@@ -1,0 +1,54 @@
+{
+  "ticker": "VDV",
+  "name": "Vanguard Developed Markets ex-US Value Index ETF",
+  "category": "International Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vdv",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vdv/vanguard-developed-markets-ex-us-value-index-etf",
+  "portId": "V070",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 78.26000213623047,
+  "netAssets": "$31.5M",
+  "totalFundNetAssets": "$31.5M",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.08,
+  "trailingYield": 2.93054,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": null,
+  "secYieldAsOf": null,
+  "ytdReturn": 4.909658214257306,
+  "asOfDate": "",
+  "totalReturn": {
+    "1Y": 4.909658214257306,
+    "3Y": 4.909658214257284,
+    "5Y": 4.909658214257284,
+    "10Y": 4.909658214257395
+  },
+  "performance": {
+    "1Y": 4.909658214257306,
+    "3Y": 1.610477138855515,
+    "5Y": 0.9631970869542705,
+    "10Y": 0.4804444093248872
+  },
+  "officialMetrics": {
+    "nav": null,
+    "marketPrice": null,
+    "expenseRatio": 0.08,
+    "returns": {
+      "YTD": null,
+      "1Y": null
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 106,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

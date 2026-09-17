@@ -1,0 +1,54 @@
+{
+  "ticker": "VBR",
+  "name": "Vanguard Small-Cap Value ETF",
+  "category": "US Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vbr",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vbr/vanguard-small-cap-value-etf",
+  "portId": "0937",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 238.8300018310547,
+  "netAssets": "$37.3B",
+  "totalFundNetAssets": "$68.2B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.05,
+  "trailingYield": 1.93595,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 1.9,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 13.91252768,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 16.179469349835827,
+    "3Y": 58.654581237885715,
+    "5Y": 56.202803852945074,
+    "10Y": 163.97323495309362
+  },
+  "performance": {
+    "1Y": 16.179469349835827,
+    "3Y": 16.63195060877518,
+    "5Y": 9.329601479053839,
+    "10Y": 10.193503041502083
+  },
+  "officialMetrics": {
+    "nav": 13.91252768,
+    "marketPrice": null,
+    "expenseRatio": 0.05,
+    "returns": {
+      "YTD": 13.91252768,
+      "1Y": 19.8643918179
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 273,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "ticker": "VGSH",
+  "name": "Vanguard Short-Term Treasury ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vgsh",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vgsh/vanguard-short-term-treasury-etf",
+  "portId": "3142",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 57.619998931884766,
+  "netAssets": "$34.8B",
+  "totalFundNetAssets": "$39.3B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.03,
+  "trailingYield": 3.63654272,
+  "dividendYieldAsOf": "2026-09-01",
+  "secYield": 4.39,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": 0.53062908,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 1.6395713931673495,
+    "3Y": 12.718864406882101,
+    "5Y": 9.599398335627374,
+    "10Y": 18.511607945319874
+  },
+  "performance": {
+    "1Y": 1.6395713931673495,
+    "3Y": 4.071592841929994,
+    "5Y": 1.8501408677874753,
+    "10Y": 1.7129122089197368
+  },
+  "officialMetrics": {
+    "nav": 0.53062908,
+    "marketPrice": null,
+    "expenseRatio": 0.03,
+    "returns": {
+      "YTD": 0.53062908,
+      "1Y": 2.4649888281
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 203,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

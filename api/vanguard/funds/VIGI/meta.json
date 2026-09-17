@@ -1,0 +1,54 @@
+{
+  "ticker": "VIGI",
+  "name": "Vanguard International Dividend Appreciation ETF",
+  "category": "International Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vigi",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vigi/vanguard-international-dividend-appreciation-etf",
+  "portId": "4415",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 96.43000030517578,
+  "netAssets": "$9.2B",
+  "totalFundNetAssets": "$9.5B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.07,
+  "trailingYield": 2.13972,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": null,
+  "secYieldAsOf": null,
+  "ytdReturn": 6.82654912,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 9.611894337769055,
+    "3Y": 43.239646118792606,
+    "5Y": 29.314169862704166,
+    "10Y": 114.60210201606004
+  },
+  "performance": {
+    "1Y": 9.611894337769055,
+    "3Y": 12.725216944526396,
+    "5Y": 5.275963113258486,
+    "10Y": 7.935273704243473
+  },
+  "officialMetrics": {
+    "nav": 6.82654912,
+    "marketPrice": null,
+    "expenseRatio": 0.07,
+    "returns": {
+      "YTD": 6.82654912,
+      "1Y": 12.5212466668
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 127,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

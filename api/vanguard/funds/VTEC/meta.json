@@ -1,0 +1,54 @@
+{
+  "ticker": "VTEC",
+  "name": "Vanguard California Tax-Exempt Bond ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vtec",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vtec/vanguard-california-tax-exempt-bond-etf",
+  "portId": "V038",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 96.05999755859375,
+  "netAssets": "$3.3B",
+  "totalFundNetAssets": "$3.3B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.06,
+  "trailingYield": 3.32127063,
+  "dividendYieldAsOf": "2026-09-01",
+  "secYield": 3.62,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": -2.04166506,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": -0.7917262089741195,
+    "3Y": 2.775963595879105,
+    "5Y": 2.775963595879105,
+    "10Y": 2.775963595879216
+  },
+  "performance": {
+    "1Y": -0.7917262089741195,
+    "3Y": 0.9168886567258783,
+    "5Y": 0.5491286652256067,
+    "10Y": 0.27418843612030397
+  },
+  "officialMetrics": {
+    "nav": -2.04166506,
+    "marketPrice": null,
+    "expenseRatio": 0.06,
+    "returns": {
+      "YTD": -2.04166506,
+      "1Y": 3.8270588406
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 139,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

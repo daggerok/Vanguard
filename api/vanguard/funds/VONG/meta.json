@@ -1,0 +1,54 @@
+{
+  "ticker": "VONG",
+  "name": "Vanguard Russell 1000 Growth ETF",
+  "category": "US Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vong",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vong/vanguard-russell-1000-growth-etf",
+  "portId": "3350",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 124.2300033569336,
+  "netAssets": "$45.9B",
+  "totalFundNetAssets": "$54.3B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.06,
+  "trailingYield": 0.43655,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 0.37,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 2.28769754,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 3.474681991414874,
+    "3Y": 84.38715757232886,
+    "5Y": 82.06038679184427,
+    "10Y": 406.85581352349016
+  },
+  "performance": {
+    "1Y": 3.474681991414874,
+    "3Y": 22.624398428368764,
+    "5Y": 12.73093061872772,
+    "10Y": 17.62196844888171
+  },
+  "officialMetrics": {
+    "nav": 2.28769754,
+    "marketPrice": null,
+    "expenseRatio": 0.06,
+    "returns": {
+      "YTD": 2.28769754,
+      "1Y": 10.7608157599
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 193,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

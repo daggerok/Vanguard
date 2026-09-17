@@ -1,0 +1,54 @@
+{
+  "ticker": "VONE",
+  "name": "Vanguard Russell 1000 ETF",
+  "category": "US Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vone",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vone/vanguard-russell-1000-etf",
+  "portId": "3348",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 341.1499938964844,
+  "netAssets": "$8.7B",
+  "totalFundNetAssets": "$11.9B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.06,
+  "trailingYield": 1.05049,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 0.96,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 11.01350386,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 13.7781694735293,
+    "3Y": 81.30294059284458,
+    "5Y": 81.68634685687157,
+    "10Y": 297.94435106365864
+  },
+  "performance": {
+    "1Y": 13.7781694735293,
+    "3Y": 21.936843731769116,
+    "5Y": 12.684571753847894,
+    "10Y": 14.810665519862232
+  },
+  "officialMetrics": {
+    "nav": 11.01350386,
+    "marketPrice": null,
+    "expenseRatio": 0.06,
+    "returns": {
+      "YTD": 11.01350386,
+      "1Y": 19.7116532556
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 193,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

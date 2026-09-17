@@ -1,0 +1,54 @@
+{
+  "ticker": "VMBS",
+  "name": "Vanguard Mortgage-Backed Securities ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vmbs",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vmbs/vanguard-mortgage-backed-securities-etf",
+  "portId": "3148",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 45.22999954223633,
+  "netAssets": "$15.9B",
+  "totalFundNetAssets": "$17.6B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.03,
+  "trailingYield": 4.54540885,
+  "dividendYieldAsOf": "2026-09-01",
+  "secYield": 4.4,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": -1.2857597,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 0.4277302051434617,
+    "3Y": 16.7557508010187,
+    "5Y": 0.5832873473608835,
+    "10Y": 11.10861949325006
+  },
+  "performance": {
+    "1Y": 0.4277302051434617,
+    "3Y": 5.299447783277844,
+    "5Y": 0.11638623884884236,
+    "10Y": 1.0589484972810759
+  },
+  "officialMetrics": {
+    "nav": -1.2857597,
+    "marketPrice": null,
+    "expenseRatio": 0.03,
+    "returns": {
+      "YTD": -1.2857597,
+      "1Y": 3.1236938133
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 203,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

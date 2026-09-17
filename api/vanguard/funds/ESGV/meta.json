@@ -1,0 +1,54 @@
+{
+  "ticker": "ESGV",
+  "name": "Vanguard ESG U.S. Stock ETF",
+  "category": "US Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/esgv",
+  "officialPage": "https://advisors.vanguard.com/investments/products/esgv/vanguard-esg-u-s-stock-etf",
+  "portId": "4393",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 133.57000732421875,
+  "netAssets": "$13.5B",
+  "totalFundNetAssets": "$13.5B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.09,
+  "trailingYield": 0.93733,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 0.83,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 11.00517918,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 13.4237858082078,
+    "3Y": 76.37909063148966,
+    "5Y": 70.5696369022171,
+    "10Y": 190.58161425580855
+  },
+  "performance": {
+    "1Y": 13.4237858082078,
+    "3Y": 20.82283811753809,
+    "5Y": 11.27057824995119,
+    "10Y": 11.256863717571996
+  },
+  "officialMetrics": {
+    "nav": 11.00517918,
+    "marketPrice": null,
+    "expenseRatio": 0.09,
+    "returns": {
+      "YTD": 11.00517918,
+      "1Y": 19.9807346508
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 419,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

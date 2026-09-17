@@ -1,0 +1,54 @@
+{
+  "ticker": "VIOO",
+  "name": "Vanguard S&P Small-Cap 600 ETF",
+  "category": "US Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vioo",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vioo/vanguard-sp-small-cap-600-etf",
+  "portId": "3345",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 129.72999572753906,
+  "netAssets": "$4.2B",
+  "totalFundNetAssets": "$6.4B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.07,
+  "trailingYield": 1.49761,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 1.43,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 16.94762462,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 19.003834528109497,
+    "3Y": 54.890241706265996,
+    "5Y": 38.072527180742235,
+    "10Y": 161.01997372756563
+  },
+  "performance": {
+    "1Y": 19.003834528109497,
+    "3Y": 15.702129572141388,
+    "5Y": 6.664881395294042,
+    "10Y": 10.069596435977846
+  },
+  "officialMetrics": {
+    "nav": 16.94762462,
+    "marketPrice": null,
+    "expenseRatio": 0.07,
+    "returns": {
+      "YTD": 16.94762462,
+      "1Y": 24.0410408931
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 193,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

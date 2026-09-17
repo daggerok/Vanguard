@@ -1,0 +1,54 @@
+{
+  "ticker": "VCSH",
+  "name": "Vanguard Short-Term Corporate Bond ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vcsh",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vcsh/vanguard-short-term-corporate-bond-etf",
+  "portId": "3145",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 77.62000274658203,
+  "netAssets": "$44.9B",
+  "totalFundNetAssets": "$51.9B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.03,
+  "trailingYield": 4.85821022,
+  "dividendYieldAsOf": "2026-09-01",
+  "secYield": 5.01,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": 0.30521301,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 1.5171075602628203,
+    "3Y": 17.013581145162803,
+    "5Y": 11.824958449554224,
+    "10Y": 28.829341730992898
+  },
+  "performance": {
+    "1Y": 1.5171075602628203,
+    "3Y": 5.376901306536119,
+    "5Y": 2.2604616731443317,
+    "10Y": 2.5655418599992874
+  },
+  "officialMetrics": {
+    "nav": 0.30521301,
+    "marketPrice": null,
+    "expenseRatio": 0.03,
+    "returns": {
+      "YTD": 0.30521301,
+      "1Y": 2.7750065534
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 203,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

@@ -5,29 +5,30 @@
   "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vti",
   "officialPage": "https://advisors.vanguard.com/investments/products/vti/vanguard-total-stock-market-etf",
-  "source": "Vanguard official advisor profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "portId": "0970",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
   "nav": 371.260009765625,
-  "netAssets": "$690.1 B",
-  "totalFundNetAssets": "$2343.6 B",
+  "netAssets": "$690.1B",
+  "totalFundNetAssets": "$2.3T",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.03,
   "trailingYield": 1.05032,
   "dividendYieldAsOf": "2026-08-31",
-  "secYield": null,
-  "secYieldAsOf": null,
+  "secYield": 1.01,
+  "secYieldAsOf": "2026-08-31",
   "ytdReturn": 11.39534534,
   "asOfDate": "2026-09-16",
   "totalReturn": {
     "1Y": 14.134093286103976,
-    "3Y": 81.14751870913955,
+    "3Y": 81.14754568260439,
     "5Y": 78.76807250736462,
-    "10Y": 290.029651100627
+    "10Y": 290.0295260554335
   },
   "performance": {
     "1Y": 14.134093286103976,
-    "3Y": 21.901990331345544,
+    "3Y": 21.901996381881794,
     "5Y": 12.32023191777849,
-    "10Y": 14.580249197853256
+    "10Y": 14.580245524360368
   },
   "officialMetrics": {
     "nav": 11.39534534,

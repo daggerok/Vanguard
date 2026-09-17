@@ -1,0 +1,54 @@
+{
+  "ticker": "VTIP",
+  "name": "Vanguard Short-Term Inflation-Protected Securities ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vtip",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vtip/vanguard-short-term-inflation-protected-securities-etf",
+  "portId": "3365",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 49.349998474121094,
+  "netAssets": "$20.5B",
+  "totalFundNetAssets": "$73.2B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.03,
+  "trailingYield": null,
+  "dividendYieldAsOf": null,
+  "secYield": 2.21,
+  "secYieldAsOf": "2026-09-10",
+  "ytdReturn": 1.21502394,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 1.5776214007007905,
+    "3Y": 15.269751033384704,
+    "5Y": 15.607496253669439,
+    "10Y": 33.886113855097186
+  },
+  "performance": {
+    "1Y": 1.5776214007007905,
+    "3Y": 4.8508088400256,
+    "5Y": 2.9430897585613014,
+    "10Y": 2.961190049387663
+  },
+  "officialMetrics": {
+    "nav": 1.21502394,
+    "marketPrice": null,
+    "expenseRatio": 0.03,
+    "returns": {
+      "YTD": 1.21502394,
+      "1Y": 2.1957127071
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 168,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

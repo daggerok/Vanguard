@@ -1,0 +1,54 @@
+{
+  "ticker": "BNDP",
+  "name": "Vanguard Core-Plus Bond Index ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/bndp",
+  "officialPage": "https://advisors.vanguard.com/investments/products/bndp/vanguard-core-plus-bond-index-etf",
+  "portId": "V056",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 71.875,
+  "netAssets": "$131.6M",
+  "totalFundNetAssets": "$131.6M",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.05,
+  "trailingYield": null,
+  "dividendYieldAsOf": null,
+  "secYield": 5.11,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": -1.15599542,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": -1.2793714775473086,
+    "3Y": -1.2793714775472975,
+    "5Y": -1.2793714775473086,
+    "10Y": -1.2793714775473086
+  },
+  "performance": {
+    "1Y": -1.2793714775473086,
+    "3Y": -0.42828885388608295,
+    "5Y": -0.25719387102128843,
+    "10Y": -0.12867972787247162
+  },
+  "officialMetrics": {
+    "nav": -1.15599542,
+    "marketPrice": null,
+    "expenseRatio": 0.05,
+    "returns": {
+      "YTD": -1.15599542,
+      "1Y": null
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 196,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

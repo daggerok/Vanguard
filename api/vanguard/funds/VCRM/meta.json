@@ -1,0 +1,54 @@
+{
+  "ticker": "VCRM",
+  "name": "Vanguard Core Tax-Exempt Bond ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vcrm",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vcrm/vanguard-core-tax-exempt-bond-etf",
+  "portId": "V040",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 73.0199966430664,
+  "netAssets": "$1.9B",
+  "totalFundNetAssets": "$1.9B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.12,
+  "trailingYield": 4.13562101,
+  "dividendYieldAsOf": "2026-09-01",
+  "secYield": 4.22,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": -0.96331441,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 0.6222765086491444,
+    "3Y": 3.3332332845469548,
+    "5Y": 3.3332332845469548,
+    "10Y": 3.3332332845468438
+  },
+  "performance": {
+    "1Y": 0.6222765086491444,
+    "3Y": 1.0989564678151043,
+    "5Y": 0.6579320180704284,
+    "10Y": 0.3284266885863252
+  },
+  "officialMetrics": {
+    "nav": -0.96331441,
+    "marketPrice": null,
+    "expenseRatio": 0.12,
+    "returns": {
+      "YTD": -0.96331441,
+      "1Y": 5.3204161205
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 454,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

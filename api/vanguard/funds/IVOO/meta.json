@@ -1,0 +1,54 @@
+{
+  "ticker": "IVOO",
+  "name": "Vanguard S&P Mid-Cap 400 ETF",
+  "category": "US Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/ivoo",
+  "officialPage": "https://advisors.vanguard.com/investments/products/ivoo/vanguard-sp-mid-cap-400-etf",
+  "portId": "3342",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 123.62999725341797,
+  "netAssets": "$3.8B",
+  "totalFundNetAssets": "$5.9B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.07,
+  "trailingYield": 1.24186,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 1.17,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 11.15753453,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 13.078194939278266,
+    "3Y": 52.15889646230589,
+    "5Y": 48.702212193991244,
+    "10Y": 171.62694496457118
+  },
+  "performance": {
+    "1Y": 13.078194939278266,
+    "3Y": 15.017992512418665,
+    "5Y": 8.258869064713803,
+    "10Y": 10.50890735892709
+  },
+  "officialMetrics": {
+    "nav": 11.15753453,
+    "marketPrice": null,
+    "expenseRatio": 0.07,
+    "returns": {
+      "YTD": 11.15753453,
+      "1Y": 17.1141948216
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 193,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

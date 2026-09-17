@@ -1,0 +1,54 @@
+{
+  "ticker": "VTHR",
+  "name": "Vanguard Russell 3000 ETF",
+  "category": "US Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vthr",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vthr/vanguard-russell-3000-etf",
+  "portId": "3354",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 332.55010986328125,
+  "netAssets": "$4.8B",
+  "totalFundNetAssets": "$6.4B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.06,
+  "trailingYield": 1.05653,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 0.97,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 11.29115219,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 13.951810847348733,
+    "3Y": 80.38849486794244,
+    "5Y": 79.00997170946434,
+    "10Y": 287.8357615328356
+  },
+  "performance": {
+    "1Y": 13.951810847348733,
+    "3Y": 21.731491998156915,
+    "5Y": 12.350612600356747,
+    "10Y": 14.515634885232199
+  },
+  "officialMetrics": {
+    "nav": 11.29115219,
+    "marketPrice": null,
+    "expenseRatio": 0.06,
+    "returns": {
+      "YTD": 11.29115219,
+      "1Y": 20.0536769142
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 193,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

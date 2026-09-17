@@ -1,0 +1,54 @@
+{
+  "ticker": "VUSV",
+  "name": "Vanguard Wellington U.S. Value Active ETF",
+  "category": "US Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vusv",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vusv/vanguard-wellington-u-s-value-active-etf",
+  "portId": "V055",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 69.4000015258789,
+  "netAssets": "$94.9M",
+  "totalFundNetAssets": "$94.9M",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.3,
+  "trailingYield": 1.40981,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 1.12,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 10.85011185,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 16.848974025745477,
+    "3Y": 16.848974025745434,
+    "5Y": 16.848974025745456,
+    "10Y": 16.848974025745566
+  },
+  "performance": {
+    "1Y": 16.848974025745477,
+    "3Y": 5.327465654100649,
+    "5Y": 3.1632417418090197,
+    "10Y": 1.569307244762208
+  },
+  "officialMetrics": {
+    "nav": 10.85011185,
+    "marketPrice": null,
+    "expenseRatio": 0.3,
+    "returns": {
+      "YTD": 10.85011185,
+      "1Y": null
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 207,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

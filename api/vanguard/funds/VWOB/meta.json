@@ -1,0 +1,54 @@
+{
+  "ticker": "VWOB",
+  "name": "Vanguard Emerging Markets Government Bond ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vwob",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vwob/vanguard-emerging-markets-government-bond-etf",
+  "portId": "3820",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 64.67500305175781,
+  "netAssets": "$6.4B",
+  "totalFundNetAssets": "$6.9B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.15,
+  "trailingYield": 6.12003544,
+  "dividendYieldAsOf": "2026-09-01",
+  "secYield": 6.26,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": -0.22200697,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 2.4343480060024403,
+    "3Y": 30.871303127935935,
+    "5Y": 9.498060810297183,
+    "10Y": 31.32964987981055
+  },
+  "performance": {
+    "1Y": 2.4343480060024403,
+    "3Y": 9.382574823146372,
+    "5Y": 1.831299412841192,
+    "10Y": 2.7628827164852376
+  },
+  "officialMetrics": {
+    "nav": -0.22200697,
+    "marketPrice": null,
+    "expenseRatio": 0.15,
+    "returns": {
+      "YTD": -0.22200697,
+      "1Y": 5.773474209
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 160,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

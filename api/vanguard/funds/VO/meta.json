@@ -5,29 +5,30 @@
   "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vo",
   "officialPage": "https://advisors.vanguard.com/investments/products/vo/vanguard-mid-cap-etf",
-  "source": "Vanguard official advisor profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "portId": "0939",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
   "nav": 79.54000091552734,
-  "netAssets": "$107.4 B",
-  "totalFundNetAssets": "$226.4 B",
+  "netAssets": "$107.4B",
+  "totalFundNetAssets": "$226.4B",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.03,
   "trailingYield": 1.40366,
   "dividendYieldAsOf": "2026-08-31",
-  "secYield": null,
-  "secYieldAsOf": null,
+  "secYield": 1.38,
+  "secYieldAsOf": "2026-08-31",
   "ytdReturn": 10.42996201,
   "asOfDate": "2026-09-16",
   "totalReturn": {
     "1Y": 9.495151761359356,
-    "3Y": 59.55837749943507,
-    "5Y": 44.698602149201875,
-    "10Y": 185.91991159231247
+    "3Y": 59.55838970938101,
+    "5Y": 44.69862223241587,
+    "10Y": 185.9199311957993
   },
   "performance": {
     "1Y": 9.495151761359356,
-    "3Y": 16.85300103534828,
-    "5Y": 7.669542361864101,
-    "10Y": 11.077076320831946
+    "3Y": 16.85300401601031,
+    "5Y": 7.669545350628759,
+    "10Y": 11.077077082408127
   },
   "officialMetrics": {
     "nav": 10.42996201,

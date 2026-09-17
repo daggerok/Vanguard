@@ -1,0 +1,54 @@
+{
+  "ticker": "VBCF",
+  "name": "Vanguard Target Maturity 2032 Corporate Bond ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vbcf",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vbcf/vanguard-target-maturity-2032-corporate-bond-etf",
+  "portId": "V077",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 73.18000030517578,
+  "netAssets": "$43.2M",
+  "totalFundNetAssets": "$43.2M",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.08,
+  "trailingYield": null,
+  "dividendYieldAsOf": null,
+  "secYield": 5.34,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": -0.3561761807828412,
+  "asOfDate": "",
+  "totalReturn": {
+    "1Y": -0.3561761807828412,
+    "3Y": -0.3561761807828412,
+    "5Y": -0.356176180782819,
+    "10Y": -0.356176180782819
+  },
+  "performance": {
+    "1Y": -0.3561761807828412,
+    "3Y": -0.11886663036911882,
+    "5Y": -0.0713369427643551,
+    "10Y": -0.035674834851384674
+  },
+  "officialMetrics": {
+    "nav": null,
+    "marketPrice": null,
+    "expenseRatio": 0.08,
+    "returns": {
+      "YTD": null,
+      "1Y": null
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 120,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

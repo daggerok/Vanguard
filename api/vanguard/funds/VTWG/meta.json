@@ -1,0 +1,54 @@
+{
+  "ticker": "VTWG",
+  "name": "Vanguard Russell 2000 Growth ETF",
+  "category": "US Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vtwg",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vtwg/vanguard-russell-2000-growth-etf",
+  "portId": "3353",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 263.989990234375,
+  "netAssets": "$1.5B",
+  "totalFundNetAssets": "$1.7B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.06,
+  "trailingYield": 0.47094,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 0.41,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 12.08866061,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 13.568141352190244,
+    "3Y": 64.83498873222284,
+    "5Y": 27.662936779542235,
+    "10Y": 161.12120705134575
+  },
+  "performance": {
+    "1Y": 13.568141352190244,
+    "3Y": 18.12717035984013,
+    "5Y": 5.005722181828665,
+    "10Y": 10.073864602398386
+  },
+  "officialMetrics": {
+    "nav": 12.08866061,
+    "marketPrice": null,
+    "expenseRatio": 0.06,
+    "returns": {
+      "YTD": 12.08866061,
+      "1Y": 23.3514272005
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 193,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

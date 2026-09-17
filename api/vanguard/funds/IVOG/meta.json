@@ -1,0 +1,54 @@
+{
+  "ticker": "IVOG",
+  "name": "Vanguard S&P Mid-Cap 400 Growth ETF",
+  "category": "US Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/ivog",
+  "officialPage": "https://advisors.vanguard.com/investments/products/ivog/vanguard-sp-mid-cap-400-growth-etf",
+  "portId": "3343",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 135.9499969482422,
+  "netAssets": "$1.6B",
+  "totalFundNetAssets": "$1.8B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.1,
+  "trailingYield": 0.68544,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 0.57,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 13.13274042,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 14.509427574895062,
+    "3Y": 54.448555640564614,
+    "5Y": 43.86407993049018,
+    "10Y": 174.32161381901108
+  },
+  "performance": {
+    "1Y": 14.509427574895062,
+    "3Y": 15.592045874310223,
+    "5Y": 7.545062059305496,
+    "10Y": 10.618051106758264
+  },
+  "officialMetrics": {
+    "nav": 13.13274042,
+    "marketPrice": null,
+    "expenseRatio": 0.1,
+    "returns": {
+      "YTD": 13.13274042,
+      "1Y": 19.7596558387
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 193,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

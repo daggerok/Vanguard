@@ -1,0 +1,54 @@
+{
+  "ticker": "VCRB",
+  "name": "Vanguard Core Bond ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vcrb",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vcrb/vanguard-core-bond-etf",
+  "portId": "V023",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 74.7300033569336,
+  "netAssets": "$7.7B",
+  "totalFundNetAssets": "$7.7B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.1,
+  "trailingYield": 4.98842601,
+  "dividendYieldAsOf": "2026-09-01",
+  "secYield": 4.99,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": -1.21675639,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": -0.2224034526778662,
+    "3Y": 9.118594567448547,
+    "5Y": 9.11859456744859,
+    "10Y": 9.118594567448458
+  },
+  "performance": {
+    "1Y": -0.2224034526778662,
+    "3Y": 2.951557503548763,
+    "5Y": 1.7606219652968491,
+    "10Y": 0.876469984479944
+  },
+  "officialMetrics": {
+    "nav": -1.21675639,
+    "marketPrice": null,
+    "expenseRatio": 0.1,
+    "returns": {
+      "YTD": -1.21675639,
+      "1Y": 2.2297097335
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 146,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

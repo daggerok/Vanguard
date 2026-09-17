@@ -5,10 +5,11 @@
   "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vt",
   "officialPage": "https://advisors.vanguard.com/investments/products/vt/vanguard-total-world-stock-etf",
-  "source": "Vanguard official advisor profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "portId": "3141",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
   "nav": 157.41000366210938,
-  "netAssets": "$81.9 B",
-  "totalFundNetAssets": "$101.7 B",
+  "netAssets": "$81.9B",
+  "totalFundNetAssets": "$101.7B",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.06,
   "trailingYield": 1.53704,
@@ -19,15 +20,15 @@
   "asOfDate": "2026-09-16",
   "totalReturn": {
     "1Y": 15.832322403917543,
-    "3Y": 78.17796150925528,
-    "5Y": 70.27647006538275,
-    "10Y": 217.8087019663293
+    "3Y": 78.17800767151756,
+    "5Y": 70.27644195951854,
+    "10Y": 217.80879987461407
   },
   "performance": {
     "1Y": 15.832322403917543,
-    "3Y": 21.232202498430386,
-    "5Y": 11.23230262943926,
-    "10Y": 12.257813357873925
+    "3Y": 21.232212968023447,
+    "5Y": 11.232298957434317,
+    "10Y": 12.257816816233746
   },
   "officialMetrics": {
     "nav": 12.17197823,

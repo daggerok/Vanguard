@@ -5,29 +5,30 @@
   "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vig",
   "officialPage": "https://advisors.vanguard.com/investments/products/vig/vanguard-dividend-appreciation-etf",
-  "source": "Vanguard official advisor profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "portId": "0920",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
   "nav": 235.72999572753906,
-  "netAssets": "$112.7 B",
-  "totalFundNetAssets": "$132.4 B",
+  "netAssets": "$112.7B",
+  "totalFundNetAssets": "$132.4B",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.04,
   "trailingYield": 1.5421,
   "dividendYieldAsOf": "2026-08-31",
-  "secYield": null,
-  "secYieldAsOf": null,
+  "secYield": 1.43,
+  "secYieldAsOf": "2026-08-31",
   "ytdReturn": 8.11174305,
   "asOfDate": "2026-09-16",
   "totalReturn": {
     "1Y": 10.577750960293786,
     "3Y": 59.25379117867566,
-    "5Y": 67.58537700307184,
-    "10Y": 237.77982283439826
+    "5Y": 67.58541336170538,
+    "10Y": 237.77978590752102
   },
   "performance": {
     "1Y": 10.577750960293786,
     "3Y": 16.778598805608212,
-    "5Y": 10.878469902059473,
-    "10Y": 12.944053522495036
+    "5Y": 10.878474713206332,
+    "10Y": 12.944052287764274
   },
   "officialMetrics": {
     "nav": 8.11174305,

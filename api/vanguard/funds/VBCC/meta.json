@@ -1,0 +1,54 @@
+{
+  "ticker": "VBCC",
+  "name": "Vanguard Target Maturity 2029 Corporate Bond ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vbcc",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vbcc/vanguard-target-maturity-2029-corporate-bond-etf",
+  "portId": "V074",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 74.36000061035156,
+  "netAssets": "$55.6M",
+  "totalFundNetAssets": "$55.6M",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.08,
+  "trailingYield": null,
+  "dividendYieldAsOf": null,
+  "secYield": 4.94,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": 0.8310206321293645,
+  "asOfDate": "",
+  "totalReturn": {
+    "1Y": 0.8310206321293645,
+    "3Y": 0.8310206321293867,
+    "5Y": 0.8310206321293423,
+    "10Y": 0.8310206321293423
+  },
+  "performance": {
+    "1Y": 0.8310206321293645,
+    "3Y": 0.27624307235376566,
+    "5Y": 0.1656543889839046,
+    "10Y": 0.08279292115298542
+  },
+  "officialMetrics": {
+    "nav": null,
+    "marketPrice": null,
+    "expenseRatio": 0.08,
+    "returns": {
+      "YTD": null,
+      "1Y": null
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 120,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

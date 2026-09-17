@@ -1,0 +1,54 @@
+{
+  "ticker": "VGIT",
+  "name": "Vanguard Intermediate-Term Treasury ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vgit",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vgit/vanguard-intermediate-term-treasury-etf",
+  "portId": "3143",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 57.16999816894531,
+  "netAssets": "$39.8B",
+  "totalFundNetAssets": "$48.3B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.03,
+  "trailingYield": 4.44507235,
+  "dividendYieldAsOf": "2026-09-01",
+  "secYield": 4.63,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": -2.13378632,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": -1.028959194082013,
+    "3Y": 11.769307384441351,
+    "5Y": -1.2914114581292546,
+    "10Y": 9.926635488894986
+  },
+  "performance": {
+    "1Y": -1.028959194082013,
+    "3Y": 3.7785312377452085,
+    "5Y": -0.25962691881703526,
+    "10Y": 0.9509228839261974
+  },
+  "officialMetrics": {
+    "nav": -2.13378632,
+    "marketPrice": null,
+    "expenseRatio": 0.03,
+    "returns": {
+      "YTD": -2.13378632,
+      "1Y": 0.7055895666
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 203,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

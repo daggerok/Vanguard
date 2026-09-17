@@ -1,0 +1,54 @@
+{
+  "ticker": "VFVA",
+  "name": "Vanguard U.S. Value Factor ETF",
+  "category": "US Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vfva",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vfva/vanguard-u-s-value-factor-etf",
+  "portId": "4416",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 157.89500427246094,
+  "netAssets": "$957.4M",
+  "totalFundNetAssets": "$957.4M",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.13,
+  "trailingYield": 1.97799,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 1.81,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 20.06796358,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 25.640783895096007,
+    "3Y": 65.08728147723004,
+    "5Y": 80.05433051095636,
+    "10Y": 146.97260487387368
+  },
+  "performance": {
+    "1Y": 25.640783895096007,
+    "3Y": 18.187407239029852,
+    "5Y": 12.481400275822075,
+    "10Y": 9.462377888568007
+  },
+  "officialMetrics": {
+    "nav": 20.06796358,
+    "marketPrice": null,
+    "expenseRatio": 0.13,
+    "returns": {
+      "YTD": 20.06796358,
+      "1Y": 28.4074729809
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 450,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

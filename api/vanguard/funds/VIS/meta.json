@@ -1,0 +1,54 @@
+{
+  "ticker": "VIS",
+  "name": "Vanguard Industrials ETF",
+  "category": "Sector",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vis",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vis/vanguard-industrials-etf",
+  "portId": "0953",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 323.8500061035156,
+  "netAssets": "$8.0B",
+  "totalFundNetAssets": "$8.6B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.09,
+  "trailingYield": 1.01593,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 0.93,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 9.02719392,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 10.11317298798562,
+    "3Y": 71.60275591783089,
+    "5Y": 83.34308481299402,
+    "10Y": 237.2313540539027
+  },
+  "performance": {
+    "1Y": 10.11317298798562,
+    "3Y": 19.72221763699096,
+    "5Y": 12.889332948914433,
+    "10Y": 12.925700858129208
+  },
+  "officialMetrics": {
+    "nav": 9.02719392,
+    "marketPrice": null,
+    "expenseRatio": 0.09,
+    "returns": {
+      "YTD": 9.02719392,
+      "1Y": 16.3458155545
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 265,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

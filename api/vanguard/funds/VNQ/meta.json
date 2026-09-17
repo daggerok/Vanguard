@@ -5,10 +5,11 @@
   "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vnq",
   "officialPage": "https://advisors.vanguard.com/investments/products/vnq/vanguard-real-estate-etf",
-  "source": "Vanguard official advisor profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "portId": "0986",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
   "nav": 93.4800033569336,
-  "netAssets": "$38.1 B",
-  "totalFundNetAssets": "$70.8 B",
+  "netAssets": "$38.1B",
+  "totalFundNetAssets": "$70.8B",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.13,
   "trailingYield": 3.3833,
@@ -18,16 +19,16 @@
   "ytdReturn": 7.73072156,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 5.208587175462043,
-    "3Y": 37.799333373296015,
-    "5Y": 10.618214115920942,
-    "10Y": 59.11201689682248
+    "1Y": 5.208578141594988,
+    "3Y": 37.79934887093847,
+    "5Y": 10.618204129161125,
+    "10Y": 59.11197557236141
   },
   "performance": {
-    "1Y": 5.208587175462043,
-    "3Y": 11.279638342780496,
-    "5Y": 2.0387967045977673,
-    "10Y": 4.753923472426513
+    "1Y": 5.208578141594988,
+    "3Y": 11.279642514479393,
+    "5Y": 2.0387948621579888,
+    "10Y": 4.753920751764662
   },
   "officialMetrics": {
     "nav": 7.73072156,

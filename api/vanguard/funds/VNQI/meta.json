@@ -1,0 +1,54 @@
+{
+  "ticker": "VNQI",
+  "name": "Vanguard Global ex-U.S. Real Estate ETF",
+  "category": "Real Estate",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vnqi",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vnqi/vanguard-global-ex-u-s-real-estate-etf",
+  "portId": "3358",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 43.400001525878906,
+  "netAssets": "$3.5B",
+  "totalFundNetAssets": "$3.8B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.12,
+  "trailingYield": 4.07687,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": null,
+  "secYieldAsOf": null,
+  "ytdReturn": -5.33536586,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": -4.769346461272262,
+    "3Y": 27.673162628881776,
+    "5Y": -6.313659205883882,
+    "10Y": 16.052249702296773
+  },
+  "performance": {
+    "1Y": -4.769346461272262,
+    "3Y": 8.484212028530624,
+    "5Y": -1.2958858134077489,
+    "10Y": 1.4998397035759448
+  },
+  "officialMetrics": {
+    "nav": -5.33536586,
+    "marketPrice": null,
+    "expenseRatio": 0.12,
+    "returns": {
+      "YTD": -5.33536586,
+      "1Y": -0.3039590388
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 192,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

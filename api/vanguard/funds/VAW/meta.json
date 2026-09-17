@@ -1,0 +1,54 @@
+{
+  "ticker": "VAW",
+  "name": "Vanguard Materials ETF",
+  "category": "Sector",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vaw",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vaw/vanguard-materials-etf",
+  "portId": "0952",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 224.6999969482422,
+  "netAssets": "$3.1B",
+  "totalFundNetAssets": "$4.5B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.09,
+  "trailingYield": 1.44153,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 1.29,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 9.0714453,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 10.911154043397131,
+    "3Y": 36.111327807273106,
+    "5Y": 40.82401419912822,
+    "10Y": 150.2953679442984
+  },
+  "performance": {
+    "1Y": 10.911154043397131,
+    "3Y": 10.823388164705783,
+    "5Y": 7.0866527714738,
+    "10Y": 9.608764196607233
+  },
+  "officialMetrics": {
+    "nav": 9.0714453,
+    "marketPrice": null,
+    "expenseRatio": 0.09,
+    "returns": {
+      "YTD": 9.0714453,
+      "1Y": 15.1723448999
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 273,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

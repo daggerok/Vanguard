@@ -1,0 +1,54 @@
+{
+  "ticker": "VFH",
+  "name": "Vanguard Financials ETF",
+  "category": "Sector",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vfh",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vfh/vanguard-financials-etf",
+  "portId": "0957",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 136.44000244140625,
+  "netAssets": "$13.5B",
+  "totalFundNetAssets": "$14.8B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.09,
+  "trailingYield": 1.66805,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 1.52,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 3.20433468,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 5.49612093695917,
+    "3Y": 78.71991968355513,
+    "5Y": 62.26781052387829,
+    "10Y": 238.51251808883433
+  },
+  "performance": {
+    "1Y": 5.49612093695917,
+    "3Y": 21.354994115622095,
+    "5Y": 10.165719512775716,
+    "10Y": 12.968528905574338
+  },
+  "officialMetrics": {
+    "nav": 3.20433468,
+    "marketPrice": null,
+    "expenseRatio": 0.09,
+    "returns": {
+      "YTD": 3.20433468,
+      "1Y": 8.706107389
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 273,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "ticker": "VTWV",
+  "name": "Vanguard Russell 2000 Value ETF",
+  "category": "US Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vtwv",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vtwv/vanguard-russell-2000-value-etf",
+  "portId": "3352",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 191.5,
+  "netAssets": "$1.4B",
+  "totalFundNetAssets": "$1.4B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.06,
+  "trailingYield": 1.94725,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 1.86,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 20.63934615,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 24.42792562884457,
+    "3Y": 69.00627470678427,
+    "5Y": 49.88063428278944,
+    "10Y": 152.8330117555928
+  },
+  "performance": {
+    "1Y": 24.42792562884457,
+    "3Y": 19.115316671883818,
+    "5Y": 8.429911789757028,
+    "10Y": 9.719388328310764
+  },
+  "officialMetrics": {
+    "nav": 20.63934615,
+    "marketPrice": null,
+    "expenseRatio": 0.06,
+    "returns": {
+      "YTD": 20.63934615,
+      "1Y": 29.9505393938
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 193,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

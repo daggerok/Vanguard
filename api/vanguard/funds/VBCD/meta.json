@@ -1,0 +1,54 @@
+{
+  "ticker": "VBCD",
+  "name": "Vanguard Target Maturity 2030 Corporate Bond ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vbcd",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vbcd/vanguard-target-maturity-2030-corporate-bond-etf",
+  "portId": "V075",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 73.81999969482422,
+  "netAssets": "$53.8M",
+  "totalFundNetAssets": "$53.8M",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.08,
+  "trailingYield": null,
+  "dividendYieldAsOf": null,
+  "secYield": 5.08,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": 0.2509450588845441,
+  "asOfDate": "",
+  "totalReturn": {
+    "1Y": 0.2509450588845441,
+    "3Y": 0.2509450588845219,
+    "5Y": 0.2509450588845441,
+    "10Y": 0.2509450588845441
+  },
+  "performance": {
+    "1Y": 0.2509450588845441,
+    "3Y": 0.0835784798776551,
+    "5Y": 0.050138708759628337,
+    "10Y": 0.0250662128046919
+  },
+  "officialMetrics": {
+    "nav": null,
+    "marketPrice": null,
+    "expenseRatio": 0.08,
+    "returns": {
+      "YTD": null,
+      "1Y": null
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 120,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

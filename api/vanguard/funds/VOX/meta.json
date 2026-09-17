@@ -1,0 +1,54 @@
+{
+  "ticker": "VOX",
+  "name": "Vanguard Communication Services ETF",
+  "category": "Sector",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vox",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vox/vanguard-communication-services-etf",
+  "portId": "0959",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 192.5,
+  "netAssets": "$5.7B",
+  "totalFundNetAssets": "$5.9B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.09,
+  "trailingYield": 1.00771,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 0.94,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": -0.09174591,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 3.3728289393577082,
+    "3Y": 88.39602757437541,
+    "5Y": 43.69043902437908,
+    "10Y": 135.39340439535917
+  },
+  "performance": {
+    "1Y": 3.3728289393577082,
+    "3Y": 23.5067177853167,
+    "5Y": 7.519088592789003,
+    "10Y": 8.938007833087758
+  },
+  "officialMetrics": {
+    "nav": -0.09174591,
+    "marketPrice": null,
+    "expenseRatio": 0.09,
+    "returns": {
+      "YTD": -0.09174591,
+      "1Y": 4.6102408805
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 265,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

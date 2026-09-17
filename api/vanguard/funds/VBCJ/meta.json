@@ -1,0 +1,54 @@
+{
+  "ticker": "VBCJ",
+  "name": "Vanguard Target Maturity 2036 Corporate Bond ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vbcj",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vbcj/vanguard-target-maturity-2036-corporate-bond-etf",
+  "portId": "V081",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 72.33999633789062,
+  "netAssets": "$17.7M",
+  "totalFundNetAssets": "$17.7M",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.08,
+  "trailingYield": null,
+  "dividendYieldAsOf": null,
+  "secYield": 5.8,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": -1.0368652171240167,
+  "asOfDate": "",
+  "totalReturn": {
+    "1Y": -1.0368652171240167,
+    "3Y": -1.0368652171240278,
+    "5Y": -1.0368652171240056,
+    "10Y": -1.0368652171240056
+  },
+  "performance": {
+    "1Y": -1.0368652171240167,
+    "3Y": -0.3468232118408965,
+    "5Y": -0.20823850482148965,
+    "10Y": -0.10417351301481581
+  },
+  "officialMetrics": {
+    "nav": null,
+    "marketPrice": null,
+    "expenseRatio": 0.08,
+    "returns": {
+      "YTD": null,
+      "1Y": null
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 120,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

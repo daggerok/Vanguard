@@ -1,0 +1,54 @@
+{
+  "ticker": "VBCH",
+  "name": "Vanguard Target Maturity 2034 Corporate Bond ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vbch",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vbch/vanguard-target-maturity-2034-corporate-bond-etf",
+  "portId": "V079",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 72.87000274658203,
+  "netAssets": "$11.9M",
+  "totalFundNetAssets": "$11.9M",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.08,
+  "trailingYield": null,
+  "dividendYieldAsOf": null,
+  "secYield": 5.62,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": -0.4218344277195252,
+  "asOfDate": "",
+  "totalReturn": {
+    "1Y": -0.4218344277195252,
+    "3Y": -0.4218344277195363,
+    "5Y": -0.4218344277195585,
+    "10Y": -0.4218344277195585
+  },
+  "performance": {
+    "1Y": -0.4218344277195252,
+    "3Y": -0.1408096564371797,
+    "5Y": -0.08450960234129834,
+    "10Y": -0.042263732285985345
+  },
+  "officialMetrics": {
+    "nav": null,
+    "marketPrice": null,
+    "expenseRatio": 0.08,
+    "returns": {
+      "YTD": null,
+      "1Y": null
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 120,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "ticker": "VSDM",
+  "name": "Vanguard Short Duration Tax-Exempt Bond ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vsdm",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vsdm/vanguard-short-duration-tax-exempt-bond-etf",
+  "portId": "V039",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 75.28500366210938,
+  "netAssets": "$939.5M",
+  "totalFundNetAssets": "$939.5M",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.12,
+  "trailingYield": 3.23533303,
+  "dividendYieldAsOf": "2026-09-01",
+  "secYield": 3.51,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": 0.53022897,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 1.047032064281761,
+    "3Y": 5.7849095617429125,
+    "5Y": 5.784909561742979,
+    "10Y": 5.784909561742979
+  },
+  "performance": {
+    "1Y": 1.047032064281761,
+    "3Y": 1.892270458077494,
+    "5Y": 1.1311029680569185,
+    "10Y": 0.5639612227247737
+  },
+  "officialMetrics": {
+    "nav": 0.53022897,
+    "marketPrice": null,
+    "expenseRatio": 0.12,
+    "returns": {
+      "YTD": 0.53022897,
+      "1Y": 2.9502898448
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 454,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

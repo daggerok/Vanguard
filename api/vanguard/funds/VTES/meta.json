@@ -1,0 +1,54 @@
+{
+  "ticker": "VTES",
+  "name": "Vanguard Short-Term Tax-Exempt Bond ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vtes",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vtes/vanguard-short-term-tax-exempt-bond-etf",
+  "portId": "V014",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 99.61000061035156,
+  "netAssets": "$2.4B",
+  "totalFundNetAssets": "$2.4B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.05,
+  "trailingYield": 2.67522867,
+  "dividendYieldAsOf": "2026-09-01",
+  "secYield": 2.9,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": -0.10072557,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 0.06832133992602518,
+    "3Y": 8.759744352896481,
+    "5Y": 9.218909843852941,
+    "10Y": 9.21890984385283
+  },
+  "performance": {
+    "1Y": 0.06832133992602518,
+    "3Y": 2.838577183573121,
+    "5Y": 1.7793252728214304,
+    "10Y": 0.8857399600267657
+  },
+  "officialMetrics": {
+    "nav": -0.10072557,
+    "marketPrice": null,
+    "expenseRatio": 0.05,
+    "returns": {
+      "YTD": -0.10072557,
+      "1Y": 1.7944514684
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 186,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

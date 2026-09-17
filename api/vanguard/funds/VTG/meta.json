@@ -1,0 +1,54 @@
+{
+  "ticker": "VTG",
+  "name": "Vanguard Total Treasury ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vtg",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vtg/vanguard-total-treasury-etf",
+  "portId": "V048",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 73.06800079345703,
+  "netAssets": "$205.8M",
+  "totalFundNetAssets": "$205.8M",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.03,
+  "trailingYield": 4.22164117,
+  "dividendYieldAsOf": "2026-09-01",
+  "secYield": 4.69,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": -1.63641666,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": -1.26303148794924,
+    "3Y": 1.1931002252581813,
+    "5Y": 1.1931002252582035,
+    "10Y": 1.1931002252580925
+  },
+  "performance": {
+    "1Y": -1.26303148794924,
+    "3Y": 0.3961288226526971,
+    "5Y": 0.2374893392081967,
+    "10Y": 0.11867425171399049
+  },
+  "officialMetrics": {
+    "nav": -1.63641666,
+    "marketPrice": null,
+    "expenseRatio": 0.03,
+    "returns": {
+      "YTD": -1.63641666,
+      "1Y": 1.2135668727
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 299,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

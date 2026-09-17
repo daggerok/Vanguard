@@ -1,0 +1,54 @@
+{
+  "ticker": "VYMI",
+  "name": "Vanguard International High Dividend Yield ETF",
+  "category": "International Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vymi",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vymi/vanguard-international-high-dividend-yield-etf",
+  "portId": "4430",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 104.0199966430664,
+  "netAssets": "$21.8B",
+  "totalFundNetAssets": "$22.8B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.07,
+  "trailingYield": 3.71066,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": null,
+  "secYieldAsOf": null,
+  "ytdReturn": 18.12460466,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 26.668693869837945,
+    "3Y": 89.76268163117773,
+    "5Y": 95.7840705931345,
+    "10Y": 176.83810125992392
+  },
+  "performance": {
+    "1Y": 26.668693869837945,
+    "3Y": 23.804644181366008,
+    "5Y": 14.381416554825988,
+    "10Y": 10.719110019945477
+  },
+  "officialMetrics": {
+    "nav": 18.12460466,
+    "marketPrice": null,
+    "expenseRatio": 0.07,
+    "returns": {
+      "YTD": 18.12460466,
+      "1Y": 30.177576786
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 127,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}
