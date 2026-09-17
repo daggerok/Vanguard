@@ -4,31 +4,39 @@
   "category": "Bond",
   "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/bsv",
-  "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
-  "nav": 76.73999786376953,
-  "netAssets": null,
+  "officialPage": "https://advisors.vanguard.com/investments/products/bsv/vanguard-short-term-bond-etf",
+  "source": "Vanguard official advisor profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 76.62999725341797,
+  "netAssets": "$46.6 B",
+  "totalFundNetAssets": "$71.1 B",
+  "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.03,
   "trailingYield": null,
+  "dividendYieldAsOf": null,
   "secYield": null,
-  "ytdReturn": 1.214793058624375,
-  "asOfDate": "2026-09-11",
+  "secYieldAsOf": null,
+  "ytdReturn": -0.10716564,
+  "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 1.214793058624375,
-    "3Y": 13.837574939416974,
-    "5Y": 8.281668313208247,
-    "10Y": 20.164944985385436
+    "1Y": 1.0697199695584692,
+    "3Y": 13.674436533824208,
+    "5Y": 8.12650181722503,
+    "10Y": 19.992612197913683
   },
   "performance": {
-    "1Y": 1.214793058624375,
-    "3Y": 4.414756132277842,
-    "5Y": 1.6040425464498576,
-    "10Y": 1.8539272861763711
+    "1Y": 1.0697199695584692,
+    "3Y": 4.364854037451127,
+    "5Y": 1.574906335258719,
+    "10Y": 1.8393106195788045
   },
   "officialMetrics": {
-    "nav": null,
+    "nav": -0.10716564,
     "marketPrice": null,
     "expenseRatio": 0.03,
-    "returns": {}
+    "returns": {
+      "YTD": -0.10716564,
+      "1Y": 2.1374978472
+    }
   },
   "holdings": {
     "totalRows": 0,

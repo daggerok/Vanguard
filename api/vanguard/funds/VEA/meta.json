@@ -4,31 +4,39 @@
   "category": "International Equity",
   "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vea",
-  "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
-  "nav": 72.69000244140625,
-  "netAssets": null,
-  "netExpenseRatio": 0.05,
-  "trailingYield": null,
+  "officialPage": "https://advisors.vanguard.com/investments/products/vea/vanguard-ftse-developed-markets-etf",
+  "source": "Vanguard official advisor profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 71.26000213623047,
+  "netAssets": "$238.1 B",
+  "totalFundNetAssets": "$323.8 B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.03,
+  "trailingYield": 2.36412,
+  "dividendYieldAsOf": "2026-08-31",
   "secYield": null,
-  "ytdReturn": 24.22459566740498,
-  "asOfDate": "2026-09-11",
+  "secYieldAsOf": null,
+  "ytdReturn": 14.83057672,
+  "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 24.22459566740498,
-    "3Y": 81.33148391266663,
-    "5Y": 67.5005074175257,
-    "10Y": 160.0612824969163
+    "1Y": 21.78077665862286,
+    "3Y": 77.764207832561,
+    "5Y": 64.20533932453733,
+    "10Y": 154.9452394146833
   },
   "performance": {
-    "1Y": 24.22459566740498,
-    "3Y": 21.943242413967546,
-    "5Y": 10.867237279304277,
-    "10Y": 10.02910238143031
+    "1Y": 21.78077665862286,
+    "3Y": 21.138290498686118,
+    "5Y": 10.427554606598077,
+    "10Y": 9.810707755184511
   },
   "officialMetrics": {
-    "nav": null,
+    "nav": 14.83057672,
     "marketPrice": null,
-    "expenseRatio": 0.05,
-    "returns": {}
+    "expenseRatio": 0.03,
+    "returns": {
+      "YTD": 14.83057672,
+      "1Y": 27.9599310156
+    }
   },
   "holdings": {
     "totalRows": 0,

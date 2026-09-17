@@ -4,31 +4,39 @@
   "category": "US Equity",
   "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vym",
-  "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
-  "nav": 162.9199981689453,
-  "netAssets": null,
-  "netExpenseRatio": 0.06,
-  "trailingYield": null,
+  "officialPage": "https://advisors.vanguard.com/investments/products/vym/vanguard-high-dividend-yield-etf",
+  "source": "Vanguard official advisor profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 159.77999877929688,
+  "netAssets": "$83.1 B",
+  "totalFundNetAssets": "$100.8 B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.04,
+  "trailingYield": 2.28611,
+  "dividendYieldAsOf": "2026-08-31",
   "secYield": null,
-  "ytdReturn": 17.762689506427122,
-  "asOfDate": "2026-09-11",
+  "secYieldAsOf": null,
+  "ytdReturn": 12.64955664,
+  "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 17.762689506427122,
-    "3Y": 70.17124426523486,
-    "5Y": 81.0485261004755,
-    "10Y": 204.08256754664998
+    "1Y": 15.493005903175217,
+    "3Y": 66.89146312940355,
+    "5Y": 77.55911583501403,
+    "10Y": 198.2219478033231
   },
   "performance": {
-    "1Y": 17.762689506427122,
-    "3Y": 19.388379695930947,
-    "5Y": 12.60534323909921,
-    "10Y": 11.763283475517628
+    "1Y": 15.493005903175217,
+    "3Y": 18.6163913375442,
+    "5Y": 12.167901455602493,
+    "10Y": 11.545989466754136
   },
   "officialMetrics": {
-    "nav": null,
+    "nav": 12.64955664,
     "marketPrice": null,
-    "expenseRatio": 0.06,
-    "returns": {}
+    "expenseRatio": 0.04,
+    "returns": {
+      "YTD": 12.64955664,
+      "1Y": 20.6807120886
+    }
   },
   "holdings": {
     "totalRows": 0,

@@ -4,31 +4,39 @@
   "category": "International Equity",
   "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vxus",
-  "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
-  "nav": 87.13999938964844,
-  "netAssets": null,
+  "officialPage": "https://advisors.vanguard.com/investments/products/vxus/vanguard-total-international-stock-etf",
+  "source": "Vanguard official advisor profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 85.41000366210938,
+  "netAssets": "$164.9 B",
+  "totalFundNetAssets": "$665.7 B",
+  "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.05,
-  "trailingYield": null,
+  "trailingYield": 2.33492,
+  "dividendYieldAsOf": "2026-08-31",
   "secYield": null,
-  "ytdReturn": 21.4708272451406,
-  "asOfDate": "2026-09-11",
+  "secYieldAsOf": null,
+  "ytdReturn": 13.65318352,
+  "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 21.4708272451406,
-    "3Y": 77.55957859966334,
-    "5Y": 60.22638949921944,
-    "10Y": 146.52382536233546
+    "1Y": 19.059259496384207,
+    "3Y": 74.03449097383974,
+    "5Y": 57.04539419167474,
+    "10Y": 141.62967711439384
   },
   "performance": {
-    "1Y": 21.4708272451406,
-    "3Y": 21.09179078726622,
-    "5Y": 9.887124572051231,
-    "10Y": 9.442470948633774
+    "1Y": 19.059259496384207,
+    "3Y": 20.285083989159382,
+    "5Y": 9.447297114044616,
+    "10Y": 9.223232969766126
   },
   "officialMetrics": {
-    "nav": null,
+    "nav": 13.65318352,
     "marketPrice": null,
     "expenseRatio": 0.05,
-    "returns": {}
+    "returns": {
+      "YTD": 13.65318352,
+      "1Y": 26.0454212678
+    }
   },
   "holdings": {
     "totalRows": 0,

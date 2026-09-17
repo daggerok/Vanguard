@@ -45,6 +45,45 @@ async function fetchJson(url: string): Promise<any> {
   if (!response.ok) throw new Error(`${response.status} ${response.statusText} for ${url}`);
   return response.json();
 }
+function slug(name: string): string {
+  return name.toLowerCase().replace(/^vanguard\s+/, "vanguard-").replace(/s&p/g, "sp").replace(/[^a-z0-9]+/g, "-").replace(/-+$/g, "");
+}
+function findMetric(text: string, label: string, percent = false) {
+  const index = text.toLowerCase().indexOf(label.toLowerCase());
+  if (index < 0) return null;
+  const window = text.slice(index, index + 220);
+  const asOf = window.match(/as of\s+(\d{2}\/\d{2}\/\d{4})/i)?.[1] ?? null;
+  const value = percent ? window.match(/([+-]?[\d.]+)%/)?.[1] ?? null : window.match(/\$([\d,.]+\s*[BM])/i)?.[1] ?? null;
+  return value ? { value, asOf } : null;
+}
+async function officialProfile(ticker: string, name: string) {
+  const url = `https://advisors.vanguard.com/investments/products/${ticker.toLowerCase()}/${slug(name)}`;
+  try {
+    const response = await fetch(url, { headers: { "User-Agent": "daggerok/Vanguard ETF research contact=github.com/daggerok", Accept: "text/html" } });
+    if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+    const raw = await response.text();
+    const text = raw.replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/\s+/g, " ");
+    const embedded = (name: string) => {
+      const match = raw.match(new RegExp(`window\\.${name}\\s*=\\s*(\\{.*?\\});`, "s"));
+      try { return match ? JSON.parse(match[1]) : null; } catch { return null; }
+    };
+    const hero = embedded("__HERO_STATS__");
+    const managed = embedded("__MANAGED_ASSETS__");
+    const fees = embedded("__FEES_AND_EXPENSE__");
+    const assets = (amount: number | undefined) => amount == null ? null : `$${(amount / 1e9).toFixed(1)} B`;
+    const netAssets = managed ? { value: assets(managed.assetsUnderManagementData?.amount), asOf: managed.assetsUnderManagementData?.effectiveDate ?? null } : findMetric(text, "Total net assets");
+    const etfAssets = managed ? { value: assets(managed.fundNetAssetsData?.amount), asOf: managed.fundNetAssetsData?.effectiveDate ?? null } : findMetric(text, `Net assets for ${ticker}`);
+    const expense = hero?.adjustedExpenseRatio ? { value: hero.adjustedExpenseRatio.value, asOf: hero.adjustedExpenseRatio.effectiveDate } : (fees?.adjustedExpenseRatio ? { value: fees.adjustedExpenseRatio.value, asOf: fees.adjustedExpenseRatio.effectiveDate } : findMetric(text, "Expense ratio", true));
+    const dividend = hero?.dividendYield ? { value: hero.dividendYield.value, asOf: hero.dividendYield.effectiveDate } : (findMetric(text, "Dividend yield", true) || findMetric(text, "Distribution yield", true));
+    const sec = findMetric(text, "30-day SEC yield", true) || findMetric(text, "30 day SEC yield", true);
+    const ytd = hero?.ytdReturn ? { value: String(hero.ytdReturn.value), asOf: hero.ytdReturn.effectiveDate } : findMetric(text, "YTD Returns (NAV)", true);
+    const oneYear = hero?.oneYearReturn ? { value: String(hero.oneYearReturn.value), asOf: hero.oneYearReturn.effectiveDate } : findMetric(text, "1 YR Returns (NAV)", true);
+    return { url, netAssets, etfAssets, expense, dividend, sec, ytd, oneYear };
+  } catch (error) {
+    console.warn(`[official] ${ticker} ${error}`);
+    return { url };
+  }
+}
 async function history(ticker: string) {
   const url = `https://query1.finance.yahoo.com/v8/finance/chart/${ticker}?range=max&interval=1d&events=div%2Csplits`;
   try {
@@ -104,11 +143,13 @@ export async function run() {
   const catalog: any[] = [];
   for (const [ticker, name, category] of selectedFunds()) {
     const dir = new URL(`${ticker}/`, FUNDS); await mkdir(dir, { recursive: true });
-    const rows = await history(ticker);
+    const [rows, official] = await Promise.all([history(ticker), officialProfile(ticker, name)]);
     const metrics = summary(rows);
     const historyPaths = await writePages(dir, "history", rows);
     const holdingsPaths = await writePages(dir, "holdings", []);
-    const meta = { ticker, name, category, type: "Vanguard ETF", fundPage: `https://investor.vanguard.com/investment-products/etfs/profile/${ticker.toLowerCase()}`, source: "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned", nav: metrics.nav, netAssets: null, netExpenseRatio: EXPENSE_RATIOS[ticker] ?? null, trailingYield: null, secYield: null, ytdReturn: metrics.totalReturn["1Y"] ?? null, asOfDate: metrics.asOfDate, totalReturn: metrics.totalReturn, performance: metrics.performance, officialMetrics: { nav: null, marketPrice: null, expenseRatio: EXPENSE_RATIOS[ticker] ?? null, returns: {} }, holdings: { totalRows: 0, pageSize: PAGE_SIZE, pages: holdingsPaths }, history: { totalRows: rows.length, pageSize: PAGE_SIZE, pages: historyPaths } };
+    const expense = official.expense?.value ? Number(official.expense.value) : EXPENSE_RATIOS[ticker] ?? null;
+    const officialYtd = official.ytd?.value ? Number(official.ytd.value) : null;
+    const meta = { ticker, name, category, type: "Vanguard ETF", fundPage: `https://investor.vanguard.com/investment-products/etfs/profile/${ticker.toLowerCase()}`, officialPage: official.url, source: "Vanguard official advisor profile + Yahoo daily history; SEC N-PORT fallback planned", nav: metrics.nav, netAssets: official.etfAssets?.value ?? null, totalFundNetAssets: official.netAssets?.value ?? null, netAssetsAsOf: official.etfAssets?.asOf ?? null, netExpenseRatio: expense, trailingYield: official.dividend?.value ? Number(official.dividend.value) : null, dividendYieldAsOf: official.dividend?.asOf ?? null, secYield: official.sec?.value ? Number(official.sec.value) : null, secYieldAsOf: official.sec?.asOf ?? null, ytdReturn: officialYtd ?? metrics.totalReturn["1Y"] ?? null, asOfDate: official.ytd?.asOf ?? metrics.asOfDate, totalReturn: metrics.totalReturn, performance: metrics.performance, officialMetrics: { nav: officialYtd === null ? null : officialYtd, marketPrice: null, expenseRatio: expense, returns: { YTD: officialYtd, "1Y": official.oneYear?.value ? Number(official.oneYear.value) : null } }, holdings: { totalRows: 0, pageSize: PAGE_SIZE, pages: holdingsPaths }, history: { totalRows: rows.length, pageSize: PAGE_SIZE, pages: historyPaths } };
     await writeFile(new URL("meta.json", dir), JSON.stringify(meta, null, 2) + "\n");
     catalog.push({ ...meta, holdings: 0, history: rows.length });
     console.log(`[ fund ] ticker=${ticker.padEnd(5)} history=${rows.length} status=${rows.length ? "updated" : "empty"}`);
