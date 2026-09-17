@@ -1,0 +1,54 @@
+{
+  "ticker": "VGLT",
+  "name": "Vanguard Long-Term Treasury ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vglt",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vglt/vanguard-long-term-treasury-etf",
+  "portId": "3144",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 51.88999938964844,
+  "netAssets": "$10.6B",
+  "totalFundNetAssets": "$15.1B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.03,
+  "trailingYield": 5.11809193,
+  "dividendYieldAsOf": "2026-09-01",
+  "secYield": 5.36,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": -4.22577363,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": -4.480849651342322,
+    "3Y": 6.323257390859172,
+    "5Y": -29.126889507333043,
+    "10Y": -16.927112501143526
+  },
+  "performance": {
+    "1Y": -4.480849651342322,
+    "3Y": 2.064824034877888,
+    "5Y": -6.653874019463945,
+    "10Y": -1.837427634999489
+  },
+  "officialMetrics": {
+    "nav": -4.22577363,
+    "marketPrice": null,
+    "expenseRatio": 0.03,
+    "returns": {
+      "YTD": -4.22577363,
+      "1Y": 0.1861597722
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 201,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

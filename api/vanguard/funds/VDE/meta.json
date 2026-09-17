@@ -1,0 +1,54 @@
+{
+  "ticker": "VDE",
+  "name": "Vanguard Energy ETF",
+  "category": "Sector",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vde",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vde/vanguard-energy-etf",
+  "portId": "0951",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 180.16000366210938,
+  "netAssets": "$10.9B",
+  "totalFundNetAssets": "$13.2B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.09,
+  "trailingYield": 2.35476,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 1.75,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 44.80053827,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 46.150760135919235,
+    "3Y": 54.66092750321829,
+    "5Y": 186.93535715650538,
+    "10Y": 159.65788485205127
+  },
+  "performance": {
+    "1Y": 46.150760135919235,
+    "3Y": 15.645002568986065,
+    "5Y": 23.468682336566935,
+    "10Y": 10.01202314036458
+  },
+  "officialMetrics": {
+    "nav": 44.80053827,
+    "marketPrice": null,
+    "expenseRatio": 0.09,
+    "returns": {
+      "YTD": 44.80053827,
+      "1Y": 46.049166397
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 265,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

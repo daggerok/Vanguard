@@ -1,0 +1,54 @@
+{
+  "ticker": "VBCI",
+  "name": "Vanguard Target Maturity 2035 Corporate Bond ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vbci",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vbci/vanguard-target-maturity-2035-corporate-bond-etf",
+  "portId": "V080",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 72.55000305175781,
+  "netAssets": "$11.8M",
+  "totalFundNetAssets": "$11.8M",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.08,
+  "trailingYield": null,
+  "dividendYieldAsOf": null,
+  "secYield": 5.7,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": -0.7377387917200773,
+  "asOfDate": "",
+  "totalReturn": {
+    "1Y": -0.7377387917200773,
+    "3Y": -0.7377387917200884,
+    "5Y": -0.7377387917200662,
+    "10Y": -0.7377387917201217
+  },
+  "performance": {
+    "1Y": -0.7377387917200773,
+    "3Y": -0.24652015304632569,
+    "5Y": -0.14798510247190366,
+    "10Y": -0.0740199459979829
+  },
+  "officialMetrics": {
+    "nav": null,
+    "marketPrice": null,
+    "expenseRatio": 0.08,
+    "returns": {
+      "YTD": null,
+      "1Y": null
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 120,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

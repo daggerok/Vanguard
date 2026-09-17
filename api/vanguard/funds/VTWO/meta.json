@@ -1,0 +1,54 @@
+{
+  "ticker": "VTWO",
+  "name": "Vanguard Russell 2000 ETF",
+  "category": "US Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vtwo",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vtwo/vanguard-russell-2000-etf",
+  "portId": "3351",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 115.06999969482422,
+  "netAssets": "$17.3B",
+  "totalFundNetAssets": "$18.0B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.06,
+  "trailingYield": 1.19708,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 1.12,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 16.20038611,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 18.71620818551978,
+    "3Y": 67.00327629682461,
+    "5Y": 39.15988972358937,
+    "10Y": 162.59387987728365
+  },
+  "performance": {
+    "1Y": 18.71620818551978,
+    "3Y": 18.64287544352907,
+    "5Y": 6.832358234255098,
+    "10Y": 10.13578712944112
+  },
+  "officialMetrics": {
+    "nav": 16.20038611,
+    "marketPrice": null,
+    "expenseRatio": 0.06,
+    "returns": {
+      "YTD": 16.20038611,
+      "1Y": 26.535984212
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 193,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

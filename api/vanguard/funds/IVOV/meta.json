@@ -1,0 +1,54 @@
+{
+  "ticker": "IVOV",
+  "name": "Vanguard S&P Mid-Cap 400 Value ETF",
+  "category": "US Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/ivov",
+  "officialPage": "https://advisors.vanguard.com/investments/products/ivov/vanguard-sp-mid-cap-400-value-etf",
+  "portId": "3344",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 110.1500015258789,
+  "netAssets": "$1.3B",
+  "totalFundNetAssets": "$1.5B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.1,
+  "trailingYield": 1.84176,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 1.74,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 9.09451159,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 11.275087815301731,
+    "3Y": 48.676577353092874,
+    "5Y": 51.3342654598288,
+    "10Y": 158.54970501770737
+  },
+  "performance": {
+    "1Y": 11.275087815301731,
+    "3Y": 14.13377579556203,
+    "5Y": 8.639424072224866,
+    "10Y": 9.964981288222585
+  },
+  "officialMetrics": {
+    "nav": 9.09451159,
+    "marketPrice": null,
+    "expenseRatio": 0.1,
+    "returns": {
+      "YTD": 9.09451159,
+      "1Y": 14.3581287803
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 193,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

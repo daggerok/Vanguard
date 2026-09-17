@@ -1,0 +1,54 @@
+{
+  "ticker": "MGC",
+  "name": "Vanguard Mega Cap ETF",
+  "category": "US Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/mgc",
+  "officialPage": "https://advisors.vanguard.com/investments/products/mgc/vanguard-mega-cap-etf",
+  "portId": "3137",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 277.7900085449219,
+  "netAssets": "$10.3B",
+  "totalFundNetAssets": "$10.9B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.05,
+  "trailingYield": 0.94691,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 0.85,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 11.24287652,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 14.69130029890524,
+    "3Y": 88.80235175793297,
+    "5Y": 93.92429182905377,
+    "10Y": 339.4231192211466
+  },
+  "performance": {
+    "1Y": 14.69130029890524,
+    "3Y": 23.59544529555302,
+    "5Y": 14.16328129557407,
+    "10Y": 15.954682281650467
+  },
+  "officialMetrics": {
+    "nav": 11.24287652,
+    "marketPrice": null,
+    "expenseRatio": 0.05,
+    "returns": {
+      "YTD": 11.24287652,
+      "1Y": 21.0581528164
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 226,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

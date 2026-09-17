@@ -1,0 +1,54 @@
+{
+  "ticker": "VSS",
+  "name": "Vanguard FTSE All-World ex-US Small-Cap ETF",
+  "category": "International Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vss",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vss/vanguard-ftse-all-world-ex-us-small-cap-etf",
+  "portId": "3184",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 155.88999938964844,
+  "netAssets": "$12.1B",
+  "totalFundNetAssets": "$14.5B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.06,
+  "trailingYield": 2.41678,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": null,
+  "secYieldAsOf": null,
+  "ytdReturn": 9.34781555,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 12.578194706016333,
+    "3Y": 60.93433657045362,
+    "5Y": 35.22494679105026,
+    "10Y": 107.47375331082205
+  },
+  "performance": {
+    "1Y": 12.578194706016333,
+    "3Y": 17.187935855716873,
+    "5Y": 6.221239238875831,
+    "10Y": 7.571275046121317
+  },
+  "officialMetrics": {
+    "nav": 9.34781555,
+    "marketPrice": null,
+    "expenseRatio": 0.06,
+    "returns": {
+      "YTD": 9.34781555,
+      "1Y": 18.7251991193
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 210,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

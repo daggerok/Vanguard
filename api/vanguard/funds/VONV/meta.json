@@ -1,0 +1,54 @@
+{
+  "ticker": "VONV",
+  "name": "Vanguard Russell 1000 Value ETF",
+  "category": "US Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vonv",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vonv/vanguard-russell-1000-value-etf",
+  "portId": "3349",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 110.56999969482422,
+  "netAssets": "$22.2B",
+  "totalFundNetAssets": "$23.9B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.06,
+  "trailingYield": 1.59242,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 1.47,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 20.81322351,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 25.41724384327404,
+    "3Y": 75.08627836745075,
+    "5Y": 77.409111015479,
+    "10Y": 196.8347673987534
+  },
+  "performance": {
+    "1Y": 25.41724384327404,
+    "3Y": 20.526914063610157,
+    "5Y": 12.148942795577078,
+    "10Y": 11.493994884947089
+  },
+  "officialMetrics": {
+    "nav": 20.81322351,
+    "marketPrice": null,
+    "expenseRatio": 0.06,
+    "returns": {
+      "YTD": 20.81322351,
+      "1Y": 29.6297039056
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 193,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

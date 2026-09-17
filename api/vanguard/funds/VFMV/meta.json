@@ -1,0 +1,54 @@
+{
+  "ticker": "VFMV",
+  "name": "Vanguard U.S. Minimum Volatility ETF",
+  "category": "US Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vfmv",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vfmv/vanguard-u-s-minimum-volatility-etf",
+  "portId": "4419",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 143.0959930419922,
+  "netAssets": "$456.4M",
+  "totalFundNetAssets": "$456.4M",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.13,
+  "trailingYield": 1.65482,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 1.48,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 10.41050478,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 11.000744862690425,
+    "3Y": 52.91015035365794,
+    "5Y": 56.77368097485178,
+    "10Y": 121.31675594441616
+  },
+  "performance": {
+    "1Y": 11.000744862690425,
+    "3Y": 15.206974553231145,
+    "5Y": 9.409398671402824,
+    "10Y": 8.268327899981532
+  },
+  "officialMetrics": {
+    "nav": 10.41050478,
+    "marketPrice": null,
+    "expenseRatio": 0.13,
+    "returns": {
+      "YTD": 10.41050478,
+      "1Y": 12.959686718
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 450,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

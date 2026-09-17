@@ -1,0 +1,54 @@
+{
+  "ticker": "VPU",
+  "name": "Vanguard Utilities ETF",
+  "category": "Sector",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vpu",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vpu/vanguard-utilities-etf",
+  "portId": "0960",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 178.9499969482422,
+  "netAssets": "$8.2B",
+  "totalFundNetAssets": "$10.1B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.09,
+  "trailingYield": 2.95227,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 2.86,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": -2.00472754,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": -3.561088195346307,
+    "3Y": 52.3633621188047,
+    "5Y": 48.6676984203799,
+    "10Y": 126.46286361230486
+  },
+  "performance": {
+    "1Y": -3.561088195346307,
+    "3Y": 15.069488468033555,
+    "5Y": 8.25384322282372,
+    "10Y": 8.51747986826652
+  },
+  "officialMetrics": {
+    "nav": -2.00472754,
+    "marketPrice": null,
+    "expenseRatio": 0.09,
+    "returns": {
+      "YTD": -2.00472754,
+      "1Y": 2.7501025975
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 273,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

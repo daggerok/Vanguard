@@ -1,0 +1,54 @@
+{
+  "ticker": "BNDW",
+  "name": "Vanguard Total World Bond ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/bndw",
+  "officialPage": "https://advisors.vanguard.com/investments/products/bndw/vanguard-total-world-bond-etf",
+  "portId": "3061",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 66.39520263671875,
+  "netAssets": "$1.9B",
+  "totalFundNetAssets": "$1.9B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.05,
+  "trailingYield": 3.84055487,
+  "dividendYieldAsOf": "2026-09-01",
+  "secYield": 4.34,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": -1.18692875,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": -0.5611846431507583,
+    "3Y": 11.993091923869637,
+    "5Y": -1.622837608847283,
+    "10Y": 13.474569917324875
+  },
+  "performance": {
+    "1Y": -0.5611846431507583,
+    "3Y": 3.8477468654703806,
+    "5Y": -0.32669515400961524,
+    "10Y": 1.272109057580706
+  },
+  "officialMetrics": {
+    "nav": -1.18692875,
+    "marketPrice": null,
+    "expenseRatio": 0.05,
+    "returns": {
+      "YTD": -1.18692875,
+      "1Y": 1.33445699
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 421,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

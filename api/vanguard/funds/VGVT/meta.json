@@ -1,0 +1,54 @@
+{
+  "ticker": "VGVT",
+  "name": "Vanguard Government Securities Active ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vgvt",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vgvt/vanguard-government-securities-active-etf",
+  "portId": "V050",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 73.07499694824219,
+  "netAssets": "$36.7M",
+  "totalFundNetAssets": "$36.7M",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.1,
+  "trailingYield": 4.52751315,
+  "dividendYieldAsOf": "2026-09-01",
+  "secYield": 4.33,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": -1.31733782,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": -0.40050533447316683,
+    "3Y": 2.008195088868203,
+    "5Y": 2.0081950888681366,
+    "10Y": 2.0081950888682476
+  },
+  "performance": {
+    "1Y": -0.40050533447316683,
+    "3Y": 0.6649667539336823,
+    "5Y": 0.3984510754784676,
+    "10Y": 0.19902747805413679
+  },
+  "officialMetrics": {
+    "nav": -1.31733782,
+    "marketPrice": null,
+    "expenseRatio": 0.1,
+    "returns": {
+      "YTD": -1.31733782,
+      "1Y": 1.8794623001
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 300,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "ticker": "VTEI",
+  "name": "Vanguard Intermediate-Term Tax-Exempt Bond ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vtei",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vtei/vanguard-intermediate-term-tax-exempt-bond-etf",
+  "portId": "V037",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 96.87000274658203,
+  "netAssets": "$1.6B",
+  "totalFundNetAssets": "$1.6B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.08,
+  "trailingYield": 3.3156757,
+  "dividendYieldAsOf": "2026-09-01",
+  "secYield": 3.52,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": -1.86968178,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": -0.5692020833806488,
+    "3Y": 3.9187703140509456,
+    "5Y": 3.918770314051012,
+    "10Y": 3.918770314050901
+  },
+  "performance": {
+    "1Y": -0.5692020833806488,
+    "3Y": 1.2895557486636067,
+    "5Y": 0.7717498212954643,
+    "10Y": 0.38513327245994766
+  },
+  "officialMetrics": {
+    "nav": -1.86968178,
+    "marketPrice": null,
+    "expenseRatio": 0.08,
+    "returns": {
+      "YTD": -1.86968178,
+      "1Y": 3.1074019364
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 139,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

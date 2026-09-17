@@ -1,0 +1,54 @@
+{
+  "ticker": "VTP",
+  "name": "Vanguard Total Inflation-Protected Securities ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vtp",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vtp/vanguard-total-inflation-protected-securities-etf",
+  "portId": "V049",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 74.08999633789062,
+  "netAssets": "$230.8M",
+  "totalFundNetAssets": "$230.8M",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.05,
+  "trailingYield": null,
+  "dividendYieldAsOf": null,
+  "secYield": 2.22,
+  "secYieldAsOf": "2026-09-10",
+  "ytdReturn": -0.78117731,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": -1.3876833154274348,
+    "3Y": 1.376673682874352,
+    "5Y": 1.3766736828743076,
+    "10Y": 1.3766736828743076
+  },
+  "performance": {
+    "1Y": -1.3876833154274348,
+    "3Y": 0.45680137533967713,
+    "5Y": 0.27383095653925604,
+    "10Y": 0.13682187713930372
+  },
+  "officialMetrics": {
+    "nav": -0.78117731,
+    "marketPrice": null,
+    "expenseRatio": 0.05,
+    "returns": {
+      "YTD": -0.78117731,
+      "1Y": 1.0410251212
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 299,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

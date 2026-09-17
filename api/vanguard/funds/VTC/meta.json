@@ -1,0 +1,54 @@
+{
+  "ticker": "VTC",
+  "name": "Vanguard Total Corporate Bond ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vtc",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vtc/vanguard-total-corporate-bond-etf",
+  "portId": "0985",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 74.04509735107422,
+  "netAssets": "$1.7B",
+  "totalFundNetAssets": "$1.7B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.03,
+  "trailingYield": 5.47447666,
+  "dividendYieldAsOf": "2026-09-01",
+  "secYield": 5.44,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": -1.39234241,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": -0.9760329128991163,
+    "3Y": 15.586761955610772,
+    "5Y": -2.0642688795863284,
+    "10Y": 20.90681490893187
+  },
+  "performance": {
+    "1Y": -0.9760329128991163,
+    "3Y": 4.946839894704391,
+    "5Y": -0.4163055826798767,
+    "10Y": 1.9166354707939925
+  },
+  "officialMetrics": {
+    "nav": -1.39234241,
+    "marketPrice": null,
+    "expenseRatio": 0.03,
+    "returns": {
+      "YTD": -1.39234241,
+      "1Y": 1.9406591515
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 464,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

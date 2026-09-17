@@ -1,0 +1,54 @@
+{
+  "ticker": "VBIL",
+  "name": "Vanguard 0-3 Month Treasury Bill ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vbil",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vbil/vanguard-0-3-month-treasury-bill-etf",
+  "portId": "V042",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 75.5999984741211,
+  "netAssets": "$11.4B",
+  "totalFundNetAssets": "$11.4B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.06,
+  "trailingYield": 3.70078097,
+  "dividendYieldAsOf": "2026-09-01",
+  "secYield": 3.64,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": 2.5635266,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 3.737919934438838,
+    "3Y": 6.383314736821855,
+    "5Y": 6.383314736821899,
+    "10Y": 6.383314736821899
+  },
+  "performance": {
+    "1Y": 3.737919934438838,
+    "3Y": 2.0840377322357106,
+    "5Y": 1.2452608464053494,
+    "10Y": 0.6207040555796128
+  },
+  "officialMetrics": {
+    "nav": 2.5635266,
+    "marketPrice": null,
+    "expenseRatio": 0.06,
+    "returns": {
+      "YTD": 2.5635266,
+      "1Y": 3.7716824664
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 400,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

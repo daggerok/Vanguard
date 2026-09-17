@@ -1,0 +1,54 @@
+{
+  "ticker": "VSDB",
+  "name": "Vanguard Short Duration Bond ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vsdb",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vsdb/vanguard-short-duration-bond-etf",
+  "portId": "V044",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 75.11000061035156,
+  "netAssets": "$1.0B",
+  "totalFundNetAssets": "$1.0B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.15,
+  "trailingYield": 4.71959049,
+  "dividendYieldAsOf": "2026-09-01",
+  "secYield": 5.02,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": 0.77696028,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 1.804775057958441,
+    "3Y": 5.472015009121933,
+    "5Y": 5.472015009122,
+    "10Y": 5.472015009121889
+  },
+  "performance": {
+    "1Y": 1.804775057958441,
+    "3Y": 1.7917109934884934,
+    "5Y": 1.07120619013652,
+    "10Y": 0.5341763730804638
+  },
+  "officialMetrics": {
+    "nav": 0.77696028,
+    "marketPrice": null,
+    "expenseRatio": 0.15,
+    "returns": {
+      "YTD": 0.77696028,
+      "1Y": 3.366695343
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 365,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "ticker": "VDC",
+  "name": "Vanguard Consumer Staples ETF",
+  "category": "Sector",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vdc",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vdc/vanguard-consumer-staples-etf",
+  "portId": "0955",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 225.11000061035156,
+  "netAssets": "$7.9B",
+  "totalFundNetAssets": "$9.3B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.09,
+  "trailingYield": 2.28996,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 2.17,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 7.76090766,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 7.084167009331233,
+    "3Y": 31.60413449112216,
+    "5Y": 40.75635792287373,
+    "10Y": 109.69056418621292
+  },
+  "performance": {
+    "1Y": 7.084167009331233,
+    "3Y": 9.586362368408107,
+    "5Y": 7.076361235740936,
+    "10Y": 7.68566363341856
+  },
+  "officialMetrics": {
+    "nav": 7.76090766,
+    "marketPrice": null,
+    "expenseRatio": 0.09,
+    "returns": {
+      "YTD": 7.76090766,
+      "1Y": 7.0468658272
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 273,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

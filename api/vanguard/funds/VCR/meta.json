@@ -1,0 +1,54 @@
+{
+  "ticker": "VCR",
+  "name": "Vanguard Consumer Discretionary ETF",
+  "category": "Sector",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vcr",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vcr/vanguard-consumer-discretionary-etf",
+  "portId": "0954",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 370.260009765625,
+  "netAssets": "$6.0B",
+  "totalFundNetAssets": "$6.6B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.09,
+  "trailingYield": 0.84035,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 0.76,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": -5.58102315,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": -6.001366359207438,
+    "3Y": 40.48207940729427,
+    "5Y": 24.320041199967534,
+    "10Y": 229.0044323079867
+  },
+  "performance": {
+    "1Y": -6.001366359207438,
+    "3Y": 11.997151130579574,
+    "5Y": 4.449948233785306,
+    "10Y": 12.647141292954544
+  },
+  "officialMetrics": {
+    "nav": -5.58102315,
+    "marketPrice": null,
+    "expenseRatio": 0.09,
+    "returns": {
+      "YTD": -5.58102315,
+      "1Y": 2.1921001829
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 273,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

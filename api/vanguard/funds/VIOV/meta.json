@@ -1,0 +1,54 @@
+{
+  "ticker": "VIOV",
+  "name": "Vanguard S&P Small-Cap 600 Value ETF",
+  "category": "US Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/viov",
+  "officialPage": "https://advisors.vanguard.com/investments/products/viov/vanguard-sp-small-cap-600-value-etf",
+  "portId": "3346",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 114.0199966430664,
+  "netAssets": "$1.9B",
+  "totalFundNetAssets": "$2.0B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.1,
+  "trailingYield": 2.02533,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 1.94,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 17.47925991,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 21.401694249279313,
+    "3Y": 56.449924773367435,
+    "5Y": 43.73060047475401,
+    "10Y": 151.0284431330085
+  },
+  "performance": {
+    "1Y": 21.401694249279313,
+    "3Y": 16.089191405246517,
+    "5Y": 7.525098233911076,
+    "10Y": 9.640824622136467
+  },
+  "officialMetrics": {
+    "nav": 17.47925991,
+    "marketPrice": null,
+    "expenseRatio": 0.1,
+    "returns": {
+      "YTD": 17.47925991,
+      "1Y": 26.7298112772
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 193,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

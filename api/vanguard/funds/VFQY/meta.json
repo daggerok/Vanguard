@@ -1,0 +1,54 @@
+{
+  "ticker": "VFQY",
+  "name": "Vanguard U.S. Quality Factor ETF",
+  "category": "US Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vfqy",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vfqy/vanguard-u-s-quality-factor-etf",
+  "portId": "4417",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 171.85499572753906,
+  "netAssets": "$506.9M",
+  "totalFundNetAssets": "$506.9M",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.13,
+  "trailingYield": 1.06171,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 0.9,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 12.54685959,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 14.388391151864921,
+    "3Y": 55.816291075580615,
+    "5Y": 52.91357761532139,
+    "10Y": 148.029921210943
+  },
+  "performance": {
+    "1Y": 14.388391151864921,
+    "3Y": 15.932256094240582,
+    "5Y": 8.865233865064305,
+    "10Y": 9.509149876596146
+  },
+  "officialMetrics": {
+    "nav": 12.54685959,
+    "marketPrice": null,
+    "expenseRatio": 0.13,
+    "returns": {
+      "YTD": 12.54685959,
+      "1Y": 18.8232639194
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 450,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

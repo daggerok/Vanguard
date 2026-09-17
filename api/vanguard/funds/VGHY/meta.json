@@ -1,0 +1,54 @@
+{
+  "ticker": "VGHY",
+  "name": "Vanguard High-Yield Active ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vghy",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vghy/vanguard-high-yield-active-etf",
+  "portId": "V052",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 73.41999816894531,
+  "netAssets": "$317.1M",
+  "totalFundNetAssets": "$317.1M",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.22,
+  "trailingYield": null,
+  "dividendYieldAsOf": null,
+  "secYield": 6.61,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": 1.69876402,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 3.2195362422805074,
+    "3Y": 3.219536242280485,
+    "5Y": 3.2195362422805296,
+    "10Y": 3.2195362422805296
+  },
+  "performance": {
+    "1Y": 3.2195362422805074,
+    "3Y": 1.0618633004758404,
+    "5Y": 0.6357715783946505,
+    "10Y": 0.3173821321084125
+  },
+  "officialMetrics": {
+    "nav": 1.69876402,
+    "marketPrice": null,
+    "expenseRatio": 0.22,
+    "returns": {
+      "YTD": 1.69876402,
+      "1Y": null
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 251,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

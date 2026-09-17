@@ -1,0 +1,54 @@
+{
+  "ticker": "VCLT",
+  "name": "Vanguard Long-Term Corporate Bond ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vclt",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vclt/vanguard-long-term-corporate-bond-etf",
+  "portId": "3147",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 70.93000030517578,
+  "netAssets": "$9.0B",
+  "totalFundNetAssets": "$9.8B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.03,
+  "trailingYield": 6.31368747,
+  "dividendYieldAsOf": "2026-09-01",
+  "secYield": 6.31,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": -3.07536564,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": -3.532636581830084,
+    "3Y": 16.229655453060545,
+    "5Y": -14.421198207076525,
+    "10Y": 14.636718622840972
+  },
+  "performance": {
+    "1Y": -3.532636581830084,
+    "3Y": 5.141051689097997,
+    "5Y": -3.0666459448523753,
+    "10Y": 1.3753518664380238
+  },
+  "officialMetrics": {
+    "nav": -3.07536564,
+    "marketPrice": null,
+    "expenseRatio": 0.03,
+    "returns": {
+      "YTD": -3.07536564,
+      "1Y": 0.8188646622
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 203,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

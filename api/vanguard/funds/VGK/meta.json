@@ -1,0 +1,54 @@
+{
+  "ticker": "VGK",
+  "name": "Vanguard FTSE Europe ETF",
+  "category": "International Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vgk",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vgk/vanguard-ftse-europe-etf",
+  "portId": "0963",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 88.62999725341797,
+  "netAssets": "$31.0B",
+  "totalFundNetAssets": "$39.1B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.06,
+  "trailingYield": 2.75141,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": null,
+  "secYieldAsOf": null,
+  "ytdReturn": 7.70225142,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 14.17374119463779,
+    "3Y": 67.4824983268922,
+    "5Y": 58.524968249049245,
+    "10Y": 149.54226247656436
+  },
+  "performance": {
+    "1Y": 14.17374119463779,
+    "3Y": 18.756250429712985,
+    "5Y": 9.652751787443936,
+    "10Y": 9.575739637851498
+  },
+  "officialMetrics": {
+    "nav": 7.70225142,
+    "marketPrice": null,
+    "expenseRatio": 0.06,
+    "returns": {
+      "YTD": 7.70225142,
+      "1Y": 20.2137871202
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 259,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

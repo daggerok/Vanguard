@@ -1,0 +1,54 @@
+{
+  "ticker": "VFMF",
+  "name": "Vanguard U.S. Multifactor ETF",
+  "category": "US Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vfmf",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vfmf/vanguard-u-s-multifactor-etf",
+  "portId": "4421",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 183.1750030517578,
+  "netAssets": "$976.2M",
+  "totalFundNetAssets": "$976.2M",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.18,
+  "trailingYield": 1.66082,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 1.43,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 22.68070396,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 28.215554909736863,
+    "3Y": 83.42063769939708,
+    "5Y": 99.11508696201705,
+    "10Y": 174.1448044959125
+  },
+  "performance": {
+    "1Y": 28.215554909736863,
+    "3Y": 22.40976560773995,
+    "5Y": 14.768005303027088,
+    "10Y": 10.610919339971868
+  },
+  "officialMetrics": {
+    "nav": 22.68070396,
+    "marketPrice": null,
+    "expenseRatio": 0.18,
+    "returns": {
+      "YTD": 22.68070396,
+      "1Y": 32.2891298977
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 450,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

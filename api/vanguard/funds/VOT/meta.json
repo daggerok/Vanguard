@@ -1,0 +1,54 @@
+{
+  "ticker": "VOT",
+  "name": "Vanguard Mid-Cap Growth ETF",
+  "category": "US Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vot",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vot/vanguard-mid-cap-growth-etf",
+  "portId": "0932",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 289.5199890136719,
+  "netAssets": "$19.6B",
+  "totalFundNetAssets": "$34.1B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.05,
+  "trailingYield": 0.6159,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 0.59,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 4.05212004,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": -0.9598768631634225,
+    "3Y": 51.56639795171883,
+    "5Y": 26.69685741548582,
+    "10Y": 191.7386557929568
+  },
+  "performance": {
+    "1Y": -0.9598768631634225,
+    "3Y": 14.86850703472673,
+    "5Y": 4.846314396066642,
+    "10Y": 11.301084937363282
+  },
+  "officialMetrics": {
+    "nav": 4.05212004,
+    "marketPrice": null,
+    "expenseRatio": 0.05,
+    "returns": {
+      "YTD": 4.05212004,
+      "1Y": 5.0358349227
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 242,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

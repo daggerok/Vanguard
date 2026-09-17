@@ -1,0 +1,54 @@
+{
+  "ticker": "VSGX",
+  "name": "Vanguard ESG International Stock ETF",
+  "category": "International Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vsgx",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vsgx/vanguard-esg-international-stock-etf",
+  "portId": "4394",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 81.41000366210938,
+  "netAssets": "$6.8B",
+  "totalFundNetAssets": "$6.8B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.1,
+  "trailingYield": 2.24565,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": null,
+  "secYieldAsOf": null,
+  "ytdReturn": 14.83296217,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 20.713959340242518,
+    "3Y": 70.32709829102602,
+    "5Y": 47.37183601722372,
+    "10Y": 95.09536077314308
+  },
+  "performance": {
+    "1Y": 20.713959340242518,
+    "3Y": 19.424816486457996,
+    "5Y": 8.064462788074334,
+    "10Y": 6.911566801824454
+  },
+  "officialMetrics": {
+    "nav": 14.83296217,
+    "marketPrice": null,
+    "expenseRatio": 0.1,
+    "returns": {
+      "YTD": 14.83296217,
+      "1Y": 27.5203183542
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 419,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

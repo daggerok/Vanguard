@@ -1,0 +1,54 @@
+{
+  "ticker": "VPL",
+  "name": "Vanguard FTSE Pacific ETF",
+  "category": "International Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vpl",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vpl/vanguard-ftse-pacific-etf",
+  "portId": "0962",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 114.94000244140625,
+  "netAssets": "$8.6B",
+  "totalFundNetAssets": "$13.8B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.07,
+  "trailingYield": 1.98173,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": null,
+  "secYieldAsOf": null,
+  "ytdReturn": 26.46507008,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 34.424486798612875,
+    "3Y": 88.17623851269805,
+    "5Y": 64.88549284133265,
+    "10Y": 151.0755996670531
+  },
+  "performance": {
+    "1Y": 34.424486798612875,
+    "3Y": 23.4586700830707,
+    "5Y": 10.518883618351937,
+    "10Y": 9.642884087670268
+  },
+  "officialMetrics": {
+    "nav": 26.46507008,
+    "marketPrice": null,
+    "expenseRatio": 0.07,
+    "returns": {
+      "YTD": 26.46507008,
+      "1Y": 39.1049623145
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 259,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

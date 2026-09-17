@@ -1,0 +1,54 @@
+{
+  "ticker": "VV",
+  "name": "Vanguard Large-Cap ETF",
+  "category": "US Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vv",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vv/vanguard-large-cap-etf",
+  "portId": "0961",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 347.79998779296875,
+  "netAssets": "$54.3B",
+  "totalFundNetAssets": "$76.2B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.03,
+  "trailingYield": 1.02088,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 0.96,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 11.12245469,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 13.940062023281886,
+    "3Y": 84.0272936359604,
+    "5Y": 84.83756561904603,
+    "10Y": 310.20543817683796
+  },
+  "performance": {
+    "1Y": 13.940062023281886,
+    "3Y": 22.544572120913454,
+    "5Y": 13.072774317870838,
+    "10Y": 15.159598315508326
+  },
+  "officialMetrics": {
+    "nav": 11.12245469,
+    "marketPrice": null,
+    "expenseRatio": 0.03,
+    "returns": {
+      "YTD": 11.12245469,
+      "1Y": 20.0526921579
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 273,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

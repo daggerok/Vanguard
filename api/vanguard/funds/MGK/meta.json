@@ -5,29 +5,30 @@
   "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/mgk",
   "officialPage": "https://advisors.vanguard.com/investments/products/mgk/vanguard-mega-cap-growth-etf",
-  "source": "Vanguard official advisor profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "portId": "3138",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
   "nav": 89.12000274658203,
-  "netAssets": "$33.5 B",
-  "totalFundNetAssets": "$33.7 B",
+  "netAssets": "$33.5B",
+  "totalFundNetAssets": "$33.7B",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.05,
   "trailingYield": 0.33322,
   "dividendYieldAsOf": "2026-08-31",
-  "secYield": null,
-  "secYieldAsOf": null,
+  "secYield": 0.29,
+  "secYieldAsOf": "2026-08-31",
   "ytdReturn": 8.13798018,
   "asOfDate": "2026-09-16",
   "totalReturn": {
     "1Y": 11.043947258498644,
-    "3Y": 98.76633930416598,
+    "3Y": 98.76635621521712,
     "5Y": 94.29290213821977,
-    "10Y": 447.5089187106906
+    "10Y": 447.508790398718
   },
   "performance": {
     "1Y": 11.043947258498644,
-    "3Y": 25.732518005326412,
+    "3Y": 25.73252157110284,
     "5Y": 14.206648532281463,
-    "10Y": 18.532957294242625
+    "10Y": 18.53295451635195
   },
   "officialMetrics": {
     "nav": 8.13798018,

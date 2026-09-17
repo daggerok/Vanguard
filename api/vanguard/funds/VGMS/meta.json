@@ -1,0 +1,54 @@
+{
+  "ticker": "VGMS",
+  "name": "Vanguard Multi-Sector Income Bond ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vgms",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vgms/vanguard-multi-sector-income-bond-etf",
+  "portId": "V047",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 50.15999984741211,
+  "netAssets": "$272.6M",
+  "totalFundNetAssets": "$272.6M",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.3,
+  "trailingYield": 5.65245209,
+  "dividendYieldAsOf": "2026-09-01",
+  "secYield": 5.77,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": 0.80658574,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 2.222620082868687,
+    "3Y": 6.19917301392785,
+    "5Y": 6.199173013927872,
+    "10Y": 6.199173013927872
+  },
+  "performance": {
+    "1Y": 2.222620082868687,
+    "3Y": 2.025103719186938,
+    "5Y": 1.2101869282212574,
+    "10Y": 0.6032737679153577
+  },
+  "officialMetrics": {
+    "nav": 0.80658574,
+    "marketPrice": null,
+    "expenseRatio": 0.3,
+    "returns": {
+      "YTD": 0.80658574,
+      "1Y": 4.4530273483
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 318,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

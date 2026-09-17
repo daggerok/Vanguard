@@ -1,0 +1,54 @@
+{
+  "ticker": "VDIG",
+  "name": "Vanguard Wellington Dividend Growth Active ETF",
+  "category": "US Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vdig",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vdig/vanguard-wellington-dividend-growth-active-etf",
+  "portId": "V053",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 61.76100158691406,
+  "netAssets": "$31.9M",
+  "totalFundNetAssets": "$31.9M",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.4,
+  "trailingYield": 1.49764,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 1.01,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 0.71789851,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 4.357761442353092,
+    "3Y": 4.35776144235307,
+    "5Y": 4.357761442353114,
+    "10Y": 4.357761442353003
+  },
+  "performance": {
+    "1Y": 4.357761442353092,
+    "3Y": 1.4319835002652104,
+    "5Y": 0.8567457119386557,
+    "10Y": 0.4274592489218687
+  },
+  "officialMetrics": {
+    "nav": 0.71789851,
+    "marketPrice": null,
+    "expenseRatio": 0.4,
+    "returns": {
+      "YTD": 0.71789851,
+      "1Y": null
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 207,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

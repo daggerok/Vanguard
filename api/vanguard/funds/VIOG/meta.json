@@ -1,0 +1,54 @@
+{
+  "ticker": "VIOG",
+  "name": "Vanguard S&P Small-Cap 600 Growth ETF",
+  "category": "US Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/viog",
+  "officialPage": "https://advisors.vanguard.com/investments/products/viog/vanguard-sp-small-cap-600-growth-etf",
+  "portId": "3347",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 140.718994140625,
+  "netAssets": "$1.1B",
+  "totalFundNetAssets": "$1.1B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.1,
+  "trailingYield": 0.93846,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 0.82,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 16.31216298,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 16.30976529154595,
+    "3Y": 53.494834660536284,
+    "5Y": 31.925862442136754,
+    "10Y": 162.2378937276769
+  },
+  "performance": {
+    "1Y": 16.30976529154595,
+    "3Y": 15.353627205403008,
+    "5Y": 5.697809838543599,
+    "10Y": 10.120847423594892
+  },
+  "officialMetrics": {
+    "nav": 16.31216298,
+    "marketPrice": null,
+    "expenseRatio": 0.1,
+    "returns": {
+      "YTD": 16.31216298,
+      "1Y": 21.3817580469
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 193,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

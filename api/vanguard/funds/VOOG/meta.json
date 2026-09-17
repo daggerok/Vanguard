@@ -5,29 +5,30 @@
   "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/voog",
   "officialPage": "https://advisors.vanguard.com/investments/products/voog/vanguard-sp-500-growth-etf",
-  "source": "Vanguard official advisor profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "portId": "3341",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
   "nav": 82.62999725341797,
-  "netAssets": "$27.1 B",
-  "totalFundNetAssets": "$27.1 B",
+  "netAssets": "$27.1B",
+  "totalFundNetAssets": "$27.1B",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.07,
   "trailingYield": 0.50115,
   "dividendYieldAsOf": "2026-08-31",
-  "secYield": null,
-  "secYieldAsOf": null,
+  "secYield": 0.41,
+  "secYieldAsOf": "2026-08-31",
   "ytdReturn": 11.81549821,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 14.285824330513064,
-    "3Y": 104.18800679465403,
+    "1Y": 14.285812270798747,
+    "3Y": 104.18798754678042,
     "5Y": 92.6792077552174,
-    "10Y": 399.6971152764791
+    "10Y": 399.69694236368343
   },
   "performance": {
-    "1Y": 14.285824330513064,
-    "3Y": 26.8654633318417,
+    "1Y": 14.285812270798747,
+    "3Y": 26.8654593454984,
     "5Y": 14.016307088285163,
-    "10Y": 17.45477688572712
+    "10Y": 17.454772821377663
   },
   "officialMetrics": {
     "nav": 11.81549821,

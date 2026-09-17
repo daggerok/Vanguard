@@ -1,0 +1,54 @@
+{
+  "ticker": "VEU",
+  "name": "Vanguard FTSE All-World ex-US ETF",
+  "category": "International Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/veu",
+  "officialPage": "https://advisors.vanguard.com/investments/products/veu/vanguard-ftse-all-world-ex-us-etf",
+  "portId": "0991",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 83.5,
+  "netAssets": "$70.4B",
+  "totalFundNetAssets": "$98.6B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.04,
+  "trailingYield": 2.32597,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": null,
+  "secYieldAsOf": null,
+  "ytdReturn": 14.05644201,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 19.7689390548633,
+    "3Y": 75.37245875859446,
+    "5Y": 59.09192761801283,
+    "10Y": 145.20997530427144
+  },
+  "performance": {
+    "1Y": 19.7689390548633,
+    "3Y": 20.592545827226804,
+    "5Y": 9.731073717865502,
+    "10Y": 9.384003165323108
+  },
+  "officialMetrics": {
+    "nav": 14.05644201,
+    "marketPrice": null,
+    "expenseRatio": 0.04,
+    "returns": {
+      "YTD": 14.05644201,
+      "1Y": 26.766801493
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 235,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

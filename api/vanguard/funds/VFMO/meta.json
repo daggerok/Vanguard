@@ -1,0 +1,54 @@
+{
+  "ticker": "VFMO",
+  "name": "Vanguard U.S. Momentum Factor ETF",
+  "category": "US Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vfmo",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vfmo/vanguard-u-s-momentum-factor-etf",
+  "portId": "4418",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 224.1300048828125,
+  "netAssets": "$1.9B",
+  "totalFundNetAssets": "$1.9B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.13,
+  "trailingYield": 0.81083,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 0.6,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 17.50538208,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 17.90293942945209,
+    "3Y": 96.51166858704323,
+    "5Y": 80.09783479831736,
+    "10Y": 212.92523934217988
+  },
+  "performance": {
+    "1Y": 17.90293942945209,
+    "3Y": 25.25530084872618,
+    "5Y": 12.486835246789173,
+    "10Y": 12.084113004322482
+  },
+  "officialMetrics": {
+    "nav": 17.50538208,
+    "marketPrice": null,
+    "expenseRatio": 0.13,
+    "returns": {
+      "YTD": 17.50538208,
+      "1Y": 26.3938196405
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 450,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

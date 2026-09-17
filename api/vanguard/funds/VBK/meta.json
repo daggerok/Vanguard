@@ -1,0 +1,54 @@
+{
+  "ticker": "VBK",
+  "name": "Vanguard Small-Cap Growth ETF",
+  "category": "US Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vbk",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vbk/vanguard-small-cap-growth-etf",
+  "portId": "0938",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 335.1499938964844,
+  "netAssets": "$23.7B",
+  "totalFundNetAssets": "$44.7B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.05,
+  "trailingYield": 0.42763,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": 0.37,
+  "secYieldAsOf": "2026-08-31",
+  "ytdReturn": 11.22038011,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 12.995891599127907,
+    "3Y": 59.05163633667221,
+    "5Y": 23.004681531951256,
+    "10Y": 170.66748097141806
+  },
+  "performance": {
+    "1Y": 12.995891599127907,
+    "3Y": 16.72916543465115,
+    "5Y": 4.227981732328012,
+    "10Y": 10.46981026854683
+  },
+  "officialMetrics": {
+    "nav": 11.22038011,
+    "marketPrice": null,
+    "expenseRatio": 0.05,
+    "returns": {
+      "YTD": 11.22038011,
+      "1Y": 20.0286378505
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 273,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

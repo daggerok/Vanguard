@@ -5,10 +5,11 @@
   "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vwo",
   "officialPage": "https://advisors.vanguard.com/investments/products/vwo/vanguard-ftse-emerging-markets-etf",
-  "source": "Vanguard official advisor profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "portId": "0964",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
   "nav": 59.18000030517578,
-  "netAssets": "$127.3 B",
-  "totalFundNetAssets": "$168.5 B",
+  "netAssets": "$127.3B",
+  "totalFundNetAssets": "$168.5B",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.06,
   "trailingYield": 2.25242,
@@ -19,15 +20,15 @@
   "asOfDate": "2026-09-16",
   "totalReturn": {
     "1Y": 11.508143697080353,
-    "3Y": 63.92931642271718,
-    "5Y": 37.023432158453026,
-    "10Y": 106.8871053908305
+    "3Y": 63.92933374473249,
+    "5Y": 37.02342005596224,
+    "10Y": 106.88711918583982
   },
   "performance": {
     "1Y": 11.508143697080353,
-    "3Y": 17.910426233868915,
-    "5Y": 6.502295463131658,
-    "10Y": 7.540819672802046
+    "3Y": 17.910430386972177,
+    "5Y": 6.5022935817846905,
+    "10Y": 7.540820389872627
   },
   "officialMetrics": {
     "nav": 10.41996111,

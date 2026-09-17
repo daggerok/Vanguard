@@ -1,0 +1,54 @@
+{
+  "ticker": "MUNY",
+  "name": "Vanguard New York Tax-Exempt Bond ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/muny",
+  "officialPage": "https://advisors.vanguard.com/investments/products/muny/vanguard-new-york-tax-exempt-bond-etf",
+  "portId": "V046",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 98.94999694824219,
+  "netAssets": "$496.0M",
+  "totalFundNetAssets": "$496.0M",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.09,
+  "trailingYield": 3.54663579,
+  "dividendYieldAsOf": "2026-09-01",
+  "secYield": 3.83,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": -1.86581722,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": -0.7907474274356452,
+    "3Y": 3.354328684413943,
+    "5Y": 3.3543286844139653,
+    "10Y": 3.3543286844138542
+  },
+  "performance": {
+    "1Y": -0.7907474274356452,
+    "3Y": 1.105835757695206,
+    "5Y": 0.6620415303380423,
+    "10Y": 0.33047469754043934
+  },
+  "officialMetrics": {
+    "nav": -1.86581722,
+    "marketPrice": null,
+    "expenseRatio": 0.09,
+    "returns": {
+      "YTD": -1.86581722,
+      "1Y": 4.0485307906
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 331,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

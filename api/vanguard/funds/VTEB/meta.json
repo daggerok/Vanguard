@@ -1,0 +1,54 @@
+{
+  "ticker": "VTEB",
+  "name": "Vanguard Tax-Exempt Bond ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vteb",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vteb/vanguard-tax-exempt-bond-etf",
+  "portId": "4391",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 48.22999954223633,
+  "netAssets": "$46.3B",
+  "totalFundNetAssets": "$49.0B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.03,
+  "trailingYield": 3.64002293,
+  "dividendYieldAsOf": "2026-09-01",
+  "secYield": 3.93,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": -1.87705145,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": -0.34865974943253386,
+    "3Y": 10.530617918468499,
+    "5Y": 1.4791491942438562,
+    "10Y": 17.80795406505391
+  },
+  "performance": {
+    "1Y": -0.34865974943253386,
+    "3Y": 3.393729103036436,
+    "5Y": 0.2940949077082866,
+    "10Y": 1.6523589565276442
+  },
+  "officialMetrics": {
+    "nav": -1.87705145,
+    "marketPrice": null,
+    "expenseRatio": 0.03,
+    "returns": {
+      "YTD": -1.87705145,
+      "1Y": 4.1197715684
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 134,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

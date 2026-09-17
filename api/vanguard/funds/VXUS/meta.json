@@ -5,10 +5,11 @@
   "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vxus",
   "officialPage": "https://advisors.vanguard.com/investments/products/vxus/vanguard-total-international-stock-etf",
-  "source": "Vanguard official advisor profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "portId": "3369",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
   "nav": 85.41000366210938,
-  "netAssets": "$164.9 B",
-  "totalFundNetAssets": "$665.7 B",
+  "netAssets": "$164.9B",
+  "totalFundNetAssets": "$665.7B",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.05,
   "trailingYield": 2.33492,
@@ -19,15 +20,15 @@
   "asOfDate": "2026-09-16",
   "totalReturn": {
     "1Y": 19.059259496384207,
-    "3Y": 74.03446391856671,
+    "3Y": 74.03447744620215,
     "5Y": 57.04540520711288,
-    "10Y": 141.6295988844537
+    "10Y": 141.62967711439384
   },
   "performance": {
     "1Y": 19.059259496384207,
-    "3Y": 20.285077756015713,
+    "3Y": 20.28508087258738,
     "5Y": 9.447298649409476,
-    "10Y": 9.223229433558021
+    "10Y": 9.223232969766126
   },
   "officialMetrics": {
     "nav": 13.65318352,

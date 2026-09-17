@@ -1,0 +1,54 @@
+{
+  "ticker": "VBCE",
+  "name": "Vanguard Target Maturity 2031 Corporate Bond ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vbce",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vbce/vanguard-target-maturity-2031-corporate-bond-etf",
+  "portId": "V076",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 73.5,
+  "netAssets": "$52.2M",
+  "totalFundNetAssets": "$52.2M",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.08,
+  "trailingYield": null,
+  "dividendYieldAsOf": null,
+  "secYield": 5.23,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": -0.07673326632915423,
+  "asOfDate": "",
+  "totalReturn": {
+    "1Y": -0.07673326632915423,
+    "3Y": -0.07673326632915423,
+    "5Y": -0.07673326632913202,
+    "10Y": -0.07673326632918753
+  },
+  "performance": {
+    "1Y": -0.07673326632915423,
+    "3Y": -0.025584300449132957,
+    "5Y": -0.015351365830984509,
+    "10Y": -0.0076759775186507895
+  },
+  "officialMetrics": {
+    "nav": null,
+    "marketPrice": null,
+    "expenseRatio": 0.08,
+    "returns": {
+      "YTD": null,
+      "1Y": null
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 120,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

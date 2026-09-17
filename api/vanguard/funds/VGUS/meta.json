@@ -1,0 +1,54 @@
+{
+  "ticker": "VGUS",
+  "name": "Vanguard Ultra-Short Treasury ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vgus",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vgus/vanguard-ultra-short-treasury-etf",
+  "portId": "V041",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 75.5199966430664,
+  "netAssets": "$1.1B",
+  "totalFundNetAssets": "$1.1B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.07,
+  "trailingYield": 3.85057032,
+  "dividendYieldAsOf": "2026-09-01",
+  "secYield": 3.78,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": 2.43240907,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 3.6056570655228715,
+    "3Y": 6.282946476802609,
+    "5Y": 6.282946476802587,
+    "10Y": 6.282946476802698
+  },
+  "performance": {
+    "1Y": 3.6056570655228715,
+    "3Y": 2.0519236073744063,
+    "5Y": 1.2261494890217106,
+    "10Y": 0.6112068752888611
+  },
+  "officialMetrics": {
+    "nav": 2.43240907,
+    "marketPrice": null,
+    "expenseRatio": 0.07,
+    "returns": {
+      "YTD": 2.43240907,
+      "1Y": 3.7394530358
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 400,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "ticker": "VEXC",
+  "name": "Vanguard Emerging Markets ex-China ETF",
+  "category": "International Equity",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vexc",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vexc/vanguard-emerging-markets-ex-china-etf",
+  "portId": "V051",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 95.20999908447266,
+  "netAssets": "$269.4M",
+  "totalFundNetAssets": "$269.4M",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.07,
+  "trailingYield": 2.28179,
+  "dividendYieldAsOf": "2026-08-31",
+  "secYield": null,
+  "secYieldAsOf": null,
+  "ytdReturn": 21.08487922,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 26.65281195728335,
+    "3Y": 26.652811957283372,
+    "5Y": 26.65281195728333,
+    "10Y": 26.652811957283483
+  },
+  "performance": {
+    "1Y": 26.65281195728335,
+    "3Y": 8.194440521145662,
+    "5Y": 4.839023534468367,
+    "10Y": 2.390929058422153
+  },
+  "officialMetrics": {
+    "nav": 21.08487922,
+    "marketPrice": null,
+    "expenseRatio": 0.07,
+    "returns": {
+      "YTD": 21.08487922,
+      "1Y": null
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 240,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

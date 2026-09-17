@@ -1,0 +1,54 @@
+{
+  "ticker": "VUSB",
+  "name": "Vanguard Ultra-Short Bond ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vusb",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vusb/vanguard-ultra-short-bond-etf",
+  "portId": "0931",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 49.540000915527344,
+  "netAssets": "$10.2B",
+  "totalFundNetAssets": "$10.2B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.1,
+  "trailingYield": 4.41496654,
+  "dividendYieldAsOf": "2026-09-01",
+  "secYield": 4.52,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": 2.24520827,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 3.517854391397446,
+    "3Y": 16.27198048485077,
+    "5Y": 19.162871316881947,
+    "10Y": 19.49864105017649
+  },
+  "performance": {
+    "1Y": 3.517854391397446,
+    "3Y": 5.153812512427458,
+    "5Y": 3.5686205565882645,
+    "10Y": 1.7973087700511092
+  },
+  "officialMetrics": {
+    "nav": 2.24520827,
+    "marketPrice": null,
+    "expenseRatio": 0.1,
+    "returns": {
+      "YTD": 2.24520827,
+      "1Y": 3.9991904368
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 286,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

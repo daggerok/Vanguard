@@ -5,10 +5,11 @@
   "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vea",
   "officialPage": "https://advisors.vanguard.com/investments/products/vea/vanguard-ftse-developed-markets-etf",
-  "source": "Vanguard official advisor profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "portId": "0936",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
   "nav": 71.26000213623047,
-  "netAssets": "$238.1 B",
-  "totalFundNetAssets": "$323.8 B",
+  "netAssets": "$238.1B",
+  "totalFundNetAssets": "$323.8B",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.03,
   "trailingYield": 2.36412,
@@ -19,15 +20,15 @@
   "asOfDate": "2026-09-16",
   "totalReturn": {
     "1Y": 21.78077665862286,
-    "3Y": 77.76419091635947,
-    "5Y": 64.20532489046893,
-    "10Y": 154.9452394146833
+    "3Y": 77.76422474876563,
+    "5Y": 64.20535375860838,
+    "10Y": 154.9451698261093
   },
   "performance": {
     "1Y": 21.78077665862286,
-    "3Y": 21.13828665614319,
-    "5Y": 10.427552665225237,
-    "10Y": 9.810707755184511
+    "3Y": 21.138294341229514,
+    "5Y": 10.42755654797114,
+    "10Y": 9.810704757846134
   },
   "officialMetrics": {
     "nav": 14.83057672,

@@ -1,0 +1,54 @@
+{
+  "ticker": "VPLS",
+  "name": "Vanguard Core-Plus Bond ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vpls",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vpls/vanguard-core-plus-bond-etf",
+  "portId": "V022",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 75.15499877929688,
+  "netAssets": "$1.9B",
+  "totalFundNetAssets": "$1.9B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.2,
+  "trailingYield": 4.94731572,
+  "dividendYieldAsOf": "2026-09-01",
+  "secYield": 5.05,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": -0.95697452,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": 0.12868395951395328,
+    "3Y": 12.94534782689456,
+    "5Y": 12.94534782689456,
+    "10Y": 12.94534782689456
+  },
+  "performance": {
+    "1Y": 0.12868395951395328,
+    "3Y": 4.141249095262722,
+    "5Y": 2.464557636193776,
+    "10Y": 1.2247784073611934
+  },
+  "officialMetrics": {
+    "nav": -0.95697452,
+    "marketPrice": null,
+    "expenseRatio": 0.2,
+    "returns": {
+      "YTD": -0.95697452,
+      "1Y": 2.6218983227
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 147,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "ticker": "VCEB",
+  "name": "Vanguard ESG U.S. Corporate Bond ETF",
+  "category": "Bond",
+  "type": "Vanguard ETF",
+  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vceb",
+  "officialPage": "https://advisors.vanguard.com/investments/products/vceb/vanguard-esg-u-s-corporate-bond-etf",
+  "portId": "4158",
+  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
+  "nav": 60.58000183105469,
+  "netAssets": "$1.2B",
+  "totalFundNetAssets": "$1.2B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.12,
+  "trailingYield": 5.0717872,
+  "dividendYieldAsOf": "2026-09-01",
+  "secYield": 5.45,
+  "secYieldAsOf": "2026-09-15",
+  "ytdReturn": -1.68363776,
+  "asOfDate": "2026-09-16",
+  "totalReturn": {
+    "1Y": -1.310064889566187,
+    "3Y": 14.884522516577414,
+    "5Y": -1.8729593791322219,
+    "10Y": -0.05481643919200696
+  },
+  "performance": {
+    "1Y": -1.310064889566187,
+    "3Y": 4.733875586369751,
+    "5Y": -0.3774302141796304,
+    "10Y": -0.005482996567729437
+  },
+  "officialMetrics": {
+    "nav": -1.68363776,
+    "marketPrice": null,
+    "expenseRatio": 0.12,
+    "returns": {
+      "YTD": -1.68363776,
+      "1Y": 1.3728847627
+    }
+  },
+  "holdings": {
+    "totalRows": 0,
+    "pageSize": 1000,
+    "pages": []
+  },
+  "history": {
+    "totalRows": 314,
+    "pageSize": 1000,
+    "pages": [
+      "./history/001.json"
+    ]
+  }
+}
