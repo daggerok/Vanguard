@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vfh/vanguard-financials-etf",
   "portId": "0957",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 136.44000244140625,
+  "nav": 136.72999572753906,
   "netAssets": "$13.5B",
   "totalFundNetAssets": "$14.8B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 3.20433468,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 5.49612093695917,
-    "3Y": 78.71991968355513,
-    "5Y": 62.26778107674491,
-    "10Y": 238.51255012701728
+    "1Y": 5.7203452570804725,
+    "3Y": 79.0997937523697,
+    "5Y": 62.61265467006989,
+    "10Y": 239.23203389315555
   },
   "performance": {
-    "1Y": 5.49612093695917,
-    "3Y": 21.354994115622095,
-    "5Y": 10.165715514367335,
-    "10Y": 12.968529974753773
+    "1Y": 5.7203452570804725,
+    "3Y": 21.440914386819788,
+    "5Y": 10.2125035922924,
+    "10Y": 12.992517678951065
   },
   "officialMetrics": {
     "nav": 3.20433468,

@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vnq/vanguard-real-estate-etf",
   "portId": "0986",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 93.4800033569336,
+  "nav": 94.05000305175781,
   "netAssets": "$38.1B",
   "totalFundNetAssets": "$70.8B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 7.73072156,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 5.208587175462043,
-    "3Y": 37.79936436858438,
-    "5Y": 10.618194142403215,
-    "10Y": 59.112037559060894
+    "1Y": 5.850102584419847,
+    "3Y": 38.639588323043505,
+    "5Y": 11.292725083814892,
+    "10Y": 60.082253143984964
   },
   "performance": {
-    "1Y": 5.208587175462043,
-    "3Y": 11.279646686178912,
-    "5Y": 2.0387930197184323,
-    "10Y": 4.753924832757717
+    "1Y": 5.850102584419847,
+    "3Y": 11.50536236030657,
+    "5Y": 2.162933634923414,
+    "10Y": 4.817625910922718
   },
   "officialMetrics": {
     "nav": 7.73072156,

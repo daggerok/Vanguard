@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vpls/vanguard-core-plus-bond-etf",
   "portId": "V022",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 75.15499877929688,
+  "nav": 75.36499786376953,
   "netAssets": "$1.9B",
   "totalFundNetAssets": "$1.9B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": -0.95697452,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 0.1286737818250172,
-    "3Y": 12.94537372684843,
-    "5Y": 12.945373726848498,
-    "10Y": 12.945373726848386
+    "1Y": 0.40846484305436803,
+    "3Y": 13.260941200912768,
+    "5Y": 13.260941200912724,
+    "10Y": 13.260941200912836
   },
   "performance": {
-    "1Y": 0.1286737818250172,
-    "3Y": 4.141257055612257,
-    "5Y": 2.464562335505671,
-    "10Y": 1.224780728587227
+    "1Y": 0.40846484305436803,
+    "3Y": 4.238156506487578,
+    "5Y": 2.521755305367046,
+    "10Y": 1.2530272660363773
   },
   "officialMetrics": {
     "nav": -0.95697452,

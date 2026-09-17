@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vceb/vanguard-esg-u-s-corporate-bond-etf",
   "portId": "4158",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 60.58000183105469,
+  "nav": 60.78620147705078,
   "netAssets": "$1.2B",
   "totalFundNetAssets": "$1.2B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": -1.68363776,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -1.3100771556651458,
-    "3Y": 14.884514205567267,
-    "5Y": -1.8729715057067775,
-    "10Y": -0.054854179515873014
+    "1Y": -0.9741667275684041,
+    "3Y": 15.27553657358287,
+    "5Y": -1.538983047496123,
+    "10Y": 0.2853664346564644
   },
   "performance": {
-    "1Y": -1.3100771556651458,
-    "3Y": 4.7338730608066815,
-    "5Y": -0.37743267645826695,
-    "10Y": -0.005486772463636491
+    "1Y": -0.9741667275684041,
+    "3Y": 4.852563010613009,
+    "5Y": -0.3097090714318629,
+    "10Y": 0.02850006425783036
   },
   "officialMetrics": {
     "nav": -1.68363776,

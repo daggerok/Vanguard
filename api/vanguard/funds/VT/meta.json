@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vt/vanguard-total-world-stock-etf",
   "portId": "3141",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 157.41000366210938,
+  "nav": 159.2100067138672,
   "netAssets": "$81.9B",
   "totalFundNetAssets": "$101.7B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 12.17197823,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 15.832322403917543,
-    "3Y": 78.17799228409419,
-    "5Y": 70.27642790658979,
-    "10Y": 217.80872644339487
+    "1Y": 17.156879477601382,
+    "3Y": 80.21547987958328,
+    "5Y": 72.22357434017405,
+    "10Y": 221.44293368028536
   },
   "performance": {
-    "1Y": 15.832322403917543,
-    "3Y": 21.232209478158694,
-    "5Y": 11.2322971214321,
-    "10Y": 12.25781422246377
+    "1Y": 17.156879477601382,
+    "3Y": 21.692561005046617,
+    "5Y": 11.485534326463863,
+    "10Y": 12.385527487323756
   },
   "officialMetrics": {
     "nav": 12.17197823,

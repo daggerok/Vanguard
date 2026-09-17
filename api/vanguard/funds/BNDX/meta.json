@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/bndx/vanguard-total-international-bond-etf",
   "portId": "3711",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 46.970001220703125,
+  "nav": 47.10499954223633,
   "netAssets": "$83.4B",
   "totalFundNetAssets": "$123.0B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": -1.05991887,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -0.6641267636631643,
-    "3Y": 12.47657480992881,
-    "5Y": -0.00812090138104793,
-    "10Y": 13.86578510391252
+    "1Y": -0.37862967392685576,
+    "3Y": 12.799889358613381,
+    "5Y": 0.2792452468578954,
+    "10Y": 14.193114581212196
   },
   "performance": {
-    "1Y": -0.6641267636631643,
-    "3Y": 3.9969719316606866,
-    "5Y": -0.0016242330380111802,
-    "10Y": 1.3069696037853795
+    "1Y": -0.37862967392685576,
+    "3Y": 4.096523233040039,
+    "5Y": 0.05578677136119925,
+    "10Y": 1.3360546692654518
   },
   "officialMetrics": {
     "nav": -1.05991887,

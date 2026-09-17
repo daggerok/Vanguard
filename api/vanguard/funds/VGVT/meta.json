@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vgvt/vanguard-government-securities-active-etf",
   "portId": "V050",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 73.07499694824219,
+  "nav": 73.17009735107422,
   "netAssets": "$36.7M",
   "totalFundNetAssets": "$36.7M",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": -1.31733782,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -0.40051569150932886,
-    "3Y": 2.008205952910269,
-    "5Y": 2.0082059529102914,
-    "10Y": 2.0082059529102914
+    "1Y": -0.21234093288713396,
+    "3Y": 2.1409493940375723,
+    "5Y": 2.140949394037528,
+    "10Y": 2.140949394037639
   },
   "performance": {
-    "1Y": -0.40051569150932886,
-    "3Y": 0.6649703275955599,
-    "5Y": 0.39845321399871736,
-    "10Y": 0.19902854519036062
+    "1Y": -0.21234093288713396,
+    "3Y": 0.7086165629167196,
+    "5Y": 0.4245693570070319,
+    "10Y": 0.2120598316425415
   },
   "officialMetrics": {
     "nav": -1.31733782,
@@ -45,7 +45,7 @@
     "pages": []
   },
   "history": {
-    "totalRows": 300,
+    "totalRows": 301,
     "pageSize": 1000,
     "pages": [
       "./history/001.json"

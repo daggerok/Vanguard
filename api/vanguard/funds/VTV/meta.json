@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vtv/vanguard-value-etf",
   "portId": "0966",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 220.63999938964844,
+  "nav": 221.8800048828125,
   "netAssets": "$192.2B",
   "totalFundNetAssets": "$262.4B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 16.70680635,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 20.172050442155886,
-    "3Y": 70.30421142985286,
-    "5Y": 82.61377855482677,
-    "10Y": 224.04858847601932
+    "1Y": 20.84741205895466,
+    "3Y": 71.26134798136341,
+    "5Y": 83.64009838001323,
+    "10Y": 225.8697908297853
   },
   "performance": {
-    "1Y": 20.172050442155886,
-    "3Y": 19.419467207228315,
-    "5Y": 12.799378959439899,
-    "10Y": 12.476297919515545
+    "1Y": 20.84741205895466,
+    "3Y": 19.642768151573154,
+    "5Y": 12.925885140154826,
+    "10Y": 12.53935200541787
   },
   "officialMetrics": {
     "nav": 16.70680635,

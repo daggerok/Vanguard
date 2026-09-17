@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vht/vanguard-health-care-etf",
   "portId": "0956",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 314.6600036621094,
+  "nav": 316.4599914550781,
   "netAssets": "$19.3B",
   "totalFundNetAssets": "$22.0B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 10.12140912,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 22.78920508392264,
-    "3Y": 39.66465811733397,
-    "5Y": 36.559455726524504,
-    "10Y": 173.61951834528702
+    "1Y": 23.491611070343254,
+    "3Y": 40.463608318292145,
+    "5Y": 37.34063334827964,
+    "10Y": 175.18466424474695
   },
   "performance": {
-    "1Y": 22.78920508392264,
-    "3Y": 11.779502974340827,
-    "5Y": 6.43007187361424,
-    "10Y": 10.589706994454007
+    "1Y": 23.491611070343254,
+    "3Y": 11.992242319365642,
+    "5Y": 6.551559177729649,
+    "10Y": 10.652803769026375
   },
   "officialMetrics": {
     "nav": 10.12140912,

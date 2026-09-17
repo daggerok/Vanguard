@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vxus/vanguard-total-international-stock-etf",
   "portId": "3369",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 85.41000366210938,
+  "nav": 86.51499938964844,
   "netAssets": "$164.9B",
   "totalFundNetAssets": "$665.7B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 13.65318352,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 19.059259496384207,
-    "3Y": 74.03449097383974,
-    "5Y": 57.045383176237976,
-    "10Y": 141.62970319105216
+    "1Y": 20.599593970410602,
+    "3Y": 76.28605625169351,
+    "5Y": 59.07716481771883,
+    "10Y": 144.75574541305315
   },
   "performance": {
-    "1Y": 19.059259496384207,
-    "3Y": 20.285083989159382,
-    "5Y": 9.44729557867987,
-    "10Y": 9.223234148502456
+    "1Y": 20.599593970410602,
+    "3Y": 20.8015909755334,
+    "5Y": 9.729037161915421,
+    "10Y": 9.363723831439641
   },
   "officialMetrics": {
     "nav": 13.65318352,

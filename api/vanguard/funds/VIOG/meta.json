@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/viog/vanguard-sp-small-cap-600-growth-etf",
   "portId": "3347",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 140.718994140625,
+  "nav": 141.14999389648438,
   "netAssets": "$1.1B",
   "totalFundNetAssets": "$1.1B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 16.31216298,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 16.30976529154595,
-    "3Y": 53.4948474344777,
-    "5Y": 31.9258341335364,
-    "10Y": 162.2378937276769
+    "1Y": 16.66601084328294,
+    "3Y": 53.964964771033344,
+    "5Y": 32.32990184770927,
+    "10Y": 163.04106772356172
   },
   "performance": {
-    "1Y": 16.30976529154595,
-    "3Y": 15.353630405337903,
-    "5Y": 5.697805302424208,
-    "10Y": 10.120847423594892
+    "1Y": 16.66601084328294,
+    "3Y": 15.471277071750045,
+    "5Y": 5.762473215868158,
+    "10Y": 10.154528496578097
   },
   "officialMetrics": {
     "nav": 16.31216298,

@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/ivog/vanguard-sp-mid-cap-400-growth-etf",
   "portId": "3343",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 135.9499969482422,
+  "nav": 137.5,
   "netAssets": "$1.6B",
   "totalFundNetAssets": "$1.8B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 13.13274042,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 14.509427574895062,
-    "3Y": 54.448555640564614,
-    "5Y": 43.86407993049018,
-    "10Y": 174.3215927035342
+    "1Y": 15.814980838450499,
+    "3Y": 56.209479352584914,
+    "5Y": 45.50431360416569,
+    "10Y": 177.44925082898502
   },
   "performance": {
-    "1Y": 14.509427574895062,
-    "3Y": 15.592045874310223,
-    "5Y": 7.545062059305496,
-    "10Y": 10.618050255293099
+    "1Y": 15.814980838450499,
+    "3Y": 16.029689029901984,
+    "5Y": 7.789181401024914,
+    "10Y": 10.743528193965846
   },
   "officialMetrics": {
     "nav": 13.13274042,

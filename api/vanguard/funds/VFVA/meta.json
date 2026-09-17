@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vfva/vanguard-u-s-value-factor-etf",
   "portId": "4416",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 157.89500427246094,
+  "nav": 158.32000732421875,
   "netAssets": "$957.4M",
   "totalFundNetAssets": "$957.4M",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 20.06796358,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 25.640783895096007,
-    "3Y": 65.08726830834878,
-    "5Y": 80.05433051095636,
-    "10Y": 146.97260487387368
+    "1Y": 25.978968860647655,
+    "3Y": 65.5316438480189,
+    "5Y": 80.53902653111055,
+    "10Y": 147.63734689750706
   },
   "performance": {
-    "1Y": 25.640783895096007,
-    "3Y": 18.187404096457914,
-    "5Y": 12.481400275822075,
-    "10Y": 9.462377888568007
+    "1Y": 25.978968860647655,
+    "3Y": 18.29335318822234,
+    "5Y": 12.541893879516453,
+    "10Y": 9.491804739499399
   },
   "officialMetrics": {
     "nav": 20.06796358,

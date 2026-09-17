@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vgms/vanguard-multi-sector-income-bond-etf",
   "portId": "V047",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 50.15999984741211,
+  "nav": 50.32500076293945,
   "netAssets": "$272.6M",
   "totalFundNetAssets": "$272.6M",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 0.80658574,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 2.222612135990909,
-    "3Y": 6.199181591114411,
-    "5Y": 6.199181591114455,
-    "10Y": 6.199181591114455
+    "1Y": 2.667875836622291,
+    "3Y": 6.548497127468855,
+    "5Y": 6.548497127468811,
+    "10Y": 6.548497127468811
   },
   "performance": {
-    "1Y": 2.222612135990909,
-    "3Y": 2.0251064658760143,
-    "5Y": 1.210188563071335,
-    "10Y": 0.6032745804386508
+    "1Y": 2.667875836622291,
+    "3Y": 2.136846030378381,
+    "5Y": 1.276682234187465,
+    "10Y": 0.6363166228710249
   },
   "officialMetrics": {
     "nav": 0.80658574,
@@ -45,7 +45,7 @@
     "pages": []
   },
   "history": {
-    "totalRows": 318,
+    "totalRows": 319,
     "pageSize": 1000,
     "pages": [
       "./history/001.json"

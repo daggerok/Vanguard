@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vgus/vanguard-ultra-short-treasury-etf",
   "portId": "V041",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 75.5199966430664,
+  "nav": 75.53990173339844,
   "netAssets": "$1.1B",
   "totalFundNetAssets": "$1.1B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 2.43240907,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 3.6056787538041313,
-    "3Y": 6.282935064974082,
-    "5Y": 6.2829350649741045,
-    "10Y": 6.2829350649741045
+    "1Y": 3.626120796454013,
+    "3Y": 6.3109941183658425,
+    "5Y": 6.31099411836582,
+    "10Y": 6.310994118365709
   },
   "performance": {
-    "1Y": 3.6056787538041313,
-    "3Y": 2.05191995486278,
-    "5Y": 1.2261473152477498,
-    "10Y": 0.6112057950046434
+    "1Y": 3.626120796454013,
+    "3Y": 2.060899848378339,
+    "5Y": 1.2314915597915643,
+    "10Y": 0.6138616492735283
   },
   "officialMetrics": {
     "nav": 2.43240907,
@@ -45,7 +45,7 @@
     "pages": []
   },
   "history": {
-    "totalRows": 400,
+    "totalRows": 401,
     "pageSize": 1000,
     "pages": [
       "./history/001.json"

@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vwob/vanguard-emerging-markets-government-bond-etf",
   "portId": "3820",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 64.67500305175781,
+  "nav": 65.05000305175781,
   "netAssets": "$6.4B",
   "totalFundNetAssets": "$6.9B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": -0.22200697,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 2.4343232503303502,
-    "3Y": 30.871353638549692,
-    "5Y": 9.498096169838345,
-    "10Y": 31.329731263888828
+    "1Y": 3.0282726061009013,
+    "3Y": 31.630123945210585,
+    "5Y": 10.133047300109311,
+    "10Y": 32.09111806113645
   },
   "performance": {
-    "1Y": 2.4343232503303502,
-    "3Y": 9.382588895445254,
-    "5Y": 1.8313059895924688,
-    "10Y": 2.762889084628428
+    "1Y": 3.0282726061009013,
+    "3Y": 9.593575673377263,
+    "5Y": 1.9491316888478716,
+    "10Y": 2.8223112181321897
   },
   "officialMetrics": {
     "nav": -0.22200697,

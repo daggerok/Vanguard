@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vsdb/vanguard-short-duration-bond-etf",
   "portId": "V044",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 75.11000061035156,
+  "nav": 75.16999816894531,
   "netAssets": "$1.0B",
   "totalFundNetAssets": "$1.0B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 0.77696028,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 1.804754002800113,
-    "3Y": 5.472015009121933,
-    "5Y": 5.472015009122,
-    "10Y": 5.472015009121889
+    "1Y": 1.9989879485543316,
+    "3Y": 5.556276928272075,
+    "5Y": 5.556276928272141,
+    "10Y": 5.556276928272141
   },
   "performance": {
-    "1Y": 1.804754002800113,
-    "3Y": 1.7917109934884934,
-    "5Y": 1.07120619013652,
-    "10Y": 0.5341763730804638
+    "1Y": 1.9989879485543316,
+    "3Y": 1.8188110156334147,
+    "5Y": 1.0873502518176315,
+    "10Y": 0.5422051935492611
   },
   "officialMetrics": {
     "nav": 0.77696028,
@@ -45,7 +45,7 @@
     "pages": []
   },
   "history": {
-    "totalRows": 365,
+    "totalRows": 366,
     "pageSize": 1000,
     "pages": [
       "./history/001.json"

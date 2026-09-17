@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vgt/vanguard-information-technology-etf",
   "portId": "0958",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 118.91999816894531,
+  "nav": 121.38500213623047,
   "netAssets": "$147.6B",
   "totalFundNetAssets": "$170.2B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 26.51129116,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 27.834439238528354,
-    "3Y": 132.73034090702097,
-    "5Y": 144.50702493207146,
-    "10Y": 761.1368595865226
+    "1Y": 30.48422400753732,
+    "3Y": 137.55445233886655,
+    "5Y": 149.5751700065084,
+    "10Y": 778.9868448303494
   },
   "performance": {
-    "1Y": 27.834439238528354,
-    "3Y": 32.520887350454245,
-    "5Y": 19.57992268005768,
-    "10Y": 24.024423756894
+    "1Y": 30.48422400753732,
+    "3Y": 33.43027819804196,
+    "5Y": 20.071593727195825,
+    "10Y": 24.279139490175837
   },
   "officialMetrics": {
     "nav": 26.51129116,

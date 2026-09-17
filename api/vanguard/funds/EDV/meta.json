@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/edv/vanguard-extended-duration-treasury-etf",
   "portId": "0930",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 59.310001373291016,
+  "nav": 60.1349983215332,
   "netAssets": "$3.7B",
   "totalFundNetAssets": "$4.2B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": -6.87362541,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -8.975164497660826,
-    "3Y": -3.072791843875211,
-    "5Y": -47.141349495156085,
-    "10Y": -36.517799134459885
+    "1Y": -7.709016971697446,
+    "3Y": -1.724542828887865,
+    "5Y": -46.406079342654984,
+    "10Y": -35.634767255027896
   },
   "performance": {
-    "1Y": -8.975164497660826,
-    "3Y": -1.034937963218141,
-    "5Y": -11.97151769754985,
-    "10Y": -4.442407942205662
+    "1Y": -7.709016971697446,
+    "3Y": -0.5781841357387796,
+    "5Y": -11.727971711039931,
+    "10Y": -4.310312914364534
   },
   "officialMetrics": {
     "nav": -6.87362541,

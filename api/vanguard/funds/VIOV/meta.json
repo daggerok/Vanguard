@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/viov/vanguard-sp-small-cap-600-value-etf",
   "portId": "3346",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 114.0199966430664,
+  "nav": 114.55999755859375,
   "netAssets": "$1.9B",
   "totalFundNetAssets": "$2.0B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 17.47925991,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 21.40170411113358,
-    "3Y": 56.449908395410645,
-    "5Y": 43.73058665158916,
-    "10Y": 151.0285063809339
+    "1Y": 21.97666493639843,
+    "3Y": 57.19087465145134,
+    "5Y": 44.41132527490181,
+    "10Y": 152.21733989088673
   },
   "performance": {
-    "1Y": 21.40170411113358,
-    "3Y": 16.089187354314927,
-    "5Y": 7.5250961656845305,
-    "10Y": 9.640827384593909
+    "1Y": 21.97666493639843,
+    "3Y": 16.272169732923714,
+    "5Y": 7.626756098685306,
+    "10Y": 9.692641316010953
   },
   "officialMetrics": {
     "nav": 17.47925991,

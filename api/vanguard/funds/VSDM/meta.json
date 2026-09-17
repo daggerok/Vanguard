@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vsdm/vanguard-short-duration-tax-exempt-bond-etf",
   "portId": "V039",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 75.28500366210938,
+  "nav": 75.32499694824219,
   "netAssets": "$939.5M",
   "totalFundNetAssets": "$939.5M",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 0.53022897,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 1.0470113696058991,
-    "3Y": 5.7849095617429125,
-    "5Y": 5.784909561742979,
-    "10Y": 5.784909561742979
+    "1Y": 1.2192550167002159,
+    "3Y": 5.841105164463789,
+    "5Y": 5.841105164463767,
+    "10Y": 5.841105164463878
   },
   "performance": {
-    "1Y": 1.0470113696058991,
-    "3Y": 1.892270458077494,
-    "5Y": 1.1311029680569185,
-    "10Y": 0.5639612227247737
+    "1Y": 1.2192550167002159,
+    "3Y": 1.9103098424606113,
+    "5Y": 1.1418453623856406,
+    "10Y": 0.569302156466045
   },
   "officialMetrics": {
     "nav": 0.53022897,
@@ -45,7 +45,7 @@
     "pages": []
   },
   "history": {
-    "totalRows": 454,
+    "totalRows": 455,
     "pageSize": 1000,
     "pages": [
       "./history/001.json"

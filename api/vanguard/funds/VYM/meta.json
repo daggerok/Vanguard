@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vym/vanguard-high-dividend-yield-etf",
   "portId": "0923",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 159.77999877929688,
+  "nav": 160.7550048828125,
   "netAssets": "$83.1B",
   "totalFundNetAssets": "$100.8B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 12.64955664,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 15.493005903175217,
-    "3Y": 66.89148972844401,
-    "5Y": 77.55911583501403,
-    "10Y": 198.2219478033231
+    "1Y": 16.197764862552265,
+    "3Y": 67.90987803980084,
+    "5Y": 78.64264357958805,
+    "10Y": 200.0417300550307
   },
   "performance": {
-    "1Y": 15.493005903175217,
-    "3Y": 18.616397639208703,
-    "5Y": 12.167901455602493,
-    "10Y": 11.545989466754136
+    "1Y": 16.197764862552265,
+    "3Y": 18.857178193651336,
+    "5Y": 12.304466058020246,
+    "10Y": 11.613869835600754
   },
   "officialMetrics": {
     "nav": 12.64955664,

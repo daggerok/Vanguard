@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/mgk/vanguard-mega-cap-growth-etf",
   "portId": "3138",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 89.12000274658203,
+  "nav": 90.43499755859375,
   "netAssets": "$33.5B",
   "totalFundNetAssets": "$33.7B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 8.13798018,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 11.043947258498644,
-    "3Y": 98.76637312627115,
-    "5Y": 94.2928859798061,
-    "10Y": 447.508854554697
+    "1Y": 12.682437048107964,
+    "3Y": 101.69921886299696,
+    "5Y": 97.15974110996974,
+    "10Y": 455.5873967134864
   },
   "performance": {
-    "1Y": 11.043947258498644,
-    "3Y": 25.73252513687967,
-    "5Y": 14.20664663267699,
-    "10Y": 18.5329559052972
+    "1Y": 12.682437048107964,
+    "3Y": 26.347912827258547,
+    "5Y": 14.541706151615719,
+    "10Y": 18.706701804333314
   },
   "officialMetrics": {
     "nav": 8.13798018,

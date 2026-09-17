@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vtp/vanguard-total-inflation-protected-securities-etf",
   "portId": "V049",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 74.08999633789062,
+  "nav": 74.3240966796875,
   "netAssets": "$230.8M",
   "totalFundNetAssets": "$230.8M",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": -0.78117731,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -1.3876833154274348,
-    "3Y": 1.3766630999294982,
-    "5Y": 1.3766630999294982,
-    "10Y": 1.3766630999294982
+    "1Y": -0.9916478477302482,
+    "3Y": 1.6969804525406307,
+    "5Y": 1.6969804525406085,
+    "10Y": 1.6969804525406085
   },
   "performance": {
-    "1Y": -1.3876833154274348,
-    "3Y": 0.4567978797004768,
-    "5Y": 0.2738288629758667,
-    "10Y": 0.13682083178787607
+    "1Y": -0.9916478477302482,
+    "3Y": 0.5624902655493091,
+    "5Y": 0.33711547824817334,
+    "10Y": 0.16841591951435309
   },
   "officialMetrics": {
     "nav": -0.78117731,
@@ -45,7 +45,7 @@
     "pages": []
   },
   "history": {
-    "totalRows": 299,
+    "totalRows": 300,
     "pageSize": 1000,
     "pages": [
       "./history/001.json"

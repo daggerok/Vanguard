@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vbil/vanguard-0-3-month-treasury-bill-etf",
   "portId": "V042",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 75.5999984741211,
+  "nav": 75.61190032958984,
   "netAssets": "$11.4B",
   "totalFundNetAssets": "$11.4B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 2.5635266,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 3.7379416551202027,
-    "3Y": 6.383326158117475,
-    "5Y": 6.383326158117408,
-    "10Y": 6.383326158117519
+    "1Y": 3.740502067199447,
+    "3Y": 6.400062869914969,
+    "5Y": 6.400062869914991,
+    "10Y": 6.400062869914991
   },
   "performance": {
-    "1Y": 3.7379416551202027,
-    "3Y": 2.084041385477553,
-    "5Y": 1.245263020340226,
-    "10Y": 0.6207051358418259
+    "1Y": 3.740502067199447,
+    "3Y": 2.0893945476389897,
+    "5Y": 1.2484484935227247,
+    "10Y": 0.6222880347702686
   },
   "officialMetrics": {
     "nav": 2.5635266,
@@ -45,7 +45,7 @@
     "pages": []
   },
   "history": {
-    "totalRows": 400,
+    "totalRows": 401,
     "pageSize": 1000,
     "pages": [
       "./history/001.json"

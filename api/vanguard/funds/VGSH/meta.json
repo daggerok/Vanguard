@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vgsh/vanguard-short-term-treasury-etf",
   "portId": "3142",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 57.619998931884766,
+  "nav": 57.654998779296875,
   "netAssets": "$34.8B",
   "totalFundNetAssets": "$39.3B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 0.53062908,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 1.6395782324808428,
-    "3Y": 12.718864406882101,
-    "5Y": 9.599350620703806,
-    "10Y": 18.511598646912162
+    "1Y": 1.7013235312622443,
+    "3Y": 12.787357951577395,
+    "5Y": 9.665947915409712,
+    "10Y": 18.583539074696056
   },
   "performance": {
-    "1Y": 1.6395782324808428,
-    "3Y": 4.071592841929994,
-    "5Y": 1.8501319995407384,
-    "10Y": 1.7129114108813237
+    "1Y": 1.7013235312622443,
+    "3Y": 4.092668252269505,
+    "5Y": 1.8625066991633465,
+    "10Y": 1.7190840322865553
   },
   "officialMetrics": {
     "nav": 0.53062908,

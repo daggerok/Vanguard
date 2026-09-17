@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vchy/vanguard-u-s-high-yield-corporate-bond-index-etf",
   "portId": "V118",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 73.9800033569336,
+  "nav": 74.2249984741211,
   "netAssets": "$78.7M",
   "totalFundNetAssets": "$78.7M",
   "netAssetsAsOf": "2026-08-31",
@@ -16,19 +16,19 @@
   "dividendYieldAsOf": null,
   "secYield": 7.28,
   "secYieldAsOf": "2026-09-15",
-  "ytdReturn": -1.43884124272331,
+  "ytdReturn": -1.1124421950864494,
   "asOfDate": "",
   "totalReturn": {
-    "1Y": -1.43884124272331,
-    "3Y": -1.43884124272331,
-    "5Y": -1.43884124272331,
-    "10Y": -1.4388412427233654
+    "1Y": -1.1124421950864494,
+    "3Y": -1.1124421950864605,
+    "5Y": -1.1124421950864494,
+    "10Y": -1.1124421950865049
   },
   "performance": {
-    "1Y": -1.43884124272331,
-    "3Y": -0.4819326068430385,
-    "5Y": -0.289438903595296,
-    "10Y": -0.14482432221918362
+    "1Y": -1.1124421950864494,
+    "3Y": -0.37219765729143983,
+    "5Y": -0.2234851210779376,
+    "10Y": -0.11180506239886201
   },
   "officialMetrics": {
     "nav": null,
@@ -45,7 +45,7 @@
     "pages": []
   },
   "history": {
-    "totalRows": 489,
+    "totalRows": 494,
     "pageSize": 1000,
     "pages": [
       "./history/001.json"

@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vusv/vanguard-wellington-u-s-value-active-etf",
   "portId": "V055",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 69.4000015258789,
+  "nav": 69.72000122070312,
   "netAssets": "$94.9M",
   "totalFundNetAssets": "$94.9M",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 10.85011185,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 16.848974025745477,
-    "3Y": 16.848974025745434,
-    "5Y": 16.848974025745456,
-    "10Y": 16.848974025745566
+    "1Y": 17.387758394717267,
+    "3Y": 17.387758394717267,
+    "5Y": 17.387758394717245,
+    "10Y": 17.387758394717245
   },
   "performance": {
-    "1Y": 16.848974025745477,
-    "3Y": 5.327465654100649,
-    "5Y": 3.1632417418090197,
-    "10Y": 1.569307244762208
+    "1Y": 17.387758394717267,
+    "3Y": 5.489103909677739,
+    "5Y": 3.2582027967082094,
+    "10Y": 1.6160434167303173
   },
   "officialMetrics": {
     "nav": 10.85011185,
@@ -45,7 +45,7 @@
     "pages": []
   },
   "history": {
-    "totalRows": 207,
+    "totalRows": 208,
     "pageSize": 1000,
     "pages": [
       "./history/001.json"

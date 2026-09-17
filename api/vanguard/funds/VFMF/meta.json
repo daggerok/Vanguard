@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vfmf/vanguard-u-s-multifactor-etf",
   "portId": "4421",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 183.1750030517578,
+  "nav": 184.42999267578125,
   "netAssets": "$976.2M",
   "totalFundNetAssets": "$976.2M",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 22.68070396,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 28.215554909736863,
-    "3Y": 83.42060967410201,
-    "5Y": 99.11510347525498,
-    "10Y": 174.1447418902233
+    "1Y": 29.094000048917025,
+    "3Y": 84.67728202643173,
+    "5Y": 100.47932037287404,
+    "10Y": 176.02299383956557
   },
   "performance": {
-    "1Y": 28.215554909736863,
-    "3Y": 22.40975937330887,
-    "5Y": 14.768007206641066,
-    "10Y": 10.610916813980698
+    "1Y": 29.094000048917025,
+    "3Y": 22.68867928572167,
+    "5Y": 14.924842245624404,
+    "10Y": 10.686467198818539
   },
   "officialMetrics": {
     "nav": 22.68070396,

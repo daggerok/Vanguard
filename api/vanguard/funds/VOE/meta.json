@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/voe/vanguard-mid-cap-value-etf",
   "portId": "0935",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 201.74000549316406,
+  "nav": 203.53179931640625,
   "netAssets": "$24.2B",
   "totalFundNetAssets": "$39.0B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 14.9435332,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 17.335460794263913,
-    "3Y": 63.81807976527378,
-    "5Y": 60.73141046226211,
-    "10Y": 168.60888809338607
+    "1Y": 18.377598933323114,
+    "3Y": 65.27303177556938,
+    "5Y": 62.15897832498363,
+    "10Y": 170.99453608754297
   },
   "performance": {
-    "1Y": 17.335460794263913,
-    "3Y": 17.88375024575888,
-    "5Y": 9.956308514782464,
-    "10Y": 10.385502224327482
+    "1Y": 18.377598933323114,
+    "3Y": 18.231717370807488,
+    "5Y": 10.15093802864373,
+    "10Y": 10.483151393261615
   },
   "officialMetrics": {
     "nav": 14.9435332,

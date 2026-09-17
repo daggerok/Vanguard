@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vox/vanguard-communication-services-etf",
   "portId": "0959",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 192.5,
+  "nav": 192.1011962890625,
   "netAssets": "$5.7B",
   "totalFundNetAssets": "$5.9B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": -0.09174591,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 3.3728374097236724,
-    "3Y": 88.39602757437541,
-    "5Y": 43.690488122682126,
-    "10Y": 135.39340439535917
+    "1Y": 3.158670665118102,
+    "3Y": 88.0057401321598,
+    "5Y": 43.39275445134456,
+    "10Y": 134.90571617771602
   },
   "performance": {
-    "1Y": 3.3728374097236724,
-    "3Y": 23.5067177853167,
-    "5Y": 7.51909594053477,
-    "10Y": 8.938007833087758
+    "1Y": 3.158670665118102,
+    "3Y": 23.421371955828786,
+    "5Y": 7.474502006950523,
+    "10Y": 8.915416979414426
   },
   "officialMetrics": {
     "nav": -0.09174591,

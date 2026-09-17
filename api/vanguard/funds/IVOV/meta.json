@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/ivov/vanguard-sp-mid-cap-400-value-etf",
   "portId": "3344",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 110.1500015258789,
+  "nav": 110.972900390625,
   "netAssets": "$1.3B",
   "totalFundNetAssets": "$1.5B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 9.09451159,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 11.275087815301731,
-    "3Y": 48.676577353092874,
-    "5Y": 51.3342654598288,
-    "10Y": 158.54970501770737
+    "1Y": 12.10639187494098,
+    "3Y": 49.78729714449894,
+    "5Y": 52.46484007189374,
+    "10Y": 160.4812552291667
   },
   "performance": {
-    "1Y": 11.275087815301731,
-    "3Y": 14.13377579556203,
-    "5Y": 8.639424072224866,
-    "10Y": 9.964981288222585
+    "1Y": 12.10639187494098,
+    "3Y": 14.417291107069863,
+    "5Y": 8.801263923943647,
+    "10Y": 10.04685807199721
   },
   "officialMetrics": {
     "nav": 9.09451159,

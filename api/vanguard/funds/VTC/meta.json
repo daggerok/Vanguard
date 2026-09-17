@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vtc/vanguard-total-corporate-bond-etf",
   "portId": "0985",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 74.04509735107422,
+  "nav": 74.35009765625,
   "netAssets": "$1.7B",
   "totalFundNetAssets": "$1.7B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": -1.39234241,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -0.9760329128991163,
-    "3Y": 15.586830785999695,
-    "5Y": -2.064278762296534,
-    "10Y": 20.90681490893187
+    "1Y": -0.5681316140623061,
+    "3Y": 16.062918641995118,
+    "5Y": -1.660850372101219,
+    "10Y": 21.404821352622804
   },
   "performance": {
-    "1Y": -0.9760329128991163,
-    "3Y": 4.946860726185576,
-    "5Y": -0.4163075924812465,
-    "10Y": 1.9166354707939925
+    "1Y": -0.5681316140623061,
+    "3Y": 5.090751063025967,
+    "5Y": -0.3343990628981053,
+    "10Y": 1.9585365913872277
   },
   "officialMetrics": {
     "nav": -1.39234241,

@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vot/vanguard-mid-cap-growth-etf",
   "portId": "0932",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 289.5199890136719,
+  "nav": 291.8500061035156,
   "netAssets": "$19.6B",
   "totalFundNetAssets": "$34.1B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 4.05212004,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -0.9598872025270433,
-    "3Y": 51.56639795171883,
-    "5Y": 26.69685741548582,
-    "10Y": 191.7386557929568
+    "1Y": -0.16281556084980497,
+    "3Y": 52.786207905809256,
+    "5Y": 27.716496315077155,
+    "10Y": 194.0864379723616
   },
   "performance": {
-    "1Y": -0.9598872025270433,
-    "3Y": 14.86850703472673,
-    "5Y": 4.846314396066642,
-    "10Y": 11.301084937363282
+    "1Y": -0.16281556084980497,
+    "3Y": 15.175838852226953,
+    "5Y": 5.014531495297558,
+    "10Y": 11.390332345456745
   },
   "officialMetrics": {
     "nav": 4.05212004,

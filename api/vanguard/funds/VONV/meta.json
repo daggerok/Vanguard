@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vonv/vanguard-russell-1000-value-etf",
   "portId": "3349",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 110.56999969482422,
+  "nav": 111.36499786376953,
   "netAssets": "$22.2B",
   "totalFundNetAssets": "$23.9B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 20.81322351,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 25.4172546967115,
-    "3Y": 75.08632067200158,
-    "5Y": 77.40908929824302,
-    "10Y": 196.83470660174467
+    "1Y": 26.319004611817086,
+    "3Y": 76.34520176576754,
+    "5Y": 78.6846713802322,
+    "10Y": 198.9689171792143
   },
   "performance": {
-    "1Y": 25.4172546967115,
-    "3Y": 20.526923770893912,
-    "5Y": 12.148940049872348,
-    "10Y": 11.493992601352732
+    "1Y": 26.319004611817086,
+    "3Y": 20.815099461767474,
+    "5Y": 12.309749752342224,
+    "10Y": 11.57389743026862
   },
   "officialMetrics": {
     "nav": 20.81322351,

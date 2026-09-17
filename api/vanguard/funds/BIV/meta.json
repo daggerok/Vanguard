@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/biv/vanguard-intermediate-term-bond-etf",
   "portId": "0925",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 73.87999725341797,
+  "nav": 74.1771011352539,
   "netAssets": "$29.0B",
   "totalFundNetAssets": "$52.1B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": -2.39011117,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -1.2876360294661104,
-    "3Y": 15.022837444881109,
-    "5Y": -1.2442475502531192,
-    "10Y": 15.436133363580296
+    "1Y": -0.8906602035451128,
+    "3Y": 15.485367302497721,
+    "5Y": -0.8471174550558236,
+    "10Y": 15.900366516599963
   },
   "performance": {
-    "1Y": -1.2876360294661104,
-    "3Y": 4.775890090720636,
-    "5Y": -0.25009735908908537,
-    "10Y": 1.445824711393895
+    "1Y": -0.8906602035451128,
+    "3Y": 4.916143872467171,
+    "5Y": -0.17000051272373362,
+    "10Y": 1.486548099412377
   },
   "officialMetrics": {
     "nav": -2.39011117,

@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vgk/vanguard-ftse-europe-etf",
   "portId": "0963",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 88.62999725341797,
+  "nav": 89.31500244140625,
   "netAssets": "$31.0B",
   "totalFundNetAssets": "$39.1B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 7.70225142,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 14.17374119463779,
-    "3Y": 67.4824983268922,
-    "5Y": 58.524968249049245,
-    "10Y": 149.5423160806196
+    "1Y": 15.056158042734546,
+    "3Y": 68.77694020668972,
+    "5Y": 59.750168102288015,
+    "10Y": 151.470983421645
   },
   "performance": {
-    "1Y": 14.17374119463779,
-    "3Y": 18.756250429712985,
-    "5Y": 9.652751787443936,
-    "10Y": 9.57574199164255
+    "1Y": 15.056158042734546,
+    "3Y": 19.061414103081177,
+    "5Y": 9.821725949938864,
+    "10Y": 9.660137984699912
   },
   "officialMetrics": {
     "nav": 7.70225142,

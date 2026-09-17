@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vdg/vanguard-developed-markets-ex-us-growth-index-etf",
   "portId": "V071",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 79.20999908447266,
+  "nav": 80.26000213623047,
   "netAssets": "$32.7M",
   "totalFundNetAssets": "$32.7M",
   "netAssetsAsOf": "2026-08-31",
@@ -16,19 +16,19 @@
   "dividendYieldAsOf": "2026-08-31",
   "secYield": null,
   "secYieldAsOf": null,
-  "ytdReturn": 5.495810483743546,
+  "ytdReturn": 6.8942566930089155,
   "asOfDate": "",
   "totalReturn": {
-    "1Y": 5.495810483743546,
-    "3Y": 5.495810483743568,
-    "5Y": 5.495810483743546,
-    "10Y": 5.495810483743546
+    "1Y": 6.8942566930089155,
+    "3Y": 6.8942566930089155,
+    "5Y": 6.894256693008893,
+    "10Y": 6.894256693009049
   },
   "performance": {
-    "1Y": 5.495810483743546,
-    "3Y": 1.7993654723964747,
-    "5Y": 1.07576630081887,
-    "10Y": 0.5364442880385845
+    "1Y": 6.8942566930089155,
+    "3Y": 2.2472078570762166,
+    "5Y": 1.3423274888020087,
+    "10Y": 0.6689264315469012
   },
   "officialMetrics": {
     "nav": null,
@@ -45,7 +45,7 @@
     "pages": []
   },
   "history": {
-    "totalRows": 106,
+    "totalRows": 107,
     "pageSize": 1000,
     "pages": [
       "./history/001.json"

@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vcr/vanguard-consumer-discretionary-etf",
   "portId": "0954",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 370.260009765625,
+  "nav": 375.19000244140625,
   "netAssets": "$6.0B",
   "totalFundNetAssets": "$6.6B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": -5.58102315,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -6.001366359207438,
-    "3Y": 40.482046874976476,
-    "5Y": 24.320066677398323,
-    "10Y": 229.00441000378243
+    "1Y": -4.749779465781135,
+    "3Y": 42.352590951316735,
+    "5Y": 25.975356050082212,
+    "10Y": 233.38517693000153
   },
   "performance": {
-    "1Y": -6.001366359207438,
-    "3Y": 11.99714248528425,
-    "5Y": 4.449952514858713,
-    "10Y": 12.647140529285528
+    "1Y": -4.749779465781135,
+    "3Y": 12.492039851939719,
+    "5Y": 4.726627663357097,
+    "10Y": 12.796241479352277
   },
   "officialMetrics": {
     "nav": -5.58102315,

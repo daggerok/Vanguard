@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vbr/vanguard-small-cap-value-etf",
   "portId": "0937",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 238.8300018310547,
+  "nav": 240.58169555664062,
   "netAssets": "$37.3B",
   "totalFundNetAssets": "$68.2B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 13.91252768,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 16.179469349835827,
-    "3Y": 58.654613401622925,
-    "5Y": 56.202835030275075,
-    "10Y": 163.97327947267283
+    "1Y": 17.031585273052087,
+    "3Y": 59.81824619355278,
+    "5Y": 57.34850150409947,
+    "10Y": 165.90929635766082
   },
   "performance": {
-    "1Y": 16.179469349835827,
-    "3Y": 16.631958490298103,
-    "5Y": 9.329605843386247,
-    "10Y": 10.193504899935956
+    "1Y": 17.031585273052087,
+    "3Y": 16.91640513541557,
+    "5Y": 9.489512544186995,
+    "10Y": 10.27405686030274
   },
   "officialMetrics": {
     "nav": 13.91252768,

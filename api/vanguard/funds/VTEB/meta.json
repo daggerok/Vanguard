@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vteb/vanguard-tax-exempt-bond-etf",
   "portId": "4391",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 48.22999954223633,
+  "nav": 48.32500076293945,
   "netAssets": "$46.3B",
   "totalFundNetAssets": "$49.0B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": -1.87705145,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -0.34865189510255856,
-    "3Y": 10.530646907211505,
-    "5Y": 1.47910846875694,
-    "10Y": 17.807943087842993
+    "1Y": -0.15235541230976812,
+    "3Y": 10.748306967746535,
+    "5Y": 1.679038125217791,
+    "10Y": 18.039984722395587
   },
   "performance": {
-    "1Y": -0.34865189510255856,
-    "3Y": 3.393738142021996,
-    "5Y": 0.29408685772651655,
-    "10Y": 1.6523580093425139
+    "1Y": -0.15235541230976812,
+    "3Y": 3.4615622607447216,
+    "5Y": 0.33357474690505207,
+    "10Y": 1.6723623468685167
   },
   "officialMetrics": {
     "nav": -1.87705145,

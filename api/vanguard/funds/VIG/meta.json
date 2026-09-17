@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vig/vanguard-dividend-appreciation-etf",
   "portId": "0920",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 235.72999572753906,
+  "nav": 237.0800018310547,
   "netAssets": "$112.7B",
   "totalFundNetAssets": "$132.4B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 8.11174305,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 10.577750960293786,
-    "3Y": 59.25379117867566,
-    "5Y": 67.58537700307184,
-    "10Y": 237.77978590752102
+    "1Y": 11.211020554384676,
+    "3Y": 60.16582441159404,
+    "5Y": 68.54512453590438,
+    "10Y": 239.71414840546822
   },
   "performance": {
-    "1Y": 10.577750960293786,
-    "3Y": 16.778598805608212,
-    "5Y": 10.878469902059473,
-    "10Y": 12.944052287764274
+    "1Y": 11.211020554384676,
+    "3Y": 17.001101704285972,
+    "5Y": 11.00517833140755,
+    "10Y": 13.008565846410725
   },
   "officialMetrics": {
     "nav": 8.11174305,

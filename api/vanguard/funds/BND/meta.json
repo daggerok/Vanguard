@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/bnd/vanguard-total-bond-market-etf",
   "portId": "0928",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 71.11000061035156,
+  "nav": 71.37329864501953,
   "netAssets": "$163.3B",
   "totalFundNetAssets": "$398.9B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": -1.43199685,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -0.50661881577585,
-    "3Y": 14.12778119372955,
-    "5Y": -1.7638188682633782,
-    "10Y": 13.986281454893334
+    "1Y": -0.13822602287150154,
+    "3Y": 14.550318501754544,
+    "5Y": -1.4000395241294705,
+    "10Y": 14.40839987560043
   },
   "performance": {
-    "1Y": -0.50661881577585,
-    "3Y": 4.5034090579080255,
-    "5Y": -0.35527928811497356,
-    "10Y": 1.3176851237872267
+    "1Y": -0.13822602287150154,
+    "3Y": 4.6322184987626525,
+    "5Y": -0.2815892961582356,
+    "10Y": 1.355143102278289
   },
   "officialMetrics": {
     "nav": -1.43199685,

@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vfmo/vanguard-u-s-momentum-factor-etf",
   "portId": "4418",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 224.1300048828125,
+  "nav": 227.64500427246094,
   "netAssets": "$1.9B",
   "totalFundNetAssets": "$1.9B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 17.50538208,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 17.90292996557048,
-    "3Y": 96.51169487742017,
-    "5Y": 80.09786792122013,
-    "10Y": 212.9251726766769
+    "1Y": 19.75198505787472,
+    "3Y": 99.59354683863961,
+    "5Y": 82.92223899196334,
+    "10Y": 217.83280192340834
   },
   "performance": {
-    "1Y": 17.90292996557048,
-    "3Y": 25.255306434499538,
-    "5Y": 12.486839384418303,
-    "10Y": 12.084110616485532
+    "1Y": 19.75198505787472,
+    "3Y": 25.906697290650605,
+    "5Y": 12.837460051597315,
+    "10Y": 12.258664598306112
   },
   "officialMetrics": {
     "nav": 17.50538208,

@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vsgx/vanguard-esg-international-stock-etf",
   "portId": "4394",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 81.41000366210938,
+  "nav": 82.45989990234375,
   "netAssets": "$6.8B",
   "totalFundNetAssets": "$6.8B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 14.83296217,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 20.713959340242518,
-    "3Y": 70.32707110287168,
-    "5Y": 47.371805486826425,
-    "10Y": 95.0953786082711
+    "1Y": 22.270735244358008,
+    "3Y": 72.52370524424508,
+    "5Y": 49.272402650203006,
+    "10Y": 97.6114434239
   },
   "performance": {
-    "1Y": 20.713959340242518,
-    "3Y": 19.424810132134375,
-    "5Y": 8.064458310622813,
-    "10Y": 6.911567779183114
+    "1Y": 22.270735244358008,
+    "3Y": 19.93600876269084,
+    "5Y": 8.341764554907405,
+    "10Y": 7.0486535254012495
   },
   "officialMetrics": {
     "nav": 14.83296217,

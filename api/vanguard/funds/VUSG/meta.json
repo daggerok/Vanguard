@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vusg/vanguard-wellington-u-s-growth-active-etf",
   "portId": "V054",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 64.13999938964844,
+  "nav": 65.1500015258789,
   "netAssets": "$34.6M",
   "totalFundNetAssets": "$34.6M",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 5.49432472,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 8.823659808316918,
-    "3Y": 8.823659808316918,
-    "5Y": 8.823659808316942,
-    "10Y": 8.823659808316942
+    "1Y": 10.537288276117573,
+    "3Y": 10.537288276117597,
+    "5Y": 10.53728827611764,
+    "10Y": 10.537288276117774
   },
   "performance": {
-    "1Y": 8.823659808316918,
-    "3Y": 2.858718481754119,
-    "5Y": 1.7055529905896538,
-    "10Y": 0.8491710380356343
+    "1Y": 10.537288276117573,
+    "3Y": 3.395808946889245,
+    "5Y": 2.0238624681939488,
+    "10Y": 1.006862374887163
   },
   "officialMetrics": {
     "nav": 5.49432472,
@@ -45,7 +45,7 @@
     "pages": []
   },
   "history": {
-    "totalRows": 207,
+    "totalRows": 208,
     "pageSize": 1000,
     "pages": [
       "./history/001.json"

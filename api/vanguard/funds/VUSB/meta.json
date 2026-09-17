@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vusb/vanguard-ultra-short-bond-etf",
   "portId": "0931",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 49.540000915527344,
+  "nav": 49.56399917602539,
   "netAssets": "$10.2B",
   "totalFundNetAssets": "$10.2B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 2.24520827,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 3.517821385279718,
-    "3Y": 16.27198048485077,
-    "5Y": 19.162915053594574,
-    "10Y": 19.49864105017649
+    "1Y": 3.5679924497560522,
+    "3Y": 16.32830517650867,
+    "5Y": 19.22060735879043,
+    "10Y": 19.556528806819284
   },
   "performance": {
-    "1Y": 3.517821385279718,
-    "3Y": 5.153812512427458,
-    "5Y": 3.5686281592085756,
-    "10Y": 1.7973087700511092
+    "1Y": 3.5679924497560522,
+    "3Y": 5.170789374001328,
+    "5Y": 3.578654694906991,
+    "10Y": 1.8022389798047156
   },
   "officialMetrics": {
     "nav": 2.24520827,

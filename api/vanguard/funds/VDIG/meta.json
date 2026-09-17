@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vdig/vanguard-wellington-dividend-growth-active-etf",
   "portId": "V053",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 61.76100158691406,
+  "nav": 61.900001525878906,
   "netAssets": "$31.9M",
   "totalFundNetAssets": "$31.9M",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 0.71789851,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 4.357761442353092,
-    "3Y": 4.35776144235307,
-    "5Y": 4.357761442353114,
-    "10Y": 4.357761442353003
+    "1Y": 4.592630082729343,
+    "3Y": 4.592630082729321,
+    "5Y": 4.59263008272941,
+    "10Y": 4.59263008272941
   },
   "performance": {
-    "1Y": 4.357761442353092,
-    "3Y": 1.4319835002652104,
-    "5Y": 0.8567457119386557,
-    "10Y": 0.4274592489218687
+    "1Y": 4.592630082729343,
+    "3Y": 1.5080211033455804,
+    "5Y": 0.9021027416462823,
+    "10Y": 0.45003869668058805
   },
   "officialMetrics": {
     "nav": 0.71789851,
@@ -45,7 +45,7 @@
     "pages": []
   },
   "history": {
-    "totalRows": 207,
+    "totalRows": 208,
     "pageSize": 1000,
     "pages": [
       "./history/001.json"

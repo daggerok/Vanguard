@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/ivoo/vanguard-sp-mid-cap-400-etf",
   "portId": "3342",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 123.62999725341797,
+  "nav": 124.56999969482422,
   "netAssets": "$3.8B",
   "totalFundNetAssets": "$5.9B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 11.15753453,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 13.078187048425892,
-    "3Y": 52.15886788700392,
-    "5Y": 48.70218490226603,
-    "10Y": 171.62694496457118
+    "1Y": 13.937960357952317,
+    "3Y": 53.31579978286669,
+    "5Y": 49.83286127168958,
+    "10Y": 173.69226623732268
   },
   "performance": {
-    "1Y": 13.078187048425892,
-    "3Y": 15.017985312326854,
-    "5Y": 8.258865090904033,
-    "10Y": 10.50890735892709
+    "1Y": 13.937960357952317,
+    "3Y": 15.308760641773134,
+    "5Y": 8.422998709940321,
+    "10Y": 10.59264691837849
   },
   "officialMetrics": {
     "nav": 11.15753453,

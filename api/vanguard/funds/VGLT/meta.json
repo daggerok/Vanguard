@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vglt/vanguard-long-term-treasury-etf",
   "portId": "3144",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 51.88999938964844,
+  "nav": 52.349998474121094,
   "netAssets": "$10.6B",
   "totalFundNetAssets": "$15.1B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": -4.22577363,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -4.480849651342322,
-    "3Y": 6.32327401208399,
-    "5Y": -29.126889507333043,
-    "10Y": -16.927056694230323
+    "1Y": -3.6340694529089945,
+    "3Y": 7.2657844965134055,
+    "5Y": -28.498622151756592,
+    "10Y": -16.190660101766397
   },
   "performance": {
-    "1Y": -4.480849651342322,
-    "3Y": 2.064829353382791,
-    "5Y": -6.653874019463945,
-    "10Y": -1.83742104061152
+    "1Y": -3.6340694529089945,
+    "3Y": 2.365529632222829,
+    "5Y": -6.48896106381639,
+    "10Y": -1.750750407944357
   },
   "officialMetrics": {
     "nav": -4.22577363,

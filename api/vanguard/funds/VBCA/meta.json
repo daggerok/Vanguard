@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vbca/vanguard-target-maturity-2027-corporate-bond-etf",
   "portId": "V072",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 75.43000030517578,
+  "nav": 75.42500305175781,
   "netAssets": "$55.9M",
   "totalFundNetAssets": "$55.9M",
   "netAssetsAsOf": "2026-08-31",
@@ -16,19 +16,19 @@
   "dividendYieldAsOf": null,
   "secYield": 4.38,
   "secYieldAsOf": "2026-09-15",
-  "ytdReturn": 1.9959796910954397,
+  "ytdReturn": 1.9892224359440602,
   "asOfDate": "",
   "totalReturn": {
-    "1Y": 1.9959796910954397,
-    "3Y": 1.9959796910953953,
-    "5Y": 1.9959796910954175,
-    "10Y": 1.9959796910954175
+    "1Y": 1.9892224359440602,
+    "3Y": 1.989222435944038,
+    "5Y": 1.989222435944038,
+    "10Y": 1.989222435944149
   },
   "performance": {
-    "1Y": 1.9959796910954397,
-    "3Y": 0.6609484111048669,
-    "5Y": 0.396046433844921,
-    "10Y": 0.1978275382480188
+    "1Y": 1.9892224359440602,
+    "3Y": 0.6587254256638309,
+    "5Y": 0.3947161467445559,
+    "10Y": 0.19716370573799047
   },
   "officialMetrics": {
     "nav": null,
@@ -45,7 +45,7 @@
     "pages": []
   },
   "history": {
-    "totalRows": 120,
+    "totalRows": 121,
     "pageSize": 1000,
     "pages": [
       "./history/001.json"

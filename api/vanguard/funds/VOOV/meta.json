@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/voov/vanguard-sp-500-value-etf",
   "portId": "3340",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 224.25999450683594,
+  "nav": 225.8175048828125,
   "netAssets": "$6.8B",
   "totalFundNetAssets": "$7.0B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 10.40568241,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 13.94482804817141,
-    "3Y": 59.16080597592281,
-    "5Y": 75.40603162418378,
-    "10Y": 203.31848362046244
+    "1Y": 14.73618743602907,
+    "3Y": 60.2662126692947,
+    "5Y": 76.62429854319201,
+    "10Y": 205.4250323990418
   },
   "performance": {
-    "1Y": 13.94482804817141,
-    "3Y": 16.75586612698283,
-    "5Y": 11.894542423940413,
-    "10Y": 11.735168334227343
+    "1Y": 14.73618743602907,
+    "3Y": 17.025541132822532,
+    "5Y": 12.049543111848294,
+    "10Y": 11.812527020300202
   },
   "officialMetrics": {
     "nav": 10.40568241,

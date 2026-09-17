@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vug/vanguard-growth-etf",
   "portId": "0967",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 87.05999755859375,
+  "nav": 88.29499816894531,
   "netAssets": "$227.0B",
   "totalFundNetAssets": "$384.6B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 7.30536895,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 9.266459805455995,
-    "3Y": 94.46979838321421,
-    "5Y": 84.80740186559292,
-    "10Y": 402.99438308668937
+    "1Y": 10.816462384458081,
+    "3Y": 97.22852473071953,
+    "5Y": 87.42899546950855,
+    "10Y": 410.1295049016147
   },
   "performance": {
-    "1Y": 9.266459805455995,
-    "3Y": 24.81996447725978,
-    "5Y": 13.069083594142917,
-    "10Y": 17.532050630284957
+    "1Y": 10.816462384458081,
+    "3Y": 25.407422554689507,
+    "5Y": 13.388068007186039,
+    "10Y": 17.69771847697903
   },
   "officialMetrics": {
     "nav": 7.30536895,

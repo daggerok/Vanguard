@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vti/vanguard-total-stock-market-etf",
   "portId": "0970",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 371.260009765625,
+  "nav": 375.2200012207031,
   "netAssets": "$690.1B",
   "totalFundNetAssets": "$2.3T",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 11.39534534,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 14.134093286103976,
-    "3Y": 81.14751870913955,
-    "5Y": 78.76809877686853,
-    "10Y": 290.02961983932096
+    "1Y": 15.351488163703063,
+    "3Y": 83.07971627370094,
+    "5Y": 80.67488969577705,
+    "10Y": 294.18975144907193
   },
   "performance": {
-    "1Y": 14.134093286103976,
-    "3Y": 21.901990331345544,
-    "5Y": 12.32023521881156,
-    "10Y": 14.580248279479902
+    "1Y": 15.351488163703063,
+    "3Y": 22.333878120013374,
+    "5Y": 12.558827279009632,
+    "10Y": 14.701879129053719
   },
   "officialMetrics": {
     "nav": 11.39534534,

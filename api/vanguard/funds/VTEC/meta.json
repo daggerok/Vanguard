@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vtec/vanguard-california-tax-exempt-bond-etf",
   "portId": "V038",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 96.05999755859375,
+  "nav": 96.2300033569336,
   "netAssets": "$3.3B",
   "totalFundNetAssets": "$3.3B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": -2.04166506,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -0.7917418430860024,
-    "3Y": 2.775971985274328,
-    "5Y": 2.7759719852743725,
-    "10Y": 2.7759719852742615
+    "1Y": -0.6161407993141688,
+    "3Y": 2.957872036526221,
+    "5Y": 2.9578720365262656,
+    "10Y": 2.9578720365262656
   },
   "performance": {
-    "1Y": -0.7917418430860024,
-    "3Y": 0.9168914026066899,
-    "5Y": 0.5491303067501896,
-    "10Y": 0.2741892546382907
+    "1Y": -0.6161407993141688,
+    "3Y": 0.9763928868997906,
+    "5Y": 0.5846969028092897,
+    "10Y": 0.2919223580888808
   },
   "officialMetrics": {
     "nav": -2.04166506,

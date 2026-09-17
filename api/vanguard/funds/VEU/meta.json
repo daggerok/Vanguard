@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/veu/vanguard-ftse-all-world-ex-us-etf",
   "portId": "0991",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 83.5,
+  "nav": 84.55000305175781,
   "netAssets": "$70.4B",
   "totalFundNetAssets": "$98.6B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 14.05644201,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 19.7689390548633,
-    "3Y": 75.37245875859446,
-    "5Y": 59.091916055030616,
-    "10Y": 145.209892895967
+    "1Y": 21.27503318278652,
+    "3Y": 77.57774758363392,
+    "5Y": 61.09250231453116,
+    "10Y": 148.29343518271023
   },
   "performance": {
-    "1Y": 19.7689390548633,
-    "3Y": 20.592545827226804,
-    "5Y": 9.731072122789609,
-    "10Y": 9.383999489228124
+    "1Y": 21.27503318278652,
+    "3Y": 21.09592093104542,
+    "5Y": 10.005668743554175,
+    "10Y": 9.5207788783523
   },
   "officialMetrics": {
     "nav": 14.05644201,

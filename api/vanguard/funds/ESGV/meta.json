@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/esgv/vanguard-esg-u-s-stock-etf",
   "portId": "4393",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 133.57000732421875,
+  "nav": 135.25999450683594,
   "netAssets": "$13.5B",
   "totalFundNetAssets": "$13.5B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 11.00517918,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 13.423793156550957,
-    "3Y": 76.37907286198671,
-    "5Y": 70.56967013866904,
-    "10Y": 190.5815660258025
+    "1Y": 14.858874029431778,
+    "3Y": 78.61071738977341,
+    "5Y": 72.72775986621997,
+    "10Y": 194.2582065928928
   },
   "performance": {
-    "1Y": 13.423793156550957,
-    "3Y": 20.822834060061957,
-    "5Y": 11.2705825862903,
-    "10Y": 11.256861870958401
+    "1Y": 14.858874029431778,
+    "3Y": 21.330272111477267,
+    "5Y": 11.550732934765806,
+    "10Y": 11.396836670111309
   },
   "officialMetrics": {
     "nav": 11.00517918,

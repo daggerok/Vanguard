@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vbci/vanguard-target-maturity-2035-corporate-bond-etf",
   "portId": "V080",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 72.55000305175781,
+  "nav": 72.87000274658203,
   "netAssets": "$11.8M",
   "totalFundNetAssets": "$11.8M",
   "netAssetsAsOf": "2026-08-31",
@@ -16,19 +16,19 @@
   "dividendYieldAsOf": null,
   "secYield": 5.7,
   "secYieldAsOf": "2026-09-15",
-  "ytdReturn": -0.7377387917200773,
+  "ytdReturn": -0.2999284964952831,
   "asOfDate": "",
   "totalReturn": {
-    "1Y": -0.7377387917200773,
-    "3Y": -0.7377387917200884,
-    "5Y": -0.7377387917200662,
-    "10Y": -0.7377387917201217
+    "1Y": -0.2999284964952831,
+    "3Y": -0.2999284964952831,
+    "5Y": -0.2999284964952831,
+    "10Y": -0.2999284964952831
   },
   "performance": {
-    "1Y": -0.7377387917200773,
-    "3Y": -0.24652015304632569,
-    "5Y": -0.14798510247190366,
-    "10Y": -0.0740199459979829
+    "1Y": -0.2999284964952831,
+    "3Y": -0.1000762847163772,
+    "5Y": -0.06005779476133677,
+    "10Y": -0.030033407408469603
   },
   "officialMetrics": {
     "nav": null,
@@ -45,7 +45,7 @@
     "pages": []
   },
   "history": {
-    "totalRows": 120,
+    "totalRows": 121,
     "pageSize": 1000,
     "pages": [
       "./history/001.json"

@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vtel/vanguard-long-term-tax-exempt-bond-etf",
   "portId": "V045",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 98.26899719238281,
+  "nav": 98.5,
   "netAssets": "$366.1M",
   "totalFundNetAssets": "$366.1M",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": -2.6062002,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -0.8030750297082889,
-    "3Y": 3.725139590662918,
-    "5Y": 3.7251395906629403,
-    "10Y": 3.7251395906629403
+    "1Y": -0.7358587761315705,
+    "3Y": 3.968959883753387,
+    "5Y": 3.968959883753409,
+    "10Y": 3.968959883753298
   },
   "performance": {
-    "1Y": -0.8030750297082889,
-    "3Y": 1.2266060558787428,
-    "5Y": 0.7341684180259156,
-    "10Y": 0.36641291688466193
+    "1Y": -0.7358587761315705,
+    "3Y": 1.3058597041547104,
+    "5Y": 0.7814818724847239,
+    "10Y": 0.3899805122427047
   },
   "officialMetrics": {
     "nav": -2.6062002,
@@ -45,7 +45,7 @@
     "pages": []
   },
   "history": {
-    "totalRows": 331,
+    "totalRows": 332,
     "pageSize": 1000,
     "pages": [
       "./history/001.json"

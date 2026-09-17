@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vtg/vanguard-total-treasury-etf",
   "portId": "V048",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 73.06800079345703,
+  "nav": 73.33499908447266,
   "netAssets": "$205.8M",
   "totalFundNetAssets": "$205.8M",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": -1.63641666,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -1.2630213085424113,
-    "3Y": 1.1931002252581813,
-    "5Y": 1.1931002252582035,
-    "10Y": 1.1931002252580925
+    "1Y": -0.7742408074517537,
+    "3Y": 1.5628491757352814,
+    "5Y": 1.5628491757352148,
+    "10Y": 1.5628491757352148
   },
   "performance": {
-    "1Y": -1.2630213085424113,
-    "3Y": 0.3961288226526971,
-    "5Y": 0.2374893392081967,
-    "10Y": 0.11867425171399049
+    "1Y": -0.7742408074517537,
+    "3Y": 0.5182591596609498,
+    "5Y": 0.3106339618363041,
+    "10Y": 0.1551965510708353
   },
   "officialMetrics": {
     "nav": -1.63641666,
@@ -45,7 +45,7 @@
     "pages": []
   },
   "history": {
-    "totalRows": 299,
+    "totalRows": 300,
     "pageSize": 1000,
     "pages": [
       "./history/001.json"

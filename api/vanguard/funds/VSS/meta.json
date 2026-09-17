@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vss/vanguard-ftse-all-world-ex-us-small-cap-etf",
   "portId": "3184",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 155.88999938964844,
+  "nav": 157.80499267578125,
   "netAssets": "$12.1B",
   "totalFundNetAssets": "$14.5B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 9.34781555,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 12.57818230062908,
-    "3Y": 60.93434924607559,
-    "5Y": 35.22497363873249,
-    "10Y": 107.47375331082205
+    "1Y": 13.961121963948209,
+    "3Y": 62.91129580611528,
+    "5Y": 36.88609425701337,
+    "10Y": 110.02245749378349
   },
   "performance": {
-    "1Y": 12.57818230062908,
-    "3Y": 17.187938932395987,
-    "5Y": 6.221243456727521,
-    "10Y": 7.571275046121317
+    "1Y": 13.961121963948209,
+    "3Y": 17.665839957286124,
+    "5Y": 6.480937554919786,
+    "10Y": 7.702695740135135
   },
   "officialMetrics": {
     "nav": 9.34781555,

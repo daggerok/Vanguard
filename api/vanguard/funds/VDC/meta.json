@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vdc/vanguard-consumer-staples-etf",
   "portId": "0955",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 225.11000061035156,
+  "nav": 225.08900451660156,
   "netAssets": "$7.9B",
   "totalFundNetAssets": "$9.3B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 7.76090766,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 7.084167009331233,
-    "3Y": 31.60413449112216,
-    "5Y": 40.75635792287373,
-    "10Y": 109.69056418621292
+    "1Y": 7.074179229119015,
+    "3Y": 31.59187146319873,
+    "5Y": 40.74320266827001,
+    "10Y": 109.67099136815096
   },
   "performance": {
-    "1Y": 7.084167009331233,
-    "3Y": 9.586362368408107,
-    "5Y": 7.076361235740936,
-    "10Y": 7.68566363341856
+    "1Y": 7.074179229119015,
+    "3Y": 9.582958467332748,
+    "5Y": 7.074359664404151,
+    "10Y": 7.684658437764114
   },
   "officialMetrics": {
     "nav": 7.76090766,

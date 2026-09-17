@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vis/vanguard-industrials-etf",
   "portId": "0953",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 323.8500061035156,
+  "nav": 325.0150146484375,
   "netAssets": "$8.0B",
   "totalFundNetAssets": "$8.6B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 9.02719392,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 10.11317298798562,
-    "3Y": 71.60275591783089,
-    "5Y": 83.34311648935622,
-    "10Y": 237.23146122117691
+    "1Y": 10.509279430727524,
+    "3Y": 72.22003288161412,
+    "5Y": 84.00262197152001,
+    "10Y": 238.44452715695928
   },
   "performance": {
-    "1Y": 10.11317298798562,
-    "3Y": 19.72221763699096,
-    "5Y": 12.889336849714027,
-    "10Y": 12.925704446745057
+    "1Y": 10.509279430727524,
+    "3Y": 19.86559787566673,
+    "5Y": 12.970435333238406,
+    "10Y": 12.96625970445151
   },
   "officialMetrics": {
     "nav": 9.02719392,

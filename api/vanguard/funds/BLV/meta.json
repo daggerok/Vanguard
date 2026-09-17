@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/blv/vanguard-long-term-bond-etf",
   "portId": "0927",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 64.91999816894531,
+  "nav": 65.48500061035156,
   "netAssets": "$5.7B",
   "totalFundNetAssets": "$8.3B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": -3.63598389,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -3.90446815401857,
-    "3Y": 11.656273951456786,
-    "5Y": -21.10002728843878,
-    "10Y": 0.989182452517956
+    "1Y": -3.0681432675033538,
+    "3Y": 12.628039641605815,
+    "5Y": -20.413341573336872,
+    "10Y": 1.8680366092354905
   },
   "performance": {
-    "1Y": -3.90446815401857,
-    "3Y": 3.7435353444900343,
-    "5Y": -4.629212088163981,
-    "10Y": 0.09848066726128035
+    "1Y": -3.0681432675033538,
+    "3Y": 4.043632961549681,
+    "5Y": -4.463779960724268,
+    "10Y": 0.18525168866629915
   },
   "officialMetrics": {
     "nav": -3.63598389,

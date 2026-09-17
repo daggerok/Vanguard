@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vcit/vanguard-intermediate-term-corporate-bond-etf",
   "portId": "3146",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 79.55000305175781,
+  "nav": 79.87000274658203,
   "netAssets": "$70.0B",
   "totalFundNetAssets": "$72.2B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": -1.90334564,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -0.7815746500137499,
-    "3Y": 20.06082044266966,
-    "5Y": 3.354969579666256,
-    "10Y": 27.423169293234228
+    "1Y": -0.3824657809550991,
+    "3Y": 20.543849296021975,
+    "5Y": 3.7707379734400304,
+    "10Y": 27.935736884083507
   },
   "performance": {
-    "1Y": -0.7815746500137499,
-    "3Y": 6.283807042835687,
-    "5Y": 0.6621663701300573,
-    "10Y": 2.4530378538256237
+    "1Y": -0.3824657809550991,
+    "3Y": 6.426150039853229,
+    "5Y": 0.7430235667361451,
+    "10Y": 2.49417581169209
   },
   "officialMetrics": {
     "nav": -1.90334564,

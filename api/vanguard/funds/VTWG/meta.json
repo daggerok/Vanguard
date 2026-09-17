@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vtwg/vanguard-russell-2000-growth-etf",
   "portId": "3353",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 263.989990234375,
+  "nav": 266.8599853515625,
   "netAssets": "$1.5B",
   "totalFundNetAssets": "$1.7B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 12.08866061,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 13.568133897225088,
-    "3Y": 64.83497302746031,
-    "5Y": 27.662974460539736,
-    "10Y": 161.1211676404022
+    "1Y": 14.802801883930794,
+    "3Y": 66.62699388139701,
+    "5Y": 29.05085695277405,
+    "10Y": 163.9599142900651
   },
   "performance": {
-    "1Y": 13.568133897225088,
-    "3Y": 18.127166608291923,
-    "5Y": 5.005728380526553,
-    "10Y": 10.07386294105681
+    "1Y": 14.802801883930794,
+    "3Y": 18.553701945510205,
+    "5Y": 5.233055014405985,
+    "10Y": 10.19294696851416
   },
   "officialMetrics": {
     "nav": 12.08866061,

@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vclt/vanguard-long-term-corporate-bond-etf",
   "portId": "3147",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 70.93000030517578,
+  "nav": 71.47000122070312,
   "netAssets": "$9.0B",
   "totalFundNetAssets": "$9.8B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": -3.07536564,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -3.5326265721320804,
-    "3Y": 16.229655453060545,
-    "5Y": -14.421198207076525,
-    "10Y": 14.63669035208024
+    "1Y": -2.798225910080232,
+    "3Y": 17.11452955550008,
+    "5Y": -13.769657855465155,
+    "10Y": 15.509536669162793
   },
   "performance": {
-    "1Y": -3.5326265721320804,
-    "3Y": 5.141051689097997,
-    "5Y": -3.0666459448523753,
-    "10Y": 1.3753493664025562
+    "1Y": -2.798225910080232,
+    "3Y": 5.407195719037472,
+    "5Y": -2.9194961063122915,
+    "10Y": 1.4522735838086387
   },
   "officialMetrics": {
     "nav": -3.07536564,

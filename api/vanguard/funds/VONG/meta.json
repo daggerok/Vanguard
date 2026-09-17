@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vong/vanguard-russell-1000-growth-etf",
   "portId": "3350",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 124.2300033569336,
+  "nav": 126.08000183105469,
   "netAssets": "$45.9B",
   "totalFundNetAssets": "$54.3B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 2.28769754,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 3.4746885669606487,
-    "3Y": 84.38715757232886,
-    "5Y": 82.0603460796605,
-    "10Y": 406.8556951938345
+    "1Y": 5.015611370077333,
+    "3Y": 87.13302075719223,
+    "5Y": 84.77151718848181,
+    "10Y": 414.4036484850698
   },
   "performance": {
-    "1Y": 3.4746885669606487,
-    "3Y": 22.624398428368764,
-    "5Y": 12.730925576968932,
-    "10Y": 17.62196570289989
+    "1Y": 5.015611370077333,
+    "3Y": 23.23010240602803,
+    "5Y": 13.06469225192275,
+    "10Y": 17.795962206992023
   },
   "officialMetrics": {
     "nav": 2.28769754,

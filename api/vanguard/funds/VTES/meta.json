@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vtes/vanguard-short-term-tax-exempt-bond-etf",
   "portId": "V014",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 99.61000061035156,
+  "nav": 99.68499755859375,
   "netAssets": "$2.4B",
   "totalFundNetAssets": "$2.4B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": -0.10072557,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 0.06830600045832913,
-    "3Y": 8.759771532608474,
-    "5Y": 9.218909843852941,
-    "10Y": 9.21890984385283
+    "1Y": 0.14365568499956627,
+    "3Y": 8.84165739654268,
+    "5Y": 9.3011596825745,
+    "10Y": 9.3011596825745
   },
   "performance": {
-    "1Y": 0.06830600045832913,
-    "3Y": 2.8385857502313483,
-    "5Y": 1.7793252728214304,
-    "10Y": 0.8857399600267657
+    "1Y": 0.14365568499956627,
+    "3Y": 2.8643885318775597,
+    "5Y": 1.7946501145523541,
+    "10Y": 0.8933348217573522
   },
   "officialMetrics": {
     "nav": -0.10072557,

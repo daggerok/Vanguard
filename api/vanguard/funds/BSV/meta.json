@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/bsv/vanguard-short-term-bond-etf",
   "portId": "0924",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 76.62999725341797,
+  "nav": 76.73999786376953,
   "netAssets": "$46.6B",
   "totalFundNetAssets": "$71.1B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": -0.10716564,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 1.0697097992682814,
-    "3Y": 13.674449399035726,
-    "5Y": 8.126466897028205,
-    "10Y": 19.992612197913683
+    "1Y": 1.2148032435137956,
+    "3Y": 13.837613590437359,
+    "5Y": 8.281703283524733,
+    "10Y": 20.164894740514107
   },
   "performance": {
-    "1Y": 1.0697097992682814,
-    "3Y": 4.3648579746478955,
-    "5Y": 1.5748997743950666,
-    "10Y": 1.8393106195788045
+    "1Y": 1.2148032435137956,
+    "3Y": 4.414767949513676,
+    "5Y": 1.6040491091951825,
+    "10Y": 1.8539230273316276
   },
   "officialMetrics": {
     "nav": -0.10716564,

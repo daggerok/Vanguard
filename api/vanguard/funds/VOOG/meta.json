@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/voog/vanguard-sp-500-growth-etf",
   "portId": "3341",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 82.62999725341797,
+  "nav": 83.73999786376953,
   "netAssets": "$27.1B",
   "totalFundNetAssets": "$27.1B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 11.81549821,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 14.285812270798747,
-    "3Y": 104.18798754678042,
-    "5Y": 92.67925917300852,
-    "10Y": 399.6972881893945
+    "1Y": 15.821057648891323,
+    "3Y": 106.93092350632392,
+    "5Y": 95.26755920821408,
+    "10Y": 406.4096808678013
   },
   "performance": {
-    "1Y": 14.285812270798747,
-    "3Y": 26.8654593454984,
-    "5Y": 14.016313173493945,
-    "10Y": 17.45478095007813
+    "1Y": 15.821057648891323,
+    "3Y": 27.431011968540965,
+    "5Y": 14.32100127484135,
+    "10Y": 17.611611302710607
   },
   "officialMetrics": {
     "nav": 11.81549821,

@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vgit/vanguard-intermediate-term-treasury-etf",
   "portId": "3143",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 57.16999816894531,
+  "nav": 57.345001220703125,
   "netAssets": "$39.8B",
   "totalFundNetAssets": "$48.3B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": -2.13378632,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -1.0289657300233568,
-    "3Y": 11.769324055649676,
-    "5Y": -1.2913919541545416,
-    "10Y": 9.926667740986872
+    "1Y": -0.7260055483264916,
+    "3Y": 12.111469436696964,
+    "5Y": -0.9892285640085596,
+    "10Y": 10.263107592701836
   },
   "performance": {
-    "1Y": -1.0289657300233568,
-    "3Y": 3.7785363975201935,
-    "5Y": -0.25962297724804184,
-    "10Y": 0.9509258457907288
+    "1Y": -0.7260055483264916,
+    "3Y": 3.8843232559420793,
+    "5Y": -0.19863325029862988,
+    "10Y": 0.9817802585067703
   },
   "officialMetrics": {
     "nav": -2.13378632,

@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vpu/vanguard-utilities-etf",
   "portId": "0960",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 178.9499969482422,
+  "nav": 180.5500030517578,
   "netAssets": "$8.2B",
   "totalFundNetAssets": "$10.1B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": -2.00472754,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -3.561088195346307,
-    "3Y": 52.3633621188047,
-    "5Y": 48.667736112599805,
-    "10Y": 126.46290734260393
+    "1Y": -2.698828243915119,
+    "3Y": 53.725655013466,
+    "5Y": 49.9969671076647,
+    "10Y": 128.48773014309228
   },
   "performance": {
-    "1Y": -3.561088195346307,
-    "3Y": 15.069488468033555,
-    "5Y": 8.25384871201511,
-    "10Y": 8.517481963754214
+    "1Y": -2.698828243915119,
+    "3Y": 15.411419876910347,
+    "5Y": 8.44673857140663,
+    "10Y": 8.61412011662026
   },
   "officialMetrics": {
     "nav": -2.00472754,

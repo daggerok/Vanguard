@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vde/vanguard-energy-etf",
   "portId": "0951",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 180.16000366210938,
+  "nav": 180.7449951171875,
   "netAssets": "$10.9B",
   "totalFundNetAssets": "$13.2B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 44.80053827,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 46.150760135919235,
-    "3Y": 54.66092750321829,
-    "5Y": 186.9353397235988,
-    "10Y": 159.65782774830268
+    "1Y": 46.62532132649866,
+    "3Y": 55.16312177045162,
+    "5Y": 187.86698529285354,
+    "10Y": 160.50089661029853
   },
   "performance": {
-    "1Y": 46.150760135919235,
-    "3Y": 15.645002568986065,
-    "5Y": 23.468680836286126,
-    "10Y": 10.012020720988968
+    "1Y": 46.62532132649866,
+    "3Y": 15.770036327800408,
+    "5Y": 23.548754587795706,
+    "10Y": 10.04768784339114
   },
   "officialMetrics": {
     "nav": 44.80053827,

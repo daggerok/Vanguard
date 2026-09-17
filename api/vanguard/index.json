@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-17T08:00:42.634Z",
+  "generatedAt": "2026-09-17T17:38:25.823Z",
   "provider": "Vanguard",
   "funds": [
     {
@@ -11,7 +11,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/biv/vanguard-intermediate-term-bond-etf",
       "portId": "0925",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 73.87999725341797,
+      "nav": 74.1771011352539,
       "netAssets": "$29.0B",
       "totalFundNetAssets": "$52.1B",
       "netAssetsAsOf": "2026-08-31",
@@ -23,16 +23,16 @@
       "ytdReturn": -2.39011117,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": -1.2876360294661104,
-        "3Y": 15.022837444881109,
-        "5Y": -1.2442475502531192,
-        "10Y": 15.436133363580296
+        "1Y": -0.8906602035451128,
+        "3Y": 15.485367302497721,
+        "5Y": -0.8471174550558236,
+        "10Y": 15.900366516599963
       },
       "performance": {
-        "1Y": -1.2876360294661104,
-        "3Y": 4.775890090720636,
-        "5Y": -0.25009735908908537,
-        "10Y": 1.445824711393895
+        "1Y": -0.8906602035451128,
+        "3Y": 4.916143872467171,
+        "5Y": -0.17000051272373362,
+        "10Y": 1.486548099412377
       },
       "officialMetrics": {
         "nav": -2.39011117,
@@ -55,7 +55,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/blv/vanguard-long-term-bond-etf",
       "portId": "0927",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 64.91999816894531,
+      "nav": 65.48500061035156,
       "netAssets": "$5.7B",
       "totalFundNetAssets": "$8.3B",
       "netAssetsAsOf": "2026-08-31",
@@ -67,16 +67,16 @@
       "ytdReturn": -3.63598389,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": -3.90446815401857,
-        "3Y": 11.656273951456786,
-        "5Y": -21.10002728843878,
-        "10Y": 0.989182452517956
+        "1Y": -3.0681432675033538,
+        "3Y": 12.628039641605815,
+        "5Y": -20.413341573336872,
+        "10Y": 1.8680366092354905
       },
       "performance": {
-        "1Y": -3.90446815401857,
-        "3Y": 3.7435353444900343,
-        "5Y": -4.629212088163981,
-        "10Y": 0.09848066726128035
+        "1Y": -3.0681432675033538,
+        "3Y": 4.043632961549681,
+        "5Y": -4.463779960724268,
+        "10Y": 0.18525168866629915
       },
       "officialMetrics": {
         "nav": -3.63598389,
@@ -99,7 +99,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/bnd/vanguard-total-bond-market-etf",
       "portId": "0928",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 71.11000061035156,
+      "nav": 71.37329864501953,
       "netAssets": "$163.3B",
       "totalFundNetAssets": "$398.9B",
       "netAssetsAsOf": "2026-08-31",
@@ -111,16 +111,16 @@
       "ytdReturn": -1.43199685,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": -0.50661881577585,
-        "3Y": 14.12778119372955,
-        "5Y": -1.7638188682633782,
-        "10Y": 13.986281454893334
+        "1Y": -0.13822602287150154,
+        "3Y": 14.550318501754544,
+        "5Y": -1.4000395241294705,
+        "10Y": 14.40839987560043
       },
       "performance": {
-        "1Y": -0.50661881577585,
-        "3Y": 4.5034090579080255,
-        "5Y": -0.35527928811497356,
-        "10Y": 1.3176851237872267
+        "1Y": -0.13822602287150154,
+        "3Y": 4.6322184987626525,
+        "5Y": -0.2815892961582356,
+        "10Y": 1.355143102278289
       },
       "officialMetrics": {
         "nav": -1.43199685,
@@ -143,7 +143,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/bndp/vanguard-core-plus-bond-index-etf",
       "portId": "V056",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 71.875,
+      "nav": 72.1500015258789,
       "netAssets": "$131.6M",
       "totalFundNetAssets": "$131.6M",
       "netAssetsAsOf": "2026-08-31",
@@ -155,16 +155,16 @@
       "ytdReturn": -1.15599542,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": -1.2793818224877351,
-        "3Y": -1.2793818224877351,
-        "5Y": -1.2793818224877573,
-        "10Y": -1.2793818224877573
+        "1Y": -0.9016452880930781,
+        "3Y": -0.9016452880930781,
+        "5Y": -0.9016452880930781,
+        "10Y": -0.9016452880931336
       },
       "performance": {
-        "1Y": -1.2793818224877351,
-        "3Y": -0.4282923319280152,
-        "5Y": -0.2571959614322772,
-        "10Y": -0.12868077442467207
+        "1Y": -0.9016452880930781,
+        "3Y": -0.3014562750518368,
+        "5Y": -0.180982969784671,
+        "10Y": -0.09053246552891414
       },
       "officialMetrics": {
         "nav": -1.15599542,
@@ -176,7 +176,7 @@
         }
       },
       "holdings": 0,
-      "history": 196
+      "history": 197
     },
     {
       "ticker": "BNDW",
@@ -187,7 +187,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/bndw/vanguard-total-world-bond-etf",
       "portId": "3061",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 66.39520263671875,
+      "nav": 66.62999725341797,
       "netAssets": "$1.9B",
       "totalFundNetAssets": "$1.9B",
       "netAssetsAsOf": "2026-08-31",
@@ -199,16 +199,16 @@
       "ytdReturn": -1.18692875,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": -0.5611619185976413,
-        "3Y": 11.993077511486838,
-        "5Y": -1.6228264878943022,
-        "10Y": 13.474540324913908
+        "1Y": -0.2095258684519874,
+        "3Y": 12.389142454563974,
+        "5Y": -1.2749557404377776,
+        "10Y": 13.875852195121796
       },
       "performance": {
-        "1Y": -0.5611619185976413,
-        "3Y": 3.847742410750543,
-        "5Y": -0.32669290051488,
-        "10Y": 1.2721064165605922
+        "1Y": -0.2095258684519874,
+        "3Y": 3.9700180014015096,
+        "5Y": -0.2563015952386394,
+        "10Y": 1.3078652423907045
       },
       "officialMetrics": {
         "nav": -1.18692875,
@@ -231,7 +231,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/bndx/vanguard-total-international-bond-etf",
       "portId": "3711",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 46.970001220703125,
+      "nav": 47.10499954223633,
       "netAssets": "$83.4B",
       "totalFundNetAssets": "$123.0B",
       "netAssetsAsOf": "2026-08-31",
@@ -243,16 +243,16 @@
       "ytdReturn": -1.05991887,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": -0.6641267636631643,
-        "3Y": 12.47657480992881,
-        "5Y": -0.00812090138104793,
-        "10Y": 13.86578510391252
+        "1Y": -0.37862967392685576,
+        "3Y": 12.799889358613381,
+        "5Y": 0.2792452468578954,
+        "10Y": 14.193114581212196
       },
       "performance": {
-        "1Y": -0.6641267636631643,
-        "3Y": 3.9969719316606866,
-        "5Y": -0.0016242330380111802,
-        "10Y": 1.3069696037853795
+        "1Y": -0.37862967392685576,
+        "3Y": 4.096523233040039,
+        "5Y": 0.05578677136119925,
+        "10Y": 1.3360546692654518
       },
       "officialMetrics": {
         "nav": -1.05991887,
@@ -275,7 +275,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/bsv/vanguard-short-term-bond-etf",
       "portId": "0924",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 76.62999725341797,
+      "nav": 76.73999786376953,
       "netAssets": "$46.6B",
       "totalFundNetAssets": "$71.1B",
       "netAssetsAsOf": "2026-08-31",
@@ -287,16 +287,16 @@
       "ytdReturn": -0.10716564,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 1.0697097992682814,
-        "3Y": 13.674449399035726,
-        "5Y": 8.126466897028205,
-        "10Y": 19.992612197913683
+        "1Y": 1.2148032435137956,
+        "3Y": 13.837613590437359,
+        "5Y": 8.281703283524733,
+        "10Y": 20.164894740514107
       },
       "performance": {
-        "1Y": 1.0697097992682814,
-        "3Y": 4.3648579746478955,
-        "5Y": 1.5748997743950666,
-        "10Y": 1.8393106195788045
+        "1Y": 1.2148032435137956,
+        "3Y": 4.414767949513676,
+        "5Y": 1.6040491091951825,
+        "10Y": 1.8539230273316276
       },
       "officialMetrics": {
         "nav": -0.10716564,
@@ -319,7 +319,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/edv/vanguard-extended-duration-treasury-etf",
       "portId": "0930",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 59.310001373291016,
+      "nav": 60.1349983215332,
       "netAssets": "$3.7B",
       "totalFundNetAssets": "$4.2B",
       "netAssetsAsOf": "2026-08-31",
@@ -331,16 +331,16 @@
       "ytdReturn": -6.87362541,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": -8.975164497660826,
-        "3Y": -3.072791843875211,
-        "5Y": -47.141349495156085,
-        "10Y": -36.517799134459885
+        "1Y": -7.709016971697446,
+        "3Y": -1.724542828887865,
+        "5Y": -46.406079342654984,
+        "10Y": -35.634767255027896
       },
       "performance": {
-        "1Y": -8.975164497660826,
-        "3Y": -1.034937963218141,
-        "5Y": -11.97151769754985,
-        "10Y": -4.442407942205662
+        "1Y": -7.709016971697446,
+        "3Y": -0.5781841357387796,
+        "5Y": -11.727971711039931,
+        "10Y": -4.310312914364534
       },
       "officialMetrics": {
         "nav": -6.87362541,
@@ -363,7 +363,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/esgv/vanguard-esg-u-s-stock-etf",
       "portId": "4393",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 133.57000732421875,
+      "nav": 135.25999450683594,
       "netAssets": "$13.5B",
       "totalFundNetAssets": "$13.5B",
       "netAssetsAsOf": "2026-08-31",
@@ -375,16 +375,16 @@
       "ytdReturn": 11.00517918,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 13.423793156550957,
-        "3Y": 76.37907286198671,
-        "5Y": 70.56967013866904,
-        "10Y": 190.5815660258025
+        "1Y": 14.858874029431778,
+        "3Y": 78.61071738977341,
+        "5Y": 72.72775986621997,
+        "10Y": 194.2582065928928
       },
       "performance": {
-        "1Y": 13.423793156550957,
-        "3Y": 20.822834060061957,
-        "5Y": 11.2705825862903,
-        "10Y": 11.256861870958401
+        "1Y": 14.858874029431778,
+        "3Y": 21.330272111477267,
+        "5Y": 11.550732934765806,
+        "10Y": 11.396836670111309
       },
       "officialMetrics": {
         "nav": 11.00517918,
@@ -407,7 +407,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/ivog/vanguard-sp-mid-cap-400-growth-etf",
       "portId": "3343",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 135.9499969482422,
+      "nav": 137.5,
       "netAssets": "$1.6B",
       "totalFundNetAssets": "$1.8B",
       "netAssetsAsOf": "2026-08-31",
@@ -419,16 +419,16 @@
       "ytdReturn": 13.13274042,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 14.509427574895062,
-        "3Y": 54.448555640564614,
-        "5Y": 43.86407993049018,
-        "10Y": 174.3215927035342
+        "1Y": 15.814980838450499,
+        "3Y": 56.209479352584914,
+        "5Y": 45.50431360416569,
+        "10Y": 177.44925082898502
       },
       "performance": {
-        "1Y": 14.509427574895062,
-        "3Y": 15.592045874310223,
-        "5Y": 7.545062059305496,
-        "10Y": 10.618050255293099
+        "1Y": 15.814980838450499,
+        "3Y": 16.029689029901984,
+        "5Y": 7.789181401024914,
+        "10Y": 10.743528193965846
       },
       "officialMetrics": {
         "nav": 13.13274042,
@@ -451,7 +451,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/ivoo/vanguard-sp-mid-cap-400-etf",
       "portId": "3342",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 123.62999725341797,
+      "nav": 124.56999969482422,
       "netAssets": "$3.8B",
       "totalFundNetAssets": "$5.9B",
       "netAssetsAsOf": "2026-08-31",
@@ -463,16 +463,16 @@
       "ytdReturn": 11.15753453,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 13.078187048425892,
-        "3Y": 52.15886788700392,
-        "5Y": 48.70218490226603,
-        "10Y": 171.62694496457118
+        "1Y": 13.937960357952317,
+        "3Y": 53.31579978286669,
+        "5Y": 49.83286127168958,
+        "10Y": 173.69226623732268
       },
       "performance": {
-        "1Y": 13.078187048425892,
-        "3Y": 15.017985312326854,
-        "5Y": 8.258865090904033,
-        "10Y": 10.50890735892709
+        "1Y": 13.937960357952317,
+        "3Y": 15.308760641773134,
+        "5Y": 8.422998709940321,
+        "10Y": 10.59264691837849
       },
       "officialMetrics": {
         "nav": 11.15753453,
@@ -495,7 +495,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/ivov/vanguard-sp-mid-cap-400-value-etf",
       "portId": "3344",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 110.1500015258789,
+      "nav": 110.972900390625,
       "netAssets": "$1.3B",
       "totalFundNetAssets": "$1.5B",
       "netAssetsAsOf": "2026-08-31",
@@ -507,16 +507,16 @@
       "ytdReturn": 9.09451159,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 11.275087815301731,
-        "3Y": 48.676577353092874,
-        "5Y": 51.3342654598288,
-        "10Y": 158.54970501770737
+        "1Y": 12.10639187494098,
+        "3Y": 49.78729714449894,
+        "5Y": 52.46484007189374,
+        "10Y": 160.4812552291667
       },
       "performance": {
-        "1Y": 11.275087815301731,
-        "3Y": 14.13377579556203,
-        "5Y": 8.639424072224866,
-        "10Y": 9.964981288222585
+        "1Y": 12.10639187494098,
+        "3Y": 14.417291107069863,
+        "5Y": 8.801263923943647,
+        "10Y": 10.04685807199721
       },
       "officialMetrics": {
         "nav": 9.09451159,
@@ -539,7 +539,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/mgc/vanguard-mega-cap-etf",
       "portId": "3137",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 277.7900085449219,
+      "nav": 280.92498779296875,
       "netAssets": "$10.3B",
       "totalFundNetAssets": "$10.9B",
       "netAssetsAsOf": "2026-08-31",
@@ -551,16 +551,16 @@
       "ytdReturn": 11.24287652,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 14.69130029890524,
-        "3Y": 88.80239091844253,
-        "5Y": 93.92431248608565,
-        "10Y": 339.42306618900017
+        "1Y": 15.985640755035924,
+        "3Y": 90.9330671779869,
+        "5Y": 96.11285231729781,
+        "10Y": 344.38230462600484
       },
       "performance": {
-        "1Y": 14.69130029890524,
-        "3Y": 23.595453840750746,
-        "5Y": 14.163283727733988,
-        "10Y": 15.954680882241611
+        "1Y": 15.985640755035924,
+        "3Y": 24.058649670017253,
+        "5Y": 14.419807097516312,
+        "10Y": 16.084885057180642
       },
       "officialMetrics": {
         "nav": 11.24287652,
@@ -583,7 +583,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/mgk/vanguard-mega-cap-growth-etf",
       "portId": "3138",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 89.12000274658203,
+      "nav": 90.43499755859375,
       "netAssets": "$33.5B",
       "totalFundNetAssets": "$33.7B",
       "netAssetsAsOf": "2026-08-31",
@@ -595,16 +595,16 @@
       "ytdReturn": 8.13798018,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 11.043947258498644,
-        "3Y": 98.76637312627115,
-        "5Y": 94.2928859798061,
-        "10Y": 447.508854554697
+        "1Y": 12.682437048107964,
+        "3Y": 101.69921886299696,
+        "5Y": 97.15974110996974,
+        "10Y": 455.5873967134864
       },
       "performance": {
-        "1Y": 11.043947258498644,
-        "3Y": 25.73252513687967,
-        "5Y": 14.20664663267699,
-        "10Y": 18.5329559052972
+        "1Y": 12.682437048107964,
+        "3Y": 26.347912827258547,
+        "5Y": 14.541706151615719,
+        "10Y": 18.706701804333314
       },
       "officialMetrics": {
         "nav": 8.13798018,
@@ -627,7 +627,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/mgv/vanguard-mega-cap-value-etf",
       "portId": "3139",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 163.89999389648438,
+      "nav": 164.625,
       "netAssets": "$13.8B",
       "totalFundNetAssets": "$13.9B",
       "netAssetsAsOf": "2026-08-31",
@@ -639,16 +639,16 @@
       "ytdReturn": 17.24381521,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 20.880983320858505,
-        "3Y": 71.98849999483619,
-        "5Y": 87.5372539406681,
-        "10Y": 234.20587232326648
+        "1Y": 21.415696279798226,
+        "3Y": 72.74925767239976,
+        "5Y": 88.36681866798234,
+        "10Y": 235.68422074479338
       },
       "performance": {
-        "1Y": 20.880983320858505,
-        "3Y": 19.811857952158498,
-        "5Y": 13.401163509073433,
-        "10Y": 12.823977855864332
+        "1Y": 21.415696279798226,
+        "3Y": 19.988252940925832,
+        "5Y": 13.501311710196507,
+        "10Y": 12.873786096467054
       },
       "officialMetrics": {
         "nav": 17.24381521,
@@ -671,7 +671,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/muny/vanguard-new-york-tax-exempt-bond-etf",
       "portId": "V046",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 98.94999694824219,
+      "nav": 99.19000244140625,
       "netAssets": "$496.0M",
       "totalFundNetAssets": "$496.0M",
       "netAssetsAsOf": "2026-08-31",
@@ -683,16 +683,16 @@
       "ytdReturn": -1.86581722,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": -0.7907474274356452,
-        "3Y": 3.354320448124626,
-        "5Y": 3.3543204481246036,
-        "10Y": 3.3543204481247146
+        "1Y": -0.6080165962262796,
+        "3Y": 3.605016985491072,
+        "5Y": 3.6050169854911385,
+        "10Y": 3.6050169854912495
       },
       "performance": {
-        "1Y": -0.7907474274356452,
-        "3Y": 1.1058330719927012,
-        "5Y": 0.6620399259896992,
-        "10Y": 0.330473898008532
+        "1Y": -0.6080165962262796,
+        "3Y": 1.1875145985361213,
+        "5Y": 0.7108258416171687,
+        "10Y": 0.35478356392244503
       },
       "officialMetrics": {
         "nav": -1.86581722,
@@ -704,7 +704,7 @@
         }
       },
       "holdings": 0,
-      "history": 331
+      "history": 332
     },
     {
       "ticker": "VAW",
@@ -715,7 +715,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vaw/vanguard-materials-etf",
       "portId": "0952",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 224.6999969482422,
+      "nav": 226.9199981689453,
       "netAssets": "$3.1B",
       "totalFundNetAssets": "$4.5B",
       "netAssetsAsOf": "2026-08-31",
@@ -727,16 +727,16 @@
       "ytdReturn": 9.0714453,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 10.911154043397131,
-        "3Y": 36.11131522655289,
-        "5Y": 40.82401419912822,
-        "10Y": 150.2952403169748
+        "1Y": 12.006939093285895,
+        "3Y": 37.45607397180586,
+        "5Y": 42.215360881509035,
+        "10Y": 152.7682689535888
       },
       "performance": {
-        "1Y": 10.911154043397131,
-        "3Y": 10.823384750250597,
-        "5Y": 7.0866527714738,
-        "10Y": 9.608758607579947
+        "1Y": 12.006939093285895,
+        "3Y": 11.187161980972228,
+        "5Y": 7.29742548286032,
+        "10Y": 9.716578426523114
       },
       "officialMetrics": {
         "nav": 9.0714453,
@@ -759,7 +759,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vb/vanguard-small-cap-etf",
       "portId": "0969",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 288.9800109863281,
+      "nav": 291.82000732421875,
       "netAssets": "$80.7B",
       "totalFundNetAssets": "$185.3B",
       "netAssetsAsOf": "2026-08-31",
@@ -771,16 +771,16 @@
       "ytdReturn": 12.83003466,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 14.820435456393888,
-        "3Y": 59.00434397862766,
-        "5Y": 42.00341808257615,
-        "10Y": 172.9690295518839
+        "1Y": 15.948858306632863,
+        "3Y": 60.56697060241676,
+        "5Y": 43.39897892412361,
+        "10Y": 175.6517747877865
       },
       "performance": {
-        "1Y": 14.820435456393888,
-        "3Y": 16.7175948846757,
-        "5Y": 7.265425444417906,
-        "10Y": 10.563387804711866
+        "1Y": 15.948858306632863,
+        "3Y": 17.098699339500236,
+        "5Y": 7.475435053392654,
+        "10Y": 10.671572130489393
       },
       "officialMetrics": {
         "nav": 12.83003466,
@@ -803,7 +803,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vbca/vanguard-target-maturity-2027-corporate-bond-etf",
       "portId": "V072",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 75.43000030517578,
+      "nav": 75.42500305175781,
       "netAssets": "$55.9M",
       "totalFundNetAssets": "$55.9M",
       "netAssetsAsOf": "2026-08-31",
@@ -812,19 +812,19 @@
       "dividendYieldAsOf": null,
       "secYield": 4.38,
       "secYieldAsOf": "2026-09-15",
-      "ytdReturn": 1.9959796910954397,
+      "ytdReturn": 1.9892224359440602,
       "asOfDate": "",
       "totalReturn": {
-        "1Y": 1.9959796910954397,
-        "3Y": 1.9959796910953953,
-        "5Y": 1.9959796910954175,
-        "10Y": 1.9959796910954175
+        "1Y": 1.9892224359440602,
+        "3Y": 1.989222435944038,
+        "5Y": 1.989222435944038,
+        "10Y": 1.989222435944149
       },
       "performance": {
-        "1Y": 1.9959796910954397,
-        "3Y": 0.6609484111048669,
-        "5Y": 0.396046433844921,
-        "10Y": 0.1978275382480188
+        "1Y": 1.9892224359440602,
+        "3Y": 0.6587254256638309,
+        "5Y": 0.3947161467445559,
+        "10Y": 0.19716370573799047
       },
       "officialMetrics": {
         "nav": null,
@@ -836,7 +836,7 @@
         }
       },
       "holdings": 0,
-      "history": 120
+      "history": 121
     },
     {
       "ticker": "VBCB",
@@ -847,7 +847,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vbcb/vanguard-target-maturity-2028-corporate-bond-etf",
       "portId": "V073",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 75.01000213623047,
+      "nav": 75.05500030517578,
       "netAssets": "$104.1M",
       "totalFundNetAssets": "$104.1M",
       "netAssetsAsOf": "2026-08-31",
@@ -856,19 +856,19 @@
       "dividendYieldAsOf": null,
       "secYield": 4.73,
       "secYieldAsOf": "2026-09-15",
-      "ytdReturn": 1.422002619388918,
+      "ytdReturn": 1.48284523075628,
       "asOfDate": "",
       "totalReturn": {
-        "1Y": 1.422002619388918,
-        "3Y": 1.422002619388918,
-        "5Y": 1.4220026193888957,
-        "10Y": 1.4220026193888957
+        "1Y": 1.48284523075628,
+        "3Y": 1.4828452307562578,
+        "5Y": 1.4828452307563245,
+        "10Y": 1.4828452307563245
       },
       "performance": {
-        "1Y": 1.422002619388918,
-        "3Y": 0.47177168782435164,
-        "5Y": 0.2827965168135327,
-        "10Y": 0.14129843217209892
+        "1Y": 1.48284523075628,
+        "3Y": 0.49185852903350646,
+        "5Y": 0.29482547204462417,
+        "10Y": 0.1473042433218108
       },
       "officialMetrics": {
         "nav": null,
@@ -880,7 +880,7 @@
         }
       },
       "holdings": 0,
-      "history": 120
+      "history": 121
     },
     {
       "ticker": "VBCC",
@@ -891,7 +891,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vbcc/vanguard-target-maturity-2029-corporate-bond-etf",
       "portId": "V074",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 74.36000061035156,
+      "nav": 74.42500305175781,
       "netAssets": "$55.6M",
       "totalFundNetAssets": "$55.6M",
       "netAssetsAsOf": "2026-08-31",
@@ -900,19 +900,19 @@
       "dividendYieldAsOf": null,
       "secYield": 4.94,
       "secYieldAsOf": "2026-09-15",
-      "ytdReturn": 0.8310206321293645,
+      "ytdReturn": 0.9191629459644135,
       "asOfDate": "",
       "totalReturn": {
-        "1Y": 0.8310206321293645,
-        "3Y": 0.8310206321293867,
-        "5Y": 0.8310206321293423,
-        "10Y": 0.8310206321293423
+        "1Y": 0.9191629459644135,
+        "3Y": 0.9191629459644135,
+        "5Y": 0.9191629459643691,
+        "10Y": 0.9191629459642581
       },
       "performance": {
-        "1Y": 0.8310206321293645,
-        "3Y": 0.27624307235376566,
-        "5Y": 0.1656543889839046,
-        "10Y": 0.08279292115298542
+        "1Y": 0.9191629459644135,
+        "3Y": 0.30545367917280686,
+        "5Y": 0.18316040446841875,
+        "10Y": 0.09153830592694145
       },
       "officialMetrics": {
         "nav": null,
@@ -924,7 +924,7 @@
         }
       },
       "holdings": 0,
-      "history": 120
+      "history": 121
     },
     {
       "ticker": "VBCD",
@@ -935,7 +935,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vbcd/vanguard-target-maturity-2030-corporate-bond-etf",
       "portId": "V075",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 73.81999969482422,
+      "nav": 73.94999694824219,
       "netAssets": "$53.8M",
       "totalFundNetAssets": "$53.8M",
       "netAssetsAsOf": "2026-08-31",
@@ -944,19 +944,19 @@
       "dividendYieldAsOf": null,
       "secYield": 5.08,
       "secYieldAsOf": "2026-09-15",
-      "ytdReturn": 0.25093467181735996,
+      "ytdReturn": 0.4274872908553773,
       "asOfDate": "",
       "totalReturn": {
-        "1Y": 0.25093467181735996,
-        "3Y": 0.25093467181735996,
-        "5Y": 0.25093467181733775,
-        "10Y": 0.2509346718174488
+        "1Y": 0.4274872908553773,
+        "3Y": 0.4274872908553773,
+        "5Y": 0.4274872908553995,
+        "10Y": 0.4274872908555105
       },
       "performance": {
-        "1Y": 0.25093467181735996,
-        "3Y": 0.0835750233021404,
-        "5Y": 0.05013663550723635,
-        "10Y": 0.025065176438276993
+        "1Y": 0.4274872908553773,
+        "3Y": 0.1422931940523675,
+        "5Y": 0.08535163572791493,
+        "10Y": 0.04266671562085378
       },
       "officialMetrics": {
         "nav": null,
@@ -968,7 +968,7 @@
         }
       },
       "holdings": 0,
-      "history": 120
+      "history": 121
     },
     {
       "ticker": "VBCE",
@@ -979,7 +979,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vbce/vanguard-target-maturity-2031-corporate-bond-etf",
       "portId": "V076",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 73.5,
+      "nav": 73.73999786376953,
       "netAssets": "$52.2M",
       "totalFundNetAssets": "$52.2M",
       "netAssetsAsOf": "2026-08-31",
@@ -988,19 +988,19 @@
       "dividendYieldAsOf": null,
       "secYield": 5.23,
       "secYieldAsOf": "2026-09-15",
-      "ytdReturn": -0.07672290212338284,
+      "ytdReturn": 0.24955428215336362,
       "asOfDate": "",
       "totalReturn": {
-        "1Y": -0.07672290212338284,
-        "3Y": -0.07672290212339394,
-        "5Y": -0.07672290212336064,
-        "10Y": -0.07672290212341615
+        "1Y": 0.24955428215336362,
+        "3Y": 0.24955428215338582,
+        "5Y": 0.24955428215336362,
+        "10Y": 0.24955428215336362
       },
       "performance": {
-        "1Y": -0.07672290212338284,
-        "3Y": -0.02558084394558291,
-        "5Y": -0.01534929171659316,
-        "10Y": -0.0076749403818521245
+        "1Y": 0.24955428215336362,
+        "3Y": 0.08311565944998378,
+        "5Y": 0.04986110902838181,
+        "10Y": 0.024927447625966437
       },
       "officialMetrics": {
         "nav": null,
@@ -1012,7 +1012,7 @@
         }
       },
       "holdings": 0,
-      "history": 120
+      "history": 121
     },
     {
       "ticker": "VBCF",
@@ -1023,7 +1023,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vbcf/vanguard-target-maturity-2032-corporate-bond-etf",
       "portId": "V077",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 73.18000030517578,
+      "nav": 73.4000015258789,
       "netAssets": "$43.2M",
       "totalFundNetAssets": "$43.2M",
       "netAssetsAsOf": "2026-08-31",
@@ -1032,19 +1032,19 @@
       "dividendYieldAsOf": null,
       "secYield": 5.34,
       "secYieldAsOf": "2026-09-15",
-      "ytdReturn": -0.35618653216618057,
+      "ytdReturn": -0.05661670026443355,
       "asOfDate": "",
       "totalReturn": {
-        "1Y": -0.35618653216618057,
-        "3Y": -0.35618653216618057,
-        "5Y": -0.35618653216615836,
-        "10Y": -0.3561865321662139
+        "1Y": -0.05661670026443355,
+        "3Y": -0.05661670026443355,
+        "5Y": -0.056616700264411346,
+        "10Y": -0.056616700264355835
       },
       "performance": {
-        "1Y": -0.35618653216618057,
-        "3Y": -0.11887008904789553,
-        "5Y": -0.07133901895914896,
-        "10Y": -0.03567587331926303
+        "1Y": -0.05661670026443355,
+        "3Y": -0.018875796154105284,
+        "5Y": -0.011325905284942372,
+        "10Y": -0.005663112996712183
       },
       "officialMetrics": {
         "nav": null,
@@ -1056,7 +1056,7 @@
         }
       },
       "holdings": 0,
-      "history": 120
+      "history": 121
     },
     {
       "ticker": "VBCG",
@@ -1067,7 +1067,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vbcg/vanguard-target-maturity-2033-corporate-bond-etf",
       "portId": "V078",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 72.91000366210938,
+      "nav": 73.18499755859375,
       "netAssets": "$13.4M",
       "totalFundNetAssets": "$13.4M",
       "netAssetsAsOf": "2026-08-31",
@@ -1076,19 +1076,19 @@
       "dividendYieldAsOf": null,
       "secYield": 5.49,
       "secYieldAsOf": "2026-09-15",
-      "ytdReturn": -0.5115765803281436,
+      "ytdReturn": -0.13632674026887726,
       "asOfDate": "",
       "totalReturn": {
-        "1Y": -0.5115765803281436,
-        "3Y": -0.5115765803281547,
-        "5Y": -0.5115765803281769,
-        "10Y": -0.5115765803281769
+        "1Y": -0.13632674026887726,
+        "3Y": -0.13632674026887726,
+        "5Y": -0.13632674026887726,
+        "10Y": -0.13632674026887726
       },
       "performance": {
-        "1Y": -0.5115765803281436,
-        "3Y": -0.17081714560880368,
-        "5Y": -0.10252532950205673,
-        "10Y": -0.05127581079489296
+        "1Y": -0.13632674026887726,
+        "3Y": -0.04546291238811673,
+        "5Y": -0.027280228210901925,
+        "10Y": -0.013641044495926735
       },
       "officialMetrics": {
         "nav": null,
@@ -1100,7 +1100,7 @@
         }
       },
       "holdings": 0,
-      "history": 120
+      "history": 121
     },
     {
       "ticker": "VBCH",
@@ -1111,7 +1111,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vbch/vanguard-target-maturity-2034-corporate-bond-etf",
       "portId": "V079",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 72.87000274658203,
+      "nav": 73.20500183105469,
       "netAssets": "$11.9M",
       "totalFundNetAssets": "$11.9M",
       "netAssetsAsOf": "2026-08-31",
@@ -1120,19 +1120,19 @@
       "dividendYieldAsOf": null,
       "secYield": 5.62,
       "secYieldAsOf": "2026-09-15",
-      "ytdReturn": -0.4218240459932132,
+      "ytdReturn": 0.03595825839421973,
       "asOfDate": "",
       "totalReturn": {
-        "1Y": -0.4218240459932132,
-        "3Y": -0.4218240459932021,
-        "5Y": -0.4218240459932021,
-        "10Y": -0.4218240459932021
+        "1Y": 0.03595825839421973,
+        "3Y": 0.03595825839424194,
+        "5Y": 0.035958258394175324,
+        "10Y": 0.035958258394286347
       },
       "performance": {
-        "1Y": -0.4218240459932132,
-        "3Y": -0.14080618609558782,
-        "5Y": -0.08450751896241782,
-        "10Y": -0.042262690156102956
+        "1Y": 0.03595825839421973,
+        "3Y": 0.01198464975573632,
+        "5Y": 0.007190617504870822,
+        "10Y": 0.0035952441235442834
       },
       "officialMetrics": {
         "nav": null,
@@ -1144,7 +1144,7 @@
         }
       },
       "holdings": 0,
-      "history": 120
+      "history": 121
     },
     {
       "ticker": "VBCI",
@@ -1155,7 +1155,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vbci/vanguard-target-maturity-2035-corporate-bond-etf",
       "portId": "V080",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 72.55000305175781,
+      "nav": 72.87000274658203,
       "netAssets": "$11.8M",
       "totalFundNetAssets": "$11.8M",
       "netAssetsAsOf": "2026-08-31",
@@ -1164,19 +1164,19 @@
       "dividendYieldAsOf": null,
       "secYield": 5.7,
       "secYieldAsOf": "2026-09-15",
-      "ytdReturn": -0.7377387917200773,
+      "ytdReturn": -0.2999284964952831,
       "asOfDate": "",
       "totalReturn": {
-        "1Y": -0.7377387917200773,
-        "3Y": -0.7377387917200884,
-        "5Y": -0.7377387917200662,
-        "10Y": -0.7377387917201217
+        "1Y": -0.2999284964952831,
+        "3Y": -0.2999284964952831,
+        "5Y": -0.2999284964952831,
+        "10Y": -0.2999284964952831
       },
       "performance": {
-        "1Y": -0.7377387917200773,
-        "3Y": -0.24652015304632569,
-        "5Y": -0.14798510247190366,
-        "10Y": -0.0740199459979829
+        "1Y": -0.2999284964952831,
+        "3Y": -0.1000762847163772,
+        "5Y": -0.06005779476133677,
+        "10Y": -0.030033407408469603
       },
       "officialMetrics": {
         "nav": null,
@@ -1188,7 +1188,7 @@
         }
       },
       "holdings": 0,
-      "history": 120
+      "history": 121
     },
     {
       "ticker": "VBCJ",
@@ -1199,7 +1199,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vbcj/vanguard-target-maturity-2036-corporate-bond-etf",
       "portId": "V081",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 72.33999633789062,
+      "nav": 72.66500091552734,
       "netAssets": "$17.7M",
       "totalFundNetAssets": "$17.7M",
       "netAssetsAsOf": "2026-08-31",
@@ -1208,19 +1208,19 @@
       "dividendYieldAsOf": null,
       "secYield": 5.8,
       "secYieldAsOf": "2026-09-15",
-      "ytdReturn": -1.0368755461277246,
+      "ytdReturn": -0.592239505108505,
       "asOfDate": "",
       "totalReturn": {
-        "1Y": -1.0368755461277246,
-        "3Y": -1.0368755461277135,
-        "5Y": -1.0368755461277357,
-        "10Y": -1.0368755461277357
+        "1Y": -0.592239505108505,
+        "3Y": -0.5922395051085161,
+        "5Y": -0.5922395051084939,
+        "10Y": -0.5922395051085494
       },
       "performance": {
-        "1Y": -1.0368755461277246,
-        "3Y": -0.3468266788493213,
-        "5Y": -0.20824058791945044,
-        "10Y": -0.1041745556499496
+        "1Y": -0.592239505108505,
+        "3Y": -0.19780417530774752,
+        "5Y": -0.11872950036682095,
+        "10Y": -0.05938238151959041
       },
       "officialMetrics": {
         "nav": null,
@@ -1232,7 +1232,7 @@
         }
       },
       "holdings": 0,
-      "history": 120
+      "history": 121
     },
     {
       "ticker": "VBIL",
@@ -1243,7 +1243,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vbil/vanguard-0-3-month-treasury-bill-etf",
       "portId": "V042",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 75.5999984741211,
+      "nav": 75.61190032958984,
       "netAssets": "$11.4B",
       "totalFundNetAssets": "$11.4B",
       "netAssetsAsOf": "2026-08-31",
@@ -1255,16 +1255,16 @@
       "ytdReturn": 2.5635266,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 3.7379416551202027,
-        "3Y": 6.383326158117475,
-        "5Y": 6.383326158117408,
-        "10Y": 6.383326158117519
+        "1Y": 3.740502067199447,
+        "3Y": 6.400062869914969,
+        "5Y": 6.400062869914991,
+        "10Y": 6.400062869914991
       },
       "performance": {
-        "1Y": 3.7379416551202027,
-        "3Y": 2.084041385477553,
-        "5Y": 1.245263020340226,
-        "10Y": 0.6207051358418259
+        "1Y": 3.740502067199447,
+        "3Y": 2.0893945476389897,
+        "5Y": 1.2484484935227247,
+        "10Y": 0.6222880347702686
       },
       "officialMetrics": {
         "nav": 2.5635266,
@@ -1276,7 +1276,7 @@
         }
       },
       "holdings": 0,
-      "history": 400
+      "history": 401
     },
     {
       "ticker": "VBK",
@@ -1287,7 +1287,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vbk/vanguard-small-cap-growth-etf",
       "portId": "0938",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 335.1499938964844,
+      "nav": 339.2699890136719,
       "netAssets": "$23.7B",
       "totalFundNetAssets": "$44.7B",
       "netAssetsAsOf": "2026-08-31",
@@ -1299,16 +1299,16 @@
       "ytdReturn": 11.22038011,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 12.995891599127907,
-        "3Y": 59.051624819201805,
-        "5Y": 23.004681531951256,
-        "10Y": 170.66744761703129
+        "1Y": 14.384937058543734,
+        "3Y": 61.00685631883393,
+        "5Y": 24.516818541910233,
+        "10Y": 173.99482704463182
       },
       "performance": {
-        "1Y": 12.995891599127907,
-        "3Y": 16.729162617065676,
-        "5Y": 4.227981732328012,
-        "10Y": 10.46980890722593
+        "1Y": 14.384937058543734,
+        "3Y": 17.205535504551328,
+        "5Y": 4.482992596272983,
+        "10Y": 10.604866615689357
       },
       "officialMetrics": {
         "nav": 11.22038011,
@@ -1331,7 +1331,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vbr/vanguard-small-cap-value-etf",
       "portId": "0937",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 238.8300018310547,
+      "nav": 240.58169555664062,
       "netAssets": "$37.3B",
       "totalFundNetAssets": "$68.2B",
       "netAssetsAsOf": "2026-08-31",
@@ -1343,16 +1343,16 @@
       "ytdReturn": 13.91252768,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 16.179469349835827,
-        "3Y": 58.654613401622925,
-        "5Y": 56.202835030275075,
-        "10Y": 163.97327947267283
+        "1Y": 17.031585273052087,
+        "3Y": 59.81824619355278,
+        "5Y": 57.34850150409947,
+        "10Y": 165.90929635766082
       },
       "performance": {
-        "1Y": 16.179469349835827,
-        "3Y": 16.631958490298103,
-        "5Y": 9.329605843386247,
-        "10Y": 10.193504899935956
+        "1Y": 17.031585273052087,
+        "3Y": 16.91640513541557,
+        "5Y": 9.489512544186995,
+        "10Y": 10.27405686030274
       },
       "officialMetrics": {
         "nav": 13.91252768,
@@ -1375,7 +1375,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vceb/vanguard-esg-u-s-corporate-bond-etf",
       "portId": "4158",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 60.58000183105469,
+      "nav": 60.78620147705078,
       "netAssets": "$1.2B",
       "totalFundNetAssets": "$1.2B",
       "netAssetsAsOf": "2026-08-31",
@@ -1387,16 +1387,16 @@
       "ytdReturn": -1.68363776,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": -1.3100771556651458,
-        "3Y": 14.884514205567267,
-        "5Y": -1.8729715057067775,
-        "10Y": -0.054854179515873014
+        "1Y": -0.9741667275684041,
+        "3Y": 15.27553657358287,
+        "5Y": -1.538983047496123,
+        "10Y": 0.2853664346564644
       },
       "performance": {
-        "1Y": -1.3100771556651458,
-        "3Y": 4.7338730608066815,
-        "5Y": -0.37743267645826695,
-        "10Y": -0.005486772463636491
+        "1Y": -0.9741667275684041,
+        "3Y": 4.852563010613009,
+        "5Y": -0.3097090714318629,
+        "10Y": 0.02850006425783036
       },
       "officialMetrics": {
         "nav": -1.68363776,
@@ -1419,7 +1419,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vchy/vanguard-u-s-high-yield-corporate-bond-index-etf",
       "portId": "V118",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 73.9800033569336,
+      "nav": 74.2249984741211,
       "netAssets": "$78.7M",
       "totalFundNetAssets": "$78.7M",
       "netAssetsAsOf": "2026-08-31",
@@ -1428,19 +1428,19 @@
       "dividendYieldAsOf": null,
       "secYield": 7.28,
       "secYieldAsOf": "2026-09-15",
-      "ytdReturn": -1.43884124272331,
+      "ytdReturn": -1.1124421950864494,
       "asOfDate": "",
       "totalReturn": {
-        "1Y": -1.43884124272331,
-        "3Y": -1.43884124272331,
-        "5Y": -1.43884124272331,
-        "10Y": -1.4388412427233654
+        "1Y": -1.1124421950864494,
+        "3Y": -1.1124421950864605,
+        "5Y": -1.1124421950864494,
+        "10Y": -1.1124421950865049
       },
       "performance": {
-        "1Y": -1.43884124272331,
-        "3Y": -0.4819326068430385,
-        "5Y": -0.289438903595296,
-        "10Y": -0.14482432221918362
+        "1Y": -1.1124421950864494,
+        "3Y": -0.37219765729143983,
+        "5Y": -0.2234851210779376,
+        "10Y": -0.11180506239886201
       },
       "officialMetrics": {
         "nav": null,
@@ -1452,7 +1452,7 @@
         }
       },
       "holdings": 0,
-      "history": 489
+      "history": 494
     },
     {
       "ticker": "VCIT",
@@ -1463,7 +1463,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vcit/vanguard-intermediate-term-corporate-bond-etf",
       "portId": "3146",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 79.55000305175781,
+      "nav": 79.87000274658203,
       "netAssets": "$70.0B",
       "totalFundNetAssets": "$72.2B",
       "netAssetsAsOf": "2026-08-31",
@@ -1475,16 +1475,16 @@
       "ytdReturn": -1.90334564,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": -0.7815746500137499,
-        "3Y": 20.06082044266966,
-        "5Y": 3.354969579666256,
-        "10Y": 27.423169293234228
+        "1Y": -0.3824657809550991,
+        "3Y": 20.543849296021975,
+        "5Y": 3.7707379734400304,
+        "10Y": 27.935736884083507
       },
       "performance": {
-        "1Y": -0.7815746500137499,
-        "3Y": 6.283807042835687,
-        "5Y": 0.6621663701300573,
-        "10Y": 2.4530378538256237
+        "1Y": -0.3824657809550991,
+        "3Y": 6.426150039853229,
+        "5Y": 0.7430235667361451,
+        "10Y": 2.49417581169209
       },
       "officialMetrics": {
         "nav": -1.90334564,
@@ -1507,7 +1507,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vclt/vanguard-long-term-corporate-bond-etf",
       "portId": "3147",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 70.93000030517578,
+      "nav": 71.47000122070312,
       "netAssets": "$9.0B",
       "totalFundNetAssets": "$9.8B",
       "netAssetsAsOf": "2026-08-31",
@@ -1519,16 +1519,16 @@
       "ytdReturn": -3.07536564,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": -3.5326265721320804,
-        "3Y": 16.229655453060545,
-        "5Y": -14.421198207076525,
-        "10Y": 14.63669035208024
+        "1Y": -2.798225910080232,
+        "3Y": 17.11452955550008,
+        "5Y": -13.769657855465155,
+        "10Y": 15.509536669162793
       },
       "performance": {
-        "1Y": -3.5326265721320804,
-        "3Y": 5.141051689097997,
-        "5Y": -3.0666459448523753,
-        "10Y": 1.3753493664025562
+        "1Y": -2.798225910080232,
+        "3Y": 5.407195719037472,
+        "5Y": -2.9194961063122915,
+        "10Y": 1.4522735838086387
       },
       "officialMetrics": {
         "nav": -3.07536564,
@@ -1551,7 +1551,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vcr/vanguard-consumer-discretionary-etf",
       "portId": "0954",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 370.260009765625,
+      "nav": 375.19000244140625,
       "netAssets": "$6.0B",
       "totalFundNetAssets": "$6.6B",
       "netAssetsAsOf": "2026-08-31",
@@ -1563,16 +1563,16 @@
       "ytdReturn": -5.58102315,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": -6.001366359207438,
-        "3Y": 40.482046874976476,
-        "5Y": 24.320066677398323,
-        "10Y": 229.00441000378243
+        "1Y": -4.749779465781135,
+        "3Y": 42.352590951316735,
+        "5Y": 25.975356050082212,
+        "10Y": 233.38517693000153
       },
       "performance": {
-        "1Y": -6.001366359207438,
-        "3Y": 11.99714248528425,
-        "5Y": 4.449952514858713,
-        "10Y": 12.647140529285528
+        "1Y": -4.749779465781135,
+        "3Y": 12.492039851939719,
+        "5Y": 4.726627663357097,
+        "10Y": 12.796241479352277
       },
       "officialMetrics": {
         "nav": -5.58102315,
@@ -1595,7 +1595,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vcrb/vanguard-core-bond-etf",
       "portId": "V023",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 74.7300033569336,
+      "nav": 74.95680236816406,
       "netAssets": "$7.7B",
       "totalFundNetAssets": "$7.7B",
       "netAssetsAsOf": "2026-08-31",
@@ -1607,16 +1607,16 @@
       "ytdReturn": -1.21675639,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": -0.22241361659474101,
-        "3Y": 9.118594567448547,
-        "5Y": 9.11859456744859,
-        "10Y": 9.118594567448458
+        "1Y": 0.08040261407815663,
+        "3Y": 9.449759939361524,
+        "5Y": 9.449759939361524,
+        "10Y": 9.449759939361524
       },
       "performance": {
-        "1Y": -0.22241361659474101,
-        "3Y": 2.951557503548763,
-        "5Y": 1.7606219652968491,
-        "10Y": 0.876469984479944
+        "1Y": 0.08040261407815663,
+        "3Y": 3.0556019707719484,
+        "5Y": 1.8223140326550702,
+        "10Y": 0.9070433778807452
       },
       "officialMetrics": {
         "nav": -1.21675639,
@@ -1639,7 +1639,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vcrm/vanguard-core-tax-exempt-bond-etf",
       "portId": "V040",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 73.0199966430664,
+      "nav": 73.19860076904297,
       "netAssets": "$1.9B",
       "totalFundNetAssets": "$1.9B",
       "netAssetsAsOf": "2026-08-31",
@@ -1651,16 +1651,16 @@
       "ytdReturn": -0.96331441,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 0.6222870874535769,
-        "3Y": 3.3332332845469548,
-        "5Y": 3.3332332845469548,
-        "10Y": 3.3332332845468438
+        "1Y": 0.855024030928786,
+        "3Y": 3.585993614655414,
+        "5Y": 3.5859936146553917,
+        "10Y": 3.5859936146555027
       },
       "performance": {
-        "1Y": 0.6222870874535769,
-        "3Y": 1.0989564678151043,
-        "5Y": 0.6579320180704284,
-        "10Y": 0.3284266885863252
+        "1Y": 0.855024030928786,
+        "3Y": 1.1813210585674527,
+        "5Y": 0.7071271788107847,
+        "10Y": 0.3529407535278972
       },
       "officialMetrics": {
         "nav": -0.96331441,
@@ -1672,7 +1672,7 @@
         }
       },
       "holdings": 0,
-      "history": 454
+      "history": 455
     },
     {
       "ticker": "VCSH",
@@ -1683,7 +1683,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vcsh/vanguard-short-term-corporate-bond-etf",
       "portId": "3145",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 77.62000274658203,
+      "nav": 77.75499725341797,
       "netAssets": "$44.9B",
       "totalFundNetAssets": "$51.9B",
       "netAssetsAsOf": "2026-08-31",
@@ -1695,16 +1695,16 @@
       "ytdReturn": 0.30521301,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 1.5171075602628203,
-        "3Y": 17.013581145162803,
-        "5Y": 11.8249461583662,
-        "10Y": 28.82930094736398
+        "1Y": 1.6936733811512505,
+        "3Y": 17.217101327693317,
+        "5Y": 12.019416619888812,
+        "10Y": 29.05330001657567
       },
       "performance": {
-        "1Y": 1.5171075602628203,
-        "3Y": 5.376901306536119,
-        "5Y": 2.2604594251620647,
-        "10Y": 2.565538613071583
+        "1Y": 1.6936733811512505,
+        "3Y": 5.437959473767928,
+        "5Y": 2.2960021554817134,
+        "10Y": 2.583358029025673
       },
       "officialMetrics": {
         "nav": 0.30521301,
@@ -1727,7 +1727,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vdc/vanguard-consumer-staples-etf",
       "portId": "0955",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 225.11000061035156,
+      "nav": 225.08900451660156,
       "netAssets": "$7.9B",
       "totalFundNetAssets": "$9.3B",
       "netAssetsAsOf": "2026-08-31",
@@ -1739,16 +1739,16 @@
       "ytdReturn": 7.76090766,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 7.084167009331233,
-        "3Y": 31.60413449112216,
-        "5Y": 40.75635792287373,
-        "10Y": 109.69056418621292
+        "1Y": 7.074179229119015,
+        "3Y": 31.59187146319873,
+        "5Y": 40.74320266827001,
+        "10Y": 109.67099136815096
       },
       "performance": {
-        "1Y": 7.084167009331233,
-        "3Y": 9.586362368408107,
-        "5Y": 7.076361235740936,
-        "10Y": 7.68566363341856
+        "1Y": 7.074179229119015,
+        "3Y": 9.582958467332748,
+        "5Y": 7.074359664404151,
+        "10Y": 7.684658437764114
       },
       "officialMetrics": {
         "nav": 7.76090766,
@@ -1771,7 +1771,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vde/vanguard-energy-etf",
       "portId": "0951",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 180.16000366210938,
+      "nav": 180.7449951171875,
       "netAssets": "$10.9B",
       "totalFundNetAssets": "$13.2B",
       "netAssetsAsOf": "2026-08-31",
@@ -1783,16 +1783,16 @@
       "ytdReturn": 44.80053827,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 46.150760135919235,
-        "3Y": 54.66092750321829,
-        "5Y": 186.9353397235988,
-        "10Y": 159.65782774830268
+        "1Y": 46.62532132649866,
+        "3Y": 55.16312177045162,
+        "5Y": 187.86698529285354,
+        "10Y": 160.50089661029853
       },
       "performance": {
-        "1Y": 46.150760135919235,
-        "3Y": 15.645002568986065,
-        "5Y": 23.468680836286126,
-        "10Y": 10.012020720988968
+        "1Y": 46.62532132649866,
+        "3Y": 15.770036327800408,
+        "5Y": 23.548754587795706,
+        "10Y": 10.04768784339114
       },
       "officialMetrics": {
         "nav": 44.80053827,
@@ -1815,7 +1815,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vdg/vanguard-developed-markets-ex-us-growth-index-etf",
       "portId": "V071",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 79.20999908447266,
+      "nav": 80.26000213623047,
       "netAssets": "$32.7M",
       "totalFundNetAssets": "$32.7M",
       "netAssetsAsOf": "2026-08-31",
@@ -1824,19 +1824,19 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": null,
       "secYieldAsOf": null,
-      "ytdReturn": 5.495810483743546,
+      "ytdReturn": 6.8942566930089155,
       "asOfDate": "",
       "totalReturn": {
-        "1Y": 5.495810483743546,
-        "3Y": 5.495810483743568,
-        "5Y": 5.495810483743546,
-        "10Y": 5.495810483743546
+        "1Y": 6.8942566930089155,
+        "3Y": 6.8942566930089155,
+        "5Y": 6.894256693008893,
+        "10Y": 6.894256693009049
       },
       "performance": {
-        "1Y": 5.495810483743546,
-        "3Y": 1.7993654723964747,
-        "5Y": 1.07576630081887,
-        "10Y": 0.5364442880385845
+        "1Y": 6.8942566930089155,
+        "3Y": 2.2472078570762166,
+        "5Y": 1.3423274888020087,
+        "10Y": 0.6689264315469012
       },
       "officialMetrics": {
         "nav": null,
@@ -1848,7 +1848,7 @@
         }
       },
       "holdings": 0,
-      "history": 106
+      "history": 107
     },
     {
       "ticker": "VDIG",
@@ -1859,7 +1859,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vdig/vanguard-wellington-dividend-growth-active-etf",
       "portId": "V053",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 61.76100158691406,
+      "nav": 61.900001525878906,
       "netAssets": "$31.9M",
       "totalFundNetAssets": "$31.9M",
       "netAssetsAsOf": "2026-08-31",
@@ -1871,16 +1871,16 @@
       "ytdReturn": 0.71789851,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 4.357761442353092,
-        "3Y": 4.35776144235307,
-        "5Y": 4.357761442353114,
-        "10Y": 4.357761442353003
+        "1Y": 4.592630082729343,
+        "3Y": 4.592630082729321,
+        "5Y": 4.59263008272941,
+        "10Y": 4.59263008272941
       },
       "performance": {
-        "1Y": 4.357761442353092,
-        "3Y": 1.4319835002652104,
-        "5Y": 0.8567457119386557,
-        "10Y": 0.4274592489218687
+        "1Y": 4.592630082729343,
+        "3Y": 1.5080211033455804,
+        "5Y": 0.9021027416462823,
+        "10Y": 0.45003869668058805
       },
       "officialMetrics": {
         "nav": 0.71789851,
@@ -1892,7 +1892,7 @@
         }
       },
       "holdings": 0,
-      "history": 207
+      "history": 208
     },
     {
       "ticker": "VDV",
@@ -1903,7 +1903,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vdv/vanguard-developed-markets-ex-us-value-index-etf",
       "portId": "V070",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 78.26000213623047,
+      "nav": 79.1500015258789,
       "netAssets": "$31.5M",
       "totalFundNetAssets": "$31.5M",
       "netAssetsAsOf": "2026-08-31",
@@ -1912,19 +1912,19 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": null,
       "secYieldAsOf": null,
-      "ytdReturn": 4.909658214257306,
+      "ytdReturn": 6.102726566292138,
       "asOfDate": "",
       "totalReturn": {
-        "1Y": 4.909658214257306,
-        "3Y": 4.909658214257284,
-        "5Y": 4.909658214257284,
-        "10Y": 4.909658214257395
+        "1Y": 6.102726566292138,
+        "3Y": 6.102726566292116,
+        "5Y": 6.102726566292116,
+        "10Y": 6.102726566292116
       },
       "performance": {
-        "1Y": 4.909658214257306,
-        "3Y": 1.610477138855515,
-        "5Y": 0.9631970869542705,
-        "10Y": 0.4804444093248872
+        "1Y": 6.102726566292138,
+        "3Y": 1.9942091311566656,
+        "5Y": 1.1917971223044166,
+        "10Y": 0.5941335875529141
       },
       "officialMetrics": {
         "nav": null,
@@ -1936,7 +1936,7 @@
         }
       },
       "holdings": 0,
-      "history": 106
+      "history": 107
     },
     {
       "ticker": "VEA",
@@ -1947,7 +1947,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vea/vanguard-ftse-developed-markets-etf",
       "portId": "0936",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 71.26000213623047,
+      "nav": 72.16500091552734,
       "netAssets": "$238.1B",
       "totalFundNetAssets": "$323.8B",
       "netAssetsAsOf": "2026-08-31",
@@ -1959,16 +1959,16 @@
       "ytdReturn": 14.83057672,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 21.78077665862286,
-        "3Y": 77.76422474876563,
-        "5Y": 64.20533932453733,
-        "10Y": 154.9453264004544
+        "1Y": 23.327386971757335,
+        "3Y": 80.02180517003497,
+        "5Y": 66.29073964993512,
+        "10Y": 158.18303233555287
       },
       "performance": {
-        "1Y": 21.78077665862286,
-        "3Y": 21.138294341229514,
-        "5Y": 10.427554606598077,
-        "10Y": 9.810711501858748
+        "1Y": 23.327386971757335,
+        "3Y": 21.64895169271739,
+        "5Y": 10.70662549189092,
+        "10Y": 9.949376199774651
       },
       "officialMetrics": {
         "nav": 14.83057672,
@@ -1991,7 +1991,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/veu/vanguard-ftse-all-world-ex-us-etf",
       "portId": "0991",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 83.5,
+      "nav": 84.55000305175781,
       "netAssets": "$70.4B",
       "totalFundNetAssets": "$98.6B",
       "netAssetsAsOf": "2026-08-31",
@@ -2003,16 +2003,16 @@
       "ytdReturn": 14.05644201,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 19.7689390548633,
-        "3Y": 75.37245875859446,
-        "5Y": 59.091916055030616,
-        "10Y": 145.209892895967
+        "1Y": 21.27503318278652,
+        "3Y": 77.57774758363392,
+        "5Y": 61.09250231453116,
+        "10Y": 148.29343518271023
       },
       "performance": {
-        "1Y": 19.7689390548633,
-        "3Y": 20.592545827226804,
-        "5Y": 9.731072122789609,
-        "10Y": 9.383999489228124
+        "1Y": 21.27503318278652,
+        "3Y": 21.09592093104542,
+        "5Y": 10.005668743554175,
+        "10Y": 9.5207788783523
       },
       "officialMetrics": {
         "nav": 14.05644201,
@@ -2035,7 +2035,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vexc/vanguard-emerging-markets-ex-china-etf",
       "portId": "V051",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 95.20999908447266,
+      "nav": 96.52999877929688,
       "netAssets": "$269.4M",
       "totalFundNetAssets": "$269.4M",
       "netAssetsAsOf": "2026-08-31",
@@ -2047,16 +2047,16 @@
       "ytdReturn": 21.08487922,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 26.65281195728335,
-        "3Y": 26.652811957283372,
-        "5Y": 26.65281195728333,
-        "10Y": 26.652811957283483
+        "1Y": 28.408737540098606,
+        "3Y": 28.408737540098585,
+        "5Y": 28.408737540098585,
+        "10Y": 28.408737540098716
       },
       "performance": {
-        "1Y": 26.65281195728335,
-        "3Y": 8.194440521145662,
-        "5Y": 4.839023534468367,
-        "10Y": 2.390929058422153
+        "1Y": 28.408737540098606,
+        "3Y": 8.69215315461953,
+        "5Y": 5.1281241680998235,
+        "10Y": 2.5320067920743705
       },
       "officialMetrics": {
         "nav": 21.08487922,
@@ -2068,7 +2068,7 @@
         }
       },
       "holdings": 0,
-      "history": 240
+      "history": 241
     },
     {
       "ticker": "VFH",
@@ -2079,7 +2079,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vfh/vanguard-financials-etf",
       "portId": "0957",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 136.44000244140625,
+      "nav": 136.72999572753906,
       "netAssets": "$13.5B",
       "totalFundNetAssets": "$14.8B",
       "netAssetsAsOf": "2026-08-31",
@@ -2091,16 +2091,16 @@
       "ytdReturn": 3.20433468,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 5.49612093695917,
-        "3Y": 78.71991968355513,
-        "5Y": 62.26778107674491,
-        "10Y": 238.51255012701728
+        "1Y": 5.7203452570804725,
+        "3Y": 79.0997937523697,
+        "5Y": 62.61265467006989,
+        "10Y": 239.23203389315555
       },
       "performance": {
-        "1Y": 5.49612093695917,
-        "3Y": 21.354994115622095,
-        "5Y": 10.165715514367335,
-        "10Y": 12.968529974753773
+        "1Y": 5.7203452570804725,
+        "3Y": 21.440914386819788,
+        "5Y": 10.2125035922924,
+        "10Y": 12.992517678951065
       },
       "officialMetrics": {
         "nav": 3.20433468,
@@ -2123,7 +2123,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vfmf/vanguard-u-s-multifactor-etf",
       "portId": "4421",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 183.1750030517578,
+      "nav": 184.42999267578125,
       "netAssets": "$976.2M",
       "totalFundNetAssets": "$976.2M",
       "netAssetsAsOf": "2026-08-31",
@@ -2135,16 +2135,16 @@
       "ytdReturn": 22.68070396,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 28.215554909736863,
-        "3Y": 83.42060967410201,
-        "5Y": 99.11510347525498,
-        "10Y": 174.1447418902233
+        "1Y": 29.094000048917025,
+        "3Y": 84.67728202643173,
+        "5Y": 100.47932037287404,
+        "10Y": 176.02299383956557
       },
       "performance": {
-        "1Y": 28.215554909736863,
-        "3Y": 22.40975937330887,
-        "5Y": 14.768007206641066,
-        "10Y": 10.610916813980698
+        "1Y": 29.094000048917025,
+        "3Y": 22.68867928572167,
+        "5Y": 14.924842245624404,
+        "10Y": 10.686467198818539
       },
       "officialMetrics": {
         "nav": 22.68070396,
@@ -2167,7 +2167,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vfmo/vanguard-u-s-momentum-factor-etf",
       "portId": "4418",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 224.1300048828125,
+      "nav": 227.64500427246094,
       "netAssets": "$1.9B",
       "totalFundNetAssets": "$1.9B",
       "netAssetsAsOf": "2026-08-31",
@@ -2179,16 +2179,16 @@
       "ytdReturn": 17.50538208,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 17.90292996557048,
-        "3Y": 96.51169487742017,
-        "5Y": 80.09786792122013,
-        "10Y": 212.9251726766769
+        "1Y": 19.75198505787472,
+        "3Y": 99.59354683863961,
+        "5Y": 82.92223899196334,
+        "10Y": 217.83280192340834
       },
       "performance": {
-        "1Y": 17.90292996557048,
-        "3Y": 25.255306434499538,
-        "5Y": 12.486839384418303,
-        "10Y": 12.084110616485532
+        "1Y": 19.75198505787472,
+        "3Y": 25.906697290650605,
+        "5Y": 12.837460051597315,
+        "10Y": 12.258664598306112
       },
       "officialMetrics": {
         "nav": 17.50538208,
@@ -2211,7 +2211,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vfmv/vanguard-u-s-minimum-volatility-etf",
       "portId": "4419",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 143.0959930419922,
+      "nav": 143.56629943847656,
       "netAssets": "$456.4M",
       "totalFundNetAssets": "$456.4M",
       "netAssetsAsOf": "2026-08-31",
@@ -2223,16 +2223,16 @@
       "ytdReturn": 10.41050478,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 11.000731724234413,
-        "3Y": 52.91010048874314,
-        "5Y": 56.773641662406504,
-        "10Y": 121.31675594441616
+        "1Y": 11.365552241109643,
+        "3Y": 53.41267492530135,
+        "5Y": 57.28892799247325,
+        "10Y": 122.04412038358532
       },
       "performance": {
-        "1Y": 11.000731724234413,
-        "3Y": 15.206962030001915,
-        "5Y": 9.409393184319281,
-        "10Y": 8.268327899981532
+        "1Y": 11.365552241109643,
+        "3Y": 15.33304211545017,
+        "5Y": 9.481220551918668,
+        "10Y": 8.303858109104635
       },
       "officialMetrics": {
         "nav": 10.41050478,
@@ -2255,7 +2255,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vfqy/vanguard-u-s-quality-factor-etf",
       "portId": "4417",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 171.85499572753906,
+      "nav": 172.58999633789062,
       "netAssets": "$506.9M",
       "totalFundNetAssets": "$506.9M",
       "netAssetsAsOf": "2026-08-31",
@@ -2267,16 +2267,16 @@
       "ytdReturn": 12.54685959,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 14.388391151864921,
-        "3Y": 55.81626951881633,
-        "5Y": 52.9135983764073,
-        "10Y": 148.029921210943
+        "1Y": 14.8776148544278,
+        "3Y": 56.48268548743569,
+        "5Y": 53.567578763092726,
+        "10Y": 149.09065683592968
       },
       "performance": {
-        "1Y": 14.388391151864921,
-        "3Y": 15.932250747935184,
-        "5Y": 8.865236821192045,
-        "10Y": 9.509149876596146
+        "1Y": 14.8776148544278,
+        "3Y": 16.097293889967457,
+        "5Y": 8.958196827581787,
+        "10Y": 9.55589315271894
       },
       "officialMetrics": {
         "nav": 12.54685959,
@@ -2299,7 +2299,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vfva/vanguard-u-s-value-factor-etf",
       "portId": "4416",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 157.89500427246094,
+      "nav": 158.32000732421875,
       "netAssets": "$957.4M",
       "totalFundNetAssets": "$957.4M",
       "netAssetsAsOf": "2026-08-31",
@@ -2311,16 +2311,16 @@
       "ytdReturn": 20.06796358,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 25.640783895096007,
-        "3Y": 65.08726830834878,
-        "5Y": 80.05433051095636,
-        "10Y": 146.97260487387368
+        "1Y": 25.978968860647655,
+        "3Y": 65.5316438480189,
+        "5Y": 80.53902653111055,
+        "10Y": 147.63734689750706
       },
       "performance": {
-        "1Y": 25.640783895096007,
-        "3Y": 18.187404096457914,
-        "5Y": 12.481400275822075,
-        "10Y": 9.462377888568007
+        "1Y": 25.978968860647655,
+        "3Y": 18.29335318822234,
+        "5Y": 12.541893879516453,
+        "10Y": 9.491804739499399
       },
       "officialMetrics": {
         "nav": 20.06796358,
@@ -2343,7 +2343,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vghy/vanguard-high-yield-active-etf",
       "portId": "V052",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 73.41999816894531,
+      "nav": 73.62000274658203,
       "netAssets": "$317.1M",
       "totalFundNetAssets": "$317.1M",
       "netAssetsAsOf": "2026-08-31",
@@ -2355,16 +2355,16 @@
       "ytdReturn": 1.69876402,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 3.2195251709589368,
-        "3Y": 3.2195251709589368,
-        "5Y": 3.2195251709588923,
-        "10Y": 3.2195251709590034
+        "1Y": 3.5006960096945816,
+        "3Y": 3.500696009694604,
+        "5Y": 3.5006960096946482,
+        "10Y": 3.5006960096946482
       },
       "performance": {
-        "1Y": 3.2195251709589368,
-        "3Y": 1.0618596871791564,
-        "5Y": 0.6357694195571195,
-        "10Y": 0.31738105610470413
+        "1Y": 3.5006960096945816,
+        "3Y": 1.153540937390174,
+        "5Y": 0.6905363111850749,
+        "10Y": 0.3446741542295628
       },
       "officialMetrics": {
         "nav": 1.69876402,
@@ -2376,7 +2376,7 @@
         }
       },
       "holdings": 0,
-      "history": 251
+      "history": 252
     },
     {
       "ticker": "VGIT",
@@ -2387,7 +2387,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vgit/vanguard-intermediate-term-treasury-etf",
       "portId": "3143",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 57.16999816894531,
+      "nav": 57.345001220703125,
       "netAssets": "$39.8B",
       "totalFundNetAssets": "$48.3B",
       "netAssetsAsOf": "2026-08-31",
@@ -2399,16 +2399,16 @@
       "ytdReturn": -2.13378632,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": -1.0289657300233568,
-        "3Y": 11.769324055649676,
-        "5Y": -1.2913919541545416,
-        "10Y": 9.926667740986872
+        "1Y": -0.7260055483264916,
+        "3Y": 12.111469436696964,
+        "5Y": -0.9892285640085596,
+        "10Y": 10.263107592701836
       },
       "performance": {
-        "1Y": -1.0289657300233568,
-        "3Y": 3.7785363975201935,
-        "5Y": -0.25962297724804184,
-        "10Y": 0.9509258457907288
+        "1Y": -0.7260055483264916,
+        "3Y": 3.8843232559420793,
+        "5Y": -0.19863325029862988,
+        "10Y": 0.9817802585067703
       },
       "officialMetrics": {
         "nav": -2.13378632,
@@ -2431,7 +2431,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vgk/vanguard-ftse-europe-etf",
       "portId": "0963",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 88.62999725341797,
+      "nav": 89.31500244140625,
       "netAssets": "$31.0B",
       "totalFundNetAssets": "$39.1B",
       "netAssetsAsOf": "2026-08-31",
@@ -2443,16 +2443,16 @@
       "ytdReturn": 7.70225142,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 14.17374119463779,
-        "3Y": 67.4824983268922,
-        "5Y": 58.524968249049245,
-        "10Y": 149.5423160806196
+        "1Y": 15.056158042734546,
+        "3Y": 68.77694020668972,
+        "5Y": 59.750168102288015,
+        "10Y": 151.470983421645
       },
       "performance": {
-        "1Y": 14.17374119463779,
-        "3Y": 18.756250429712985,
-        "5Y": 9.652751787443936,
-        "10Y": 9.57574199164255
+        "1Y": 15.056158042734546,
+        "3Y": 19.061414103081177,
+        "5Y": 9.821725949938864,
+        "10Y": 9.660137984699912
       },
       "officialMetrics": {
         "nav": 7.70225142,
@@ -2475,7 +2475,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vglt/vanguard-long-term-treasury-etf",
       "portId": "3144",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 51.88999938964844,
+      "nav": 52.349998474121094,
       "netAssets": "$10.6B",
       "totalFundNetAssets": "$15.1B",
       "netAssetsAsOf": "2026-08-31",
@@ -2487,16 +2487,16 @@
       "ytdReturn": -4.22577363,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": -4.480849651342322,
-        "3Y": 6.32327401208399,
-        "5Y": -29.126889507333043,
-        "10Y": -16.927056694230323
+        "1Y": -3.6340694529089945,
+        "3Y": 7.2657844965134055,
+        "5Y": -28.498622151756592,
+        "10Y": -16.190660101766397
       },
       "performance": {
-        "1Y": -4.480849651342322,
-        "3Y": 2.064829353382791,
-        "5Y": -6.653874019463945,
-        "10Y": -1.83742104061152
+        "1Y": -3.6340694529089945,
+        "3Y": 2.365529632222829,
+        "5Y": -6.48896106381639,
+        "10Y": -1.750750407944357
       },
       "officialMetrics": {
         "nav": -4.22577363,
@@ -2519,7 +2519,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vgms/vanguard-multi-sector-income-bond-etf",
       "portId": "V047",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 50.15999984741211,
+      "nav": 50.32500076293945,
       "netAssets": "$272.6M",
       "totalFundNetAssets": "$272.6M",
       "netAssetsAsOf": "2026-08-31",
@@ -2531,16 +2531,16 @@
       "ytdReturn": 0.80658574,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 2.222612135990909,
-        "3Y": 6.199181591114411,
-        "5Y": 6.199181591114455,
-        "10Y": 6.199181591114455
+        "1Y": 2.667875836622291,
+        "3Y": 6.548497127468855,
+        "5Y": 6.548497127468811,
+        "10Y": 6.548497127468811
       },
       "performance": {
-        "1Y": 2.222612135990909,
-        "3Y": 2.0251064658760143,
-        "5Y": 1.210188563071335,
-        "10Y": 0.6032745804386508
+        "1Y": 2.667875836622291,
+        "3Y": 2.136846030378381,
+        "5Y": 1.276682234187465,
+        "10Y": 0.6363166228710249
       },
       "officialMetrics": {
         "nav": 0.80658574,
@@ -2552,7 +2552,7 @@
         }
       },
       "holdings": 0,
-      "history": 318
+      "history": 319
     },
     {
       "ticker": "VGSH",
@@ -2563,7 +2563,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vgsh/vanguard-short-term-treasury-etf",
       "portId": "3142",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 57.619998931884766,
+      "nav": 57.654998779296875,
       "netAssets": "$34.8B",
       "totalFundNetAssets": "$39.3B",
       "netAssetsAsOf": "2026-08-31",
@@ -2575,16 +2575,16 @@
       "ytdReturn": 0.53062908,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 1.6395782324808428,
-        "3Y": 12.718864406882101,
-        "5Y": 9.599350620703806,
-        "10Y": 18.511598646912162
+        "1Y": 1.7013235312622443,
+        "3Y": 12.787357951577395,
+        "5Y": 9.665947915409712,
+        "10Y": 18.583539074696056
       },
       "performance": {
-        "1Y": 1.6395782324808428,
-        "3Y": 4.071592841929994,
-        "5Y": 1.8501319995407384,
-        "10Y": 1.7129114108813237
+        "1Y": 1.7013235312622443,
+        "3Y": 4.092668252269505,
+        "5Y": 1.8625066991633465,
+        "10Y": 1.7190840322865553
       },
       "officialMetrics": {
         "nav": 0.53062908,
@@ -2607,7 +2607,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vgt/vanguard-information-technology-etf",
       "portId": "0958",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 118.91999816894531,
+      "nav": 121.38500213623047,
       "netAssets": "$147.6B",
       "totalFundNetAssets": "$170.2B",
       "netAssetsAsOf": "2026-08-31",
@@ -2619,16 +2619,16 @@
       "ytdReturn": 26.51129116,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 27.834439238528354,
-        "3Y": 132.73034090702097,
-        "5Y": 144.50702493207146,
-        "10Y": 761.1368595865226
+        "1Y": 30.48422400753732,
+        "3Y": 137.55445233886655,
+        "5Y": 149.5751700065084,
+        "10Y": 778.9868448303494
       },
       "performance": {
-        "1Y": 27.834439238528354,
-        "3Y": 32.520887350454245,
-        "5Y": 19.57992268005768,
-        "10Y": 24.024423756894
+        "1Y": 30.48422400753732,
+        "3Y": 33.43027819804196,
+        "5Y": 20.071593727195825,
+        "10Y": 24.279139490175837
       },
       "officialMetrics": {
         "nav": 26.51129116,
@@ -2651,7 +2651,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vgus/vanguard-ultra-short-treasury-etf",
       "portId": "V041",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 75.5199966430664,
+      "nav": 75.53990173339844,
       "netAssets": "$1.1B",
       "totalFundNetAssets": "$1.1B",
       "netAssetsAsOf": "2026-08-31",
@@ -2663,16 +2663,16 @@
       "ytdReturn": 2.43240907,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 3.6056787538041313,
-        "3Y": 6.282935064974082,
-        "5Y": 6.2829350649741045,
-        "10Y": 6.2829350649741045
+        "1Y": 3.626120796454013,
+        "3Y": 6.3109941183658425,
+        "5Y": 6.31099411836582,
+        "10Y": 6.310994118365709
       },
       "performance": {
-        "1Y": 3.6056787538041313,
-        "3Y": 2.05191995486278,
-        "5Y": 1.2261473152477498,
-        "10Y": 0.6112057950046434
+        "1Y": 3.626120796454013,
+        "3Y": 2.060899848378339,
+        "5Y": 1.2314915597915643,
+        "10Y": 0.6138616492735283
       },
       "officialMetrics": {
         "nav": 2.43240907,
@@ -2684,7 +2684,7 @@
         }
       },
       "holdings": 0,
-      "history": 400
+      "history": 401
     },
     {
       "ticker": "VGVT",
@@ -2695,7 +2695,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vgvt/vanguard-government-securities-active-etf",
       "portId": "V050",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 73.07499694824219,
+      "nav": 73.17009735107422,
       "netAssets": "$36.7M",
       "totalFundNetAssets": "$36.7M",
       "netAssetsAsOf": "2026-08-31",
@@ -2707,16 +2707,16 @@
       "ytdReturn": -1.31733782,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": -0.40051569150932886,
-        "3Y": 2.008205952910269,
-        "5Y": 2.0082059529102914,
-        "10Y": 2.0082059529102914
+        "1Y": -0.21234093288713396,
+        "3Y": 2.1409493940375723,
+        "5Y": 2.140949394037528,
+        "10Y": 2.140949394037639
       },
       "performance": {
-        "1Y": -0.40051569150932886,
-        "3Y": 0.6649703275955599,
-        "5Y": 0.39845321399871736,
-        "10Y": 0.19902854519036062
+        "1Y": -0.21234093288713396,
+        "3Y": 0.7086165629167196,
+        "5Y": 0.4245693570070319,
+        "10Y": 0.2120598316425415
       },
       "officialMetrics": {
         "nav": -1.31733782,
@@ -2728,7 +2728,7 @@
         }
       },
       "holdings": 0,
-      "history": 300
+      "history": 301
     },
     {
       "ticker": "VHT",
@@ -2739,7 +2739,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vht/vanguard-health-care-etf",
       "portId": "0956",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 314.6600036621094,
+      "nav": 316.4599914550781,
       "netAssets": "$19.3B",
       "totalFundNetAssets": "$22.0B",
       "netAssetsAsOf": "2026-08-31",
@@ -2751,16 +2751,16 @@
       "ytdReturn": 10.12140912,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 22.78920508392264,
-        "3Y": 39.66465811733397,
-        "5Y": 36.559455726524504,
-        "10Y": 173.61951834528702
+        "1Y": 23.491611070343254,
+        "3Y": 40.463608318292145,
+        "5Y": 37.34063334827964,
+        "10Y": 175.18466424474695
       },
       "performance": {
-        "1Y": 22.78920508392264,
-        "3Y": 11.779502974340827,
-        "5Y": 6.43007187361424,
-        "10Y": 10.589706994454007
+        "1Y": 23.491611070343254,
+        "3Y": 11.992242319365642,
+        "5Y": 6.551559177729649,
+        "10Y": 10.652803769026375
       },
       "officialMetrics": {
         "nav": 10.12140912,
@@ -2783,7 +2783,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vig/vanguard-dividend-appreciation-etf",
       "portId": "0920",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 235.72999572753906,
+      "nav": 237.0800018310547,
       "netAssets": "$112.7B",
       "totalFundNetAssets": "$132.4B",
       "netAssetsAsOf": "2026-08-31",
@@ -2795,16 +2795,16 @@
       "ytdReturn": 8.11174305,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 10.577750960293786,
-        "3Y": 59.25379117867566,
-        "5Y": 67.58537700307184,
-        "10Y": 237.77978590752102
+        "1Y": 11.211020554384676,
+        "3Y": 60.16582441159404,
+        "5Y": 68.54512453590438,
+        "10Y": 239.71414840546822
       },
       "performance": {
-        "1Y": 10.577750960293786,
-        "3Y": 16.778598805608212,
-        "5Y": 10.878469902059473,
-        "10Y": 12.944052287764274
+        "1Y": 11.211020554384676,
+        "3Y": 17.001101704285972,
+        "5Y": 11.00517833140755,
+        "10Y": 13.008565846410725
       },
       "officialMetrics": {
         "nav": 8.11174305,
@@ -2827,7 +2827,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vigi/vanguard-international-dividend-appreciation-etf",
       "portId": "4415",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 96.43000030517578,
+      "nav": 97.28240203857422,
       "netAssets": "$9.2B",
       "totalFundNetAssets": "$9.5B",
       "netAssetsAsOf": "2026-08-31",
@@ -2839,16 +2839,16 @@
       "ytdReturn": 6.82654912,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 9.611894337769055,
-        "3Y": 43.239629885585295,
-        "5Y": 29.314156632391985,
-        "10Y": 114.60215667198095
+        "1Y": 10.580818618998023,
+        "3Y": 44.50579320835186,
+        "5Y": 30.457227500807214,
+        "10Y": 116.49911513981101
       },
       "performance": {
-        "1Y": 9.611894337769055,
-        "3Y": 12.725212686180477,
-        "5Y": 5.275960959072412,
-        "10Y": 7.935276453191897
+        "1Y": 10.580818618998023,
+        "3Y": 13.056382755583806,
+        "5Y": 5.46142346364249,
+        "10Y": 8.030307571830274
       },
       "officialMetrics": {
         "nav": 6.82654912,
@@ -2871,7 +2871,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/viog/vanguard-sp-small-cap-600-growth-etf",
       "portId": "3347",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 140.718994140625,
+      "nav": 141.14999389648438,
       "netAssets": "$1.1B",
       "totalFundNetAssets": "$1.1B",
       "netAssetsAsOf": "2026-08-31",
@@ -2883,16 +2883,16 @@
       "ytdReturn": 16.31216298,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 16.30976529154595,
-        "3Y": 53.4948474344777,
-        "5Y": 31.9258341335364,
-        "10Y": 162.2378937276769
+        "1Y": 16.66601084328294,
+        "3Y": 53.964964771033344,
+        "5Y": 32.32990184770927,
+        "10Y": 163.04106772356172
       },
       "performance": {
-        "1Y": 16.30976529154595,
-        "3Y": 15.353630405337903,
-        "5Y": 5.697805302424208,
-        "10Y": 10.120847423594892
+        "1Y": 16.66601084328294,
+        "3Y": 15.471277071750045,
+        "5Y": 5.762473215868158,
+        "10Y": 10.154528496578097
       },
       "officialMetrics": {
         "nav": 16.31216298,
@@ -2915,7 +2915,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vioo/vanguard-sp-small-cap-600-etf",
       "portId": "3345",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 129.72999572753906,
+      "nav": 130.25999450683594,
       "netAssets": "$4.2B",
       "totalFundNetAssets": "$6.4B",
       "netAssetsAsOf": "2026-08-31",
@@ -2927,16 +2927,16 @@
       "ytdReturn": 16.94762462,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 19.003834528109497,
-        "3Y": 54.890241706265996,
-        "5Y": 38.072527180742235,
-        "10Y": 161.01999376154387
+        "1Y": 19.49001266045145,
+        "3Y": 55.52303012631443,
+        "5Y": 38.6365972713822,
+        "10Y": 162.0863444359888
       },
       "performance": {
-        "1Y": 19.003834528109497,
-        "3Y": 15.702129572141388,
-        "5Y": 6.664881395294042,
-        "10Y": 10.069597280791287
+        "1Y": 19.49001266045145,
+        "3Y": 15.859478605296573,
+        "5Y": 6.751891304083313,
+        "10Y": 10.114481799685237
       },
       "officialMetrics": {
         "nav": 16.94762462,
@@ -2959,7 +2959,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/viov/vanguard-sp-small-cap-600-value-etf",
       "portId": "3346",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 114.0199966430664,
+      "nav": 114.55999755859375,
       "netAssets": "$1.9B",
       "totalFundNetAssets": "$2.0B",
       "netAssetsAsOf": "2026-08-31",
@@ -2971,16 +2971,16 @@
       "ytdReturn": 17.47925991,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 21.40170411113358,
-        "3Y": 56.449908395410645,
-        "5Y": 43.73058665158916,
-        "10Y": 151.0285063809339
+        "1Y": 21.97666493639843,
+        "3Y": 57.19087465145134,
+        "5Y": 44.41132527490181,
+        "10Y": 152.21733989088673
       },
       "performance": {
-        "1Y": 21.40170411113358,
-        "3Y": 16.089187354314927,
-        "5Y": 7.5250961656845305,
-        "10Y": 9.640827384593909
+        "1Y": 21.97666493639843,
+        "3Y": 16.272169732923714,
+        "5Y": 7.626756098685306,
+        "10Y": 9.692641316010953
       },
       "officialMetrics": {
         "nav": 17.47925991,
@@ -3003,7 +3003,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vis/vanguard-industrials-etf",
       "portId": "0953",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 323.8500061035156,
+      "nav": 325.0150146484375,
       "netAssets": "$8.0B",
       "totalFundNetAssets": "$8.6B",
       "netAssetsAsOf": "2026-08-31",
@@ -3015,16 +3015,16 @@
       "ytdReturn": 9.02719392,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 10.11317298798562,
-        "3Y": 71.60275591783089,
-        "5Y": 83.34311648935622,
-        "10Y": 237.23146122117691
+        "1Y": 10.509279430727524,
+        "3Y": 72.22003288161412,
+        "5Y": 84.00262197152001,
+        "10Y": 238.44452715695928
       },
       "performance": {
-        "1Y": 10.11317298798562,
-        "3Y": 19.72221763699096,
-        "5Y": 12.889336849714027,
-        "10Y": 12.925704446745057
+        "1Y": 10.509279430727524,
+        "3Y": 19.86559787566673,
+        "5Y": 12.970435333238406,
+        "10Y": 12.96625970445151
       },
       "officialMetrics": {
         "nav": 9.02719392,
@@ -3047,7 +3047,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vmbs/vanguard-mortgage-backed-securities-etf",
       "portId": "3148",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 45.22999954223633,
+      "nav": 45.38999938964844,
       "netAssets": "$15.9B",
       "totalFundNetAssets": "$17.6B",
       "netAssetsAsOf": "2026-08-31",
@@ -3059,16 +3059,16 @@
       "ytdReturn": -1.2857597,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 0.4277216988423538,
-        "3Y": 16.755773795315765,
-        "5Y": 0.5832702820160796,
-        "10Y": 11.10857784576047
+        "1Y": 0.7829819312187736,
+        "3Y": 17.168770975719426,
+        "5Y": 0.9390465117088187,
+        "10Y": 11.501642202846707
       },
       "performance": {
-        "1Y": 0.4277216988423538,
-        "3Y": 5.299454695961248,
-        "5Y": 0.11638284162289736,
-        "10Y": 1.058944709229137
+        "1Y": 0.7829819312187736,
+        "3Y": 5.423466269389299,
+        "5Y": 0.18710780440249764,
+        "10Y": 1.0946391397016697
       },
       "officialMetrics": {
         "nav": -1.2857597,
@@ -3091,7 +3091,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vnq/vanguard-real-estate-etf",
       "portId": "0986",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 93.4800033569336,
+      "nav": 94.05000305175781,
       "netAssets": "$38.1B",
       "totalFundNetAssets": "$70.8B",
       "netAssetsAsOf": "2026-08-31",
@@ -3103,16 +3103,16 @@
       "ytdReturn": 7.73072156,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 5.208587175462043,
-        "3Y": 37.79936436858438,
-        "5Y": 10.618194142403215,
-        "10Y": 59.112037559060894
+        "1Y": 5.850102584419847,
+        "3Y": 38.639588323043505,
+        "5Y": 11.292725083814892,
+        "10Y": 60.082253143984964
       },
       "performance": {
-        "1Y": 5.208587175462043,
-        "3Y": 11.279646686178912,
-        "5Y": 2.0387930197184323,
-        "10Y": 4.753924832757717
+        "1Y": 5.850102584419847,
+        "3Y": 11.50536236030657,
+        "5Y": 2.162933634923414,
+        "10Y": 4.817625910922718
       },
       "officialMetrics": {
         "nav": 7.73072156,
@@ -3135,7 +3135,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vnqi/vanguard-global-ex-u-s-real-estate-etf",
       "portId": "3358",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 43.400001525878906,
+      "nav": 43.744998931884766,
       "netAssets": "$3.5B",
       "totalFundNetAssets": "$3.8B",
       "netAssetsAsOf": "2026-08-31",
@@ -3147,16 +3147,16 @@
       "ytdReturn": -5.33536586,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": -4.769346461272262,
-        "3Y": 27.673162628881776,
-        "5Y": -6.313659205883882,
-        "10Y": 16.052226026349302
+        "1Y": -4.012334311779286,
+        "3Y": 28.68806835180586,
+        "5Y": -5.568930958573237,
+        "10Y": 16.974765966089024
       },
       "performance": {
-        "1Y": -4.769346461272262,
-        "3Y": 8.484212028530624,
-        "5Y": -1.2958858134077489,
-        "10Y": 1.499837632866341
+        "1Y": -4.012334311779286,
+        "3Y": 8.770909682267746,
+        "5Y": -1.1394593378713513,
+        "10Y": 1.5802362367011824
       },
       "officialMetrics": {
         "nav": -5.33536586,
@@ -3179,7 +3179,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vo/vanguard-mid-cap-etf",
       "portId": "0939",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 79.54000091552734,
+      "nav": 80.22989654541016,
       "netAssets": "$107.4B",
       "totalFundNetAssets": "$226.4B",
       "netAssetsAsOf": "2026-08-31",
@@ -3191,16 +3191,16 @@
       "ytdReturn": 10.42996201,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 9.495140261455326,
-        "3Y": 59.558401919328865,
-        "5Y": 44.69861219080818,
-        "10Y": 185.9199311957993
+        "1Y": 10.444865437799255,
+        "3Y": 60.94233029907936,
+        "5Y": 45.95368574280578,
+        "10Y": 188.39989701857797
       },
       "performance": {
-        "1Y": 9.495140261455326,
-        "3Y": 16.853006996672647,
-        "5Y": 7.669543856246364,
-        "10Y": 11.077077082408127
+        "1Y": 10.444865437799255,
+        "3Y": 17.189876094342218,
+        "5Y": 7.855678025306512,
+        "10Y": 11.173047320076535
       },
       "officialMetrics": {
         "nav": 10.42996201,
@@ -3223,7 +3223,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/voe/vanguard-mid-cap-value-etf",
       "portId": "0935",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 201.74000549316406,
+      "nav": 203.53179931640625,
       "netAssets": "$24.2B",
       "totalFundNetAssets": "$39.0B",
       "netAssetsAsOf": "2026-08-31",
@@ -3235,16 +3235,16 @@
       "ytdReturn": 14.9435332,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 17.335460794263913,
-        "3Y": 63.81807976527378,
-        "5Y": 60.73141046226211,
-        "10Y": 168.60888809338607
+        "1Y": 18.377598933323114,
+        "3Y": 65.27303177556938,
+        "5Y": 62.15897832498363,
+        "10Y": 170.99453608754297
       },
       "performance": {
-        "1Y": 17.335460794263913,
-        "3Y": 17.88375024575888,
-        "5Y": 9.956308514782464,
-        "10Y": 10.385502224327482
+        "1Y": 18.377598933323114,
+        "3Y": 18.231717370807488,
+        "5Y": 10.15093802864373,
+        "10Y": 10.483151393261615
       },
       "officialMetrics": {
         "nav": 14.9435332,
@@ -3267,7 +3267,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vone/vanguard-russell-1000-etf",
       "portId": "3348",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 341.1499938964844,
+      "nav": 344.7699890136719,
       "netAssets": "$8.7B",
       "totalFundNetAssets": "$11.9B",
       "netAssetsAsOf": "2026-08-31",
@@ -3279,16 +3279,16 @@
       "ytdReturn": 11.01350386,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 13.778181053904358,
-        "3Y": 81.30294059284458,
-        "5Y": 81.6863173278395,
-        "10Y": 297.9443864788364
+        "1Y": 14.98548714993435,
+        "3Y": 83.22677401339276,
+        "5Y": 83.61421881795685,
+        "10Y": 302.16707143217604
       },
       "performance": {
-        "1Y": 13.778181053904358,
-        "3Y": 21.936843731769116,
-        "5Y": 12.684568090978775,
-        "10Y": 14.810666541623174
+        "1Y": 14.98548714993435,
+        "3Y": 22.36662401761409,
+        "5Y": 12.922702134664998,
+        "10Y": 14.931917082232404
       },
       "officialMetrics": {
         "nav": 11.01350386,
@@ -3311,7 +3311,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vong/vanguard-russell-1000-growth-etf",
       "portId": "3350",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 124.2300033569336,
+      "nav": 126.08000183105469,
       "netAssets": "$45.9B",
       "totalFundNetAssets": "$54.3B",
       "netAssetsAsOf": "2026-08-31",
@@ -3323,16 +3323,16 @@
       "ytdReturn": 2.28769754,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 3.4746885669606487,
-        "3Y": 84.38715757232886,
-        "5Y": 82.0603460796605,
-        "10Y": 406.8556951938345
+        "1Y": 5.015611370077333,
+        "3Y": 87.13302075719223,
+        "5Y": 84.77151718848181,
+        "10Y": 414.4036484850698
       },
       "performance": {
-        "1Y": 3.4746885669606487,
-        "3Y": 22.624398428368764,
-        "5Y": 12.730925576968932,
-        "10Y": 17.62196570289989
+        "1Y": 5.015611370077333,
+        "3Y": 23.23010240602803,
+        "5Y": 13.06469225192275,
+        "10Y": 17.795962206992023
       },
       "officialMetrics": {
         "nav": 2.28769754,
@@ -3355,7 +3355,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vonv/vanguard-russell-1000-value-etf",
       "portId": "3349",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 110.56999969482422,
+      "nav": 111.36499786376953,
       "netAssets": "$22.2B",
       "totalFundNetAssets": "$23.9B",
       "netAssetsAsOf": "2026-08-31",
@@ -3367,16 +3367,16 @@
       "ytdReturn": 20.81322351,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 25.4172546967115,
-        "3Y": 75.08632067200158,
-        "5Y": 77.40908929824302,
-        "10Y": 196.83470660174467
+        "1Y": 26.319004611817086,
+        "3Y": 76.34520176576754,
+        "5Y": 78.6846713802322,
+        "10Y": 198.9689171792143
       },
       "performance": {
-        "1Y": 25.4172546967115,
-        "3Y": 20.526923770893912,
-        "5Y": 12.148940049872348,
-        "10Y": 11.493992601352732
+        "1Y": 26.319004611817086,
+        "3Y": 20.815099461767474,
+        "5Y": 12.309749752342224,
+        "10Y": 11.57389743026862
       },
       "officialMetrics": {
         "nav": 20.81322351,
@@ -3399,7 +3399,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/voo/vanguard-sp-500-etf",
       "portId": "0968",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 693.239990234375,
+      "nav": 700.6950073242188,
       "netAssets": "$1.0T",
       "totalFundNetAssets": "$1.8T",
       "netAssetsAsOf": "2026-08-31",
@@ -3411,16 +3411,16 @@
       "ytdReturn": 11.2232181,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 14.214570718083873,
-        "3Y": 82.90523828717751,
-        "5Y": 88.06073917783608,
-        "10Y": 309.7678270907692
+        "1Y": 15.442820081373787,
+        "3Y": 84.87216370582138,
+        "5Y": 90.0831368372635,
+        "10Y": 314.17434489680494
       },
       "performance": {
-        "1Y": 14.214570718083873,
-        "3Y": 22.295003700825777,
-        "5Y": 13.464401785236358,
-        "10Y": 15.147307077642381
+        "1Y": 15.442820081373787,
+        "3Y": 22.73182007384007,
+        "5Y": 13.707397083461647,
+        "10Y": 15.270537803591289
       },
       "officialMetrics": {
         "nav": 11.2232181,
@@ -3443,7 +3443,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/voog/vanguard-sp-500-growth-etf",
       "portId": "3341",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 82.62999725341797,
+      "nav": 83.73999786376953,
       "netAssets": "$27.1B",
       "totalFundNetAssets": "$27.1B",
       "netAssetsAsOf": "2026-08-31",
@@ -3455,16 +3455,16 @@
       "ytdReturn": 11.81549821,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 14.285812270798747,
-        "3Y": 104.18798754678042,
-        "5Y": 92.67925917300852,
-        "10Y": 399.6972881893945
+        "1Y": 15.821057648891323,
+        "3Y": 106.93092350632392,
+        "5Y": 95.26755920821408,
+        "10Y": 406.4096808678013
       },
       "performance": {
-        "1Y": 14.285812270798747,
-        "3Y": 26.8654593454984,
-        "5Y": 14.016313173493945,
-        "10Y": 17.45478095007813
+        "1Y": 15.821057648891323,
+        "3Y": 27.431011968540965,
+        "5Y": 14.32100127484135,
+        "10Y": 17.611611302710607
       },
       "officialMetrics": {
         "nav": 11.81549821,
@@ -3487,7 +3487,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/voov/vanguard-sp-500-value-etf",
       "portId": "3340",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 224.25999450683594,
+      "nav": 225.8175048828125,
       "netAssets": "$6.8B",
       "totalFundNetAssets": "$7.0B",
       "netAssetsAsOf": "2026-08-31",
@@ -3499,16 +3499,16 @@
       "ytdReturn": 10.40568241,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 13.94482804817141,
-        "3Y": 59.16080597592281,
-        "5Y": 75.40603162418378,
-        "10Y": 203.31848362046244
+        "1Y": 14.73618743602907,
+        "3Y": 60.2662126692947,
+        "5Y": 76.62429854319201,
+        "10Y": 205.4250323990418
       },
       "performance": {
-        "1Y": 13.94482804817141,
-        "3Y": 16.75586612698283,
-        "5Y": 11.894542423940413,
-        "10Y": 11.735168334227343
+        "1Y": 14.73618743602907,
+        "3Y": 17.025541132822532,
+        "5Y": 12.049543111848294,
+        "10Y": 11.812527020300202
       },
       "officialMetrics": {
         "nav": 10.40568241,
@@ -3531,7 +3531,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vot/vanguard-mid-cap-growth-etf",
       "portId": "0932",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 289.5199890136719,
+      "nav": 291.8500061035156,
       "netAssets": "$19.6B",
       "totalFundNetAssets": "$34.1B",
       "netAssetsAsOf": "2026-08-31",
@@ -3543,16 +3543,16 @@
       "ytdReturn": 4.05212004,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": -0.9598872025270433,
-        "3Y": 51.56639795171883,
-        "5Y": 26.69685741548582,
-        "10Y": 191.7386557929568
+        "1Y": -0.16281556084980497,
+        "3Y": 52.786207905809256,
+        "5Y": 27.716496315077155,
+        "10Y": 194.0864379723616
       },
       "performance": {
-        "1Y": -0.9598872025270433,
-        "3Y": 14.86850703472673,
-        "5Y": 4.846314396066642,
-        "10Y": 11.301084937363282
+        "1Y": -0.16281556084980497,
+        "3Y": 15.175838852226953,
+        "5Y": 5.014531495297558,
+        "10Y": 11.390332345456745
       },
       "officialMetrics": {
         "nav": 4.05212004,
@@ -3575,7 +3575,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vox/vanguard-communication-services-etf",
       "portId": "0959",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 192.5,
+      "nav": 192.1011962890625,
       "netAssets": "$5.7B",
       "totalFundNetAssets": "$5.9B",
       "netAssetsAsOf": "2026-08-31",
@@ -3587,16 +3587,16 @@
       "ytdReturn": -0.09174591,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 3.3728374097236724,
-        "3Y": 88.39602757437541,
-        "5Y": 43.690488122682126,
-        "10Y": 135.39340439535917
+        "1Y": 3.158670665118102,
+        "3Y": 88.0057401321598,
+        "5Y": 43.39275445134456,
+        "10Y": 134.90571617771602
       },
       "performance": {
-        "1Y": 3.3728374097236724,
-        "3Y": 23.5067177853167,
-        "5Y": 7.51909594053477,
-        "10Y": 8.938007833087758
+        "1Y": 3.158670665118102,
+        "3Y": 23.421371955828786,
+        "5Y": 7.474502006950523,
+        "10Y": 8.915416979414426
       },
       "officialMetrics": {
         "nav": -0.09174591,
@@ -3619,7 +3619,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vpl/vanguard-ftse-pacific-etf",
       "portId": "0962",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 114.94000244140625,
+      "nav": 116.94000244140625,
       "netAssets": "$8.6B",
       "totalFundNetAssets": "$13.8B",
       "netAssetsAsOf": "2026-08-31",
@@ -3631,16 +3631,16 @@
       "ytdReturn": 26.46507008,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 34.424486798612875,
-        "3Y": 88.176250264879,
-        "5Y": 64.88547479521758,
-        "10Y": 151.0756415105488
+        "1Y": 36.763524278051584,
+        "3Y": 91.45057702871861,
+        "5Y": 67.7546001956463,
+        "10Y": 155.44451755131567
       },
       "performance": {
-        "1Y": 34.424486798612875,
-        "3Y": 23.458672653194345,
-        "5Y": 10.51888119917419,
-        "10Y": 9.642885914945087
+        "1Y": 36.763524278051584,
+        "3Y": 24.17063246566262,
+        "5Y": 10.90085328055659,
+        "10Y": 9.832193870801408
       },
       "officialMetrics": {
         "nav": 26.46507008,
@@ -3663,7 +3663,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vpls/vanguard-core-plus-bond-etf",
       "portId": "V022",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 75.15499877929688,
+      "nav": 75.36499786376953,
       "netAssets": "$1.9B",
       "totalFundNetAssets": "$1.9B",
       "netAssetsAsOf": "2026-08-31",
@@ -3675,16 +3675,16 @@
       "ytdReturn": -0.95697452,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 0.1286737818250172,
-        "3Y": 12.94537372684843,
-        "5Y": 12.945373726848498,
-        "10Y": 12.945373726848386
+        "1Y": 0.40846484305436803,
+        "3Y": 13.260941200912768,
+        "5Y": 13.260941200912724,
+        "10Y": 13.260941200912836
       },
       "performance": {
-        "1Y": 0.1286737818250172,
-        "3Y": 4.141257055612257,
-        "5Y": 2.464562335505671,
-        "10Y": 1.224780728587227
+        "1Y": 0.40846484305436803,
+        "3Y": 4.238156506487578,
+        "5Y": 2.521755305367046,
+        "10Y": 1.2530272660363773
       },
       "officialMetrics": {
         "nav": -0.95697452,
@@ -3707,7 +3707,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vpu/vanguard-utilities-etf",
       "portId": "0960",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 178.9499969482422,
+      "nav": 180.5500030517578,
       "netAssets": "$8.2B",
       "totalFundNetAssets": "$10.1B",
       "netAssetsAsOf": "2026-08-31",
@@ -3719,16 +3719,16 @@
       "ytdReturn": -2.00472754,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": -3.561088195346307,
-        "3Y": 52.3633621188047,
-        "5Y": 48.667736112599805,
-        "10Y": 126.46290734260393
+        "1Y": -2.698828243915119,
+        "3Y": 53.725655013466,
+        "5Y": 49.9969671076647,
+        "10Y": 128.48773014309228
       },
       "performance": {
-        "1Y": -3.561088195346307,
-        "3Y": 15.069488468033555,
-        "5Y": 8.25384871201511,
-        "10Y": 8.517481963754214
+        "1Y": -2.698828243915119,
+        "3Y": 15.411419876910347,
+        "5Y": 8.44673857140663,
+        "10Y": 8.61412011662026
       },
       "officialMetrics": {
         "nav": -2.00472754,
@@ -3751,7 +3751,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vsdb/vanguard-short-duration-bond-etf",
       "portId": "V044",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 75.11000061035156,
+      "nav": 75.16999816894531,
       "netAssets": "$1.0B",
       "totalFundNetAssets": "$1.0B",
       "netAssetsAsOf": "2026-08-31",
@@ -3763,16 +3763,16 @@
       "ytdReturn": 0.77696028,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 1.804754002800113,
-        "3Y": 5.472015009121933,
-        "5Y": 5.472015009122,
-        "10Y": 5.472015009121889
+        "1Y": 1.9989879485543316,
+        "3Y": 5.556276928272075,
+        "5Y": 5.556276928272141,
+        "10Y": 5.556276928272141
       },
       "performance": {
-        "1Y": 1.804754002800113,
-        "3Y": 1.7917109934884934,
-        "5Y": 1.07120619013652,
-        "10Y": 0.5341763730804638
+        "1Y": 1.9989879485543316,
+        "3Y": 1.8188110156334147,
+        "5Y": 1.0873502518176315,
+        "10Y": 0.5422051935492611
       },
       "officialMetrics": {
         "nav": 0.77696028,
@@ -3784,7 +3784,7 @@
         }
       },
       "holdings": 0,
-      "history": 365
+      "history": 366
     },
     {
       "ticker": "VSDM",
@@ -3795,7 +3795,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vsdm/vanguard-short-duration-tax-exempt-bond-etf",
       "portId": "V039",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 75.28500366210938,
+      "nav": 75.32499694824219,
       "netAssets": "$939.5M",
       "totalFundNetAssets": "$939.5M",
       "netAssetsAsOf": "2026-08-31",
@@ -3807,16 +3807,16 @@
       "ytdReturn": 0.53022897,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 1.0470113696058991,
-        "3Y": 5.7849095617429125,
-        "5Y": 5.784909561742979,
-        "10Y": 5.784909561742979
+        "1Y": 1.2192550167002159,
+        "3Y": 5.841105164463789,
+        "5Y": 5.841105164463767,
+        "10Y": 5.841105164463878
       },
       "performance": {
-        "1Y": 1.0470113696058991,
-        "3Y": 1.892270458077494,
-        "5Y": 1.1311029680569185,
-        "10Y": 0.5639612227247737
+        "1Y": 1.2192550167002159,
+        "3Y": 1.9103098424606113,
+        "5Y": 1.1418453623856406,
+        "10Y": 0.569302156466045
       },
       "officialMetrics": {
         "nav": 0.53022897,
@@ -3828,7 +3828,7 @@
         }
       },
       "holdings": 0,
-      "history": 454
+      "history": 455
     },
     {
       "ticker": "VSGX",
@@ -3839,7 +3839,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vsgx/vanguard-esg-international-stock-etf",
       "portId": "4394",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 81.41000366210938,
+      "nav": 82.45989990234375,
       "netAssets": "$6.8B",
       "totalFundNetAssets": "$6.8B",
       "netAssetsAsOf": "2026-08-31",
@@ -3851,16 +3851,16 @@
       "ytdReturn": 14.83296217,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 20.713959340242518,
-        "3Y": 70.32707110287168,
-        "5Y": 47.371805486826425,
-        "10Y": 95.0953786082711
+        "1Y": 22.270735244358008,
+        "3Y": 72.52370524424508,
+        "5Y": 49.272402650203006,
+        "10Y": 97.6114434239
       },
       "performance": {
-        "1Y": 20.713959340242518,
-        "3Y": 19.424810132134375,
-        "5Y": 8.064458310622813,
-        "10Y": 6.911567779183114
+        "1Y": 22.270735244358008,
+        "3Y": 19.93600876269084,
+        "5Y": 8.341764554907405,
+        "10Y": 7.0486535254012495
       },
       "officialMetrics": {
         "nav": 14.83296217,
@@ -3883,7 +3883,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vss/vanguard-ftse-all-world-ex-us-small-cap-etf",
       "portId": "3184",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 155.88999938964844,
+      "nav": 157.80499267578125,
       "netAssets": "$12.1B",
       "totalFundNetAssets": "$14.5B",
       "netAssetsAsOf": "2026-08-31",
@@ -3895,16 +3895,16 @@
       "ytdReturn": 9.34781555,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 12.57818230062908,
-        "3Y": 60.93434924607559,
-        "5Y": 35.22497363873249,
-        "10Y": 107.47375331082205
+        "1Y": 13.961121963948209,
+        "3Y": 62.91129580611528,
+        "5Y": 36.88609425701337,
+        "10Y": 110.02245749378349
       },
       "performance": {
-        "1Y": 12.57818230062908,
-        "3Y": 17.187938932395987,
-        "5Y": 6.221243456727521,
-        "10Y": 7.571275046121317
+        "1Y": 13.961121963948209,
+        "3Y": 17.665839957286124,
+        "5Y": 6.480937554919786,
+        "10Y": 7.702695740135135
       },
       "officialMetrics": {
         "nav": 9.34781555,
@@ -3927,7 +3927,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vt/vanguard-total-world-stock-etf",
       "portId": "3141",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 157.41000366210938,
+      "nav": 159.2100067138672,
       "netAssets": "$81.9B",
       "totalFundNetAssets": "$101.7B",
       "netAssetsAsOf": "2026-08-31",
@@ -3939,16 +3939,16 @@
       "ytdReturn": 12.17197823,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 15.832322403917543,
-        "3Y": 78.17799228409419,
-        "5Y": 70.27642790658979,
-        "10Y": 217.80872644339487
+        "1Y": 17.156879477601382,
+        "3Y": 80.21547987958328,
+        "5Y": 72.22357434017405,
+        "10Y": 221.44293368028536
       },
       "performance": {
-        "1Y": 15.832322403917543,
-        "3Y": 21.232209478158694,
-        "5Y": 11.2322971214321,
-        "10Y": 12.25781422246377
+        "1Y": 17.156879477601382,
+        "3Y": 21.692561005046617,
+        "5Y": 11.485534326463863,
+        "10Y": 12.385527487323756
       },
       "officialMetrics": {
         "nav": 12.17197823,
@@ -3971,7 +3971,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vtc/vanguard-total-corporate-bond-etf",
       "portId": "0985",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 74.04509735107422,
+      "nav": 74.35009765625,
       "netAssets": "$1.7B",
       "totalFundNetAssets": "$1.7B",
       "netAssetsAsOf": "2026-08-31",
@@ -3983,16 +3983,16 @@
       "ytdReturn": -1.39234241,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": -0.9760329128991163,
-        "3Y": 15.586830785999695,
-        "5Y": -2.064278762296534,
-        "10Y": 20.90681490893187
+        "1Y": -0.5681316140623061,
+        "3Y": 16.062918641995118,
+        "5Y": -1.660850372101219,
+        "10Y": 21.404821352622804
       },
       "performance": {
-        "1Y": -0.9760329128991163,
-        "3Y": 4.946860726185576,
-        "5Y": -0.4163075924812465,
-        "10Y": 1.9166354707939925
+        "1Y": -0.5681316140623061,
+        "3Y": 5.090751063025967,
+        "5Y": -0.3343990628981053,
+        "10Y": 1.9585365913872277
       },
       "officialMetrics": {
         "nav": -1.39234241,
@@ -4015,7 +4015,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vteb/vanguard-tax-exempt-bond-etf",
       "portId": "4391",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 48.22999954223633,
+      "nav": 48.32500076293945,
       "netAssets": "$46.3B",
       "totalFundNetAssets": "$49.0B",
       "netAssetsAsOf": "2026-08-31",
@@ -4027,16 +4027,16 @@
       "ytdReturn": -1.87705145,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": -0.34865189510255856,
-        "3Y": 10.530646907211505,
-        "5Y": 1.47910846875694,
-        "10Y": 17.807943087842993
+        "1Y": -0.15235541230976812,
+        "3Y": 10.748306967746535,
+        "5Y": 1.679038125217791,
+        "10Y": 18.039984722395587
       },
       "performance": {
-        "1Y": -0.34865189510255856,
-        "3Y": 3.393738142021996,
-        "5Y": 0.29408685772651655,
-        "10Y": 1.6523580093425139
+        "1Y": -0.15235541230976812,
+        "3Y": 3.4615622607447216,
+        "5Y": 0.33357474690505207,
+        "10Y": 1.6723623468685167
       },
       "officialMetrics": {
         "nav": -1.87705145,
@@ -4059,7 +4059,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vtec/vanguard-california-tax-exempt-bond-etf",
       "portId": "V038",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 96.05999755859375,
+      "nav": 96.2300033569336,
       "netAssets": "$3.3B",
       "totalFundNetAssets": "$3.3B",
       "netAssetsAsOf": "2026-08-31",
@@ -4071,16 +4071,16 @@
       "ytdReturn": -2.04166506,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": -0.7917418430860024,
-        "3Y": 2.775971985274328,
-        "5Y": 2.7759719852743725,
-        "10Y": 2.7759719852742615
+        "1Y": -0.6161407993141688,
+        "3Y": 2.957872036526221,
+        "5Y": 2.9578720365262656,
+        "10Y": 2.9578720365262656
       },
       "performance": {
-        "1Y": -0.7917418430860024,
-        "3Y": 0.9168914026066899,
-        "5Y": 0.5491303067501896,
-        "10Y": 0.2741892546382907
+        "1Y": -0.6161407993141688,
+        "3Y": 0.9763928868997906,
+        "5Y": 0.5846969028092897,
+        "10Y": 0.2919223580888808
       },
       "officialMetrics": {
         "nav": -2.04166506,
@@ -4103,7 +4103,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vtei/vanguard-intermediate-term-tax-exempt-bond-etf",
       "portId": "V037",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 96.87000274658203,
+      "nav": 96.94999694824219,
       "netAssets": "$1.6B",
       "totalFundNetAssets": "$1.6B",
       "netAssetsAsOf": "2026-08-31",
@@ -4115,16 +4115,16 @@
       "ytdReturn": -1.86968178,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": -0.5692176563897866,
-        "3Y": 3.918761808768889,
-        "5Y": 3.9187618087689113,
-        "10Y": 3.9187618087688003
+        "1Y": -0.4871009976717411,
+        "3Y": 4.004551262597267,
+        "5Y": 4.004551262597267,
+        "10Y": 4.004551262597378
       },
       "performance": {
-        "1Y": -0.5692176563897866,
-        "3Y": 1.2895529852992915,
-        "5Y": 0.7717481717528729,
-        "10Y": 0.3851324508529208
+        "1Y": -0.4871009976717411,
+        "3Y": 1.3174182945935753,
+        "5Y": 0.7883809716821899,
+        "10Y": 0.39341660272460555
       },
       "officialMetrics": {
         "nav": -1.86968178,
@@ -4147,7 +4147,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vtel/vanguard-long-term-tax-exempt-bond-etf",
       "portId": "V045",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 98.26899719238281,
+      "nav": 98.5,
       "netAssets": "$366.1M",
       "totalFundNetAssets": "$366.1M",
       "netAssetsAsOf": "2026-08-31",
@@ -4159,16 +4159,16 @@
       "ytdReturn": -2.6062002,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": -0.8030750297082889,
-        "3Y": 3.725139590662918,
-        "5Y": 3.7251395906629403,
-        "10Y": 3.7251395906629403
+        "1Y": -0.7358587761315705,
+        "3Y": 3.968959883753387,
+        "5Y": 3.968959883753409,
+        "10Y": 3.968959883753298
       },
       "performance": {
-        "1Y": -0.8030750297082889,
-        "3Y": 1.2266060558787428,
-        "5Y": 0.7341684180259156,
-        "10Y": 0.36641291688466193
+        "1Y": -0.7358587761315705,
+        "3Y": 1.3058597041547104,
+        "5Y": 0.7814818724847239,
+        "10Y": 0.3899805122427047
       },
       "officialMetrics": {
         "nav": -2.6062002,
@@ -4180,7 +4180,7 @@
         }
       },
       "holdings": 0,
-      "history": 331
+      "history": 332
     },
     {
       "ticker": "VTES",
@@ -4191,7 +4191,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vtes/vanguard-short-term-tax-exempt-bond-etf",
       "portId": "V014",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 99.61000061035156,
+      "nav": 99.68499755859375,
       "netAssets": "$2.4B",
       "totalFundNetAssets": "$2.4B",
       "netAssetsAsOf": "2026-08-31",
@@ -4203,16 +4203,16 @@
       "ytdReturn": -0.10072557,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 0.06830600045832913,
-        "3Y": 8.759771532608474,
-        "5Y": 9.218909843852941,
-        "10Y": 9.21890984385283
+        "1Y": 0.14365568499956627,
+        "3Y": 8.84165739654268,
+        "5Y": 9.3011596825745,
+        "10Y": 9.3011596825745
       },
       "performance": {
-        "1Y": 0.06830600045832913,
-        "3Y": 2.8385857502313483,
-        "5Y": 1.7793252728214304,
-        "10Y": 0.8857399600267657
+        "1Y": 0.14365568499956627,
+        "3Y": 2.8643885318775597,
+        "5Y": 1.7946501145523541,
+        "10Y": 0.8933348217573522
       },
       "officialMetrics": {
         "nav": -0.10072557,
@@ -4235,7 +4235,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vtg/vanguard-total-treasury-etf",
       "portId": "V048",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 73.06800079345703,
+      "nav": 73.33499908447266,
       "netAssets": "$205.8M",
       "totalFundNetAssets": "$205.8M",
       "netAssetsAsOf": "2026-08-31",
@@ -4247,16 +4247,16 @@
       "ytdReturn": -1.63641666,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": -1.2630213085424113,
-        "3Y": 1.1931002252581813,
-        "5Y": 1.1931002252582035,
-        "10Y": 1.1931002252580925
+        "1Y": -0.7742408074517537,
+        "3Y": 1.5628491757352814,
+        "5Y": 1.5628491757352148,
+        "10Y": 1.5628491757352148
       },
       "performance": {
-        "1Y": -1.2630213085424113,
-        "3Y": 0.3961288226526971,
-        "5Y": 0.2374893392081967,
-        "10Y": 0.11867425171399049
+        "1Y": -0.7742408074517537,
+        "3Y": 0.5182591596609498,
+        "5Y": 0.3106339618363041,
+        "10Y": 0.1551965510708353
       },
       "officialMetrics": {
         "nav": -1.63641666,
@@ -4268,7 +4268,7 @@
         }
       },
       "holdings": 0,
-      "history": 299
+      "history": 300
     },
     {
       "ticker": "VTHR",
@@ -4279,7 +4279,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vthr/vanguard-russell-3000-etf",
       "portId": "3354",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 332.55010986328125,
+      "nav": 336.0199890136719,
       "netAssets": "$4.8B",
       "totalFundNetAssets": "$6.4B",
       "netAssetsAsOf": "2026-08-31",
@@ -4291,16 +4291,16 @@
       "ytdReturn": 11.29115219,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 13.95179893121452,
-        "3Y": 80.38846500651478,
-        "5Y": 79.00995700607749,
-        "10Y": 287.83569251543486
+        "1Y": 15.140801621614397,
+        "3Y": 82.27066607977378,
+        "5Y": 80.87778937099532,
+        "10Y": 291.88242996438606
       },
       "performance": {
-        "1Y": 13.95179893121452,
-        "3Y": 21.73148528103166,
-        "5Y": 12.350610754722613,
-        "10Y": 14.515632847366454
+        "1Y": 15.140801621614397,
+        "3Y": 22.153409557536598,
+        "5Y": 12.584096864016136,
+        "10Y": 14.634562867667022
       },
       "officialMetrics": {
         "nav": 11.29115219,
@@ -4323,7 +4323,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vti/vanguard-total-stock-market-etf",
       "portId": "0970",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 371.260009765625,
+      "nav": 375.2200012207031,
       "netAssets": "$690.1B",
       "totalFundNetAssets": "$2.3T",
       "netAssetsAsOf": "2026-08-31",
@@ -4335,16 +4335,16 @@
       "ytdReturn": 11.39534534,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 14.134093286103976,
-        "3Y": 81.14751870913955,
-        "5Y": 78.76809877686853,
-        "10Y": 290.02961983932096
+        "1Y": 15.351488163703063,
+        "3Y": 83.07971627370094,
+        "5Y": 80.67488969577705,
+        "10Y": 294.18975144907193
       },
       "performance": {
-        "1Y": 14.134093286103976,
-        "3Y": 21.901990331345544,
-        "5Y": 12.32023521881156,
-        "10Y": 14.580248279479902
+        "1Y": 15.351488163703063,
+        "3Y": 22.333878120013374,
+        "5Y": 12.558827279009632,
+        "10Y": 14.701879129053719
       },
       "officialMetrics": {
         "nav": 11.39534534,
@@ -4367,7 +4367,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vtip/vanguard-short-term-inflation-protected-securities-etf",
       "portId": "3365",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 49.349998474121094,
+      "nav": 49.3849983215332,
       "netAssets": "$20.5B",
       "totalFundNetAssets": "$73.2B",
       "netAssetsAsOf": "2026-08-31",
@@ -4379,16 +4379,16 @@
       "ytdReturn": 1.21502394,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 1.5776214007007905,
-        "3Y": 15.269740762600481,
-        "5Y": 15.607506584731269,
-        "10Y": 33.886113855097186
+        "1Y": 1.6496619550966374,
+        "3Y": 15.35148171984626,
+        "5Y": 15.689497369235195,
+        "10Y": 33.98106813474073
       },
       "performance": {
-        "1Y": 1.5776214007007905,
-        "3Y": 4.850805725880858,
-        "5Y": 2.9430915984270944,
-        "10Y": 2.961190049387663
+        "1Y": 1.6496619550966374,
+        "3Y": 4.875584070671013,
+        "5Y": 2.957689251610751,
+        "10Y": 2.9684899004117637
       },
       "officialMetrics": {
         "nav": 1.21502394,
@@ -4411,7 +4411,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vtp/vanguard-total-inflation-protected-securities-etf",
       "portId": "V049",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 74.08999633789062,
+      "nav": 74.3240966796875,
       "netAssets": "$230.8M",
       "totalFundNetAssets": "$230.8M",
       "netAssetsAsOf": "2026-08-31",
@@ -4423,16 +4423,16 @@
       "ytdReturn": -0.78117731,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": -1.3876833154274348,
-        "3Y": 1.3766630999294982,
-        "5Y": 1.3766630999294982,
-        "10Y": 1.3766630999294982
+        "1Y": -0.9916478477302482,
+        "3Y": 1.6969804525406307,
+        "5Y": 1.6969804525406085,
+        "10Y": 1.6969804525406085
       },
       "performance": {
-        "1Y": -1.3876833154274348,
-        "3Y": 0.4567978797004768,
-        "5Y": 0.2738288629758667,
-        "10Y": 0.13682083178787607
+        "1Y": -0.9916478477302482,
+        "3Y": 0.5624902655493091,
+        "5Y": 0.33711547824817334,
+        "10Y": 0.16841591951435309
       },
       "officialMetrics": {
         "nav": -0.78117731,
@@ -4444,7 +4444,7 @@
         }
       },
       "holdings": 0,
-      "history": 299
+      "history": 300
     },
     {
       "ticker": "VTV",
@@ -4455,7 +4455,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vtv/vanguard-value-etf",
       "portId": "0966",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 220.63999938964844,
+      "nav": 221.8800048828125,
       "netAssets": "$192.2B",
       "totalFundNetAssets": "$262.4B",
       "netAssetsAsOf": "2026-08-31",
@@ -4467,16 +4467,16 @@
       "ytdReturn": 16.70680635,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 20.172050442155886,
-        "3Y": 70.30421142985286,
-        "5Y": 82.61377855482677,
-        "10Y": 224.04858847601932
+        "1Y": 20.84741205895466,
+        "3Y": 71.26134798136341,
+        "5Y": 83.64009838001323,
+        "10Y": 225.8697908297853
       },
       "performance": {
-        "1Y": 20.172050442155886,
-        "3Y": 19.419467207228315,
-        "5Y": 12.799378959439899,
-        "10Y": 12.476297919515545
+        "1Y": 20.84741205895466,
+        "3Y": 19.642768151573154,
+        "5Y": 12.925885140154826,
+        "10Y": 12.53935200541787
       },
       "officialMetrics": {
         "nav": 16.70680635,
@@ -4499,7 +4499,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vtwg/vanguard-russell-2000-growth-etf",
       "portId": "3353",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 263.989990234375,
+      "nav": 266.8599853515625,
       "netAssets": "$1.5B",
       "totalFundNetAssets": "$1.7B",
       "netAssetsAsOf": "2026-08-31",
@@ -4511,16 +4511,16 @@
       "ytdReturn": 12.08866061,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 13.568133897225088,
-        "3Y": 64.83497302746031,
-        "5Y": 27.662974460539736,
-        "10Y": 161.1211676404022
+        "1Y": 14.802801883930794,
+        "3Y": 66.62699388139701,
+        "5Y": 29.05085695277405,
+        "10Y": 163.9599142900651
       },
       "performance": {
-        "1Y": 13.568133897225088,
-        "3Y": 18.127166608291923,
-        "5Y": 5.005728380526553,
-        "10Y": 10.07386294105681
+        "1Y": 14.802801883930794,
+        "3Y": 18.553701945510205,
+        "5Y": 5.233055014405985,
+        "10Y": 10.19294696851416
       },
       "officialMetrics": {
         "nav": 12.08866061,
@@ -4543,7 +4543,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vtwo/vanguard-russell-2000-etf",
       "portId": "3351",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 115.06999969482422,
+      "nav": 116.1449966430664,
       "netAssets": "$17.3B",
       "totalFundNetAssets": "$18.0B",
       "netAssetsAsOf": "2026-08-31",
@@ -4555,16 +4555,16 @@
       "ytdReturn": 16.20038611,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 18.71620818551978,
-        "3Y": 67.0032947885737,
-        "5Y": 39.15988972358937,
-        "10Y": 162.5939255963377
+        "1Y": 19.825268425762886,
+        "3Y": 68.56342112273917,
+        "5Y": 40.45992418866522,
+        "10Y": 165.0471538872293
       },
       "performance": {
-        "1Y": 18.71620818551978,
-        "3Y": 18.642879822513425,
-        "5Y": 6.832358234255098,
-        "10Y": 10.135789046966238
+        "1Y": 19.825268425762886,
+        "3Y": 19.011184863707186,
+        "5Y": 7.031222502904422,
+        "10Y": 10.23825106281453
       },
       "officialMetrics": {
         "nav": 16.20038611,
@@ -4587,7 +4587,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vtwv/vanguard-russell-2000-value-etf",
       "portId": "3352",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 191.5,
+      "nav": 192.89999389648438,
       "netAssets": "$1.4B",
       "totalFundNetAssets": "$1.4B",
       "netAssetsAsOf": "2026-08-31",
@@ -4599,16 +4599,16 @@
       "ytdReturn": 20.63934615,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 24.42792562884457,
-        "3Y": 69.00629746598503,
-        "5Y": 49.8806163832324,
-        "10Y": 152.83311362622905
+        "1Y": 25.337565089675795,
+        "3Y": 70.24183579389518,
+        "5Y": 50.976344571941645,
+        "10Y": 154.6815195198039
       },
       "performance": {
-        "1Y": 24.42792562884457,
-        "3Y": 19.115322018764758,
-        "5Y": 8.429909199899456,
-        "10Y": 9.719392749087064
+        "1Y": 25.337565089675795,
+        "3Y": 19.404885898595037,
+        "5Y": 8.587986735892471,
+        "10Y": 9.799343449107445
       },
       "officialMetrics": {
         "nav": 20.63934615,
@@ -4631,7 +4631,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vug/vanguard-growth-etf",
       "portId": "0967",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 87.05999755859375,
+      "nav": 88.29499816894531,
       "netAssets": "$227.0B",
       "totalFundNetAssets": "$384.6B",
       "netAssetsAsOf": "2026-08-31",
@@ -4643,16 +4643,16 @@
       "ytdReturn": 7.30536895,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 9.266459805455995,
-        "3Y": 94.46979838321421,
-        "5Y": 84.80740186559292,
-        "10Y": 402.99438308668937
+        "1Y": 10.816462384458081,
+        "3Y": 97.22852473071953,
+        "5Y": 87.42899546950855,
+        "10Y": 410.1295049016147
       },
       "performance": {
-        "1Y": 9.266459805455995,
-        "3Y": 24.81996447725978,
-        "5Y": 13.069083594142917,
-        "10Y": 17.532050630284957
+        "1Y": 10.816462384458081,
+        "3Y": 25.407422554689507,
+        "5Y": 13.388068007186039,
+        "10Y": 17.69771847697903
       },
       "officialMetrics": {
         "nav": 7.30536895,
@@ -4675,7 +4675,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vusb/vanguard-ultra-short-bond-etf",
       "portId": "0931",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 49.540000915527344,
+      "nav": 49.56399917602539,
       "netAssets": "$10.2B",
       "totalFundNetAssets": "$10.2B",
       "netAssetsAsOf": "2026-08-31",
@@ -4687,16 +4687,16 @@
       "ytdReturn": 2.24520827,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 3.517821385279718,
-        "3Y": 16.27198048485077,
-        "5Y": 19.162915053594574,
-        "10Y": 19.49864105017649
+        "1Y": 3.5679924497560522,
+        "3Y": 16.32830517650867,
+        "5Y": 19.22060735879043,
+        "10Y": 19.556528806819284
       },
       "performance": {
-        "1Y": 3.517821385279718,
-        "3Y": 5.153812512427458,
-        "5Y": 3.5686281592085756,
-        "10Y": 1.7973087700511092
+        "1Y": 3.5679924497560522,
+        "3Y": 5.170789374001328,
+        "5Y": 3.578654694906991,
+        "10Y": 1.8022389798047156
       },
       "officialMetrics": {
         "nav": 2.24520827,
@@ -4719,7 +4719,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vusg/vanguard-wellington-u-s-growth-active-etf",
       "portId": "V054",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 64.13999938964844,
+      "nav": 65.1500015258789,
       "netAssets": "$34.6M",
       "totalFundNetAssets": "$34.6M",
       "netAssetsAsOf": "2026-08-31",
@@ -4731,16 +4731,16 @@
       "ytdReturn": 5.49432472,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 8.823659808316918,
-        "3Y": 8.823659808316918,
-        "5Y": 8.823659808316942,
-        "10Y": 8.823659808316942
+        "1Y": 10.537288276117573,
+        "3Y": 10.537288276117597,
+        "5Y": 10.53728827611764,
+        "10Y": 10.537288276117774
       },
       "performance": {
-        "1Y": 8.823659808316918,
-        "3Y": 2.858718481754119,
-        "5Y": 1.7055529905896538,
-        "10Y": 0.8491710380356343
+        "1Y": 10.537288276117573,
+        "3Y": 3.395808946889245,
+        "5Y": 2.0238624681939488,
+        "10Y": 1.006862374887163
       },
       "officialMetrics": {
         "nav": 5.49432472,
@@ -4752,7 +4752,7 @@
         }
       },
       "holdings": 0,
-      "history": 207
+      "history": 208
     },
     {
       "ticker": "VUSV",
@@ -4763,7 +4763,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vusv/vanguard-wellington-u-s-value-active-etf",
       "portId": "V055",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 69.4000015258789,
+      "nav": 69.72000122070312,
       "netAssets": "$94.9M",
       "totalFundNetAssets": "$94.9M",
       "netAssetsAsOf": "2026-08-31",
@@ -4775,16 +4775,16 @@
       "ytdReturn": 10.85011185,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 16.848974025745477,
-        "3Y": 16.848974025745434,
-        "5Y": 16.848974025745456,
-        "10Y": 16.848974025745566
+        "1Y": 17.387758394717267,
+        "3Y": 17.387758394717267,
+        "5Y": 17.387758394717245,
+        "10Y": 17.387758394717245
       },
       "performance": {
-        "1Y": 16.848974025745477,
-        "3Y": 5.327465654100649,
-        "5Y": 3.1632417418090197,
-        "10Y": 1.569307244762208
+        "1Y": 17.387758394717267,
+        "3Y": 5.489103909677739,
+        "5Y": 3.2582027967082094,
+        "10Y": 1.6160434167303173
       },
       "officialMetrics": {
         "nav": 10.85011185,
@@ -4796,7 +4796,7 @@
         }
       },
       "holdings": 0,
-      "history": 207
+      "history": 208
     },
     {
       "ticker": "VV",
@@ -4807,7 +4807,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vv/vanguard-large-cap-etf",
       "portId": "0961",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 347.79998779296875,
+      "nav": 351.5,
       "netAssets": "$54.3B",
       "totalFundNetAssets": "$76.2B",
       "netAssetsAsOf": "2026-08-31",
@@ -4819,16 +4819,16 @@
       "ytdReturn": 11.12245469,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 13.940062023281886,
-        "3Y": 84.02730849377802,
-        "5Y": 84.83756561904603,
-        "10Y": 310.2053274419485
+        "1Y": 15.152194384272622,
+        "3Y": 85.98503732997484,
+        "5Y": 86.80394440491632,
+        "10Y": 314.5691911502895
       },
       "performance": {
-        "1Y": 13.940062023281886,
-        "3Y": 22.54457541887507,
-        "5Y": 13.072774317870838,
-        "10Y": 15.159595206776523
+        "1Y": 15.152194384272622,
+        "3Y": 22.977596847322612,
+        "5Y": 13.312340061940308,
+        "10Y": 15.28152221794774
       },
       "officialMetrics": {
         "nav": 11.12245469,
@@ -4851,7 +4851,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vwo/vanguard-ftse-emerging-markets-etf",
       "portId": "0964",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 59.18000030517578,
+      "nav": 59.92499923706055,
       "netAssets": "$127.3B",
       "totalFundNetAssets": "$168.5B",
       "netAssetsAsOf": "2026-08-31",
@@ -4863,16 +4863,16 @@
       "ytdReturn": 10.41996111,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 11.508143697080353,
-        "3Y": 63.92933374473249,
-        "5Y": 37.02342005596224,
-        "10Y": 106.88709159582328
+        "1Y": 12.911885628854414,
+        "3Y": 65.99297247222289,
+        "5Y": 38.748353746683065,
+        "10Y": 109.49162772505167
       },
       "performance": {
-        "1Y": 11.508143697080353,
-        "3Y": 17.910430386972177,
-        "5Y": 6.5022935817846905,
-        "10Y": 7.540818955731532
+        "1Y": 12.911885628854414,
+        "3Y": 18.40314386098263,
+        "5Y": 6.76909653036184,
+        "10Y": 7.675442975091107
       },
       "officialMetrics": {
         "nav": 10.41996111,
@@ -4895,7 +4895,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vwob/vanguard-emerging-markets-government-bond-etf",
       "portId": "3820",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 64.67500305175781,
+      "nav": 65.05000305175781,
       "netAssets": "$6.4B",
       "totalFundNetAssets": "$6.9B",
       "netAssetsAsOf": "2026-08-31",
@@ -4907,16 +4907,16 @@
       "ytdReturn": -0.22200697,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 2.4343232503303502,
-        "3Y": 30.871353638549692,
-        "5Y": 9.498096169838345,
-        "10Y": 31.329731263888828
+        "1Y": 3.0282726061009013,
+        "3Y": 31.630123945210585,
+        "5Y": 10.133047300109311,
+        "10Y": 32.09111806113645
       },
       "performance": {
-        "1Y": 2.4343232503303502,
-        "3Y": 9.382588895445254,
-        "5Y": 1.8313059895924688,
-        "10Y": 2.762889084628428
+        "1Y": 3.0282726061009013,
+        "3Y": 9.593575673377263,
+        "5Y": 1.9491316888478716,
+        "10Y": 2.8223112181321897
       },
       "officialMetrics": {
         "nav": -0.22200697,
@@ -4939,7 +4939,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vxf/vanguard-extended-market-etf",
       "portId": "0965",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 234.38999938964844,
+      "nav": 236.73500061035156,
       "netAssets": "$31.4B",
       "totalFundNetAssets": "$95.4B",
       "netAssetsAsOf": "2026-08-31",
@@ -4951,16 +4951,16 @@
       "ytdReturn": 12.65674212,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 12.932361373369616,
-        "3Y": 69.05927833916931,
-        "5Y": 36.28703868991114,
-        "10Y": 191.3674082403143
+        "1Y": 14.06221557349352,
+        "3Y": 70.7506842006038,
+        "5Y": 37.65054938971093,
+        "10Y": 194.28245124460548
       },
       "performance": {
-        "1Y": 12.932361373369616,
-        "3Y": 19.127767658424077,
-        "5Y": 6.387575325211348,
-        "10Y": 11.28691337137031
+        "1Y": 14.06221557349352,
+        "3Y": 19.523733596062275,
+        "5Y": 6.599603621040617,
+        "10Y": 11.397754461804466
       },
       "officialMetrics": {
         "nav": 12.65674212,
@@ -4983,7 +4983,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vxus/vanguard-total-international-stock-etf",
       "portId": "3369",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 85.41000366210938,
+      "nav": 86.51499938964844,
       "netAssets": "$164.9B",
       "totalFundNetAssets": "$665.7B",
       "netAssetsAsOf": "2026-08-31",
@@ -4995,16 +4995,16 @@
       "ytdReturn": 13.65318352,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 19.059259496384207,
-        "3Y": 74.03449097383974,
-        "5Y": 57.045383176237976,
-        "10Y": 141.62970319105216
+        "1Y": 20.599593970410602,
+        "3Y": 76.28605625169351,
+        "5Y": 59.07716481771883,
+        "10Y": 144.75574541305315
       },
       "performance": {
-        "1Y": 19.059259496384207,
-        "3Y": 20.285083989159382,
-        "5Y": 9.44729557867987,
-        "10Y": 9.223234148502456
+        "1Y": 20.599593970410602,
+        "3Y": 20.8015909755334,
+        "5Y": 9.729037161915421,
+        "10Y": 9.363723831439641
       },
       "officialMetrics": {
         "nav": 13.65318352,
@@ -5027,7 +5027,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vym/vanguard-high-dividend-yield-etf",
       "portId": "0923",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 159.77999877929688,
+      "nav": 160.7550048828125,
       "netAssets": "$83.1B",
       "totalFundNetAssets": "$100.8B",
       "netAssetsAsOf": "2026-08-31",
@@ -5039,16 +5039,16 @@
       "ytdReturn": 12.64955664,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 15.493005903175217,
-        "3Y": 66.89148972844401,
-        "5Y": 77.55911583501403,
-        "10Y": 198.2219478033231
+        "1Y": 16.197764862552265,
+        "3Y": 67.90987803980084,
+        "5Y": 78.64264357958805,
+        "10Y": 200.0417300550307
       },
       "performance": {
-        "1Y": 15.493005903175217,
-        "3Y": 18.616397639208703,
-        "5Y": 12.167901455602493,
-        "10Y": 11.545989466754136
+        "1Y": 16.197764862552265,
+        "3Y": 18.857178193651336,
+        "5Y": 12.304466058020246,
+        "10Y": 11.613869835600754
       },
       "officialMetrics": {
         "nav": 12.64955664,
@@ -5071,7 +5071,7 @@
       "officialPage": "https://advisors.vanguard.com/investments/products/vymi/vanguard-international-high-dividend-yield-etf",
       "portId": "4430",
       "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-      "nav": 104.0199966430664,
+      "nav": 105.15989685058594,
       "netAssets": "$21.8B",
       "totalFundNetAssets": "$22.8B",
       "netAssetsAsOf": "2026-08-31",
@@ -5083,16 +5083,16 @@
       "ytdReturn": 18.12460466,
       "asOfDate": "2026-09-16",
       "totalReturn": {
-        "1Y": 26.668693869837945,
-        "3Y": 89.76266842537419,
-        "5Y": 95.7840705931345,
-        "10Y": 176.83815747140824
+        "1Y": 28.056789188893895,
+        "3Y": 91.84220399103917,
+        "5Y": 97.92952219041433,
+        "10Y": 179.8718522198954
       },
       "performance": {
-        "1Y": 26.668693869837945,
-        "3Y": 23.80464130946336,
-        "5Y": 14.381416554825988,
-        "10Y": 10.719112268077113
+        "1Y": 28.056789188893895,
+        "3Y": 24.2552416777013,
+        "5Y": 14.631009026174112,
+        "10Y": 10.839848168234244
       },
       "officialMetrics": {
         "nav": 18.12460466,

@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vfmv/vanguard-u-s-minimum-volatility-etf",
   "portId": "4419",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 143.0959930419922,
+  "nav": 143.56629943847656,
   "netAssets": "$456.4M",
   "totalFundNetAssets": "$456.4M",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 10.41050478,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 11.000731724234413,
-    "3Y": 52.91010048874314,
-    "5Y": 56.773641662406504,
-    "10Y": 121.31675594441616
+    "1Y": 11.365552241109643,
+    "3Y": 53.41267492530135,
+    "5Y": 57.28892799247325,
+    "10Y": 122.04412038358532
   },
   "performance": {
-    "1Y": 11.000731724234413,
-    "3Y": 15.206962030001915,
-    "5Y": 9.409393184319281,
-    "10Y": 8.268327899981532
+    "1Y": 11.365552241109643,
+    "3Y": 15.33304211545017,
+    "5Y": 9.481220551918668,
+    "10Y": 8.303858109104635
   },
   "officialMetrics": {
     "nav": 10.41050478,

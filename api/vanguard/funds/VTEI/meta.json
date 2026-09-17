@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vtei/vanguard-intermediate-term-tax-exempt-bond-etf",
   "portId": "V037",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 96.87000274658203,
+  "nav": 96.94999694824219,
   "netAssets": "$1.6B",
   "totalFundNetAssets": "$1.6B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": -1.86968178,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -0.5692176563897866,
-    "3Y": 3.918761808768889,
-    "5Y": 3.9187618087689113,
-    "10Y": 3.9187618087688003
+    "1Y": -0.4871009976717411,
+    "3Y": 4.004551262597267,
+    "5Y": 4.004551262597267,
+    "10Y": 4.004551262597378
   },
   "performance": {
-    "1Y": -0.5692176563897866,
-    "3Y": 1.2895529852992915,
-    "5Y": 0.7717481717528729,
-    "10Y": 0.3851324508529208
+    "1Y": -0.4871009976717411,
+    "3Y": 1.3174182945935753,
+    "5Y": 0.7883809716821899,
+    "10Y": 0.39341660272460555
   },
   "officialMetrics": {
     "nav": -1.86968178,

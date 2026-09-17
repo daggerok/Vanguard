@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vbcc/vanguard-target-maturity-2029-corporate-bond-etf",
   "portId": "V074",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 74.36000061035156,
+  "nav": 74.42500305175781,
   "netAssets": "$55.6M",
   "totalFundNetAssets": "$55.6M",
   "netAssetsAsOf": "2026-08-31",
@@ -16,19 +16,19 @@
   "dividendYieldAsOf": null,
   "secYield": 4.94,
   "secYieldAsOf": "2026-09-15",
-  "ytdReturn": 0.8310206321293645,
+  "ytdReturn": 0.9191629459644135,
   "asOfDate": "",
   "totalReturn": {
-    "1Y": 0.8310206321293645,
-    "3Y": 0.8310206321293867,
-    "5Y": 0.8310206321293423,
-    "10Y": 0.8310206321293423
+    "1Y": 0.9191629459644135,
+    "3Y": 0.9191629459644135,
+    "5Y": 0.9191629459643691,
+    "10Y": 0.9191629459642581
   },
   "performance": {
-    "1Y": 0.8310206321293645,
-    "3Y": 0.27624307235376566,
-    "5Y": 0.1656543889839046,
-    "10Y": 0.08279292115298542
+    "1Y": 0.9191629459644135,
+    "3Y": 0.30545367917280686,
+    "5Y": 0.18316040446841875,
+    "10Y": 0.09153830592694145
   },
   "officialMetrics": {
     "nav": null,
@@ -45,7 +45,7 @@
     "pages": []
   },
   "history": {
-    "totalRows": 120,
+    "totalRows": 121,
     "pageSize": 1000,
     "pages": [
       "./history/001.json"

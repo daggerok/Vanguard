@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vaw/vanguard-materials-etf",
   "portId": "0952",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 224.6999969482422,
+  "nav": 226.9199981689453,
   "netAssets": "$3.1B",
   "totalFundNetAssets": "$4.5B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 9.0714453,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 10.911154043397131,
-    "3Y": 36.11131522655289,
-    "5Y": 40.82401419912822,
-    "10Y": 150.2952403169748
+    "1Y": 12.006939093285895,
+    "3Y": 37.45607397180586,
+    "5Y": 42.215360881509035,
+    "10Y": 152.7682689535888
   },
   "performance": {
-    "1Y": 10.911154043397131,
-    "3Y": 10.823384750250597,
-    "5Y": 7.0866527714738,
-    "10Y": 9.608758607579947
+    "1Y": 12.006939093285895,
+    "3Y": 11.187161980972228,
+    "5Y": 7.29742548286032,
+    "10Y": 9.716578426523114
   },
   "officialMetrics": {
     "nav": 9.0714453,

@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vghy/vanguard-high-yield-active-etf",
   "portId": "V052",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 73.41999816894531,
+  "nav": 73.62000274658203,
   "netAssets": "$317.1M",
   "totalFundNetAssets": "$317.1M",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 1.69876402,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 3.2195251709589368,
-    "3Y": 3.2195251709589368,
-    "5Y": 3.2195251709588923,
-    "10Y": 3.2195251709590034
+    "1Y": 3.5006960096945816,
+    "3Y": 3.500696009694604,
+    "5Y": 3.5006960096946482,
+    "10Y": 3.5006960096946482
   },
   "performance": {
-    "1Y": 3.2195251709589368,
-    "3Y": 1.0618596871791564,
-    "5Y": 0.6357694195571195,
-    "10Y": 0.31738105610470413
+    "1Y": 3.5006960096945816,
+    "3Y": 1.153540937390174,
+    "5Y": 0.6905363111850749,
+    "10Y": 0.3446741542295628
   },
   "officialMetrics": {
     "nav": 1.69876402,
@@ -45,7 +45,7 @@
     "pages": []
   },
   "history": {
-    "totalRows": 251,
+    "totalRows": 252,
     "pageSize": 1000,
     "pages": [
       "./history/001.json"

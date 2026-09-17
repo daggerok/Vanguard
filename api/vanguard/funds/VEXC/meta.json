@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vexc/vanguard-emerging-markets-ex-china-etf",
   "portId": "V051",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 95.20999908447266,
+  "nav": 96.52999877929688,
   "netAssets": "$269.4M",
   "totalFundNetAssets": "$269.4M",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 21.08487922,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 26.65281195728335,
-    "3Y": 26.652811957283372,
-    "5Y": 26.65281195728333,
-    "10Y": 26.652811957283483
+    "1Y": 28.408737540098606,
+    "3Y": 28.408737540098585,
+    "5Y": 28.408737540098585,
+    "10Y": 28.408737540098716
   },
   "performance": {
-    "1Y": 26.65281195728335,
-    "3Y": 8.194440521145662,
-    "5Y": 4.839023534468367,
-    "10Y": 2.390929058422153
+    "1Y": 28.408737540098606,
+    "3Y": 8.69215315461953,
+    "5Y": 5.1281241680998235,
+    "10Y": 2.5320067920743705
   },
   "officialMetrics": {
     "nav": 21.08487922,
@@ -45,7 +45,7 @@
     "pages": []
   },
   "history": {
-    "totalRows": 240,
+    "totalRows": 241,
     "pageSize": 1000,
     "pages": [
       "./history/001.json"

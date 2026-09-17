@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vtwo/vanguard-russell-2000-etf",
   "portId": "3351",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 115.06999969482422,
+  "nav": 116.1449966430664,
   "netAssets": "$17.3B",
   "totalFundNetAssets": "$18.0B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 16.20038611,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 18.71620818551978,
-    "3Y": 67.0032947885737,
-    "5Y": 39.15988972358937,
-    "10Y": 162.5939255963377
+    "1Y": 19.825268425762886,
+    "3Y": 68.56342112273917,
+    "5Y": 40.45992418866522,
+    "10Y": 165.0471538872293
   },
   "performance": {
-    "1Y": 18.71620818551978,
-    "3Y": 18.642879822513425,
-    "5Y": 6.832358234255098,
-    "10Y": 10.135789046966238
+    "1Y": 19.825268425762886,
+    "3Y": 19.011184863707186,
+    "5Y": 7.031222502904422,
+    "10Y": 10.23825106281453
   },
   "officialMetrics": {
     "nav": 16.20038611,

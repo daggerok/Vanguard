@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vtip/vanguard-short-term-inflation-protected-securities-etf",
   "portId": "3365",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 49.349998474121094,
+  "nav": 49.3849983215332,
   "netAssets": "$20.5B",
   "totalFundNetAssets": "$73.2B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 1.21502394,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 1.5776214007007905,
-    "3Y": 15.269740762600481,
-    "5Y": 15.607506584731269,
-    "10Y": 33.886113855097186
+    "1Y": 1.6496619550966374,
+    "3Y": 15.35148171984626,
+    "5Y": 15.689497369235195,
+    "10Y": 33.98106813474073
   },
   "performance": {
-    "1Y": 1.5776214007007905,
-    "3Y": 4.850805725880858,
-    "5Y": 2.9430915984270944,
-    "10Y": 2.961190049387663
+    "1Y": 1.6496619550966374,
+    "3Y": 4.875584070671013,
+    "5Y": 2.957689251610751,
+    "10Y": 2.9684899004117637
   },
   "officialMetrics": {
     "nav": 1.21502394,

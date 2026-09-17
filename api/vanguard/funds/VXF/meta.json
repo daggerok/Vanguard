@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vxf/vanguard-extended-market-etf",
   "portId": "0965",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 234.38999938964844,
+  "nav": 236.73500061035156,
   "netAssets": "$31.4B",
   "totalFundNetAssets": "$95.4B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 12.65674212,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 12.932361373369616,
-    "3Y": 69.05927833916931,
-    "5Y": 36.28703868991114,
-    "10Y": 191.3674082403143
+    "1Y": 14.06221557349352,
+    "3Y": 70.7506842006038,
+    "5Y": 37.65054938971093,
+    "10Y": 194.28245124460548
   },
   "performance": {
-    "1Y": 12.932361373369616,
-    "3Y": 19.127767658424077,
-    "5Y": 6.387575325211348,
-    "10Y": 11.28691337137031
+    "1Y": 14.06221557349352,
+    "3Y": 19.523733596062275,
+    "5Y": 6.599603621040617,
+    "10Y": 11.397754461804466
   },
   "officialMetrics": {
     "nav": 12.65674212,

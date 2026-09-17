@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vpl/vanguard-ftse-pacific-etf",
   "portId": "0962",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 114.94000244140625,
+  "nav": 116.94000244140625,
   "netAssets": "$8.6B",
   "totalFundNetAssets": "$13.8B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 26.46507008,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 34.424486798612875,
-    "3Y": 88.176250264879,
-    "5Y": 64.88547479521758,
-    "10Y": 151.0756415105488
+    "1Y": 36.763524278051584,
+    "3Y": 91.45057702871861,
+    "5Y": 67.7546001956463,
+    "10Y": 155.44451755131567
   },
   "performance": {
-    "1Y": 34.424486798612875,
-    "3Y": 23.458672653194345,
-    "5Y": 10.51888119917419,
-    "10Y": 9.642885914945087
+    "1Y": 36.763524278051584,
+    "3Y": 24.17063246566262,
+    "5Y": 10.90085328055659,
+    "10Y": 9.832193870801408
   },
   "officialMetrics": {
     "nav": 26.46507008,

@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vv/vanguard-large-cap-etf",
   "portId": "0961",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 347.79998779296875,
+  "nav": 351.5,
   "netAssets": "$54.3B",
   "totalFundNetAssets": "$76.2B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 11.12245469,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 13.940062023281886,
-    "3Y": 84.02730849377802,
-    "5Y": 84.83756561904603,
-    "10Y": 310.2053274419485
+    "1Y": 15.152194384272622,
+    "3Y": 85.98503732997484,
+    "5Y": 86.80394440491632,
+    "10Y": 314.5691911502895
   },
   "performance": {
-    "1Y": 13.940062023281886,
-    "3Y": 22.54457541887507,
-    "5Y": 13.072774317870838,
-    "10Y": 15.159595206776523
+    "1Y": 15.152194384272622,
+    "3Y": 22.977596847322612,
+    "5Y": 13.312340061940308,
+    "10Y": 15.28152221794774
   },
   "officialMetrics": {
     "nav": 11.12245469,

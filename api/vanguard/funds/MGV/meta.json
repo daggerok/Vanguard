@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/mgv/vanguard-mega-cap-value-etf",
   "portId": "3139",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 163.89999389648438,
+  "nav": 164.625,
   "netAssets": "$13.8B",
   "totalFundNetAssets": "$13.9B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 17.24381521,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 20.880983320858505,
-    "3Y": 71.98849999483619,
-    "5Y": 87.5372539406681,
-    "10Y": 234.20587232326648
+    "1Y": 21.415696279798226,
+    "3Y": 72.74925767239976,
+    "5Y": 88.36681866798234,
+    "10Y": 235.68422074479338
   },
   "performance": {
-    "1Y": 20.880983320858505,
-    "3Y": 19.811857952158498,
-    "5Y": 13.401163509073433,
-    "10Y": 12.823977855864332
+    "1Y": 21.415696279798226,
+    "3Y": 19.988252940925832,
+    "5Y": 13.501311710196507,
+    "10Y": 12.873786096467054
   },
   "officialMetrics": {
     "nav": 17.24381521,

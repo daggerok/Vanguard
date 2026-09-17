@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vigi/vanguard-international-dividend-appreciation-etf",
   "portId": "4415",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 96.43000030517578,
+  "nav": 97.28240203857422,
   "netAssets": "$9.2B",
   "totalFundNetAssets": "$9.5B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 6.82654912,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 9.611894337769055,
-    "3Y": 43.239629885585295,
-    "5Y": 29.314156632391985,
-    "10Y": 114.60215667198095
+    "1Y": 10.580818618998023,
+    "3Y": 44.50579320835186,
+    "5Y": 30.457227500807214,
+    "10Y": 116.49911513981101
   },
   "performance": {
-    "1Y": 9.611894337769055,
-    "3Y": 12.725212686180477,
-    "5Y": 5.275960959072412,
-    "10Y": 7.935276453191897
+    "1Y": 10.580818618998023,
+    "3Y": 13.056382755583806,
+    "5Y": 5.46142346364249,
+    "10Y": 8.030307571830274
   },
   "officialMetrics": {
     "nav": 6.82654912,

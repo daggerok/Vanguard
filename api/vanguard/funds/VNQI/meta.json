@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vnqi/vanguard-global-ex-u-s-real-estate-etf",
   "portId": "3358",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 43.400001525878906,
+  "nav": 43.744998931884766,
   "netAssets": "$3.5B",
   "totalFundNetAssets": "$3.8B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": -5.33536586,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -4.769346461272262,
-    "3Y": 27.673162628881776,
-    "5Y": -6.313659205883882,
-    "10Y": 16.052226026349302
+    "1Y": -4.012334311779286,
+    "3Y": 28.68806835180586,
+    "5Y": -5.568930958573237,
+    "10Y": 16.974765966089024
   },
   "performance": {
-    "1Y": -4.769346461272262,
-    "3Y": 8.484212028530624,
-    "5Y": -1.2958858134077489,
-    "10Y": 1.499837632866341
+    "1Y": -4.012334311779286,
+    "3Y": 8.770909682267746,
+    "5Y": -1.1394593378713513,
+    "10Y": 1.5802362367011824
   },
   "officialMetrics": {
     "nav": -5.33536586,

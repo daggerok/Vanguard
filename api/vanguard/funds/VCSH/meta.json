@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vcsh/vanguard-short-term-corporate-bond-etf",
   "portId": "3145",
   "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 77.62000274658203,
+  "nav": 77.75499725341797,
   "netAssets": "$44.9B",
   "totalFundNetAssets": "$51.9B",
   "netAssetsAsOf": "2026-08-31",
@@ -19,16 +19,16 @@
   "ytdReturn": 0.30521301,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 1.5171075602628203,
-    "3Y": 17.013581145162803,
-    "5Y": 11.8249461583662,
-    "10Y": 28.82930094736398
+    "1Y": 1.6936733811512505,
+    "3Y": 17.217101327693317,
+    "5Y": 12.019416619888812,
+    "10Y": 29.05330001657567
   },
   "performance": {
-    "1Y": 1.5171075602628203,
-    "3Y": 5.376901306536119,
-    "5Y": 2.2604594251620647,
-    "10Y": 2.565538613071583
+    "1Y": 1.6936733811512505,
+    "3Y": 5.437959473767928,
+    "5Y": 2.2960021554817134,
+    "10Y": 2.583358029025673
   },
   "officialMetrics": {
     "nav": 0.30521301,
