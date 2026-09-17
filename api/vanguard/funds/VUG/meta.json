@@ -4,31 +4,39 @@
   "category": "US Equity",
   "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vug",
-  "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
-  "nav": 88.0199966430664,
-  "netAssets": null,
-  "netExpenseRatio": 0.04,
-  "trailingYield": null,
+  "officialPage": "https://advisors.vanguard.com/investments/products/vug/vanguard-growth-etf",
+  "source": "Vanguard official advisor profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 87.05999755859375,
+  "netAssets": "$227.0 B",
+  "totalFundNetAssets": "$384.6 B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.03,
+  "trailingYield": 0.37883,
+  "dividendYieldAsOf": "2026-08-31",
   "secYield": null,
-  "ytdReturn": 10.471316035511812,
-  "asOfDate": "2026-09-11",
+  "secYieldAsOf": null,
+  "ytdReturn": 7.30536895,
+  "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 10.471316035511812,
-    "3Y": 96.61420789631299,
-    "5Y": 86.84524865596678,
-    "10Y": 408.54077961703456
+    "1Y": 9.266449342723382,
+    "3Y": 94.46978181232859,
+    "5Y": 84.80737193536135,
+    "10Y": 402.99427222854564
   },
   "performance": {
-    "1Y": 10.471316035511812,
-    "3Y": 25.277083030674575,
-    "5Y": 13.317350520865823,
-    "10Y": 17.6610117357048
+    "1Y": 9.266449342723382,
+    "3Y": 24.819960931932215,
+    "5Y": 13.069079931752725,
+    "10Y": 17.532048039920788
   },
   "officialMetrics": {
-    "nav": null,
+    "nav": 7.30536895,
     "marketPrice": null,
-    "expenseRatio": 0.04,
-    "returns": {}
+    "expenseRatio": 0.03,
+    "returns": {
+      "YTD": 7.30536895,
+      "1Y": 15.8985739311
+    }
   },
   "holdings": {
     "totalRows": 0,

@@ -4,31 +4,39 @@
   "category": "US Equity",
   "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/mgv",
-  "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
-  "nav": 166.3000030517578,
-  "netAssets": null,
-  "netExpenseRatio": 0.07,
-  "trailingYield": null,
+  "officialPage": "https://advisors.vanguard.com/investments/products/mgv/vanguard-mega-cap-value-etf",
+  "source": "Vanguard official advisor profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 163.89999389648438,
+  "netAssets": "$13.8 B",
+  "totalFundNetAssets": "$13.9 B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.05,
+  "trailingYield": 1.88125,
+  "dividendYieldAsOf": "2026-08-31",
   "secYield": null,
-  "ytdReturn": 22.651059449425937,
-  "asOfDate": "2026-09-11",
+  "secYieldAsOf": null,
+  "ytdReturn": 17.24381521,
+  "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 22.651059449425937,
-    "3Y": 74.50695020814162,
-    "5Y": 90.28335337960188,
-    "10Y": 239.099666466215
+    "1Y": 20.880983320858505,
+    "3Y": 71.98847245636163,
+    "5Y": 87.5371720836245,
+    "10Y": 234.20574234248957
   },
   "performance": {
-    "1Y": 22.651059449425937,
-    "3Y": 20.39383340936165,
-    "5Y": 13.731340833980333,
-    "10Y": 12.988107966959838
+    "1Y": 20.880983320858505,
+    "3Y": 19.81185155747518,
+    "5Y": 13.401153609509041,
+    "10Y": 12.82397346786517
   },
   "officialMetrics": {
-    "nav": null,
+    "nav": 17.24381521,
     "marketPrice": null,
-    "expenseRatio": 0.07,
-    "returns": {}
+    "expenseRatio": 0.05,
+    "returns": {
+      "YTD": 17.24381521,
+      "1Y": 26.3303042847
+    }
   },
   "holdings": {
     "totalRows": 0,

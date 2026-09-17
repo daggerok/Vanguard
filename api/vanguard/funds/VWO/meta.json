@@ -4,31 +4,39 @@
   "category": "International Equity",
   "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vwo",
-  "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
-  "nav": 60.349998474121094,
-  "netAssets": null,
-  "netExpenseRatio": 0.08,
-  "trailingYield": null,
+  "officialPage": "https://advisors.vanguard.com/investments/products/vwo/vanguard-ftse-emerging-markets-etf",
+  "source": "Vanguard official advisor profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 59.18000030517578,
+  "netAssets": "$127.3 B",
+  "totalFundNetAssets": "$168.5 B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.06,
+  "trailingYield": 2.25242,
+  "dividendYieldAsOf": "2026-08-31",
   "secYield": null,
-  "ytdReturn": 13.712677716602206,
-  "asOfDate": "2026-09-11",
+  "secYieldAsOf": null,
+  "ytdReturn": 10.41996111,
+  "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 13.712677716602206,
-    "3Y": 67.17022549777613,
-    "5Y": 39.732395212119506,
-    "10Y": 110.9773109630884
+    "1Y": 11.508143697080353,
+    "3Y": 63.92933374473249,
+    "5Y": 37.023432158453026,
+    "10Y": 106.88711918583982
   },
   "performance": {
-    "1Y": 13.712677716602206,
-    "3Y": 18.682397096536143,
-    "5Y": 6.920115864161036,
-    "10Y": 7.75156217909756
+    "1Y": 11.508143697080353,
+    "3Y": 17.910430386972177,
+    "5Y": 6.502295463131658,
+    "10Y": 7.540820389872627
   },
   "officialMetrics": {
-    "nav": null,
+    "nav": 10.41996111,
     "marketPrice": null,
-    "expenseRatio": 0.08,
-    "returns": {}
+    "expenseRatio": 0.06,
+    "returns": {
+      "YTD": 10.41996111,
+      "1Y": 20.9657452532
+    }
   },
   "holdings": {
     "totalRows": 0,

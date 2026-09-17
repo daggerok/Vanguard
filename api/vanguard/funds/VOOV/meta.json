@@ -4,31 +4,39 @@
   "category": "US Equity",
   "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/voov",
-  "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
-  "nav": 227.1999969482422,
-  "netAssets": null,
-  "netExpenseRatio": 0.1,
-  "trailingYield": null,
+  "officialPage": "https://advisors.vanguard.com/investments/products/voov/vanguard-sp-500-value-etf",
+  "source": "Vanguard official advisor profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 224.25999450683594,
+  "netAssets": "$6.8 B",
+  "totalFundNetAssets": "$7.0 B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.07,
+  "trailingYield": 1.70859,
+  "dividendYieldAsOf": "2026-08-31",
   "secYield": null,
-  "ytdReturn": 15.438630277451448,
-  "asOfDate": "2026-09-11",
+  "secYieldAsOf": null,
+  "ytdReturn": 10.40568241,
+  "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 15.438630277451448,
-    "3Y": 61.247371433905705,
-    "5Y": 77.70561106932618,
-    "10Y": 207.29492660722357
+    "1Y": 13.94482804817141,
+    "3Y": 59.16080597592281,
+    "5Y": 75.4061153612049,
+    "10Y": 203.31851491986632
   },
   "performance": {
-    "1Y": 15.438630277451448,
-    "3Y": 17.263867756913285,
-    "5Y": 12.186404186593403,
-    "10Y": 11.880793791182743
+    "1Y": 13.94482804817141,
+    "3Y": 16.75586612698283,
+    "5Y": 11.894553107397288,
+    "10Y": 11.735169487221375
   },
   "officialMetrics": {
-    "nav": null,
+    "nav": 10.40568241,
     "marketPrice": null,
-    "expenseRatio": 0.1,
-    "returns": {}
+    "expenseRatio": 0.07,
+    "returns": {
+      "YTD": 10.40568241,
+      "1Y": 18.04493364
+    }
   },
   "holdings": {
     "totalRows": 0,

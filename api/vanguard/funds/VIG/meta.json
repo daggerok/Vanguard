@@ -4,31 +4,39 @@
   "category": "US Equity",
   "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vig",
-  "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
-  "nav": 239.42999267578125,
-  "netAssets": null,
-  "netExpenseRatio": 0.05,
-  "trailingYield": null,
+  "officialPage": "https://advisors.vanguard.com/investments/products/vig/vanguard-dividend-appreciation-etf",
+  "source": "Vanguard official advisor profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 235.72999572753906,
+  "netAssets": "$112.7 B",
+  "totalFundNetAssets": "$132.4 B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.04,
+  "trailingYield": 1.5421,
+  "dividendYieldAsOf": "2026-08-31",
   "secYield": null,
-  "ytdReturn": 12.313369458202118,
-  "asOfDate": "2026-09-11",
+  "secYieldAsOf": null,
+  "ytdReturn": 8.11174305,
+  "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 12.313369458202118,
-    "3Y": 61.753441128523946,
-    "5Y": 70.21578210517893,
-    "10Y": 243.08150973684684
+    "1Y": 10.577750960293786,
+    "3Y": 59.25379117867566,
+    "5Y": 67.58539518238662,
+    "10Y": 237.77974898065182
   },
   "performance": {
-    "1Y": 12.313369458202118,
-    "3Y": 17.3864159354973,
-    "5Y": 11.224372673965055,
-    "10Y": 13.120087204937537
+    "1Y": 10.577750960293786,
+    "3Y": 16.778598805608212,
+    "5Y": 10.878472307632748,
+    "10Y": 12.944051053033645
   },
   "officialMetrics": {
-    "nav": null,
+    "nav": 8.11174305,
     "marketPrice": null,
-    "expenseRatio": 0.05,
-    "returns": {}
+    "expenseRatio": 0.04,
+    "returns": {
+      "YTD": 8.11174305,
+      "1Y": 16.588292531
+    }
   },
   "holdings": {
     "totalRows": 0,

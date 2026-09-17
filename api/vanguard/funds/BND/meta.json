@@ -4,31 +4,39 @@
   "category": "Bond",
   "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/bnd",
-  "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
-  "nav": 71.22000122070312,
-  "netAssets": null,
+  "officialPage": "https://advisors.vanguard.com/investments/products/bnd/vanguard-total-bond-market-etf",
+  "source": "Vanguard official advisor profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 71.11000061035156,
+  "netAssets": "$163.3 B",
+  "totalFundNetAssets": "$398.9 B",
+  "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.03,
   "trailingYield": null,
+  "dividendYieldAsOf": null,
   "secYield": null,
-  "ytdReturn": -0.35272237131739326,
-  "asOfDate": "2026-09-11",
+  "secYieldAsOf": null,
+  "ytdReturn": -1.43199685,
+  "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -0.35272237131739326,
-    "3Y": 14.304298349227352,
-    "5Y": -1.6118565593005618,
-    "10Y": 14.162600735145304
+    "1Y": -0.5066294363433976,
+    "3Y": 14.127746257018714,
+    "5Y": -1.7637463911823303,
+    "10Y": 13.986302364983283
   },
   "performance": {
-    "1Y": -0.35272237131739326,
-    "3Y": 4.557258471939041,
-    "5Y": -0.32447010785702224,
-    "10Y": 1.3333465159187652
+    "1Y": -0.5066294363433976,
+    "3Y": 4.503398394405189,
+    "5Y": -0.35526458486351276,
+    "10Y": 1.3176869823983806
   },
   "officialMetrics": {
-    "nav": null,
+    "nav": -1.43199685,
     "marketPrice": null,
     "expenseRatio": 0.03,
-    "returns": {}
+    "returns": {
+      "YTD": -1.43199685,
+      "1Y": 1.8222164709
+    }
   },
   "holdings": {
     "totalRows": 0,

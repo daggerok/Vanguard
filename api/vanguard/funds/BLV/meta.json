@@ -4,31 +4,39 @@
   "category": "Bond",
   "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/blv",
-  "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
-  "nav": 64.83999633789062,
-  "netAssets": null,
-  "netExpenseRatio": 0.04,
+  "officialPage": "https://advisors.vanguard.com/investments/products/blv/vanguard-long-term-bond-etf",
+  "source": "Vanguard official advisor profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 64.91999816894531,
+  "netAssets": "$5.7 B",
+  "totalFundNetAssets": "$8.3 B",
+  "netAssetsAsOf": "2026-08-31",
+  "netExpenseRatio": 0.03,
   "trailingYield": null,
+  "dividendYieldAsOf": null,
   "secYield": null,
-  "ytdReturn": -4.022888035729688,
-  "asOfDate": "2026-09-11",
+  "secYieldAsOf": null,
+  "ytdReturn": -3.63598389,
+  "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -4.022888035729688,
-    "3Y": 11.518714930643492,
-    "5Y": -21.197234919123066,
-    "10Y": 0.8647200851474635
+    "1Y": -3.904457301812969,
+    "3Y": 11.656303254177569,
+    "5Y": -21.100012656719624,
+    "10Y": 0.9891225243453761
   },
   "performance": {
-    "1Y": -4.022888035729688,
-    "3Y": 3.7009142922530547,
-    "5Y": -4.652723732490694,
-    "10Y": 0.08613735643938636
+    "1Y": -3.904457301812969,
+    "3Y": 3.743544419864775,
+    "5Y": -4.629208550929597,
+    "10Y": 0.0984747272977371
   },
   "officialMetrics": {
-    "nav": null,
+    "nav": -3.63598389,
     "marketPrice": null,
-    "expenseRatio": 0.04,
-    "returns": {}
+    "expenseRatio": 0.03,
+    "returns": {
+      "YTD": -3.63598389,
+      "1Y": 0.6577493441
+    }
   },
   "holdings": {
     "totalRows": 0,

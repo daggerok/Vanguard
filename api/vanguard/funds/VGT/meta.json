@@ -4,31 +4,39 @@
   "category": "Sector",
   "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vgt",
-  "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
-  "nav": 121.06999969482422,
-  "netAssets": null,
+  "officialPage": "https://advisors.vanguard.com/investments/products/vgt/vanguard-information-technology-etf",
+  "source": "Vanguard official advisor profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 118.91999816894531,
+  "netAssets": "$147.6 B",
+  "totalFundNetAssets": "$170.2 B",
+  "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.09,
-  "trailingYield": null,
+  "trailingYield": 0.41703,
+  "dividendYieldAsOf": "2026-08-31",
   "secYield": null,
-  "ytdReturn": 30.145608458630857,
-  "asOfDate": "2026-09-11",
+  "secYieldAsOf": null,
+  "ytdReturn": 26.51129116,
+  "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 30.145608458630857,
-    "3Y": 136.93792910684257,
-    "5Y": 148.92752477390846,
-    "10Y": 776.7058134243872
+    "1Y": 27.834439238528354,
+    "3Y": 132.730323532567,
+    "5Y": 144.50700575475514,
+    "10Y": 761.136681180006
   },
   "performance": {
-    "1Y": 30.145608458630857,
-    "3Y": 33.31474800593428,
-    "5Y": 20.009212008948985,
-    "10Y": 24.246850472994087
+    "1Y": 27.834439238528354,
+    "3Y": 32.5208840526775,
+    "5Y": 19.579920804265292,
+    "10Y": 24.024421187410727
   },
   "officialMetrics": {
-    "nav": null,
+    "nav": 26.51129116,
     "marketPrice": null,
     "expenseRatio": 0.09,
-    "returns": {}
+    "returns": {
+      "YTD": 26.51129116,
+      "1Y": 38.9851617503
+    }
   },
   "holdings": {
     "totalRows": 0,

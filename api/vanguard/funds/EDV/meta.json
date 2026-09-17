@@ -4,31 +4,39 @@
   "category": "Bond",
   "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/edv",
-  "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
-  "nav": 59.02000045776367,
-  "netAssets": null,
+  "officialPage": "https://advisors.vanguard.com/investments/products/edv/vanguard-extended-duration-treasury-etf",
+  "source": "Vanguard official advisor profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 59.310001373291016,
+  "netAssets": "$3.7 B",
+  "totalFundNetAssets": "$4.2 B",
+  "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.05,
   "trailingYield": null,
+  "dividendYieldAsOf": null,
   "secYield": null,
-  "ytdReturn": -9.42021637645949,
-  "asOfDate": "2026-09-11",
+  "secYieldAsOf": null,
+  "ytdReturn": -6.87362541,
+  "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -9.42021637645949,
-    "3Y": -3.5467370760764783,
-    "5Y": -47.399798870191745,
-    "10Y": -36.82818487148325
+    "1Y": -8.9751538395067,
+    "3Y": -3.072803929065504,
+    "5Y": -47.141349495156085,
+    "10Y": -36.517783582416804
   },
   "performance": {
-    "1Y": -9.42021637645949,
-    "3Y": -1.1965048319950378,
-    "5Y": -12.057768605241126,
-    "10Y": -4.489232364404994
+    "1Y": -8.9751538395067,
+    "3Y": -1.03494207631043,
+    "5Y": -11.97151769754985,
+    "10Y": -4.442405601209909
   },
   "officialMetrics": {
-    "nav": null,
+    "nav": -6.87362541,
     "marketPrice": null,
     "expenseRatio": 0.05,
-    "returns": {}
+    "returns": {
+      "YTD": -6.87362541,
+      "1Y": -2.0231011874
+    }
   },
   "holdings": {
     "totalRows": 0,

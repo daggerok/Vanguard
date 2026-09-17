@@ -4,31 +4,39 @@
   "category": "Global Equity",
   "type": "Vanguard ETF",
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vt",
-  "source": "Vanguard official profile + Yahoo daily history; SEC N-PORT fallback planned",
-  "nav": 159.94000244140625,
-  "netAssets": null,
+  "officialPage": "https://advisors.vanguard.com/investments/products/vt/vanguard-total-world-stock-etf",
+  "source": "Vanguard official advisor profile + Yahoo daily history; SEC N-PORT fallback planned",
+  "nav": 157.41000366210938,
+  "netAssets": "$81.9 B",
+  "totalFundNetAssets": "$101.7 B",
+  "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.06,
-  "trailingYield": null,
+  "trailingYield": 1.53704,
+  "dividendYieldAsOf": "2026-08-31",
   "secYield": null,
-  "ytdReturn": 17.69407011793742,
-  "asOfDate": "2026-09-11",
+  "secYieldAsOf": null,
+  "ytdReturn": 12.17197823,
+  "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 17.69407011793742,
-    "3Y": 81.04180369095062,
-    "5Y": 73.01321017645348,
-    "10Y": 222.9167109521453
+    "1Y": 15.832322403917543,
+    "3Y": 78.17799228409419,
+    "5Y": 70.27645601244956,
+    "10Y": 217.8087019663293
   },
   "performance": {
-    "1Y": 17.69407011793742,
-    "3Y": 21.87827231615611,
-    "5Y": 11.587578388214869,
-    "10Y": 12.436948899365818
+    "1Y": 15.832322403917543,
+    "3Y": 21.232209478158694,
+    "5Y": 11.23230079343671,
+    "10Y": 12.257813357873925
   },
   "officialMetrics": {
-    "nav": null,
+    "nav": 12.17197823,
     "marketPrice": null,
     "expenseRatio": 0.06,
-    "returns": {}
+    "returns": {
+      "YTD": 12.17197823,
+      "1Y": 22.1841059293
+    }
   },
   "holdings": {
     "totalRows": 0,
