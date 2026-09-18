@@ -6,8 +6,8 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vsgx",
   "officialPage": "https://advisors.vanguard.com/investments/products/vsgx/vanguard-esg-international-stock-etf",
   "portId": "4394",
-  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 82.45989990234375,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
+  "nav": 82.4000015258789,
   "netAssets": "$6.8B",
   "totalFundNetAssets": "$6.8B",
   "netAssetsAsOf": "2026-08-31",
@@ -16,19 +16,314 @@
   "dividendYieldAsOf": "2026-08-31",
   "secYield": null,
   "secYieldAsOf": null,
+  "distributionFrequency": "Quarterly",
+  "distributions": {
+    "frequency": "Quarterly",
+    "paymentsPerYear": 4,
+    "headers": [
+      "Frequency",
+      "Ex-Date",
+      "Record Date",
+      "Payable Date",
+      "Dividend",
+      "ST Cap Gains",
+      "LT Cap Gains"
+    ],
+    "rows": [
+      [
+        "Quarterly",
+        "2026-06-18",
+        "—",
+        "—",
+        "0.682",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2026-03-20",
+        "—",
+        "—",
+        "0.422",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2025-12-19",
+        "—",
+        "—",
+        "0.855",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2025-09-19",
+        "—",
+        "—",
+        "0.44",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2025-06-20",
+        "—",
+        "—",
+        "0.633",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2025-03-21",
+        "—",
+        "—",
+        "0.389",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2024-12-20",
+        "—",
+        "—",
+        "0.495",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2024-09-20",
+        "—",
+        "—",
+        "0.386",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2024-06-21",
+        "—",
+        "—",
+        "0.564",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2024-03-15",
+        "—",
+        "—",
+        "0.313",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2023-12-15",
+        "—",
+        "—",
+        "0.545",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2023-09-15",
+        "—",
+        "—",
+        "0.237",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2023-06-16",
+        "—",
+        "—",
+        "0.646",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2023-03-17",
+        "—",
+        "—",
+        "0.104",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2022-12-16",
+        "—",
+        "—",
+        "0.403",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2022-09-16",
+        "—",
+        "—",
+        "0.125",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2022-06-17",
+        "—",
+        "—",
+        "0.613",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2022-03-18",
+        "—",
+        "—",
+        "0.143",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2021-12-17",
+        "—",
+        "—",
+        "0.67",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2021-09-17",
+        "—",
+        "—",
+        "0.25",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2021-06-18",
+        "—",
+        "—",
+        "0.494",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2021-03-19",
+        "—",
+        "—",
+        "0.134",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2020-12-18",
+        "—",
+        "—",
+        "0.336",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2020-09-21",
+        "—",
+        "—",
+        "0.278",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2020-06-22",
+        "—",
+        "—",
+        "0.319",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2020-03-23",
+        "—",
+        "—",
+        "0.056",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2019-12-20",
+        "—",
+        "—",
+        "0.386",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2019-09-24",
+        "—",
+        "—",
+        "0.278",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2019-06-21",
+        "—",
+        "—",
+        "0.509",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2019-03-25",
+        "—",
+        "—",
+        "0.045",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2018-12-24",
+        "—",
+        "—",
+        "0.171",
+        "—",
+        "—"
+      ]
+    ]
+  },
   "ytdReturn": 14.83296217,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 22.270735244358008,
-    "3Y": 72.52370524424508,
-    "5Y": 49.272402650203006,
-    "10Y": 97.6114434239
+    "1Y": 22.181918515997022,
+    "3Y": 72.3983850600335,
+    "5Y": 49.16395147155717,
+    "10Y": 97.46789965722095
   },
   "performance": {
-    "1Y": 22.270735244358008,
-    "3Y": 19.93600876269084,
-    "5Y": 8.341764554907405,
-    "10Y": 7.0486535254012495
+    "1Y": 22.181918515997022,
+    "3Y": 19.906961462608663,
+    "5Y": 8.326017225885884,
+    "10Y": 7.040875032495286
   },
   "officialMetrics": {
     "nav": 14.83296217,
@@ -40,15 +335,47 @@
     }
   },
   "holdings": {
-    "totalRows": 0,
-    "pageSize": 1000,
-    "pages": []
+    "pages": [
+      "holdings/001.json",
+      "holdings/002.json",
+      "holdings/003.json",
+      "holdings/004.json",
+      "holdings/005.json",
+      "holdings/006.json",
+      "holdings/007.json",
+      "holdings/008.json",
+      "holdings/009.json",
+      "holdings/010.json",
+      "holdings/011.json",
+      "holdings/012.json",
+      "holdings/013.json",
+      "holdings/014.json",
+      "holdings/015.json",
+      "holdings/016.json",
+      "holdings/017.json",
+      "holdings/018.json",
+      "holdings/019.json",
+      "holdings/020.json",
+      "holdings/021.json",
+      "holdings/022.json",
+      "holdings/023.json",
+      "holdings/024.json",
+      "holdings/025.json",
+      "holdings/026.json",
+      "holdings/027.json"
+    ],
+    "pageSize": 250,
+    "totalRows": 6686,
+    "asOfDate": "2026-09-16",
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
-    "totalRows": 419,
-    "pageSize": 1000,
     "pages": [
-      "./history/001.json"
-    ]
+      "history/001.json"
+    ],
+    "pageSize": 1000,
+    "totalRows": 419,
+    "asOfDate": "2026-09-17",
+    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

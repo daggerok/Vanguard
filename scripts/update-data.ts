@@ -1,10 +1,43 @@
 #!/usr/bin/env bun
 /// <reference types="bun" />
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 
 const ROOT = new URL("../api/vanguard/", import.meta.url);
 const FUNDS = new URL("funds/", ROOT);
-const PAGE_SIZE = 1000;
+const UA = "daggerok/Vanguard ETF research contact=github.com/daggerok";
+
+const HISTORY_HEADERS = ["Date", "Open", "High", "Low", "Close", "Adj Close", "Volume"];
+const HOLDINGS_HEADERS_BASE = [
+  "Ticker",
+  "Name",
+  "Weight (%)",
+  "Market Value",
+  "Shares",
+  "Asset Class",
+  "Sector",
+  "Exchange",
+  "Location",
+  "CUSIP",
+  "ISIN",
+  "Currency",
+];
+export const DISTRIBUTION_HEADERS = [
+  "Frequency",
+  "Ex-Date",
+  "Record Date",
+  "Payable Date",
+  "Dividend",
+  "ST Cap Gains",
+  "LT Cap Gains",
+];
+
+const YAHOO_CHART_URL = "https://query1.finance.yahoo.com/v8/finance/chart";
+const VANGUARD_IRR_URL = "https://investor.vanguard.com/irr/funds/profile";
+const SEC_SITE = "https://www.sec.gov";
+const SEC_BROWSE_URL = `${SEC_SITE}/cgi-bin/browse-edgar`;
+const SEC_ARCHIVES = `${SEC_SITE}/Archives/edgar/data`;
+const SEC_FUND_TICKERS_URL = `${SEC_SITE}/files/company_tickers_mf.json`;
+const SEC_COMPANY_TICKERS_URL = `${SEC_SITE}/files/company_tickers.json`;
 const FUNDS_SEED = [
   ["BIV", "Vanguard Intermediate-Term Bond ETF", "Bond"],
   ["BLV", "Vanguard Long-Term Bond ETF", "Bond"],
@@ -127,16 +160,19 @@ const FUNDS_SEED = [
 function env(name: string): string {
   return process.env[name]?.trim() ?? "";
 }
+function envInt(name: string, fallback: number): number {
+  const value = Number.parseInt(env(name), 10);
+  return Number.isFinite(value) && value > 0 ? value : fallback;
+}
 function selectedFunds() {
   const wanted = env("TICKERS").split(/[\s,;]+/).filter(Boolean).map((x) => x.toUpperCase());
   return wanted.length ? FUNDS_SEED.filter(([ticker]) => wanted.includes(ticker)) : FUNDS_SEED;
 }
-function pagePaths(kind: string, count: number): string[] {
-  if (!count) return [];
-  return Array.from({ length: Math.ceil(count / PAGE_SIZE) }, (_, i) => `./${kind}/${String(i + 1).padStart(3, "0")}.json`);
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
-async function fetchJson(url: string): Promise<any> {
-  const response = await fetch(url, { headers: { "User-Agent": "daggerok/Vanguard ETF research contact=github.com/daggerok" } });
+async function fetchJson(url: string, headers: Record<string, string> = {}): Promise<any> {
+  const response = await fetch(url, { headers: { "User-Agent": UA, ...headers } });
   if (!response.ok) throw new Error(`${response.status} ${response.statusText} for ${url}`);
   return response.json();
 }
@@ -153,8 +189,56 @@ function findMetric(text: string, label: string, percent = false) {
   if (index < 0) return null;
   const window = text.slice(index, index + 320);
   const asOf = window.match(/as of\s+(\d{2}\/\d{2}\/\d{4})/i)?.[1] ?? null;
-  const value = percent ? window.match(/([+-]?[\d.]+)%/)?.[1] ?? null : window.match(/\$([\d,.]+\s*[BM])/i)?.[1] ?? null;
+  const value = percent ? window.match(/([+-]?[\d.]+)%/)?.[1] ?? null : window.match(/\$([\d,]+\s*[BM])/i)?.[1] ?? null;
   return value ? { value, asOf } : null;
+}
+
+// ---------------------------------------------------------------------------
+// Small pure helpers (shared by holdings / distributions / history shaping)
+// ---------------------------------------------------------------------------
+
+function cleanText(value: unknown): string {
+  return String(value ?? "")
+    .replace(/®/g, "") // ®
+    .replace(/™/g, "") // ™
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+export function numberOrNull(value: unknown): number | null {
+  if (typeof value === "number") return Number.isFinite(value) ? value : null;
+  const text = String(value ?? "").trim().replace(/[$,%\s]/g, "").replace(/,/g, "");
+  if (!text || text === "-" || text === "—") return null;
+  const num = Number(text);
+  return Number.isFinite(num) ? num : null;
+}
+
+function round(value: number, digits = 2): number {
+  const factor = 10 ** digits;
+  return Math.round(value * factor) / factor;
+}
+
+export function toIsoDate(value: unknown): string {
+  const text = String(value ?? "").trim();
+  if (!text) return "";
+  if (/^\d{4}-\d{2}-\d{2}/.test(text)) return text.slice(0, 10);
+  const mdy = text.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/);
+  if (mdy) return `${mdy[3]}-${mdy[1].padStart(2, "0")}-${mdy[2].padStart(2, "0")}`;
+  const parsed = new Date(text);
+  return Number.isNaN(parsed.getTime()) ? "" : parsed.toISOString().slice(0, 10);
+}
+
+function sanitizeTicker(value: unknown): string {
+  return String(value ?? "").replace(/[^A-Za-z0-9]/g, "").toUpperCase();
+}
+
+export function paymentsPerYear(frequency: unknown): number | null {
+  const normalized = String(frequency ?? "").trim().toLowerCase();
+  if (normalized === "monthly") return 12;
+  if (normalized === "quarterly") return 4;
+  if (normalized === "semi-annual" || normalized === "semi-annually" || normalized === "semiannual") return 2;
+  if (normalized === "annual" || normalized === "annually") return 1;
+  return null;
 }
 
 async function getPortId(ticker: string): Promise<string | null> {
@@ -175,7 +259,7 @@ async function fetchWorkplaceFundDetails(portId: string) {
   try {
     const res = await fetch(url, {
       headers: {
-        "User-Agent": "daggerok/Vanguard ETF research contact=github.com/daggerok",
+        "User-Agent": UA,
         Referer: `https://workplace.vanguard.com/investments/product-details/fund/${portId}`,
         Accept: "application/json",
       },
@@ -202,7 +286,7 @@ async function officialProfile(ticker: string, name: string) {
   // Step 1: get advisor page for portId and fallback metrics
   try {
     const response = await fetch(advisorUrl, {
-      headers: { "User-Agent": "daggerok/Vanguard ETF research contact=github.com/daggerok", Accept: "text/html" },
+      headers: { "User-Agent": UA, Accept: "text/html" },
     });
     if (response.ok) {
       raw = await response.text();
@@ -317,6 +401,11 @@ async function officialProfile(ticker: string, name: string) {
     }
   }
 
+  // Vanguard's own payout-cadence label. Independent of the investmentsData.body
+  // block above — it lives under marketData.body.fundCharacteristics instead.
+  const distributionFrequency: string | null =
+    workplace?.marketData?.body?.fundCharacteristics?.fundDistributionFrequency ?? null;
+
   // Fallback to advisor parsing if workplace missing
   const assetsFmt = (amount: number | undefined) => (amount == null ? null : `$${(amount / 1e9).toFixed(1)} B`);
   const netAssets = wpTotalAssets ??
@@ -336,18 +425,20 @@ async function officialProfile(ticker: string, name: string) {
   const ytd = wpYtd ?? (hero?.ytdReturn ? { value: String(hero.ytdReturn.value), asOf: hero.ytdReturn.effectiveDate } : findMetric(text, "YTD Returns (NAV)", true));
   const oneYear = hero?.oneYearReturn ? { value: String(hero.oneYearReturn.value), asOf: hero.oneYearReturn.effectiveDate } : findMetric(text, "1 YR Returns (NAV)", true);
 
-  return { url: advisorUrl, netAssets, etfAssets, expense, dividend, sec, ytd, oneYear, portId, workplaceRaw: workplace ? true : false };
+  return { url: advisorUrl, netAssets, etfAssets, expense, dividend, sec, ytd, oneYear, portId, distributionFrequency, workplaceRaw: workplace ? true : false };
 }
 
-async function history(ticker: string) {
-  const url = `https://query1.finance.yahoo.com/v8/finance/chart/${ticker}?range=max&interval=1d&events=div%2Csplits`;
+export type ChartDividend = { epoch: number; amount: number };
+
+async function chart(ticker: string): Promise<{ rows: any[]; dividends: ChartDividend[] }> {
+  const url = `${YAHOO_CHART_URL}/${ticker}?range=max&interval=1d&events=div%2Csplits`;
   try {
-    const data = await fetchJson(url);
+    const data = await fetchJson(url, { Accept: "*/*" });
     const result = data.chart?.result?.[0];
     const timestamps = result?.timestamp ?? [];
     const q = result?.indicators?.quote?.[0] ?? {};
     const adj = result?.indicators?.adjclose?.[0]?.adjclose ?? [];
-    return timestamps
+    const rows = timestamps
       .map((time: number, i: number) => ({
         date: new Date(time * 1000).toISOString().slice(0, 10),
         open: q.open?.[i] ?? null,
@@ -358,11 +449,88 @@ async function history(ticker: string) {
         volume: q.volume?.[i] ?? null,
       }))
       .filter((row: any) => row.close !== null);
+    const dividends: ChartDividend[] = [];
+    for (const [keyEpoch, item] of Object.entries(result?.events?.dividends ?? {})) {
+      const amount = numberOrNull((item as any)?.amount);
+      // Yahoo key epoch is declaration date; inner `date` is true ex-date (~21d later)
+      const inner = (item as any)?.date;
+      const epoch = typeof inner === "number" && Number.isFinite(inner) ? inner : Number(keyEpoch);
+      if (amount !== null && Number.isFinite(epoch)) dividends.push({ epoch, amount });
+    }
+    dividends.sort((a, b) => a.epoch - b.epoch);
+    return { rows, dividends };
   } catch (error) {
     console.warn(`[history] ${ticker} ${error}`);
-    return [];
+    return { rows: [], dividends: [] };
   }
 }
+
+/**
+ * Maps internal (lowercase-keyed) history rows to the exact header-keyed shape
+ * the static pages store. Page rows MUST be keyed by the literal header
+ * strings (same contract as the SPDR / WisdomTree feeds) — the table renderer
+ * looks values up by header, so lowercase keys render as empty cells.
+ */
+export function historyPageRows(rows: any[]): Record<string, unknown>[] {
+  return (rows ?? []).map((row: any) => ({
+    Date: row?.date ?? row?.Date ?? null,
+    Open: row?.open ?? row?.Open ?? null,
+    High: row?.high ?? row?.High ?? null,
+    Low: row?.low ?? row?.Low ?? null,
+    Close: row?.close ?? row?.Close ?? null,
+    "Adj Close": row?.adjClose ?? row?.["Adj Close"] ?? null,
+    Volume: row?.volume ?? row?.Volume ?? null,
+  }));
+}
+
+function internalHistoryRows(pageRows: any[]): any[] {
+  return (pageRows ?? [])
+    .map((row: any) => ({
+      date: row?.Date ?? row?.date ?? null,
+      open: numberOrNull(row?.Open ?? row?.open),
+      high: numberOrNull(row?.High ?? row?.high),
+      low: numberOrNull(row?.Low ?? row?.low),
+      close: numberOrNull(row?.Close ?? row?.close),
+      adjClose: numberOrNull(row?.["Adj Close"] ?? row?.adjClose ?? row?.Close ?? row?.close),
+      volume: numberOrNull(row?.Volume ?? row?.volume),
+    }))
+    .filter((row: any) => row.date && row.close !== null);
+}
+
+/**
+ * Builds the Distributions worksheet rows (latest first) in the same
+ * array-row shape the SPDR feed uses. Yahoo dividend events only carry the
+ * ex-date and the per-share amount; record/payable dates and capital gains
+ * are not published there and stay "—" placeholders.
+ */
+export function distributionRows(frequency: unknown, dividends: ChartDividend[]): string[][] {
+  const label = String(frequency ?? "").trim() || "—";
+  return [...(dividends ?? [])]
+    .sort((a, b) => b.epoch - a.epoch)
+    .map((item) => [
+      label,
+      new Date(item.epoch * 1000).toISOString().slice(0, 10),
+      "—",
+      "—",
+      String(item.amount),
+      "—",
+      "—",
+    ]);
+}
+
+function dividendsFromPrevious(meta: any): ChartDividend[] {
+  const rows = meta?.distributions?.rows;
+  if (!Array.isArray(rows)) return [];
+  const out: ChartDividend[] = [];
+  for (const row of rows) {
+    const cells = Array.isArray(row) ? row : [row?.Frequency, row?.["Ex-Date"], null, null, row?.Dividend];
+    const epoch = Math.floor(new Date(`${cells[1]}T00:00:00Z`).getTime() / 1000);
+    const amount = numberOrNull(cells[4]);
+    if (Number.isFinite(epoch) && amount !== null) out.push({ epoch, amount });
+  }
+  return out.sort((a, b) => a.epoch - b.epoch);
+}
+
 function returnSince(rows: any[], years: number): number | null {
   if (!rows.length) return null;
   const latest = rows[rows.length - 1];
@@ -388,28 +556,453 @@ function summary(rows: any[]) {
   return { nav: latest.close, asOfDate: latest.date, totalReturn, performance };
 }
 
-async function writePages(dir: URL, kind: string, rows: any[]) {
+// ---------------------------------------------------------------------------
+// Holdings source 1 (primary): Vanguard investor-profile holdings feed
+// ---------------------------------------------------------------------------
+
+export type VanguardHoldings = { rows: Record<string, unknown>[]; asOf: string | null };
+
+/**
+ * Parses the `holdingDetails` payload of Vanguard's investor-profile
+ * `…/irr/funds/profile/{TICKER}-AdditionalFundData` endpoint (the same JSON
+ * the profile page itself renders: `equityHoldings[].ticker` /
+ * `marketValuePercentage`, `asOfDate` as MM/DD/YYYY). Defensive on purpose:
+ * any `*holdings` array under `holdingDetails` is accepted and bond buckets
+ * are labeled from the key name, so equity and bond funds map alike.
+ */
+export function parseVanguardHoldingDetails(data: any): VanguardHoldings | null {
+  const root = data && typeof data === "object" ? data : null;
+  if (!root) return null;
+  const details = (root as any).holdingDetails ?? (root as any).holdings ?? null;
+  if (!details || typeof details !== "object") return null;
+  const rawAsOf = (details as any).asOfDate ?? (details as any).asOfDt ?? null;
+  const buckets: Array<{ label: string; items: any[] }> = [];
+  for (const [key, value] of Object.entries(details as Record<string, unknown>)) {
+    if (!Array.isArray(value) || !/holding/i.test(key)) continue;
+    const label = /bond|fixed/i.test(key) ? "Bond" : /equit|stock/i.test(key) ? "Equity" : "—";
+    buckets.push({ label, items: value as any[] });
+  }
+  if (!buckets.length) return null;
+  const rows = buckets.flatMap(({ label, items }) =>
+    items.map((item: any) => ({
+      Ticker: item?.ticker ?? item?.holdingTicker ?? item?.symbol ?? "—",
+      Name:
+        item?.holdingName ??
+        item?.securityLongDescription ??
+        item?.securityShortDescription ??
+        item?.name ??
+        item?.ticker ??
+        "—",
+      "Weight (%)": item?.marketValuePercentage ?? item?.weight ?? item?.percentOfAssets ?? "—",
+      "Market Value":
+        item?.marketValueBaseCurrency ??
+        item?.marketValue ??
+        item?.value ??
+        "—",
+      Shares:
+        item?.shareQuantity ??
+        item?.shares ??
+        item?.numberOfShares ??
+        item?.quantity ??
+        "—",
+      "Asset Class": label,
+      Sector: item?.sector ?? item?.gicsSector ?? "—",
+      Exchange: item?.exchange ?? "—",
+      Location: item?.location ?? item?.country ?? "—",
+      CUSIP: item?.cusip ?? item?.securityId ?? "—",
+      ISIN: item?.isin ?? "—",
+      Currency: item?.currency ?? "—",
+    })),
+  );
+  if (!rows.length) return null;
+  const asOf = toIsoDate(rawAsOf);
+  return { rows, asOf: asOf || (typeof rawAsOf === "string" ? rawAsOf : null) };
+}
+
+async function vanguardHoldings(ticker: string): Promise<VanguardHoldings | null> {
+  const url = `${VANGUARD_IRR_URL}/${ticker}-AdditionalFundData`;
+  try {
+    const response = await fetch(url, {
+      headers: {
+        "User-Agent": UA,
+        Accept: "application/json",
+        Referer: `https://investor.vanguard.com/investment-products/etfs/profile/${ticker.toLowerCase()}`,
+      },
+    });
+    if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+    return parseVanguardHoldingDetails(await response.json());
+  } catch (error) {
+    console.warn(`[holdings-vg] ${ticker} ${error}`);
+    return null;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Holdings source 2 (fallback): SEC EDGAR Form N-PORT-P, same pipeline as the
+// WisdomTree updater. Every US ETF series files N-PORT-P; the filing carries
+// the full reported portfolio (name, CUSIP/ISIN, USD value, weight %, balance,
+// asset category, plus coupon/maturity for debt positions).
+// ---------------------------------------------------------------------------
+
+export type SecSeriesRef = { cik: string; seriesId: string; classId: string };
+export type NportAccession = { accession: string; filed: string; reportDate: string; url: string };
+export type ParsedNport = {
+  regName: string;
+  regCik: string;
+  seriesName: string;
+  seriesId: string;
+  repPdDate: string;
+  holdings: Record<string, unknown>[];
+  totalValue: number;
+  netAssets: number | null;
+};
+
+function secHeaders(): Record<string, string> {
+  return { "User-Agent": UA, Accept: "application/json, application/xml, text/xml, text/plain" };
+}
+
+async function fetchSecText(url: string, label: string): Promise<string> {
+  const maxRetries = Math.min(5, envInt("MAX_RETRIES", 2));
+  let attempt = 0;
+  for (;;) {
+    const response = await fetch(url, { headers: secHeaders() });
+    if (response.ok) return response.text();
+    if ([408, 425, 429, 500, 502, 503, 504].includes(response.status) && attempt < maxRetries) {
+      attempt += 1;
+      await sleep(Math.min(30000, 2 ** attempt * 1000));
+      continue;
+    }
+    throw new Error(`${response.status} ${response.statusText} for ${label}`);
+  }
+}
+
+export function parseFundTickerMap(payload: any): Map<string, SecSeriesRef> {
+  const result = new Map<string, SecSeriesRef>();
+  const fields = Array.isArray(payload?.fields) ? payload.fields.map(String) : [];
+  const rows = Array.isArray(payload?.data) ? payload.data : [];
+  for (const row of rows) {
+    if (!Array.isArray(row)) continue;
+    const at = (field: string) => String(row[fields.indexOf(field)] ?? "");
+    const ticker = sanitizeTicker(at("symbol"));
+    const cik = at("cik").replace(/\D/g, "");
+    const seriesId = at("seriesId").toUpperCase();
+    const classId = at("classId").toUpperCase();
+    if (ticker && cik && seriesId && !result.has(ticker)) {
+      result.set(ticker, { cik: cik.padStart(10, "0"), seriesId, classId });
+    }
+  }
+  return result;
+}
+
+function unescapeXml(value: string): string {
+  return value
+    .replace(/&amp;/gi, "&")
+    .replace(/&lt;/gi, "<")
+    .replace(/&gt;/gi, ">")
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;|&apos;/gi, "'");
+}
+
+function tagValue(xml: string, tag: string): string {
+  const escaped = tag.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const match = new RegExp(`<(?:(?:[A-Za-z0-9_.-]+):)?${escaped}\\b[^>]*>([\\s\\S]*?)<\\/(?:(?:[A-Za-z0-9_.-]+):)?${escaped}>`, "i").exec(xml);
+  return match ? cleanText(unescapeXml(match[1].replace(/<[^>]+>/g, " "))) : "";
+}
+
+function tagAttribute(xml: string, tag: string, attribute: string): string {
+  const match = new RegExp(`<(?:(?:[A-Za-z0-9_.-]+):)?${tag}\\b[^>]*\\b${attribute}="([^"]*)"`, "i").exec(xml);
+  return match ? cleanText(unescapeXml(match[1])) : "";
+}
+
+export function nportUrlFor(cik: string, accession: string): string {
+  const digits = String(cik).replace(/\D/g, "").replace(/^0+/, "") || "0";
+  const acc = String(accession).replace(/-/g, "");
+  // The raw submission text is the stable machine-readable public document;
+  // primary_doc.xml is often only the EDGAR submission header.
+  return `${SEC_ARCHIVES}/${digits}/${acc}/${accession}.txt`;
+}
+
+export function parseEdgarAtomFilings(xml: string): NportAccession[] {
+  const result: NportAccession[] = [];
+  for (const match of String(xml ?? "").matchAll(/<entry>([\s\S]*?)<\/entry>/gi)) {
+    const body = match[1];
+    const type = (tagValue(body, "filing-type") || "").toUpperCase();
+    if (type && type !== "NPORT-P") continue;
+    if (/<amend>/i.test(body)) continue;
+    const accession = tagValue(body, "accession-number");
+    if (!accession) continue;
+    const href = /<filing-href>([\s\S]*?)<\/filing-href>/i.exec(body)?.[1] || "";
+    const cik = /\/data\/(\d+)\//i.exec(unescapeXml(href))?.[1] || "";
+    result.push({ accession, filed: tagValue(body, "filing-date"), reportDate: tagValue(body, "period"), url: nportUrlFor(cik, accession) });
+  }
+  return result;
+}
+
+export function parseNport(xml: string): ParsedNport {
+  const text = String(xml ?? "");
+  const genInfo = /<genInfo\b[^>]*>([\s\S]*?)<\/genInfo>/i.exec(text)?.[1] || text.slice(0, 5000);
+  const fundInfo = /<fundInfo\b[^>]*>([\s\S]*?)<\/fundInfo>/i.exec(text)?.[1] || "";
+  const holdings: Record<string, unknown>[] = [];
+  let totalValue = 0;
+  for (const match of text.matchAll(/<invstOrSec\b[^>]*>([\s\S]*?)<\/invstOrSec>/gi)) {
+    const body = match[1];
+    const name = tagValue(body, "name") || tagValue(body, "title") || "-";
+    const cusip = tagValue(body, "cusip");
+    const isin = tagAttribute(body, "isin", "value");
+    const identifier = cusip && !/^n\/?a$/i.test(cusip) ? cusip : isin || tagAttribute(body, "other", "value") || "-";
+    const value = numberOrNull(tagValue(body, "valUSD"));
+    const weight = numberOrNull(tagValue(body, "pctVal"));
+    if (value !== null) totalValue += value;
+    const debt = /<debtSec\b[^>]*>([\s\S]*?)<\/debtSec>/i.exec(body)?.[1] || "";
+    holdings.push({
+      Ticker: "-",
+      Name: name,
+      "Weight (%)": weight === null ? "—" : String(weight),
+      "Market Value": value === null ? "—" : String(value),
+      Shares: tagValue(body, "balance") || "-",
+      "Asset Class": tagValue(body, "assetCat") || "-",
+      Sector: "—",
+      Exchange: "—",
+      Location: "—",
+      CUSIP: cusip && !/^n\/?a$/i.test(cusip) ? cusip : identifier,
+      ISIN: isin || "—",
+      Currency: tagValue(body, "curCd") || "—",
+      ...(debt ? { Coupon: tagValue(debt, "annualizedRt") || "-", Maturity: tagValue(debt, "maturityDt") || "-" } : {}),
+    });
+  }
+  return {
+    regName: tagValue(genInfo, "regName"),
+    regCik: tagValue(genInfo, "regCik"),
+    seriesName: tagValue(genInfo, "seriesName"),
+    seriesId: tagValue(genInfo, "seriesId"),
+    repPdDate: toIsoDate(tagValue(genInfo, "repPdDate")),
+    holdings,
+    totalValue: round(totalValue, 2),
+    netAssets: numberOrNull(tagValue(fundInfo, "netAssets")),
+  };
+}
+
+export function normalizeHoldingName(value: unknown): string {
+  let text = cleanText(value).toUpperCase().replace(/[’']/g, "").replace(/&/g, " AND ").replace(/[^A-Z0-9]+/g, " ").replace(/\s+/g, " ").trim();
+  text = text.replace(/\bCLASS\s+([A-Z])\b/g, "CL $1").replace(/\bCL\.?\s*([A-Z])\b/g, "CL $1");
+  const keepClass = text.match(/\bCL\s+[A-Z]\b/gi)?.[0] || "";
+  text = text.replace(/\b(THE|INC|INCORPORATED|CORP|CORPORATION|CO|COMPANY|LTD|LIMITED|PLC|SA|NV|AG|SE|SPA|ORDINARY|COMMON|STOCK|SHS|SHARES|ADR|DEPOSITARY|RECEIPT|USD|US|REG|REGISTERED)\b/g, " ");
+  text = text.replace(/\s+/g, " ").trim();
+  if (keepClass && !/\bCL\s+[A-Z]\b/.test(text)) text = `${text} ${keepClass}`.trim();
+  return text;
+}
+
+export function normalizeHoldingNameCore(value: unknown): string {
+  return normalizeHoldingName(value).replace(/\s+CL\s+[A-Z]\b/g, "").trim();
+}
+
+export function cleanHoldingTicker(value: unknown): string {
+  const raw = cleanText(value).toUpperCase();
+  if (!raw || ["-", "--", "N/A", "NA", "NONE", "NULL", "SEE FILE"].includes(raw)) return "";
+  return raw.replace(/\s+/g, "");
+}
+
+function parseCompanyTickerMap(payload: any): Map<string, string> {
+  const map = new Map<string, string>();
+  for (const raw of Object.values(payload || {})) {
+    if (!raw || typeof raw !== "object") continue;
+    const row = raw as Record<string, unknown>;
+    const ticker = cleanHoldingTicker(row.ticker);
+    const title = cleanText(row.title);
+    if (!ticker || !title) continue;
+    for (const key of [normalizeHoldingName(title), normalizeHoldingNameCore(title)]) {
+      if (key && !map.has(key)) map.set(key, ticker);
+    }
+  }
+  return map;
+}
+
+let fundTickerMap: Map<string, SecSeriesRef> | null = null;
+let fundTickerMapPromise: Promise<Map<string, SecSeriesRef>> | null = null;
+let companyTickerMap: Map<string, string> | null = null;
+let companyTickerMapPromise: Promise<Map<string, string>> | null = null;
+
+async function loadFundTickerTable(): Promise<Map<string, SecSeriesRef>> {
+  if (fundTickerMap) return fundTickerMap;
+  if (fundTickerMapPromise) return fundTickerMapPromise;
+  fundTickerMapPromise = (async () => {
+    const payload = JSON.parse(await fetchSecText(SEC_FUND_TICKERS_URL, "[edgar] fund ticker table"));
+    fundTickerMap = parseFundTickerMap(payload);
+    console.log(`[edgar   ] SEC fund ticker table: ${fundTickerMap.size} share classes`);
+    return fundTickerMap;
+  })();
+  try {
+    return await fundTickerMapPromise;
+  } finally {
+    fundTickerMapPromise = null;
+  }
+}
+
+async function loadCompanyTickerTable(): Promise<Map<string, string>> {
+  if (companyTickerMap) return companyTickerMap;
+  if (companyTickerMapPromise) return companyTickerMapPromise;
+  companyTickerMapPromise = (async () => {
+    const payload = JSON.parse(await fetchSecText(SEC_COMPANY_TICKERS_URL, "[edgar] company ticker table"));
+    companyTickerMap = parseCompanyTickerMap(payload);
+    console.log(`[edgar   ] SEC company ticker table: ${companyTickerMap.size} issuer names`);
+    return companyTickerMap;
+  })();
+  try {
+    return await companyTickerMapPromise;
+  } finally {
+    companyTickerMapPromise = null;
+  }
+}
+
+function fillNportTickers(rows: Record<string, unknown>[], names: Map<string, string>): Record<string, unknown>[] {
+  return rows.map((row) => {
+    if (cleanHoldingTicker(row.Ticker)) return row;
+    const ticker = names.get(normalizeHoldingName(row.Name)) || names.get(normalizeHoldingNameCore(row.Name)) || "";
+    return ticker ? { ...row, Ticker: ticker } : row;
+  });
+}
+
+async function resolveNportFiling(ticker: string): Promise<{ ref: SecSeriesRef; accession: NportAccession } | null> {
+  const table = await loadFundTickerTable();
+  const ref = table.get(ticker);
+  if (!ref) return null;
+  const params = new URLSearchParams({ action: "getcompany", CIK: ref.seriesId, type: "NPORT-P", owner: "include", count: "10", output: "atom" });
+  const atom = await fetchSecText(`${SEC_BROWSE_URL}?${params.toString()}`, `[edgar] ${ticker} filings`);
+  const [accession] = parseEdgarAtomFilings(atom);
+  return accession ? { ref, accession } : null;
+}
+
+// ---------------------------------------------------------------------------
+// Static feed writer (same paginated envelope as the SPDR / WisdomTree feeds)
+// ---------------------------------------------------------------------------
+
+async function readPreviousMeta(ticker: string): Promise<any | null> {
+  try {
+    return JSON.parse(await readFile(new URL(`funds/${ticker}/meta.json`, ROOT), "utf8"));
+  } catch {
+    return null;
+  }
+}
+
+async function readPreviousSheet(ticker: string, kind: string): Promise<{ headers: string[]; rows: any[] }> {
+  try {
+    const meta = await readPreviousMeta(ticker);
+    const pages: string[] = meta?.[kind]?.pages ?? [];
+    const rows: any[] = [];
+    let headers: string[] = [];
+    for (const page of pages) {
+      const clean = String(page).replace(/^\.\/+/g, "");
+      try {
+        const data = JSON.parse(await readFile(new URL(`funds/${ticker}/${clean}`, ROOT), "utf8"));
+        if (!headers.length && Array.isArray(data.headers)) headers = data.headers;
+        if (Array.isArray(data.rows)) rows.push(...data.rows);
+      } catch {}
+    }
+    return { headers, rows };
+  } catch {
+    return { headers: [], rows: [] };
+  }
+}
+
+async function writePages(dir: URL, ticker: string, kind: string, headers: string[], rows: any[], pageSize: number) {
   const target = new URL(`${kind}/`, dir);
   await mkdir(target, { recursive: true });
-  const headers = kind === "holdings" ? ["Ticker", "Name", "Asset Class", "Weight"] : ["Date", "Open", "High", "Low", "Close", "Adj Close", "Volume"];
-  for (let i = 0; i < rows.length; i += PAGE_SIZE) {
-    const page = { headers, rows: rows.slice(i, i + PAGE_SIZE) };
-    await writeFile(new URL(`${kind}/${String(i / PAGE_SIZE + 1).padStart(3, "0")}.json`, dir), JSON.stringify(page) + "\n");
+  const pageCount = rows.length ? Math.ceil(rows.length / pageSize) : 0;
+  const kept = new Set<string>();
+  for (let page = 0; page < pageCount; page += 1) {
+    const name = `${String(page + 1).padStart(3, "0")}.json`;
+    kept.add(name);
+    const payload = {
+      ticker,
+      page: page + 1,
+      pageSize,
+      totalRows: rows.length,
+      headers,
+      rows: rows.slice(page * pageSize, (page + 1) * pageSize),
+    };
+    await writeFile(new URL(name, target), JSON.stringify(payload) + "\n");
   }
-  return pagePaths(kind, rows.length);
+  try {
+    for (const name of await readdir(target)) {
+      if (name.endsWith(".json") && !kept.has(name)) await rm(new URL(name, target), { force: true });
+    }
+  } catch {}
+  return { pages: [...kept].sort().map((name) => `${kind}/${name}`), pageSize, totalRows: rows.length };
 }
+
 export async function run() {
   await mkdir(FUNDS, { recursive: true });
+  const holdingsPageSize = envInt("HOLDINGS_PAGE_SIZE", 250);
+  const historyPageSize = envInt("HISTORY_PAGE_SIZE", 1000);
+  const requestSleepMs = Math.max(0, Number(env("REQUEST_SLEEP")) || 0) * 1000;
   const catalog: any[] = [];
   for (const [ticker, name, category] of selectedFunds()) {
     const dir = new URL(`${ticker}/`, FUNDS);
     await mkdir(dir, { recursive: true });
-    const [rows, official] = await Promise.all([history(ticker), officialProfile(ticker, name)]);
-    const metrics = summary(rows);
-    const historyPaths = await writePages(dir, "history", rows);
-    const holdingsPaths = await writePages(dir, "holdings", []);
+    const [chartData, official, vgHoldings] = await Promise.all([
+      chart(ticker),
+      officialProfile(ticker, name),
+      vanguardHoldings(ticker),
+    ]);
+
+    // --- Holdings: Vanguard official feed -> SEC N-PORT-P -> previous sheet ---
+    let holdingsHeaders: string[] = HOLDINGS_HEADERS_BASE;
+    let holdingsRows: Record<string, unknown>[] = vgHoldings?.rows ?? [];
+    let holdingsAsOf: string | null = vgHoldings?.asOf ?? null;
+    let holdingsSource = holdingsRows.length
+      ? "Vanguard investor profile holdings (IRR AdditionalFundData)"
+      : "not available from current public sources";
+    if (!holdingsRows.length) {
+      try {
+        const filing = await resolveNportFiling(ticker);
+        if (filing) {
+          const parsed = parseNport(await fetchSecText(filing.accession.url, `[nport] ${ticker}`));
+          const seriesMatches = !parsed.seriesId || parsed.seriesId.toUpperCase() === filing.ref.seriesId.toUpperCase();
+          if (seriesMatches && parsed.holdings.length) {
+            const names = await loadCompanyTickerTable();
+            holdingsRows = fillNportTickers(parsed.holdings, names);
+            if (holdingsRows.some((row) => "Coupon" in row || "Maturity" in row)) {
+              holdingsHeaders = [...HOLDINGS_HEADERS_BASE, "Coupon", "Maturity"];
+            }
+            holdingsAsOf = parsed.repPdDate || null;
+            holdingsSource = `SEC EDGAR Form N-PORT-P (accession ${filing.accession.accession}, report period ${parsed.repPdDate || "n/a"})`;
+          }
+        }
+      } catch (error) {
+        console.warn(`[nport   ] ${ticker} ${error}`);
+      }
+    }
+    if (!holdingsRows.length) {
+      const prev = await readPreviousSheet(ticker, "holdings");
+      if (prev.rows.length) {
+        const prevMeta = await readPreviousMeta(ticker);
+        holdingsRows = prev.rows;
+        holdingsHeaders = prev.headers.length ? prev.headers : holdingsHeaders;
+        holdingsAsOf = prevMeta?.holdings?.asOfDate ?? null;
+        holdingsSource = prevMeta?.holdings?.source ?? "previous run";
+      }
+    }
+
+    // --- History (+ dividends): Yahoo chart -> previous sheet ---
+    let historyRows = chartData.rows;
+    let dividends = chartData.dividends;
+    if (!historyRows.length) {
+      const prev = await readPreviousSheet(ticker, "history");
+      historyRows = internalHistoryRows(prev.rows);
+    }
+    const prevMeta = await readPreviousMeta(ticker);
+    if (!dividends.length && prevMeta) {
+      dividends = dividendsFromPrevious(prevMeta);
+    }
+    const metrics = summary(historyRows);
+
+    const historyManifest = await writePages(dir, ticker, "history", HISTORY_HEADERS, historyPageRows(historyRows), historyPageSize);
+    const holdingsManifest = await writePages(dir, ticker, "holdings", holdingsHeaders, holdingsRows, holdingsPageSize);
+
     const expense = official.expense?.value ? Number(official.expense.value) : null;
     const officialYtd = official.ytd?.value ? Number(official.ytd.value) : null;
+    const frequency = official.distributionFrequency ?? prevMeta?.distributionFrequency ?? null;
+    const divRows = distributionRows(frequency, dividends);
     const meta = {
       ticker,
       name,
@@ -417,17 +1010,24 @@ export async function run() {
       type: "Vanguard ETF",
       fundPage: `https://investor.vanguard.com/investment-products/etfs/profile/${ticker.toLowerCase()}`,
       officialPage: official.url,
-      portId: (official as any).portId ?? null,
-      source: "Vanguard workplace fundDetails API + Yahoo daily history",
+      portId: (official as any).portId ?? prevMeta?.portId ?? null,
+      source: "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
       nav: metrics.nav,
-      netAssets: official.etfAssets?.value ?? null,
-      totalFundNetAssets: official.netAssets?.value ?? null,
-      netAssetsAsOf: official.etfAssets?.asOf ?? null,
-      netExpenseRatio: expense,
-      trailingYield: official.dividend?.value ? Number(official.dividend.value) : null,
-      dividendYieldAsOf: official.dividend?.asOf ?? null,
-      secYield: official.sec?.value ? Number(official.sec.value) : null,
-      secYieldAsOf: official.sec?.asOf ?? null,
+      netAssets: official.etfAssets?.value ?? prevMeta?.netAssets ?? null,
+      totalFundNetAssets: official.netAssets?.value ?? prevMeta?.totalFundNetAssets ?? null,
+      netAssetsAsOf: official.etfAssets?.asOf ?? prevMeta?.netAssetsAsOf ?? null,
+      netExpenseRatio: expense ?? prevMeta?.netExpenseRatio ?? null,
+      trailingYield: official.dividend?.value ? Number(official.dividend.value) : (prevMeta?.trailingYield ?? null),
+      dividendYieldAsOf: official.dividend?.asOf ?? prevMeta?.dividendYieldAsOf ?? null,
+      secYield: official.sec?.value ? Number(official.sec.value) : (prevMeta?.secYield ?? null),
+      secYieldAsOf: official.sec?.asOf ?? prevMeta?.secYieldAsOf ?? null,
+      distributionFrequency: frequency,
+      distributions: {
+        frequency,
+        paymentsPerYear: paymentsPerYear(frequency),
+        headers: DISTRIBUTION_HEADERS,
+        rows: divRows,
+      },
       ytdReturn: officialYtd ?? metrics.totalReturn["1Y"] ?? null,
       asOfDate: official.ytd?.asOf ?? metrics.asOfDate,
       totalReturn: metrics.totalReturn,
@@ -438,12 +1038,23 @@ export async function run() {
         expenseRatio: expense,
         returns: { YTD: officialYtd, "1Y": official.oneYear?.value ? Number(official.oneYear.value) : null },
       },
-      holdings: { totalRows: 0, pageSize: PAGE_SIZE, pages: holdingsPaths },
-      history: { totalRows: rows.length, pageSize: PAGE_SIZE, pages: historyPaths },
+      holdings: { ...holdingsManifest, asOfDate: holdingsAsOf, source: holdingsSource },
+      history: { ...historyManifest, asOfDate: metrics.asOfDate ?? null, source: "Yahoo Finance public chart API (daily OHLC, adjusted close)" },
     };
     await writeFile(new URL("meta.json", dir), JSON.stringify(meta, null, 2) + "\n");
-    catalog.push({ ...meta, holdings: 0, history: rows.length });
-    console.log(`[ fund ] ticker=${ticker.padEnd(5)} port=${(official as any).portId ?? "null"} history=${rows.length} netAssets=${meta.netAssets ?? "null"} total=${meta.totalFundNetAssets ?? "null"} div=${meta.trailingYield ?? "null"} sec=${meta.secYield ?? "null"} wp=${(official as any).workplaceRaw}`);
+    // The catalog carries a lightweight distributions summary; full rows live in meta.json.
+    catalog.push({
+      ...meta,
+      distributions: divRows.length
+        ? { frequency, exDate: divRows[0][1], dividend: divRows[0][4] }
+        : { frequency, exDate: null, dividend: null },
+      holdings: holdingsRows.length,
+      history: historyRows.length,
+    });
+    console.log(
+      `[ fund ] ticker=${ticker.padEnd(5)} port=${(official as any).portId ?? prevMeta?.portId ?? "null"} history=${historyRows.length} holdings=${holdingsRows.length} divs=${divRows.length} netAssets=${meta.netAssets ?? "null"} total=${meta.totalFundNetAssets ?? "null"} div=${meta.trailingYield ?? "null"} sec=${meta.secYield ?? "null"} wp=${(official as any).workplaceRaw}`,
+    );
+    if (requestSleepMs > 0) await sleep(requestSleepMs);
   }
   await writeFile(new URL("index.json", ROOT), JSON.stringify({ generatedAt: new Date().toISOString(), provider: "Vanguard", funds: catalog }, null, 2) + "\n");
 }

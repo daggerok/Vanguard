@@ -6,8 +6,8 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vusg",
   "officialPage": "https://advisors.vanguard.com/investments/products/vusg/vanguard-wellington-u-s-growth-active-etf",
   "portId": "V054",
-  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 65.1500015258789,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
+  "nav": 65.30999755859375,
   "netAssets": "$34.6M",
   "totalFundNetAssets": "$34.6M",
   "netAssetsAsOf": "2026-08-31",
@@ -16,19 +16,44 @@
   "dividendYieldAsOf": "2026-08-31",
   "secYield": -0.01,
   "secYieldAsOf": "2026-08-31",
+  "distributionFrequency": "Annually",
+  "distributions": {
+    "frequency": "Annually",
+    "paymentsPerYear": 1,
+    "headers": [
+      "Frequency",
+      "Ex-Date",
+      "Record Date",
+      "Payable Date",
+      "Dividend",
+      "ST Cap Gains",
+      "LT Cap Gains"
+    ],
+    "rows": [
+      [
+        "Annually",
+        "2025-12-23",
+        "—",
+        "—",
+        "0.011",
+        "—",
+        "—"
+      ]
+    ]
+  },
   "ytdReturn": 5.49432472,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 10.537288276117573,
-    "3Y": 10.537288276117597,
-    "5Y": 10.53728827611764,
-    "10Y": 10.537288276117774
+    "1Y": 10.808746866708852,
+    "3Y": 10.808746866708852,
+    "5Y": 10.80874686670883,
+    "10Y": 10.80874686670883
   },
   "performance": {
-    "1Y": 10.537288276117573,
-    "3Y": 3.395808946889245,
-    "5Y": 2.0238624681939488,
-    "10Y": 1.006862374887163
+    "1Y": 10.808746866708852,
+    "3Y": 3.480379912353837,
+    "5Y": 2.073923562777269,
+    "10Y": 1.031640372101883
   },
   "officialMetrics": {
     "nav": 5.49432472,
@@ -40,15 +65,21 @@
     }
   },
   "holdings": {
-    "totalRows": 0,
-    "pageSize": 1000,
-    "pages": []
+    "pages": [
+      "holdings/001.json"
+    ],
+    "pageSize": 250,
+    "totalRows": 44,
+    "asOfDate": "2026-09-16",
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
-    "totalRows": 208,
-    "pageSize": 1000,
     "pages": [
-      "./history/001.json"
-    ]
+      "history/001.json"
+    ],
+    "pageSize": 1000,
+    "totalRows": 208,
+    "asOfDate": "2026-09-17",
+    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

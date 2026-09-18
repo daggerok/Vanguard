@@ -6,8 +6,8 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vymi",
   "officialPage": "https://advisors.vanguard.com/investments/products/vymi/vanguard-international-high-dividend-yield-etf",
   "portId": "4430",
-  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 105.15989685058594,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
+  "nav": 105.16999816894531,
   "netAssets": "$21.8B",
   "totalFundNetAssets": "$22.8B",
   "netAssetsAsOf": "2026-08-31",
@@ -16,19 +16,413 @@
   "dividendYieldAsOf": "2026-08-31",
   "secYield": null,
   "secYieldAsOf": null,
+  "distributionFrequency": "Quarterly",
+  "distributions": {
+    "frequency": "Quarterly",
+    "paymentsPerYear": 4,
+    "headers": [
+      "Frequency",
+      "Ex-Date",
+      "Record Date",
+      "Payable Date",
+      "Dividend",
+      "ST Cap Gains",
+      "LT Cap Gains"
+    ],
+    "rows": [
+      [
+        "Quarterly",
+        "2026-06-18",
+        "—",
+        "—",
+        "1.257",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2026-03-20",
+        "—",
+        "—",
+        "0.708",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2025-12-19",
+        "—",
+        "—",
+        "0.939",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2025-09-19",
+        "—",
+        "—",
+        "0.7",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2025-06-20",
+        "—",
+        "—",
+        "1.076",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2025-03-21",
+        "—",
+        "—",
+        "0.6",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2024-12-20",
+        "—",
+        "—",
+        "0.965",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2024-09-20",
+        "—",
+        "—",
+        "0.697",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2024-06-21",
+        "—",
+        "—",
+        "1.009",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2024-03-15",
+        "—",
+        "—",
+        "0.616",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2023-12-18",
+        "—",
+        "—",
+        "0.864",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2023-09-18",
+        "—",
+        "—",
+        "0.683",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2023-06-20",
+        "—",
+        "—",
+        "1.187",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2023-03-20",
+        "—",
+        "—",
+        "0.314",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2022-12-19",
+        "—",
+        "—",
+        "0.668",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2022-09-19",
+        "—",
+        "—",
+        "0.706",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2022-06-21",
+        "—",
+        "—",
+        "1.117",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2022-03-21",
+        "—",
+        "—",
+        "0.312",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2021-12-20",
+        "—",
+        "—",
+        "0.964",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2021-09-20",
+        "—",
+        "—",
+        "0.73",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2021-06-21",
+        "—",
+        "—",
+        "0.831",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2021-03-22",
+        "—",
+        "—",
+        "0.361",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2020-12-21",
+        "—",
+        "—",
+        "0.588",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2020-09-21",
+        "—",
+        "—",
+        "0.577",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2020-06-22",
+        "—",
+        "—",
+        "0.517",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2020-03-23",
+        "—",
+        "—",
+        "0.277",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2019-12-23",
+        "—",
+        "—",
+        "0.561",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2019-09-24",
+        "—",
+        "—",
+        "0.659",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2019-06-17",
+        "—",
+        "—",
+        "1.02",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2019-03-25",
+        "—",
+        "—",
+        "0.441",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2018-12-24",
+        "—",
+        "—",
+        "0.508",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2018-09-26",
+        "—",
+        "—",
+        "0.578",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2018-06-22",
+        "—",
+        "—",
+        "0.948",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2018-03-26",
+        "—",
+        "—",
+        "0.382",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2017-12-19",
+        "—",
+        "—",
+        "0.474",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2017-09-22",
+        "—",
+        "—",
+        "0.479",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2017-06-28",
+        "—",
+        "—",
+        "0.83",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2017-03-22",
+        "—",
+        "—",
+        "0.365",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2016-12-22",
+        "—",
+        "—",
+        "0.338",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2016-09-13",
+        "—",
+        "—",
+        "0.374",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2016-06-14",
+        "—",
+        "—",
+        "0.559",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2016-03-21",
+        "—",
+        "—",
+        "0.085",
+        "—",
+        "—"
+      ]
+    ]
+  },
   "ytdReturn": 18.12460466,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 28.056789188893895,
-    "3Y": 91.84220399103917,
-    "5Y": 97.92952219041433,
-    "10Y": 179.8718522198954
+    "1Y": 28.06908990841166,
+    "3Y": 91.86061837866247,
+    "5Y": 97.94854887044531,
+    "10Y": 179.8986505522251
   },
   "performance": {
-    "1Y": 28.056789188893895,
-    "3Y": 24.2552416777013,
-    "5Y": 14.631009026174112,
-    "10Y": 10.839848168234244
+    "1Y": 28.06908990841166,
+    "3Y": 24.259217186273595,
+    "5Y": 14.633212804212569,
+    "10Y": 10.840909437913249
   },
   "officialMetrics": {
     "nav": 18.12460466,
@@ -40,15 +434,27 @@
     }
   },
   "holdings": {
-    "totalRows": 0,
-    "pageSize": 1000,
-    "pages": []
+    "pages": [
+      "holdings/001.json",
+      "holdings/002.json",
+      "holdings/003.json",
+      "holdings/004.json",
+      "holdings/005.json",
+      "holdings/006.json",
+      "holdings/007.json"
+    ],
+    "pageSize": 250,
+    "totalRows": 1731,
+    "asOfDate": "2026-08-31",
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
-    "totalRows": 127,
-    "pageSize": 1000,
     "pages": [
-      "./history/001.json"
-    ]
+      "history/001.json"
+    ],
+    "pageSize": 1000,
+    "totalRows": 127,
+    "asOfDate": "2026-09-17",
+    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

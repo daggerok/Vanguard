@@ -6,8 +6,8 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vtp",
   "officialPage": "https://advisors.vanguard.com/investments/products/vtp/vanguard-total-inflation-protected-securities-etf",
   "portId": "V049",
-  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 74.3240966796875,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
+  "nav": 74.31999969482422,
   "netAssets": "$230.8M",
   "totalFundNetAssets": "$230.8M",
   "netAssetsAsOf": "2026-08-31",
@@ -16,19 +16,71 @@
   "dividendYieldAsOf": null,
   "secYield": 2.22,
   "secYieldAsOf": "2026-09-10",
+  "distributionFrequency": "Quarterly",
+  "distributions": {
+    "frequency": "Quarterly",
+    "paymentsPerYear": 4,
+    "headers": [
+      "Frequency",
+      "Ex-Date",
+      "Record Date",
+      "Payable Date",
+      "Dividend",
+      "ST Cap Gains",
+      "LT Cap Gains"
+    ],
+    "rows": [
+      [
+        "Quarterly",
+        "2026-07-01",
+        "—",
+        "—",
+        "1.008",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2026-04-01",
+        "—",
+        "—",
+        "0.06",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2025-12-18",
+        "—",
+        "—",
+        "0.709",
+        "—",
+        "—"
+      ],
+      [
+        "Quarterly",
+        "2025-10-01",
+        "—",
+        "—",
+        "0.47",
+        "—",
+        "—"
+      ]
+    ]
+  },
   "ytdReturn": -0.78117731,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -0.9916478477302482,
-    "3Y": 1.6969804525406307,
-    "5Y": 1.6969804525406085,
-    "10Y": 1.6969804525406085
+    "1Y": -0.9971055086804292,
+    "3Y": 1.6913745856930174,
+    "5Y": 1.6913745856929951,
+    "10Y": 1.6913745856929951
   },
   "performance": {
-    "1Y": -0.9916478477302482,
-    "3Y": 0.5624902655493091,
-    "5Y": 0.33711547824817334,
-    "10Y": 0.16841591951435309
+    "1Y": -0.9971055086804292,
+    "3Y": 0.5606424549047473,
+    "5Y": 0.3360092725194219,
+    "10Y": 0.16786374507515855
   },
   "officialMetrics": {
     "nav": -0.78117731,
@@ -40,15 +92,21 @@
     }
   },
   "holdings": {
-    "totalRows": 0,
-    "pageSize": 1000,
-    "pages": []
+    "pages": [
+      "holdings/001.json"
+    ],
+    "pageSize": 250,
+    "totalRows": 50,
+    "asOfDate": "2026-09-16",
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
-    "totalRows": 300,
-    "pageSize": 1000,
     "pages": [
-      "./history/001.json"
-    ]
+      "history/001.json"
+    ],
+    "pageSize": 1000,
+    "totalRows": 300,
+    "asOfDate": "2026-09-17",
+    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

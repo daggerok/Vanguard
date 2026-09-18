@@ -28,4 +28,10 @@ Data refresh will be exposed through the manually triggered GitHub Actions workf
 
 Vanguard public endpoints may rate-limit automated requests. The updater will use conservative throttling, retries, cached data preservation, and SEC fallback behavior. Official Vanguard performance metrics remain authoritative; daily history is stored separately for charts and historical browsing.
 
-Implementation scaffold review notes.
+## UI contract notes
+
+- Search placeholder: `Search ETFs, fund names, holdings, tickers, CUSIPs, ISINs...`
+- Selection is persisted per provider in `localStorage` (`vanguard-selected-etfs`, `vanguard-active-fund`).
+- Blacklist is persisted in `localStorage` (`vanguard-blacklisted-etfs`).
+- Sort order is remembered **per tab** and restored whenever the tab is reopened, including after a full page reload. Column-header clicks record it (`vanguard-tab-sorts` in `localStorage`, like the checkbox selections); no button or checkbox ever resets it — Clear clears only the selection and the searches. To return to the default catalog order, click the *Ticker* header (asc). Watchlist defaults to Weight Sum (%) desc, ETF Catalog and detail sheets default to source order.
+- The app keeps search and sort preferences in `localStorage` and reapplies them after reload.

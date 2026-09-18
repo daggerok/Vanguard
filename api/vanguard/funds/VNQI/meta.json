@@ -6,8 +6,8 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vnqi",
   "officialPage": "https://advisors.vanguard.com/investments/products/vnqi/vanguard-global-ex-u-s-real-estate-etf",
   "portId": "3358",
-  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 43.744998931884766,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
+  "nav": 43.779998779296875,
   "netAssets": "$3.5B",
   "totalFundNetAssets": "$3.8B",
   "netAssetsAsOf": "2026-08-31",
@@ -16,19 +16,350 @@
   "dividendYieldAsOf": "2026-08-31",
   "secYield": null,
   "secYieldAsOf": null,
+  "distributionFrequency": "Annually",
+  "distributions": {
+    "frequency": "Annually",
+    "paymentsPerYear": 1,
+    "headers": [
+      "Frequency",
+      "Ex-Date",
+      "Record Date",
+      "Payable Date",
+      "Dividend",
+      "ST Cap Gains",
+      "LT Cap Gains"
+    ],
+    "rows": [
+      [
+        "Annually",
+        "2025-12-19",
+        "—",
+        "—",
+        "2.156",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2024-12-20",
+        "—",
+        "—",
+        "2.04",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2023-12-18",
+        "—",
+        "—",
+        "1.591",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2022-12-19",
+        "—",
+        "—",
+        "0.235",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2021-12-21",
+        "—",
+        "—",
+        "2.895",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2021-09-24",
+        "—",
+        "—",
+        "0.601",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2020-12-21",
+        "—",
+        "—",
+        "0.505",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2019-12-18",
+        "—",
+        "—",
+        "3.647",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2019-09-24",
+        "—",
+        "—",
+        "0.423",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2019-06-17",
+        "—",
+        "—",
+        "0.406",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2018-12-24",
+        "—",
+        "—",
+        "1.373",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2018-09-26",
+        "—",
+        "—",
+        "0.247",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2018-06-28",
+        "—",
+        "—",
+        "0.727",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2018-03-26",
+        "—",
+        "—",
+        "0.076",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2017-12-19",
+        "—",
+        "—",
+        "1.883",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2017-09-27",
+        "—",
+        "—",
+        "0.176",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2017-06-28",
+        "—",
+        "—",
+        "0.278",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2016-12-20",
+        "—",
+        "—",
+        "1.631",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2016-09-13",
+        "—",
+        "—",
+        "0.379",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2016-06-14",
+        "—",
+        "—",
+        "0.481",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2016-03-15",
+        "—",
+        "—",
+        "0.078",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2015-12-21",
+        "—",
+        "—",
+        "0.803",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2015-09-25",
+        "—",
+        "—",
+        "0.246",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2015-06-26",
+        "—",
+        "—",
+        "0.393",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2015-03-25",
+        "—",
+        "—",
+        "0.02",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2014-12-22",
+        "—",
+        "—",
+        "1.356",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2014-09-24",
+        "—",
+        "—",
+        "0.489",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2014-06-24",
+        "—",
+        "—",
+        "0.352",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2013-12-20",
+        "—",
+        "—",
+        "1.576",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2013-09-23",
+        "—",
+        "—",
+        "0.089",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2013-06-24",
+        "—",
+        "—",
+        "0.117",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2012-12-20",
+        "—",
+        "—",
+        "2.336",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2012-09-24",
+        "—",
+        "—",
+        "0.736",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2011-12-21",
+        "—",
+        "—",
+        "1.334",
+        "—",
+        "—"
+      ],
+      [
+        "Annually",
+        "2010-12-22",
+        "—",
+        "—",
+        "0.447",
+        "—",
+        "—"
+      ]
+    ]
+  },
   "ytdReturn": -5.33536586,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -4.012334311779286,
-    "3Y": 28.68806835180586,
-    "5Y": -5.568930958573237,
-    "10Y": 16.974765966089024
+    "1Y": -3.9355357351519737,
+    "3Y": 28.7910301272327,
+    "5Y": -5.493377796197829,
+    "10Y": 17.06834412756091
   },
   "performance": {
-    "1Y": -4.012334311779286,
-    "3Y": 8.770909682267746,
-    "5Y": -1.1394593378713513,
-    "10Y": 1.5802362367011824
+    "1Y": -3.9355357351519737,
+    "3Y": 8.799910714640014,
+    "5Y": -1.1236449723483477,
+    "10Y": 1.5883595882758117
   },
   "officialMetrics": {
     "nav": -5.33536586,
@@ -40,15 +371,24 @@
     }
   },
   "holdings": {
-    "totalRows": 0,
-    "pageSize": 1000,
-    "pages": []
+    "pages": [
+      "holdings/001.json",
+      "holdings/002.json",
+      "holdings/003.json",
+      "holdings/004.json"
+    ],
+    "pageSize": 250,
+    "totalRows": 834,
+    "asOfDate": "2026-08-31",
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
-    "totalRows": 192,
-    "pageSize": 1000,
     "pages": [
-      "./history/001.json"
-    ]
+      "history/001.json"
+    ],
+    "pageSize": 1000,
+    "totalRows": 192,
+    "asOfDate": "2026-09-17",
+    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

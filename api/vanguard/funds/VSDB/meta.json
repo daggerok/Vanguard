@@ -6,8 +6,8 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vsdb",
   "officialPage": "https://advisors.vanguard.com/investments/products/vsdb/vanguard-short-duration-bond-etf",
   "portId": "V044",
-  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 75.16999816894531,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
+  "nav": 75.18000030517578,
   "netAssets": "$1.0B",
   "totalFundNetAssets": "$1.0B",
   "netAssetsAsOf": "2026-08-31",
@@ -16,19 +16,188 @@
   "dividendYieldAsOf": "2026-09-01",
   "secYield": 5.02,
   "secYieldAsOf": "2026-09-15",
+  "distributionFrequency": "Monthly",
+  "distributions": {
+    "frequency": "Monthly",
+    "paymentsPerYear": 12,
+    "headers": [
+      "Frequency",
+      "Ex-Date",
+      "Record Date",
+      "Payable Date",
+      "Dividend",
+      "ST Cap Gains",
+      "LT Cap Gains"
+    ],
+    "rows": [
+      [
+        "Monthly",
+        "2026-09-01",
+        "—",
+        "—",
+        "0.284",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-08-03",
+        "—",
+        "—",
+        "0.294",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-07-01",
+        "—",
+        "—",
+        "0.285",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-06-01",
+        "—",
+        "—",
+        "0.178",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-05-01",
+        "—",
+        "—",
+        "0.265",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-04-01",
+        "—",
+        "—",
+        "0.279",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-03-02",
+        "—",
+        "—",
+        "0.175",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-02-02",
+        "—",
+        "—",
+        "0.215",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-12-18",
+        "—",
+        "—",
+        "0.284",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-12-01",
+        "—",
+        "—",
+        "0.271",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-11-03",
+        "—",
+        "—",
+        "0.267",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-10-01",
+        "—",
+        "—",
+        "0.258",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-09-02",
+        "—",
+        "—",
+        "0.276",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-08-01",
+        "—",
+        "—",
+        "0.271",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-07-01",
+        "—",
+        "—",
+        "0.281",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-06-02",
+        "—",
+        "—",
+        "0.207",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-05-01",
+        "—",
+        "—",
+        "0.26",
+        "—",
+        "—"
+      ]
+    ]
+  },
   "ytdReturn": 0.77696028,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 1.9989879485543316,
-    "3Y": 5.556276928272075,
-    "5Y": 5.556276928272141,
-    "10Y": 5.556276928272141
+    "1Y": 2.01255995597327,
+    "3Y": 5.57031095910383,
+    "5Y": 5.57031095910383,
+    "10Y": 5.57031095910383
   },
   "performance": {
-    "1Y": 1.9989879485543316,
-    "3Y": 1.8188110156334147,
-    "5Y": 1.0873502518176315,
-    "10Y": 0.5422051935492611
+    "1Y": 2.01255995597327,
+    "3Y": 1.8233231900945945,
+    "5Y": 1.0900380835433987,
+    "10Y": 0.5435418530416625
   },
   "officialMetrics": {
     "nav": 0.77696028,
@@ -40,15 +209,27 @@
     }
   },
   "holdings": {
-    "totalRows": 0,
-    "pageSize": 1000,
-    "pages": []
+    "pages": [
+      "holdings/001.json",
+      "holdings/002.json",
+      "holdings/003.json",
+      "holdings/004.json",
+      "holdings/005.json",
+      "holdings/006.json",
+      "holdings/007.json"
+    ],
+    "pageSize": 250,
+    "totalRows": 1536,
+    "asOfDate": "2026-09-16",
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
-    "totalRows": 366,
-    "pageSize": 1000,
     "pages": [
-      "./history/001.json"
-    ]
+      "history/001.json"
+    ],
+    "pageSize": 1000,
+    "totalRows": 366,
+    "asOfDate": "2026-09-17",
+    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

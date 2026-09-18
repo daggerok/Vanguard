@@ -6,8 +6,8 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vbce",
   "officialPage": "https://advisors.vanguard.com/investments/products/vbce/vanguard-target-maturity-2031-corporate-bond-etf",
   "portId": "V076",
-  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 73.73999786376953,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
+  "nav": 73.83000183105469,
   "netAssets": "$52.2M",
   "totalFundNetAssets": "$52.2M",
   "netAssetsAsOf": "2026-08-31",
@@ -16,19 +16,80 @@
   "dividendYieldAsOf": null,
   "secYield": 5.23,
   "secYieldAsOf": "2026-09-15",
-  "ytdReturn": 0.24955428215336362,
+  "distributionFrequency": "Monthly",
+  "distributions": {
+    "frequency": "Monthly",
+    "paymentsPerYear": 12,
+    "headers": [
+      "Frequency",
+      "Ex-Date",
+      "Record Date",
+      "Payable Date",
+      "Dividend",
+      "ST Cap Gains",
+      "LT Cap Gains"
+    ],
+    "rows": [
+      [
+        "Monthly",
+        "2026-09-01",
+        "—",
+        "—",
+        "0.278",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-08-03",
+        "—",
+        "—",
+        "0.275",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-07-01",
+        "—",
+        "—",
+        "0.274",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-06-01",
+        "—",
+        "—",
+        "0.257",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-05-01",
+        "—",
+        "—",
+        "0.095",
+        "—",
+        "—"
+      ]
+    ]
+  },
+  "ytdReturn": 0.371893887383834,
   "asOfDate": "",
   "totalReturn": {
-    "1Y": 0.24955428215336362,
-    "3Y": 0.24955428215338582,
-    "5Y": 0.24955428215336362,
-    "10Y": 0.24955428215336362
+    "1Y": 0.371893887383834,
+    "3Y": 0.3718938873838118,
+    "5Y": 0.3718938873838562,
+    "10Y": 0.3718938873838562
   },
   "performance": {
-    "1Y": 0.24955428215336362,
-    "3Y": 0.08311565944998378,
-    "5Y": 0.04986110902838181,
-    "10Y": 0.024927447625966437
+    "1Y": 0.371893887383834,
+    "3Y": 0.12381127354896826,
+    "5Y": 0.07426837967217104,
+    "10Y": 0.037127297654926394
   },
   "officialMetrics": {
     "nav": null,
@@ -40,15 +101,23 @@
     }
   },
   "holdings": {
-    "totalRows": 0,
-    "pageSize": 1000,
-    "pages": []
+    "pages": [
+      "holdings/001.json",
+      "holdings/002.json",
+      "holdings/003.json"
+    ],
+    "pageSize": 250,
+    "totalRows": 593,
+    "asOfDate": "2026-09-16",
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
-    "totalRows": 121,
-    "pageSize": 1000,
     "pages": [
-      "./history/001.json"
-    ]
+      "history/001.json"
+    ],
+    "pageSize": 1000,
+    "totalRows": 121,
+    "asOfDate": "2026-09-17",
+    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }
