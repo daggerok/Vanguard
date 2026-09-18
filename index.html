@@ -190,6 +190,68 @@
           transition: none;
         }
       }
+
+      /* Horizontally pinned catalog columns (Use + Ticker). Scoped to a
+         dedicated class, not to :nth-child, because #table-scroll also
+         renders the Watchlist, Holdings, Historical, and Performance
+         sheets, which have a different column shape and no pinned
+         columns of their own. */
+      #table-scroll table {
+        min-width: max-content;
+        border-collapse: separate;
+        border-spacing: 0;
+        isolation: isolate;
+      }
+      #table-scroll tbody {
+        position: relative;
+        z-index: 0;
+      }
+      #table-scroll tbody tr {
+        position: relative;
+        z-index: 0;
+      }
+      #table-scroll .catalog-sticky-col {
+        position: sticky;
+        background: #ffffff;
+        background-clip: padding-box;
+      }
+      #table-scroll thead .catalog-sticky-col {
+        top: 0;
+        z-index: 30;
+        background: #f8fafc;
+      }
+      #table-scroll tbody .catalog-sticky-col {
+        z-index: 20;
+      }
+      #table-scroll .catalog-sticky-use {
+        left: 0;
+        width: 5rem;
+        min-width: 5rem;
+      }
+      #table-scroll .catalog-sticky-ticker {
+        left: 5rem;
+        width: 5rem;
+        min-width: 5rem;
+        box-shadow: 4px 0 6px -6px rgba(15, 23, 42, 0.7);
+      }
+      .dark #table-scroll .catalog-sticky-col {
+        background: #172033;
+      }
+      .dark #table-scroll thead .catalog-sticky-col {
+        background: #0f172a;
+      }
+      #table-scroll tbody tr:hover .catalog-sticky-col {
+        background: #f8fafc;
+      }
+      #table-scroll tbody tr.selected-row .catalog-sticky-col {
+        background: #eff6ff;
+      }
+      .dark #table-scroll tbody tr:hover .catalog-sticky-col {
+        background: #1f2a3d;
+      }
+      .dark #table-scroll tbody tr.selected-row .catalog-sticky-col {
+        background: #19274e;
+      }
     </style>
   </head>
   <body
@@ -527,6 +589,8 @@ Vanguard ETF Holdings to Watchlist
           "# ETFs — Number of selected ETFs that currently hold this security in their portfolio.",
         "SEC Yield":
           "SEC Yield (30-Day SEC Yield) — Standardized yield required by the U.S. SEC, based on income earned over the trailing 30 days after fund expenses. Useful for comparing income funds.",
+        Frequency:
+          "Distribution Frequency — How often the fund pays cash distributions, from Vanguard's workplace fundDetails feed (fundCharacteristics.fundDistributionFrequency). Coded for sorting: 01 - Monthly, 04 - Quarterly, 06 - Semi-annually, 12 - Annually, 00 - Unknown/None/—, 99 - Irregular.",
         "Weight (%)":
           "Portfolio Weight (%) — Percentage allocation of this position in the fund's total portfolio value.",
         Weight:
@@ -580,6 +644,24 @@ Vanguard ETF Holdings to Watchlist
           "Distribution Amount ($) — Cash dividend distribution paid per single share in USD.",
         "Distribution Type":
           "Distribution Type — Classification of cash distribution (e.g. Ordinary Dividend, Capital Gains, Return of Capital).",
+        Metric: "Metric — Performance measure name (total return, CAGR, yield, expense).",
+        Value: "Value — Performance measure value.",
+        Dividend:
+          "Dividend — Cash distribution paid per share in USD (latest ex-date).",
+        "ST Cap Gains":
+          "ST Cap Gains — Short-term capital gains distributed per share in USD.",
+        "LT Cap Gains":
+          "LT Cap Gains — Long-term capital gains distributed per share in USD.",
+        Identifier:
+          "Identifier — CUSIP / ISIN security identifier (stable key for bond positions without a ticker).",
+        Coupon:
+          "Coupon — Annualized interest rate of a debt position (percent).",
+        Maturity: "Maturity — Maturity date of a debt position.",
+        "Shares Held":
+          "Shares Held — Number of shares or units held (N-PORT balance).",
+        Balance: "Balance — Position size (shares or principal amount).",
+        "Asset Category":
+          "Asset Category — N-PORT asset code (e.g. EC equity, DBT debt).",
       };
 
       /**
@@ -717,6 +799,7 @@ Vanguard ETF Holdings to Watchlist
       let activeFundTicker = null;
       let fundHoldingsCache = {};
       let activeFundSheets = {};
+      let activeFundMeta = null;
       let isHoldingsLoading = false;
 
       let restoredSortKey = "";
@@ -724,6 +807,11 @@ Vanguard ETF Holdings to Watchlist
       let sortKey = "";
       let sortDir = "asc";
       let restoredQuery = "";
+      // Per-sheet persisted sorts — catalog sort must survive All ETFs clicks
+      let catalogSortKey = "";
+      let catalogSortDir = "asc";
+      let watchlistSortKey = "Weight Sum (%)";
+      let watchlistSortDir = "desc";
 
       const dropzone = document.getElementById("dropzone");
       const dropzoneText = document.getElementById("dropzone-text");
@@ -959,6 +1047,7 @@ Vanguard ETF Holdings to Watchlist
           }
         }
         void ensureHoldingsForSelected();
+        void refreshActiveFundMeta();
       }
 
       /**
@@ -1044,6 +1133,16 @@ Vanguard ETF Holdings to Watchlist
       }
 
       /**
+       * Whether a holding row is a cash / money-market position.
+       */
+      function isCashLikeHolding(holding) {
+        const assetClass = (holding["Asset Class"] || "").toLowerCase();
+        return (
+          assetClass.includes("cash") || assetClass.includes("money market")
+        );
+      }
+
+      /**
        * Filters out cash, money market, and synthetic placeholder tickers.
        */
       function passesWatchlistFilter(symbol, holding) {
@@ -1054,9 +1153,7 @@ Vanguard ETF Holdings to Watchlist
           )
         )
           return false;
-        const assetClass = (holding["Asset Class"] || "").toLowerCase();
-        if (assetClass.includes("cash") || assetClass.includes("money market"))
-          return false;
+        if (isCashLikeHolding(holding)) return false;
         return /[A-Z]/.test(symbol);
       }
 
@@ -1123,8 +1220,25 @@ Vanguard ETF Holdings to Watchlist
         for (const ticker of selectedETFs) {
           const holdings = fundHoldingsCache[ticker] || [];
           for (const r of holdings) {
-            const sym = sanitizeWatchlistSymbol(r.Ticker);
-            if (!sym || !passesWatchlistFilter(sym, r)) continue;
+            // Holding rows carry the exchange ticker resolved at data-build
+            // time; bond / private positions have no ticker ("-", "—") and
+            // the CUSIP/ISIN identifier is the stable key for those rows
+            // (same rule as the SPDR / WisdomTree feeds).
+            const rawTicker = sanitizeWatchlistSymbol(r.Ticker);
+            const tickerUsable =
+              rawTicker &&
+              !["-", "—", "N/A"].includes(rawTicker) &&
+              /[A-Z]/.test(rawTicker);
+            const sym = tickerUsable
+              ? rawTicker
+              : sanitizeWatchlistSymbol(r.CUSIP || r.ISIN || r.Identifier || "");
+            if (!sym || sym === "-" || sym === "—") continue;
+            if (
+              tickerUsable
+                ? !passesWatchlistFilter(sym, r)
+                : isCashLikeHolding(r)
+            )
+              continue;
 
             if (!map.has(sym)) {
               map.set(sym, {
@@ -1194,6 +1308,20 @@ Vanguard ETF Holdings to Watchlist
       }
 
       /**
+       * Whether at least one selected ETF reports holdings rows in the
+       * catalog or in the already-loaded holdings cache.
+       * @returns {boolean}
+       */
+      function selectedHaveHoldingsData() {
+        for (const ticker of selectedETFs) {
+          const catalogCount = Number(staticFunds[ticker]?.holdings ?? 0);
+          if (Number.isFinite(catalogCount) && catalogCount > 0) return true;
+          if ((fundHoldingsCache[ticker] || []).length > 0) return true;
+        }
+        return false;
+      }
+
+      /**
        * Toggles selection of all catalog ETFs.
        * @param {boolean} selectAll
        */
@@ -1215,6 +1343,9 @@ Vanguard ETF Holdings to Watchlist
             ].includes(activeSheetName)
           ) {
             activeSheetName = "ETF Catalog";
+            // restore catalog sort when returning via checkbox
+            sortKey = catalogSortKey || sortKey || "";
+            sortDir = catalogSortDir || sortDir || "asc";
           }
         }
         persistSelectedEtfs();
@@ -1241,6 +1372,7 @@ Vanguard ETF Holdings to Watchlist
         }
 
         void ensureHoldingsForSelected();
+        void refreshActiveFundMeta();
       }
 
       /**
@@ -1295,6 +1427,7 @@ Vanguard ETF Holdings to Watchlist
         }
 
         void ensureHoldingsForSelected();
+        void refreshActiveFundMeta();
       }
 
       /**
@@ -1364,6 +1497,37 @@ Vanguard ETF Holdings to Watchlist
       // =========================================================================
 
       /**
+       * Normalizes Vanguard's raw distribution-frequency label into a
+       * two-digit sortable code, e.g. "04 - Quarterly". Unknown/blank
+       * values sort first ("00 - ..."), irregular cadences sort last
+       * ("99 - Irregular"), keeping ascending sort meaningful.
+       * @param {unknown} value
+       * @returns {string}
+       */
+      function formatDividendFrequency(value) {
+        const raw = String(value ?? "").trim();
+        const normalized = raw
+          .toLowerCase()
+          .replace(/[‐‑‒–—]/g, "-")
+          .replace(/\s+/g, " ");
+        if (!normalized || normalized === "-") return "00 - —";
+        if (normalized === "monthly") return "01 - Monthly";
+        if (normalized === "quarterly") return "04 - Quarterly";
+        if (
+          normalized === "semi-annual" ||
+          normalized === "semi-annually" ||
+          normalized === "semiannual"
+        )
+          return "06 - Semi-annually";
+        if (normalized === "annual" || normalized === "annually")
+          return "12 - Annually";
+        if (normalized === "none") return "00 - None";
+        if (normalized === "unknown") return "00 - Unknown";
+        if (normalized === "irregular") return "99 - Irregular";
+        return raw;
+      }
+
+      /**
        * Fetches the root ETF catalog from api/vanguard/index.json.
        */
       async function loadStaticCatalog() {
@@ -1400,6 +1564,7 @@ Vanguard ETF Holdings to Watchlist
               "Expense",
               "Dividend Yield",
               "SEC Yield",
+              "Frequency",
               "YTD Return",
               "TR 1Y",
               "TR 3Y",
@@ -1427,6 +1592,7 @@ Vanguard ETF Holdings to Watchlist
                 Expense: fund.netExpenseRatio || fund.grossExpenseRatio || "—",
                 "Dividend Yield": fund.trailingYield || "—",
                 "SEC Yield": fund.secYield || "—",
+                Frequency: formatDividendFrequency(fund.distributionFrequency),
                 "YTD Return": formatPercent(totalReturn.YTD ?? fund.ytdReturn),
                 "TR 1Y": formatPercent(totalReturn["1Y"]),
                 "TR 3Y": formatPercent(totalReturn["3Y"]),
@@ -1515,12 +1681,143 @@ Vanguard ETF Holdings to Watchlist
 
       function staticSheet(sheet) {
         const headers = Array.isArray(sheet?.headers) ? sheet.headers : [];
-        const data = Array.isArray(sheet?.rows) ? sheet.rows : [];
+        const raw = Array.isArray(sheet?.rows) ? sheet.rows : [];
+        // Rows are keyed by the literal header strings (same contract as the
+        // SPDR / WisdomTree feeds), but older cached pages used lowercase
+        // keys ("date" vs "Date") and distributions use compact array rows —
+        // normalize both so every row answers item[header] lookups.
+        const normalizeKey = (value) =>
+          String(value ?? "")
+            .toLowerCase()
+            .replace(/[\s_]+/g, "");
+        const data = raw.map((row) => {
+          if (Array.isArray(row)) {
+            const byIndex = {};
+            headers.forEach((header, index) => {
+              byIndex[header] = row[index] ?? "";
+            });
+            return byIndex;
+          }
+          if (!row || typeof row !== "object") return row;
+          if (headers.every((header) => row[header] !== undefined)) return row;
+          const keyByNormalized = new Map(
+            Object.keys(row).map((key) => [normalizeKey(key), key]),
+          );
+          const out = { ...row };
+          headers.forEach((header) => {
+            if (out[header] === undefined) {
+              const actual = keyByNormalized.get(normalizeKey(header));
+              if (actual !== undefined) out[header] = row[actual];
+            }
+          });
+          return out;
+        });
         return {
           headers,
           data,
           tickerCol: headers.find((header) => /^ticker$/i.test(header)) || null,
         };
+      }
+
+      /**
+       * Builds the Performance sheet from a fund's meta.json. Returns and
+       * official-yield metrics already ship in the catalog payload, so — like
+       * the SPDR / WisdomTree Overview tab — this sheet needs no extra fetch.
+       * @param {Record<string, unknown>} meta
+       * @returns {{ headers: string[]; data: Array<Record<string, unknown>>; tickerCol: null }}
+       */
+      function buildPerformanceSheet(meta) {
+        const fund = meta && typeof meta === "object" ? meta : {};
+        const totalReturn =
+          fund.totalReturn && typeof fund.totalReturn === "object"
+            ? fund.totalReturn
+            : {};
+        const performance =
+          fund.performance && typeof fund.performance === "object"
+            ? fund.performance
+            : {};
+        const official =
+          fund.officialMetrics && typeof fund.officialMetrics === "object"
+            ? fund.officialMetrics
+            : {};
+        const officialReturns =
+          official.returns && typeof official.returns === "object"
+            ? official.returns
+            : {};
+        const percent = (value) => {
+          if (value === null || value === undefined || value === "") return "—";
+          const number = Number(value);
+          return Number.isFinite(number) ? number.toFixed(2) : String(value);
+        };
+        const rows = [
+          { Metric: "YTD Return", Value: percent(totalReturn.YTD ?? fund.ytdReturn ?? officialReturns.YTD) },
+          { Metric: "TR 1Y", Value: percent(totalReturn["1Y"] ?? officialReturns["1Y"]) },
+          { Metric: "TR 3Y", Value: percent(totalReturn["3Y"]) },
+          { Metric: "TR 5Y", Value: percent(totalReturn["5Y"]) },
+          { Metric: "TR 10Y", Value: percent(totalReturn["10Y"]) },
+          { Metric: "CAGR 1Y", Value: percent(performance["1Y"]) },
+          { Metric: "CAGR 3Y", Value: percent(performance["3Y"]) },
+          { Metric: "CAGR 5Y", Value: percent(performance["5Y"]) },
+          { Metric: "CAGR 10Y", Value: percent(performance["10Y"]) },
+          { Metric: "Dividend Yield", Value: percent(fund.trailingYield) },
+          { Metric: "SEC Yield", Value: percent(fund.secYield) },
+          { Metric: "Expense Ratio", Value: percent(fund.netExpenseRatio) },
+          { Metric: "NAV", Value: fund.nav ?? "—" },
+          { Metric: "Distribution Frequency", Value: fund.distributionFrequency ?? "—" },
+        ];
+        return {
+          headers: ["Metric", "Value"],
+          data: rows.filter((row) => row.Value !== "—" && row.Value !== ""),
+          tickerCol: null,
+        };
+      }
+
+      /**
+       * Applies the lightweight inline sheets (Performance, Distributions)
+       * from an already-fetched meta.json, without touching paged
+       * Holdings / Historical state.
+       * @param {Record<string, unknown>} meta
+       */
+      function applyInlineFundSheets(meta) {
+        activeFundSheets["Performance"] = buildPerformanceSheet(meta);
+        activeFundSheets["Distributions"] = staticSheet({
+          headers: meta?.distributions?.headers,
+          rows: meta?.distributions?.rows,
+        });
+        if (workbookSheets["ETF Catalog"]) {
+          workbookSheets["Performance"] = activeFundSheets["Performance"];
+          workbookSheets["Distributions"] = activeFundSheets["Distributions"];
+        }
+      }
+
+      /**
+       * Fetches the active fund's meta.json (cheap, unpaged) so the detail
+       * tab counts and inline sheets stay correct after (de)selection,
+       * without forcing a full fund-sheet load.
+       */
+      async function refreshActiveFundMeta() {
+        const ticker = activeFundTicker || [...selectedETFs][0];
+        if (!ticker || isUploadedFile) return;
+        try {
+          const response = await fetch(
+            `./api/vanguard/funds/${encodeURIComponent(ticker)}/meta.json`,
+            { cache: "no-cache" },
+          );
+          if (!response.ok) return;
+          const meta = await response.json();
+          activeFundMeta = meta;
+          applyInlineFundSheets(meta);
+          renderTabs();
+          if (
+            activeSheetName === "Performance" ||
+            activeSheetName === "Distributions"
+          ) {
+            const sheet = workbookSheets[activeSheetName];
+            if (sheet) renderTable(getFilteredRows(sheet), sheet.headers);
+          }
+        } catch (error) {
+          console.warn(`Could not refresh fund meta for ${ticker}:`, error);
+        }
       }
 
       function resetStaticPaging() {
@@ -1621,6 +1918,7 @@ Vanguard ETF Holdings to Watchlist
           );
           if (!response.ok) return;
           const data = await response.json();
+          activeFundMeta = data;
           staticTicker = ticker;
           resetStaticPaging();
 
@@ -1648,6 +1946,12 @@ Vanguard ETF Holdings to Watchlist
             );
             staticNextPageBySheet[sheetName] = 1;
           }
+
+          fundSheets["Performance"] = buildPerformanceSheet(data);
+          fundSheets["Distributions"] = staticSheet({
+            headers: data.distributions?.headers,
+            rows: data.distributions?.rows,
+          });
 
           activeFundSheets = fundSheets;
           workbookSheets = {
@@ -1704,6 +2008,19 @@ Vanguard ETF Holdings to Watchlist
             typeof saved.sortKey === "string" ? saved.sortKey : "";
           restoredSortDir = saved.sortDir === "desc" ? "desc" : "asc";
           restoredQuery = typeof saved.query === "string" ? saved.query : "";
+          // per-sheet sorts (new) with backward compat from legacy sortKey
+          catalogSortKey =
+            typeof saved.catalogSortKey === "string"
+              ? saved.catalogSortKey
+              : restoredSortKey || "";
+          catalogSortDir =
+            saved.catalogSortDir === "desc" ? "desc" : saved.catalogSortDir === "asc" ? "asc" : restoredSortDir || "asc";
+          watchlistSortKey =
+            typeof saved.watchlistSortKey === "string"
+              ? saved.watchlistSortKey
+              : "Weight Sum (%)";
+          watchlistSortDir =
+            saved.watchlistSortDir === "desc" ? "desc" : saved.watchlistSortDir === "asc" ? "asc" : "desc";
         } catch {
           /* no saved state */
         }
@@ -1711,17 +2028,25 @@ Vanguard ETF Holdings to Watchlist
 
       function applyRestoredSiteState() {
         if (activeSheetName === "Watchlist") {
+          sortKey = watchlistSortKey || "Weight Sum (%)";
+          sortDir = watchlistSortDir || "desc";
+          searchInput.value = restoredQuery;
           renderWatchlistTable();
           return;
         }
         const currentSheet = workbookSheets[activeSheetName];
-        sortKey = restoredSortKey;
-        sortDir = restoredSortDir;
+        if (activeSheetName === "ETF Catalog") {
+          sortKey = catalogSortKey || restoredSortKey || "";
+          sortDir = catalogSortDir || restoredSortDir || "asc";
+        } else {
+          sortKey = restoredSortKey;
+          sortDir = restoredSortDir;
+        }
         searchInput.value = restoredQuery;
         if (!currentSheet) return;
         if (sortKey && !currentSheet.headers.includes(sortKey)) {
           sortKey = "";
-          sortDir = "asc";
+          sortDir = activeSheetName === "ETF Catalog" ? catalogSortDir || "asc" : "asc";
         }
         renderTable(getFilteredRows(currentSheet), currentSheet.headers);
         renderStaticLoadSentinel();
@@ -1730,7 +2055,15 @@ Vanguard ETF Holdings to Watchlist
       function persistSiteState() {
         localStorage.setItem(
           SITE_STATE_KEY,
-          JSON.stringify({ sortKey, sortDir, query: searchInput.value }),
+          JSON.stringify({
+            sortKey,
+            sortDir,
+            query: searchInput.value,
+            catalogSortKey,
+            catalogSortDir,
+            watchlistSortKey,
+            watchlistSortDir,
+          }),
         );
       }
 
@@ -1894,18 +2227,24 @@ Vanguard ETF Holdings to Watchlist
         const activeFund = activeTicker ? staticFunds[activeTicker] : null;
 
         if (activeFund) {
-          const holdingsCount = activeFund.holdings
-            ? formatInteger(activeFund.holdings)
-            : fundHoldingsCache[activeTicker]?.length || 0;
+          const holdingsCount =
+            activeFund.holdings !== null &&
+            activeFund.holdings !== undefined &&
+            activeFund.holdings !== ""
+              ? formatInteger(activeFund.holdings)
+              : fundHoldingsCache[activeTicker]?.length || 0;
           tabs.push({
             id: "Holdings",
             label: `${activeTicker} Holdings`,
             count: holdingsCount,
           });
 
-          const historyCount = activeFund.history
-            ? formatInteger(activeFund.history)
-            : 0;
+          const historyCount =
+            activeFund.history !== null &&
+            activeFund.history !== undefined &&
+            activeFund.history !== ""
+              ? formatInteger(activeFund.history)
+              : 0;
           tabs.push({
             id: "Historical",
             label: "History",
@@ -2055,16 +2394,51 @@ Vanguard ETF Holdings to Watchlist
 
       /**
        * Switches active sheet and renders its corresponding table view.
+       * Preserves per-sheet sort so All ETFs button (checkbox or label) keeps
+       * previous sort order.
        * @param {string} sheetName
        */
       async function switchSheet(sheetName) {
+        // Save current sheet's sort before leaving
+        if (activeSheetName === "ETF Catalog") {
+          catalogSortKey = sortKey;
+          catalogSortDir = sortDir;
+        } else if (activeSheetName === "Watchlist") {
+          watchlistSortKey = sortKey;
+          watchlistSortDir = sortDir;
+        }
+
         activeSheetName = sheetName;
-        sortKey = "";
-        sortDir =
-          activeSheetName === "Watchlist" || activeSheetName === "ETF Catalog"
-            ? "desc"
-            : "asc";
-        if (activeSheetName === "Watchlist") sortKey = "Weight Sum (%)";
+
+        if (activeSheetName === "ETF Catalog") {
+          // Restore catalog sort if we have one, else keep legacy restored
+          if (catalogSortKey) {
+            sortKey = catalogSortKey;
+            sortDir = catalogSortDir;
+          } else if (restoredSortKey && (staticCatalogSheet?.headers || []).includes(restoredSortKey)) {
+            sortKey = restoredSortKey;
+            sortDir = restoredSortDir;
+          } else {
+            sortKey = catalogSortKey || "";
+            sortDir = catalogSortDir || "asc";
+          }
+        } else if (activeSheetName === "Watchlist") {
+          if (watchlistSortKey) {
+            sortKey = watchlistSortKey;
+            sortDir = watchlistSortDir;
+          } else {
+            sortKey = "Weight Sum (%)";
+            sortDir = "desc";
+          }
+        } else {
+          // Detail sheets default asc, clear sort if not valid for that sheet
+          const maybeSheet = workbookSheets[activeSheetName] || null;
+          if (maybeSheet && sortKey && !maybeSheet.headers.includes(sortKey)) {
+            sortKey = "";
+          }
+          sortDir = sortKey ? sortDir : "asc";
+        }
+        persistSiteState();
 
         await dbSet("active_tab", activeSheetName);
         renderTabs();
@@ -2094,7 +2468,10 @@ Vanguard ETF Holdings to Watchlist
         const currentSheet =
           workbookSheets[activeSheetName] ||
           (activeSheetName === "ETF Catalog" ? staticCatalogSheet : null);
-        if (!currentSheet) return;
+        if (!currentSheet) {
+          renderMissingSheet(activeSheetName);
+          return;
+        }
 
         renderTable(getFilteredRows(currentSheet), currentSheet.headers);
         renderStaticLoadSentinel();
@@ -2111,6 +2488,42 @@ Vanguard ETF Holdings to Watchlist
         const hasData = currentSheet.data.length > 0;
         exportCsvBtn.disabled = !hasData;
         exportTxtBtn.disabled = !hasData;
+      }
+
+      /**
+       * Renders an explanatory empty state when a detail tab has no backing
+       * sheet yet (e.g. Holdings before the first holdings-carrying data
+       * refresh), instead of leaving the previous table on screen.
+       * @param {string} sheetName
+       */
+      function renderMissingSheet(sheetName) {
+        const ticker = activeFundTicker || [...selectedETFs][0] || "";
+        const explanations = {
+          Holdings: `No holdings published yet for ${ticker}. Holdings populate from Vanguard's official feed (with SEC EDGAR N-PORT-P fallback) on the next data refresh.`,
+          Historical: `No price history stored yet for ${ticker}. History populates from the market-data feed on the next data refresh.`,
+          Performance: `No performance metrics stored yet for ${ticker}.`,
+          Distributions: `No distributions published yet for ${ticker}. Distributions populate from dividend events on the next data refresh.`,
+        };
+        tickerCount.textContent = "0 items";
+        tableHead.innerHTML = `
+          <tr>
+            <th class="py-3.5 px-4 w-12 text-center" title="${escapeHtml(
+              getHeaderTooltip("#"),
+            )}">#</th>
+            <th class="py-3.5 px-4">${escapeHtml(ticker || sheetName)}</th>
+          </tr>
+        `;
+        tableBody.innerHTML = `<tr><td colspan="2" class="py-12 text-center text-slate-400 dark:text-slate-500">${escapeHtml(
+          explanations[sheetName] ||
+            `No data stored yet for ${sheetName}.`,
+        )}</td></tr>`;
+        copyBtn.disabled = true;
+        copyBtn.title = "Current tab does not contain a Ticker column";
+        exportCsvBtn.disabled = true;
+        exportTxtBtn.disabled = true;
+        renderStaticLoadSentinel();
+        animateTableUpdate();
+        fitTableScrollHeight();
       }
 
       function enableControls(fileName) {
@@ -2140,6 +2553,7 @@ Vanguard ETF Holdings to Watchlist
 
         selectedETFs.clear();
         activeFundTicker = null;
+        activeFundMeta = null;
         localStorage.removeItem(SELECTED_KEY);
         localStorage.removeItem(ACTIVE_FUND_KEY);
         searchInput.value = "";
@@ -2190,7 +2604,7 @@ Vanguard ETF Holdings to Watchlist
             ${
               isCatalog
                 ? `
-              <th class="py-3.5 px-4 w-20 text-center" title="${escapeHtml(
+              <th class="catalog-sticky-col catalog-sticky-use py-3.5 px-4 w-20 text-center" title="${escapeHtml(
                 getHeaderTooltip("Use"),
               )}">
                 <div class="inline-flex items-center justify-center gap-1">
@@ -2203,7 +2617,11 @@ Vanguard ETF Holdings to Watchlist
             `
                 : ""
             }
-            ${headers.map((header) => sortHeader(header)).join("")}
+            ${headers
+              .map((header, index) =>
+                sortHeader(header, isCatalog && index === 0),
+              )
+              .join("")}
           </tr>
         `;
           bindSortHeaders();
@@ -2240,7 +2658,7 @@ Vanguard ETF Holdings to Watchlist
             ${
               isCatalog
                 ? `
-              <td class="py-2.5 px-4 text-center">
+              <td class="catalog-sticky-col catalog-sticky-use py-2.5 px-4 text-center">
                 <div class="inline-flex items-center justify-center gap-1.5">
                   <input data-checkbox="${escapeHtml(
                     item.Ticker,
@@ -2264,7 +2682,7 @@ Vanguard ETF Holdings to Watchlist
                 const value = item[header] || "";
                 if (index === 0 && currentSheet?.tickerCol) {
                   if (isCatalog) {
-                    return `<td class="py-2.5 px-4 font-mono font-semibold text-blue-600 dark:text-blue-400"><a href="javascript:void(0)" class="hover:underline" data-fund-view="${escapeHtml(
+                    return `<td class="catalog-sticky-col catalog-sticky-ticker py-2.5 px-4 font-mono font-semibold text-blue-600 dark:text-blue-400"><a href="javascript:void(0)" class="hover:underline" data-fund-view="${escapeHtml(
                       value,
                     )}">${escapeHtml(value)}</a></td>`;
                   }
@@ -2360,7 +2778,9 @@ Vanguard ETF Holdings to Watchlist
               ? 'No ETFs selected yet. Check individual boxes or "All ETFs" to build a multi-ETF Watchlist.'
               : isHoldingsLoading
                 ? "Loading holdings for selected ETFs…"
-                : "No watchlist tickers match your search.";
+                : !selectedHaveHoldingsData()
+                  ? "Holdings data is not available yet for the selected ETFs. Run the data refresh workflow to fetch official Vanguard holdings (SEC N-PORT-P fallback)."
+                  : "No watchlist tickers match your search.";
           tableBody.innerHTML = `<tr><td colspan="${
             headers.length + 1
           }" class="py-12 text-center text-slate-400 dark:text-slate-500">${escapeHtml(
@@ -2426,14 +2846,17 @@ Vanguard ETF Holdings to Watchlist
         fitTableScrollHeight();
       }
 
-      function sortHeader(header) {
+      function sortHeader(header, isPinnedTicker = false) {
         const active = sortKey === header;
         const arrow = active ? (sortDir === "asc" ? " ↑" : " ↓") : "";
         const tooltip = getHeaderTooltip(header);
         const isNumeric = isNumericColumn(header);
         const align = isNumeric ? " text-right" : "";
+        const pinnedClass = isPinnedTicker
+          ? " catalog-sticky-col catalog-sticky-ticker"
+          : "";
 
-        return `<th class="py-3.5 px-4${align}" title="${escapeHtml(
+        return `<th class="py-3.5 px-4${align}${pinnedClass}" title="${escapeHtml(
           tooltip,
         )}"><button data-sort="${escapeHtml(header)}" title="${escapeHtml(
           tooltip,
@@ -2452,6 +2875,14 @@ Vanguard ETF Holdings to Watchlist
             } else {
               sortKey = key;
               sortDir = isNumericColumn(key) ? "desc" : "asc";
+            }
+            // keep per-sheet sort in sync so All ETFs preserves order
+            if (activeSheetName === "ETF Catalog") {
+              catalogSortKey = sortKey;
+              catalogSortDir = sortDir;
+            } else if (activeSheetName === "Watchlist") {
+              watchlistSortKey = sortKey;
+              watchlistSortDir = sortDir;
             }
             persistSiteState();
             if (activeSheetName === "Watchlist") {

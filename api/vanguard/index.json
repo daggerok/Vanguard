@@ -20,6 +20,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 5.14,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.285"
+      },
       "ytdReturn": -2.39011117,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -64,6 +70,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 5.79,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.281"
+      },
       "ytdReturn": -3.63598389,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -108,6 +120,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 4.83,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.253"
+      },
       "ytdReturn": -1.43199685,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -152,6 +170,12 @@
       "dividendYieldAsOf": null,
       "secYield": 5.11,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.287"
+      },
       "ytdReturn": -1.15599542,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -196,6 +220,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 4.34,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.206"
+      },
       "ytdReturn": -1.18692875,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -240,6 +270,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 3.8,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.121"
+      },
       "ytdReturn": -1.05991887,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -284,6 +320,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 4.59,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.268"
+      },
       "ytdReturn": -0.10716564,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -328,6 +370,12 @@
       "dividendYieldAsOf": null,
       "secYield": 5.6,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-07-01",
+        "dividend": "0.867"
+      },
       "ytdReturn": -6.87362541,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -372,6 +420,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 0.83,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-18",
+        "dividend": "0.279"
+      },
       "ytdReturn": 11.00517918,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -416,6 +470,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 0.57,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Annually",
+      "distributions": {
+        "frequency": "Annually",
+        "exDate": "2025-12-22",
+        "dividend": "0.774"
+      },
       "ytdReturn": 13.13274042,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -460,6 +520,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 1.17,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-24",
+        "dividend": "0.345"
+      },
       "ytdReturn": 11.15753453,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -504,6 +570,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 1.74,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Annually",
+      "distributions": {
+        "frequency": "Annually",
+        "exDate": "2025-12-22",
+        "dividend": "1.841"
+      },
       "ytdReturn": 9.09451159,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -548,6 +620,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 0.85,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-26",
+        "dividend": "0.651"
+      },
       "ytdReturn": 11.24287652,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -592,6 +670,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 0.29,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-26",
+        "dividend": "0.084"
+      },
       "ytdReturn": 8.13798018,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -636,6 +720,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 1.72,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-26",
+        "dividend": "0.732"
+      },
       "ytdReturn": 17.24381521,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -680,6 +770,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 3.83,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.287"
+      },
       "ytdReturn": -1.86581722,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -724,6 +820,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 1.29,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-24",
+        "dividend": "0.802"
+      },
       "ytdReturn": 9.0714453,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -768,6 +870,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 1.28,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-26",
+        "dividend": "0.892"
+      },
       "ytdReturn": 12.83003466,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -812,6 +920,12 @@
       "dividendYieldAsOf": null,
       "secYield": 4.38,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.252"
+      },
       "ytdReturn": 1.9892224359440602,
       "asOfDate": "",
       "totalReturn": {
@@ -856,6 +970,12 @@
       "dividendYieldAsOf": null,
       "secYield": 4.73,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.204"
+      },
       "ytdReturn": 1.48284523075628,
       "asOfDate": "",
       "totalReturn": {
@@ -900,6 +1020,12 @@
       "dividendYieldAsOf": null,
       "secYield": 4.94,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.261"
+      },
       "ytdReturn": 0.9191629459644135,
       "asOfDate": "",
       "totalReturn": {
@@ -944,6 +1070,12 @@
       "dividendYieldAsOf": null,
       "secYield": 5.08,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.262"
+      },
       "ytdReturn": 0.4274872908553773,
       "asOfDate": "",
       "totalReturn": {
@@ -988,6 +1120,12 @@
       "dividendYieldAsOf": null,
       "secYield": 5.23,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.278"
+      },
       "ytdReturn": 0.24955428215336362,
       "asOfDate": "",
       "totalReturn": {
@@ -1032,6 +1170,12 @@
       "dividendYieldAsOf": null,
       "secYield": 5.34,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.29"
+      },
       "ytdReturn": -0.05661670026443355,
       "asOfDate": "",
       "totalReturn": {
@@ -1076,6 +1220,12 @@
       "dividendYieldAsOf": null,
       "secYield": 5.49,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.31"
+      },
       "ytdReturn": -0.13632674026887726,
       "asOfDate": "",
       "totalReturn": {
@@ -1120,6 +1270,12 @@
       "dividendYieldAsOf": null,
       "secYield": 5.62,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.273"
+      },
       "ytdReturn": 0.03595825839421973,
       "asOfDate": "",
       "totalReturn": {
@@ -1164,6 +1320,12 @@
       "dividendYieldAsOf": null,
       "secYield": 5.7,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.326"
+      },
       "ytdReturn": -0.2999284964952831,
       "asOfDate": "",
       "totalReturn": {
@@ -1208,6 +1370,12 @@
       "dividendYieldAsOf": null,
       "secYield": 5.8,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.296"
+      },
       "ytdReturn": -0.592239505108505,
       "asOfDate": "",
       "totalReturn": {
@@ -1252,6 +1420,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 3.64,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.222"
+      },
       "ytdReturn": 2.5635266,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -1296,6 +1470,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 0.37,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-26",
+        "dividend": "0.366"
+      },
       "ytdReturn": 11.22038011,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -1340,6 +1520,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 1.9,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-26",
+        "dividend": "1.09"
+      },
       "ytdReturn": 13.91252768,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -1384,6 +1570,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 5.45,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.248"
+      },
       "ytdReturn": -1.68363776,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -1428,6 +1620,12 @@
       "dividendYieldAsOf": null,
       "secYield": 7.28,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.363"
+      },
       "ytdReturn": -1.1124421950864494,
       "asOfDate": "",
       "totalReturn": {
@@ -1472,6 +1670,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 5.64,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.34"
+      },
       "ytdReturn": -1.90334564,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -1516,6 +1720,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 6.31,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.362"
+      },
       "ytdReturn": -3.07536564,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -1560,6 +1770,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 0.76,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-24",
+        "dividend": "0.707"
+      },
       "ytdReturn": -5.58102315,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -1604,6 +1820,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 4.99,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.301"
+      },
       "ytdReturn": -1.21675639,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -1648,6 +1870,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 4.22,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.246"
+      },
       "ytdReturn": -0.96331441,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -1692,6 +1920,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 5.01,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.303"
+      },
       "ytdReturn": 0.30521301,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -1736,6 +1970,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 2.17,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-24",
+        "dividend": "1.224"
+      },
       "ytdReturn": 7.76090766,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -1780,6 +2020,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 1.75,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-24",
+        "dividend": "1.032"
+      },
       "ytdReturn": 44.80053827,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -1824,6 +2070,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": null,
       "secYieldAsOf": null,
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-18",
+        "dividend": "0.254"
+      },
       "ytdReturn": 6.8942566930089155,
       "asOfDate": "",
       "totalReturn": {
@@ -1868,6 +2120,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 1.01,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Annually",
+      "distributions": {
+        "frequency": "Annually",
+        "exDate": "2025-12-23",
+        "dividend": "0.078"
+      },
       "ytdReturn": 0.71789851,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -1912,6 +2170,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": null,
       "secYieldAsOf": null,
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-18",
+        "dividend": "0.611"
+      },
       "ytdReturn": 6.102726566292138,
       "asOfDate": "",
       "totalReturn": {
@@ -1956,6 +2220,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": null,
       "secYieldAsOf": null,
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-18",
+        "dividend": "0.377"
+      },
       "ytdReturn": 14.83057672,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -2000,6 +2270,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": null,
       "secYieldAsOf": null,
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-18",
+        "dividend": "0.393"
+      },
       "ytdReturn": 14.05644201,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -2044,6 +2320,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": null,
       "secYieldAsOf": null,
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-18",
+        "dividend": "0.653"
+      },
       "ytdReturn": 21.08487922,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -2088,6 +2370,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 1.52,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-24",
+        "dividend": "0.852"
+      },
       "ytdReturn": 3.20433468,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -2132,6 +2420,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 1.43,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-24",
+        "dividend": "0.682"
+      },
       "ytdReturn": 22.68070396,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -2176,6 +2470,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 0.6,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-24",
+        "dividend": "0.473"
+      },
       "ytdReturn": 17.50538208,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -2220,6 +2520,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 1.48,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-24",
+        "dividend": "0.411"
+      },
       "ytdReturn": 10.41050478,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -2264,6 +2570,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 0.9,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-24",
+        "dividend": "0.443"
+      },
       "ytdReturn": 12.54685959,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -2308,6 +2620,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 1.81,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-24",
+        "dividend": "0.709"
+      },
       "ytdReturn": 20.06796358,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -2352,6 +2670,12 @@
       "dividendYieldAsOf": null,
       "secYield": 6.61,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.393"
+      },
       "ytdReturn": 1.69876402,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -2396,6 +2720,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 4.63,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.206"
+      },
       "ytdReturn": -2.13378632,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -2440,6 +2770,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": null,
       "secYieldAsOf": null,
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-18",
+        "dividend": "1.199"
+      },
       "ytdReturn": 7.70225142,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -2484,6 +2820,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 5.36,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.215"
+      },
       "ytdReturn": -4.22577363,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -2528,6 +2870,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 5.77,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.228"
+      },
       "ytdReturn": 0.80658574,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -2572,6 +2920,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 4.39,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.168"
+      },
       "ytdReturn": 0.53062908,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -2616,6 +2970,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 0.33,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-24",
+        "dividend": "0.138"
+      },
       "ytdReturn": 26.51129116,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -2660,6 +3020,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 3.78,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.231"
+      },
       "ytdReturn": 2.43240907,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -2704,6 +3070,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 4.33,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.267"
+      },
       "ytdReturn": -1.31733782,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -2748,6 +3120,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 1.24,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-24",
+        "dividend": "0.987"
+      },
       "ytdReturn": 10.12140912,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -2792,6 +3170,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 1.43,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-26",
+        "dividend": "0.999"
+      },
       "ytdReturn": 8.11174305,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -2836,6 +3220,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": null,
       "secYieldAsOf": null,
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-18",
+        "dividend": "0.534"
+      },
       "ytdReturn": 6.82654912,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -2880,6 +3270,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 0.82,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-26",
+        "dividend": "0.224"
+      },
       "ytdReturn": 16.31216298,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -2924,6 +3320,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 1.43,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Annually",
+      "distributions": {
+        "frequency": "Annually",
+        "exDate": "2025-12-22",
+        "dividend": "1.508"
+      },
       "ytdReturn": 16.94762462,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -2968,6 +3370,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 1.94,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-24",
+        "dividend": "0.474"
+      },
       "ytdReturn": 17.47925991,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -3012,6 +3420,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 0.93,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-24",
+        "dividend": "0.76"
+      },
       "ytdReturn": 9.02719392,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -3056,6 +3470,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 4.4,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.167"
+      },
       "ytdReturn": -1.2857597,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -3100,6 +3520,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": null,
       "secYieldAsOf": null,
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-24",
+        "dividend": "0.855"
+      },
       "ytdReturn": 7.73072156,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -3144,6 +3570,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": null,
       "secYieldAsOf": null,
+      "distributionFrequency": "Annually",
+      "distributions": {
+        "frequency": "Annually",
+        "exDate": "2025-12-19",
+        "dividend": "2.156"
+      },
       "ytdReturn": -5.33536586,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -3188,6 +3620,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 1.38,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-26",
+        "dividend": "0.255"
+      },
       "ytdReturn": 10.42996201,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -3232,6 +3670,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 1.92,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-26",
+        "dividend": "0.919"
+      },
       "ytdReturn": 14.9435332,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -3276,6 +3720,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 0.96,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-18",
+        "dividend": "0.864"
+      },
       "ytdReturn": 11.01350386,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -3320,6 +3770,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 0.37,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-18",
+        "dividend": "0.159"
+      },
       "ytdReturn": 2.28769754,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -3364,6 +3820,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 1.47,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-18",
+        "dividend": "0.41"
+      },
       "ytdReturn": 20.81322351,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -3408,6 +3870,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 0.98,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-26",
+        "dividend": "1.962"
+      },
       "ytdReturn": 11.2232181,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -3452,6 +3920,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 0.41,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-24",
+        "dividend": "0.088"
+      },
       "ytdReturn": 11.81549821,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -3496,6 +3970,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 1.62,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-24",
+        "dividend": "0.918"
+      },
       "ytdReturn": 10.40568241,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -3540,6 +4020,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 0.59,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-26",
+        "dividend": "0.399"
+      },
       "ytdReturn": 4.05212004,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -3584,6 +4070,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 0.94,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-24",
+        "dividend": "0.449"
+      },
       "ytdReturn": -0.09174591,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -3628,6 +4120,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": null,
       "secYieldAsOf": null,
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2025-12-19",
+        "dividend": "2.419"
+      },
       "ytdReturn": 26.46507008,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -3672,6 +4170,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 5.05,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.3"
+      },
       "ytdReturn": -0.95697452,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -3716,6 +4220,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 2.86,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-24",
+        "dividend": "1.301"
+      },
       "ytdReturn": -2.00472754,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -3760,6 +4270,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 5.02,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.284"
+      },
       "ytdReturn": 0.77696028,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -3804,6 +4320,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 3.51,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.196"
+      },
       "ytdReturn": 0.53022897,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -3848,6 +4370,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": null,
       "secYieldAsOf": null,
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-18",
+        "dividend": "0.682"
+      },
       "ytdReturn": 14.83296217,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -3892,6 +4420,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": null,
       "secYieldAsOf": null,
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-18",
+        "dividend": "0.859"
+      },
       "ytdReturn": 9.34781555,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -3936,6 +4470,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": null,
       "secYieldAsOf": null,
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-18",
+        "dividend": "0.563"
+      },
       "ytdReturn": 12.17197823,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -3980,6 +4520,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 5.44,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.327"
+      },
       "ytdReturn": -1.39234241,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -4024,6 +4570,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 3.93,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.143"
+      },
       "ytdReturn": -1.87705145,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -4068,6 +4620,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 3.62,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.26"
+      },
       "ytdReturn": -2.04166506,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -4112,6 +4670,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 3.52,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.261"
+      },
       "ytdReturn": -1.86968178,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -4156,6 +4720,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 4.42,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.314"
+      },
       "ytdReturn": -2.6062002,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -4200,6 +4770,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 2.9,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.214"
+      },
       "ytdReturn": -0.10072557,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -4244,6 +4820,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 4.69,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.249"
+      },
       "ytdReturn": -1.63641666,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -4288,6 +4870,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 0.97,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-18",
+        "dividend": "0.837"
+      },
       "ytdReturn": 11.29115219,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -4332,6 +4920,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 1.01,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-26",
+        "dividend": "1.044"
+      },
       "ytdReturn": 11.39534534,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -4376,6 +4970,12 @@
       "dividendYieldAsOf": null,
       "secYield": 2.21,
       "secYieldAsOf": "2026-09-10",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-07-01",
+        "dividend": "0.68"
+      },
       "ytdReturn": 1.21502394,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -4420,6 +5020,12 @@
       "dividendYieldAsOf": null,
       "secYield": 2.22,
       "secYieldAsOf": "2026-09-10",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-07-01",
+        "dividend": "1.008"
+      },
       "ytdReturn": -0.78117731,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -4464,6 +5070,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 1.79,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-26",
+        "dividend": "1.082"
+      },
       "ytdReturn": 16.70680635,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -4508,6 +5120,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 0.41,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-18",
+        "dividend": "0.425"
+      },
       "ytdReturn": 12.08866061,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -4552,6 +5170,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 1.12,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-18",
+        "dividend": "0.301"
+      },
       "ytdReturn": 16.20038611,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -4596,6 +5220,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 1.86,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-18",
+        "dividend": "0.713"
+      },
       "ytdReturn": 20.63934615,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -4640,6 +5270,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 0.35,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-26",
+        "dividend": "0.092"
+      },
       "ytdReturn": 7.30536895,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -4684,6 +5320,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 4.52,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.174"
+      },
       "ytdReturn": 2.24520827,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -4728,6 +5370,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": -0.01,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Annually",
+      "distributions": {
+        "frequency": "Annually",
+        "exDate": "2025-12-23",
+        "dividend": "0.011"
+      },
       "ytdReturn": 5.49432472,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -4772,6 +5420,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 1.12,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Annually",
+      "distributions": {
+        "frequency": "Annually",
+        "exDate": "2025-12-23",
+        "dividend": "0.124"
+      },
       "ytdReturn": 10.85011185,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -4816,6 +5470,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 0.96,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-26",
+        "dividend": "0.974"
+      },
       "ytdReturn": 11.12245469,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -4860,6 +5520,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": null,
       "secYieldAsOf": null,
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-18",
+        "dividend": "0.071"
+      },
       "ytdReturn": 10.41996111,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -4904,6 +5570,12 @@
       "dividendYieldAsOf": "2026-09-01",
       "secYield": 6.26,
       "secYieldAsOf": "2026-09-15",
+      "distributionFrequency": "Monthly",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-01",
+        "dividend": "0.321"
+      },
       "ytdReturn": -0.22200697,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -4948,6 +5620,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 0.99,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-24",
+        "dividend": "0.555"
+      },
       "ytdReturn": 12.65674212,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -4992,6 +5670,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": null,
       "secYieldAsOf": null,
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-18",
+        "dividend": "0.386"
+      },
       "ytdReturn": 13.65318352,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -5036,6 +5720,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": 2.2,
       "secYieldAsOf": "2026-08-31",
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-18",
+        "dividend": "0.98"
+      },
       "ytdReturn": 12.64955664,
       "asOfDate": "2026-09-16",
       "totalReturn": {
@@ -5080,6 +5770,12 @@
       "dividendYieldAsOf": "2026-08-31",
       "secYield": null,
       "secYieldAsOf": null,
+      "distributionFrequency": "Quarterly",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-06-18",
+        "dividend": "1.257"
+      },
       "ytdReturn": 18.12460466,
       "asOfDate": "2026-09-16",
       "totalReturn": {

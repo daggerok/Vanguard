@@ -16,6 +16,31 @@
   "dividendYieldAsOf": "2026-09-01",
   "secYield": 3.52,
   "secYieldAsOf": "2026-09-15",
+  "distributionFrequency": "Monthly",
+  "distributions": {
+    "frequency": "Monthly",
+    "paymentsPerYear": 12,
+    "headers": [
+      "Frequency",
+      "Ex-Date",
+      "Record Date",
+      "Payable Date",
+      "Dividend",
+      "ST Cap Gains",
+      "LT Cap Gains"
+    ],
+    "rows": [
+      [
+        "Monthly",
+        "2026-09-01",
+        "—",
+        "—",
+        "0.261",
+        "—",
+        "—"
+      ]
+    ]
+  },
   "ytdReturn": -1.86968178,
   "asOfDate": "2026-09-16",
   "totalReturn": {

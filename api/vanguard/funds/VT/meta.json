@@ -16,6 +16,31 @@
   "dividendYieldAsOf": "2026-08-31",
   "secYield": null,
   "secYieldAsOf": null,
+  "distributionFrequency": "Quarterly",
+  "distributions": {
+    "frequency": "Quarterly",
+    "paymentsPerYear": 4,
+    "headers": [
+      "Frequency",
+      "Ex-Date",
+      "Record Date",
+      "Payable Date",
+      "Dividend",
+      "ST Cap Gains",
+      "LT Cap Gains"
+    ],
+    "rows": [
+      [
+        "Quarterly",
+        "2026-06-18",
+        "—",
+        "—",
+        "0.563",
+        "—",
+        "—"
+      ]
+    ]
+  },
   "ytdReturn": 12.17197823,
   "asOfDate": "2026-09-16",
   "totalReturn": {
