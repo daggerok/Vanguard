@@ -421,7 +421,7 @@ export async function createApp(options: { storage?: MemoryStorage } = {}): Prom
   const domLoadedListeners: Array<(event: any) => void> = [];
 
   const staticIds = [
-    "theme-toggle", "app-subtitle", "ticker-count", "search-input", "tabs-bar",
+    "theme-toggle", "app-subtitle", "ticker-count", "search-input", "search-clear-btn", "tabs-bar",
     "selected-tabs-panel", "selected-tabs-bar", "table-head", "table-body",
     "table-scroll", "static-load-sentinel", "static-load-status", "dropzone",
     "dropzone-text", "file-input", "copy-btn", "export-csv-btn", "export-txt-btn",
@@ -431,6 +431,7 @@ export async function createApp(options: { storage?: MemoryStorage } = {}): Prom
   for (const id of staticIds) {
     const el = new FakeElement(id === "search-input" ? "input" : "div");
     el.id = id;
+    if (id === "search-clear-btn") el.classList.add("hidden");
     elements.set(id, el);
   }
   elements.get("table-scroll")!.scrollHeight = 4000;
@@ -558,17 +559,24 @@ export function cleanFeedValue(value: unknown): string {
  * Ticker -> CUSIP -> ISIN -> Identifier/Security ID -> SEDOL/FIGI -> Name.
  */
 export function watchlistKey(row: Record<string, unknown>): { key: string; shown: string } | null {
-  const ticker = cleanFeedValue(row.Ticker ?? row.Symbol);
+  const first = (...values: unknown[]) => {
+    for (const value of values) {
+      const clean = cleanFeedValue(value);
+      if (clean) return clean;
+    }
+    return "";
+  };
+  const ticker = first(row.Ticker, row.Symbol);
   if (ticker) return { key: `T:${ticker.toUpperCase()}`, shown: ticker.toUpperCase() };
-  const cusip = cleanFeedValue(row.CUSIP);
+  const cusip = first(row.CUSIP);
   if (cusip) return { key: `C:${cusip.toUpperCase()}`, shown: cusip.toUpperCase() };
-  const isin = cleanFeedValue(row.ISIN);
+  const isin = first(row.ISIN);
   if (isin) return { key: `I:${isin.toUpperCase()}`, shown: isin.toUpperCase() };
-  const identifier = cleanFeedValue(row.Identifier ?? row["Security ID"]);
+  const identifier = first(row.Identifier, row["Security ID"]);
   if (identifier) return { key: `D:${identifier.toUpperCase()}`, shown: identifier.toUpperCase() };
-  const sedol = cleanFeedValue(row.SEDOL ?? row.FIGI);
+  const sedol = first(row.SEDOL, row.FIGI);
   if (sedol) return { key: `S:${sedol.toUpperCase()}`, shown: sedol.toUpperCase() };
-  const name = cleanFeedValue(row.Name);
+  const name = first(row.Name, row["Security Name"]);
   if (name) return { key: `N:${name.toUpperCase()}`, shown: name };
   return null;
 }

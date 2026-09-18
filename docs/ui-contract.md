@@ -16,7 +16,7 @@ identifiers and payload schema. Acceptance tests for every section live in
 | `vanguard-blacklisted-etfs` | JSON array of blacklisted tickers |
 | `vanguard-tab-sorts` | JSON map `tab -> { key, dir }` of **explicitly chosen** sorts |
 | `vanguard-tab-filters` | JSON map `tab -> query` of **explicitly entered** filters |
-| `vanguard-site-state` | legacy/aux state (search text, backward-compat sort keys) |
+| `vanguard-site-state` | legacy/aux state (`sheetFilter` mirror plus backward-compatible sort/search fields) |
 | `vanguard-theme` | `dark` / `light` |
 
 Malformed values are sanitized at boot and can never crash the app: only a
@@ -54,6 +54,14 @@ values are dropped; broken JSON falls back to defaults.
 - **Clear removes the selection and all per-tab searches** from memory and
   from `vanguard-tab-filters`.
 - Filter persistence survives tab switches and full page reloads.
+- The search field is wrapped in a relative toolbar container with a right-edge
+  `#search-clear-btn` (`✕`). It is hidden for an empty value, appears as soon as
+  the active query has text, and clears only that tab's entry, updates both
+  storage keys, focuses the input, and re-renders synchronously. Its visibility
+  is refreshed on input, tab switches, restored state, the one-click clear, and
+  Clear.
+- `vanguard-site-state.sheetFilter` mirrors the dedicated filter map so older
+  sessions can migrate without reintroducing a global search string.
 - Malformed storage is sanitized at boot and can never crash the app.
 
 ## 2. Selection scopes
@@ -174,7 +182,8 @@ rows are retained against the real feed.
 The Watchlist renders in chunks of 250 rows; scrolling near the bottom grows
 the rendered chunk. The full deduplicated result is never inserted into the
 DOM at once. Copy Tickers / CSV / TXT export always operate on the complete
-filtered result, not just the rendered chunk.
+active-tab filtered result, not just the rendered chunk; a search can reduce
+the exported set without limiting it to the mounted 250-row slice.
 
 ## 7. Payload contract
 
@@ -246,7 +255,9 @@ IndexedDB and a file-backed `fetch` over `api/vanguard/`) and covers:
 13. sticky classes present on catalog Use/Ticker and Watchlist Ticker cells;
 14. malformed localStorage cannot crash boot;
 15. index.json / meta.json / page manifests stay consistent;
-16. per-tab filter persistence across all catalog, detail, and Watchlist views.
+16. per-tab filter persistence across all catalog, detail, and Watchlist views;
+17. one-click `#search-clear-btn` visibility, active-tab clearing, and
+    immediate unfiltered re-render.
 
 Run them with `bun test` (or `bun test scripts/ui.test.ts`). Expected values
 are computed from this repository's generated feed, never copied from another
