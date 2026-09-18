@@ -252,6 +252,40 @@
       .dark #table-scroll tbody tr.selected-row .catalog-sticky-col {
         background: #19274e;
       }
+
+      /* Horizontally pinned Watchlist Ticker column at the left edge.
+         Same opaque-background + z-index discipline as the catalog pins so
+         scrolled cells never bleed through while scrolling horizontally. */
+      #table-scroll .watchlist-sticky-col {
+        position: sticky;
+        background: #ffffff;
+        background-clip: padding-box;
+      }
+      #table-scroll thead .watchlist-sticky-col {
+        top: 0;
+        z-index: 30;
+        background: #f8fafc;
+      }
+      #table-scroll tbody .watchlist-sticky-col {
+        z-index: 20;
+      }
+      #table-scroll .watchlist-sticky-ticker {
+        left: 0;
+        min-width: 6rem;
+        box-shadow: 4px 0 6px -6px rgba(15, 23, 42, 0.7);
+      }
+      .dark #table-scroll .watchlist-sticky-col {
+        background: #172033;
+      }
+      .dark #table-scroll thead .watchlist-sticky-col {
+        background: #0f172a;
+      }
+      #table-scroll tbody tr:hover .watchlist-sticky-col {
+        background: #f8fafc;
+      }
+      .dark #table-scroll tbody tr:hover .watchlist-sticky-col {
+        background: #1f2a3d;
+      }
     </style>
   </head>
   <body
@@ -801,7 +835,24 @@ Vanguard ETF Holdings to Watchlist
       let fundHoldingsCache = {};
       let activeFundSheets = {};
       let activeFundMeta = null;
-      let isHoldingsLoading = false;
+      // Race-free loading bookkeeping (see ensureHoldingsForSelected):
+      // one in-flight promise per ticker for meta.json and for holdings pages,
+      // bounded concurrency, and a memoized Watchlist aggregation that is
+      // invalidated whenever the selection or the loaded rows change.
+      let metaInFlight = new Map();
+      let holdingsInFlight = new Map();
+      let watchlistRowsCache = null;
+      let watchlistView = { rows: [], rendered: 0 };
+      let watchlistUiTimer = null;
+      let fundLoadToken = 0;
+      const HOLDINGS_CONCURRENCY = 6;
+      const WATCHLIST_CHUNK = 250;
+      const DETAIL_SHEETS = [
+        "Holdings",
+        "Historical",
+        "Performance",
+        "Distributions",
+      ];
 
       let restoredSortKey = "";
       let restoredSortDir = "asc";
@@ -1027,6 +1078,7 @@ Vanguard ETF Holdings to Watchlist
        * Re-renders everything the blacklist affects.
        */
       function refreshAfterBlacklistChange() {
+        invalidateWatchlistRows();
         renderBlacklistPanel();
         renderSubtitle();
         renderTopTabs();
@@ -1038,15 +1090,11 @@ Vanguard ETF Holdings to Watchlist
           );
         } else if (activeSheetName === "Watchlist") {
           renderWatchlistTable();
-        } else if (
-          ["Holdings", "Historical", "Performance", "Distributions"].includes(
-            activeSheetName,
-          )
-        ) {
-          if (activeFundTicker) {
+        } else if (DETAIL_SHEETS.includes(activeSheetName)) {
+          if (activeFundTicker && staticTicker !== activeFundTicker) {
             void loadStaticFund(activeFundTicker);
-          } else {
-            void switchSheet("ETF Catalog");
+          } else if (!activeFundTicker) {
+            renderNoFundSelected();
           }
         }
         void ensureHoldingsForSelected();
@@ -1124,174 +1172,292 @@ Vanguard ETF Holdings to Watchlist
           .replace(/[^A-Z0-9._-]/g, "");
       }
 
-      function sanitizeWatchlistSymbol(val) {
-        return String(val || "")
-          .trim()
-          .toUpperCase();
-      }
-
       function formatInteger(val) {
         const num = sortableNumber(val);
         return num !== null ? num.toLocaleString("en-US") : String(val || "");
       }
 
       /**
-       * Whether a holding row is a cash / money-market position.
+       * Deduplicated in-flight meta.json fetch per ticker — the detail view
+       * loader and the Watchlist background loader share one request.
+       * @param {string} ticker
+       * @returns {Promise<Record<string, unknown> | null>}
        */
-      function isCashLikeHolding(holding) {
-        const assetClass = (holding["Asset Class"] || "").toLowerCase();
-        return (
-          assetClass.includes("cash") || assetClass.includes("money market")
-        );
+      function fetchFundMeta(ticker) {
+        const clean = sanitizeTicker(ticker);
+        if (!clean) return Promise.resolve(null);
+        if (metaInFlight.has(clean)) return metaInFlight.get(clean);
+        const promise = (async () => {
+          try {
+            const response = await fetch(
+              `./api/vanguard/funds/${encodeURIComponent(clean)}/meta.json`,
+              { cache: "no-cache" },
+            );
+            if (!response.ok) return null;
+            return await response.json();
+          } catch {
+            return null;
+          } finally {
+            metaInFlight.delete(clean);
+          }
+        })();
+        metaInFlight.set(clean, promise);
+        return promise;
       }
 
       /**
-       * Filters out cash, money market, and synthetic placeholder tickers.
-       */
-      function passesWatchlistFilter(symbol, holding) {
-        if (!symbol) return false;
-        if (
-          ["USD", "XTSLA", "CASH", "BLKH", "--", "N/A", "-", "—"].includes(
-            symbol,
-          )
-        )
-          return false;
-        if (isCashLikeHolding(holding)) return false;
-        return /[A-Z]/.test(symbol);
-      }
-
-      /**
-       * Asynchronously loads all holdings pages for a single ETF ticker.
+       * Loads all holdings pages for one ETF with a single writer: concurrent
+       * callers reuse the same in-flight promise, so two rapid selection
+       * updates can never start two page loops for the same ticker (which
+       * would duplicate page 1, skip another page, and corrupt the Watchlist
+       * count / Weight Sum). The cache entry is written exactly once, after
+       * every page arrived in source order.
        * @param {string} ticker
        * @returns {Promise<Array<Record<string, unknown>>>}
        */
-      async function loadHoldingsForFund(ticker) {
+      function loadHoldingsForFund(ticker) {
         const cleanTicker = sanitizeTicker(ticker);
-        if (!cleanTicker) return [];
+        if (!cleanTicker) return Promise.resolve([]);
         if (fundHoldingsCache[cleanTicker])
-          return fundHoldingsCache[cleanTicker];
+          return Promise.resolve(fundHoldingsCache[cleanTicker]);
+        if (holdingsInFlight.has(cleanTicker))
+          return holdingsInFlight.get(cleanTicker);
 
-        try {
-          const metaRes = await fetch(
-            `./api/vanguard/funds/${encodeURIComponent(cleanTicker)}/meta.json`,
-            { cache: "no-cache" },
-          );
-          if (!metaRes.ok) return [];
-          const meta = await metaRes.json();
-          const pages = meta.holdings?.pages || [];
-          if (!pages.length) return [];
-          const pageData = await Promise.all(
-            pages.map((page) => fetchStaticPage(cleanTicker, page)),
-          );
-          const allRows = pageData.flatMap((p) => p.rows || []);
-          fundHoldingsCache[cleanTicker] = allRows;
-          return allRows;
-        } catch (e) {
-          console.warn(`Could not load holdings for ${cleanTicker}:`, e);
-          return [];
-        }
+        const promise = (async () => {
+          try {
+            const meta = await fetchFundMeta(cleanTicker);
+            const pages = meta?.holdings?.pages || [];
+            if (!pages.length) {
+              fundHoldingsCache[cleanTicker] = [];
+              return [];
+            }
+            const pageData = await Promise.all(
+              pages.map((page) => fetchStaticPage(cleanTicker, page)),
+            );
+            const allRows = pageData.flatMap((p) => p.rows || []);
+            fundHoldingsCache[cleanTicker] = allRows;
+            invalidateWatchlistRows();
+            return allRows;
+          } catch (e) {
+            console.warn(`Could not load holdings for ${cleanTicker}:`, e);
+            // leave the cache entry absent so a later retry is possible
+            return [];
+          } finally {
+            holdingsInFlight.delete(cleanTicker);
+          }
+        })();
+        holdingsInFlight.set(cleanTicker, promise);
+        return promise;
       }
 
       /**
-       * Preloads holdings for all selected ETFs in background.
+       * Whether any selected ETF still lacks its loaded holdings rows.
+       * @returns {boolean}
        */
-      async function ensureHoldingsForSelected() {
-        const tickersToFetch = [...selectedETFs].filter(
-          (t) => !fundHoldingsCache[t],
-        );
-        if (!tickersToFetch.length) return;
-        isHoldingsLoading = true;
-        try {
-          await Promise.all(tickersToFetch.map((t) => loadHoldingsForFund(t)));
-        } finally {
-          isHoldingsLoading = false;
+      function isHoldingsLoading() {
+        if (!selectedETFs.size) return false;
+        for (const ticker of selectedETFs) {
+          if (!fundHoldingsCache[ticker]) return true;
+        }
+        return false;
+      }
+
+      /**
+       * Throttled progressive refresh of every selection-dependent surface
+       * while holdings stream in — tab counts rerender even when the user
+       * stays on the catalog tab, without re-aggregating per page.
+       */
+      function scheduleWatchlistUiUpdate() {
+        invalidateWatchlistRows();
+        if (watchlistUiTimer) return;
+        watchlistUiTimer = setTimeout(() => {
+          watchlistUiTimer = null;
           renderTabs();
           renderSubtitle();
-          if (activeSheetName === "Watchlist") {
-            renderWatchlistTable();
+          if (activeSheetName === "Watchlist") renderWatchlistTable();
+        }, 150);
+      }
+
+      /**
+       * Preloads holdings for all selected ETFs in the background with
+       * bounded concurrency. Runs after selection restore, row toggles,
+       * either select-all control, blacklist changes that alter selection,
+       * and whenever the Watchlist is opened. Obsolete work (an ETF that was
+       * deselected while queued) is safely skipped; in-flight loads simply
+       * finish into the cache and are ignored by the aggregation, which only
+       * reads the current selection.
+       */
+      async function ensureHoldingsForSelected() {
+        const pending = [...selectedETFs].filter(
+          (t) => !fundHoldingsCache[t] && !holdingsInFlight.has(t),
+        );
+        if (!pending.length) return;
+
+        // Surface the loading state immediately — never a misleading "(0)".
+        renderTabs();
+        if (activeSheetName === "Watchlist") renderWatchlistTable();
+
+        let cursor = 0;
+        const worker = async () => {
+          while (cursor < pending.length) {
+            const index = cursor;
+            cursor += 1;
+            const ticker = pending[index];
+            // deselected meanwhile -> safely skip the queued work
+            if (!selectedETFs.has(ticker)) continue;
+            await loadHoldingsForFund(ticker);
+            scheduleWatchlistUiUpdate();
           }
-        }
+        };
+        const workers = Array.from(
+          { length: Math.min(HOLDINGS_CONCURRENCY, pending.length) },
+          () => worker(),
+        );
+        await Promise.all(workers);
+
+        renderTabs();
+        renderSubtitle();
+        if (activeSheetName === "Watchlist") renderWatchlistTable();
+      }
+
+      /** Placeholder cell values treated as missing. */
+      const WATCHLIST_PLACEHOLDERS = new Set([
+        "",
+        "-",
+        "--",
+        "—",
+        "–",
+        "N/A",
+        "NA",
+        "NONE",
+        "NULL",
+      ]);
+
+      /**
+       * Returns the trimmed cell value, or "" for blank / dash / N/A style
+       * placeholders.
+       * @param {unknown} value
+       * @returns {string}
+       */
+      function watchlistValue(value) {
+        const text = String(value ?? "").trim();
+        if (!text || WATCHLIST_PLACEHOLDERS.has(text.toUpperCase())) return "";
+        return text;
+      }
+
+      /**
+       * Dedupe key fallback order for one holding row:
+       * 1. Ticker/Symbol, 2. CUSIP, 3. ISIN, 4. Identifier/Security ID,
+       * 5. SEDOL/FIGI, 6. published security name (last resort for cash,
+       * futures, swaps or derivatives with no identifier).
+       * A literal "-" Ticker must not prevent fallback to a valid
+       * identifier. Keys are namespaced so identifier types never collide.
+       * @param {Record<string, unknown>} row
+       * @returns {{ key: string; shown: string } | null}
+       */
+      function watchlistKeyForRow(row) {
+        const ticker = watchlistValue(row.Ticker ?? row.Symbol);
+        if (ticker) return { key: `T:${ticker.toUpperCase()}`, shown: ticker.toUpperCase() };
+        const cusip = watchlistValue(row.CUSIP);
+        if (cusip) return { key: `C:${cusip.toUpperCase()}`, shown: cusip.toUpperCase() };
+        const isin = watchlistValue(row.ISIN);
+        if (isin) return { key: `I:${isin.toUpperCase()}`, shown: isin.toUpperCase() };
+        const identifier = watchlistValue(row.Identifier ?? row["Security ID"]);
+        if (identifier)
+          return { key: `D:${identifier.toUpperCase()}`, shown: identifier.toUpperCase() };
+        const sedol = watchlistValue(row.SEDOL ?? row.FIGI);
+        if (sedol) return { key: `S:${sedol.toUpperCase()}`, shown: sedol.toUpperCase() };
+        const name = watchlistValue(row.Name);
+        if (name) return { key: `N:${name.toUpperCase()}`, shown: name };
+        return null;
+      }
+
+      /**
+       * Drops the memoized Watchlist aggregation. Must be called whenever
+       * the selection or the loaded holdings rows change.
+       */
+      function invalidateWatchlistRows() {
+        watchlistRowsCache = null;
       }
 
       /**
        * Aggregates and deduplicates holdings across all selected ETFs.
+       * Nothing is aggressively dropped: bond positions without exchange
+       * tickers, cash positions, futures/swaps/derivatives and zero-weight
+       * rows all stay in the aggregation as long as any fallback key
+       * resolves. Memoized until invalidated.
        * @returns {Array<Record<string, unknown>>}
        */
       function getDedupedWatchlistRows() {
+        if (watchlistRowsCache) return watchlistRowsCache;
         const map = new Map();
 
         for (const ticker of selectedETFs) {
           const holdings = fundHoldingsCache[ticker] || [];
           for (const r of holdings) {
-            // Holding rows carry the exchange ticker resolved at data-build
-            // time; bond / private positions have no ticker ("-", "—") and
-            // the CUSIP/ISIN identifier is the stable key for those rows
-            // (same rule as the SPDR / WisdomTree feeds).
-            const rawTicker = sanitizeWatchlistSymbol(r.Ticker);
-            const tickerUsable =
-              rawTicker &&
-              !["-", "—", "N/A"].includes(rawTicker) &&
-              /[A-Z]/.test(rawTicker);
-            const sym = tickerUsable
-              ? rawTicker
-              : sanitizeWatchlistSymbol(r.CUSIP || r.ISIN || r.Identifier || "");
-            if (!sym || sym === "-" || sym === "—") continue;
-            if (
-              tickerUsable
-                ? !passesWatchlistFilter(sym, r)
-                : isCashLikeHolding(r)
-            )
-              continue;
+            const resolved = watchlistKeyForRow(r);
+            if (!resolved) continue; // no key at all — nothing to dedupe on
 
-            if (!map.has(sym)) {
-              map.set(sym, {
-                symbol: sym,
-                name: r.Name || sym,
-                sector: r.Sector || "—",
-                assetClass: r["Asset Class"] || "—",
-                exchange: r.Exchange || "—",
-                location: r.Location || "—",
+            if (!map.has(resolved.key)) {
+              map.set(resolved.key, {
+                symbol: resolved.shown,
+                name: watchlistValue(r.Name) || resolved.shown,
+                sector: watchlistValue(r.Sector) || "—",
+                assetClass: watchlistValue(r["Asset Class"]) || "—",
+                exchange: watchlistValue(r.Exchange) || "—",
+                location: watchlistValue(r.Location) || "—",
                 funds: new Set(),
                 weightSum: 0,
-                maxWeight: 0,
+                maxWeight: Number.NEGATIVE_INFINITY,
+                hasWeight: false,
                 marketValueSum: 0,
+                hasMarketValue: false,
               });
             }
 
-            const item = map.get(sym);
+            const item = map.get(resolved.key);
             item.funds.add(ticker);
-            if (r.Name && (!item.name || item.name === sym)) item.name = r.Name;
-            if (r.Sector && item.sector === "—") item.sector = r.Sector;
-            if (r["Asset Class"] && item.assetClass === "—")
-              item.assetClass = r["Asset Class"];
-            if (r.Exchange && item.exchange === "—") item.exchange = r.Exchange;
-            if (r.Location && item.location === "—") item.location = r.Location;
+            const name = watchlistValue(r.Name);
+            if (name && (!item.name || item.name === item.symbol))
+              item.name = name;
+            const sector = watchlistValue(r.Sector);
+            if (sector && item.sector === "—") item.sector = sector;
+            const assetClass = watchlistValue(r["Asset Class"]);
+            if (assetClass && item.assetClass === "—")
+              item.assetClass = assetClass;
+            const exchange = watchlistValue(r.Exchange);
+            if (exchange && item.exchange === "—") item.exchange = exchange;
+            const location = watchlistValue(r.Location);
+            if (location && item.location === "—") item.location = location;
 
             const weightNum = sortableNumber(r["Weight (%)"]);
             if (weightNum !== null) {
+              item.hasWeight = true;
               item.weightSum += weightNum;
               item.maxWeight = Math.max(item.maxWeight, weightNum);
             }
             const mvNum = sortableNumber(r["Market Value"]);
             if (mvNum !== null) {
+              item.hasMarketValue = true;
               item.marketValueSum += mvNum;
             }
           }
         }
 
-        return [...map.values()].map((row) => ({
+        watchlistRowsCache = [...map.values()].map((row) => ({
           Ticker: row.symbol,
           Name: row.name,
           ETFs: [...row.funds].sort(),
           "# ETFs": row.funds.size,
-          "Weight Sum (%)":
-            row.weightSum > 0 ? row.weightSum.toFixed(2) + "%" : "—",
-          "Max Weight (%)":
-            row.maxWeight > 0 ? row.maxWeight.toFixed(2) + "%" : "—",
-          "Market Value":
-            row.marketValueSum > 0
-              ? "$" + Math.round(row.marketValueSum).toLocaleString("en-US")
-              : "—",
+          "Weight Sum (%)": row.hasWeight
+            ? row.weightSum.toFixed(2) + "%"
+            : "—",
+          "Max Weight (%)": row.hasWeight
+            ? row.maxWeight.toFixed(2) + "%"
+            : "—",
+          "Market Value": row.hasMarketValue
+            ? "$" + Math.round(row.marketValueSum).toLocaleString("en-US")
+            : "—",
           Sector: row.sector,
           "Asset Class": row.assetClass,
           Exchange: row.exchange,
@@ -1308,6 +1474,7 @@ Vanguard ETF Holdings to Watchlist
             .join(" ")
             .toLowerCase(),
         }));
+        return watchlistRowsCache;
       }
 
       /**
@@ -1325,53 +1492,80 @@ Vanguard ETF Holdings to Watchlist
       }
 
       /**
-       * Toggles selection of all catalog ETFs.
-       * Checkbox interactions must NEVER change or reset the sort.
-       * @param {boolean} selectAll
+       * Whole-catalog scope for the All ETFs pill checkbox: every catalog
+       * fund minus the blacklist — independent of any search filter and of
+       * the currently active tab.
+       * @returns {string[]}
        */
-      function toggleSelectAll(selectAll) {
-        const allTickers = visibleCatalogFunds().map((r) => r.Ticker);
-        if (selectAll) {
-          selectedETFs = new Set(allTickers);
-          if (!activeFundTicker) activeFundTicker = allTickers[0] || null;
-        } else {
-          selectedETFs.clear();
-          activeFundTicker = null;
-          if (
-            [
-              "Holdings",
-              "Historical",
-              "Performance",
-              "Distributions",
-              "Watchlist",
-            ].includes(activeSheetName)
-          ) {
-            activeSheetName = "ETF Catalog";
-            // restore catalog sort when returning via checkbox — never reset, use remembered sort
-            applySortForTab("ETF Catalog");
-          }
+      function wholeCatalogTickers() {
+        return (staticCatalogSheet?.data || [])
+          .map((row) => row.Ticker)
+          .filter((ticker) => ticker && !blacklistedETFs.has(ticker));
+      }
+
+      /**
+       * Visible-rows scope for the table-header Use checkbox: exactly the
+       * rows currently rendered by the catalog table (catalog tab + active
+       * search filter + blacklist exclusion).
+       * @returns {string[]}
+       */
+      function visibleCatalogTickers() {
+        if (!staticCatalogSheet) return [];
+        return getFilteredRows(staticCatalogSheet)
+          .map((row) => row.Ticker)
+          .filter((ticker) => ticker && !blacklistedETFs.has(ticker));
+      }
+
+      /**
+       * Checked state helper: true iff the scope is non-empty and EVERY row
+       * in the scope is selected. `.every(...)` (not a size comparison)
+       * because unrelated selections may exist outside the scope.
+       * @param {string[]} tickers
+       * @returns {boolean}
+       */
+      function allTickersSelected(tickers) {
+        return (
+          tickers.length > 0 && tickers.every((ticker) => selectedETFs.has(ticker))
+        );
+      }
+
+      /**
+       * Keeps the active fund pointer valid after a selection change.
+       */
+      function reconcileActiveFund() {
+        if (activeFundTicker && !selectedETFs.has(activeFundTicker)) {
+          activeFundTicker = [...selectedETFs][0] || null;
         }
+        if (!activeFundTicker && selectedETFs.size) {
+          activeFundTicker = [...selectedETFs][0] || null;
+        }
+      }
+
+      /**
+       * Shared post-selection refresh: every selection writer must call this
+       * so the subtitle, ticker badges, detail-tabs panel, tab counts,
+       * Watchlist table and localStorage all update immediately.
+       * Checkbox interactions must NEVER change or reset the sort.
+       */
+      function afterSelectionChange() {
         persistSelectedEtfs();
+        invalidateWatchlistRows();
         renderSubtitle();
         renderTabs();
 
-        if (activeSheetName === "ETF Catalog") {
-          const rows = tableBody.querySelectorAll("tr[data-static-ticker]");
-          rows.forEach((row) => {
-            const ticker = row.dataset.staticTicker;
-            const isSelected = selectedETFs.has(ticker);
-            row.classList.toggle("selected-row", isSelected);
-            const cb = row.querySelector("input[data-checkbox]");
-            if (cb) cb.checked = isSelected;
-          });
-
-          const headerCb = tableHead.querySelector("#select-all-checkbox");
-          if (headerCb) headerCb.checked = selectAll;
-
-          const topSelectAll = document.getElementById("select-all-toggle");
-          if (topSelectAll) topSelectAll.checked = selectAll;
+        if (activeSheetName === "ETF Catalog" && staticCatalogSheet) {
+          renderTable(
+            getFilteredRows(staticCatalogSheet),
+            staticCatalogSheet.headers,
+          );
         } else if (activeSheetName === "Watchlist") {
           renderWatchlistTable();
+        } else if (DETAIL_SHEETS.includes(activeSheetName)) {
+          if (activeFundTicker && staticTicker !== activeFundTicker) {
+            void loadStaticFund(activeFundTicker);
+          } else if (!activeFundTicker) {
+            renderNoFundSelected();
+          }
         }
 
         void ensureHoldingsForSelected();
@@ -1379,76 +1573,88 @@ Vanguard ETF Holdings to Watchlist
       }
 
       /**
-       * Toggles selection of an individual ETF row without re-rendering the full table.
+       * Use checkbox in the table header: operates ONLY on the rows the
+       * catalog table currently renders (search filter + blacklist applied).
+       * Checking selects exactly those visible rows; unchecking deselects
+       * exactly those visible rows; selections hidden by another filter
+       * survive. Never touches the sort.
+       * @param {boolean} selectAll
+       */
+      function toggleVisibleSelectAll(selectAll) {
+        const visible = visibleCatalogTickers();
+        if (selectAll) {
+          visible.forEach((ticker) => selectedETFs.add(ticker));
+        } else {
+          visible.forEach((ticker) => selectedETFs.delete(ticker));
+        }
+        reconcileActiveFund();
+        afterSelectionChange();
+      }
+
+      /**
+       * Checkbox inside the All ETFs pill: ALWAYS operates on every
+       * non-blacklisted ETF in the entire catalog, no matter which tab
+       * (catalog, detail, Holdings, Distributions, Watchlist) or search
+       * filter is active. Clicking it toggles selection only — it never
+       * navigates to All ETFs. Never touches the sort.
+       * @param {boolean} selectAll
+       */
+      function toggleWholeCatalogSelection(selectAll) {
+        const catalog = wholeCatalogTickers();
+        if (selectAll) {
+          catalog.forEach((ticker) => selectedETFs.add(ticker));
+        } else {
+          catalog.forEach((ticker) => selectedETFs.delete(ticker));
+        }
+        reconcileActiveFund();
+        afterSelectionChange();
+      }
+
+      /**
+       * Toggles selection of an individual ETF row — exactly one ETF.
+       * Never touches the sort.
        * @param {string} ticker
        */
       function toggleEtfSelection(ticker) {
         const clean = sanitizeTicker(ticker);
         if (!clean) return;
-        const isSelected = !selectedETFs.has(clean);
-        if (isSelected) {
+        if (selectedETFs.has(clean)) {
+          selectedETFs.delete(clean);
+        } else {
           selectedETFs.add(clean);
           activeFundTicker = clean;
-        } else {
-          selectedETFs.delete(clean);
-          if (activeFundTicker === clean) {
-            activeFundTicker = [...selectedETFs][0] || null;
-          }
         }
-        persistSelectedEtfs();
-        renderSubtitle();
-        renderTabs();
-
-        if (activeSheetName === "ETF Catalog") {
-          const row = tableBody.querySelector(
-            `tr[data-static-ticker="${clean}"]`,
-          );
-          if (row) {
-            row.classList.toggle("selected-row", isSelected);
-            const cb = row.querySelector(`input[data-checkbox="${clean}"]`);
-            if (cb) cb.checked = isSelected;
-          }
-          const allCount = staticCatalogSheet?.data?.length || 0;
-          const allSelected = allCount > 0 && selectedETFs.size === allCount;
-          const headerCb = tableHead.querySelector("#select-all-checkbox");
-          if (headerCb) headerCb.checked = allSelected;
-
-          const topSelectAll = document.getElementById("select-all-toggle");
-          if (topSelectAll) topSelectAll.checked = allSelected;
-        } else if (activeSheetName === "Watchlist") {
-          renderWatchlistTable();
-        } else if (
-          ["Holdings", "Historical", "Performance", "Distributions"].includes(
-            activeSheetName,
-          )
-        ) {
-          if (activeFundTicker) {
-            void loadStaticFund(activeFundTicker);
-          } else {
-            void switchSheet("ETF Catalog");
-          }
-        }
-
-        void ensureHoldingsForSelected();
-        void refreshActiveFundMeta();
+        reconcileActiveFund();
+        afterSelectionChange();
       }
 
       /**
-       * Switches active focus to a specific fund detail view.
+       * Switches active focus to a specific fund detail view. Used by
+       * catalog tickers, selected ticker badges in the subtitle, and ETF
+       * badges inside Watchlist rows — the fund is selected if needed, then
+       * its detail view is opened/loaded immediately.
        * @param {string} ticker
        */
       function selectSingleFund(ticker) {
         const clean = sanitizeTicker(ticker);
         if (!clean) return;
-        if (!selectedETFs.has(clean)) {
+        const wasSelected = selectedETFs.has(clean);
+        if (!wasSelected) {
           selectedETFs.add(clean);
+          invalidateWatchlistRows();
         }
         activeFundTicker = clean;
         persistSelectedEtfs();
         renderSubtitle();
         renderTabs();
-        void loadStaticFund(clean);
-        void ensureHoldingsForSelected();
+        if (staticTicker === clean && workbookSheets["Holdings"]) {
+          // already loaded — just open the detail view
+          void switchSheet("Holdings");
+        } else {
+          void loadStaticFund(clean);
+        }
+        if (!wasSelected) void ensureHoldingsForSelected();
+        void refreshActiveFundMeta();
       }
 
       /**
@@ -1465,7 +1671,8 @@ Vanguard ETF Holdings to Watchlist
         const baseText = `<span class="block sm:inline">Search Vanguard ETFs, select rows, then use the Watchlist tab. Data comes from <a href="./api/vanguard/index.json" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">api/vanguard/index.json</a> · Data includes daily history and derived return metrics.</span>`;
 
         const selected = selectedETFs.size;
-        const allCount = staticCatalogSheet?.data?.length || 0;
+        const catalog = wholeCatalogTickers();
+        const allCount = catalog.length;
 
         if (!selected) {
           appSubtitle.innerHTML = baseText;
@@ -1473,7 +1680,7 @@ Vanguard ETF Holdings to Watchlist
         }
 
         let selectionItem = "";
-        if (selected === allCount && allCount > 0) {
+        if (allCount > 0 && allTickersSelected(catalog) && selected === allCount) {
           selectionItem = `<span class="block sm:inline"><span class="hidden sm:inline"> · </span><span class="sm:hidden">· </span>All ${allCount} ETFs selected</span>`;
         } else {
           const selectedLinks = [...selectedETFs]
@@ -1671,15 +1878,36 @@ Vanguard ETF Holdings to Watchlist
         }
       }
 
-      async function fetchStaticPage(ticker, pagePath) {
+      // Parsed page envelopes are cached and in-flight requests deduplicated
+      // so the detail-view pager and the Watchlist background loader reuse
+      // the same request/cache instead of racing or double-fetching pages.
+      let staticPageEnvelopeCache = {};
+      let staticPageInFlight = new Map();
+
+      function fetchStaticPage(ticker, pagePath) {
         const path = String(pagePath).replace(/^\.\/+/, "");
-        const response = await fetch(
-          `./api/vanguard/funds/${encodeURIComponent(ticker)}/${path}`,
-          { cache: "no-cache" },
-        );
-        if (!response.ok)
-          throw new Error(`${response.status} ${response.statusText}`);
-        return response.json();
+        const cacheKey = `${ticker}/${path}`;
+        if (staticPageEnvelopeCache[cacheKey])
+          return Promise.resolve(staticPageEnvelopeCache[cacheKey]);
+        if (staticPageInFlight.has(cacheKey))
+          return staticPageInFlight.get(cacheKey);
+        const promise = (async () => {
+          try {
+            const response = await fetch(
+              `./api/vanguard/funds/${encodeURIComponent(ticker)}/${path}`,
+              { cache: "no-cache" },
+            );
+            if (!response.ok)
+              throw new Error(`${response.status} ${response.statusText}`);
+            const payload = await response.json();
+            staticPageEnvelopeCache[cacheKey] = payload;
+            return payload;
+          } finally {
+            staticPageInFlight.delete(cacheKey);
+          }
+        })();
+        staticPageInFlight.set(cacheKey, promise);
+        return promise;
       }
 
       function staticSheet(sheet) {
@@ -1796,18 +2024,17 @@ Vanguard ETF Holdings to Watchlist
       /**
        * Fetches the active fund's meta.json (cheap, unpaged) so the detail
        * tab counts and inline sheets stay correct after (de)selection,
-       * without forcing a full fund-sheet load.
+       * without forcing a full fund-sheet load. Shares the deduplicated
+       * in-flight meta request with the holdings loader.
        */
       async function refreshActiveFundMeta() {
         const ticker = activeFundTicker || [...selectedETFs][0];
         if (!ticker || isUploadedFile) return;
         try {
-          const response = await fetch(
-            `./api/vanguard/funds/${encodeURIComponent(ticker)}/meta.json`,
-            { cache: "no-cache" },
-          );
-          if (!response.ok) return;
-          const meta = await response.json();
+          const meta = await fetchFundMeta(ticker);
+          if (!meta) return;
+          if (sanitizeTicker(ticker) !== (activeFundTicker || [...selectedETFs][0]))
+            return; // obsolete response for a fund that was deselected meanwhile
           activeFundMeta = meta;
           applyInlineFundSheets(meta);
           renderTabs();
@@ -1895,32 +2122,119 @@ Vanguard ETF Holdings to Watchlist
       }
 
       function maybeLoadMoreStaticRows() {
-        const pages = staticPagesBySheet[activeSheetName] || [];
-        const nextPage = staticNextPageBySheet[activeSheetName] || 0;
-        if (
-          !tableScroll ||
-          !pages[nextPage] ||
-          staticLoadingSheets.has(activeSheetName)
-        )
-          return;
+        if (!tableScroll) return;
         const distanceToBottom =
           tableScroll.scrollHeight -
           tableScroll.scrollTop -
           tableScroll.clientHeight;
+
+        // Watchlist chunked rendering: grow the rendered slice on scroll.
+        if (activeSheetName === "Watchlist") {
+          if (distanceToBottom < 600) extendWatchlistChunk();
+          return;
+        }
+
+        const pages = staticPagesBySheet[activeSheetName] || [];
+        const nextPage = staticNextPageBySheet[activeSheetName] || 0;
+        if (
+          !pages[nextPage] ||
+          staticLoadingSheets.has(activeSheetName)
+        )
+          return;
         if (distanceToBottom < 600)
           void loadNextStaticSheetPage(activeSheetName);
       }
 
+      /**
+       * Replaces the table with a "loading fund" placeholder so the previous
+       * fund's table is never left visible while the next fund loads.
+       * @param {string} ticker
+       */
+      function renderFundLoading(ticker) {
+        tickerCount.textContent = "0 items";
+        tableHead.innerHTML = `
+          <tr>
+            <th class="py-3.5 px-4 w-12 text-center" title="${escapeHtml(
+              getHeaderTooltip("#"),
+            )}">#</th>
+            <th class="py-3.5 px-4">${escapeHtml(ticker)} details</th>
+          </tr>
+        `;
+        tableBody.innerHTML = `<tr><td colspan="2" class="py-12 text-center text-slate-400 dark:text-slate-500">Loading ${escapeHtml(
+          ticker,
+        )} details…</td></tr>`;
+        animateTableUpdate();
+      }
+
+      /**
+       * Explanatory state shown on a fund detail sheet when no fund is
+       * currently selected.
+       */
+      function renderNoFundSelected() {
+        resetStaticPaging();
+        tickerCount.textContent = "0 items";
+        tableHead.innerHTML = `
+          <tr>
+            <th class="py-3.5 px-4 w-12 text-center" title="${escapeHtml(
+              getHeaderTooltip("#"),
+            )}">#</th>
+            <th class="py-3.5 px-4">Details</th>
+          </tr>
+        `;
+        tableBody.innerHTML = `<tr><td colspan="2" class="py-12 text-center text-slate-400 dark:text-slate-500">No ETF selected. Check a row or an All ETFs box, then open a detail tab.</td></tr>`;
+        copyBtn.disabled = true;
+        exportCsvBtn.disabled = true;
+        exportTxtBtn.disabled = true;
+        renderStaticLoadSentinel();
+        animateTableUpdate();
+      }
+
+      /**
+       * Failure state for a fund whose meta/pages could not be fetched —
+       * a fetch failure must never look like "no search matches".
+       * @param {string} ticker
+       */
+      function renderFundLoadFailed(ticker) {
+        activeFundSheets = {};
+        workbookSheets = {
+          "ETF Catalog": staticCatalogSheet || workbookSheets["ETF Catalog"],
+        };
+        resetStaticPaging();
+        tickerCount.textContent = "0 items";
+        tableHead.innerHTML = `
+          <tr>
+            <th class="py-3.5 px-4 w-12 text-center" title="${escapeHtml(
+              getHeaderTooltip("#"),
+            )}">#</th>
+            <th class="py-3.5 px-4">${escapeHtml(ticker)} details</th>
+          </tr>
+        `;
+        tableBody.innerHTML = `<tr><td colspan="2" class="py-12 text-center text-slate-400 dark:text-slate-500">Could not load ${escapeHtml(
+          ticker,
+        )} data — the fund files are missing or the request failed. Run the data refresh workflow to fetch them.</td></tr>`;
+        copyBtn.disabled = true;
+        exportCsvBtn.disabled = true;
+        exportTxtBtn.disabled = true;
+        renderStaticLoadSentinel();
+        animateTableUpdate();
+        fitTableScrollHeight();
+      }
+
+      /**
+       * @returns {Promise<boolean>} whether the fund sheets loaded
+       */
       async function loadStaticFundSheets(ticker, switchToHoldings = false) {
         const fund = staticFunds[ticker];
-        if (!fund) return;
+        if (!fund) return false;
+        const token = ++fundLoadToken;
         try {
-          const response = await fetch(
-            `./api/vanguard/funds/${encodeURIComponent(ticker)}/meta.json`,
-            { cache: "no-cache" },
-          );
-          if (!response.ok) return;
-          const data = await response.json();
+          const data = await fetchFundMeta(ticker);
+          if (token !== fundLoadToken || activeFundTicker !== ticker)
+            return false; // obsolete — another fund interaction took over
+          if (!data) {
+            renderFundLoadFailed(ticker);
+            return false;
+          }
           activeFundMeta = data;
           staticTicker = ticker;
           resetStaticPaging();
@@ -1949,6 +2263,8 @@ Vanguard ETF Holdings to Watchlist
             );
             staticNextPageBySheet[sheetName] = 1;
           }
+          if (token !== fundLoadToken || activeFundTicker !== ticker)
+            return false; // obsolete
 
           fundSheets["Performance"] = buildPerformanceSheet(data);
           fundSheets["Distributions"] = staticSheet({
@@ -1967,8 +2283,13 @@ Vanguard ETF Holdings to Watchlist
             activeSheetName = "Holdings";
             await switchSheet(activeSheetName);
           }
+          return true;
         } catch (err) {
           console.warn(`Failed to load fund sheets for ${ticker}:`, err);
+          if (fundLoadToken === token && activeFundTicker === ticker) {
+            renderFundLoadFailed(ticker);
+          }
+          return false;
         }
       }
 
@@ -1976,6 +2297,8 @@ Vanguard ETF Holdings to Watchlist
         activeFundTicker = ticker;
         persistSelectedEtfs();
         renderSubtitle();
+        renderTabs();
+        renderFundLoading(ticker);
         await loadStaticFundSheets(ticker, true);
       }
 
@@ -1997,6 +2320,16 @@ Vanguard ETF Holdings to Watchlist
         "click",
         () => void loadNextStaticSheetPage(activeSheetName),
       );
+
+      // One delegated listener for the Watchlist ETF badges: clicking a badge
+      // activates that fund and opens its detail view (the catalog rows have
+      // their own row-level handlers and are excluded by the sheet check).
+      tableBody.addEventListener("click", (e) => {
+        if (activeSheetName !== "Watchlist") return;
+        const badge = e.target?.closest?.("[data-fund-view]");
+        const ticker = badge?.dataset?.fundView;
+        if (ticker) selectSingleFund(ticker);
+      });
 
       // =========================================================================
       // 9. State Persistence & SpreadsheetML (.xls) Parser
@@ -2106,45 +2439,38 @@ Vanguard ETF Holdings to Watchlist
             localStorage.getItem(SITE_STATE_KEY) || "{}",
           );
           restoredSortKey =
-            typeof saved.sortKey === "string" ? saved.sortKey : "";
+            typeof saved.sortKey === "string" && saved.sortKey !== ""
+              ? saved.sortKey
+              : "";
           restoredSortDir = saved.sortDir === "desc" ? "desc" : "asc";
           restoredQuery = typeof saved.query === "string" ? saved.query : "";
-          // generic per-sheet map (new) — like checkboxes, always kept in localStorage
-          if (saved.sheetSort && typeof saved.sheetSort === "object") {
-            sheetSort = saved.sheetSort;
-          }
-          // per-sheet sorts with backward compat from legacy sortKey
+          // Legacy per-sheet keys kept only for backward compatibility; the
+          // authoritative store is vanguard-tab-sorts (restoreTabSorts).
           catalogSortKey =
-            typeof saved.catalogSortKey === "string"
+            typeof saved.catalogSortKey === "string" && saved.catalogSortKey !== ""
               ? saved.catalogSortKey
-              : (sheetSort["ETF Catalog"]?.key || restoredSortKey || "");
-          catalogSortDir =
-            saved.catalogSortDir === "desc" ? "desc" : saved.catalogSortDir === "asc" ? "asc" : (sheetSort["ETF Catalog"]?.dir || restoredSortDir || "asc");
+              : "";
+          catalogSortDir = saved.catalogSortDir === "desc" ? "desc" : "asc";
           watchlistSortKey =
-            typeof saved.watchlistSortKey === "string"
+            typeof saved.watchlistSortKey === "string" && saved.watchlistSortKey !== ""
               ? saved.watchlistSortKey
-              : (sheetSort["Watchlist"]?.key || "Weight Sum (%)");
-          watchlistSortDir =
-            saved.watchlistSortDir === "desc" ? "desc" : saved.watchlistSortDir === "asc" ? "asc" : (sheetSort["Watchlist"]?.dir || "desc");
-          // hydrate generic map from legacy keys if missing
-          if (!sheetSort["ETF Catalog"] && catalogSortKey) {
-            sheetSort["ETF Catalog"] = { key: catalogSortKey, dir: catalogSortDir };
-          }
-          if (!sheetSort["Watchlist"] && watchlistSortKey) {
-            sheetSort["Watchlist"] = { key: watchlistSortKey, dir: watchlistSortDir };
-          }
-          // ensure every sheet entry has valid dir
-          for (const [name, entry] of Object.entries(sheetSort)) {
-            if (!entry || typeof entry.key !== "string") continue;
-            if (entry.dir !== "asc" && entry.dir !== "desc") {
-              sheetSort[name].dir = "asc";
-            }
-          }
+              : "";
+          watchlistSortDir = saved.watchlistSortDir === "asc" ? "asc" : "desc";
         } catch {
-          /* no saved state */
+          /* corrupt site state — fall back to defaults, never crash boot */
         }
-        // dedicated per-tab sorts key — like checkboxes — always restored, sanitized
+        // Dedicated per-tab sorts key — like the checkbox selections, always
+        // restored from localStorage and sanitized (only a non-empty sort key
+        // and `asc`/`desc` are accepted).
         restoreTabSorts();
+        // Backward compatibility: legacy explicit keys become remembered
+        // sorts only when the dedicated store has no entry for that tab.
+        if (catalogSortKey && !sheetSort["ETF Catalog"]) {
+          sheetSort["ETF Catalog"] = { key: catalogSortKey, dir: catalogSortDir };
+        }
+        if (watchlistSortKey && !sheetSort["Watchlist"]) {
+          sheetSort["Watchlist"] = { key: watchlistSortKey, dir: watchlistSortDir };
+        }
       }
 
       function applyRestoredSiteState() {
@@ -2416,10 +2742,19 @@ Vanguard ETF Holdings to Watchlist
         }
 
         if (selectedETFs.size > 0) {
+          const rows = getDedupedWatchlistRows();
+          // While holdings are still loading, never display a misleading
+          // exact count: show "Loading…" (nothing aggregated yet) or "N+"
+          // (partial aggregation that can only grow).
+          const count = isHoldingsLoading()
+            ? rows.length
+              ? `${rows.length}+`
+              : "Loading…"
+            : rows.length;
           tabs.push({
             id: "Watchlist",
             label: "Watchlist",
-            count: getDedupedWatchlistRows().length,
+            count,
           });
         }
 
@@ -2464,8 +2799,9 @@ Vanguard ETF Holdings to Watchlist
       function renderTopTabs() {
         const catalogCount = visibleCatalogFunds().length;
         const isCatalogActive = activeSheetName === "ETF Catalog";
-        const allSelected =
-          catalogCount > 0 && selectedETFs.size === catalogCount;
+        // Checked iff EVERY non-blacklisted catalog ETF is selected —
+        // unrelated selections outside the scope must not affect it.
+        const allSelected = allTickersSelected(wholeCatalogTickers());
 
         const activePill =
           "bg-blue-600 text-white font-medium border-blue-500 shadow-sm";
@@ -2500,7 +2836,7 @@ Vanguard ETF Holdings to Watchlist
 
         const selectAllToggle = tabsBar.querySelector("#select-all-toggle");
         selectAllToggle?.addEventListener("change", (e) => {
-          toggleSelectAll(e.target.checked);
+          toggleWholeCatalogSelection(e.target.checked);
         });
       }
 
@@ -2593,6 +2929,9 @@ Vanguard ETF Holdings to Watchlist
         renderTabs();
 
         if (activeSheetName === "Watchlist") {
+          // Opening the Watchlist must (re)start background holdings
+          // loading so the tab reaches its exact count on its own.
+          void ensureHoldingsForSelected();
           renderWatchlistTable();
           renderStaticLoadSentinel();
           const watchlistRows = getDedupedWatchlistRows();
@@ -2603,14 +2942,15 @@ Vanguard ETF Holdings to Watchlist
           return;
         }
 
-        if (
-          ["Holdings", "Historical", "Performance", "Distributions"].includes(
-            activeSheetName,
-          ) &&
-          !isUploadedFile
-        ) {
+        if (DETAIL_SHEETS.includes(activeSheetName) && !isUploadedFile) {
           if (activeFundTicker && staticTicker !== activeFundTicker) {
-            await loadStaticFundSheets(activeFundTicker, false);
+            // never leave the previous fund's table visible while loading
+            renderFundLoading(activeFundTicker);
+            const loaded = await loadStaticFundSheets(activeFundTicker, false);
+            if (!loaded) return; // failure state is already on screen
+          } else if (!activeFundTicker) {
+            renderNoFundSelected();
+            return;
           }
         }
 
@@ -2748,8 +3088,13 @@ Vanguard ETF Holdings to Watchlist
         }`;
 
         const isCatalog = activeSheetName === "ETF Catalog";
-        const allCount = visibleCatalogFunds().length;
-        const allSelected = allCount > 0 && selectedETFs.size === allCount;
+        // Header Use checkbox scope = exactly the rows currently rendered:
+        // checked iff EVERY visible row is selected (.every — unrelated
+        // selections hidden by another filter must not affect the state).
+        const visibleTickers = isCatalog
+          ? data.map((row) => row.Ticker).filter(Boolean)
+          : [];
+        const allSelected = isCatalog && allTickersSelected(visibleTickers);
 
         if (headers.length > 0) {
           tableHead.innerHTML = `
@@ -2775,7 +3120,7 @@ Vanguard ETF Holdings to Watchlist
             }
             ${headers
               .map((header, index) =>
-                sortHeader(header, isCatalog && index === 0),
+                sortHeader(header, isCatalog && index === 0 ? "catalog" : ""),
               )
               .join("")}
           </tr>
@@ -2785,7 +3130,7 @@ Vanguard ETF Holdings to Watchlist
           if (isCatalog) {
             const selectAllCb = tableHead.querySelector("#select-all-checkbox");
             selectAllCb?.addEventListener("change", (e) => {
-              toggleSelectAll(e.target.checked);
+              toggleVisibleSelectAll(e.target.checked);
             });
           }
         }
@@ -2891,69 +3236,39 @@ Vanguard ETF Holdings to Watchlist
         animateTableUpdate();
       }
 
+      const WATCHLIST_HEADERS = [
+        "Ticker",
+        "Name",
+        "ETFs",
+        "# ETFs",
+        "Weight Sum (%)",
+        "Max Weight (%)",
+        "Market Value",
+        "Sector",
+        "Asset Class",
+        "Exchange",
+        "Location",
+      ];
+
       /**
-       * Renders the aggregated multi-ETF Watchlist table.
+       * Renders one slice of the aggregated Watchlist rows. Large
+       * all-catalog Watchlists must never insert tens of thousands of DOM
+       * rows at once — the table is chunked and grows on scroll.
+       * @param {Array<Record<string, unknown>>} rows
+       * @param {number} start
+       * @param {number} end
+       * @returns {string}
        */
-      function renderWatchlistTable() {
-        const allRows = getDedupedWatchlistRows();
-        const query = searchInput.value.toLowerCase().trim();
-        const filtered = query
-          ? allRows.filter((r) => r._searchIndex.includes(query))
-          : allRows;
-
-        const sorted = sortRows(filtered);
-        tickerCount.textContent = `${sorted.length} tickers`;
-
-        const headers = [
-          "Ticker",
-          "Name",
-          "ETFs",
-          "# ETFs",
-          "Weight Sum (%)",
-          "Max Weight (%)",
-          "Market Value",
-          "Sector",
-          "Asset Class",
-          "Exchange",
-          "Location",
-        ];
-
-        tableHead.innerHTML = `
-        <tr>
-          <th class="py-3.5 px-4 w-12 text-center" title="${escapeHtml(
-            getHeaderTooltip("#"),
-          )}">#</th>
-          ${headers.map((header) => sortHeader(header)).join("")}
-        </tr>
-      `;
-        bindSortHeaders();
-
-        if (!sorted.length) {
-          const msg =
-            selectedETFs.size === 0
-              ? 'No ETFs selected yet. Check individual boxes or "All ETFs" to build a multi-ETF Watchlist.'
-              : isHoldingsLoading
-                ? "Loading holdings for selected ETFs…"
-                : !selectedHaveHoldingsData()
-                  ? "Holdings data is not available yet for the selected ETFs. Run the data refresh workflow to fetch official Vanguard holdings (SEC N-PORT-P fallback)."
-                  : "No watchlist tickers match your search.";
-          tableBody.innerHTML = `<tr><td colspan="${
-            headers.length + 1
-          }" class="py-12 text-center text-slate-400 dark:text-slate-500">${escapeHtml(
-            msg,
-          )}</td></tr>`;
-          animateTableUpdate();
-          return;
-        }
-
-        tableBody.innerHTML = sorted
+      function watchlistRowsHtml(rows, start, end) {
+        return rows
+          .slice(start, end)
           .map(
-            (row, idx) => `
+            (row, i) => `
         <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition border-b border-slate-100 dark:border-slate-700/30">
           <td class="py-2.5 px-4 text-slate-400 dark:text-slate-500 text-xs text-center font-mono">${
-            idx + 1
+            start + i + 1
           }</td>
-          <td class="py-2.5 px-4 font-mono font-semibold text-blue-600 dark:text-blue-400">${escapeHtml(
+          <td class="watchlist-sticky-col watchlist-sticky-ticker py-2.5 px-4 font-mono font-semibold text-blue-600 dark:text-blue-400">${escapeHtml(
             row.Ticker,
           )}</td>
           <td class="py-2.5 px-4 text-slate-700 dark:text-slate-300 font-medium">${escapeHtml(
@@ -2963,9 +3278,13 @@ Vanguard ETF Holdings to Watchlist
             <div class="flex flex-wrap gap-1 max-w-md">
               ${row.ETFs.map(
                 (t) =>
-                  `<span class="font-mono text-xs bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-100 dark:border-blue-800 rounded-full px-2 py-0.5">${escapeHtml(
+                  `<button data-fund-view="${escapeHtml(
                     t,
-                  )}</span>`,
+                  )}" title="View ${escapeHtml(
+                    t,
+                  )} details" class="font-mono text-xs bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-100 dark:border-blue-800 rounded-full px-2 py-0.5 cursor-pointer hover:underline">${escapeHtml(
+                    t,
+                  )}</button>`,
               ).join("")}
             </div>
           </td>
@@ -2981,11 +3300,8 @@ Vanguard ETF Holdings to Watchlist
           <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${escapeHtml(
             row["Market Value"],
           )}</td>
-          <td class="py-2.5 px-4 text-slate-700 dark:text-slate-300">${escapeHtml(
-            row.Sector,
-          )}</td>
           <td class="py-2.5 px-4 text-slate-600 dark:text-slate-400">${escapeHtml(
-            row["Asset Class"],
+            row.Sector,
           )}</td>
           <td class="py-2.5 px-4 text-slate-600 dark:text-slate-400 font-mono text-xs">${escapeHtml(
             row.Exchange,
@@ -2997,20 +3313,101 @@ Vanguard ETF Holdings to Watchlist
       `,
           )
           .join("");
+      }
+
+      /**
+       * Renders the aggregated multi-ETF Watchlist table (first chunk only —
+       * scrolling extends it via extendWatchlistChunk).
+       */
+      function renderWatchlistTable() {
+        const allRows = getDedupedWatchlistRows();
+        const query = searchInput.value.toLowerCase().trim();
+        const filtered = query
+          ? allRows.filter((r) => r._searchIndex.includes(query))
+          : allRows;
+
+        const sorted = sortRows(filtered);
+        tickerCount.textContent = `${sorted.length} tickers`;
+        watchlistView = { rows: sorted, rendered: 0 };
+
+        tableHead.innerHTML = `
+        <tr>
+          <th class="py-3.5 px-4 w-12 text-center" title="${escapeHtml(
+            getHeaderTooltip("#"),
+          )}">#</th>
+          ${WATCHLIST_HEADERS.map((header, index) =>
+            sortHeader(header, index === 0 ? "watchlist" : ""),
+          ).join("")}
+        </tr>
+      `;
+        bindSortHeaders();
+
+        if (!sorted.length) {
+          const loadedSelected = [...selectedETFs].filter(
+            (t) => fundHoldingsCache[t],
+          ).length;
+          let msg;
+          if (selectedETFs.size === 0) {
+            msg =
+              'No ETFs selected yet. Check individual boxes or "All ETFs" to build a multi-ETF Watchlist.';
+          } else if (isHoldingsLoading()) {
+            msg = `Loading holdings\u2026 ${loadedSelected} of ${selectedETFs.size} selected ETFs loaded.`;
+          } else if (!selectedHaveHoldingsData()) {
+            msg =
+              "Holdings data is not available yet. Run the data refresh workflow to fetch official Vanguard holdings (SEC N-PORT-P fallback).";
+          } else {
+            msg = query
+              ? `No watchlist rows match \u201c${query}\u201d.`
+              : "No watchlist rows available.";
+          }
+          tableBody.innerHTML = `<tr><td colspan="${
+            WATCHLIST_HEADERS.length + 1
+          }" class="py-12 text-center text-slate-400 dark:text-slate-500">${escapeHtml(
+            msg,
+          )}</td></tr>`;
+          animateTableUpdate();
+          fitTableScrollHeight();
+          return;
+        }
+
+        const firstChunk = Math.min(WATCHLIST_CHUNK, sorted.length);
+        tableBody.innerHTML = watchlistRowsHtml(sorted, 0, firstChunk);
+        watchlistView.rendered = firstChunk;
 
         animateTableUpdate();
         fitTableScrollHeight();
       }
 
-      function sortHeader(header, isPinnedTicker = false) {
+      /**
+       * Extends the rendered Watchlist chunk when the user scrolls near the
+       * bottom. Copy/export always use the complete filtered result, not
+       * just the rendered chunk.
+       * @returns {boolean} whether more rows were rendered
+       */
+      function extendWatchlistChunk() {
+        const total = watchlistView.rows.length;
+        if (!total || watchlistView.rendered >= total) return false;
+        const next = Math.min(total, watchlistView.rendered + WATCHLIST_CHUNK);
+        tableBody.insertAdjacentHTML(
+          "beforeend",
+          watchlistRowsHtml(watchlistView.rows, watchlistView.rendered, next),
+        );
+        watchlistView.rendered = next;
+        return true;
+      }
+
+      function sortHeader(header, pin = "") {
         const active = sortKey === header;
         const arrow = active ? (sortDir === "asc" ? " ↑" : " ↓") : "";
         const tooltip = getHeaderTooltip(header);
         const isNumeric = isNumericColumn(header);
         const align = isNumeric ? " text-right" : "";
-        const pinnedClass = isPinnedTicker
-          ? " catalog-sticky-col catalog-sticky-ticker"
-          : "";
+        const pinnedClass =
+          pin === "catalog"
+            ? " catalog-sticky-col catalog-sticky-ticker"
+            : pin === "watchlist"
+              ? " watchlist-sticky-col watchlist-sticky-ticker"
+              : "";
 
         return `<th class="py-3.5 px-4${align}${pinnedClass}" title="${escapeHtml(
           tooltip,
