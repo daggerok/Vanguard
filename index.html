@@ -700,6 +700,7 @@ Vanguard ETF Holdings to Watchlist
       const SELECTED_KEY = "vanguard-selected-etfs";
       const BLACKLIST_KEY = "vanguard-blacklisted-etfs";
       const ACTIVE_FUND_KEY = "vanguard-active-fund";
+      const SORTS_KEY = "vanguard-tab-sorts";
 
       const themeToggle = document.getElementById("theme-toggle");
       const appSubtitle = document.getElementById("app-subtitle");
@@ -1325,6 +1326,7 @@ Vanguard ETF Holdings to Watchlist
 
       /**
        * Toggles selection of all catalog ETFs.
+       * Checkbox interactions must NEVER change or reset the sort.
        * @param {boolean} selectAll
        */
       function toggleSelectAll(selectAll) {
@@ -1345,15 +1347,8 @@ Vanguard ETF Holdings to Watchlist
             ].includes(activeSheetName)
           ) {
             activeSheetName = "ETF Catalog";
-            // restore catalog sort when returning via checkbox — from generic map
-            const savedCatalog = sheetSort["ETF Catalog"];
-            if (savedCatalog?.key) {
-              sortKey = savedCatalog.key;
-              sortDir = savedCatalog.dir;
-            } else {
-              sortKey = catalogSortKey || sortKey || "";
-              sortDir = catalogSortDir || sortDir || "asc";
-            }
+            // restore catalog sort when returning via checkbox — never reset, use remembered sort
+            applySortForTab("ETF Catalog");
           }
         }
         persistSelectedEtfs();
@@ -2007,6 +2002,104 @@ Vanguard ETF Holdings to Watchlist
       // 9. State Persistence & SpreadsheetML (.xls) Parser
       // =========================================================================
 
+      function persistTabSorts() {
+        try {
+          localStorage.setItem(SORTS_KEY, JSON.stringify(sheetSort));
+        } catch {
+          /* quota or private mode */
+        }
+      }
+
+      function restoreTabSorts() {
+        try {
+          const raw = localStorage.getItem(SORTS_KEY) || "{}";
+          const saved = JSON.parse(raw) || {};
+          const sorts = {};
+          Object.keys(saved).forEach((tab) => {
+            const entry = saved[tab];
+            if (
+              entry &&
+              typeof entry.key === "string" &&
+              entry.key !== "" &&
+              (entry.dir === "asc" || entry.dir === "desc")
+            ) {
+              sorts[tab] = { key: entry.key, dir: entry.dir };
+            }
+          });
+          // Merge with any existing sheetSort (from SITE_STATE_KEY backward compat)
+          for (const [name, entry] of Object.entries(sheetSort)) {
+            if (!sorts[name] && entry && typeof entry.key === "string" && entry.key !== "" && (entry.dir === "asc" || entry.dir === "desc")) {
+              sorts[name] = { key: entry.key, dir: entry.dir };
+            }
+          }
+          sheetSort = sorts;
+        } catch {
+          /* keep existing sheetSort on corrupt data */
+        }
+      }
+
+      function applyDefaultSortForTab(tab) {
+        if (tab === "Watchlist") {
+          sortKey = "Weight Sum (%)";
+          sortDir = "desc";
+        } else if (tab === "ETF Catalog") {
+          sortKey = "";
+          sortDir = "asc";
+        } else {
+          // Holdings, Historical, Performance, Distributions — source order by default
+          sortKey = "";
+          sortDir = "asc";
+        }
+        // keep legacy keys in sync
+        if (tab === "ETF Catalog") {
+          catalogSortKey = sortKey;
+          catalogSortDir = sortDir;
+        } else if (tab === "Watchlist") {
+          watchlistSortKey = sortKey;
+          watchlistSortDir = sortDir;
+        }
+      }
+
+      function applySortForTab(tab) {
+        const remembered = sheetSort[tab];
+        if (
+          remembered &&
+          typeof remembered.key === "string" &&
+          remembered.key !== "" &&
+          (remembered.dir === "asc" || remembered.dir === "desc")
+        ) {
+          sortKey = remembered.key;
+          sortDir = remembered.dir;
+          if (tab === "ETF Catalog") {
+            catalogSortKey = sortKey;
+            catalogSortDir = sortDir;
+          } else if (tab === "Watchlist") {
+            watchlistSortKey = sortKey;
+            watchlistSortDir = sortDir;
+          }
+          return;
+        }
+        applyDefaultSortForTab(tab);
+      }
+
+      function rememberSortForCurrentTab() {
+        if (!activeSheetName) return;
+        if (!sortKey) {
+          // empty sort means source order — don't store as explicit remembered sort,
+          // unless user explicitly chose Ticker asc to get back to default (that has key)
+          return;
+        }
+        sheetSort[activeSheetName] = { key: sortKey, dir: sortDir };
+        if (activeSheetName === "ETF Catalog") {
+          catalogSortKey = sortKey;
+          catalogSortDir = sortDir;
+        } else if (activeSheetName === "Watchlist") {
+          watchlistSortKey = sortKey;
+          watchlistSortDir = sortDir;
+        }
+        persistTabSorts();
+      }
+
       function restoreSiteState() {
         try {
           const saved = JSON.parse(
@@ -2050,37 +2143,43 @@ Vanguard ETF Holdings to Watchlist
         } catch {
           /* no saved state */
         }
+        // dedicated per-tab sorts key — like checkboxes — always restored, sanitized
+        restoreTabSorts();
       }
 
       function applyRestoredSiteState() {
         // always restore per-sheet sort if we have it — like checkboxes in localStorage
-        const savedForSheet = sheetSort[activeSheetName];
-        if (activeSheetName === "Watchlist") {
-          sortKey = savedForSheet?.key || watchlistSortKey || "Weight Sum (%)";
-          sortDir = savedForSheet?.dir || watchlistSortDir || "desc";
-          searchInput.value = restoredQuery;
-          renderWatchlistTable();
-          return;
-        }
-        const currentSheet = workbookSheets[activeSheetName];
-        if (activeSheetName === "ETF Catalog") {
-          sortKey = savedForSheet?.key || catalogSortKey || restoredSortKey || "";
-          sortDir = savedForSheet?.dir || catalogSortDir || restoredSortDir || "asc";
-        } else {
-          // Holdings, Historical, Performance, Distributions — restore if previously configured
-          if (savedForSheet?.key) {
-            sortKey = savedForSheet.key;
-            sortDir = savedForSheet.dir || "asc";
-          } else {
+        // Use applySortForTab so remembered sort survives reload
+        applySortForTab(activeSheetName);
+        // backward compat: if no remembered sort but legacy restoredSortKey exists and is valid for this sheet, use it
+        if (!sortKey && restoredSortKey) {
+          const currentSheet = workbookSheets[activeSheetName] || (activeSheetName === "ETF Catalog" ? staticCatalogSheet : null);
+          if (currentSheet && currentSheet.headers.includes(restoredSortKey)) {
             sortKey = restoredSortKey;
             sortDir = restoredSortDir;
           }
         }
         searchInput.value = restoredQuery;
+        if (activeSheetName === "Watchlist") {
+          renderWatchlistTable();
+          return;
+        }
+        const currentSheet = workbookSheets[activeSheetName];
         if (!currentSheet) return;
-        if (sortKey && !currentSheet.headers.includes(sortKey)) {
-          sortKey = "";
-          sortDir = activeSheetName === "ETF Catalog" ? (savedForSheet?.dir || catalogSortDir || "asc") : "asc";
+        // stale key that no longer exists — stable no-op, must not throw
+        if (sortKey && !currentSheet.headers.includes(sortKey) && activeSheetName !== "Watchlist") {
+          // keep sortKey for memory but don't break rendering — if it's a stale column, sorting becomes no-op
+          // For detail sheets where fund changed, fallback to source order only if remembered key invalid
+          const saved = sheetSort[activeSheetName];
+          if (saved && saved.key === sortKey && activeSheetName !== "ETF Catalog") {
+            // if the remembered sort itself is invalid for this sheet (different fund), clear to default
+            // but keep it in sheetSort? No — clear current view to source order
+            const maybeSheet = workbookSheets[activeSheetName] || null;
+            if (maybeSheet && !maybeSheet.headers.includes(sortKey)) {
+              sortKey = "";
+              sortDir = "asc";
+            }
+          }
         }
         renderTable(getFilteredRows(currentSheet), currentSheet.headers);
         renderStaticLoadSentinel();
@@ -2113,6 +2212,7 @@ Vanguard ETF Holdings to Watchlist
             sheetSort,
           }),
         );
+        persistTabSorts();
       }
 
       function getDefaultTabName(sheetNames) {
@@ -2445,11 +2545,11 @@ Vanguard ETF Holdings to Watchlist
        * Preserves per-sheet sort for ANY tab — like checkboxes in localStorage.
        * All ETFs button (checkbox #select-all-toggle and label #all-etfs-tab-btn)
        * must keep previous sort order, and Holdings/Historical/Performance/Distributions
-       * sorts must survive tab switches and reloads.
+       * sorts must survive tab switches and reloads. No button may ever reset the sort.
        * @param {string} sheetName
        */
       async function switchSheet(sheetName) {
-        // Save current sheet's sort before leaving — generic map for any tab
+        // Save current sheet's sort before leaving — generic map for any tab, stored in vanguard-tab-sorts
         if (sortKey) {
           sheetSort[activeSheetName] = { key: sortKey, dir: sortDir };
           if (activeSheetName === "ETF Catalog") {
@@ -2459,57 +2559,34 @@ Vanguard ETF Holdings to Watchlist
             watchlistSortKey = sortKey;
             watchlistSortDir = sortDir;
           }
+          persistTabSorts();
         }
 
         activeSheetName = sheetName;
 
-        const saved = sheetSort[activeSheetName];
-        if (activeSheetName === "ETF Catalog") {
-          // Restore catalog sort if we have one, else keep legacy restored
-          if (saved?.key) {
-            sortKey = saved.key;
-            sortDir = saved.dir;
-          } else if (catalogSortKey) {
-            sortKey = catalogSortKey;
-            sortDir = catalogSortDir;
-          } else if (restoredSortKey && (staticCatalogSheet?.headers || []).includes(restoredSortKey)) {
-            sortKey = restoredSortKey;
-            sortDir = restoredSortDir;
-          } else {
-            sortKey = catalogSortKey || "";
-            sortDir = catalogSortDir || "asc";
-          }
-        } else if (activeSheetName === "Watchlist") {
-          if (saved?.key) {
-            sortKey = saved.key;
-            sortDir = saved.dir;
-          } else if (watchlistSortKey) {
-            sortKey = watchlistSortKey;
-            sortDir = watchlistSortDir;
-          } else {
-            sortKey = "Weight Sum (%)";
-            sortDir = "desc";
-          }
-        } else {
-          // Detail sheets — restore if previously configured, else default asc
-          if (saved?.key) {
-            sortKey = saved.key;
-            sortDir = saved.dir;
-            const maybeSheet = workbookSheets[activeSheetName] || null;
-            if (maybeSheet && !maybeSheet.headers.includes(sortKey)) {
-              // if saved key invalid for this sheet (e.g. different fund), clear
+        // Restore instead of reset — THE core change (reference: SPDR PR #13)
+        applySortForTab(sheetName);
+
+        // Backward compat: if no remembered sort but legacy restoredSortKey exists and is valid for catalog, use it
+        if (!sortKey && restoredSortKey && sheetName === "ETF Catalog" && (staticCatalogSheet?.headers || []).includes(restoredSortKey)) {
+          sortKey = restoredSortKey;
+          sortDir = restoredSortDir;
+        }
+
+        // For detail sheets, if remembered sort key is invalid for this fund's sheet, clear to source order
+        if (sortKey) {
+          const maybeSheet = workbookSheets[activeSheetName] || (activeSheetName === "ETF Catalog" ? staticCatalogSheet : null);
+          if (maybeSheet && activeSheetName !== "ETF Catalog" && activeSheetName !== "Watchlist" && !maybeSheet.headers.includes(sortKey)) {
+            // stale key for this fund — fallback to default but keep memory intact for other funds?
+            // To match SPDR behavior, clear current view to source order; memory entry stays but will be ignored next time if still invalid
+            const saved = sheetSort[activeSheetName];
+            if (saved && saved.key === sortKey) {
               sortKey = "";
               sortDir = "asc";
             }
-          } else {
-            // no saved sort for this tab — keep current if valid, else reset
-            const maybeSheet = workbookSheets[activeSheetName] || null;
-            if (maybeSheet && sortKey && !maybeSheet.headers.includes(sortKey)) {
-              sortKey = "";
-            }
-            sortDir = sortKey ? sortDir : "asc";
           }
         }
+
         persistSiteState();
 
         await dbSet("active_tab", activeSheetName);
@@ -2609,6 +2686,9 @@ Vanguard ETF Holdings to Watchlist
 
       /**
        * Clears storage and resets active selection/search.
+       * Clear clears only the selection and the searches; the remembered
+       * per-tab sorts survive (in memory AND in localStorage) and the current
+       * tab is re-shown with its remembered sort. No button may ever reset the sort.
        */
       async function clearStorage() {
         if (isUploadedFile) {
@@ -2630,6 +2710,10 @@ Vanguard ETF Holdings to Watchlist
         localStorage.removeItem(ACTIVE_FUND_KEY);
         searchInput.value = "";
         activeSheetName = "ETF Catalog";
+        // Sort preferences survive Clear — restore remembered sort for default tab
+        applySortForTab("ETF Catalog");
+        persistSelectedEtfs();
+        // persist query cleared, but keep sheetSort intact in both keys
         persistSiteState();
         renderSubtitle();
         renderTabs();
@@ -2948,15 +3032,8 @@ Vanguard ETF Holdings to Watchlist
               sortKey = key;
               sortDir = isNumericColumn(key) ? "desc" : "asc";
             }
-            // keep per-sheet sort in sync for ANY tab — like checkboxes in localStorage
-            sheetSort[activeSheetName] = { key: sortKey, dir: sortDir };
-            if (activeSheetName === "ETF Catalog") {
-              catalogSortKey = sortKey;
-              catalogSortDir = sortDir;
-            } else if (activeSheetName === "Watchlist") {
-              watchlistSortKey = sortKey;
-              watchlistSortDir = sortDir;
-            }
+            // Record the sort on every column-header click — per-tab memory, like checkboxes in localStorage
+            rememberSortForCurrentTab();
             persistSiteState();
             if (activeSheetName === "Watchlist") {
               renderWatchlistTable();

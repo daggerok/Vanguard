@@ -8,6 +8,7 @@ The provider applications share this interaction contract so users do not need t
 - Opening the application starts with no funds selected. The user explicitly chooses funds for comparison.
 - `All ETFs` and category tabs filter the catalog; they do not change the saved selection.
 - Catalog columns use the common order documented in the README and preserve unavailable provider metrics as `—`.
+- Sort order is remembered per tab and restored whenever the tab is reopened, including after reload. Column-header clicks record it; no button or checkbox ever resets it — Clear clears only the selection and the searches. The remembered sorts are stored in browser localStorage (`vanguard-tab-sorts`, `spdr-tab-sorts`, etc.), like the checkbox selections. Watchlist defaults to Weight Sum (%) desc, ETF Catalog and detail sheets default to source order; click Ticker header asc to return to default catalog order.
 
 ## Selection and watchlist
 
@@ -15,6 +16,7 @@ The provider applications share this interaction contract so users do not need t
 - `Select all` applies to the visible, non-blacklisted catalog.
 - The Watchlist tab aggregates holdings across selected funds and exposes the number of selected ETFs holding each security.
 - Blacklisting is persisted per provider and removes a fund from the catalog and selection until restored.
+- Checkbox interactions (row Use checkbox, header select-all, the checkbox in the All ETFs pill) must NEVER change or reset the sort.
 
 ## Data states
 
