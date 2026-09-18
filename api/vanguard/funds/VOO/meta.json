@@ -33,11 +33,11 @@
       [
         "Quarterly",
         "2026-06-26",
-        "—",
-        "—",
+        "\u2014",
+        "\u2014",
         "1.962",
-        "—",
-        "—"
+        "\u2014",
+        "\u2014"
       ]
     ]
   },
@@ -65,9 +65,13 @@
     }
   },
   "holdings": {
-    "totalRows": 0,
-    "pageSize": 1000,
-    "pages": []
+    "totalRows": 13,
+    "pageSize": 250,
+    "pages": [
+      "holdings/001.json"
+    ],
+    "asOfDate": "2026-08-31",
+    "source": "Vanguard IRR AdditionalFundData (reconstructed via fetch_page)"
   },
   "history": {
     "totalRows": 193,
