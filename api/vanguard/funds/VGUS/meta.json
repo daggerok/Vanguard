@@ -6,8 +6,8 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vgus",
   "officialPage": "https://advisors.vanguard.com/investments/products/vgus/vanguard-ultra-short-treasury-etf",
   "portId": "V041",
-  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 75.53990173339844,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
+  "nav": 75.52999877929688,
   "netAssets": "$1.1B",
   "totalFundNetAssets": "$1.1B",
   "netAssetsAsOf": "2026-08-31",
@@ -38,22 +38,175 @@
         "0.231",
         "—",
         "—"
+      ],
+      [
+        "Monthly",
+        "2026-08-03",
+        "—",
+        "—",
+        "0.231",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-07-01",
+        "—",
+        "—",
+        "0.22",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-06-01",
+        "—",
+        "—",
+        "0.224",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-05-01",
+        "—",
+        "—",
+        "0.217",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-04-01",
+        "—",
+        "—",
+        "0.218",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-03-02",
+        "—",
+        "—",
+        "0.192",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-02-02",
+        "—",
+        "—",
+        "0.224",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-12-18",
+        "—",
+        "—",
+        "0.234",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-12-01",
+        "—",
+        "—",
+        "0.233",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-11-03",
+        "—",
+        "—",
+        "0.24",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-10-01",
+        "—",
+        "—",
+        "0.242",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-09-02",
+        "—",
+        "—",
+        "0.24",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-08-01",
+        "—",
+        "—",
+        "0.245",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-07-01",
+        "—",
+        "—",
+        "0.216",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-06-02",
+        "—",
+        "—",
+        "0.243",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-05-01",
+        "—",
+        "—",
+        "0.208",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-04-01",
+        "—",
+        "—",
+        "0.256",
+        "—",
+        "—"
       ]
     ]
   },
   "ytdReturn": 2.43240907,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": 3.626120796454013,
-    "3Y": 6.3109941183658425,
-    "5Y": 6.31099411836582,
-    "10Y": 6.310994118365709
+    "1Y": 3.6125358606198033,
+    "3Y": 6.297000140550146,
+    "5Y": 6.29700014055008,
+    "10Y": 6.297000140550213
   },
   "performance": {
-    "1Y": 3.626120796454013,
-    "3Y": 2.060899848378339,
-    "5Y": 1.2314915597915643,
-    "10Y": 0.6138616492735283
+    "1Y": 3.6125358606198033,
+    "3Y": 2.056421476057424,
+    "5Y": 1.2288263493781981,
+    "10Y": 0.6125371657917267
   },
   "officialMetrics": {
     "nav": 2.43240907,
@@ -65,15 +218,21 @@
     }
   },
   "holdings": {
-    "totalRows": 0,
-    "pageSize": 1000,
-    "pages": []
+    "pages": [
+      "holdings/001.json"
+    ],
+    "pageSize": 250,
+    "totalRows": 90,
+    "asOfDate": "2026-09-16",
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
-    "totalRows": 401,
-    "pageSize": 1000,
     "pages": [
-      "./history/001.json"
-    ]
+      "history/001.json"
+    ],
+    "pageSize": 1000,
+    "totalRows": 401,
+    "asOfDate": "2026-09-17",
+    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

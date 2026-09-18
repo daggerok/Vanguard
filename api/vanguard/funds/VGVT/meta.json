@@ -6,8 +6,8 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vgvt",
   "officialPage": "https://advisors.vanguard.com/investments/products/vgvt/vanguard-government-securities-active-etf",
   "portId": "V050",
-  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 73.17009735107422,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
+  "nav": 73.23999786376953,
   "netAssets": "$36.7M",
   "totalFundNetAssets": "$36.7M",
   "netAssetsAsOf": "2026-08-31",
@@ -38,22 +38,139 @@
         "0.267",
         "—",
         "—"
+      ],
+      [
+        "Monthly",
+        "2026-08-03",
+        "—",
+        "—",
+        "0.275",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-07-01",
+        "—",
+        "—",
+        "0.274",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-06-01",
+        "—",
+        "—",
+        "0.255",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-05-01",
+        "—",
+        "—",
+        "0.255",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-04-01",
+        "—",
+        "—",
+        "0.246",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-03-02",
+        "—",
+        "—",
+        "0.242",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-02-02",
+        "—",
+        "—",
+        "0.25",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-12-18",
+        "—",
+        "—",
+        "0.577",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-12-01",
+        "—",
+        "—",
+        "0.199",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-11-03",
+        "—",
+        "—",
+        "0.264",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-10-01",
+        "—",
+        "—",
+        "0.24",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-09-02",
+        "—",
+        "—",
+        "0.264",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-08-01",
+        "—",
+        "—",
+        "0.195",
+        "—",
+        "—"
       ]
     ]
   },
   "ytdReturn": -1.31733782,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -0.21234093288713396,
-    "3Y": 2.1409493940375723,
-    "5Y": 2.140949394037528,
-    "10Y": 2.140949394037639
+    "1Y": -0.11700186391409018,
+    "3Y": 2.2385153160536797,
+    "5Y": 2.2385153160537463,
+    "10Y": 2.2385153160538573
   },
   "performance": {
-    "1Y": -0.21234093288713396,
-    "3Y": 0.7086165629167196,
-    "5Y": 0.4245693570070319,
-    "10Y": 0.2120598316425415
+    "1Y": -0.11700186391409018,
+    "3Y": 0.7406722735362248,
+    "5Y": 0.44374731500482767,
+    "10Y": 0.2216280625119582
   },
   "officialMetrics": {
     "nav": -1.31733782,
@@ -65,15 +182,22 @@
     }
   },
   "holdings": {
-    "totalRows": 0,
-    "pageSize": 1000,
-    "pages": []
+    "pages": [
+      "holdings/001.json",
+      "holdings/002.json"
+    ],
+    "pageSize": 250,
+    "totalRows": 297,
+    "asOfDate": "2026-09-16",
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
-    "totalRows": 301,
-    "pageSize": 1000,
     "pages": [
-      "./history/001.json"
-    ]
+      "history/001.json"
+    ],
+    "pageSize": 1000,
+    "totalRows": 301,
+    "asOfDate": "2026-09-17",
+    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

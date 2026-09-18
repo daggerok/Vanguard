@@ -6,8 +6,8 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vbcd",
   "officialPage": "https://advisors.vanguard.com/investments/products/vbcd/vanguard-target-maturity-2030-corporate-bond-etf",
   "portId": "V075",
-  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 73.94999694824219,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
+  "nav": 74.0199966430664,
   "netAssets": "$53.8M",
   "totalFundNetAssets": "$53.8M",
   "netAssetsAsOf": "2026-08-31",
@@ -38,22 +38,58 @@
         "0.262",
         "—",
         "—"
+      ],
+      [
+        "Monthly",
+        "2026-08-03",
+        "—",
+        "—",
+        "0.266",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-07-01",
+        "—",
+        "—",
+        "0.262",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-06-01",
+        "—",
+        "—",
+        "0.253",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-05-01",
+        "—",
+        "—",
+        "0.106",
+        "—",
+        "—"
       ]
     ]
   },
-  "ytdReturn": 0.4274872908553773,
+  "ytdReturn": 0.5225396714878761,
   "asOfDate": "",
   "totalReturn": {
-    "1Y": 0.4274872908553773,
-    "3Y": 0.4274872908553773,
-    "5Y": 0.4274872908553995,
-    "10Y": 0.4274872908555105
+    "1Y": 0.5225396714878761,
+    "3Y": 0.5225396714878983,
+    "5Y": 0.5225396714878539,
+    "10Y": 0.5225396714877428
   },
   "performance": {
-    "1Y": 0.4274872908553773,
-    "3Y": 0.1422931940523675,
-    "5Y": 0.08535163572791493,
-    "10Y": 0.04266671562085378
+    "1Y": 0.5225396714878761,
+    "3Y": 0.17387738182703671,
+    "5Y": 0.10429017849145072,
+    "10Y": 0.052131500778851425
   },
   "officialMetrics": {
     "nav": null,
@@ -65,15 +101,23 @@
     }
   },
   "holdings": {
-    "totalRows": 0,
-    "pageSize": 1000,
-    "pages": []
+    "pages": [
+      "holdings/001.json",
+      "holdings/002.json",
+      "holdings/003.json"
+    ],
+    "pageSize": 250,
+    "totalRows": 675,
+    "asOfDate": "2026-09-16",
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
-    "totalRows": 121,
-    "pageSize": 1000,
     "pages": [
-      "./history/001.json"
-    ]
+      "history/001.json"
+    ],
+    "pageSize": 1000,
+    "totalRows": 121,
+    "asOfDate": "2026-09-17",
+    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }
