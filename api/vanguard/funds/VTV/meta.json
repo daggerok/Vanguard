@@ -866,9 +866,13 @@
     }
   },
   "holdings": {
-    "totalRows": 0,
-    "pageSize": 1000,
-    "pages": []
+    "totalRows": 13,
+    "pageSize": 250,
+    "pages": [
+      "holdings/001.json"
+    ],
+    "asOfDate": "2026-08-31",
+    "source": "Vanguard IRR AdditionalFundData (reconstructed via fetch_page 41 chunks)"
   },
   "history": {
     "totalRows": 273,
