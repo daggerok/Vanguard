@@ -196,6 +196,8 @@ test("1b. Watchlist remembers its own sort separately from the catalog", async (
   toggleRow(app, "VOO");
   await until(() => app.el("selected-tabs-bar").innerHTML.includes("Watchlist"));
   await clickTab(app, "Watchlist");
+  expect(JSON.parse(app.storage.getItem(SORTS_KEY) || "{}").Watchlist).toBeUndefined();
+  expect(JSON.parse(app.storage.getItem("vanguard-site-state") || "{}").watchlistSortKey).toBe("");
   clickSort(app, "Ticker"); // overrides the Weight Sum (%) default
   clickSort(app, "Ticker"); // asc -> desc
   expect(app.run("sortKey")).toBe("Ticker");
@@ -686,6 +688,10 @@ test("16. per-tab filter persistence: each tab keeps its own search query indepe
     "ETF Catalog": "vg",
     Performance: "return",
   });
+  expect(JSON.parse(app.storage.getItem("vanguard-site-state")!).sheetFilter).toEqual({
+    "ETF Catalog": "vg",
+    Performance: "return",
+  });
 
   // 4. Switch to Holdings tab: search is empty, shows full holdings
   await clickTab(app, "Holdings");
@@ -728,7 +734,20 @@ test("16. per-tab filter persistence: each tab keeps its own search query indepe
     Watchlist: "US",
   });
 
-  // 9. Clear button clears selection AND all per-tab searches
+  // 9. The inline one-click clear only removes the active tab's query.
+  const searchClear = reloaded.el("search-clear-btn");
+  expect(searchClear.classList.contains("hidden")).toBe(false);
+  searchClear.click();
+  expect(reloaded.el("search-input").value).toBe("");
+  expect(searchClear.classList.contains("hidden")).toBe(true);
+  expect(reloaded.el("ticker-count").textContent).toContain("116 ETFs");
+  expect(JSON.parse(reloaded.storage.getItem(FILTERS_KEY)!)).toEqual({
+    Performance: "return",
+    Holdings: "treasury",
+    Watchlist: "US",
+  });
+
+  // #reset-btn still clears selection and every tab filter.
   reloaded.el("reset-btn").click();
   expect(reloaded.el("search-input").value).toBe("");
   expect(reloaded.storage.getItem(FILTERS_KEY)).toBeNull();

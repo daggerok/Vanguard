@@ -366,13 +366,22 @@ Vanguard ETF Holdings to Watchlist
           class="flex flex-col lg:flex-row justify-between items-center gap-4 bg-white dark:bg-slate-800/80 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm backdrop-blur"
         >
           <!-- Search Input (Left) -->
-          <input
-            type="text"
-            id="search-input"
-            placeholder="Search ETFs, fund names, holdings, tickers, CUSIPs, ISINs..."
-            disabled
-            class="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 w-full lg:w-80 focus:outline-none focus:border-blue-500 text-sm placeholder-slate-400 dark:placeholder-slate-500 disabled:opacity-50 disabled:cursor-not-allowed shrink-0 transition"
-          />
+          <div class="relative flex items-center w-full lg:w-80 shrink-0">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search ETFs, fund names, holdings, tickers, CUSIPs, ISINs..."
+              disabled
+              class="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700 rounded-lg pl-4 pr-8 py-2 w-full focus:outline-none focus:border-blue-500 text-sm placeholder-slate-400 dark:placeholder-slate-500 disabled:opacity-50 disabled:cursor-not-allowed transition"
+            />
+            <button
+              type="button"
+              id="search-clear-btn"
+              class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center rounded-full text-slate-400 hover:text-slate-700 dark:text-slate-500 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition text-sm leading-none focus:outline-none"
+              title="Clear search filter"
+              aria-label="Clear search filter"
+            >✕</button>
+          </div>
 
           <!-- ETF Catalogue Tabs Bar (Center) -->
           <div
@@ -842,6 +851,7 @@ Vanguard ETF Holdings to Watchlist
       // invalidated whenever the selection or the loaded rows change.
       let metaInFlight = new Map();
       let holdingsInFlight = new Map();
+      let holdingsFailed = new Set();
       let watchlistRowsCache = null;
       let watchlistView = { rows: [], rendered: 0 };
       let watchlistUiTimer = null;
@@ -880,6 +890,7 @@ Vanguard ETF Holdings to Watchlist
       const tableBody = document.getElementById("table-body");
       const tickerCount = document.getElementById("ticker-count");
       const searchInput = document.getElementById("search-input");
+      const searchClearBtn = document.getElementById("search-clear-btn");
       const tableScroll = document.getElementById("table-scroll");
       const staticLoadSentinel = document.getElementById(
         "static-load-sentinel",
@@ -1177,7 +1188,7 @@ Vanguard ETF Holdings to Watchlist
 
       function formatInteger(val) {
         const num = sortableNumber(val);
-        return num !== null ? num.toLocaleString("en-US") : String(val || "");
+        return num !== null ? num.toLocaleString("en-US") : String(val ?? "");
       }
 
       /**
@@ -1229,8 +1240,14 @@ Vanguard ETF Holdings to Watchlist
         const promise = (async () => {
           try {
             const meta = await fetchFundMeta(cleanTicker);
+            if (!meta) {
+              holdingsFailed.add(cleanTicker);
+              invalidateWatchlistRows();
+              return [];
+            }
             const pages = meta?.holdings?.pages || [];
             if (!pages.length) {
+              holdingsFailed.delete(cleanTicker);
               fundHoldingsCache[cleanTicker] = [];
               return [];
             }
@@ -1238,12 +1255,17 @@ Vanguard ETF Holdings to Watchlist
               pages.map((page) => fetchStaticPage(cleanTicker, page)),
             );
             const allRows = pageData.flatMap((p) => p.rows || []);
+            holdingsFailed.delete(cleanTicker);
             fundHoldingsCache[cleanTicker] = allRows;
             invalidateWatchlistRows();
             return allRows;
           } catch (e) {
             console.warn(`Could not load holdings for ${cleanTicker}:`, e);
-            // leave the cache entry absent so a later retry is possible
+            // A failed fund is settled as an empty contribution so the
+            // Watchlist cannot remain in Loading… forever. Deselecting and
+            // reselecting it clears this marker and permits a retry.
+            holdingsFailed.add(cleanTicker);
+            invalidateWatchlistRows();
             return [];
           } finally {
             holdingsInFlight.delete(cleanTicker);
@@ -1260,7 +1282,7 @@ Vanguard ETF Holdings to Watchlist
       function isHoldingsLoading() {
         if (!selectedETFs.size) return false;
         for (const ticker of selectedETFs) {
-          if (!fundHoldingsCache[ticker]) return true;
+          if (!fundHoldingsCache[ticker] && !holdingsFailed.has(ticker)) return true;
         }
         return false;
       }
@@ -1292,7 +1314,10 @@ Vanguard ETF Holdings to Watchlist
        */
       async function ensureHoldingsForSelected() {
         const pending = [...selectedETFs].filter(
-          (t) => !fundHoldingsCache[t] && !holdingsInFlight.has(t),
+          (t) =>
+            !fundHoldingsCache[t] &&
+            !holdingsFailed.has(t) &&
+            !holdingsInFlight.has(t),
         );
         if (!pending.length) return;
 
@@ -1358,19 +1383,37 @@ Vanguard ETF Holdings to Watchlist
        * @param {Record<string, unknown>} row
        * @returns {{ key: string; shown: string } | null}
        */
+      function firstWatchlistValue(...values) {
+        for (const value of values) {
+          const clean = watchlistValue(value);
+          if (clean) return clean;
+        }
+        return "";
+      }
+
       function watchlistKeyForRow(row) {
-        const ticker = watchlistValue(row.Ticker ?? row.Symbol);
-        if (ticker) return { key: `T:${ticker.toUpperCase()}`, shown: ticker.toUpperCase() };
-        const cusip = watchlistValue(row.CUSIP);
+        const source = row || {};
+        // Use the first non-placeholder alias, not nullish coalescing: a
+        // literal "-" in Ticker/Identifier must still allow its valid alias
+        // or the next fallback field to win.
+        const ticker = firstWatchlistValue(source.Ticker, source.Symbol);
+        if (ticker) {
+          return { key: `T:${ticker.toUpperCase()}`, shown: ticker.toUpperCase() };
+        }
+        const cusip = firstWatchlistValue(source.CUSIP);
         if (cusip) return { key: `C:${cusip.toUpperCase()}`, shown: cusip.toUpperCase() };
-        const isin = watchlistValue(row.ISIN);
+        const isin = firstWatchlistValue(source.ISIN);
         if (isin) return { key: `I:${isin.toUpperCase()}`, shown: isin.toUpperCase() };
-        const identifier = watchlistValue(row.Identifier ?? row["Security ID"]);
-        if (identifier)
+        const identifier = firstWatchlistValue(
+          source.Identifier,
+          source["Security ID"],
+        );
+        if (identifier) {
           return { key: `D:${identifier.toUpperCase()}`, shown: identifier.toUpperCase() };
-        const sedol = watchlistValue(row.SEDOL ?? row.FIGI);
+        }
+        const sedol = firstWatchlistValue(source.SEDOL, source.FIGI);
         if (sedol) return { key: `S:${sedol.toUpperCase()}`, shown: sedol.toUpperCase() };
-        const name = watchlistValue(row.Name);
+        const name = firstWatchlistValue(source.Name, source["Security Name"]);
         if (name) return { key: `N:${name.toUpperCase()}`, shown: name };
         return null;
       }
@@ -1404,7 +1447,7 @@ Vanguard ETF Holdings to Watchlist
             if (!map.has(resolved.key)) {
               map.set(resolved.key, {
                 symbol: resolved.shown,
-                name: watchlistValue(r.Name) || resolved.shown,
+                name: firstWatchlistValue(r.Name, r["Security Name"]) || resolved.shown,
                 sector: watchlistValue(r.Sector) || "—",
                 assetClass: watchlistValue(r["Asset Class"]) || "—",
                 exchange: watchlistValue(r.Exchange) || "—",
@@ -1415,12 +1458,17 @@ Vanguard ETF Holdings to Watchlist
                 hasWeight: false,
                 marketValueSum: 0,
                 hasMarketValue: false,
+                searchTerms: new Set(),
               });
             }
 
             const item = map.get(resolved.key);
             item.funds.add(ticker);
-            const name = watchlistValue(r.Name);
+            for (const value of Object.values(r || {})) {
+              const searchable = watchlistValue(value);
+              if (searchable) item.searchTerms.add(searchable);
+            }
+            const name = firstWatchlistValue(r.Name, r["Security Name"]);
             if (name && (!item.name || item.name === item.symbol))
               item.name = name;
             const sector = watchlistValue(r.Sector);
@@ -1473,6 +1521,7 @@ Vanguard ETF Holdings to Watchlist
             row.assetClass,
             row.exchange,
             row.location,
+            [...row.searchTerms].join(" "),
           ]
             .join(" ")
             .toLowerCase(),
@@ -1586,7 +1635,10 @@ Vanguard ETF Holdings to Watchlist
       function toggleVisibleSelectAll(selectAll) {
         const visible = visibleCatalogTickers();
         if (selectAll) {
-          visible.forEach((ticker) => selectedETFs.add(ticker));
+          visible.forEach((ticker) => {
+            selectedETFs.add(ticker);
+            holdingsFailed.delete(ticker);
+          });
         } else {
           visible.forEach((ticker) => selectedETFs.delete(ticker));
         }
@@ -1605,7 +1657,10 @@ Vanguard ETF Holdings to Watchlist
       function toggleWholeCatalogSelection(selectAll) {
         const catalog = wholeCatalogTickers();
         if (selectAll) {
-          catalog.forEach((ticker) => selectedETFs.add(ticker));
+          catalog.forEach((ticker) => {
+            selectedETFs.add(ticker);
+            holdingsFailed.delete(ticker);
+          });
         } else {
           catalog.forEach((ticker) => selectedETFs.delete(ticker));
         }
@@ -1625,6 +1680,7 @@ Vanguard ETF Holdings to Watchlist
           selectedETFs.delete(clean);
         } else {
           selectedETFs.add(clean);
+          holdingsFailed.delete(clean);
           activeFundTicker = clean;
         }
         reconcileActiveFund();
@@ -1644,6 +1700,7 @@ Vanguard ETF Holdings to Watchlist
         const wasSelected = selectedETFs.has(clean);
         if (!wasSelected) {
           selectedETFs.add(clean);
+          holdingsFailed.delete(clean);
           invalidateWatchlistRows();
         }
         activeFundTicker = clean;
@@ -2337,9 +2394,52 @@ Vanguard ETF Holdings to Watchlist
       // 9. State Persistence & SpreadsheetML (.xls) Parser
       // =========================================================================
 
+      function isValidSortEntry(entry) {
+        return Boolean(
+          entry &&
+            typeof entry.key === "string" &&
+            entry.key.length > 0 &&
+            (entry.dir === "asc" || entry.dir === "desc"),
+        );
+      }
+
+      function sanitizeSortMap(value) {
+        if (!value || typeof value !== "object" || Array.isArray(value)) {
+          return {};
+        }
+        const clean = {};
+        for (const [tab, entry] of Object.entries(value)) {
+          if (typeof tab === "string" && isValidSortEntry(entry)) {
+            clean[tab] = { key: entry.key, dir: entry.dir };
+          }
+        }
+        return clean;
+      }
+
+      function sanitizeFilterMap(value) {
+        if (!value || typeof value !== "object" || Array.isArray(value)) {
+          return {};
+        }
+        const clean = {};
+        for (const [tab, query] of Object.entries(value)) {
+          if (typeof tab === "string" && typeof query === "string" && query.length > 0) {
+            clean[tab] = query;
+          }
+        }
+        return clean;
+      }
+
       function persistTabSorts() {
         try {
-          localStorage.setItem(SORTS_KEY, JSON.stringify(sheetSort));
+          // sheetSort contains explicit user choices only. In particular,
+          // the Watchlist Weight Sum default is never promoted to a stored
+          // choice merely because that tab was opened.
+          sheetSort = sanitizeSortMap(sheetSort);
+          if (Object.keys(sheetSort).length > 0) {
+            localStorage.setItem(SORTS_KEY, JSON.stringify(sheetSort));
+          } else {
+            localStorage.removeItem(SORTS_KEY);
+          }
         } catch {
           /* quota or private mode */
         }
@@ -2347,14 +2447,9 @@ Vanguard ETF Holdings to Watchlist
 
       function persistTabFilters() {
         try {
-          const clean = {};
-          for (const [tab, query] of Object.entries(sheetFilter)) {
-            if (typeof query === "string" && query.length > 0) {
-              clean[tab] = query;
-            }
-          }
-          if (Object.keys(clean).length > 0) {
-            localStorage.setItem(FILTERS_KEY, JSON.stringify(clean));
+          sheetFilter = sanitizeFilterMap(sheetFilter);
+          if (Object.keys(sheetFilter).length > 0) {
+            localStorage.setItem(FILTERS_KEY, JSON.stringify(sheetFilter));
           } else {
             localStorage.removeItem(FILTERS_KEY);
           }
@@ -2364,53 +2459,47 @@ Vanguard ETF Holdings to Watchlist
       }
 
       function restoreTabSorts() {
+        const legacy = sanitizeSortMap(sheetSort);
+        let saved = null;
         try {
-          const raw = localStorage.getItem(SORTS_KEY) || "{}";
-          const saved = JSON.parse(raw) || {};
-          const sorts = {};
-          Object.keys(saved).forEach((tab) => {
-            const entry = saved[tab];
-            if (
-              entry &&
-              typeof entry.key === "string" &&
-              entry.key !== "" &&
-              (entry.dir === "asc" || entry.dir === "desc")
-            ) {
-              sorts[tab] = { key: entry.key, dir: entry.dir };
-            }
-          });
-          // Merge with any existing sheetSort (from SITE_STATE_KEY backward compat)
-          for (const [name, entry] of Object.entries(sheetSort)) {
-            if (!sorts[name] && entry && typeof entry.key === "string" && entry.key !== "" && (entry.dir === "asc" || entry.dir === "desc")) {
-              sorts[name] = { key: entry.key, dir: entry.dir };
+          const raw = localStorage.getItem(SORTS_KEY);
+          if (raw) {
+            const parsed = JSON.parse(raw);
+            // A malformed or non-object dedicated store is ignored rather
+            // than allowed to poison application boot.
+            if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
+              saved = sanitizeSortMap(parsed);
             }
           }
-          sheetSort = sorts;
         } catch {
-          /* keep existing sheetSort on corrupt data */
+          saved = null;
         }
+        if (saved === null) saved = legacy;
+        // The dedicated key wins. Legacy sheet-state values fill only gaps
+        // so existing users retain explicit sorts after the migration.
+        sheetSort = { ...legacy, ...saved };
+        persistTabSorts();
       }
 
       function restoreTabFilters() {
+        const legacy = sanitizeFilterMap(sheetFilter);
+        let saved = null;
         try {
           const raw = localStorage.getItem(FILTERS_KEY);
           if (raw) {
-            const saved = JSON.parse(raw);
-            if (saved && typeof saved === "object" && !Array.isArray(saved)) {
-              const filters = {};
-              for (const [tab, query] of Object.entries(saved)) {
-                if (typeof query === "string" && query.length > 0) {
-                  filters[tab] = query;
-                }
-              }
-              sheetFilter = filters;
-              return;
+            const parsed = JSON.parse(raw);
+            if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
+              saved = sanitizeFilterMap(parsed);
             }
           }
         } catch {
-          /* keep existing sheetFilter on corrupt data */
+          saved = null;
         }
-        sheetFilter = {};
+        // As with sorts, the dedicated map is authoritative when it is a
+        // valid object; the site-state map remains a backward-compatible
+        // fallback for older sessions.
+        sheetFilter = saved === null ? legacy : saved;
+        persistTabFilters();
       }
 
       function applyDefaultSortForTab(tab) {
@@ -2425,13 +2514,14 @@ Vanguard ETF Holdings to Watchlist
           sortKey = "";
           sortDir = "asc";
         }
-        // keep legacy keys in sync
+        // Legacy fields mirror only explicit choices. A default sort is
+        // intentionally represented by an empty legacy key as well.
         if (tab === "ETF Catalog") {
-          catalogSortKey = sortKey;
-          catalogSortDir = sortDir;
+          catalogSortKey = sheetSort[tab]?.key || "";
+          catalogSortDir = sheetSort[tab]?.dir || "asc";
         } else if (tab === "Watchlist") {
-          watchlistSortKey = sortKey;
-          watchlistSortDir = sortDir;
+          watchlistSortKey = sheetSort[tab]?.key || "";
+          watchlistSortDir = sheetSort[tab]?.dir || "desc";
         }
       }
 
@@ -2476,125 +2566,187 @@ Vanguard ETF Holdings to Watchlist
       }
 
       function restoreSiteState() {
+        // Start from empty sanitized maps so malformed state from an older
+        // release cannot leak into a later boot.
+        sheetSort = {};
+        sheetFilter = {};
+        restoredSortKey = "";
+        restoredSortDir = "asc";
+        restoredQuery = "";
+        catalogSortKey = "";
+        catalogSortDir = "asc";
+        watchlistSortKey = "";
+        watchlistSortDir = "desc";
+
+        let saved = {};
         try {
-          const saved = JSON.parse(
-            localStorage.getItem(SITE_STATE_KEY) || "{}",
-          );
-          restoredSortKey =
-            typeof saved.sortKey === "string" && saved.sortKey !== ""
-              ? saved.sortKey
-              : "";
-          restoredSortDir = saved.sortDir === "desc" ? "desc" : "asc";
-          restoredQuery = typeof saved.query === "string" ? saved.query : "";
-          // Legacy per-sheet keys kept only for backward compatibility; the
-          // authoritative store is vanguard-tab-sorts (restoreTabSorts).
-          catalogSortKey =
-            typeof saved.catalogSortKey === "string" && saved.catalogSortKey !== ""
-              ? saved.catalogSortKey
-              : "";
-          catalogSortDir = saved.catalogSortDir === "desc" ? "desc" : "asc";
-          watchlistSortKey =
-            typeof saved.watchlistSortKey === "string" && saved.watchlistSortKey !== ""
-              ? saved.watchlistSortKey
-              : "";
-          watchlistSortDir = saved.watchlistSortDir === "asc" ? "asc" : "desc";
+          const parsed = JSON.parse(localStorage.getItem(SITE_STATE_KEY) || "{}");
+          if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
+            saved = parsed;
+          }
         } catch {
           /* corrupt site state — fall back to defaults, never crash boot */
         }
-        // Dedicated per-tab sorts key — like the checkbox selections, always
-        // restored from localStorage and sanitized (only a non-empty sort key
-        // and `asc`/`desc` are accepted).
+
+        restoredSortKey =
+          typeof saved.sortKey === "string" && saved.sortKey.length > 0
+            ? saved.sortKey
+            : "";
+        restoredSortDir = saved.sortDir === "desc" ? "desc" : "asc";
+        restoredQuery = typeof saved.query === "string" ? saved.query : "";
+        catalogSortKey =
+          typeof saved.catalogSortKey === "string" && saved.catalogSortKey.length > 0
+            ? saved.catalogSortKey
+            : "";
+        catalogSortDir = saved.catalogSortDir === "desc" ? "desc" : "asc";
+        watchlistSortKey =
+          typeof saved.watchlistSortKey === "string" && saved.watchlistSortKey.length > 0
+            ? saved.watchlistSortKey
+            : "";
+        watchlistSortDir = saved.watchlistSortDir === "asc" ? "asc" : "desc";
+
+        // Site-state maps are a backward-compatible fallback. The dedicated
+        // per-tab keys are loaded below and take precedence when valid.
+        sheetSort = sanitizeSortMap(saved.sheetSort);
+        sheetFilter = sanitizeFilterMap(saved.sheetFilter);
         restoreTabSorts();
         restoreTabFilters();
-        // Backward compatibility: legacy explicit keys become remembered
-        // sorts only when the dedicated store has no entry for that tab.
+
+        // Older versions persisted these two explicit tab sorts as individual
+        // fields. Migrate them only when the dedicated map has no entry.
         if (catalogSortKey && !sheetSort["ETF Catalog"]) {
           sheetSort["ETF Catalog"] = { key: catalogSortKey, dir: catalogSortDir };
         }
-        if (watchlistSortKey && !sheetSort["Watchlist"]) {
+        if (
+          watchlistSortKey &&
+          !sheetSort["Watchlist"] &&
+          !(watchlistSortKey === "Weight Sum (%)" && watchlistSortDir === "desc")
+        ) {
           sheetSort["Watchlist"] = { key: watchlistSortKey, dir: watchlistSortDir };
         }
+        // Legacy `query` represented the catalog search. A real per-tab
+        // filter always wins, and the site-state map remains synchronized.
         if (restoredQuery && !sheetFilter["ETF Catalog"]) {
           sheetFilter["ETF Catalog"] = restoredQuery;
         }
+        sheetSort = sanitizeSortMap(sheetSort);
+        sheetFilter = sanitizeFilterMap(sheetFilter);
+        persistTabSorts();
+        persistTabFilters();
       }
 
       function applyRestoredSiteState() {
-        // always restore per-sheet sort if we have it — like checkboxes in localStorage
-        // Use applySortForTab so remembered sort survives reload
+        // Always restore the active tab's explicit sort, while tabs with no
+        // explicit choice retain their source-order/default behavior.
         applySortForTab(activeSheetName);
-        // backward compat: if no remembered sort but legacy restoredSortKey exists and is valid for this sheet, use it
         if (!sortKey && restoredSortKey) {
-          const currentSheet = workbookSheets[activeSheetName] || (activeSheetName === "ETF Catalog" ? staticCatalogSheet : null);
+          const currentSheet =
+            workbookSheets[activeSheetName] ||
+            (activeSheetName === "ETF Catalog" ? staticCatalogSheet : null);
           if (currentSheet && currentSheet.headers.includes(restoredSortKey)) {
             sortKey = restoredSortKey;
             sortDir = restoredSortDir;
+            sheetSort[activeSheetName] = { key: sortKey, dir: sortDir };
+            persistTabSorts();
           }
         }
         searchInput.value = sheetFilter[activeSheetName] || "";
+        updateSearchClearBtn();
         if (activeSheetName === "Watchlist") {
           renderWatchlistTable();
           return;
         }
-        const currentSheet = workbookSheets[activeSheetName];
+        const currentSheet =
+          workbookSheets[activeSheetName] ||
+          (activeSheetName === "ETF Catalog" ? staticCatalogSheet : null);
         if (!currentSheet) return;
-        // stale key that no longer exists — stable no-op, must not throw
-        if (sortKey && !currentSheet.headers.includes(sortKey) && activeSheetName !== "Watchlist") {
-          // keep sortKey for memory but don't break rendering — if it's a stale column, sorting becomes no-op
-          // For detail sheets where fund changed, fallback to source order only if remembered key invalid
+        // A remembered column can be absent from a particular uploaded/fund
+        // sheet. Render that sheet in source order without deleting the
+        // preference, so it can be restored when the column exists again.
+        if (
+          sortKey &&
+          !currentSheet.headers.includes(sortKey) &&
+          activeSheetName !== "Watchlist"
+        ) {
           const saved = sheetSort[activeSheetName];
-          if (saved && saved.key === sortKey && activeSheetName !== "ETF Catalog") {
-            // if the remembered sort itself is invalid for this sheet (different fund), clear to default
-            // but keep it in sheetSort? No — clear current view to source order
-            const maybeSheet = workbookSheets[activeSheetName] || null;
-            if (maybeSheet && !maybeSheet.headers.includes(sortKey)) {
-              sortKey = "";
-              sortDir = "asc";
-            }
+          if (saved && saved.key === sortKey) {
+            sortKey = "";
+            sortDir = "asc";
           }
         }
         renderTable(getFilteredRows(currentSheet), currentSheet.headers);
         renderStaticLoadSentinel();
       }
 
-      function persistSiteState() {
-        // keep sheetSort in sync with current sort — always stored like checkboxes
-        if (activeSheetName && sortKey) {
-          sheetSort[activeSheetName] = { key: sortKey, dir: sortDir };
-        }
-        const curQuery = searchInput.value;
-        if (activeSheetName) {
+      function persistSiteState(syncActiveFilter = true) {
+        // Only header clicks add entries to sheetSort. Do not turn a default
+        // Watchlist sort (or source order) into an explicit stored choice.
+        sheetSort = sanitizeSortMap(sheetSort);
+        sheetFilter = sanitizeFilterMap(sheetFilter);
+        if (syncActiveFilter && activeSheetName) {
+          const curQuery = searchInput.value;
           if (curQuery && curQuery.length > 0) {
             sheetFilter[activeSheetName] = curQuery;
           } else {
             delete sheetFilter[activeSheetName];
           }
         }
-        // also keep legacy per-sheet keys in sync for backward compat
-        if (sheetSort["ETF Catalog"]) {
-          catalogSortKey = sheetSort["ETF Catalog"].key || catalogSortKey;
-          catalogSortDir = sheetSort["ETF Catalog"].dir || catalogSortDir;
+
+        const catalogPreference = sheetSort["ETF Catalog"] || {};
+        const watchlistPreference = sheetSort["Watchlist"] || {};
+        catalogSortKey = catalogPreference.key || "";
+        catalogSortDir = catalogPreference.dir || "asc";
+        watchlistSortKey = watchlistPreference.key || "";
+        watchlistSortDir = watchlistPreference.dir || "desc";
+
+        const currentPreference = sheetSort[activeSheetName] || null;
+        const persistedSortKey = currentPreference?.key || "";
+        const persistedSortDir =
+          currentPreference?.dir ||
+          (activeSheetName === "Watchlist" ? "desc" : "asc");
+        try {
+          localStorage.setItem(
+            SITE_STATE_KEY,
+            JSON.stringify({
+              // Legacy fields contain an explicit preference only; defaults
+              // are reconstructed by applySortForTab and are never persisted
+              // as a user choice.
+              sortKey: persistedSortKey,
+              sortDir: persistedSortDir,
+              query: searchInput.value,
+              catalogSortKey,
+              catalogSortDir,
+              watchlistSortKey,
+              watchlistSortDir,
+              sheetSort,
+              sheetFilter,
+            }),
+          );
+        } catch {
+          /* quota or private mode */
         }
-        if (sheetSort["Watchlist"]) {
-          watchlistSortKey = sheetSort["Watchlist"].key || watchlistSortKey;
-          watchlistSortDir = sheetSort["Watchlist"].dir || watchlistSortDir;
-        }
-        localStorage.setItem(
-          SITE_STATE_KEY,
-          JSON.stringify({
-            sortKey,
-            sortDir,
-            query: searchInput.value,
-            catalogSortKey,
-            catalogSortDir,
-            watchlistSortKey,
-            watchlistSortDir,
-            sheetSort,
-            sheetFilter,
-          }),
-        );
         persistTabSorts();
         persistTabFilters();
+      }
+
+      function updateSearchClearBtn() {
+        if (!searchClearBtn) return;
+        const hasQuery = String(searchInput.value || "").length > 0;
+        searchClearBtn.classList.toggle("hidden", !hasQuery);
+        searchClearBtn.setAttribute("aria-hidden", String(!hasQuery));
+      }
+
+      function renderActiveSearchView() {
+        if (activeSheetName === "Watchlist") {
+          renderWatchlistTable();
+          return;
+        }
+        const currentSheet =
+          workbookSheets[activeSheetName] ||
+          (activeSheetName === "ETF Catalog" ? staticCatalogSheet : null);
+        if (!currentSheet) return;
+        renderTable(getFilteredRows(currentSheet), currentSheet.headers);
+        renderStaticLoadSentinel();
       }
 
       function getDefaultTabName(sheetNames) {
@@ -2941,19 +3093,13 @@ Vanguard ETF Holdings to Watchlist
        * @param {string} sheetName
        */
       async function switchSheet(sheetName) {
-        // Save current sheet's sort & filter before leaving for a different sheet
-        if (activeSheetName && activeSheetName !== sheetName) {
-          if (sortKey) {
-            sheetSort[activeSheetName] = { key: sortKey, dir: sortDir };
-            if (activeSheetName === "ETF Catalog") {
-              catalogSortKey = sortKey;
-              catalogSortDir = sortDir;
-            } else if (activeSheetName === "Watchlist") {
-              watchlistSortKey = sortKey;
-              watchlistSortDir = sortDir;
-            }
-            persistTabSorts();
-          }
+        const isSheetTransition = Boolean(
+          activeSheetName && activeSheetName !== sheetName,
+        );
+        // Save only the outgoing tab's filter when this is a real
+        // transition. Sort choices are recorded at the moment a header is
+        // clicked, so defaults cannot leak into the persisted map.
+        if (isSheetTransition) {
           const curVal = searchInput.value;
           if (curVal && curVal.length > 0) {
             sheetFilter[activeSheetName] = curVal;
@@ -2968,13 +3114,22 @@ Vanguard ETF Holdings to Watchlist
         // Restore instead of reset — THE core change (reference: SPDR PR #13)
         applySortForTab(sheetName);
 
-        // Restore per-tab search filter
+        // Restore per-tab search filter and keep the clear affordance in
+        // lockstep with the active tab, including during boot hydration.
         searchInput.value = sheetFilter[sheetName] || "";
+        updateSearchClearBtn();
 
         // Backward compat: if no remembered sort but legacy restoredSortKey exists and is valid for catalog, use it
-        if (!sortKey && restoredSortKey && sheetName === "ETF Catalog" && (staticCatalogSheet?.headers || []).includes(restoredSortKey)) {
+        if (
+          !sortKey &&
+          restoredSortKey &&
+          sheetName === "ETF Catalog" &&
+          (staticCatalogSheet?.headers || []).includes(restoredSortKey)
+        ) {
           sortKey = restoredSortKey;
           sortDir = restoredSortDir;
+          sheetSort[sheetName] = { key: sortKey, dir: sortDir };
+          persistTabSorts();
         }
 
         // For detail sheets, if remembered sort key is invalid for this fund's sheet, clear to source order
@@ -2991,7 +3146,7 @@ Vanguard ETF Holdings to Watchlist
           }
         }
 
-        persistSiteState();
+        persistSiteState(isSheetTransition);
 
         await dbSet("active_tab", activeSheetName);
         renderTabs();
@@ -3002,7 +3157,7 @@ Vanguard ETF Holdings to Watchlist
           void ensureHoldingsForSelected();
           renderWatchlistTable();
           renderStaticLoadSentinel();
-          const watchlistRows = getDedupedWatchlistRows();
+          const watchlistRows = getFilteredWatchlistRows();
           copyBtn.disabled = watchlistRows.length === 0;
           copyBtn.removeAttribute("title");
           exportCsvBtn.disabled = watchlistRows.length === 0;
@@ -3016,6 +3171,10 @@ Vanguard ETF Holdings to Watchlist
             renderFundLoading(activeFundTicker);
             const loaded = await loadStaticFundSheets(activeFundTicker, false);
             if (!loaded) return; // failure state is already on screen
+            // The old fund's headers may have made a remembered key look
+            // invalid while the new fund was loading. Re-apply it against
+            // the newly loaded sheet before the first real render.
+            applySortForTab(activeSheetName);
           } else if (!activeFundTicker) {
             renderNoFundSelected();
             return;
@@ -3114,11 +3273,13 @@ Vanguard ETF Holdings to Watchlist
         selectedETFs.clear();
         activeFundTicker = null;
         activeFundMeta = null;
+        invalidateWatchlistRows();
         localStorage.removeItem(SELECTED_KEY);
         localStorage.removeItem(ACTIVE_FUND_KEY);
         sheetFilter = {};
         localStorage.removeItem(FILTERS_KEY);
         searchInput.value = "";
+        updateSearchClearBtn();
         activeSheetName = "ETF Catalog";
         // Sort preferences survive Clear — restore remembered sort for default tab
         applySortForTab("ETF Catalog");
@@ -3251,7 +3412,7 @@ Vanguard ETF Holdings to Watchlist
             }
             ${headers
               .map((header, index) => {
-                const value = item[header] || "";
+                const value = item[header] ?? "";
                 if (index === 0 && currentSheet?.tickerCol) {
                   if (isCatalog) {
                     return `<td class="catalog-sticky-col catalog-sticky-ticker py-2.5 px-4 font-mono font-semibold text-blue-600 dark:text-blue-400"><a href="javascript:void(0)" class="hover:underline" data-fund-view="${escapeHtml(
@@ -3386,24 +3547,36 @@ Vanguard ETF Holdings to Watchlist
           .join("");
       }
 
+      function getWatchlistFilterQuery() {
+        const tabQuery =
+          activeSheetName === "Watchlist"
+            ? searchInput.value
+            : (sheetFilter["Watchlist"] || "");
+        return String(tabQuery || "").toLowerCase().trim();
+      }
+
+      function getFilteredWatchlistRows() {
+        const allRows = getDedupedWatchlistRows();
+        const query = getWatchlistFilterQuery();
+        return query
+          ? allRows.filter((row) => row._searchIndex.includes(query))
+          : allRows;
+      }
+
       /**
        * Renders the aggregated multi-ETF Watchlist table (first chunk only —
        * scrolling extends it via extendWatchlistChunk).
        */
       function renderWatchlistTable() {
-        const allRows = getDedupedWatchlistRows();
-        const tabQuery =
-          activeSheetName === "Watchlist"
-            ? searchInput.value
-            : (sheetFilter["Watchlist"] || "");
-        const query = tabQuery.toLowerCase().trim();
-        const filtered = query
-          ? allRows.filter((r) => r._searchIndex.includes(query))
-          : allRows;
-
+        const query = getWatchlistFilterQuery();
+        const filtered = getFilteredWatchlistRows();
         const sorted = sortRows(filtered);
         tickerCount.textContent = `${sorted.length} tickers`;
         watchlistView = { rows: sorted, rendered: 0 };
+        copyBtn.disabled = sorted.length === 0;
+        copyBtn.removeAttribute("title");
+        exportCsvBtn.disabled = sorted.length === 0;
+        exportTxtBtn.disabled = sorted.length === 0;
 
         tableHead.innerHTML = `
         <tr>
@@ -3643,7 +3816,9 @@ Vanguard ETF Holdings to Watchlist
 
       function generateFileContent() {
         if (activeSheetName === "Watchlist") {
-          const rows = getDedupedWatchlistRows();
+          // Export the complete filtered aggregation, not just the 250 rows
+          // currently mounted in the virtualized table.
+          const rows = getFilteredWatchlistRows();
           const headers = [
             "Ticker",
             "Name",
@@ -3657,25 +3832,24 @@ Vanguard ETF Holdings to Watchlist
             "Exchange",
             "Location",
           ];
-          const csvHeaders = headers.join(",");
-          const csvRows = rows.map((r) =>
+          const csvRows = rows.map((row) =>
             [
-              r.Ticker,
-              r.Name,
-              r.ETFs.join("|"),
-              r["# ETFs"],
-              r["Weight Sum (%)"],
-              r["Max Weight (%)"],
-              r["Market Value"],
-              r.Sector,
-              r["Asset Class"],
-              r.Exchange,
-              r.Location,
+              row.Ticker,
+              row.Name,
+              row.ETFs.join("|"),
+              row["# ETFs"],
+              row["Weight Sum (%)"],
+              row["Max Weight (%)"],
+              row["Market Value"],
+              row.Sector,
+              row["Asset Class"],
+              row.Exchange,
+              row.Location,
             ]
-              .map((cell) => `"${String(cell || "").replace(/"/g, '""')}"`)
+              .map((cell) => `"${String(cell ?? "").replace(/"/g, '""')}"`)
               .join(","),
           );
-          return [csvHeaders, ...csvRows].join("\n");
+          return [headers.join(","), ...csvRows].join("\n");
         }
 
         const currentSheet =
@@ -3683,10 +3857,13 @@ Vanguard ETF Holdings to Watchlist
           (activeSheetName === "ETF Catalog" ? staticCatalogSheet : null);
         if (!currentSheet) return "";
 
+        // Search filters affect exports too. The data source remains complete;
+        // only the active tab's filtered slice is serialized.
+        const rows = getFilteredRows(currentSheet);
         const csvHeaders = currentSheet.headers.join(",");
-        const csvRows = currentSheet.data.map((row) =>
+        const csvRows = rows.map((row) =>
           currentSheet.headers
-            .map((h) => `"${(row[h] || "").replace(/"/g, '""')}"`)
+            .map((header) => `"${String(row[header] ?? "").replace(/"/g, '""')}"`)
             .join(","),
         );
         return [csvHeaders, ...csvRows].join("\n");
@@ -3699,18 +3876,25 @@ Vanguard ETF Holdings to Watchlist
         } else {
           delete sheetFilter[activeSheetName];
         }
+        updateSearchClearBtn();
         persistTabFilters();
         persistSiteState();
-        if (activeSheetName === "Watchlist") {
-          renderWatchlistTable();
-        } else {
-          const currentSheet =
-            workbookSheets[activeSheetName] ||
-            (activeSheetName === "ETF Catalog" ? staticCatalogSheet : null);
-          if (currentSheet)
-            renderTable(getFilteredRows(currentSheet), currentSheet.headers);
-        }
+        renderActiveSearchView();
       });
+
+      searchClearBtn?.addEventListener("click", () => {
+        searchInput.value = "";
+        if (activeSheetName) delete sheetFilter[activeSheetName];
+        updateSearchClearBtn();
+        persistTabFilters();
+        persistSiteState();
+        renderActiveSearchView();
+        searchInput.focus?.();
+      });
+
+      // HTML starts with the button hidden; this also initializes the fake DOM
+      // used by the headless contract tests before the first restored render.
+      updateSearchClearBtn();
 
       exportCsvBtn.addEventListener("click", () => {
         const content = generateFileContent();
@@ -3727,7 +3911,7 @@ Vanguard ETF Holdings to Watchlist
       exportTxtBtn.addEventListener("click", () => {
         let content = "";
         if (activeSheetName === "Watchlist") {
-          const rows = getDedupedWatchlistRows();
+          const rows = getFilteredWatchlistRows();
           content = rows
             .map((r) => r.Ticker)
             .filter(Boolean)
@@ -3748,12 +3932,9 @@ Vanguard ETF Holdings to Watchlist
       copyBtn.addEventListener("click", () => {
         let tickers = [];
         if (activeSheetName === "Watchlist") {
-          const query = searchInput.value.toLowerCase().trim();
-          const rows = getDedupedWatchlistRows();
-          const filtered = query
-            ? rows.filter((r) => r._searchIndex.includes(query))
-            : rows;
-          tickers = filtered.map((r) => r.Ticker).filter(Boolean);
+          tickers = getFilteredWatchlistRows()
+            .map((row) => row.Ticker)
+            .filter(Boolean);
         } else {
           const currentSheet =
             workbookSheets[activeSheetName] ||
