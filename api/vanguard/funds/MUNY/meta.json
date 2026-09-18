@@ -6,8 +6,8 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/muny",
   "officialPage": "https://advisors.vanguard.com/investments/products/muny/vanguard-new-york-tax-exempt-bond-etf",
   "portId": "V046",
-  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 99.19000244140625,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
+  "nav": 99.2699966430664,
   "netAssets": "$496.0M",
   "totalFundNetAssets": "$496.0M",
   "netAssetsAsOf": "2026-08-31",
@@ -38,22 +38,148 @@
         "0.287",
         "—",
         "—"
+      ],
+      [
+        "Monthly",
+        "2026-08-03",
+        "—",
+        "—",
+        "0.279",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-07-01",
+        "—",
+        "—",
+        "0.283",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-06-01",
+        "—",
+        "—",
+        "0.274",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-05-01",
+        "—",
+        "—",
+        "0.278",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-04-01",
+        "—",
+        "—",
+        "0.275",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-03-02",
+        "—",
+        "—",
+        "0.28",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-02-02",
+        "—",
+        "—",
+        "0.254",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-12-24",
+        "—",
+        "—",
+        "0.286",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-12-01",
+        "—",
+        "—",
+        "0.267",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-11-03",
+        "—",
+        "—",
+        "0.286",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-10-01",
+        "—",
+        "—",
+        "0.273",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-09-02",
+        "—",
+        "—",
+        "0.273",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-08-01",
+        "—",
+        "—",
+        "0.213",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-07-01",
+        "—",
+        "—",
+        "0.259",
+        "—",
+        "—"
       ]
     ]
   },
   "ytdReturn": -1.86581722,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -0.6080165962262796,
-    "3Y": 3.605016985491072,
-    "5Y": 3.6050169854911385,
-    "10Y": 3.6050169854912495
+    "1Y": -0.5278671066578533,
+    "3Y": 3.6885800464591556,
+    "5Y": 3.6885800464592444,
+    "10Y": 3.6885800464593554
   },
   "performance": {
-    "1Y": -0.6080165962262796,
-    "3Y": 1.1875145985361213,
-    "5Y": 0.7108258416171687,
-    "10Y": 0.35478356392244503
+    "1Y": -0.5278671066578533,
+    "3Y": 1.2147116926290114,
+    "5Y": 0.7270663507142894,
+    "10Y": 0.36287478480989677
   },
   "officialMetrics": {
     "nav": -1.86581722,
@@ -65,15 +191,35 @@
     }
   },
   "holdings": {
-    "totalRows": 0,
-    "pageSize": 1000,
-    "pages": []
+    "pages": [
+      "holdings/001.json",
+      "holdings/002.json",
+      "holdings/003.json",
+      "holdings/004.json",
+      "holdings/005.json",
+      "holdings/006.json",
+      "holdings/007.json",
+      "holdings/008.json",
+      "holdings/009.json",
+      "holdings/010.json",
+      "holdings/011.json",
+      "holdings/012.json",
+      "holdings/013.json",
+      "holdings/014.json",
+      "holdings/015.json"
+    ],
+    "pageSize": 250,
+    "totalRows": 3686,
+    "asOfDate": "2026-09-16",
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
-    "totalRows": 332,
-    "pageSize": 1000,
     "pages": [
-      "./history/001.json"
-    ]
+      "history/001.json"
+    ],
+    "pageSize": 1000,
+    "totalRows": 332,
+    "asOfDate": "2026-09-17",
+    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

@@ -6,8 +6,8 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vdv",
   "officialPage": "https://advisors.vanguard.com/investments/products/vdv/vanguard-developed-markets-ex-us-value-index-etf",
   "portId": "V070",
-  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 79.1500015258789,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
+  "nav": 79.2300033569336,
   "netAssets": "$31.5M",
   "totalFundNetAssets": "$31.5M",
   "netAssetsAsOf": "2026-08-31",
@@ -41,19 +41,19 @@
       ]
     ]
   },
-  "ytdReturn": 6.102726566292138,
+  "ytdReturn": 6.209971193475394,
   "asOfDate": "",
   "totalReturn": {
-    "1Y": 6.102726566292138,
-    "3Y": 6.102726566292116,
-    "5Y": 6.102726566292116,
-    "10Y": 6.102726566292116
+    "1Y": 6.209971193475394,
+    "3Y": 6.209971193475372,
+    "5Y": 6.2099711934754165,
+    "10Y": 6.2099711934753055
   },
   "performance": {
-    "1Y": 6.102726566292138,
-    "3Y": 1.9942091311566656,
-    "5Y": 1.1917971223044166,
-    "10Y": 0.5941335875529141
+    "1Y": 6.209971193475394,
+    "3Y": 2.028561524051442,
+    "5Y": 1.2122450258372108,
+    "10Y": 0.6042966407683759
   },
   "officialMetrics": {
     "nav": null,
@@ -65,15 +65,24 @@
     }
   },
   "holdings": {
-    "totalRows": 0,
-    "pageSize": 1000,
-    "pages": []
+    "pages": [
+      "holdings/001.json",
+      "holdings/002.json",
+      "holdings/003.json",
+      "holdings/004.json"
+    ],
+    "pageSize": 250,
+    "totalRows": 810,
+    "asOfDate": "2026-09-16",
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
-    "totalRows": 107,
-    "pageSize": 1000,
     "pages": [
-      "./history/001.json"
-    ]
+      "history/001.json"
+    ],
+    "pageSize": 1000,
+    "totalRows": 107,
+    "asOfDate": "2026-09-17",
+    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

@@ -6,8 +6,8 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vtei",
   "officialPage": "https://advisors.vanguard.com/investments/products/vtei/vanguard-intermediate-term-tax-exempt-bond-etf",
   "portId": "V037",
-  "source": "Vanguard workplace fundDetails API + Yahoo daily history",
-  "nav": 96.94999694824219,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
+  "nav": 97.05999755859375,
   "netAssets": "$1.6B",
   "totalFundNetAssets": "$1.6B",
   "netAssetsAsOf": "2026-08-31",
@@ -38,22 +38,292 @@
         "0.261",
         "—",
         "—"
+      ],
+      [
+        "Monthly",
+        "2026-08-03",
+        "—",
+        "—",
+        "0.258",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-07-01",
+        "—",
+        "—",
+        "0.263",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-06-01",
+        "—",
+        "—",
+        "0.246",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-05-01",
+        "—",
+        "—",
+        "0.265",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-04-01",
+        "—",
+        "—",
+        "0.259",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-03-02",
+        "—",
+        "—",
+        "0.264",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2026-02-02",
+        "—",
+        "—",
+        "0.253",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-12-18",
+        "—",
+        "—",
+        "0.263",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-12-01",
+        "—",
+        "—",
+        "0.261",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-11-03",
+        "—",
+        "—",
+        "0.262",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-10-01",
+        "—",
+        "—",
+        "0.259",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-09-02",
+        "—",
+        "—",
+        "0.224",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-08-01",
+        "—",
+        "—",
+        "0.25",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-07-01",
+        "—",
+        "—",
+        "0.269",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-06-02",
+        "—",
+        "—",
+        "0.258",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-05-01",
+        "—",
+        "—",
+        "0.234",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-04-01",
+        "—",
+        "—",
+        "0.249",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-03-03",
+        "—",
+        "—",
+        "0.26",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2025-02-03",
+        "—",
+        "—",
+        "0.239",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2024-12-24",
+        "—",
+        "—",
+        "0.257",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2024-12-02",
+        "—",
+        "—",
+        "0.256",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2024-11-01",
+        "—",
+        "—",
+        "0.246",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2024-10-01",
+        "—",
+        "—",
+        "0.251",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2024-09-03",
+        "—",
+        "—",
+        "0.262",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2024-08-01",
+        "—",
+        "—",
+        "0.255",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2024-07-01",
+        "—",
+        "—",
+        "0.261",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2024-06-03",
+        "—",
+        "—",
+        "0.241",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2024-05-01",
+        "—",
+        "—",
+        "0.13",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2024-04-01",
+        "—",
+        "—",
+        "0.256",
+        "—",
+        "—"
+      ],
+      [
+        "Monthly",
+        "2024-03-01",
+        "—",
+        "—",
+        "0.216",
+        "—",
+        "—"
       ]
     ]
   },
   "ytdReturn": -1.86968178,
   "asOfDate": "2026-09-16",
   "totalReturn": {
-    "1Y": -0.4871009976717411,
-    "3Y": 4.004551262597267,
-    "5Y": 4.004551262597267,
-    "10Y": 4.004551262597378
+    "1Y": -0.37419248841255026,
+    "3Y": 4.122590141350435,
+    "5Y": 4.122590141350457,
+    "10Y": 4.122590141350568
   },
   "performance": {
-    "1Y": -0.4871009976717411,
-    "3Y": 1.3174182945935753,
-    "5Y": 0.7883809716821899,
-    "10Y": 0.39341660272460555
+    "1Y": -0.37419248841255026,
+    "3Y": 1.3557335181823893,
+    "5Y": 0.8112483367836321,
+    "10Y": 0.40480483362519415
   },
   "officialMetrics": {
     "nav": -1.86968178,
@@ -65,15 +335,45 @@
     }
   },
   "holdings": {
-    "totalRows": 0,
-    "pageSize": 1000,
-    "pages": []
+    "pages": [
+      "holdings/001.json",
+      "holdings/002.json",
+      "holdings/003.json",
+      "holdings/004.json",
+      "holdings/005.json",
+      "holdings/006.json",
+      "holdings/007.json",
+      "holdings/008.json",
+      "holdings/009.json",
+      "holdings/010.json",
+      "holdings/011.json",
+      "holdings/012.json",
+      "holdings/013.json",
+      "holdings/014.json",
+      "holdings/015.json",
+      "holdings/016.json",
+      "holdings/017.json",
+      "holdings/018.json",
+      "holdings/019.json",
+      "holdings/020.json",
+      "holdings/021.json",
+      "holdings/022.json",
+      "holdings/023.json",
+      "holdings/024.json",
+      "holdings/025.json"
+    ],
+    "pageSize": 250,
+    "totalRows": 6107,
+    "asOfDate": "2026-09-16",
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
-    "totalRows": 139,
-    "pageSize": 1000,
     "pages": [
-      "./history/001.json"
-    ]
+      "history/001.json"
+    ],
+    "pageSize": 1000,
+    "totalRows": 139,
+    "asOfDate": "2026-09-17",
+    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }
