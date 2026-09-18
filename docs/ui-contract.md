@@ -15,12 +15,13 @@ identifiers and payload schema. Acceptance tests for every section live in
 | `vanguard-active-fund` | active fund ticker (removed when none) |
 | `vanguard-blacklisted-etfs` | JSON array of blacklisted tickers |
 | `vanguard-tab-sorts` | JSON map `tab -> { key, dir }` of **explicitly chosen** sorts |
+| `vanguard-tab-filters` | JSON map `tab -> query` of **explicitly entered** filters |
 | `vanguard-site-state` | legacy/aux state (search text, backward-compat sort keys) |
 | `vanguard-theme` | `dark` / `light` |
 
 Malformed values are sanitized at boot and can never crash the app: only a
-non-empty sort key plus `asc`/`desc` is accepted; broken JSON falls back to
-defaults.
+non-empty sort key plus `asc`/`desc` is accepted; non-string or empty filter
+values are dropped; broken JSON falls back to defaults.
 
 ## 1. Sort persistence
 
@@ -38,6 +39,22 @@ defaults.
   survive in memory and in localStorage.
 - Defaults are never written to storage as remembered sorts; only column
   header clicks record a sort.
+
+## 1b. Per-tab filter persistence
+
+- Every tab (ETF Catalog, Watchlist, Holdings, Historical, Performance,
+  Distributions) remembers its own search query in `vanguard-tab-filters`.
+- The search input is scoped to the current view: typing in the search input
+  filters only the active tab and persists its filter.
+- Switching tabs restores that tab's search query into the search input.
+- Tabs with no explicit filter default to empty (`""`), rendering their full
+  unfiltered data (preventing cross-view search collisions such as a catalog
+  search for "vg" wiping out the 13 metrics on the Performance tab).
+- Backspacing/clearing the input removes the entry for that tab.
+- **Clear removes the selection and all per-tab searches** from memory and
+  from `vanguard-tab-filters`.
+- Filter persistence survives tab switches and full page reloads.
+- Malformed storage is sanitized at boot and can never crash the app.
 
 ## 2. Selection scopes
 
@@ -227,7 +244,9 @@ IndexedDB and a file-backed `fetch` over `api/vanguard/`) and covers:
 11. failing fund files produce an explanatory state replacing the prior table;
 12. identifier fallbacks for bonds, cash and numeric local tickers are kept;
 13. sticky classes present on catalog Use/Ticker and Watchlist Ticker cells;
-14. malformed localStorage cannot crash boot.
+14. malformed localStorage cannot crash boot;
+15. index.json / meta.json / page manifests stay consistent;
+16. per-tab filter persistence across all catalog, detail, and Watchlist views.
 
 Run them with `bun test` (or `bun test scripts/ui.test.ts`). Expected values
 are computed from this repository's generated feed, never copied from another

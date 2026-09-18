@@ -735,6 +735,7 @@ Vanguard ETF Holdings to Watchlist
       const BLACKLIST_KEY = "vanguard-blacklisted-etfs";
       const ACTIVE_FUND_KEY = "vanguard-active-fund";
       const SORTS_KEY = "vanguard-tab-sorts";
+      const FILTERS_KEY = "vanguard-tab-filters";
 
       const themeToggle = document.getElementById("theme-toggle");
       const appSubtitle = document.getElementById("app-subtitle");
@@ -862,6 +863,8 @@ Vanguard ETF Holdings to Watchlist
       // Per-sheet persisted sorts — catalog/watchlist + any tab, stored like checkboxes in localStorage
       // sheetSort is the generic map: sheetName -> {key, dir}, survives All ETFs clicks and tab switches
       let sheetSort = {};
+      // Per-sheet persisted search filters — generic map: sheetName -> query, survives All ETFs clicks and tab switches
+      let sheetFilter = {};
       let catalogSortKey = "";
       let catalogSortDir = "asc";
       let watchlistSortKey = "Weight Sum (%)";
@@ -2280,8 +2283,7 @@ Vanguard ETF Holdings to Watchlist
 
           renderTabs();
           if (switchToHoldings) {
-            activeSheetName = "Holdings";
-            await switchSheet(activeSheetName);
+            await switchSheet("Holdings");
           }
           return true;
         } catch (err) {
@@ -2343,6 +2345,24 @@ Vanguard ETF Holdings to Watchlist
         }
       }
 
+      function persistTabFilters() {
+        try {
+          const clean = {};
+          for (const [tab, query] of Object.entries(sheetFilter)) {
+            if (typeof query === "string" && query.length > 0) {
+              clean[tab] = query;
+            }
+          }
+          if (Object.keys(clean).length > 0) {
+            localStorage.setItem(FILTERS_KEY, JSON.stringify(clean));
+          } else {
+            localStorage.removeItem(FILTERS_KEY);
+          }
+        } catch {
+          /* quota or private mode */
+        }
+      }
+
       function restoreTabSorts() {
         try {
           const raw = localStorage.getItem(SORTS_KEY) || "{}";
@@ -2369,6 +2389,28 @@ Vanguard ETF Holdings to Watchlist
         } catch {
           /* keep existing sheetSort on corrupt data */
         }
+      }
+
+      function restoreTabFilters() {
+        try {
+          const raw = localStorage.getItem(FILTERS_KEY);
+          if (raw) {
+            const saved = JSON.parse(raw);
+            if (saved && typeof saved === "object" && !Array.isArray(saved)) {
+              const filters = {};
+              for (const [tab, query] of Object.entries(saved)) {
+                if (typeof query === "string" && query.length > 0) {
+                  filters[tab] = query;
+                }
+              }
+              sheetFilter = filters;
+              return;
+            }
+          }
+        } catch {
+          /* keep existing sheetFilter on corrupt data */
+        }
+        sheetFilter = {};
       }
 
       function applyDefaultSortForTab(tab) {
@@ -2463,6 +2505,7 @@ Vanguard ETF Holdings to Watchlist
         // restored from localStorage and sanitized (only a non-empty sort key
         // and `asc`/`desc` are accepted).
         restoreTabSorts();
+        restoreTabFilters();
         // Backward compatibility: legacy explicit keys become remembered
         // sorts only when the dedicated store has no entry for that tab.
         if (catalogSortKey && !sheetSort["ETF Catalog"]) {
@@ -2470,6 +2513,9 @@ Vanguard ETF Holdings to Watchlist
         }
         if (watchlistSortKey && !sheetSort["Watchlist"]) {
           sheetSort["Watchlist"] = { key: watchlistSortKey, dir: watchlistSortDir };
+        }
+        if (restoredQuery && !sheetFilter["ETF Catalog"]) {
+          sheetFilter["ETF Catalog"] = restoredQuery;
         }
       }
 
@@ -2485,7 +2531,7 @@ Vanguard ETF Holdings to Watchlist
             sortDir = restoredSortDir;
           }
         }
-        searchInput.value = restoredQuery;
+        searchInput.value = sheetFilter[activeSheetName] || "";
         if (activeSheetName === "Watchlist") {
           renderWatchlistTable();
           return;
@@ -2516,6 +2562,14 @@ Vanguard ETF Holdings to Watchlist
         if (activeSheetName && sortKey) {
           sheetSort[activeSheetName] = { key: sortKey, dir: sortDir };
         }
+        const curQuery = searchInput.value;
+        if (activeSheetName) {
+          if (curQuery && curQuery.length > 0) {
+            sheetFilter[activeSheetName] = curQuery;
+          } else {
+            delete sheetFilter[activeSheetName];
+          }
+        }
         // also keep legacy per-sheet keys in sync for backward compat
         if (sheetSort["ETF Catalog"]) {
           catalogSortKey = sheetSort["ETF Catalog"].key || catalogSortKey;
@@ -2536,9 +2590,11 @@ Vanguard ETF Holdings to Watchlist
             watchlistSortKey,
             watchlistSortDir,
             sheetSort,
+            sheetFilter,
           }),
         );
         persistTabSorts();
+        persistTabFilters();
       }
 
       function getDefaultTabName(sheetNames) {
@@ -2885,23 +2941,35 @@ Vanguard ETF Holdings to Watchlist
        * @param {string} sheetName
        */
       async function switchSheet(sheetName) {
-        // Save current sheet's sort before leaving — generic map for any tab, stored in vanguard-tab-sorts
-        if (sortKey) {
-          sheetSort[activeSheetName] = { key: sortKey, dir: sortDir };
-          if (activeSheetName === "ETF Catalog") {
-            catalogSortKey = sortKey;
-            catalogSortDir = sortDir;
-          } else if (activeSheetName === "Watchlist") {
-            watchlistSortKey = sortKey;
-            watchlistSortDir = sortDir;
+        // Save current sheet's sort & filter before leaving for a different sheet
+        if (activeSheetName && activeSheetName !== sheetName) {
+          if (sortKey) {
+            sheetSort[activeSheetName] = { key: sortKey, dir: sortDir };
+            if (activeSheetName === "ETF Catalog") {
+              catalogSortKey = sortKey;
+              catalogSortDir = sortDir;
+            } else if (activeSheetName === "Watchlist") {
+              watchlistSortKey = sortKey;
+              watchlistSortDir = sortDir;
+            }
+            persistTabSorts();
           }
-          persistTabSorts();
+          const curVal = searchInput.value;
+          if (curVal && curVal.length > 0) {
+            sheetFilter[activeSheetName] = curVal;
+          } else {
+            delete sheetFilter[activeSheetName];
+          }
+          persistTabFilters();
         }
 
         activeSheetName = sheetName;
 
         // Restore instead of reset — THE core change (reference: SPDR PR #13)
         applySortForTab(sheetName);
+
+        // Restore per-tab search filter
+        searchInput.value = sheetFilter[sheetName] || "";
 
         // Backward compat: if no remembered sort but legacy restoredSortKey exists and is valid for catalog, use it
         if (!sortKey && restoredSortKey && sheetName === "ETF Catalog" && (staticCatalogSheet?.headers || []).includes(restoredSortKey)) {
@@ -3048,11 +3116,14 @@ Vanguard ETF Holdings to Watchlist
         activeFundMeta = null;
         localStorage.removeItem(SELECTED_KEY);
         localStorage.removeItem(ACTIVE_FUND_KEY);
+        sheetFilter = {};
+        localStorage.removeItem(FILTERS_KEY);
         searchInput.value = "";
         activeSheetName = "ETF Catalog";
         // Sort preferences survive Clear — restore remembered sort for default tab
         applySortForTab("ETF Catalog");
         persistSelectedEtfs();
+        persistTabFilters();
         // persist query cleared, but keep sheetSort intact in both keys
         persistSiteState();
         renderSubtitle();
@@ -3321,7 +3392,11 @@ Vanguard ETF Holdings to Watchlist
        */
       function renderWatchlistTable() {
         const allRows = getDedupedWatchlistRows();
-        const query = searchInput.value.toLowerCase().trim();
+        const tabQuery =
+          activeSheetName === "Watchlist"
+            ? searchInput.value
+            : (sheetFilter["Watchlist"] || "");
+        const query = tabQuery.toLowerCase().trim();
         const filtered = query
           ? allRows.filter((r) => r._searchIndex.includes(query))
           : allRows;
@@ -3450,8 +3525,19 @@ Vanguard ETF Holdings to Watchlist
 
       function getFilteredRows(sheet) {
         const isCatalog = sheet === staticCatalogSheet;
-        const rows = isCatalog ? visibleCatalogFunds() : sheet.data;
-        const query = searchInput.value.toLowerCase().trim();
+        const rows = isCatalog ? visibleCatalogFunds() : (sheet?.data || []);
+        let tabQuery = "";
+        if (isCatalog) {
+          tabQuery =
+            activeSheetName === "ETF Catalog"
+              ? searchInput.value
+              : (sheetFilter["ETF Catalog"] || "");
+        } else if (activeSheetName && workbookSheets[activeSheetName] === sheet) {
+          tabQuery = searchInput.value || sheetFilter[activeSheetName] || "";
+        } else {
+          tabQuery = searchInput.value || "";
+        }
+        const query = tabQuery.toLowerCase().trim();
         if (!query) return rows;
         return rows.filter((row) =>
           Object.values(row).some((value) =>
@@ -3607,6 +3693,13 @@ Vanguard ETF Holdings to Watchlist
       }
 
       searchInput.addEventListener("input", () => {
+        const query = searchInput.value;
+        if (query && query.length > 0) {
+          sheetFilter[activeSheetName] = query;
+        } else {
+          delete sheetFilter[activeSheetName];
+        }
+        persistTabFilters();
         persistSiteState();
         if (activeSheetName === "Watchlist") {
           renderWatchlistTable();

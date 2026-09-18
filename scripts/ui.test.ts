@@ -19,6 +19,7 @@ import {
 } from "./ui-harness";
 
 const SORTS_KEY = "vanguard-tab-sorts";
+const FILTERS_KEY = "vanguard-tab-filters";
 const SELECTED_KEY = "vanguard-selected-etfs";
 const ACTIVE_FUND_KEY = "vanguard-active-fund";
 
@@ -612,6 +613,7 @@ test("15. index.json / meta.json / page manifests stay consistent", () => {
 test("14. malformed localStorage is sanitized and boot still succeeds", async () => {
   const storage = new MemoryStorage();
   storage.setItem(SORTS_KEY, "{this is not json");
+  storage.setItem(FILTERS_KEY, "{this is not json");
   storage.setItem("vanguard-site-state", '{"sortKey": 42, "sheetSort": "oops"}');
   storage.setItem(SELECTED_KEY, "{broken");
   storage.setItem("vanguard-blacklisted-etfs", "not-an-array");
@@ -621,6 +623,7 @@ test("14. malformed localStorage is sanitized and boot still succeeds", async ()
   expect(app.run<number>("staticCatalogSheet.data.length")).toBeGreaterThan(100);
   expect(app.run<string[]>("[...selectedETFs]")).toEqual([]);
   expect(app.run("Object.keys(sheetSort).length")).toBe(0);
+  expect(app.run("Object.keys(sheetFilter).length")).toBe(0);
   expect(app.run("sortKey")).toBe("");
 
   // structurally valid but semantically invalid sort entries are dropped too
@@ -629,7 +632,105 @@ test("14. malformed localStorage is sanitized and boot still succeeds", async ()
     Watchlist: { key: "Ticker", dir: "sideways" },
     Holdings: { key: "Ticker", dir: "desc" },
   }));
+  storage.setItem(FILTERS_KEY, JSON.stringify({
+    "ETF Catalog": 123,
+    Watchlist: "",
+    Holdings: "valid-query",
+  }));
   const second = await bootFresh(storage);
   expect(second.run("Object.keys(sheetSort).length")).toBe(1); // only Holdings survives
   expect(second.run("sheetSort.Holdings")).toEqual({ key: "Ticker", dir: "desc" });
+  expect(second.run("Object.keys(sheetFilter).length")).toBe(1); // only Holdings survives
+  expect(second.run("sheetFilter.Holdings")).toBe("valid-query");
+}, 120000);
+
+// =============================================================================
+// 16. Per-tab filter persistence across views
+// =============================================================================
+
+test("16. per-tab filter persistence: each tab keeps its own search query independently", async () => {
+  const app = await bootFresh();
+
+  // 1. On "ETF Catalog", search for "vg" (matches 9 ETFs, reproduces image-1)
+  setSearch(app, "vg");
+  const visibleFunds = app
+    .run<Array<{ Ticker: string }>>("getFilteredRows(staticCatalogSheet)")
+    .map((r) => r.Ticker)
+    .sort();
+  expect(visibleFunds.length).toBe(9);
+  expect(app.el("ticker-count").textContent).toContain("9 ETFs");
+  expect(JSON.parse(app.storage.getItem(FILTERS_KEY)!)).toEqual({
+    "ETF Catalog": "vg",
+  });
+
+  // Select VGHY so detail tabs and Watchlist appear
+  toggleRow(app, "VGHY");
+  await until(() => app.el("selected-tabs-bar").innerHTML.includes("VGHY Holdings"));
+
+  // 2. Click Performance tab: search must NOT carry over "vg" (fixes image-2 bug)
+  // Instead, Performance tab has its own empty filter and shows all 13 metrics (image-3)
+  await clickTab(app, "Performance");
+  await waitForSheet(app, "Performance");
+  expect(app.el("search-input").value).toBe("");
+  expect(app.el("ticker-count").textContent).toContain("13 items");
+  expect(app.el("table-body").innerHTML).not.toContain("No matching items found.");
+  expect(app.el("table-body").innerHTML).toContain("YTD Return");
+
+  // 3. Set a specific filter on Performance tab
+  setSearch(app, "return");
+  expect(app.el("search-input").value).toBe("return");
+  const perfBody = app.el("table-body").innerHTML;
+  expect(perfBody).toContain("YTD Return");
+  expect(perfBody).not.toContain("Net Asset Value");
+  expect(JSON.parse(app.storage.getItem(FILTERS_KEY)!)).toEqual({
+    "ETF Catalog": "vg",
+    Performance: "return",
+  });
+
+  // 4. Switch to Holdings tab: search is empty, shows full holdings
+  await clickTab(app, "Holdings");
+  await waitForSheet(app, "Holdings");
+  expect(app.el("search-input").value).toBe("");
+  expect(app.el("table-body").innerHTML).not.toContain("No matching items found.");
+
+  // Type a filter on Holdings tab
+  setSearch(app, "treasury");
+  expect(app.el("search-input").value).toBe("treasury");
+
+  // 5. Switch back to ETF Catalog: restores "vg" and shows exactly 9 filtered ETFs
+  app.el("tabs-bar").querySelector("#all-etfs-tab-btn")!.click();
+  await waitForSheet(app, "ETF Catalog");
+  expect(app.el("search-input").value).toBe("vg");
+  expect(app.el("ticker-count").textContent).toContain("9 ETFs");
+
+  // 6. Switch back to Performance: restores "return"
+  await clickTab(app, "Performance");
+  await waitForSheet(app, "Performance");
+  expect(app.el("search-input").value).toBe("return");
+
+  // 7. Switch to Watchlist: search is initially empty
+  await clickTab(app, "Watchlist");
+  await waitForSheet(app, "Watchlist");
+  expect(app.el("search-input").value).toBe("");
+
+  // Set filter on Watchlist
+  setSearch(app, "US");
+  expect(app.el("search-input").value).toBe("US");
+
+  // 8. Full reload: ETF Catalog restores "vg", all tab filters preserved in storage
+  const reloaded = await bootFresh(app.storage);
+  expect(reloaded.el("search-input").value).toBe("vg");
+  expect(reloaded.el("ticker-count").textContent).toContain("9 ETFs");
+  expect(JSON.parse(reloaded.storage.getItem(FILTERS_KEY)!)).toEqual({
+    "ETF Catalog": "vg",
+    Performance: "return",
+    Holdings: "treasury",
+    Watchlist: "US",
+  });
+
+  // 9. Clear button clears selection AND all per-tab searches
+  reloaded.el("reset-btn").click();
+  expect(reloaded.el("search-input").value).toBe("");
+  expect(reloaded.storage.getItem(FILTERS_KEY)).toBeNull();
+  expect(reloaded.el("ticker-count").textContent).toContain("116 ETFs");
 }, 120000);
