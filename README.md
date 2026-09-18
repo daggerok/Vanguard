@@ -34,20 +34,3 @@ Data refresh will be exposed through the manually triggered GitHub Actions workf
 ## Data limitations
 
 Vanguard public endpoints may rate-limit automated requests. The updater will use conservative throttling, retries, cached data preservation, and SEC fallback behavior. Official Vanguard performance metrics remain authoritative; daily history is stored separately for charts and historical browsing.
-
-## UI contract notes
-
-The complete contract (with the exact selection scopes, Watchlist behavior and
-rendering rules) is documented in [`docs/ui-contract.md`](docs/ui-contract.md).
-Summary:
-
-- Search placeholder: `Search ETFs, fund names, holdings, tickers, CUSIPs, ISINs...`
-- Selection is persisted per provider in `localStorage` (`vanguard-selected-etfs`, `vanguard-active-fund`); the blacklist in `vanguard-blacklisted-etfs`.
-- Sort order is remembered **per tab** (`vanguard-tab-sorts` in `localStorage`, like the checkbox selections) and restored whenever the tab is reopened, including after a full page reload. Only an explicit header click is stored; default Watchlist `Weight Sum (%)` descending and source-order catalog/detail tabs never become stored selections. No button or checkbox ever resets it — row checkboxes, the header Use box, the All ETFs pill checkbox, tab buttons, search, Copy Tickers, exports, theme toggle, blacklist actions and Clear all keep it; Clear clears only the selection and the searches. To return to the default catalog order, click the *Ticker* header (asc). Tabs never explicitly sorted keep their defaults.
-- Search filters are remembered **per tab** (`vanguard-tab-filters` in `localStorage`, mirrored under `sheetFilter` in `vanguard-site-state`): typing in the search box filters only the active view; switching to another tab restores that view's filter (or empty `""` if unfiltered, preventing cross-view collisions like catalog "vg" wiping out the 13 metrics on the Performance tab). The inline `✕` button (`#search-clear-btn`) clears only the active tab's query, hides itself when empty, focuses the input, and re-renders immediately; **Clear** removes the selection and all tab searches.
-- Three distinct selection operations: the row **Use** checkbox toggles exactly one ETF; the **Use checkbox in the table header** operates only on the rows the catalog table currently renders (catalog + active search + blacklist), leaving selections hidden by another filter untouched; the **checkbox inside the All ETFs pill** always toggles every non-blacklisted ETF of the entire catalog, from any tab and under any filter, and never navigates.
-- Every selection change updates the subtitle count/ticker badges, the active fund, the detail-tabs panel, the per-sheet counts, the Watchlist tab and `localStorage` immediately.
-- The Watchlist tab shows `Watchlist (Loading…)` (or `N+` while rows stream in) until every selected fund's holdings pages are loaded, then the exact deduplicated count. Deselecting ETFs recomputes the aggregation immediately.
-- Watchlist dedupe falls back Ticker → CUSIP → ISIN → Identifier → SEDOL/FIGI → Name (blank/`-`/`N/A` cells count as missing); bond rows without tickers, cash rows and zero-weight rows are kept.
-- Holdings pages and `meta.json` requests are deduplicated per ticker, run with bounded concurrency, and are shared between the detail view and the Watchlist loader. Large Watchlists render in 250-row chunks grown on scroll; copy/export always use the complete filtered result.
-- Missing or failing fund files produce explanatory states; sticky **Use**/**Ticker** catalog columns and a sticky Watchlist **Ticker** column stay pinned during horizontal scrolling.
