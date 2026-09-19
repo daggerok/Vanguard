@@ -14,8 +14,8 @@
   "netExpenseRatio": 0.09,
   "trailingYield": 3.54663579,
   "dividendYieldAsOf": "2026-09-01",
-  "secYield": 3.83,
-  "secYieldAsOf": "2026-09-15",
+  "secYield": 3.85,
+  "secYieldAsOf": "2026-09-16",
   "distributionFrequency": "Monthly",
   "distributions": {
     "frequency": "Monthly",
@@ -167,26 +167,26 @@
       ]
     ]
   },
-  "ytdReturn": -1.86581722,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": -1.61785335,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
     "1Y": -0.5278671066578533,
-    "3Y": 3.6885800464591556,
-    "5Y": 3.6885800464592444,
-    "10Y": 3.6885800464593554
+    "3Y": 3.688588309386942,
+    "5Y": 3.6885883093869642,
+    "10Y": 3.688588309386831
   },
   "performance": {
     "1Y": -0.5278671066578533,
-    "3Y": 1.2147116926290114,
-    "5Y": 0.7270663507142894,
-    "10Y": 0.36287478480989677
+    "3Y": 1.2147143812241357,
+    "5Y": 0.7270679560992699,
+    "10Y": 0.3628755846001308
   },
   "officialMetrics": {
-    "nav": -1.86581722,
+    "nav": -1.61785335,
     "marketPrice": null,
     "expenseRatio": 0.09,
     "returns": {
-      "YTD": -1.86581722,
+      "YTD": -1.61785335,
       "1Y": 4.0485307906
     }
   },
@@ -209,8 +209,8 @@
       "holdings/015.json"
     ],
     "pageSize": 250,
-    "totalRows": 3686,
-    "asOfDate": "2026-09-16",
+    "totalRows": 3687,
+    "asOfDate": "2026-09-17",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {

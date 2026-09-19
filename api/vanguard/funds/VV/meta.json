@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vv/vanguard-large-cap-etf",
   "portId": "0961",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 351.67999267578125,
+  "nav": 352.1499938964844,
   "netAssets": "$54.3B",
   "totalFundNetAssets": "$76.2B",
   "netAssetsAsOf": "2026-08-31",
@@ -842,26 +842,26 @@
       ]
     ]
   },
-  "ytdReturn": 11.12245469,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": 12.40714428,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 15.211160391639055,
-    "3Y": 86.0803047726328,
-    "5Y": 86.89958598218644,
-    "10Y": 314.78162897311205
+    "1Y": 15.365133853736502,
+    "3Y": 86.3289909993542,
+    "5Y": 87.14935195736228,
+    "10Y": 315.33599947881623
   },
   "performance": {
-    "1Y": 15.211160391639055,
-    "3Y": 22.99859093999823,
-    "5Y": 13.323940622300622,
-    "10Y": 15.287428230905808
+    "1Y": 15.365133853736502,
+    "3Y": 23.053360195299444,
+    "5Y": 13.354212863385584,
+    "10Y": 15.302827549163812
   },
   "officialMetrics": {
-    "nav": 11.12245469,
+    "nav": 12.40714428,
     "marketPrice": null,
     "expenseRatio": 0.03,
     "returns": {
-      "YTD": 11.12245469,
+      "YTD": 12.40714428,
       "1Y": 20.0526921579
     }
   },
@@ -881,7 +881,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 273,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vxf/vanguard-extended-market-etf",
   "portId": "0965",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 236.2100067138672,
+  "nav": 235.11000061035156,
   "netAssets": "$31.4B",
   "totalFundNetAssets": "$95.4B",
   "netAssetsAsOf": "2026-08-31",
@@ -653,26 +653,26 @@
       ]
     ]
   },
-  "ytdReturn": 12.65674212,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": 13.64753275,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 13.809266213064442,
-    "3Y": 70.3720200115539,
-    "5Y": 37.34528950802465,
-    "10Y": 193.62989329918597
+    "1Y": 13.2792679745789,
+    "3Y": 69.57859608776076,
+    "5Y": 36.705698519153174,
+    "10Y": 192.26246087490182
   },
   "performance": {
-    "1Y": 13.809266213064442,
-    "3Y": 19.43531451588141,
-    "5Y": 6.552281635957491,
-    "10Y": 11.373027833005933
+    "1Y": 13.2792679745789,
+    "3Y": 19.24962220672932,
+    "5Y": 6.452857506151033,
+    "10Y": 11.32105247416395
   },
   "officialMetrics": {
-    "nav": 12.65674212,
+    "nav": 13.64753275,
     "marketPrice": null,
     "expenseRatio": 0.05,
     "returns": {
-      "YTD": 12.65674212,
+      "YTD": 13.64753275,
       "1Y": 18.6599427205
     }
   },
@@ -704,7 +704,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 297,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

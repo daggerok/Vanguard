@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vea/vanguard-ftse-developed-markets-etf",
   "portId": "0936",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 72.1500015258789,
+  "nav": 71.37999725341797,
   "netAssets": "$238.1B",
   "totalFundNetAssets": "$323.8B",
   "netAssetsAsOf": "2026-08-31",
@@ -626,26 +626,26 @@
       ]
     ]
   },
-  "ytdReturn": 14.83057672,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": 16.47608373,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 23.301753555169746,
-    "3Y": 79.98440502921633,
-    "5Y": 66.25616174913414,
-    "10Y": 158.1293165274938
+    "1Y": 21.98584399132375,
+    "3Y": 78.06352903425578,
+    "5Y": 64.48184561620714,
+    "10Y": 155.37454313293858
   },
   "performance": {
-    "1Y": 23.301753555169746,
-    "3Y": 21.640526781770532,
-    "5Y": 10.702021121070837,
-    "10Y": 9.947088453538022
+    "1Y": 21.98584399132375,
+    "3Y": 21.20624367273207,
+    "5Y": 10.46471949783896,
+    "10Y": 9.829184845004658
   },
   "officialMetrics": {
-    "nav": 14.83057672,
+    "nav": 16.47608373,
     "marketPrice": null,
     "expenseRatio": 0.03,
     "returns": {
-      "YTD": 14.83057672,
+      "YTD": 16.47608373,
       "1Y": 27.9599310156
     }
   },
@@ -680,7 +680,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 231,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

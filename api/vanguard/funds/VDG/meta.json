@@ -71,8 +71,8 @@
       "holdings/003.json"
     ],
     "pageSize": 250,
-    "totalRows": 644,
-    "asOfDate": "2026-09-16",
+    "totalRows": 649,
+    "asOfDate": "2026-09-17",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {

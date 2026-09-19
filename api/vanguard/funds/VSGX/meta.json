@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vsgx/vanguard-esg-international-stock-etf",
   "portId": "4394",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 82.4000015258789,
+  "nav": 81.70999908447266,
   "netAssets": "$6.8B",
   "totalFundNetAssets": "$6.8B",
   "netAssetsAsOf": "2026-08-31",
@@ -311,26 +311,26 @@
       ]
     ]
   },
-  "ytdReturn": 14.83296217,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": 16.46069429,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 22.181918515997022,
-    "3Y": 72.3983850600335,
-    "5Y": 49.16395147155717,
-    "10Y": 97.46789965722095
+    "1Y": 21.158789626305683,
+    "3Y": 74.5629139747484,
+    "5Y": 47.914869791490354,
+    "10Y": 95.81435772386106
   },
   "performance": {
-    "1Y": 22.181918515997022,
-    "3Y": 19.906961462608663,
-    "5Y": 8.326017225885884,
-    "10Y": 7.040875032495286
+    "1Y": 21.158789626305683,
+    "3Y": 20.406701993798436,
+    "5Y": 8.143984563993456,
+    "10Y": 6.950902389457347
   },
   "officialMetrics": {
-    "nav": 14.83296217,
+    "nav": 16.46069429,
     "marketPrice": null,
     "expenseRatio": 0.1,
     "returns": {
-      "YTD": 14.83296217,
+      "YTD": 16.46069429,
       "1Y": 27.5203183542
     }
   },
@@ -365,8 +365,8 @@
       "holdings/027.json"
     ],
     "pageSize": 250,
-    "totalRows": 6686,
-    "asOfDate": "2026-09-16",
+    "totalRows": 6692,
+    "asOfDate": "2026-09-17",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -375,7 +375,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 419,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

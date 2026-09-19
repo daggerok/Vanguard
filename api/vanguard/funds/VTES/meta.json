@@ -7,15 +7,15 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vtes/vanguard-short-term-tax-exempt-bond-etf",
   "portId": "V014",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 99.69000244140625,
+  "nav": 99.51000213623047,
   "netAssets": "$2.4B",
   "totalFundNetAssets": "$2.4B",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.05,
   "trailingYield": 2.67522867,
   "dividendYieldAsOf": "2026-09-01",
-  "secYield": 2.9,
-  "secYieldAsOf": "2026-09-15",
+  "secYield": 2.92,
+  "secYieldAsOf": "2026-09-16",
   "distributionFrequency": "Monthly",
   "distributions": {
     "frequency": "Monthly",
@@ -419,26 +419,26 @@
       ]
     ]
   },
-  "ytdReturn": -0.10072557,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": -0.06059732,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 0.14869127154644168,
-    "3Y": 8.847094806063428,
-    "5Y": 9.306647363859266,
-    "10Y": 9.306647363859266
+    "1Y": -0.03213724235021642,
+    "3Y": 9.028036969126795,
+    "5Y": 9.109274113672615,
+    "10Y": 9.109274113672615
   },
   "performance": {
-    "1Y": 0.14869127154644168,
-    "3Y": 2.866101437595403,
-    "5Y": 1.7956722544449244,
-    "10Y": 0.8938413652909372
+    "1Y": -0.03213724235021642,
+    "3Y": 2.923069764787267,
+    "5Y": 1.7588835125906144,
+    "10Y": 0.8756083067609666
   },
   "officialMetrics": {
-    "nav": -0.10072557,
+    "nav": -0.06059732,
     "marketPrice": null,
     "expenseRatio": 0.05,
     "returns": {
-      "YTD": -0.10072557,
+      "YTD": -0.06059732,
       "1Y": 1.7944514684
     }
   },
@@ -461,8 +461,8 @@
       "holdings/015.json"
     ],
     "pageSize": 250,
-    "totalRows": 3702,
-    "asOfDate": "2026-09-16",
+    "totalRows": 3714,
+    "asOfDate": "2026-09-17",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -471,7 +471,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 186,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

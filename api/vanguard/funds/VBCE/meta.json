@@ -7,15 +7,15 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vbce/vanguard-target-maturity-2031-corporate-bond-etf",
   "portId": "V076",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 73.83000183105469,
+  "nav": 73.58100128173828,
   "netAssets": "$52.2M",
   "totalFundNetAssets": "$52.2M",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.08,
   "trailingYield": null,
   "dividendYieldAsOf": null,
-  "secYield": 5.23,
-  "secYieldAsOf": "2026-09-15",
+  "secYield": 5.24,
+  "secYieldAsOf": "2026-09-16",
   "distributionFrequency": "Monthly",
   "distributions": {
     "frequency": "Monthly",
@@ -77,19 +77,19 @@
       ]
     ]
   },
-  "ytdReturn": 0.371893887383834,
+  "ytdReturn": 0.03338799463552533,
   "asOfDate": "",
   "totalReturn": {
-    "1Y": 0.371893887383834,
-    "3Y": 0.3718938873838118,
-    "5Y": 0.3718938873838562,
-    "10Y": 0.3718938873838562
+    "1Y": 0.03338799463552533,
+    "3Y": 0.03338799463552533,
+    "5Y": 0.033387994635547535,
+    "10Y": 0.033387994635547535
   },
   "performance": {
-    "1Y": 0.371893887383834,
-    "3Y": 0.12381127354896826,
-    "5Y": 0.07426837967217104,
-    "10Y": 0.037127297654926394
+    "1Y": 0.03338799463552533,
+    "3Y": 0.011128093154666452,
+    "5Y": 0.006676707299169138,
+    "10Y": 0.0033382979284235503
   },
   "officialMetrics": {
     "nav": null,
@@ -108,7 +108,7 @@
     ],
     "pageSize": 250,
     "totalRows": 593,
-    "asOfDate": "2026-09-16",
+    "asOfDate": "2026-09-17",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -116,8 +116,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 121,
-    "asOfDate": "2026-09-17",
+    "totalRows": 122,
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/viov/vanguard-sp-small-cap-600-value-etf",
   "portId": "3346",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 113.93000030517578,
+  "nav": 113.12999725341797,
   "netAssets": "$1.9B",
   "totalFundNetAssets": "$2.0B",
   "netAssetsAsOf": "2026-08-31",
@@ -473,26 +473,26 @@
       ]
     ]
   },
-  "ytdReturn": 17.47925991,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": 17.45864951,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 21.30587151451504,
-    "3Y": 56.32643836126954,
-    "5Y": 43.6171534648752,
-    "10Y": 150.83032666827916
+    "1Y": 20.454085748194785,
+    "3Y": 55.22871626173298,
+    "5Y": 42.60871814856293,
+    "10Y": 149.0689838028127
   },
   "performance": {
-    "1Y": 21.30587151451504,
-    "3Y": 16.05864017919334,
-    "5Y": 7.508118893449867,
-    "10Y": 9.632168483188064
+    "1Y": 20.454085748194785,
+    "3Y": 15.786347778423249,
+    "5Y": 7.35671528588302,
+    "10Y": 9.5549398847389
   },
   "officialMetrics": {
-    "nav": 17.47925991,
+    "nav": 17.45864951,
     "marketPrice": null,
     "expenseRatio": 0.1,
     "returns": {
-      "YTD": 17.47925991,
+      "YTD": 17.45864951,
       "1Y": 26.7298112772
     }
   },
@@ -512,7 +512,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 193,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

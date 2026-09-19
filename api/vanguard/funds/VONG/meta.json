@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vong/vanguard-russell-1000-growth-etf",
   "portId": "3350",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 126.30000305175781,
+  "nav": 126.98999786376953,
   "netAssets": "$45.9B",
   "totalFundNetAssets": "$54.3B",
   "netAssetsAsOf": "2026-08-31",
@@ -590,26 +590,26 @@
       ]
     ]
   },
-  "ytdReturn": 2.28769754,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": 3.95091214,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 5.198856629902604,
-    "3Y": 87.45953420913526,
-    "5Y": 85.09397259189568,
-    "10Y": 415.30132885218035
+    "1Y": 5.7735661675739625,
+    "3Y": 88.48365220550163,
+    "5Y": 86.10518799831432,
+    "10Y": 418.1164527047846
   },
   "performance": {
-    "1Y": 5.198856629902604,
-    "3Y": 23.301732214103986,
-    "5Y": 13.104127872647563,
-    "10Y": 17.81650253082676
+    "1Y": 5.7735661675739625,
+    "3Y": 23.525862833688848,
+    "5Y": 13.227442005995528,
+    "10Y": 17.880708748113385
   },
   "officialMetrics": {
-    "nav": 2.28769754,
+    "nav": 3.95091214,
     "marketPrice": null,
     "expenseRatio": 0.06,
     "returns": {
-      "YTD": 2.28769754,
+      "YTD": 3.95091214,
       "1Y": 10.7608157599
     }
   },
@@ -629,7 +629,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 193,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

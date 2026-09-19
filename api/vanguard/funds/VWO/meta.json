@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vwo/vanguard-ftse-emerging-markets-etf",
   "portId": "0964",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 59.90999984741211,
+  "nav": 60.0099983215332,
   "netAssets": "$127.3B",
   "totalFundNetAssets": "$168.5B",
   "netAssetsAsOf": "2026-08-31",
@@ -590,26 +590,26 @@
       ]
     ]
   },
-  "ytdReturn": 10.41996111,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": 11.80114385,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 12.883623477998363,
-    "3Y": 65.95140644584828,
-    "5Y": 38.713636909640734,
-    "10Y": 109.43909364686637
+    "1Y": 13.072042608858148,
+    "3Y": 66.2284385289381,
+    "5Y": 38.94518234938806,
+    "10Y": 109.78867785383244
   },
   "performance": {
-    "1Y": 12.883623477998363,
-    "3Y": 18.393259990632906,
-    "5Y": 6.763752962287084,
-    "10Y": 7.672742500312246
+    "1Y": 13.072042608858148,
+    "3Y": 18.459103557175993,
+    "5Y": 6.7993719127668495,
+    "10Y": 7.69070115693149
   },
   "officialMetrics": {
-    "nav": 10.41996111,
+    "nav": 11.80114385,
     "marketPrice": null,
     "expenseRatio": 0.06,
     "returns": {
-      "YTD": 10.41996111,
+      "YTD": 11.80114385,
       "1Y": 20.9657452532
     }
   },
@@ -653,7 +653,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 259,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

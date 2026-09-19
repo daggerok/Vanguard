@@ -7,15 +7,15 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vcrb/vanguard-core-bond-etf",
   "portId": "V023",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 75.02999877929688,
+  "nav": 74.76000213623047,
   "netAssets": "$7.7B",
   "totalFundNetAssets": "$7.7B",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.1,
   "trailingYield": 4.98842601,
   "dividendYieldAsOf": "2026-09-01",
-  "secYield": 4.99,
-  "secYieldAsOf": "2026-09-15",
+  "secYield": 5,
+  "secYieldAsOf": "2026-09-16",
   "distributionFrequency": "Monthly",
   "distributions": {
     "frequency": "Monthly",
@@ -320,26 +320,26 @@
       ]
     ]
   },
-  "ytdReturn": -1.21675639,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": -0.72687836,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 0.17814279212342576,
-    "3Y": 9.556639226815133,
-    "5Y": 9.556639226815133,
-    "10Y": 9.556639226815022
+    "1Y": -0.18236001485202324,
+    "3Y": 9.162397919363041,
+    "5Y": 9.162397919363109,
+    "10Y": 9.162397919363109
   },
   "performance": {
-    "1Y": 0.17814279212342576,
-    "3Y": 3.089136157234207,
-    "5Y": 1.8421924645874999,
-    "10Y": 0.9168927705304863
+    "1Y": -0.18236001485202324,
+    "3Y": 2.9653315690503668,
+    "5Y": 1.7687905836416329,
+    "10Y": 0.8805187256893721
   },
   "officialMetrics": {
-    "nav": -1.21675639,
+    "nav": -0.72687836,
     "marketPrice": null,
     "expenseRatio": 0.1,
     "returns": {
-      "YTD": -1.21675639,
+      "YTD": -0.72687836,
       "1Y": 2.2297097335
     }
   },
@@ -358,11 +358,12 @@
       "holdings/011.json",
       "holdings/012.json",
       "holdings/013.json",
-      "holdings/014.json"
+      "holdings/014.json",
+      "holdings/015.json"
     ],
     "pageSize": 250,
-    "totalRows": 3495,
-    "asOfDate": "2026-09-16",
+    "totalRows": 3503,
+    "asOfDate": "2026-09-17",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -371,7 +372,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 146,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

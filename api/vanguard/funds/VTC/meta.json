@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vtc/vanguard-total-corporate-bond-etf",
   "portId": "0985",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 74.43689727783203,
+  "nav": 74.19110107421875,
   "netAssets": "$1.7B",
   "totalFundNetAssets": "$1.7B",
   "netAssetsAsOf": "2026-08-31",
@@ -986,26 +986,26 @@
       ]
     ]
   },
-  "ytdReturn": -1.39234241,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": -0.87293417,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": -0.4520605711782144,
-    "3Y": 16.198429510987555,
-    "5Y": -1.5460249908146428,
-    "10Y": 21.54652447401546
+    "1Y": -0.7807651911080016,
+    "3Y": 16.25647812800357,
+    "5Y": -1.8711669906724016,
+    "10Y": 21.145176303080948
   },
   "performance": {
-    "1Y": -0.4520605711782144,
-    "3Y": 5.131635209764518,
-    "5Y": -0.31113508445498317,
-    "10Y": 1.970430896554043
+    "1Y": -0.7807651911080016,
+    "3Y": 5.149138974940604,
+    "5Y": -0.3770662756797827,
+    "10Y": 1.9367099940124755
   },
   "officialMetrics": {
-    "nav": -1.39234241,
+    "nav": -0.87293417,
     "marketPrice": null,
     "expenseRatio": 0.03,
     "returns": {
-      "YTD": -1.39234241,
+      "YTD": -0.87293417,
       "1Y": 1.9406591515
     }
   },
@@ -1035,8 +1035,8 @@
       "holdings/022.json"
     ],
     "pageSize": 250,
-    "totalRows": 5385,
-    "asOfDate": "2026-09-16",
+    "totalRows": 5390,
+    "asOfDate": "2026-09-17",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -1045,7 +1045,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 464,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

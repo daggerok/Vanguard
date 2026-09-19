@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/bndx/vanguard-total-international-bond-etf",
   "portId": "3711",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 47.11000061035156,
+  "nav": 47.04999923706055,
   "netAssets": "$83.4B",
   "totalFundNetAssets": "$123.0B",
   "netAssetsAsOf": "2026-08-31",
@@ -15,7 +15,7 @@
   "trailingYield": 3.18468462,
   "dividendYieldAsOf": "2026-09-01",
   "secYield": 3.8,
-  "secYieldAsOf": "2026-09-15",
+  "secYieldAsOf": "2026-09-16",
   "distributionFrequency": "Monthly",
   "distributions": {
     "frequency": "Monthly",
@@ -1463,26 +1463,26 @@
       ]
     ]
   },
-  "ytdReturn": -1.05991887,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": -0.72259919,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": -0.3680771342003508,
-    "3Y": 12.811844545591633,
-    "5Y": 0.2898998904165673,
-    "10Y": 14.205280540627175
+    "1Y": -0.4949566873568956,
+    "3Y": 12.668152115787557,
+    "5Y": 0.16217438740995238,
+    "10Y": 14.059739278285122
   },
   "performance": {
-    "1Y": -0.3680771342003508,
-    "3Y": 4.100200687697408,
-    "5Y": 0.05791286123535411,
-    "10Y": 1.337134236305193
+    "1Y": -0.4949566873568956,
+    "3Y": 4.055983208120839,
+    "5Y": 0.032413857506541355,
+    "10Y": 1.3242125927586557
   },
   "officialMetrics": {
-    "nav": -1.05991887,
+    "nav": -0.72259919,
     "marketPrice": null,
     "expenseRatio": 0.07,
     "returns": {
-      "YTD": -1.05991887,
+      "YTD": -0.72259919,
       "1Y": 0.9802698734
     }
   },
@@ -1535,7 +1535,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 160,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

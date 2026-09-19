@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/ivog/vanguard-sp-mid-cap-400-growth-etf",
   "portId": "3343",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 137.22999572753906,
+  "nav": 137.11000061035156,
   "netAssets": "$1.6B",
   "totalFundNetAssets": "$1.8B",
   "netAssetsAsOf": "2026-08-31",
@@ -176,26 +176,26 @@
       ]
     ]
   },
-  "ytdReturn": 13.13274042,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": 14.00548582,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 15.587558731967842,
-    "3Y": 55.9027358847733,
-    "5Y": 45.218591521732066,
-    "10Y": 176.90441145568028
+    "1Y": 15.486487952347638,
+    "3Y": 55.766399658014485,
+    "5Y": 45.09161110600688,
+    "10Y": 176.66226250327622
   },
   "performance": {
-    "1Y": 15.587558731967842,
-    "3Y": 15.953691356132293,
-    "5Y": 7.74681568998048,
-    "10Y": 10.72176175559665
+    "1Y": 15.486487952347638,
+    "3Y": 15.91988117502332,
+    "5Y": 7.727966142976728,
+    "10Y": 10.712075483351136
   },
   "officialMetrics": {
-    "nav": 13.13274042,
+    "nav": 14.00548582,
     "marketPrice": null,
     "expenseRatio": 0.1,
     "returns": {
-      "YTD": 13.13274042,
+      "YTD": 14.00548582,
       "1Y": 19.7596558387
     }
   },
@@ -215,7 +215,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 193,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

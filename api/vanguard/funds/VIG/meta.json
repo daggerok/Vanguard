@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vig/vanguard-dividend-appreciation-etf",
   "portId": "0920",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 237.1199951171875,
+  "nav": 237,
   "netAssets": "$112.7B",
   "totalFundNetAssets": "$132.4B",
   "netAssetsAsOf": "2026-08-31",
@@ -761,26 +761,26 @@
       ]
     ]
   },
-  "ytdReturn": 8.11174305,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": 8.76312915,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 11.229780863697147,
-    "3Y": 60.19284296058556,
-    "5Y": 68.57352002523636,
-    "10Y": 239.77156659244793
+    "1Y": 11.173492778068251,
+    "3Y": 60.1117770051222,
+    "5Y": 68.48824956343064,
+    "10Y": 239.5995501605237
   },
   "performance": {
-    "1Y": 11.229780863697147,
-    "3Y": 17.00768034920246,
-    "5Y": 11.008918379032151,
-    "10Y": 13.01047576200367
+    "1Y": 11.173492778068251,
+    "3Y": 16.987939683921315,
+    "5Y": 10.997685656875111,
+    "10Y": 13.00475306742812
   },
   "officialMetrics": {
-    "nav": 8.11174305,
+    "nav": 8.76312915,
     "marketPrice": null,
     "expenseRatio": 0.04,
     "returns": {
-      "YTD": 8.11174305,
+      "YTD": 8.76312915,
       "1Y": 16.588292531
     }
   },
@@ -800,7 +800,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 245,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

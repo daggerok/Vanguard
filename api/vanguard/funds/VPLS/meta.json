@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vpls/vanguard-core-plus-bond-etf",
   "portId": "V022",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 75.47000122070312,
+  "nav": 75.2300033569336,
   "netAssets": "$1.9B",
   "totalFundNetAssets": "$1.9B",
   "netAssetsAsOf": "2026-08-31",
@@ -15,7 +15,7 @@
   "trailingYield": 4.94731572,
   "dividendYieldAsOf": "2026-09-01",
   "secYield": 5.05,
-  "secYieldAsOf": "2026-09-15",
+  "secYieldAsOf": "2026-09-16",
   "distributionFrequency": "Monthly",
   "distributions": {
     "frequency": "Monthly",
@@ -320,26 +320,26 @@
       ]
     ]
   },
-  "ytdReturn": -0.95697452,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": -0.4815046,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 0.5483501467820284,
-    "3Y": 13.418769629281746,
-    "5Y": 13.418769629281769,
-    "10Y": 13.41876962928188
+    "1Y": 0.22860205018124802,
+    "3Y": 13.05808007989302,
+    "5Y": 13.05808007989302,
+    "10Y": 13.058080079892886
   },
   "performance": {
-    "1Y": 0.5483501467820284,
-    "3Y": 4.2865524446693115,
-    "5Y": 2.550312080034045,
-    "10Y": 1.2671279735107621
+    "1Y": 0.22860205018124802,
+    "3Y": 4.175885829031145,
+    "5Y": 2.4850037222169163,
+    "10Y": 1.234877251971267
   },
   "officialMetrics": {
-    "nav": -0.95697452,
+    "nav": -0.4815046,
     "marketPrice": null,
     "expenseRatio": 0.2,
     "returns": {
-      "YTD": -0.95697452,
+      "YTD": -0.4815046,
       "1Y": 2.6218983227
     }
   },
@@ -360,8 +360,8 @@
       "holdings/013.json"
     ],
     "pageSize": 250,
-    "totalRows": 3210,
-    "asOfDate": "2026-09-16",
+    "totalRows": 3181,
+    "asOfDate": "2026-09-17",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -370,7 +370,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 147,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

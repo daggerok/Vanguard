@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vfmf/vanguard-u-s-multifactor-etf",
   "portId": "4421",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 184.2830047607422,
+  "nav": 183.3350067138672,
   "netAssets": "$976.2M",
   "totalFundNetAssets": "$976.2M",
   "netAssetsAsOf": "2026-08-31",
@@ -329,26 +329,26 @@
       ]
     ]
   },
-  "ytdReturn": 22.68070396,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": 23.32395851,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 28.99111408315873,
-    "3Y": 84.53012522033627,
-    "5Y": 100.31952477324624,
-    "10Y": 175.8030391799423
+    "1Y": 28.327565110919895,
+    "3Y": 87.56742314426972,
+    "5Y": 99.28901431326234,
+    "10Y": 174.38427042705382
   },
   "performance": {
-    "1Y": 28.99111408315873,
-    "3Y": 22.656083195981115,
-    "5Y": 14.906515824783128,
-    "10Y": 10.67764375314606
+    "1Y": 28.327565110919895,
+    "3Y": 23.325382369467018,
+    "5Y": 14.788048308947065,
+    "10Y": 10.62057742595577
   },
   "officialMetrics": {
-    "nav": 22.68070396,
+    "nav": 23.32395851,
     "marketPrice": null,
     "expenseRatio": 0.18,
     "returns": {
-      "YTD": 22.68070396,
+      "YTD": 23.32395851,
       "1Y": 32.2891298977
     }
   },
@@ -360,7 +360,7 @@
     ],
     "pageSize": 250,
     "totalRows": 657,
-    "asOfDate": "2026-09-16",
+    "asOfDate": "2026-09-17",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -369,7 +369,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 450,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

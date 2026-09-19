@@ -7,15 +7,15 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vgsh/vanguard-short-term-treasury-etf",
   "portId": "3142",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 57.66999816894531,
+  "nav": 57.599998474121094,
   "netAssets": "$34.8B",
   "totalFundNetAssets": "$39.3B",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.03,
   "trailingYield": 3.63654272,
   "dividendYieldAsOf": "2026-09-01",
-  "secYield": 4.39,
-  "secYieldAsOf": "2026-09-15",
+  "secYield": 4.4,
+  "secYieldAsOf": "2026-09-16",
   "distributionFrequency": "Monthly",
   "distributions": {
     "frequency": "Monthly",
@@ -1832,26 +1832,26 @@
       ]
     ]
   },
-  "ytdReturn": 0.53062908,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": 0.63534849,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 1.7277682192524457,
-    "3Y": 12.81664993329288,
-    "5Y": 9.694502230119962,
-    "10Y": 18.61445463621123
+    "1Y": 1.6043049908159412,
+    "3Y": 12.679755418529371,
+    "5Y": 9.561315578000706,
+    "10Y": 18.470471422356294
   },
   "performance": {
-    "1Y": 1.7277682192524457,
-    "3Y": 4.101678767484196,
-    "5Y": 1.8678106449066645,
-    "10Y": 1.7217356091870029
+    "1Y": 1.6043049908159412,
+    "3Y": 4.059555207266263,
+    "5Y": 1.8430618627904405,
+    "10Y": 1.7093811039747164
   },
   "officialMetrics": {
-    "nav": 0.53062908,
+    "nav": 0.63534849,
     "marketPrice": null,
     "expenseRatio": 0.03,
     "returns": {
-      "YTD": 0.53062908,
+      "YTD": 0.63534849,
       "1Y": 2.4649888281
     }
   },
@@ -1870,7 +1870,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 203,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

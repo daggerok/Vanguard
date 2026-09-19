@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vfmv/vanguard-u-s-minimum-volatility-etf",
   "portId": "4419",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 143.4949951171875,
+  "nav": 142.9499969482422,
   "netAssets": "$456.4M",
   "totalFundNetAssets": "$456.4M",
   "netAssetsAsOf": "2026-08-31",
@@ -329,26 +329,26 @@
       ]
     ]
   },
-  "ytdReturn": 10.41050478,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": 10.67307436,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 11.310240896117186,
-    "3Y": 53.33650525829721,
-    "5Y": 57.21079498451438,
-    "10Y": 121.93389127016675
+    "1Y": 10.887481360680384,
+    "3Y": 54.6019232390923,
+    "5Y": 56.61372998993197,
+    "10Y": 121.09095380165557
   },
   "performance": {
-    "1Y": 11.310240896117186,
-    "3Y": 15.313951268446102,
-    "5Y": 9.470341467947563,
-    "10Y": 8.298480391380725
+    "1Y": 10.887481360680384,
+    "3Y": 15.630294229663978,
+    "5Y": 9.387064198845252,
+    "10Y": 8.257276566883775
   },
   "officialMetrics": {
-    "nav": 10.41050478,
+    "nav": 10.67307436,
     "marketPrice": null,
     "expenseRatio": 0.13,
     "returns": {
-      "YTD": 10.41050478,
+      "YTD": 10.67307436,
       "1Y": 12.959686718
     }
   },
@@ -358,7 +358,7 @@
     ],
     "pageSize": 250,
     "totalRows": 212,
-    "asOfDate": "2026-09-16",
+    "asOfDate": "2026-09-17",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -367,7 +367,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 450,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

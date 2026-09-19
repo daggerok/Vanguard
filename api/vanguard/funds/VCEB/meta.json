@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vceb/vanguard-esg-u-s-corporate-bond-etf",
   "portId": "4158",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 60.900001525878906,
+  "nav": 60.67399978637695,
   "netAssets": "$1.2B",
   "totalFundNetAssets": "$1.2B",
   "netAssetsAsOf": "2026-08-31",
@@ -15,7 +15,7 @@
   "trailingYield": 5.0717872,
   "dividendYieldAsOf": "2026-09-01",
   "secYield": 5.45,
-  "secYieldAsOf": "2026-09-15",
+  "secYieldAsOf": "2026-09-16",
   "distributionFrequency": "Monthly",
   "distributions": {
     "frequency": "Monthly",
@@ -680,26 +680,26 @@
       ]
     ]
   },
-  "ytdReturn": -1.68363776,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": -1.19627971,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": -0.7887707139703326,
-    "3Y": 15.491348079681288,
-    "5Y": -1.3547115655184738,
-    "10Y": 0.4731206237318819
+    "1Y": -1.1569465733295758,
+    "3Y": 15.52755172303588,
+    "5Y": -1.7206778928750777,
+    "10Y": 0.10028704689115653
   },
   "performance": {
-    "1Y": -0.7887707139703326,
-    "3Y": 4.917954979976313,
-    "5Y": -0.2724225560733817,
-    "10Y": 0.04721163376428805
+    "1Y": -1.1569465733295758,
+    "3Y": 4.9289168844926845,
+    "5Y": -0.3465289163854468,
+    "10Y": 0.010024181690337919
   },
   "officialMetrics": {
-    "nav": -1.68363776,
+    "nav": -1.19627971,
     "marketPrice": null,
     "expenseRatio": 0.12,
     "returns": {
-      "YTD": -1.68363776,
+      "YTD": -1.19627971,
       "1Y": 1.3728847627
     }
   },
@@ -719,8 +719,8 @@
       "holdings/012.json"
     ],
     "pageSize": 250,
-    "totalRows": 2757,
-    "asOfDate": "2026-09-16",
+    "totalRows": 2762,
+    "asOfDate": "2026-09-17",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -729,7 +729,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 314,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

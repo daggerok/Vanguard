@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vgt/vanguard-information-technology-etf",
   "portId": "0958",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 121.4800033569336,
+  "nav": 122.30999755859375,
   "netAssets": "$147.6B",
   "totalFundNetAssets": "$170.2B",
   "netAssetsAsOf": "2026-08-31",
@@ -518,26 +518,26 @@
       ]
     ]
   },
-  "ytdReturn": 26.51129116,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": 29.25644785,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 30.586346677925413,
-    "3Y": 137.74035511235115,
-    "5Y": 149.7705180589037,
-    "10Y": 779.6747176955878
+    "1Y": 31.478558626917554,
+    "3Y": 139.36468101613056,
+    "5Y": 151.47703827627157,
+    "10Y": 785.6849042665676
   },
   "performance": {
-    "1Y": 30.586346677925413,
-    "3Y": 33.465075260068325,
-    "5Y": 20.090384387895654,
-    "10Y": 24.28886183787227
+    "1Y": 31.478558626917554,
+    "3Y": 33.768345767281936,
+    "5Y": 20.25403770911902,
+    "10Y": 24.373519547448396
   },
   "officialMetrics": {
-    "nav": 26.51129116,
+    "nav": 29.25644785,
     "marketPrice": null,
     "expenseRatio": 0.09,
     "returns": {
-      "YTD": 26.51129116,
+      "YTD": 29.25644785,
       "1Y": 38.9851617503
     }
   },
@@ -557,7 +557,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 273,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

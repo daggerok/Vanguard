@@ -7,15 +7,15 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/blv/vanguard-long-term-bond-etf",
   "portId": "0927",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 65.58999633789062,
+  "nav": 65.16000366210938,
   "netAssets": "$5.7B",
   "totalFundNetAssets": "$8.3B",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.03,
   "trailingYield": 5.34409881,
   "dividendYieldAsOf": "2026-09-01",
-  "secYield": 5.79,
-  "secYieldAsOf": "2026-09-15",
+  "secYield": 5.81,
+  "secYieldAsOf": "2026-09-16",
   "distributionFrequency": "Monthly",
   "distributions": {
     "frequency": "Monthly",
@@ -2120,26 +2120,26 @@
       ]
     ]
   },
-  "ytdReturn": -3.63598389,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": -2.68585339,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": -2.9127270542563144,
-    "3Y": 12.808622414046035,
-    "5Y": -20.28574326834114,
-    "10Y": 2.031391491659651
+    "1Y": -3.549219401208348,
+    "3Y": 12.06908282198067,
+    "5Y": -20.808338634782498,
+    "10Y": 1.362521612067935
   },
   "performance": {
-    "1Y": -2.9127270542563144,
-    "3Y": 4.099209575060825,
-    "5Y": -4.433165659732474,
-    "10Y": 0.2013057452015632
+    "1Y": -3.549219401208348,
+    "3Y": 3.8712295619277137,
+    "5Y": -4.558800073270842,
+    "10Y": 0.13542389042879854
   },
   "officialMetrics": {
-    "nav": -3.63598389,
+    "nav": -2.68585339,
     "marketPrice": null,
     "expenseRatio": 0.03,
     "returns": {
-      "YTD": -3.63598389,
+      "YTD": -2.68585339,
       "1Y": 0.6577493441
     }
   },
@@ -2169,7 +2169,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 234,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

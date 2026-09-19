@@ -7,15 +7,15 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vchy/vanguard-u-s-high-yield-corporate-bond-index-etf",
   "portId": "V118",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 74.21980285644531,
+  "nav": 74.05999755859375,
   "netAssets": "$78.7M",
   "totalFundNetAssets": "$78.7M",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.05,
   "trailingYield": null,
   "dividendYieldAsOf": null,
-  "secYield": 7.28,
-  "secYieldAsOf": "2026-09-15",
+  "secYield": 7.29,
+  "secYieldAsOf": "2026-09-16",
   "distributionFrequency": "Monthly",
   "distributions": {
     "frequency": "Monthly",
@@ -59,19 +59,19 @@
       ]
     ]
   },
-  "ytdReturn": -1.1193641479838368,
+  "ytdReturn": -1.3322675626513014,
   "asOfDate": "",
   "totalReturn": {
-    "1Y": -1.1193641479838368,
-    "3Y": -1.1193641479838479,
-    "5Y": -1.1193641479838479,
-    "10Y": -1.1193641479838479
+    "1Y": -1.3322675626513014,
+    "3Y": -1.3322675626513014,
+    "5Y": -1.3322675626513125,
+    "10Y": -1.332267562651257
   },
   "performance": {
-    "1Y": -1.1193641479838368,
-    "3Y": -0.37452230109806806,
-    "5Y": -0.22488199585180002,
-    "10Y": -0.11250428399548484
+    "1Y": -1.3322675626513014,
+    "3Y": -0.44607606739826,
+    "5Y": -0.2678849194697186,
+    "10Y": -0.1340322829992857
   },
   "officialMetrics": {
     "nav": null,
@@ -94,8 +94,8 @@
       "holdings/008.json"
     ],
     "pageSize": 250,
-    "totalRows": 1817,
-    "asOfDate": "2026-09-16",
+    "totalRows": 1820,
+    "asOfDate": "2026-09-17",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -103,8 +103,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 496,
-    "asOfDate": "2026-09-17",
+    "totalRows": 504,
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

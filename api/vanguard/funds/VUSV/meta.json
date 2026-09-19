@@ -41,8 +41,8 @@
       ]
     ]
   },
-  "ytdReturn": 10.85011185,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": 11.37743688,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
     "1Y": 17.387758394717267,
     "3Y": 17.387758394717267,
@@ -56,11 +56,11 @@
     "10Y": 1.6160434167303173
   },
   "officialMetrics": {
-    "nav": 10.85011185,
+    "nav": 11.37743688,
     "marketPrice": null,
     "expenseRatio": 0.3,
     "returns": {
-      "YTD": 10.85011185,
+      "YTD": 11.37743688,
       "1Y": null
     }
   },
@@ -70,7 +70,7 @@
     ],
     "pageSize": 250,
     "totalRows": 83,
-    "asOfDate": "2026-09-16",
+    "asOfDate": "2026-09-17",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {

@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vss/vanguard-ftse-all-world-ex-us-small-cap-etf",
   "portId": "3184",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 157.66000366210938,
+  "nav": 157.39999389648438,
   "netAssets": "$12.1B",
   "totalFundNetAssets": "$14.5B",
   "netAssetsAsOf": "2026-08-31",
@@ -473,26 +473,26 @@
       ]
     ]
   },
-  "ytdReturn": 9.34781555,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": 10.79970765,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 13.856428629909857,
-    "3Y": 62.761615192755535,
-    "5Y": 36.76034333544869,
-    "10Y": 109.82938527604733
+    "1Y": 13.668658855488136,
+    "3Y": 62.49320474850837,
+    "5Y": 36.5347737693114,
+    "10Y": 109.48340260865135
   },
   "performance": {
-    "1Y": 13.856428629909857,
-    "3Y": 17.629792340615037,
-    "5Y": 6.4613665398354,
-    "10Y": 7.692790606250988
+    "1Y": 13.668658855488136,
+    "3Y": 17.565095603138904,
+    "5Y": 6.426224329842367,
+    "10Y": 7.675020209413308
   },
   "officialMetrics": {
-    "nav": 9.34781555,
+    "nav": 10.79970765,
     "marketPrice": null,
     "expenseRatio": 0.06,
     "returns": {
-      "YTD": 9.34781555,
+      "YTD": 10.79970765,
       "1Y": 18.7251991193
     }
   },
@@ -531,7 +531,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 210,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

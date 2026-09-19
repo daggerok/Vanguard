@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/bndw/vanguard-total-world-bond-etf",
   "portId": "3061",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 66.69000244140625,
+  "nav": 66.49600219726562,
   "netAssets": "$1.9B",
   "totalFundNetAssets": "$1.9B",
   "netAssetsAsOf": "2026-08-31",
@@ -896,26 +896,26 @@
       ]
     ]
   },
-  "ytdReturn": -1.18692875,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": -0.7850681,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": -0.11965724461084903,
-    "3Y": 12.490335386538188,
-    "5Y": -1.1860019328276183,
-    "10Y": 13.978390870663215
+    "1Y": -0.41023046354831116,
+    "3Y": 12.59926340827926,
+    "5Y": -1.4734726872571935,
+    "10Y": 13.646770119843543
   },
   "performance": {
-    "1Y": -0.11965724461084903,
-    "3Y": 4.001212814547994,
-    "5Y": -0.23833374162551824,
-    "10Y": 1.3169837405829998
+    "1Y": -0.41023046354831116,
+    "3Y": 4.034771228451506,
+    "5Y": -0.2964469506623213,
+    "10Y": 1.2874668423680014
   },
   "officialMetrics": {
-    "nav": -1.18692875,
+    "nav": -0.7850681,
     "marketPrice": null,
     "expenseRatio": 0.05,
     "returns": {
-      "YTD": -1.18692875,
+      "YTD": -0.7850681,
       "1Y": 1.33445699
     }
   },
@@ -934,7 +934,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 421,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

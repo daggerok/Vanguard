@@ -7,15 +7,15 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vtec/vanguard-california-tax-exempt-bond-etf",
   "portId": "V038",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 96.33000183105469,
+  "nav": 96.08000183105469,
   "netAssets": "$3.3B",
   "totalFundNetAssets": "$3.3B",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.06,
   "trailingYield": 3.32127063,
   "dividendYieldAsOf": "2026-09-01",
-  "secYield": 3.62,
-  "secYieldAsOf": "2026-09-15",
+  "secYield": 3.65,
+  "secYieldAsOf": "2026-09-16",
   "distributionFrequency": "Monthly",
   "distributions": {
     "frequency": "Monthly",
@@ -311,26 +311,26 @@
       ]
     ]
   },
-  "ytdReturn": -2.04166506,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": -1.84770837,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": -0.5128806390099938,
-    "3Y": 3.064861849923828,
-    "5Y": 3.0648618499237834,
-    "10Y": 3.0648618499237834
+    "1Y": -0.7710819526322799,
+    "3Y": 2.797366452744221,
+    "5Y": 2.7973664527442432,
+    "10Y": 2.7973664527443542
   },
   "performance": {
-    "1Y": -0.5128806390099938,
-    "3Y": 1.0113576908028499,
-    "5Y": 0.6055929592990728,
-    "10Y": 0.30233943398283447
+    "1Y": -0.7710819526322799,
+    "3Y": 0.9238934067760551,
+    "5Y": 0.553316141154836,
+    "10Y": 0.2762764272561391
   },
   "officialMetrics": {
-    "nav": -2.04166506,
+    "nav": -1.84770837,
     "marketPrice": null,
     "expenseRatio": 0.06,
     "returns": {
-      "YTD": -2.04166506,
+      "YTD": -1.84770837,
       "1Y": 3.8270588406
     }
   },
@@ -354,8 +354,8 @@
       "holdings/016.json"
     ],
     "pageSize": 250,
-    "totalRows": 3915,
-    "asOfDate": "2026-09-16",
+    "totalRows": 3914,
+    "asOfDate": "2026-09-17",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -364,7 +364,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 139,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

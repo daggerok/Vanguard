@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vox/vanguard-communication-services-etf",
   "portId": "0959",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 192.27000427246094,
+  "nav": 189.67999267578125,
   "netAssets": "$5.7B",
   "totalFundNetAssets": "$5.9B",
   "netAssetsAsOf": "2026-08-31",
@@ -518,26 +518,26 @@
       ]
     ]
   },
-  "ytdReturn": -0.09174591,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": -0.1903669,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 3.2493293009037805,
-    "3Y": 88.17094925356106,
-    "5Y": 43.518760130541054,
-    "10Y": 135.11218229197945
+    "1Y": 1.858488533772018,
+    "3Y": 85.6361409374224,
+    "5Y": 41.5854941837255,
+    "10Y": 131.9450132785314
   },
   "performance": {
-    "1Y": 3.2493293009037805,
-    "3Y": 23.45751334648827,
-    "5Y": 7.493383909394669,
-    "10Y": 8.924986118072242
+    "1Y": 1.858488533772018,
+    "3Y": 22.900649263334373,
+    "5Y": 7.202213372150168,
+    "10Y": 8.777357393749652
   },
   "officialMetrics": {
-    "nav": -0.09174591,
+    "nav": -0.1903669,
     "marketPrice": null,
     "expenseRatio": 0.09,
     "returns": {
-      "YTD": -0.09174591,
+      "YTD": -0.1903669,
       "1Y": 4.6102408805
     }
   },
@@ -556,7 +556,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 265,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

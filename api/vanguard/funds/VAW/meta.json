@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vaw/vanguard-materials-etf",
   "portId": "0952",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 226.3000030517578,
+  "nav": 223.49000549316406,
   "netAssets": "$3.1B",
   "totalFundNetAssets": "$4.5B",
   "netAssetsAsOf": "2026-08-31",
@@ -518,26 +518,26 @@
       ]
     ]
   },
-  "ytdReturn": 9.0714453,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": 9.85291932,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 11.700911612723086,
-    "3Y": 37.08053922349297,
-    "5Y": 41.82678381586118,
-    "10Y": 152.07758643327747
+    "1Y": 10.313906377673842,
+    "3Y": 35.378366714757824,
+    "5Y": 40.065714970424594,
+    "10Y": 148.9474628432938
   },
   "performance": {
-    "1Y": 11.700911612723086,
-    "3Y": 11.085813905316687,
-    "5Y": 7.238727236716014,
-    "10Y": 9.686561738103073
+    "1Y": 10.313906377673842,
+    "3Y": 10.624101601413738,
+    "5Y": 6.971077032590967,
+    "10Y": 9.549593516393774
   },
   "officialMetrics": {
-    "nav": 9.0714453,
+    "nav": 9.85291932,
     "marketPrice": null,
     "expenseRatio": 0.09,
     "returns": {
-      "YTD": 9.0714453,
+      "YTD": 9.85291932,
       "1Y": 15.1723448999
     }
   },
@@ -556,7 +556,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 273,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

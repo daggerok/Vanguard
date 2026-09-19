@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vht/vanguard-health-care-etf",
   "portId": "0956",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 317.0299987792969,
+  "nav": 315.8500061035156,
   "netAssets": "$19.3B",
   "totalFundNetAssets": "$22.0B",
   "netAssetsAsOf": "2026-08-31",
@@ -518,26 +518,26 @@
       ]
     ]
   },
-  "ytdReturn": 10.12140912,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": 10.98588878,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 23.714043999276903,
-    "3Y": 40.71661118655208,
-    "5Y": 37.58802022940524,
-    "10Y": 175.68038137182063
+    "1Y": 23.253577587982942,
+    "3Y": 40.1928798335095,
+    "5Y": 37.07592364875776,
+    "10Y": 174.65425644486348
   },
   "performance": {
-    "1Y": 23.714043999276903,
-    "3Y": 12.059442082433547,
-    "5Y": 6.589917070239681,
-    "10Y": 10.672720604062992
+    "1Y": 23.253577587982942,
+    "3Y": 11.920245046660739,
+    "5Y": 6.510454079028927,
+    "10Y": 10.631457347426455
   },
   "officialMetrics": {
-    "nav": 10.12140912,
+    "nav": 10.98588878,
     "marketPrice": null,
     "expenseRatio": 0.09,
     "returns": {
-      "YTD": 10.12140912,
+      "YTD": 10.98588878,
       "1Y": 27.5778526148
     }
   },
@@ -557,7 +557,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 273,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vnqi/vanguard-global-ex-u-s-real-estate-etf",
   "portId": "3358",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 43.779998779296875,
+  "nav": 43.310001373291016,
   "netAssets": "$3.5B",
   "totalFundNetAssets": "$3.8B",
   "netAssetsAsOf": "2026-08-31",
@@ -347,26 +347,26 @@
       ]
     ]
   },
-  "ytdReturn": -5.33536586,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": -4.39895471,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": -3.9355357351519737,
-    "3Y": 28.7910301272327,
-    "5Y": -5.493377796197829,
-    "10Y": 17.06834412756091
+    "1Y": -4.966829711230658,
+    "3Y": 27.40840217464249,
+    "5Y": -6.507947657427904,
+    "10Y": 15.811587955426765
   },
   "performance": {
-    "1Y": -3.9355357351519737,
-    "3Y": 8.799910714640014,
-    "5Y": -1.1236449723483477,
-    "10Y": 1.5883595882758117
+    "1Y": -4.966829711230658,
+    "3Y": 8.409170921625474,
+    "5Y": -1.3368586960496698,
+    "10Y": 1.4787716469763845
   },
   "officialMetrics": {
-    "nav": -5.33536586,
+    "nav": -4.39895471,
     "marketPrice": null,
     "expenseRatio": 0.12,
     "returns": {
-      "YTD": -5.33536586,
+      "YTD": -4.39895471,
       "1Y": -0.3039590388
     }
   },
@@ -388,7 +388,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 192,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

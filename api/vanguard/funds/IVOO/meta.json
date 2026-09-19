@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/ivoo/vanguard-sp-mid-cap-400-etf",
   "portId": "3342",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 124.30000305175781,
+  "nav": 123.95999908447266,
   "netAssets": "$3.8B",
   "totalFundNetAssets": "$5.9B",
   "netAssetsAsOf": "2026-08-31",
@@ -473,26 +473,26 @@
       ]
     ]
   },
-  "ytdReturn": 11.15753453,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": 11.79637092,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 13.691015840016618,
-    "3Y": 52.98349865601568,
-    "5Y": 49.5081091671419,
-    "10Y": 173.09903476427624
+    "1Y": 13.380031161969663,
+    "3Y": 52.56503529965886,
+    "5Y": 49.09909748698726,
+    "10Y": 172.35196776770655
   },
   "performance": {
-    "1Y": 13.691015840016618,
-    "3Y": 15.225392526576066,
-    "5Y": 8.375958076715673,
-    "10Y": 10.568652408205637
+    "1Y": 13.380031161969663,
+    "3Y": 15.120236010019571,
+    "5Y": 8.3165959201279,
+    "10Y": 10.538368870400184
   },
   "officialMetrics": {
-    "nav": 11.15753453,
+    "nav": 11.79637092,
     "marketPrice": null,
     "expenseRatio": 0.07,
     "returns": {
-      "YTD": 11.15753453,
+      "YTD": 11.79637092,
       "1Y": 17.1141948216
     }
   },
@@ -512,7 +512,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 193,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

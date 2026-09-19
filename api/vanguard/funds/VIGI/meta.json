@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vigi/vanguard-international-dividend-appreciation-etf",
   "portId": "4415",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 97.25,
+  "nav": 96.04000091552734,
   "netAssets": "$9.2B",
   "totalFundNetAssets": "$9.5B",
   "netAssetsAsOf": "2026-08-31",
@@ -401,26 +401,26 @@
       ]
     ]
   },
-  "ytdReturn": 6.82654912,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": 8.0027841,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 10.543987250987175,
-    "3Y": 44.4576623831705,
-    "5Y": 30.413775858689206,
-    "10Y": 116.42706047978075
+    "1Y": 9.168582383453483,
+    "3Y": 42.660314651197126,
+    "5Y": 28.791148101448695,
+    "10Y": 113.7341699561338
   },
   "performance": {
-    "1Y": 10.543987250987175,
-    "3Y": 13.04382939210107,
-    "5Y": 5.454397279265311,
-    "10Y": 8.026711597254831
+    "1Y": 9.168582383453483,
+    "3Y": 12.573039555823673,
+    "5Y": 5.190665551533091,
+    "10Y": 7.891540946152764
   },
   "officialMetrics": {
-    "nav": 6.82654912,
+    "nav": 8.0027841,
     "marketPrice": null,
     "expenseRatio": 0.07,
     "returns": {
-      "YTD": 6.82654912,
+      "YTD": 8.0027841,
       "1Y": 12.5212466668
     }
   },
@@ -440,7 +440,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 127,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

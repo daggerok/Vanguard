@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vpl/vanguard-ftse-pacific-etf",
   "portId": "0962",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 116.86000061035156,
+  "nav": 115.88999938964844,
   "netAssets": "$8.6B",
   "totalFundNetAssets": "$13.8B",
   "netAssetsAsOf": "2026-08-31",
@@ -581,26 +581,26 @@
       ]
     ]
   },
-  "ytdReturn": 26.46507008,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": 28.72751351,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 36.66996063742127,
-    "3Y": 91.31961243882488,
-    "5Y": 67.63983471845036,
-    "10Y": 155.26973974928288
+    "1Y": 35.53552603225831,
+    "3Y": 89.73154431156374,
+    "5Y": 66.24829701465357,
+    "10Y": 153.1508628207177
   },
   "performance": {
-    "1Y": 36.66996063742127,
-    "3Y": 24.14231242314493,
-    "5Y": 10.885675069432166,
-    "10Y": 9.824676722811375
+    "1Y": 35.53552603225831,
+    "3Y": 23.79787229202752,
+    "5Y": 10.700973751195164,
+    "10Y": 9.733173992887533
   },
   "officialMetrics": {
-    "nav": 26.46507008,
+    "nav": 28.72751351,
     "marketPrice": null,
     "expenseRatio": 0.07,
     "returns": {
-      "YTD": 26.46507008,
+      "YTD": 28.72751351,
       "1Y": 39.1049623145
     }
   },
@@ -628,7 +628,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 259,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

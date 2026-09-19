@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vgk/vanguard-ftse-europe-etf",
   "portId": "0963",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 89.37000274658203,
+  "nav": 88.20999908447266,
   "netAssets": "$31.0B",
   "totalFundNetAssets": "$39.1B",
   "netAssetsAsOf": "2026-08-31",
@@ -608,26 +608,26 @@
       ]
     ]
   },
-  "ytdReturn": 7.70225142,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": 9.01926264,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 15.127021102991467,
-    "3Y": 68.88087328583947,
-    "5Y": 59.84854248237363,
-    "10Y": 151.6258125840775
+    "1Y": 13.632696810914368,
+    "3Y": 66.68883540454607,
+    "5Y": 57.77372080743406,
+    "10Y": 148.35976295771198
   },
   "performance": {
-    "1Y": 15.127021102991467,
-    "3Y": 19.08584848408028,
-    "5Y": 9.83524829443667,
-    "10Y": 9.666887823107873
+    "1Y": 13.632696810914368,
+    "3Y": 18.568366705635377,
+    "5Y": 9.548625670593047,
+    "10Y": 9.523704205991246
   },
   "officialMetrics": {
-    "nav": 7.70225142,
+    "nav": 9.01926264,
     "marketPrice": null,
     "expenseRatio": 0.06,
     "returns": {
-      "YTD": 7.70225142,
+      "YTD": 9.01926264,
       "1Y": 20.2137871202
     }
   },
@@ -651,7 +651,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 259,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

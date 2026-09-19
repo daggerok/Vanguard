@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vusg/vanguard-wellington-u-s-growth-active-etf",
   "portId": "V054",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 65.30999755859375,
+  "nav": 65.7699966430664,
   "netAssets": "$34.6M",
   "totalFundNetAssets": "$34.6M",
   "netAssetsAsOf": "2026-08-31",
@@ -41,26 +41,26 @@
       ]
     ]
   },
-  "ytdReturn": 5.49432472,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": 7.41898338,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 10.808746866708852,
-    "3Y": 10.808746866708852,
-    "5Y": 10.80874686670883,
-    "10Y": 10.80874686670883
+    "1Y": 11.58920811331232,
+    "3Y": 11.589208113312278,
+    "5Y": 11.5892081133123,
+    "10Y": 11.58920811331241
   },
   "performance": {
-    "1Y": 10.808746866708852,
-    "3Y": 3.480379912353837,
-    "5Y": 2.073923562777269,
-    "10Y": 1.031640372101883
+    "1Y": 11.58920811331232,
+    "3Y": 3.7227601553159184,
+    "5Y": 2.217307990573314,
+    "10Y": 1.1025756301852763
   },
   "officialMetrics": {
-    "nav": 5.49432472,
+    "nav": 7.41898338,
     "marketPrice": null,
     "expenseRatio": 0.35,
     "returns": {
-      "YTD": 5.49432472,
+      "YTD": 7.41898338,
       "1Y": null
     }
   },
@@ -70,7 +70,7 @@
     ],
     "pageSize": 250,
     "totalRows": 44,
-    "asOfDate": "2026-09-16",
+    "asOfDate": "2026-09-17",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -78,8 +78,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 208,
-    "asOfDate": "2026-09-17",
+    "totalRows": 209,
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

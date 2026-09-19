@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/mgc/vanguard-mega-cap-etf",
   "portId": "3137",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 281.1700134277344,
+  "nav": 281.7200012207031,
   "netAssets": "$10.3B",
   "totalFundNetAssets": "$10.9B",
   "netAssetsAsOf": "2026-08-31",
@@ -689,26 +689,26 @@
       ]
     ]
   },
-  "ytdReturn": 11.24287652,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": 12.60433139,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 16.08679729852578,
-    "3Y": 91.09962076177848,
-    "5Y": 96.28388303555352,
-    "10Y": 344.76989939685467
+    "1Y": 16.313878348099674,
+    "3Y": 91.47338498665802,
+    "5Y": 96.66780679755908,
+    "10Y": 345.6397922006887
   },
   "performance": {
-    "1Y": 16.08679729852578,
-    "3Y": 24.094711884350527,
-    "5Y": 14.439757323670444,
-    "10Y": 16.095006127224167
+    "1Y": 16.313878348099674,
+    "3Y": 24.175563183117955,
+    "5Y": 14.484490295932218,
+    "10Y": 16.11769233795204
   },
   "officialMetrics": {
-    "nav": 11.24287652,
+    "nav": 12.60433139,
     "marketPrice": null,
     "expenseRatio": 0.05,
     "returns": {
-      "YTD": 11.24287652,
+      "YTD": 12.60433139,
       "1Y": 21.0581528164
     }
   },
@@ -727,7 +727,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 226,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

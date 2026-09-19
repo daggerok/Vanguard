@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vxus/vanguard-total-international-stock-etf",
   "portId": "3369",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 86.5,
+  "nav": 85.87999725341797,
   "netAssets": "$164.9B",
   "totalFundNetAssets": "$665.7B",
   "netAssetsAsOf": "2026-08-31",
@@ -545,26 +545,26 @@
       ]
     ]
   },
-  "ytdReturn": 13.65318352,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": 15.2274382,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 20.578685222630845,
-    "3Y": 76.25549295901646,
-    "5Y": 59.04958508708133,
-    "10Y": 144.7132584865769
+    "1Y": 19.714417985436828,
+    "3Y": 74.99215319329664,
+    "5Y": 57.90961575434339,
+    "10Y": 142.95936771000805
   },
   "performance": {
-    "1Y": 20.578685222630845,
-    "3Y": 20.794609315818736,
-    "5Y": 9.725232081299385,
-    "10Y": 9.361825248225731
+    "1Y": 19.714417985436828,
+    "3Y": 20.505312046557233,
+    "5Y": 9.567490635137844,
+    "10Y": 9.283190300853184
   },
   "officialMetrics": {
-    "nav": 13.65318352,
+    "nav": 15.2274382,
     "marketPrice": null,
     "expenseRatio": 0.05,
     "returns": {
-      "YTD": 13.65318352,
+      "YTD": 15.2274382,
       "1Y": 26.0454212678
     }
   },
@@ -619,7 +619,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 189,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

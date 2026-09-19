@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vis/vanguard-industrials-etf",
   "portId": "0953",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 324.75,
+  "nav": 325.5400085449219,
   "netAssets": "$8.0B",
   "totalFundNetAssets": "$8.6B",
   "netAssetsAsOf": "2026-08-31",
@@ -518,26 +518,26 @@
       ]
     ]
   },
-  "ytdReturn": 9.02719392,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": 9.37059726,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": 10.419182503946644,
-    "3Y": 72.07961995487553,
-    "5Y": 83.85261946679421,
-    "10Y": 238.16856219122644
+    "1Y": 10.687795583858595,
+    "3Y": 72.49824628129159,
+    "5Y": 84.2998557103516,
+    "10Y": 238.99121362696172
   },
   "performance": {
-    "1Y": 10.419182503946644,
-    "3Y": 19.83301309582646,
-    "5Y": 12.95201018623089,
-    "10Y": 12.957045144242008
+    "1Y": 10.687795583858595,
+    "3Y": 19.93010890367577,
+    "5Y": 13.006909758061491,
+    "10Y": 12.984493794998397
   },
   "officialMetrics": {
-    "nav": 9.02719392,
+    "nav": 9.37059726,
     "marketPrice": null,
     "expenseRatio": 0.09,
     "returns": {
-      "YTD": 9.02719392,
+      "YTD": 9.37059726,
       "1Y": 16.3458155545
     }
   },
@@ -557,7 +557,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 265,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }

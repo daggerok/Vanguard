@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vpu/vanguard-utilities-etf",
   "portId": "0960",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 180.42999267578125,
+  "nav": 177.97999572753906,
   "netAssets": "$8.2B",
   "totalFundNetAssets": "$10.1B",
   "netAssetsAsOf": "2026-08-31",
@@ -806,26 +806,26 @@
       ]
     ]
   },
-  "ytdReturn": -2.00472754,
-  "asOfDate": "2026-09-16",
+  "ytdReturn": -1.12830252,
+  "asOfDate": "2026-09-17",
   "totalReturn": {
-    "1Y": -2.7634956841785963,
-    "3Y": 53.62346462248695,
-    "5Y": 49.89726512974344,
-    "10Y": 128.3358558814634
+    "1Y": -4.083836805399943,
+    "3Y": 51.53746431886888,
+    "5Y": 47.861880354188614,
+    "10Y": 125.23536165770635
   },
   "performance": {
-    "1Y": -2.7634956841785963,
-    "3Y": 15.385840645177474,
-    "5Y": 8.432317972843851,
-    "10Y": 8.606898448559019
+    "1Y": -4.083836805399943,
+    "3Y": 14.861197202726917,
+    "5Y": 8.136235092643073,
+    "10Y": 8.458515919968846
   },
   "officialMetrics": {
-    "nav": -2.00472754,
+    "nav": -1.12830252,
     "marketPrice": null,
     "expenseRatio": 0.09,
     "returns": {
-      "YTD": -2.00472754,
+      "YTD": -1.12830252,
       "1Y": 2.7501025975
     }
   },
@@ -844,7 +844,7 @@
     ],
     "pageSize": 1000,
     "totalRows": 273,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-18",
     "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
   }
 }
