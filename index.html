@@ -150,6 +150,41 @@
         border-color: rgb(51, 65, 85) !important;
       }
 
+      /* Blacklist manager panel: same smooth expand/collapse contract as the
+         detail nav above. Its max-height is set inline by JS from
+         scrollHeight instead of a fixed rem value, since the chip list --
+         unlike the detail tabs -- has no bounded height. */
+      main.space-y-6 > #blacklist-panel {
+        max-height: 0;
+        margin-top: 0 !important;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-10px);
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        border-width: 0 !important;
+        border-color: transparent !important;
+        transition:
+          max-height 0.32s ease,
+          margin-top 0.32s ease,
+          padding 0.32s ease,
+          opacity 0.22s ease,
+          transform 0.32s ease,
+          border-color 0.22s ease;
+      }
+      main.space-y-6 > #blacklist-panel.is-visible {
+        margin-top: 1.5rem !important;
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+        opacity: 1;
+        transform: translateY(0);
+        border-width: 1px !important;
+        border-color: rgb(226, 232, 240) !important;
+      }
+      .dark main.space-y-6 > #blacklist-panel.is-visible {
+        border-color: rgb(51, 65, 85) !important;
+      }
+
       /* Drag-and-drop zone interaction states */
       .dz-active {
         border-color: #3b82f6;
@@ -187,6 +222,9 @@
           animation: none;
         }
         main.space-y-6 > #selected-tabs-panel {
+          transition: none;
+        }
+        main.space-y-6 > #blacklist-panel {
           transition: none;
         }
       }
@@ -468,7 +506,7 @@ Vanguard ETF Holdings to Watchlist
         <!-- Blacklist Manager Panel (blacklisted ETFs are hidden from All ETFs and stored in localStorage) -->
         <div
           id="blacklist-panel"
-          class="hidden bg-white dark:bg-slate-800/80 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm backdrop-blur"
+          class="bg-white dark:bg-slate-800/80 px-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm backdrop-blur"
         >
           <div class="flex flex-col sm:flex-row sm:items-center gap-2.5">
             <input
@@ -1141,6 +1179,22 @@ Vanguard ETF Holdings to Watchlist
               unblacklistTicker(button.dataset.unblacklist || "");
             });
           });
+        syncBlacklistPanelHeight();
+      }
+
+      /**
+       * The blacklist panel's max-height is content-driven (an unbounded
+       * number of chips), unlike the fixed-height detail nav, so it can't
+       * use a static max-height in CSS -- it's measured from scrollHeight
+       * instead, and re-measured on every render so the panel resizes
+       * smoothly as chips are added or removed while it's open.
+       */
+      function syncBlacklistPanelHeight() {
+        blacklistPanel.style.maxHeight = blacklistPanel.classList.contains(
+          "is-visible",
+        )
+          ? `${blacklistPanel.scrollHeight}px`
+          : "";
       }
 
       /**
@@ -3959,8 +4013,8 @@ Vanguard ETF Holdings to Watchlist
       resetBtn.addEventListener("click", clearStorage);
 
       blacklistBtn.addEventListener("click", () => {
-        const hidden = blacklistPanel.classList.toggle("hidden");
-        blacklistBtn.setAttribute("aria-expanded", String(!hidden));
+        const visible = blacklistPanel.classList.toggle("is-visible");
+        blacklistBtn.setAttribute("aria-expanded", String(visible));
         renderBlacklistPanel();
         fitTableScrollHeight();
       });
