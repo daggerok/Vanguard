@@ -1,6 +1,6 @@
 # Vanguard
 
-Vanguard ETF holdings to Watchlist. A single-file client-side tool that reads the generated `./api/vanguard` static feed (official Vanguard fund metrics, daily history, holdings, SEC EDGAR N-PORT-P as fallback) into a searchable ETF/asset-class catalog with per-fund tabs, watchlist aggregation, ticker copy and CSV/TXT export — the same look, feel, columns and business logic as the sibling applications.
+Vanguard ETF holdings to Watchlist. A single-file client-side tool that reads the generated `./api/vanguard` static feed (official Vanguard fund metrics and holdings, official NAV/premium-discount history merged by date with Yahoo Finance for OHLC/volume and distributions, SEC EDGAR N-PORT-P as fallback) into a searchable ETF/asset-class catalog with per-fund tabs, watchlist aggregation, ticker copy and CSV/TXT export — the same look, feel, columns and business logic as the sibling applications.
 
 ## Using Bun
 
@@ -31,7 +31,8 @@ The **Update Vanguard ETF data** GitHub Actions workflow exposes the same settin
 | --- | --- |
 | Catalog (all US Vanguard ETFs) | `https://investor.vanguard.com/etf/list` + `https://api.vanguard.com/rs/gre/gra/1.7.0/datasets/auw-holdings` (official API) |
 | Holdings per fund | `https://investor.vanguard.com/investment-products/etfs/profile/{TICKER}#holdings` (holdings table) |
-| Daily history, distributions | Vanguard official NAV history + Yahoo Finance fallback |
+| Daily NAV/market-price/premium-discount history | Same `AdditionalFundData` response's `historicalPrice` + `premiumDiscountDetails` blocks (official, merged by date; ~21 months of daily premium/discount, longer month-end-only NAV) |
+| Daily OHLC/volume; distributions; history fallback | Yahoo Finance chart API — the only source for Open/High/Low/Volume and for dividend/split events, and for any date the official blocks above don't cover |
 | Fallback | SEC EDGAR N-PORT-P for holdings fallback |
 
 Each fund carries a derived `metrics` object that powers the catalog columns shared with the sibling sites:
