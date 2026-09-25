@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vbcc/vanguard-target-maturity-2029-corporate-bond-etf",
   "portId": "V074",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 74.04779815673828,
+  "nav": 74.05000305175781,
   "netAssets": "$55.6M",
   "totalFundNetAssets": "$55.6M",
   "netAssetsAsOf": "2026-08-31",
@@ -77,19 +77,19 @@
       ]
     ]
   },
-  "ytdReturn": 0.4076788921711261,
+  "ytdReturn": 0.4106686960089423,
   "asOfDate": "",
   "totalReturn": {
-    "1Y": 0.4076788921711261,
-    "3Y": 0.4076788921711483,
-    "5Y": 0.40767889217110387,
-    "10Y": 0.4076788921712149
+    "1Y": 0.4106686960089423,
+    "3Y": 0.4106686960089423,
+    "5Y": 0.4106686960089645,
+    "10Y": 0.4106686960088535
   },
   "performance": {
-    "1Y": 0.4076788921711261,
-    "3Y": 0.13570871220045522,
-    "5Y": 0.08140314107962787,
-    "10Y": 0.040693290820237316
+    "1Y": 0.4106686960089423,
+    "3Y": 0.1367026041616759,
+    "5Y": 0.08199915166891003,
+    "10Y": 0.04099117445253153
   },
   "officialMetrics": {
     "nav": null,

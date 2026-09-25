@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vbci/vanguard-target-maturity-2035-corporate-bond-etf",
   "portId": "V080",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 71.64769744873047,
+  "nav": 71.6500015258789,
   "netAssets": "$11.8M",
   "totalFundNetAssets": "$11.8M",
   "netAssetsAsOf": "2026-08-31",
@@ -77,19 +77,19 @@
       ]
     ]
   },
-  "ytdReturn": -1.9722754294124734,
+  "ytdReturn": -1.9691230121242853,
   "asOfDate": "",
   "totalReturn": {
-    "1Y": -1.9722754294124734,
-    "3Y": -1.9722754294124734,
-    "5Y": -1.97227542941244,
-    "10Y": -1.97227542941244
+    "1Y": -1.9691230121242853,
+    "3Y": -1.9691230121242742,
+    "5Y": -1.9691230121242742,
+    "10Y": -1.9691230121242742
   },
   "performance": {
-    "1Y": -1.9722754294124734,
-    "3Y": -0.6617952105320568,
-    "5Y": -0.3976043234252158,
-    "10Y": -0.199000167045027
+    "1Y": -1.9691230121242853,
+    "3Y": -0.6607303685235766,
+    "5Y": -0.396963720419119,
+    "10Y": -0.19867922738653343
   },
   "officialMetrics": {
     "nav": null,

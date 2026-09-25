@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vbcf/vanguard-target-maturity-2032-corporate-bond-etf",
   "portId": "V077",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 72.57520294189453,
+  "nav": 72.58000183105469,
   "netAssets": "$43.2M",
   "totalFundNetAssets": "$43.2M",
   "netAssetsAsOf": "2026-08-31",
@@ -77,19 +77,19 @@
       ]
     ]
   },
-  "ytdReturn": -1.17968426580346,
+  "ytdReturn": -1.1731602379189354,
   "asOfDate": "",
   "totalReturn": {
-    "1Y": -1.17968426580346,
-    "3Y": -1.179684265803449,
-    "5Y": -1.1796842658034712,
-    "10Y": -1.1796842658034712
+    "1Y": -1.1731602379189354,
+    "3Y": -1.1731602379189576,
+    "5Y": -1.1731602379189687,
+    "10Y": -1.1731602379189687
   },
   "performance": {
-    "1Y": -1.17968426580346,
-    "3Y": -0.39478458632715707,
-    "5Y": -0.23705812302114992,
-    "10Y": -0.11859939058781466
+    "1Y": -1.1731602379189354,
+    "3Y": -0.39259268581168794,
+    "5Y": -0.23574090596326647,
+    "10Y": -0.11794000220223255
   },
   "officialMetrics": {
     "nav": null,

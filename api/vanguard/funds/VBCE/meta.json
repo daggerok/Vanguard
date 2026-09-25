@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vbce/vanguard-target-maturity-2031-corporate-bond-etf",
   "portId": "V076",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 73.00499725341797,
+  "nav": 73.01000213623047,
   "netAssets": "$52.2M",
   "totalFundNetAssets": "$52.2M",
   "netAssetsAsOf": "2026-08-31",
@@ -77,19 +77,19 @@
       ]
     ]
   },
-  "ytdReturn": -0.7496896130042008,
+  "ytdReturn": -0.7428648834562734,
   "asOfDate": "",
   "totalReturn": {
-    "1Y": -0.7496896130042008,
-    "3Y": -0.7496896130042008,
-    "5Y": -0.7496896130041897,
-    "10Y": -0.7496896130041342
+    "1Y": -0.7428648834562734,
+    "3Y": -0.7428648834562845,
+    "5Y": -0.7428648834562512,
+    "10Y": -0.7428648834563067
   },
   "performance": {
-    "1Y": -0.7496896130042008,
-    "3Y": -0.25052363446943504,
-    "5Y": -0.15038958337492137,
-    "10Y": -0.0752230842494761
+    "1Y": -0.7428648834562734,
+    "3Y": -0.24823733567280737,
+    "5Y": -0.14901643332349002,
+    "10Y": -0.07453599473430383
   },
   "officialMetrics": {
     "nav": null,

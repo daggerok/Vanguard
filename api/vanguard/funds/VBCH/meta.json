@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vbch/vanguard-target-maturity-2034-corporate-bond-etf",
   "portId": "V079",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 72.00499725341797,
+  "nav": 72.01000213623047,
   "netAssets": "$11.9M",
   "totalFundNetAssets": "$11.9M",
   "netAssetsAsOf": "2026-08-31",
@@ -77,19 +77,19 @@
       ]
     ]
   },
-  "ytdReturn": -1.6038696882724524,
+  "ytdReturn": -1.5970406846435026,
   "asOfDate": "",
   "totalReturn": {
-    "1Y": -1.6038696882724524,
-    "3Y": -1.6038696882724524,
-    "5Y": -1.6038696882724301,
-    "10Y": -1.6038696882724301
+    "1Y": -1.5970406846435026,
+    "3Y": -1.5970406846435026,
+    "5Y": -1.5970406846434693,
+    "10Y": -1.5970406846435248
   },
   "performance": {
-    "1Y": -1.6038696882724524,
-    "3Y": -0.537507192802511,
-    "5Y": -0.3228518849179296,
-    "10Y": -0.16155644488338172
+    "1Y": -1.5970406846435026,
+    "3Y": -0.5352062418429782,
+    "5Y": -0.3214683412605557,
+    "10Y": -0.16086355604860714
   },
   "officialMetrics": {
     "nav": null,

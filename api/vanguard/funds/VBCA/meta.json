@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vbca/vanguard-target-maturity-2027-corporate-bond-etf",
   "portId": "V072",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 75.40499877929688,
+  "nav": 75.41000366210938,
   "netAssets": "$55.9M",
   "totalFundNetAssets": "$55.9M",
   "netAssetsAsOf": "2026-08-31",
@@ -77,19 +77,19 @@
       ]
     ]
   },
-  "ytdReturn": 1.9621727824983948,
+  "ytdReturn": 1.968940354069848,
   "asOfDate": "",
   "totalReturn": {
-    "1Y": 1.9621727824983948,
-    "3Y": 1.9621727824983948,
-    "5Y": 1.9621727824984392,
-    "10Y": 1.9621727824983282
+    "1Y": 1.968940354069848,
+    "3Y": 1.968940354069848,
+    "5Y": 1.9689403540698258,
+    "10Y": 1.968940354069959
   },
   "performance": {
-    "1Y": 1.9621727824983948,
-    "3Y": 0.6498257127910856,
-    "5Y": 0.3893902302244623,
-    "10Y": 0.19450595228485135
+    "1Y": 1.968940354069848,
+    "3Y": 0.6520524857565047,
+    "5Y": 0.3907228309883548,
+    "10Y": 0.1951709569819382
   },
   "officialMetrics": {
     "nav": null,
