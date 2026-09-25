@@ -1,4 +1,5 @@
 #!/usr/bin/env bun
+import { printConfig, printFilter, createReporter } from './update-output.ts';
 /// <reference types="bun" />
 import { mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 
@@ -1110,8 +1111,14 @@ export async function run() {
   const holdingsPageSize = envInt("HOLDINGS_PAGE_SIZE", 250);
   const historyPageSize = envInt("HISTORY_PAGE_SIZE", 1000);
   const requestSleepMs = Math.max(0, Number(env("REQUEST_SLEEP")) || 0) * 1000;
+  printConfig('Vanguard', { tickers: env("TICKERS"), holdingsPageSize, historyPageSize, requestSleep: requestSleepMs / 1000, maxRetries: Math.min(5, envInt("MAX_RETRIES", 2)) });
+  const selected = selectedFunds();
+  printFilter(selected.length, FUNDS_SEED.length);
+  const output = createReporter(ROOT, selected.length);
   const catalog: any[] = [];
-  for (const [ticker, name, category] of selectedFunds()) {
+  for (const [ticker, name, category] of selected) {
+    const before = await output.before(ticker);
+    try {
     const dir = new URL(`${ticker}/`, FUNDS);
     await mkdir(dir, { recursive: true });
     const [chartData, official, vgAdditional] = await Promise.all([
@@ -1244,10 +1251,16 @@ export async function run() {
       holdings: holdingsRows.length,
       history: mergedHistoryRows.length,
     });
-    console.log(
-      `[ fund ] ticker=${ticker.padEnd(5)} port=${(official as any).portId ?? prevMeta?.portId ?? "null"} history=${mergedHistoryRows.length} (official=${officialHistory.length} yahoo=${historyRows.length}) holdings=${holdingsRows.length} divs=${divRows.length} netAssets=${meta.netAssets ?? "null"} total=${meta.totalFundNetAssets ?? "null"} div=${meta.trailingYield ?? "null"} sec=${meta.secYield ?? "null"} wp=${(official as any).workplaceRaw}`,
-    );
+    await output.result(ticker, before, undefined, undefined, {
+      officialHistoryCount: officialHistory.length,
+      yahooHistoryCount: historyRows.length,
+      workplaceRaw: (official as any).workplaceRaw,
+    });
     if (requestSleepMs > 0) await sleep(requestSleepMs);
+    } catch (error) {
+      await output.result(ticker, before, 'failed', String(error));
+      throw error; // Preserve the updater's existing fail-fast behavior.
+    }
   }
   await writeFile(new URL("index.json", ROOT), JSON.stringify({ generatedAt: new Date().toISOString(), provider: "Vanguard", funds: catalog }, null, 2) + "\n");
 }
