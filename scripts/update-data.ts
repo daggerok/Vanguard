@@ -6,7 +6,19 @@ const ROOT = new URL("../api/vanguard/", import.meta.url);
 const FUNDS = new URL("funds/", ROOT);
 const UA = "daggerok/Vanguard ETF research contact=github.com/daggerok";
 
-const HISTORY_HEADERS = ["Date", "Open", "High", "Low", "Close", "Adj Close", "Volume"];
+const HISTORY_HEADERS = [
+  "Date",
+  "Open",
+  "High",
+  "Low",
+  "Close",
+  "Adj Close",
+  "Volume",
+  "NAV",
+  "Market Price",
+  "Premium/Discount (%)",
+  "Source",
+];
 const HOLDINGS_HEADERS_BASE = [
   "Ticker",
   "Name",
@@ -466,21 +478,171 @@ async function chart(ticker: string): Promise<{ rows: any[]; dividends: ChartDiv
 }
 
 /**
- * Maps internal (lowercase-keyed) history rows to the exact header-keyed shape
+ * One calendar date's worth of Vanguard's own official NAV / market-price /
+ * premium-discount data, merged from `historicalPrice` (NAV only) and
+ * `premiumDiscountDetails` (NAV + market price + premium/discount %) — the
+ * two other top-level keys of the same `…/irr/funds/profile/{TICKER}-
+ * AdditionalFundData` response `parseVanguardHoldingDetails` already reads
+ * for holdings. See `parseVanguardOfficialHistory`.
+ */
+export type OfficialPricePoint = {
+  date: string;
+  nav: number | null;
+  marketPrice: number | null;
+  premiumDiscountPct: number | null;
+};
+
+/**
+ * Parses the `historicalPrice` and `premiumDiscountDetails` blocks of the
+ * AdditionalFundData response into one official NAV/market-price/premium-
+ * discount point per calendar date, sorted ascending.
+ *
+ * `historicalPrice` is `{ ticker, "3m"|"6m"|"1Y"|"3Y"|"5Y"|"10Y": { nav: [{
+ * asOfDate: "MM/DD/YYYY", price: "$123.45" }] } }` — NAV only. The 3m/6m/1Y
+ * windows are true daily trading-day series (each nested inside the next);
+ * 3Y/5Y/10Y are month-end only (36/60/120 points). Verified live against
+ * VOO and BND on 2026-09-24.
+ *
+ * `premiumDiscountDetails` is an array of ~6 overlapping buckets (current
+ * quarter-to-date, the prior four quarters, and one full prior-calendar-year
+ * bucket that duplicates two of those quarters), each
+ * `{ pdDetails: [{ nav, marketPrice, premiumDiscountPercentage,
+ * premiumDiscountAmount, effectiveDate: "MM/DD/YYYY" }], periodQualifier,
+ * prdLabel, asOfDt }` — true daily, covering roughly the trailing 21 months,
+ * and carrying NAV *and* market price *and* the premium/discount percentage
+ * for the same date. Duplicate dates across overlapping buckets carry
+ * identical values, so last-write-wins de-duplication is safe.
+ *
+ * Where both blocks cover the same date, `premiumDiscountDetails` wins for
+ * NAV too (it is at least as fresh and additionally confirms the market
+ * price), but either source alone is sufficient.
+ */
+export function parseVanguardOfficialHistory(data: any): OfficialPricePoint[] {
+  const root = data && typeof data === "object" ? data : null;
+  if (!root) return [];
+  const points = new Map<string, OfficialPricePoint>();
+
+  const historicalPrice = (root as any).historicalPrice;
+  if (historicalPrice && typeof historicalPrice === "object") {
+    for (const key of ["10Y", "5Y", "3Y", "1Y", "6m", "3m"]) {
+      const nav = (historicalPrice as any)[key]?.nav;
+      if (!Array.isArray(nav)) continue;
+      for (const item of nav) {
+        const date = toIsoDate(item?.asOfDate);
+        const value = numberOrNull(item?.price);
+        if (!date || value === null) continue;
+        const existing = points.get(date);
+        points.set(date, {
+          date,
+          nav: value,
+          marketPrice: existing?.marketPrice ?? null,
+          premiumDiscountPct: existing?.premiumDiscountPct ?? null,
+        });
+      }
+    }
+  }
+
+  const premiumDiscountDetails = (root as any).premiumDiscountDetails;
+  if (Array.isArray(premiumDiscountDetails)) {
+    for (const bucket of premiumDiscountDetails) {
+      const details = (bucket as any)?.pdDetails;
+      if (!Array.isArray(details)) continue;
+      for (const item of details) {
+        const date = toIsoDate(item?.effectiveDate);
+        if (!date) continue;
+        const nav = numberOrNull(item?.nav);
+        const marketPrice = numberOrNull(item?.marketPrice);
+        const premiumDiscountPct = numberOrNull(item?.premiumDiscountPercentage);
+        const existing = points.get(date);
+        points.set(date, {
+          date,
+          nav: nav ?? existing?.nav ?? null,
+          marketPrice: marketPrice ?? existing?.marketPrice ?? null,
+          premiumDiscountPct: premiumDiscountPct ?? existing?.premiumDiscountPct ?? null,
+        });
+      }
+    }
+  }
+
+  return [...points.values()].sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
+}
+
+/**
+ * Maps internal (lowercase-keyed) Yahoo OHLCV rows and Vanguard's official
+ * NAV/market-price/premium-discount points to the exact header-keyed shape
  * the static pages store. Page rows MUST be keyed by the literal header
  * strings (same contract as the SPDR / WisdomTree feeds) — the table renderer
  * looks values up by header, so lowercase keys render as empty cells.
+ *
+ * House policy: official issuer data wins whenever it exists for a date.
+ * Yahoo is strictly supplementary — it is the only source for OHLC/Volume
+ * (the official feed never carries those), and it is the sole source for any
+ * date the official windows don't cover at all. Rows are merged by calendar
+ * date (a union, not an overwrite), and each row is stamped with a `Source`
+ * of `"vanguard-official"` (NAV/market-price/premium-discount present for
+ * that date) or `"yahoo-fallback"` (no official coverage for that date, so
+ * only whatever Yahoo has — typically OHLCV — is present).
  */
-export function historyPageRows(rows: any[]): Record<string, unknown>[] {
-  return (rows ?? []).map((row: any) => ({
-    Date: row?.date ?? row?.Date ?? null,
-    Open: row?.open ?? row?.Open ?? null,
-    High: row?.high ?? row?.High ?? null,
-    Low: row?.low ?? row?.Low ?? null,
-    Close: row?.close ?? row?.Close ?? null,
-    "Adj Close": row?.adjClose ?? row?.["Adj Close"] ?? null,
-    Volume: row?.volume ?? row?.Volume ?? null,
-  }));
+export function historyPageRows(rows: any[], officialHistory: OfficialPricePoint[] = []): Record<string, unknown>[] {
+  const byDate = new Map<string, Record<string, unknown>>();
+  for (const row of rows ?? []) {
+    const date = row?.date ?? row?.Date ?? null;
+    if (!date) continue;
+    byDate.set(date, {
+      Date: date,
+      Open: row?.open ?? row?.Open ?? null,
+      High: row?.high ?? row?.High ?? null,
+      Low: row?.low ?? row?.Low ?? null,
+      Close: row?.close ?? row?.Close ?? null,
+      "Adj Close": row?.adjClose ?? row?.["Adj Close"] ?? null,
+      Volume: row?.volume ?? row?.Volume ?? null,
+      NAV: null,
+      "Market Price": null,
+      "Premium/Discount (%)": null,
+      Source: "yahoo-fallback",
+    });
+  }
+  for (const point of officialHistory ?? []) {
+    if (!point?.date) continue;
+    const existing = byDate.get(point.date) ?? {
+      Date: point.date,
+      Open: null,
+      High: null,
+      Low: null,
+      Close: null,
+      "Adj Close": null,
+      Volume: null,
+      NAV: null,
+      "Market Price": null,
+      "Premium/Discount (%)": null,
+      Source: "yahoo-fallback",
+    };
+    byDate.set(point.date, {
+      ...existing,
+      NAV: point.nav ?? existing.NAV ?? null,
+      "Market Price": point.marketPrice ?? existing["Market Price"] ?? null,
+      "Premium/Discount (%)": point.premiumDiscountPct ?? existing["Premium/Discount (%)"] ?? null,
+      Source: "vanguard-official",
+    });
+  }
+  return [...byDate.values()].sort((a: any, b: any) => (a.Date < b.Date ? -1 : a.Date > b.Date ? 1 : 0));
+}
+
+/**
+ * Reconstructs official NAV/market-price/premium-discount points from a
+ * previously written History page (used when this run's AdditionalFundData
+ * fetch fails but a prior run's official data is still on disk).
+ */
+function officialPointsFromPreviousRows(rows: any[]): OfficialPricePoint[] {
+  return (rows ?? [])
+    .filter((row: any) => row?.NAV != null || row?.["Market Price"] != null || row?.["Premium/Discount (%)"] != null)
+    .map((row: any) => ({
+      date: String(row?.Date ?? row?.date ?? ""),
+      nav: numberOrNull(row?.NAV),
+      marketPrice: numberOrNull(row?.["Market Price"]),
+      premiumDiscountPct: numberOrNull(row?.["Premium/Discount (%)"]),
+    }))
+    .filter((point: OfficialPricePoint) => point.date);
 }
 
 function internalHistoryRows(pageRows: any[]): any[] {
@@ -619,7 +781,19 @@ export function parseVanguardHoldingDetails(data: any): VanguardHoldings | null 
   return { rows, asOf: asOf || (typeof rawAsOf === "string" ? rawAsOf : null) };
 }
 
-async function vanguardHoldings(ticker: string): Promise<VanguardHoldings | null> {
+export type VanguardAdditionalFundData = {
+  holdings: VanguardHoldings | null;
+  officialHistory: OfficialPricePoint[];
+};
+
+/**
+ * Fetches Vanguard's investor-profile `…/irr/funds/profile/{TICKER}-
+ * AdditionalFundData` endpoint ONCE and parses all three top-level keys it
+ * carries: `holdingDetails` (holdings), plus `historicalPrice` and
+ * `premiumDiscountDetails` (official NAV/market-price/premium-discount
+ * history) — previously fetched but discarded save for `holdingDetails`.
+ */
+async function vanguardAdditionalFundData(ticker: string): Promise<VanguardAdditionalFundData> {
   const url = `${VANGUARD_IRR_URL}/${ticker}-AdditionalFundData`;
   try {
     const response = await fetch(url, {
@@ -630,10 +804,11 @@ async function vanguardHoldings(ticker: string): Promise<VanguardHoldings | null
       },
     });
     if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
-    return parseVanguardHoldingDetails(await response.json());
+    const data = await response.json();
+    return { holdings: parseVanguardHoldingDetails(data), officialHistory: parseVanguardOfficialHistory(data) };
   } catch (error) {
     console.warn(`[holdings-vg] ${ticker} ${error}`);
-    return null;
+    return { holdings: null, officialHistory: [] };
   }
 }
 
@@ -939,11 +1114,12 @@ export async function run() {
   for (const [ticker, name, category] of selectedFunds()) {
     const dir = new URL(`${ticker}/`, FUNDS);
     await mkdir(dir, { recursive: true });
-    const [chartData, official, vgHoldings] = await Promise.all([
+    const [chartData, official, vgAdditional] = await Promise.all([
       chart(ticker),
       officialProfile(ticker, name),
-      vanguardHoldings(ticker),
+      vanguardAdditionalFundData(ticker),
     ]);
+    const vgHoldings = vgAdditional.holdings;
 
     // --- Holdings: Vanguard official feed -> SEC N-PORT-P -> previous sheet ---
     let holdingsHeaders: string[] = HOLDINGS_HEADERS_BASE;
@@ -983,12 +1159,18 @@ export async function run() {
       }
     }
 
-    // --- History (+ dividends): Yahoo chart -> previous sheet ---
+    // --- History (+ dividends): Vanguard official NAV/market-price/premium-
+    // discount (historicalPrice + premiumDiscountDetails) as the primary
+    // source, Yahoo chart OHLCV as a strictly supplementary source (it's the
+    // only place Open/High/Low/Volume come from, and the only source for any
+    // date range the official windows don't cover) -> previous sheet ---
     let historyRows = chartData.rows;
     let dividends = chartData.dividends;
-    if (!historyRows.length) {
+    let officialHistory = vgAdditional.officialHistory;
+    if (!historyRows.length || !officialHistory.length) {
       const prev = await readPreviousSheet(ticker, "history");
-      historyRows = internalHistoryRows(prev.rows);
+      if (!historyRows.length) historyRows = internalHistoryRows(prev.rows);
+      if (!officialHistory.length) officialHistory = officialPointsFromPreviousRows(prev.rows);
     }
     const prevMeta = await readPreviousMeta(ticker);
     if (!dividends.length && prevMeta) {
@@ -996,7 +1178,11 @@ export async function run() {
     }
     const metrics = summary(historyRows);
 
-    const historyManifest = await writePages(dir, ticker, "history", HISTORY_HEADERS, historyPageRows(historyRows), historyPageSize);
+    const mergedHistoryRows = historyPageRows(historyRows, officialHistory);
+    const historyAsOfDate = mergedHistoryRows.length
+      ? String(mergedHistoryRows[mergedHistoryRows.length - 1].Date)
+      : (metrics.asOfDate ?? null);
+    const historyManifest = await writePages(dir, ticker, "history", HISTORY_HEADERS, mergedHistoryRows, historyPageSize);
     const holdingsManifest = await writePages(dir, ticker, "holdings", holdingsHeaders, holdingsRows, holdingsPageSize);
 
     const expense = official.expense?.value ? Number(official.expense.value) : null;
@@ -1011,7 +1197,8 @@ export async function run() {
       fundPage: `https://investor.vanguard.com/investment-products/etfs/profile/${ticker.toLowerCase()}`,
       officialPage: official.url,
       portId: (official as any).portId ?? prevMeta?.portId ?? null,
-      source: "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
+      source:
+        "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
       nav: metrics.nav,
       netAssets: official.etfAssets?.value ?? prevMeta?.netAssets ?? null,
       totalFundNetAssets: official.netAssets?.value ?? prevMeta?.totalFundNetAssets ?? null,
@@ -1039,7 +1226,13 @@ export async function run() {
         returns: { YTD: officialYtd, "1Y": official.oneYear?.value ? Number(official.oneYear.value) : null },
       },
       holdings: { ...holdingsManifest, asOfDate: holdingsAsOf, source: holdingsSource },
-      history: { ...historyManifest, asOfDate: metrics.asOfDate ?? null, source: "Yahoo Finance public chart API (daily OHLC, adjusted close)" },
+      history: {
+        ...historyManifest,
+        asOfDate: historyAsOfDate,
+        source:
+          "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) " +
+          "+ Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+      },
     };
     await writeFile(new URL("meta.json", dir), JSON.stringify(meta, null, 2) + "\n");
     // The catalog carries a lightweight distributions summary; full rows live in meta.json.
@@ -1049,10 +1242,10 @@ export async function run() {
         ? { frequency, exDate: divRows[0][1], dividend: divRows[0][4] }
         : { frequency, exDate: null, dividend: null },
       holdings: holdingsRows.length,
-      history: historyRows.length,
+      history: mergedHistoryRows.length,
     });
     console.log(
-      `[ fund ] ticker=${ticker.padEnd(5)} port=${(official as any).portId ?? prevMeta?.portId ?? "null"} history=${historyRows.length} holdings=${holdingsRows.length} divs=${divRows.length} netAssets=${meta.netAssets ?? "null"} total=${meta.totalFundNetAssets ?? "null"} div=${meta.trailingYield ?? "null"} sec=${meta.secYield ?? "null"} wp=${(official as any).workplaceRaw}`,
+      `[ fund ] ticker=${ticker.padEnd(5)} port=${(official as any).portId ?? prevMeta?.portId ?? "null"} history=${mergedHistoryRows.length} (official=${officialHistory.length} yahoo=${historyRows.length}) holdings=${holdingsRows.length} divs=${divRows.length} netAssets=${meta.netAssets ?? "null"} total=${meta.totalFundNetAssets ?? "null"} div=${meta.trailingYield ?? "null"} sec=${meta.secYield ?? "null"} wp=${(official as any).workplaceRaw}`,
     );
     if (requestSleepMs > 0) await sleep(requestSleepMs);
   }

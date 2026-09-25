@@ -8,6 +8,7 @@ import {
   parseFundTickerMap,
   parseNport,
   parseVanguardHoldingDetails,
+  parseVanguardOfficialHistory,
   paymentsPerYear,
   toIsoDate,
 } from "./update-data";
@@ -34,9 +35,130 @@ test("history page rows are keyed by the exact header strings", () => {
   const [row] = historyPageRows([
     { date: "2026-09-16", open: 180.1, high: 181.2, low: 179.6, close: 180.74, adjClose: 179.9, volume: 372240 },
   ]);
-  expect(Object.keys(row).sort()).toEqual(["Adj Close", "Close", "Date", "High", "Low", "Open", "Volume"]);
+  expect(Object.keys(row).sort()).toEqual([
+    "Adj Close",
+    "Close",
+    "Date",
+    "High",
+    "Low",
+    "Market Price",
+    "NAV",
+    "Open",
+    "Premium/Discount (%)",
+    "Source",
+    "Volume",
+  ]);
   expect(row["Date"]).toBe("2026-09-16");
   expect(row["Adj Close"]).toBe(179.9);
+  // No official data was supplied for this date: OHLCV comes from Yahoo,
+  // NAV/market-price/premium-discount stay null, and the row is stamped
+  // as a Yahoo fallback.
+  expect(row["NAV"]).toBeNull();
+  expect(row["Market Price"]).toBeNull();
+  expect(row["Premium/Discount (%)"]).toBeNull();
+  expect(row["Source"]).toBe("yahoo-fallback");
+});
+
+test("Vanguard historicalPrice + premiumDiscountDetails parse into one official point per date", () => {
+  const points = parseVanguardOfficialHistory({
+    historicalPrice: {
+      ticker: "VOO",
+      "3m": { nav: [{ asOfDate: "07/01/2026", price: "$685.25" }] },
+      "10Y": { nav: [{ asOfDate: "09/30/2016", price: "$198.69" }] },
+    },
+    premiumDiscountDetails: [
+      {
+        periodQualifier: "CURR",
+        prdLabel: "CURR",
+        asOfDt: "09/24/2026",
+        pdDetails: [
+          {
+            nav: "$685.25",
+            marketPrice: "$685.46",
+            premiumDiscountPercentage: "0.03%",
+            premiumDiscountAmount: "$0.21",
+            effectiveDate: "07/01/2026",
+          },
+        ],
+      },
+    ],
+  });
+  // The 07/01/2026 date is covered by both blocks; premiumDiscountDetails
+  // wins and additionally supplies the market price and premium/discount %
+  // that historicalPrice doesn't carry at all.
+  expect(points).toHaveLength(2);
+  expect(points[0]).toEqual({ date: "2016-09-30", nav: 198.69, marketPrice: null, premiumDiscountPct: null });
+  expect(points[1]).toEqual({ date: "2026-07-01", nav: 685.25, marketPrice: 685.46, premiumDiscountPct: 0.03 });
+});
+
+test("Vanguard historicalPrice + premiumDiscountDetails handle a fund with no data for either block", () => {
+  expect(parseVanguardOfficialHistory({ historicalPrice: {}, premiumDiscountDetails: [] })).toEqual([]);
+  expect(parseVanguardOfficialHistory(null)).toEqual([]);
+  expect(parseVanguardOfficialHistory({ holdingDetails: {} })).toEqual([]);
+});
+
+test("history rows merge official NAV/market-price/premium-discount with Yahoo OHLCV by date", () => {
+  const yahooRows = [
+    { date: "2026-07-01", open: 683.0, high: 686.0, low: 682.5, close: 685.28, adjClose: 685.28, volume: 3500000 },
+    { date: "2016-09-01", open: 197.0, high: 199.0, low: 196.5, close: 198.4, adjClose: 150.2, volume: 900000 },
+  ];
+  const officialHistory = [
+    { date: "2026-07-01", nav: 685.25, marketPrice: 685.46, premiumDiscountPct: 0.03 },
+    { date: "2026-07-02", nav: 685.28, marketPrice: 684.84, premiumDiscountPct: -0.06 },
+  ];
+  const rows = historyPageRows(yahooRows, officialHistory);
+  const byDate = Object.fromEntries(rows.map((row: any) => [row.Date, row]));
+
+  // 2026-07-01: both sources cover this date — OHLCV from Yahoo, NAV/market
+  // price/premium-discount from the official feed, tagged official.
+  expect(byDate["2026-07-01"]).toEqual({
+    Date: "2026-07-01",
+    Open: 683.0,
+    High: 686.0,
+    Low: 682.5,
+    Close: 685.28,
+    "Adj Close": 685.28,
+    Volume: 3500000,
+    NAV: 685.25,
+    "Market Price": 685.46,
+    "Premium/Discount (%)": 0.03,
+    Source: "vanguard-official",
+  });
+
+  // 2026-07-02: official-only date (Yahoo has no bar here) — OHLCV stays
+  // null, only the official fields are populated, still tagged official.
+  expect(byDate["2026-07-02"]).toEqual({
+    Date: "2026-07-02",
+    Open: null,
+    High: null,
+    Low: null,
+    Close: null,
+    "Adj Close": null,
+    Volume: null,
+    NAV: 685.28,
+    "Market Price": 684.84,
+    "Premium/Discount (%)": -0.06,
+    Source: "vanguard-official",
+  });
+
+  // 2016-09-01: outside every official window — Yahoo is the sole source,
+  // and the row is tagged as a fallback.
+  expect(byDate["2016-09-01"]).toEqual({
+    Date: "2016-09-01",
+    Open: 197.0,
+    High: 199.0,
+    Low: 196.5,
+    Close: 198.4,
+    "Adj Close": 150.2,
+    Volume: 900000,
+    NAV: null,
+    "Market Price": null,
+    "Premium/Discount (%)": null,
+    Source: "yahoo-fallback",
+  });
+
+  // Rows come back sorted ascending by date.
+  expect(rows.map((row: any) => row.Date)).toEqual(["2016-09-01", "2026-07-01", "2026-07-02"]);
 });
 
 test("distribution rows are latest-first with ISO ex-dates", () => {
