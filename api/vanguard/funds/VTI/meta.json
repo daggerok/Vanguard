@@ -6,8 +6,8 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vti",
   "officialPage": "https://advisors.vanguard.com/investments/products/vti/vanguard-total-stock-market-etf",
   "portId": "0970",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 375.42999267578125,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
+  "nav": 378.0799865722656,
   "netAssets": "$690.1B",
   "totalFundNetAssets": "$2.3T",
   "netAssetsAsOf": "2026-08-31",
@@ -941,26 +941,26 @@
       ]
     ]
   },
-  "ytdReturn": 12.62270173,
-  "asOfDate": "2026-09-17",
+  "ytdReturn": 13.48695268,
+  "asOfDate": "2026-09-23",
   "totalReturn": {
-    "1Y": 15.416044495364822,
-    "3Y": 83.18217663266509,
-    "5Y": 80.7760041962298,
-    "10Y": 294.4103909161236
+    "1Y": 16.230715191462398,
+    "3Y": 84.4752058848974,
+    "5Y": 82.05199512281676,
+    "10Y": 297.19432719453505
   },
   "performance": {
-    "1Y": 15.416044495364822,
-    "3Y": 22.356695203494503,
-    "5Y": 12.57142314404307,
-    "10Y": 14.708297710251262
+    "1Y": 16.230715191462398,
+    "3Y": 22.64391380277624,
+    "5Y": 12.729891383210767,
+    "10Y": 14.789008255419533
   },
   "officialMetrics": {
-    "nav": 12.62270173,
+    "nav": 13.48695268,
     "marketPrice": null,
     "expenseRatio": 0.03,
     "returns": {
-      "YTD": 12.62270173,
+      "YTD": 13.48695268,
       "1Y": 20.2447619641
     }
   },
@@ -992,8 +992,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 304,
-    "asOfDate": "2026-09-18",
-    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
+    "totalRows": 831,
+    "asOfDate": "2026-09-24",
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

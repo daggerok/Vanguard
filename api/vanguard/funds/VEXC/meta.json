@@ -6,8 +6,8 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vexc",
   "officialPage": "https://advisors.vanguard.com/investments/products/vexc/vanguard-emerging-markets-ex-china-etf",
   "portId": "V051",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 96.62999725341797,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
+  "nav": 96.36000061035156,
   "netAssets": "$269.4M",
   "totalFundNetAssets": "$269.4M",
   "netAssetsAsOf": "2026-08-31",
@@ -30,6 +30,15 @@
       "LT Cap Gains"
     ],
     "rows": [
+      [
+        "Quarterly",
+        "2026-09-18",
+        "—",
+        "—",
+        "0.543",
+        "—",
+        "—"
+      ],
       [
         "Quarterly",
         "2026-06-18",
@@ -59,26 +68,26 @@
       ]
     ]
   },
-  "ytdReturn": 22.93593958,
-  "asOfDate": "2026-09-17",
+  "ytdReturn": 24.30980585,
+  "asOfDate": "2026-09-23",
   "totalReturn": {
-    "1Y": 28.54176020642212,
-    "3Y": 28.541760206422097,
-    "5Y": 28.541760206422072,
-    "10Y": 28.541760206422182
+    "1Y": 28.906963167391986,
+    "3Y": 28.906963167392007,
+    "5Y": 28.906963167391964,
+    "10Y": 28.906963167392096
   },
   "performance": {
-    "1Y": 28.54176020642212,
-    "3Y": 8.729672746329008,
-    "5Y": 5.149896256957742,
-    "10Y": 2.5426234582272444
+    "1Y": 28.906963167391986,
+    "3Y": 8.832546842473743,
+    "5Y": 5.209577230355444,
+    "10Y": 2.571719898983593
   },
   "officialMetrics": {
-    "nav": 22.93593958,
+    "nav": 24.30980585,
     "marketPrice": null,
     "expenseRatio": 0.07,
     "returns": {
-      "YTD": 22.93593958,
+      "YTD": 24.30980585,
       "1Y": null
     }
   },
@@ -91,8 +100,8 @@
       "holdings/005.json"
     ],
     "pageSize": 250,
-    "totalRows": 1033,
-    "asOfDate": "2026-09-17",
+    "totalRows": 1014,
+    "asOfDate": "2026-09-23",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -100,8 +109,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 241,
-    "asOfDate": "2026-09-17",
-    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
+    "totalRows": 252,
+    "asOfDate": "2026-09-24",
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

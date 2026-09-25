@@ -6,16 +6,16 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vtg",
   "officialPage": "https://advisors.vanguard.com/investments/products/vtg/vanguard-total-treasury-etf",
   "portId": "V048",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 73.36900329589844,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
+  "nav": 72.5199966430664,
   "netAssets": "$205.8M",
   "totalFundNetAssets": "$205.8M",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.03,
   "trailingYield": 4.22164117,
   "dividendYieldAsOf": "2026-09-01",
-  "secYield": 4.71,
-  "secYieldAsOf": "2026-09-16",
+  "secYield": 4.76,
+  "secYieldAsOf": "2026-09-22",
   "distributionFrequency": "Monthly",
   "distributions": {
     "frequency": "Monthly",
@@ -158,26 +158,26 @@
       ]
     ]
   },
-  "ytdReturn": -1.21893706,
-  "asOfDate": "2026-09-17",
+  "ytdReturn": -2.00002795,
+  "asOfDate": "2026-09-23",
   "totalReturn": {
-    "1Y": -0.7282212362212048,
-    "3Y": 1.609952904888834,
-    "5Y": 1.6099529048888783,
-    "10Y": 1.6099529048888783
+    "1Y": -1.477218629082655,
+    "3Y": 0.43416008303245324,
+    "5Y": 0.43416008303240883,
+    "10Y": 0.43416008303251985
   },
   "performance": {
-    "1Y": -0.7282212362212048,
-    "3Y": 0.5337965111665399,
-    "5Y": 0.31993682927944356,
-    "10Y": 0.15984066944167985
+    "1Y": -1.477218629082655,
+    "3Y": 0.1445110925224924,
+    "5Y": 0.08668161225200421,
+    "10Y": 0.043331418067049654
   },
   "officialMetrics": {
-    "nav": -1.21893706,
+    "nav": -2.00002795,
     "marketPrice": null,
     "expenseRatio": 0.03,
     "returns": {
-      "YTD": -1.21893706,
+      "YTD": -2.00002795,
       "1Y": 1.2135668727
     }
   },
@@ -188,7 +188,7 @@
     ],
     "pageSize": 250,
     "totalRows": 288,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-23",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -196,8 +196,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 300,
-    "asOfDate": "2026-09-17",
-    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
+    "totalRows": 311,
+    "asOfDate": "2026-09-24",
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

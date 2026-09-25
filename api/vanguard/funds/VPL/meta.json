@@ -6,8 +6,8 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vpl",
   "officialPage": "https://advisors.vanguard.com/investments/products/vpl/vanguard-ftse-pacific-etf",
   "portId": "0962",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 115.88999938964844,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
+  "nav": 115.33999633789062,
   "netAssets": "$8.6B",
   "totalFundNetAssets": "$13.8B",
   "netAssetsAsOf": "2026-08-31",
@@ -581,26 +581,26 @@
       ]
     ]
   },
-  "ytdReturn": 28.72751351,
-  "asOfDate": "2026-09-17",
+  "ytdReturn": 28.74958613,
+  "asOfDate": "2026-09-23",
   "totalReturn": {
-    "1Y": 35.53552603225831,
-    "3Y": 89.73154431156374,
-    "5Y": 66.24829701465357,
-    "10Y": 153.1508628207177
+    "1Y": 34.892287156324706,
+    "3Y": 88.83110801649288,
+    "5Y": 65.45929821243459,
+    "10Y": 151.94943260378972
   },
   "performance": {
-    "1Y": 35.53552603225831,
-    "3Y": 23.79787229202752,
-    "5Y": 10.700973751195164,
-    "10Y": 9.733173992887533
+    "1Y": 34.892287156324706,
+    "3Y": 23.601719868091497,
+    "5Y": 10.595698425631639,
+    "10Y": 9.680984102261592
   },
   "officialMetrics": {
-    "nav": 28.72751351,
+    "nav": 28.74958613,
     "marketPrice": null,
     "expenseRatio": 0.07,
     "returns": {
-      "YTD": 28.72751351,
+      "YTD": 28.74958613,
       "1Y": 39.1049623145
     }
   },
@@ -627,8 +627,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 259,
-    "asOfDate": "2026-09-18",
-    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
+    "totalRows": 786,
+    "asOfDate": "2026-09-24",
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

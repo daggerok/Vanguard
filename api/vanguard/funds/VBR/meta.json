@@ -6,8 +6,8 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vbr",
   "officialPage": "https://advisors.vanguard.com/investments/products/vbr/vanguard-small-cap-value-etf",
   "portId": "0937",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 237.74000549316406,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
+  "nav": 235.44000244140625,
   "netAssets": "$37.3B",
   "totalFundNetAssets": "$68.2B",
   "netAssetsAsOf": "2026-08-31",
@@ -626,26 +626,26 @@
       ]
     ]
   },
-  "ytdReturn": 14.29409624,
-  "asOfDate": "2026-09-17",
+  "ytdReturn": 12.9299886,
+  "asOfDate": "2026-09-23",
   "totalReturn": {
-    "1Y": 15.649237824656769,
-    "3Y": 57.93052955004907,
-    "5Y": 55.489940850960174,
-    "10Y": 162.7685095620123
+    "1Y": 14.530395417892272,
+    "3Y": 56.402623179337375,
+    "5Y": 53.98563094475479,
+    "10Y": 160.22632568977963
   },
   "performance": {
-    "1Y": 15.649237824656769,
-    "3Y": 16.454255662643625,
-    "5Y": 9.229629277081063,
-    "10Y": 10.14310916778809
+    "1Y": 14.530395417892272,
+    "3Y": 16.077490627689507,
+    "5Y": 9.017455029290877,
+    "10Y": 10.036083186181122
   },
   "officialMetrics": {
-    "nav": 14.29409624,
+    "nav": 12.9299886,
     "marketPrice": null,
     "expenseRatio": 0.05,
     "returns": {
-      "YTD": 14.29409624,
+      "YTD": 12.9299886,
       "1Y": 19.8643918179
     }
   },
@@ -666,8 +666,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 273,
-    "asOfDate": "2026-09-18",
-    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
+    "totalRows": 800,
+    "asOfDate": "2026-09-24",
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

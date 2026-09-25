@@ -6,8 +6,8 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vfmv",
   "officialPage": "https://advisors.vanguard.com/investments/products/vfmv/vanguard-u-s-minimum-volatility-etf",
   "portId": "4419",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 142.9499969482422,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
+  "nav": 142,
   "netAssets": "$456.4M",
   "totalFundNetAssets": "$456.4M",
   "netAssetsAsOf": "2026-08-31",
@@ -30,6 +30,15 @@
       "LT Cap Gains"
     ],
     "rows": [
+      [
+        "Quarterly",
+        "2026-09-23",
+        "—",
+        "—",
+        "0.345",
+        "—",
+        "—"
+      ],
       [
         "Quarterly",
         "2026-06-24",
@@ -329,26 +338,26 @@
       ]
     ]
   },
-  "ytdReturn": 10.67307436,
-  "asOfDate": "2026-09-17",
+  "ytdReturn": 10.19797789,
+  "asOfDate": "2026-09-23",
   "totalReturn": {
-    "1Y": 10.887481360680384,
-    "3Y": 54.6019232390923,
-    "5Y": 56.61372998993197,
-    "10Y": 121.09095380165557
+    "1Y": 9.886177191394596,
+    "3Y": 53.57447888900286,
+    "5Y": 55.84618806084522,
+    "10Y": 119.62168460737436
   },
   "performance": {
-    "1Y": 10.887481360680384,
-    "3Y": 15.630294229663978,
-    "5Y": 9.387064198845252,
-    "10Y": 8.257276566883775
+    "1Y": 9.886177191394596,
+    "3Y": 15.373575025610986,
+    "5Y": 9.279635261746533,
+    "10Y": 8.18511768581045
   },
   "officialMetrics": {
-    "nav": 10.67307436,
+    "nav": 10.19797789,
     "marketPrice": null,
     "expenseRatio": 0.13,
     "returns": {
-      "YTD": 10.67307436,
+      "YTD": 10.19797789,
       "1Y": 12.959686718
     }
   },
@@ -357,8 +366,8 @@
       "holdings/001.json"
     ],
     "pageSize": 250,
-    "totalRows": 212,
-    "asOfDate": "2026-09-17",
+    "totalRows": 219,
+    "asOfDate": "2026-09-23",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -366,8 +375,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 450,
-    "asOfDate": "2026-09-18",
-    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
+    "totalRows": 879,
+    "asOfDate": "2026-09-24",
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

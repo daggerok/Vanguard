@@ -6,8 +6,8 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vonv",
   "officialPage": "https://advisors.vanguard.com/investments/products/vonv/vanguard-russell-1000-value-etf",
   "portId": "3349",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 110.83429718017578,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
+  "nav": 109.97000122070312,
   "netAssets": "$22.2B",
   "totalFundNetAssets": "$23.9B",
   "netAssetsAsOf": "2026-08-31",
@@ -30,6 +30,15 @@
       "LT Cap Gains"
     ],
     "rows": [
+      [
+        "Quarterly",
+        "2026-09-23",
+        "—",
+        "—",
+        "0.423",
+        "—",
+        "—"
+      ],
       [
         "Quarterly",
         "2026-06-18",
@@ -590,26 +599,26 @@
       ]
     ]
   },
-  "ytdReturn": 21.63277775,
-  "asOfDate": "2026-09-17",
+  "ytdReturn": 20.93615664,
+  "asOfDate": "2026-09-23",
   "totalReturn": {
-    "1Y": 25.717030966896992,
-    "3Y": 75.50483269516153,
-    "5Y": 77.83316436215435,
-    "10Y": 197.54423601059418
+    "1Y": 24.73668888632734,
+    "3Y": 74.13626155689353,
+    "5Y": 76.44646992309862,
+    "10Y": 195.22380774921183
   },
   "performance": {
-    "1Y": 25.717030966896992,
-    "3Y": 20.622879923686966,
-    "5Y": 12.202504565703709,
-    "10Y": 11.520614590368726
+    "1Y": 24.73668888632734,
+    "3Y": 20.3085258898152,
+    "5Y": 12.026971308035495,
+    "10Y": 11.433337404490707
   },
   "officialMetrics": {
-    "nav": 21.63277775,
+    "nav": 20.93615664,
     "marketPrice": null,
     "expenseRatio": 0.06,
     "returns": {
-      "YTD": 21.63277775,
+      "YTD": 20.93615664,
       "1Y": 29.6297039056
     }
   },
@@ -630,8 +639,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 193,
-    "asOfDate": "2026-09-18",
-    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
+    "totalRows": 720,
+    "asOfDate": "2026-09-24",
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

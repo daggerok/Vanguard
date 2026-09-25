@@ -6,8 +6,8 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vtip",
   "officialPage": "https://advisors.vanguard.com/investments/products/vtip/vanguard-short-term-inflation-protected-securities-etf",
   "portId": "3365",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 49.310001373291016,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
+  "nav": 49.18000030517578,
   "netAssets": "$20.5B",
   "totalFundNetAssets": "$73.2B",
   "netAssetsAsOf": "2026-08-31",
@@ -347,26 +347,26 @@
       ]
     ]
   },
-  "ytdReturn": 1.33810666,
-  "asOfDate": "2026-09-17",
+  "ytdReturn": 0.92783092,
+  "asOfDate": "2026-09-23",
   "totalReturn": {
-    "1Y": 1.4952869777462574,
-    "3Y": 15.176296618912044,
-    "5Y": 15.513798891413266,
-    "10Y": 33.77761591564297
+    "1Y": 1.2277044316440389,
+    "3Y": 14.872665879716385,
+    "5Y": 15.209247593716091,
+    "10Y": 33.42491031089641
   },
   "performance": {
-    "1Y": 1.4952869777462574,
-    "3Y": 4.822465410359378,
-    "5Y": 2.9263977190432167,
-    "10Y": 2.95284328923735
+    "1Y": 1.2277044316440389,
+    "3Y": 4.7302724487008785,
+    "5Y": 2.872067451189997,
+    "10Y": 2.925667443480884
   },
   "officialMetrics": {
-    "nav": 1.33810666,
+    "nav": 0.92783092,
     "marketPrice": null,
     "expenseRatio": 0.03,
     "returns": {
-      "YTD": 1.33810666,
+      "YTD": 0.92783092,
       "1Y": 2.1957127071
     }
   },
@@ -384,8 +384,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 168,
-    "asOfDate": "2026-09-18",
-    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
+    "totalRows": 695,
+    "asOfDate": "2026-09-24",
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

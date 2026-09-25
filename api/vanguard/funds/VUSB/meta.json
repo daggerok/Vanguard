@@ -6,16 +6,16 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vusb",
   "officialPage": "https://advisors.vanguard.com/investments/products/vusb/vanguard-ultra-short-bond-etf",
   "portId": "0931",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 49.540000915527344,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
+  "nav": 49.52000045776367,
   "netAssets": "$10.2B",
   "totalFundNetAssets": "$10.2B",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.1,
   "trailingYield": 4.41496654,
   "dividendYieldAsOf": "2026-09-01",
-  "secYield": 4.53,
-  "secYieldAsOf": "2026-09-16",
+  "secYield": 4.58,
+  "secYieldAsOf": "2026-09-22",
   "distributionFrequency": "Monthly",
   "distributions": {
     "frequency": "Monthly",
@@ -617,26 +617,26 @@
       ]
     ]
   },
-  "ytdReturn": 2.30715005,
-  "asOfDate": "2026-09-17",
+  "ytdReturn": 2.24520827,
+  "asOfDate": "2026-09-23",
   "totalReturn": {
-    "1Y": 3.5178378883359507,
-    "3Y": 16.248333585613505,
-    "5Y": 19.162893185234363,
-    "10Y": 19.498652046057828
+    "1Y": 3.4656783682651238,
+    "3Y": 16.201422216063666,
+    "5Y": 19.162304039790424,
+    "10Y": 19.45041863502088
   },
   "performance": {
-    "1Y": 3.5178378883359507,
-    "3Y": 5.14668345122018,
-    "5Y": 3.5686243578980203,
-    "10Y": 1.797309706757222
+    "1Y": 3.4656783682651238,
+    "3Y": 5.132537761484657,
+    "5Y": 3.5685219483270414,
+    "10Y": 1.793200100954273
   },
   "officialMetrics": {
-    "nav": 2.30715005,
+    "nav": 2.24520827,
     "marketPrice": null,
     "expenseRatio": 0.1,
     "returns": {
-      "YTD": 2.30715005,
+      "YTD": 2.24520827,
       "1Y": 3.9991904368
     }
   },
@@ -650,8 +650,8 @@
       "holdings/006.json"
     ],
     "pageSize": 250,
-    "totalRows": 1361,
-    "asOfDate": "2026-09-17",
+    "totalRows": 1362,
+    "asOfDate": "2026-09-23",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -659,8 +659,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 286,
-    "asOfDate": "2026-09-18",
-    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
+    "totalRows": 682,
+    "asOfDate": "2026-09-24",
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

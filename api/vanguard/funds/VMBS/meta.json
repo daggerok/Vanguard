@@ -6,16 +6,16 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vmbs",
   "officialPage": "https://advisors.vanguard.com/investments/products/vmbs/vanguard-mortgage-backed-securities-etf",
   "portId": "3148",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 45.25,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
+  "nav": 44.630001068115234,
   "netAssets": "$15.9B",
   "totalFundNetAssets": "$17.6B",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.03,
   "trailingYield": 4.54540885,
   "dividendYieldAsOf": "2026-09-01",
-  "secYield": 4.4,
-  "secYieldAsOf": "2026-09-16",
+  "secYield": 4.43,
+  "secYieldAsOf": "2026-09-22",
   "distributionFrequency": "Monthly",
   "distributions": {
     "frequency": "Monthly",
@@ -1850,26 +1850,26 @@
       ]
     ]
   },
-  "ytdReturn": -0.62941501,
-  "asOfDate": "2026-09-17",
+  "ytdReturn": -1.76707913,
+  "asOfDate": "2026-09-23",
   "totalReturn": {
-    "1Y": 0.4721217765873087,
-    "3Y": 16.80743706493304,
-    "5Y": 0.6277220432269193,
-    "10Y": 11.157771948452911
+    "1Y": -0.9045104485106092,
+    "3Y": 15.206938952317262,
+    "5Y": -0.7510253207960949,
+    "10Y": 9.634687762180238
   },
   "performance": {
-    "1Y": 0.4721217765873087,
-    "3Y": 5.314983726461064,
-    "5Y": 0.12523036273572874,
-    "10Y": 1.0634182736940057
+    "1Y": -0.9045104485106092,
+    "3Y": 4.83176049456655,
+    "5Y": -0.15065833945254736,
+    "10Y": 0.9240798217532875
   },
   "officialMetrics": {
-    "nav": -0.62941501,
+    "nav": -1.76707913,
     "marketPrice": null,
     "expenseRatio": 0.03,
     "returns": {
-      "YTD": -0.62941501,
+      "YTD": -1.76707913,
       "1Y": 3.1236938133
     }
   },
@@ -1906,8 +1906,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 203,
-    "asOfDate": "2026-09-18",
-    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
+    "totalRows": 730,
+    "asOfDate": "2026-09-24",
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

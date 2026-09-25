@@ -6,16 +6,16 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vsdm",
   "officialPage": "https://advisors.vanguard.com/investments/products/vsdm/vanguard-short-duration-tax-exempt-bond-etf",
   "portId": "V039",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 75.22000122070312,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
+  "nav": 74.54000091552734,
   "netAssets": "$939.5M",
   "totalFundNetAssets": "$939.5M",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.12,
   "trailingYield": 3.23533303,
   "dividendYieldAsOf": "2026-09-01",
-  "secYield": 3.52,
-  "secYieldAsOf": "2026-09-16",
+  "secYield": 3.6,
+  "secYieldAsOf": "2026-09-22",
   "distributionFrequency": "Monthly",
   "distributions": {
     "frequency": "Monthly",
@@ -221,26 +221,26 @@
       ]
     ]
   },
-  "ytdReturn": 0.59701758,
-  "asOfDate": "2026-09-17",
+  "ytdReturn": -0.09758406,
+  "asOfDate": "2026-09-23",
   "totalReturn": {
-    "1Y": 0.9729073612393169,
-    "3Y": 5.693572946866521,
-    "5Y": 5.693572946866543,
-    "10Y": 5.693572946866654
+    "1Y": 0.17742591540093056,
+    "3Y": 4.738086896712024,
+    "5Y": 4.738086896712024,
+    "10Y": 4.738086896712024
   },
   "performance": {
-    "1Y": 0.9729073612393169,
-    "3Y": 1.8629368008935776,
-    "5Y": 1.1136332468200782,
-    "10Y": 0.555274971937747
+    "1Y": 0.17742591540093056,
+    "3Y": 1.5550549910585687,
+    "5Y": 0.930152023373032,
+    "10Y": 0.46399953384945736
   },
   "officialMetrics": {
-    "nav": 0.59701758,
+    "nav": -0.09758406,
     "marketPrice": null,
     "expenseRatio": 0.12,
     "returns": {
-      "YTD": 0.59701758,
+      "YTD": -0.09758406,
       "1Y": 2.9502898448
     }
   },
@@ -258,11 +258,12 @@
       "holdings/010.json",
       "holdings/011.json",
       "holdings/012.json",
-      "holdings/013.json"
+      "holdings/013.json",
+      "holdings/014.json"
     ],
     "pageSize": 250,
-    "totalRows": 3180,
-    "asOfDate": "2026-09-17",
+    "totalRows": 3262,
+    "asOfDate": "2026-09-23",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -270,8 +271,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 456,
-    "asOfDate": "2026-09-18",
-    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
+    "totalRows": 467,
+    "asOfDate": "2026-09-24",
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

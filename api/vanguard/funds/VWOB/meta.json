@@ -6,8 +6,8 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vwob",
   "officialPage": "https://advisors.vanguard.com/investments/products/vwob/vanguard-emerging-markets-government-bond-etf",
   "portId": "3820",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 64.91000366210938,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
+  "nav": 64.02999877929688,
   "netAssets": "$6.4B",
   "totalFundNetAssets": "$6.9B",
   "netAssetsAsOf": "2026-08-31",
@@ -15,7 +15,7 @@
   "trailingYield": 6.12003544,
   "dividendYieldAsOf": "2026-09-01",
   "secYield": 6.28,
-  "secYieldAsOf": "2026-09-16",
+  "secYieldAsOf": "2026-09-22",
   "distributionFrequency": "Monthly",
   "distributions": {
     "frequency": "Monthly",
@@ -1445,26 +1445,26 @@
       ]
     ]
   },
-  "ytdReturn": 0.2099324,
-  "asOfDate": "2026-09-17",
+  "ytdReturn": -0.39169744,
+  "asOfDate": "2026-09-23",
   "totalReturn": {
-    "1Y": 2.806524678222244,
-    "3Y": 31.346832075154584,
-    "5Y": 9.895999740110728,
-    "10Y": 31.806864678144798
+    "1Y": 1.4127327504772191,
+    "3Y": 29.566122676804007,
+    "5Y": 8.406126877125274,
+    "10Y": 30.019878190119663
   },
   "performance": {
-    "1Y": 2.806524678222244,
-    "3Y": 9.514897460931682,
-    "5Y": 1.9052073140856995,
-    "10Y": 2.800162922163718
+    "1Y": 1.4127327504772191,
+    "3Y": 9.01773486835018,
+    "5Y": 1.6273884803511107,
+    "10Y": 2.659932762774808
   },
   "officialMetrics": {
-    "nav": 0.2099324,
+    "nav": -0.39169744,
     "marketPrice": null,
     "expenseRatio": 0.15,
     "returns": {
-      "YTD": 0.2099324,
+      "YTD": -0.39169744,
       "1Y": 5.773474209
     }
   },
@@ -1485,8 +1485,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 160,
-    "asOfDate": "2026-09-18",
-    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
+    "totalRows": 687,
+    "asOfDate": "2026-09-24",
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

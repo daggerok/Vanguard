@@ -6,8 +6,8 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vym",
   "officialPage": "https://advisors.vanguard.com/investments/products/vym/vanguard-high-dividend-yield-etf",
   "portId": "0923",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 159.25999450683594,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
+  "nav": 156.9199981689453,
   "netAssets": "$83.1B",
   "totalFundNetAssets": "$100.8B",
   "netAssetsAsOf": "2026-08-31",
@@ -30,6 +30,15 @@
       "LT Cap Gains"
     ],
     "rows": [
+      [
+        "Quarterly",
+        "2026-09-18",
+        "—",
+        "—",
+        "0.887",
+        "—",
+        "—"
+      ],
       [
         "Quarterly",
         "2026-06-18",
@@ -743,26 +752,26 @@
       ]
     ]
   },
-  "ytdReturn": 13.26316241,
-  "asOfDate": "2026-09-17",
+  "ytdReturn": 11.81554218,
+  "asOfDate": "2026-09-23",
   "totalReturn": {
-    "1Y": 15.117146419651363,
-    "3Y": 66.34834109683065,
-    "5Y": 76.98127940658419,
-    "10Y": 197.25136281274663
+    "1Y": 14.055666400859756,
+    "3Y": 64.81447469809385,
+    "5Y": 75.34938255890793,
+    "10Y": 194.5104136298473
   },
   "performance": {
-    "1Y": 15.117146419651363,
-    "3Y": 18.487578702857867,
-    "5Y": 12.094799902000485,
-    "10Y": 11.509632735912078
+    "1Y": 14.055666400859756,
+    "3Y": 18.122269771365595,
+    "5Y": 11.887314006310534,
+    "10Y": 11.40638074918785
   },
   "officialMetrics": {
-    "nav": 13.26316241,
+    "nav": 11.81554218,
     "marketPrice": null,
     "expenseRatio": 0.04,
     "returns": {
-      "YTD": 13.26316241,
+      "YTD": 11.81554218,
       "1Y": 20.6807120886
     }
   },
@@ -782,8 +791,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 239,
-    "asOfDate": "2026-09-18",
-    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
+    "totalRows": 766,
+    "asOfDate": "2026-09-24",
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

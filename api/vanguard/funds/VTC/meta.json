@@ -6,8 +6,8 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vtc",
   "officialPage": "https://advisors.vanguard.com/investments/products/vtc/vanguard-total-corporate-bond-etf",
   "portId": "0985",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 74.19110107421875,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
+  "nav": 73.31999969482422,
   "netAssets": "$1.7B",
   "totalFundNetAssets": "$1.7B",
   "netAssetsAsOf": "2026-08-31",
@@ -986,26 +986,26 @@
       ]
     ]
   },
-  "ytdReturn": -0.87293417,
-  "asOfDate": "2026-09-17",
+  "ytdReturn": -1.77856905,
+  "asOfDate": "2026-09-23",
   "totalReturn": {
-    "1Y": -0.7807651911080016,
-    "3Y": 16.25647812800357,
-    "5Y": -1.8711669906724016,
-    "10Y": 21.145176303080948
+    "1Y": -1.5370455864817778,
+    "3Y": 14.891487476220465,
+    "5Y": -2.6869786431200415,
+    "10Y": 19.72277215141549
   },
   "performance": {
-    "1Y": -0.7807651911080016,
-    "3Y": 5.149138974940604,
-    "5Y": -0.3770662756797827,
-    "10Y": 1.9367099940124755
+    "1Y": -1.5370455864817778,
+    "3Y": 4.735992066639794,
+    "5Y": -0.5432665180547969,
+    "10Y": 1.8163857306730202
   },
   "officialMetrics": {
-    "nav": -0.87293417,
+    "nav": -1.77856905,
     "marketPrice": null,
     "expenseRatio": 0.03,
     "returns": {
-      "YTD": -0.87293417,
+      "YTD": -1.77856905,
       "1Y": 1.9406591515
     }
   },
@@ -1035,8 +1035,8 @@
       "holdings/022.json"
     ],
     "pageSize": 250,
-    "totalRows": 5390,
-    "asOfDate": "2026-09-17",
+    "totalRows": 5406,
+    "asOfDate": "2026-09-23",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -1044,8 +1044,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 464,
-    "asOfDate": "2026-09-18",
-    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
+    "totalRows": 896,
+    "asOfDate": "2026-09-24",
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

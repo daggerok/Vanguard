@@ -6,16 +6,16 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vbce",
   "officialPage": "https://advisors.vanguard.com/investments/products/vbce/vanguard-target-maturity-2031-corporate-bond-etf",
   "portId": "V076",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 73.58100128173828,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
+  "nav": 73.00499725341797,
   "netAssets": "$52.2M",
   "totalFundNetAssets": "$52.2M",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.08,
   "trailingYield": null,
   "dividendYieldAsOf": null,
-  "secYield": 5.24,
-  "secYieldAsOf": "2026-09-16",
+  "secYield": 5.29,
+  "secYieldAsOf": "2026-09-22",
   "distributionFrequency": "Monthly",
   "distributions": {
     "frequency": "Monthly",
@@ -77,19 +77,19 @@
       ]
     ]
   },
-  "ytdReturn": 0.03338799463552533,
+  "ytdReturn": -0.7496896130042008,
   "asOfDate": "",
   "totalReturn": {
-    "1Y": 0.03338799463552533,
-    "3Y": 0.03338799463552533,
-    "5Y": 0.033387994635547535,
-    "10Y": 0.033387994635547535
+    "1Y": -0.7496896130042008,
+    "3Y": -0.7496896130042008,
+    "5Y": -0.7496896130041897,
+    "10Y": -0.7496896130041342
   },
   "performance": {
-    "1Y": 0.03338799463552533,
-    "3Y": 0.011128093154666452,
-    "5Y": 0.006676707299169138,
-    "10Y": 0.0033382979284235503
+    "1Y": -0.7496896130042008,
+    "3Y": -0.25052363446943504,
+    "5Y": -0.15038958337492137,
+    "10Y": -0.0752230842494761
   },
   "officialMetrics": {
     "nav": null,
@@ -107,8 +107,8 @@
       "holdings/003.json"
     ],
     "pageSize": 250,
-    "totalRows": 593,
-    "asOfDate": "2026-09-17",
+    "totalRows": 596,
+    "asOfDate": "2026-09-23",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -116,8 +116,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 122,
-    "asOfDate": "2026-09-18",
-    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
+    "totalRows": 129,
+    "asOfDate": "2026-09-24",
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

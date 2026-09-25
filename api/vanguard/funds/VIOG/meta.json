@@ -6,8 +6,8 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/viog",
   "officialPage": "https://advisors.vanguard.com/investments/products/viog/vanguard-sp-small-cap-600-growth-etf",
   "portId": "3347",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 140.5030059814453,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
+  "nav": 139.83799743652344,
   "netAssets": "$1.1B",
   "totalFundNetAssets": "$1.1B",
   "netAssetsAsOf": "2026-08-31",
@@ -473,26 +473,26 @@
       ]
     ]
   },
-  "ytdReturn": 16.4776259,
-  "asOfDate": "2026-09-17",
+  "ytdReturn": 15.89850566,
+  "asOfDate": "2026-09-23",
   "totalReturn": {
-    "1Y": 16.131242610557784,
-    "3Y": 53.25923699311128,
-    "5Y": 31.723361350043568,
-    "10Y": 161.8353688263951
+    "1Y": 15.581586977719475,
+    "3Y": 52.533839803086614,
+    "5Y": 31.09989797454007,
+    "10Y": 160.59614303377901
   },
   "performance": {
-    "1Y": 16.131242610557784,
-    "3Y": 15.294578612620914,
-    "5Y": 5.66534148803135,
-    "10Y": 10.103932617700906
+    "1Y": 15.581586977719475,
+    "3Y": 15.11238913186872,
+    "5Y": 5.565126082588323,
+    "10Y": 10.051710833193495
   },
   "officialMetrics": {
-    "nav": 16.4776259,
+    "nav": 15.89850566,
     "marketPrice": null,
     "expenseRatio": 0.1,
     "returns": {
-      "YTD": 16.4776259,
+      "YTD": 15.89850566,
       "1Y": 21.3817580469
     }
   },
@@ -502,8 +502,8 @@
       "holdings/002.json"
     ],
     "pageSize": 250,
-    "totalRows": 355,
-    "asOfDate": "2026-09-17",
+    "totalRows": 353,
+    "asOfDate": "2026-09-23",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -511,8 +511,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 193,
-    "asOfDate": "2026-09-18",
-    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
+    "totalRows": 720,
+    "asOfDate": "2026-09-24",
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

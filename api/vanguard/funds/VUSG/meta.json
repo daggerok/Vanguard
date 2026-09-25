@@ -6,8 +6,8 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vusg",
   "officialPage": "https://advisors.vanguard.com/investments/products/vusg/vanguard-wellington-u-s-growth-active-etf",
   "portId": "V054",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 65.7699966430664,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
+  "nav": 66.81999969482422,
   "netAssets": "$34.6M",
   "totalFundNetAssets": "$34.6M",
   "netAssetsAsOf": "2026-08-31",
@@ -41,26 +41,26 @@
       ]
     ]
   },
-  "ytdReturn": 7.41898338,
-  "asOfDate": "2026-09-17",
+  "ytdReturn": 9.63974337,
+  "asOfDate": "2026-09-23",
   "totalReturn": {
-    "1Y": 11.58920811331232,
-    "3Y": 11.589208113312278,
-    "5Y": 11.5892081133123,
-    "10Y": 11.58920811331241
+    "1Y": 13.370704464879601,
+    "3Y": 13.370704464879623,
+    "5Y": 13.370704464879646,
+    "10Y": 13.370704464879646
   },
   "performance": {
-    "1Y": 11.58920811331232,
-    "3Y": 3.7227601553159184,
-    "5Y": 2.217307990573314,
-    "10Y": 1.1025756301852763
+    "1Y": 13.370704464879601,
+    "3Y": 4.271818673670613,
+    "5Y": 2.541618751074215,
+    "10Y": 1.2628356066894941
   },
   "officialMetrics": {
-    "nav": 7.41898338,
+    "nav": 9.63974337,
     "marketPrice": null,
     "expenseRatio": 0.35,
     "returns": {
-      "YTD": 7.41898338,
+      "YTD": 9.63974337,
       "1Y": null
     }
   },
@@ -70,7 +70,7 @@
     ],
     "pageSize": 250,
     "totalRows": 44,
-    "asOfDate": "2026-09-17",
+    "asOfDate": "2026-09-23",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -78,8 +78,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 209,
-    "asOfDate": "2026-09-18",
-    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
+    "totalRows": 219,
+    "asOfDate": "2026-09-24",
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

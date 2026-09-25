@@ -6,8 +6,8 @@
   "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vfqy",
   "officialPage": "https://advisors.vanguard.com/investments/products/vfqy/vanguard-u-s-quality-factor-etf",
   "portId": "4417",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings + Yahoo daily history/dividends",
-  "nav": 172.302001953125,
+  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
+  "nav": 171.23399353027344,
   "netAssets": "$506.9M",
   "totalFundNetAssets": "$506.9M",
   "netAssetsAsOf": "2026-08-31",
@@ -30,6 +30,15 @@
       "LT Cap Gains"
     ],
     "rows": [
+      [
+        "Quarterly",
+        "2026-09-23",
+        "—",
+        "—",
+        "0.384",
+        "—",
+        "—"
+      ],
       [
         "Quarterly",
         "2026-06-24",
@@ -329,26 +338,26 @@
       ]
     ]
   },
-  "ytdReturn": 13.0643616,
-  "asOfDate": "2026-09-17",
+  "ytdReturn": 12.74573758,
+  "asOfDate": "2026-09-23",
   "totalReturn": {
-    "1Y": 14.68592293302249,
-    "3Y": 60.196344363044155,
-    "5Y": 53.31129514285442,
-    "10Y": 148.67517299047296
+    "1Y": 14.552847470444075,
+    "3Y": 59.20337246979641,
+    "5Y": 51.457894752469755,
+    "10Y": 147.13365907199503
   },
   "performance": {
-    "1Y": 14.68592293302249,
-    "3Y": 17.008532838379843,
-    "5Y": 8.921805213227852,
-    "10Y": 9.537605471082799
+    "1Y": 14.552847470444075,
+    "3Y": 16.76627372459272,
+    "5Y": 8.657168405787274,
+    "10Y": 9.4695139854156
   },
   "officialMetrics": {
-    "nav": 13.0643616,
+    "nav": 12.74573758,
     "marketPrice": null,
     "expenseRatio": 0.13,
     "returns": {
-      "YTD": 13.0643616,
+      "YTD": 12.74573758,
       "1Y": 18.8232639194
     }
   },
@@ -358,8 +367,8 @@
       "holdings/002.json"
     ],
     "pageSize": 250,
-    "totalRows": 499,
-    "asOfDate": "2026-09-17",
+    "totalRows": 474,
+    "asOfDate": "2026-09-23",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -367,8 +376,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 450,
-    "asOfDate": "2026-09-18",
-    "source": "Yahoo Finance public chart API (daily OHLC, adjusted close)"
+    "totalRows": 879,
+    "asOfDate": "2026-09-24",
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }
