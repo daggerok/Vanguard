@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/mgk/vanguard-mega-cap-growth-etf",
   "portId": "3138",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 92.98999786376953,
+  "nav": 93.37000274658203,
   "netAssets": "$33.5B",
   "totalFundNetAssets": "$33.7B",
   "netAssetsAsOf": "2026-08-31",
@@ -689,26 +689,26 @@
       ]
     ]
   },
-  "ytdReturn": 12.50670118,
-  "asOfDate": "2026-09-23",
+  "ytdReturn": 13.30763336,
+  "asOfDate": "2026-09-25",
   "totalReturn": {
-    "1Y": 15.865968564886357,
-    "3Y": 107.39769378599094,
-    "5Y": 102.72994830366655,
-    "10Y": 471.2841077254622
+    "1Y": 16.339467470617564,
+    "3Y": 108.24524498165889,
+    "5Y": 103.5584239058117,
+    "10Y": 473.61886959774216
   },
   "performance": {
-    "1Y": 15.865968564886357,
-    "3Y": 27.526754613224448,
-    "5Y": 15.181725940055312,
-    "10Y": 19.03788837589555
+    "1Y": 16.339467470617564,
+    "3Y": 27.700235412001994,
+    "5Y": 15.275712690523147,
+    "10Y": 19.086448332170704
   },
   "officialMetrics": {
-    "nav": 12.50670118,
+    "nav": 13.30763336,
     "marketPrice": null,
     "expenseRatio": 0.05,
     "returns": {
-      "YTD": 12.50670118,
+      "YTD": 13.30763336,
       "1Y": 17.5288118403
     }
   },
@@ -726,8 +726,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 753,
-    "asOfDate": "2026-09-24",
+    "totalRows": 754,
+    "asOfDate": "2026-09-25",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

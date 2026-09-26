@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vbr/vanguard-small-cap-value-etf",
   "portId": "0937",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 235.44000244140625,
+  "nav": 236.50999450683594,
   "netAssets": "$37.3B",
   "totalFundNetAssets": "$68.2B",
   "netAssetsAsOf": "2026-08-31",
@@ -626,26 +626,26 @@
       ]
     ]
   },
-  "ytdReturn": 12.9299886,
-  "asOfDate": "2026-09-23",
+  "ytdReturn": 12.80597881,
+  "asOfDate": "2026-09-25",
   "totalReturn": {
-    "1Y": 14.530395417892272,
-    "3Y": 56.40263903293845,
-    "5Y": 53.98563094475479,
-    "10Y": 160.2263695774317
+    "1Y": 15.050895813224074,
+    "3Y": 57.11340220815422,
+    "5Y": 54.685456956201506,
+    "10Y": 161.40905105741794
   },
   "performance": {
-    "1Y": 14.530395417892272,
-    "3Y": 16.07749454971701,
-    "5Y": 9.017455029290877,
-    "10Y": 10.036085041959918
+    "1Y": 15.050895813224074,
+    "3Y": 16.25306478728441,
+    "5Y": 9.116366770337425,
+    "10Y": 10.085992455397207
   },
   "officialMetrics": {
-    "nav": 12.9299886,
+    "nav": 12.80597881,
     "marketPrice": null,
     "expenseRatio": 0.05,
     "returns": {
-      "YTD": 12.9299886,
+      "YTD": 12.80597881,
       "1Y": 19.8643918179
     }
   },
@@ -666,8 +666,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 800,
-    "asOfDate": "2026-09-24",
+    "totalRows": 801,
+    "asOfDate": "2026-09-25",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

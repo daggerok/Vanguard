@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vusg/vanguard-wellington-u-s-growth-active-etf",
   "portId": "V054",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 66.81999969482422,
+  "nav": 67.19999694824219,
   "netAssets": "$34.6M",
   "totalFundNetAssets": "$34.6M",
   "netAssetsAsOf": "2026-08-31",
@@ -41,26 +41,26 @@
       ]
     ]
   },
-  "ytdReturn": 9.63974337,
-  "asOfDate": "2026-09-23",
+  "ytdReturn": 10.56094752,
+  "asOfDate": "2026-09-25",
   "totalReturn": {
-    "1Y": 13.370704464879601,
-    "3Y": 13.370704464879623,
-    "5Y": 13.370704464879646,
-    "10Y": 13.370704464879646
+    "1Y": 14.015429943949776,
+    "3Y": 14.015429943949753,
+    "5Y": 14.01542994394973,
+    "10Y": 14.01542994394962
   },
   "performance": {
-    "1Y": 13.370704464879601,
-    "3Y": 4.271818673670613,
-    "5Y": 2.541618751074215,
-    "10Y": 1.2628356066894941
+    "1Y": 14.015429943949776,
+    "3Y": 4.469105568215648,
+    "5Y": 2.657982707961115,
+    "10Y": 1.320275714173369
   },
   "officialMetrics": {
-    "nav": 9.63974337,
+    "nav": 10.56094752,
     "marketPrice": null,
     "expenseRatio": 0.35,
     "returns": {
-      "YTD": 9.63974337,
+      "YTD": 10.56094752,
       "1Y": null
     }
   },
@@ -70,7 +70,7 @@
     ],
     "pageSize": 250,
     "totalRows": 44,
-    "asOfDate": "2026-09-23",
+    "asOfDate": "2026-09-24",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -78,8 +78,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 219,
-    "asOfDate": "2026-09-24",
+    "totalRows": 220,
+    "asOfDate": "2026-09-25",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

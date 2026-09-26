@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vfqy/vanguard-u-s-quality-factor-etf",
   "portId": "4417",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 171.23399353027344,
+  "nav": 172.07200622558594,
   "netAssets": "$506.9M",
   "totalFundNetAssets": "$506.9M",
   "netAssetsAsOf": "2026-08-31",
@@ -338,26 +338,26 @@
       ]
     ]
   },
-  "ytdReturn": 12.74573758,
-  "asOfDate": "2026-09-23",
+  "ytdReturn": 12.95582688,
+  "asOfDate": "2026-09-25",
   "totalReturn": {
-    "1Y": 14.552859163873698,
-    "3Y": 59.20334988404478,
-    "5Y": 51.457894752469755,
-    "10Y": 147.13379513314288
+    "1Y": 15.368902060369605,
+    "3Y": 59.118319238991624,
+    "5Y": 52.53685660137302,
+    "10Y": 148.89431299484875
   },
   "performance": {
-    "1Y": 14.552859163873698,
-    "3Y": 16.7662682028207,
-    "5Y": 8.657168405787274,
-    "10Y": 9.469520012334032
+    "1Y": 15.368902060369605,
+    "3Y": 16.745476179533057,
+    "5Y": 8.81154040396883,
+    "10Y": 9.547254426973817
   },
   "officialMetrics": {
-    "nav": 12.74573758,
+    "nav": 12.95582688,
     "marketPrice": null,
     "expenseRatio": 0.13,
     "returns": {
-      "YTD": 12.74573758,
+      "YTD": 12.95582688,
       "1Y": 18.8232639194
     }
   },
@@ -367,8 +367,8 @@
       "holdings/002.json"
     ],
     "pageSize": 250,
-    "totalRows": 474,
-    "asOfDate": "2026-09-23",
+    "totalRows": 475,
+    "asOfDate": "2026-09-24",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -376,8 +376,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 879,
-    "asOfDate": "2026-09-24",
+    "totalRows": 880,
+    "asOfDate": "2026-09-25",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

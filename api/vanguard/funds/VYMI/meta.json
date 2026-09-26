@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vymi/vanguard-international-high-dividend-yield-etf",
   "portId": "4430",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 102.18000030517578,
+  "nav": 103.01000213623047,
   "netAssets": "$21.8B",
   "totalFundNetAssets": "$22.8B",
   "netAssetsAsOf": "2026-08-31",
@@ -419,26 +419,26 @@
       ]
     ]
   },
-  "ytdReturn": 17.18028405,
-  "asOfDate": "2026-09-23",
+  "ytdReturn": 17.81071697,
+  "asOfDate": "2026-09-25",
   "totalReturn": {
-    "1Y": 25.402243187301245,
-    "3Y": 87.86540592998475,
-    "5Y": 93.82653854247197,
-    "10Y": 174.07021248164148
+    "1Y": 26.420866025723065,
+    "3Y": 89.39142501833885,
+    "5Y": 95.40102196135098,
+    "10Y": 176.29655270004898
   },
   "performance": {
-    "1Y": 25.402243187301245,
-    "3Y": 23.3906556046108,
-    "5Y": 14.151769497121647,
-    "10Y": 10.60790936074525
+    "1Y": 26.420866025723065,
+    "3Y": 23.72385326984365,
+    "5Y": 14.336624377827366,
+    "10Y": 10.697432143390117
   },
   "officialMetrics": {
-    "nav": 17.18028405,
+    "nav": 17.81071697,
     "marketPrice": null,
     "expenseRatio": 0.07,
     "returns": {
-      "YTD": 17.18028405,
+      "YTD": 17.81071697,
       "1Y": 30.177576786
     }
   },
@@ -462,8 +462,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 654,
-    "asOfDate": "2026-09-24",
+    "totalRows": 655,
+    "asOfDate": "2026-09-25",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

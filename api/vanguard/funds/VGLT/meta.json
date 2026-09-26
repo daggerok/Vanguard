@@ -7,15 +7,15 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vglt/vanguard-long-term-treasury-etf",
   "portId": "3144",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 50.994998931884766,
+  "nav": 50.97999954223633,
   "netAssets": "$10.6B",
   "totalFundNetAssets": "$15.1B",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.03,
   "trailingYield": 5.11809193,
   "dividendYieldAsOf": "2026-09-01",
-  "secYield": 5.32,
-  "secYieldAsOf": "2026-09-22",
+  "secYield": 5.41,
+  "secYieldAsOf": "2026-09-24",
   "distributionFrequency": "Monthly",
   "distributions": {
     "frequency": "Monthly",
@@ -1823,26 +1823,26 @@
       ]
     ]
   },
-  "ytdReturn": -4.7795953,
-  "asOfDate": "2026-09-23",
+  "ytdReturn": -5.96108152,
+  "asOfDate": "2026-09-25",
   "totalReturn": {
-    "1Y": -6.1283671748114,
-    "3Y": 4.489390265111504,
-    "5Y": -30.34931130498538,
-    "10Y": -18.359911590989054
+    "1Y": -6.155978062686129,
+    "3Y": 4.458648163358214,
+    "5Y": -30.36980523283319,
+    "10Y": -18.383914790617283
   },
   "performance": {
-    "1Y": -6.1283671748114,
-    "3Y": 1.4746117400833203,
-    "5Y": -6.978126314813505,
-    "10Y": -2.0080620495636747
+    "1Y": -6.155978062686129,
+    "3Y": 1.4646590587060526,
+    "5Y": -6.983601086177982,
+    "10Y": -2.0109435154599176
   },
   "officialMetrics": {
-    "nav": -4.7795953,
+    "nav": -5.96108152,
     "marketPrice": null,
     "expenseRatio": 0.03,
     "returns": {
-      "YTD": -4.7795953,
+      "YTD": -5.96108152,
       "1Y": 0.1861597722
     }
   },
@@ -1860,8 +1860,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 728,
-    "asOfDate": "2026-09-24",
+    "totalRows": 729,
+    "asOfDate": "2026-09-25",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

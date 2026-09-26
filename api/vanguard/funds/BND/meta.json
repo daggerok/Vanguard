@@ -7,15 +7,15 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/bnd/vanguard-total-bond-market-etf",
   "portId": "0928",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 70.44999694824219,
+  "nav": 70.62999725341797,
   "netAssets": "$163.3B",
   "totalFundNetAssets": "$398.9B",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.03,
   "trailingYield": 4.40130281,
   "dividendYieldAsOf": "2026-09-01",
-  "secYield": 4.88,
-  "secYieldAsOf": "2026-09-22",
+  "secYield": 4.94,
+  "secYieldAsOf": "2026-09-24",
   "distributionFrequency": "Monthly",
   "distributions": {
     "frequency": "Monthly",
@@ -2111,26 +2111,26 @@
       ]
     ]
   },
-  "ytdReturn": -1.83408885,
-  "asOfDate": "2026-09-23",
+  "ytdReturn": -2.12525893,
+  "asOfDate": "2026-09-25",
   "totalReturn": {
-    "1Y": -1.4300613045060917,
-    "3Y": 13.068448002719357,
-    "5Y": -2.6755927220404097,
-    "10Y": 12.928365320557077
+    "1Y": -1.178193225695845,
+    "3Y": 13.35740819266029,
+    "5Y": -2.4268869478149657,
+    "10Y": 13.216863581458394
   },
   "performance": {
-    "1Y": -1.4300613045060917,
-    "3Y": 4.179070193885326,
-    "5Y": -0.5409392785791667,
-    "10Y": 1.2232562846711925
+    "1Y": -1.178193225695845,
+    "3Y": 4.267742133507868,
+    "5Y": -0.49015901164863873,
+    "10Y": 1.2490861243369178
   },
   "officialMetrics": {
-    "nav": -1.83408885,
+    "nav": -2.12525893,
     "marketPrice": null,
     "expenseRatio": 0.03,
     "returns": {
-      "YTD": -1.83408885,
+      "YTD": -2.12525893,
       "1Y": 1.8222164709
     }
   },
@@ -2213,8 +2213,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 761,
-    "asOfDate": "2026-09-24",
+    "totalRows": 762,
+    "asOfDate": "2026-09-25",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

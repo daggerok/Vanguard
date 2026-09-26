@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/voov/vanguard-sp-500-value-etf",
   "portId": "3340",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 223.25,
+  "nav": 224.05999755859375,
   "netAssets": "$6.8B",
   "totalFundNetAssets": "$7.0B",
   "netAssetsAsOf": "2026-08-31",
@@ -608,26 +608,26 @@
       ]
     ]
   },
-  "ytdReturn": 10.7206629,
-  "asOfDate": "2026-09-23",
+  "ytdReturn": 10.80968254,
+  "asOfDate": "2026-09-25",
   "totalReturn": {
-    "1Y": 13.43165738363048,
-    "3Y": 58.444014324698635,
-    "5Y": 74.61610125049793,
-    "10Y": 201.95252871543298
+    "1Y": 14.324068492935238,
+    "3Y": 59.69056301813942,
+    "5Y": 75.98985481252491,
+    "10Y": 204.32792814675534
   },
   "performance": {
-    "1Y": 13.43165738363048,
-    "3Y": 16.58032965441434,
-    "5Y": 11.793578334981913,
-    "10Y": 11.684747607518432
+    "1Y": 14.324068492935238,
+    "3Y": 16.885260933552672,
+    "5Y": 11.968929635916027,
+    "10Y": 11.772298248899848
   },
   "officialMetrics": {
-    "nav": 10.7206629,
+    "nav": 10.80968254,
     "marketPrice": null,
     "expenseRatio": 0.07,
     "returns": {
-      "YTD": 10.7206629,
+      "YTD": 10.80968254,
       "1Y": 18.04493364
     }
   },
@@ -646,8 +646,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 720,
-    "asOfDate": "2026-09-24",
+    "totalRows": 721,
+    "asOfDate": "2026-09-25",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

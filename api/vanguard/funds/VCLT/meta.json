@@ -7,15 +7,15 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vclt/vanguard-long-term-corporate-bond-etf",
   "portId": "3147",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 69.68000030517578,
+  "nav": 69.62000274658203,
   "netAssets": "$9.0B",
   "totalFundNetAssets": "$9.8B",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.03,
   "trailingYield": 6.31368747,
   "dividendYieldAsOf": "2026-09-01",
-  "secYield": 6.23,
-  "secYieldAsOf": "2026-09-22",
+  "secYield": 6.34,
+  "secYieldAsOf": "2026-09-24",
   "distributionFrequency": "Monthly",
   "distributions": {
     "frequency": "Monthly",
@@ -1841,26 +1841,26 @@
       ]
     ]
   },
-  "ytdReturn": -3.58139237,
-  "asOfDate": "2026-09-23",
+  "ytdReturn": -4.83962101,
+  "asOfDate": "2026-09-25",
   "totalReturn": {
-    "1Y": -5.2327014162440015,
-    "3Y": 14.181324969376519,
-    "5Y": -15.92931546680737,
-    "10Y": 12.61648863964111
+    "1Y": -5.314280597311038,
+    "3Y": 14.083002672974665,
+    "5Y": -16.00177362904127,
+    "10Y": 12.519583302224246
   },
   "performance": {
-    "1Y": -5.2327014162440015,
-    "3Y": 4.519749316176713,
-    "5Y": -3.4107226734433116,
-    "10Y": 1.1952664388609646
+    "1Y": -5.314280597311038,
+    "3Y": 4.48973981756402,
+    "5Y": -3.427377933480147,
+    "10Y": 1.1865553159591258
   },
   "officialMetrics": {
-    "nav": -3.58139237,
+    "nav": -4.83962101,
     "marketPrice": null,
     "expenseRatio": 0.03,
     "returns": {
-      "YTD": -3.58139237,
+      "YTD": -4.83962101,
       "1Y": 0.8188646622
     }
   },
@@ -1889,8 +1889,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 730,
-    "asOfDate": "2026-09-24",
+    "totalRows": 731,
+    "asOfDate": "2026-09-25",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }
