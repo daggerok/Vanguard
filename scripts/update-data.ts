@@ -1,4 +1,5 @@
 #!/usr/bin/env bun
+/// <reference types="bun" />
 import { readFile as outputReadFile, readdir as outputReadDir } from 'node:fs/promises';
 import { createHash as outputCreateHash } from 'node:crypto';
 import { join as outputJoin } from 'node:path';
@@ -158,7 +159,6 @@ function catalogEntryFromMeta(meta: any): any {
   };
 }
 
-/// <reference types="bun" />
 import { mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 
 const ROOT = new URL("../api/vanguard/", import.meta.url);
