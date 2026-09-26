@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vfva/vanguard-u-s-value-factor-etf",
   "portId": "4416",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 153.24600219726562,
+  "nav": 153.97999572753906,
   "netAssets": "$957.4M",
   "totalFundNetAssets": "$957.4M",
   "netAssetsAsOf": "2026-08-31",
@@ -338,26 +338,26 @@
       ]
     ]
   },
-  "ytdReturn": 17.58312971,
-  "asOfDate": "2026-09-23",
+  "ytdReturn": 17.59841612,
+  "asOfDate": "2026-09-25",
   "totalReturn": {
-    "1Y": 21.810712266275758,
-    "3Y": 64.35842864051335,
-    "5Y": 73.00271059336335,
-    "10Y": 139.70082058817957
+    "1Y": 22.9332679393639,
+    "3Y": 64.76261204509174,
+    "5Y": 74.59705276737117,
+    "10Y": 141.90976046548403
   },
   "performance": {
-    "1Y": 21.810712266275758,
-    "3Y": 18.01321996876142,
-    "5Y": 11.586223981240185,
-    "10Y": 9.135728574743652
+    "1Y": 22.9332679393639,
+    "3Y": 18.109878511458042,
+    "5Y": 11.791139165853393,
+    "10Y": 9.23588690538959
   },
   "officialMetrics": {
-    "nav": 17.58312971,
+    "nav": 17.59841612,
     "marketPrice": null,
     "expenseRatio": 0.13,
     "returns": {
-      "YTD": 17.58312971,
+      "YTD": 17.59841612,
       "1Y": 28.4074729809
     }
   },
@@ -369,7 +369,7 @@
     ],
     "pageSize": 250,
     "totalRows": 693,
-    "asOfDate": "2026-09-23",
+    "asOfDate": "2026-09-24",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -377,8 +377,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 879,
-    "asOfDate": "2026-09-24",
+    "totalRows": 880,
+    "asOfDate": "2026-09-25",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

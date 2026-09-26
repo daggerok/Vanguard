@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vdc/vanguard-consumer-staples-etf",
   "portId": "0955",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 221.1199951171875,
+  "nav": 222.1699981689453,
   "netAssets": "$7.9B",
   "totalFundNetAssets": "$9.3B",
   "netAssetsAsOf": "2026-08-31",
@@ -536,26 +536,26 @@
       ]
     ]
   },
-  "ytdReturn": 7.42154243,
-  "asOfDate": "2026-09-23",
+  "ytdReturn": 6.91608591,
+  "asOfDate": "2026-09-25",
   "totalReturn": {
-    "1Y": 5.186140734511291,
-    "3Y": 29.271503234437034,
-    "5Y": 38.26148159872964,
-    "10Y": 105.97384882086436
+    "1Y": 6.257145928480101,
+    "3Y": 30.58774802140296,
+    "5Y": 39.669282276235585,
+    "10Y": 108.07103903382749
   },
   "performance": {
-    "1Y": 5.186140734511291,
-    "3Y": 8.935040618624669,
-    "5Y": 6.694059939616137,
-    "10Y": 7.493253635057506
+    "1Y": 6.257145928480101,
+    "3Y": 9.303519001633621,
+    "5Y": 6.910455596199672,
+    "10Y": 7.602203152185227
   },
   "officialMetrics": {
-    "nav": 7.42154243,
+    "nav": 6.91608591,
     "marketPrice": null,
     "expenseRatio": 0.09,
     "returns": {
-      "YTD": 7.42154243,
+      "YTD": 6.91608591,
       "1Y": 7.0468658272
     }
   },
@@ -573,8 +573,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 800,
-    "asOfDate": "2026-09-24",
+    "totalRows": 801,
+    "asOfDate": "2026-09-25",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

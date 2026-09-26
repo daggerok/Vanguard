@@ -7,15 +7,15 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vtei/vanguard-intermediate-term-tax-exempt-bond-etf",
   "portId": "V037",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 95.72000122070312,
+  "nav": 95.3499984741211,
   "netAssets": "$1.6B",
   "totalFundNetAssets": "$1.6B",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.08,
   "trailingYield": 3.3156757,
   "dividendYieldAsOf": "2026-09-01",
-  "secYield": 3.63,
-  "secYieldAsOf": "2026-09-22",
+  "secYield": 3.69,
+  "secYieldAsOf": "2026-09-24",
   "distributionFrequency": "Monthly",
   "distributions": {
     "frequency": "Monthly",
@@ -311,26 +311,26 @@
       ]
     ]
   },
-  "ytdReturn": -2.59935057,
-  "asOfDate": "2026-09-23",
+  "ytdReturn": -3.45063083,
+  "asOfDate": "2026-09-25",
   "totalReturn": {
-    "1Y": -1.4652573907661948,
-    "3Y": 2.685071859511212,
-    "5Y": 2.6850718595112344,
-    "10Y": 2.6850718595112344
+    "1Y": -1.8461404343748988,
+    "3Y": 2.2881542165361646,
+    "5Y": 2.288154216536098,
+    "10Y": 2.288154216536098
   },
   "performance": {
-    "1Y": -1.4652573907661948,
-    "3Y": 0.8871306724511863,
-    "5Y": 0.5313378915550171,
-    "10Y": 0.2653169802773858
+    "1Y": -1.8461404343748988,
+    "3Y": 0.7569735245900988,
+    "5Y": 0.45349892209245457,
+    "10Y": 0.22649296572860855
   },
   "officialMetrics": {
-    "nav": -2.59935057,
+    "nav": -3.45063083,
     "marketPrice": null,
     "expenseRatio": 0.08,
     "returns": {
-      "YTD": -2.59935057,
+      "YTD": -3.45063083,
       "1Y": 3.1074019364
     }
   },
@@ -363,8 +363,8 @@
       "holdings/025.json"
     ],
     "pageSize": 250,
-    "totalRows": 6143,
-    "asOfDate": "2026-09-23",
+    "totalRows": 6146,
+    "asOfDate": "2026-09-24",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -372,8 +372,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 507,
-    "asOfDate": "2026-09-24",
+    "totalRows": 508,
+    "asOfDate": "2026-09-25",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

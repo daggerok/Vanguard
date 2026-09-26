@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/veu/vanguard-ftse-all-world-ex-us-etf",
   "portId": "0991",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 83.56999969482422,
+  "nav": 84.37999725341797,
   "netAssets": "$70.4B",
   "totalFundNetAssets": "$98.6B",
   "netAssetsAsOf": "2026-08-31",
@@ -590,26 +590,26 @@
       ]
     ]
   },
-  "ytdReturn": 15.31137939,
-  "asOfDate": "2026-09-23",
+  "ytdReturn": 15.65428227,
+  "asOfDate": "2026-09-25",
   "totalReturn": {
-    "1Y": 20.149441920936685,
-    "3Y": 75.92959338688846,
-    "5Y": 59.59732360141636,
-    "10Y": 145.9889119923358
+    "1Y": 21.31397037531042,
+    "3Y": 77.63478115340934,
+    "5Y": 61.144188275411814,
+    "10Y": 148.3731736837313
   },
   "performance": {
-    "1Y": 20.149441920936685,
-    "3Y": 20.720112914485945,
-    "5Y": 9.800703030473112,
-    "10Y": 9.418700637015887
+    "1Y": 21.31397037531042,
+    "3Y": 21.1088838791615,
+    "5Y": 10.012726823910656,
+    "10Y": 9.524295588703025
   },
   "officialMetrics": {
-    "nav": 15.31137939,
+    "nav": 15.65428227,
     "marketPrice": null,
     "expenseRatio": 0.04,
     "returns": {
-      "YTD": 15.31137939,
+      "YTD": 15.65428227,
       "1Y": 26.766801493
     }
   },
@@ -643,8 +643,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 762,
-    "asOfDate": "2026-09-24",
+    "totalRows": 763,
+    "asOfDate": "2026-09-25",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

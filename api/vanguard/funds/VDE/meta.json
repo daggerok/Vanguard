@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vde/vanguard-energy-etf",
   "portId": "0951",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 175.4199981689453,
+  "nav": 173.7100067138672,
   "netAssets": "$10.9B",
   "totalFundNetAssets": "$13.2B",
   "netAssetsAsOf": "2026-08-31",
@@ -527,26 +527,26 @@
       ]
     ]
   },
-  "ytdReturn": 41.36056056,
-  "asOfDate": "2026-09-23",
+  "ytdReturn": 40.60016611,
+  "asOfDate": "2026-09-25",
   "totalReturn": {
-    "1Y": 42.30553704648354,
-    "3Y": 50.59181197199882,
-    "5Y": 179.3861455267583,
-    "10Y": 152.82626415881063
+    "1Y": 41.773836273624745,
+    "3Y": 50.02914787583575,
+    "5Y": 178.34224363585327,
+    "10Y": 151.8814958154747
   },
   "performance": {
-    "1Y": 42.30553704648354,
-    "3Y": 14.621772387244691,
-    "5Y": 22.81204787175861,
-    "10Y": 9.719095506152042
+    "1Y": 41.773836273624745,
+    "3Y": 14.478838439249975,
+    "5Y": 22.7201351047539,
+    "10Y": 9.678026255511728
   },
   "officialMetrics": {
-    "nav": 41.36056056,
+    "nav": 40.60016611,
     "marketPrice": null,
     "expenseRatio": 0.09,
     "returns": {
-      "YTD": 41.36056056,
+      "YTD": 40.60016611,
       "1Y": 46.049166397
     }
   },
@@ -564,8 +564,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 792,
-    "asOfDate": "2026-09-24",
+    "totalRows": 793,
+    "asOfDate": "2026-09-25",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

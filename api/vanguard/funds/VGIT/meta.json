@@ -7,15 +7,15 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vgit/vanguard-intermediate-term-treasury-etf",
   "portId": "3143",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 56.709999084472656,
+  "nav": 56.900001525878906,
   "netAssets": "$39.8B",
   "totalFundNetAssets": "$48.3B",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.03,
   "trailingYield": 4.44507235,
   "dividendYieldAsOf": "2026-09-01",
-  "secYield": 4.72,
-  "secYieldAsOf": "2026-09-22",
+  "secYield": 4.78,
+  "secYieldAsOf": "2026-09-24",
   "distributionFrequency": "Monthly",
   "distributions": {
     "frequency": "Monthly",
@@ -1833,18 +1833,18 @@
     ]
   },
   "ytdReturn": -2.59614639,
-  "asOfDate": "2026-09-23",
+  "asOfDate": "2026-09-25",
   "totalReturn": {
-    "1Y": -1.8253027356493479,
-    "3Y": 10.869985127528746,
-    "5Y": -2.0856432318420604,
-    "10Y": 9.042099948824301
+    "1Y": -1.4963760478396537,
+    "3Y": 11.241462982441796,
+    "5Y": -1.7575887946172597,
+    "10Y": 9.407437024134113
   },
   "performance": {
-    "1Y": -1.8253027356493479,
-    "3Y": 3.4994391522982227,
-    "5Y": -0.42065276584501987,
-    "10Y": 0.8693960824903479
+    "1Y": -1.4963760478396537,
+    "3Y": 3.6149043935596703,
+    "5Y": -0.3540154397165707,
+    "10Y": 0.9031407438625294
   },
   "officialMetrics": {
     "nav": -2.59614639,
@@ -1869,8 +1869,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 730,
-    "asOfDate": "2026-09-24",
+    "totalRows": 731,
+    "asOfDate": "2026-09-25",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

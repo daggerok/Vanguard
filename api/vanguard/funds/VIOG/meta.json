@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/viog/vanguard-sp-small-cap-600-growth-etf",
   "portId": "3347",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 139.83799743652344,
+  "nav": 140.10000610351562,
   "netAssets": "$1.1B",
   "totalFundNetAssets": "$1.1B",
   "netAssetsAsOf": "2026-08-31",
@@ -473,26 +473,26 @@
       ]
     ]
   },
-  "ytdReturn": 15.89850566,
-  "asOfDate": "2026-09-23",
+  "ytdReturn": 15.9233251,
+  "asOfDate": "2026-09-25",
   "totalReturn": {
-    "1Y": 15.58159426628749,
-    "3Y": 52.533852497052315,
-    "5Y": 31.099916728787424,
-    "10Y": 160.59605040611743
+    "1Y": 15.79815471478998,
+    "3Y": 52.819623426609816,
+    "5Y": 31.34554382098955,
+    "10Y": 161.08437411871788
   },
   "performance": {
-    "1Y": 15.58159426628749,
-    "3Y": 15.112392325111346,
-    "5Y": 5.565129102871946,
-    "10Y": 10.051706921457072
+    "1Y": 15.79815471478998,
+    "3Y": 15.184234854607181,
+    "5Y": 5.604656580198908,
+    "10Y": 10.072311836669567
   },
   "officialMetrics": {
-    "nav": 15.89850566,
+    "nav": 15.9233251,
     "marketPrice": null,
     "expenseRatio": 0.1,
     "returns": {
-      "YTD": 15.89850566,
+      "YTD": 15.9233251,
       "1Y": 21.3817580469
     }
   },
@@ -503,7 +503,7 @@
     ],
     "pageSize": 250,
     "totalRows": 353,
-    "asOfDate": "2026-09-23",
+    "asOfDate": "2026-09-24",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
   },
   "history": {
@@ -511,8 +511,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 720,
-    "asOfDate": "2026-09-24",
+    "totalRows": 721,
+    "asOfDate": "2026-09-25",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

@@ -7,15 +7,15 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vmbs/vanguard-mortgage-backed-securities-etf",
   "portId": "3148",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 44.630001068115234,
+  "nav": 44.81999969482422,
   "netAssets": "$15.9B",
   "totalFundNetAssets": "$17.6B",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.03,
   "trailingYield": 4.54540885,
   "dividendYieldAsOf": "2026-09-01",
-  "secYield": 4.43,
-  "secYieldAsOf": "2026-09-22",
+  "secYield": 4.48,
+  "secYieldAsOf": "2026-09-24",
   "distributionFrequency": "Monthly",
   "distributions": {
     "frequency": "Monthly",
@@ -1850,26 +1850,26 @@
       ]
     ]
   },
-  "ytdReturn": -1.76707913,
-  "asOfDate": "2026-09-23",
+  "ytdReturn": -1.98586069,
+  "asOfDate": "2026-09-25",
   "totalReturn": {
-    "1Y": -0.9045020550512373,
-    "3Y": 15.206950296951561,
-    "5Y": -0.7510169013159484,
-    "10Y": 9.634708309691465
+    "1Y": -0.48262474680834666,
+    "3Y": 15.697397380827693,
+    "5Y": -0.3284861506804959,
+    "10Y": 10.101475617102018
   },
   "performance": {
-    "1Y": -0.9045020550512373,
-    "3Y": 4.831763935557043,
-    "5Y": -0.15065664537051715,
-    "10Y": 0.9240817132518009
+    "1Y": -0.48262474680834666,
+    "3Y": 4.980312977432111,
+    "5Y": -0.06578372318375436,
+    "10Y": 0.9669678143106708
   },
   "officialMetrics": {
-    "nav": -1.76707913,
+    "nav": -1.98586069,
     "marketPrice": null,
     "expenseRatio": 0.03,
     "returns": {
-      "YTD": -1.76707913,
+      "YTD": -1.98586069,
       "1Y": 3.1236938133
     }
   },
@@ -1906,8 +1906,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 730,
-    "asOfDate": "2026-09-24",
+    "totalRows": 731,
+    "asOfDate": "2026-09-25",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

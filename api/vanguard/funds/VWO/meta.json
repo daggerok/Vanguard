@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vwo/vanguard-ftse-emerging-markets-etf",
   "portId": "0964",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 59.869998931884766,
+  "nav": 60.15999984741211,
   "netAssets": "$127.3B",
   "totalFundNetAssets": "$168.5B",
   "netAssetsAsOf": "2026-08-31",
@@ -599,26 +599,26 @@
       ]
     ]
   },
-  "ytdReturn": 12.9476516,
-  "asOfDate": "2026-09-23",
+  "ytdReturn": 12.74195223,
+  "asOfDate": "2026-09-25",
   "totalReturn": {
-    "1Y": 13.023322703538764,
-    "3Y": 66.15679436200837,
-    "5Y": 38.88531132816393,
-    "10Y": 109.69822986094132
+    "1Y": 13.570790010115141,
+    "3Y": 66.96163189910092,
+    "5Y": 39.55803771485131,
+    "10Y": 110.71404568972092
   },
   "performance": {
-    "1Y": 13.023322703538764,
-    "3Y": 18.44208255596227,
-    "5Y": 6.790166426497923,
-    "10Y": 7.686057294284554
+    "1Y": 13.570790010115141,
+    "3Y": 18.633012918786473,
+    "5Y": 6.893419641743703,
+    "10Y": 7.738108985526293
   },
   "officialMetrics": {
-    "nav": 12.9476516,
+    "nav": 12.74195223,
     "marketPrice": null,
     "expenseRatio": 0.06,
     "returns": {
-      "YTD": 12.9476516,
+      "YTD": 12.74195223,
       "1Y": 20.9657452532
     }
   },
@@ -661,8 +661,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 786,
-    "asOfDate": "2026-09-24",
+    "totalRows": 787,
+    "asOfDate": "2026-09-25",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

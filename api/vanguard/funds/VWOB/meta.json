@@ -7,15 +7,15 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vwob/vanguard-emerging-markets-government-bond-etf",
   "portId": "3820",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 64.02999877929688,
+  "nav": 64.04000091552734,
   "netAssets": "$6.4B",
   "totalFundNetAssets": "$6.9B",
   "netAssetsAsOf": "2026-08-31",
   "netExpenseRatio": 0.15,
   "trailingYield": 6.12003544,
   "dividendYieldAsOf": "2026-09-01",
-  "secYield": 6.28,
-  "secYieldAsOf": "2026-09-22",
+  "secYield": 6.34,
+  "secYieldAsOf": "2026-09-24",
   "distributionFrequency": "Monthly",
   "distributions": {
     "frequency": "Monthly",
@@ -1445,26 +1445,26 @@
       ]
     ]
   },
-  "ytdReturn": -0.39169744,
-  "asOfDate": "2026-09-23",
+  "ytdReturn": -1.363561,
+  "asOfDate": "2026-09-25",
   "totalReturn": {
-    "1Y": 1.4127450048645906,
-    "3Y": 29.566132678175205,
-    "5Y": 8.4061058729608,
-    "10Y": 30.019918476311712
+    "1Y": 1.4285989620965722,
+    "3Y": 29.58637222424123,
+    "5Y": 8.422997993028037,
+    "10Y": 30.040198688962704
   },
   "performance": {
-    "1Y": 1.4127450048645906,
-    "3Y": 9.01773767342191,
-    "5Y": 1.6273845421999944,
-    "10Y": 2.6599359436555003
+    "1Y": 1.4285989620965722,
+    "3Y": 9.023413937213576,
+    "5Y": 1.6305515132439385,
+    "10Y": 2.6615370977228103
   },
   "officialMetrics": {
-    "nav": -0.39169744,
+    "nav": -1.363561,
     "marketPrice": null,
     "expenseRatio": 0.15,
     "returns": {
-      "YTD": -0.39169744,
+      "YTD": -1.363561,
       "1Y": 5.773474209
     }
   },
@@ -1485,8 +1485,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 687,
-    "asOfDate": "2026-09-24",
+    "totalRows": 688,
+    "asOfDate": "2026-09-25",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }

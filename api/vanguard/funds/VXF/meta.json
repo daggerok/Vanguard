@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/vxf/vanguard-extended-market-etf",
   "portId": "0965",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 234.9199981689453,
+  "nav": 235.14999389648438,
   "netAssets": "$31.4B",
   "totalFundNetAssets": "$95.4B",
   "netAssetsAsOf": "2026-08-31",
@@ -662,26 +662,26 @@
       ]
     ]
   },
-  "ytdReturn": 13.39733406,
-  "asOfDate": "2026-09-23",
+  "ytdReturn": 13.31537518,
+  "asOfDate": "2026-09-25",
   "totalReturn": {
-    "1Y": 13.187722155940795,
-    "3Y": 69.44155237552707,
-    "5Y": 36.59520868149671,
-    "10Y": 192.02613260840118
+    "1Y": 13.564942847558715,
+    "3Y": 70.0062560418902,
+    "5Y": 37.050450211216734,
+    "10Y": 192.99945909102578
   },
   "performance": {
-    "1Y": 13.187722155940795,
-    "3Y": 19.217489976998326,
-    "5Y": 6.435644231985838,
-    "10Y": 11.312047592324447
+    "1Y": 13.564942847558715,
+    "3Y": 19.3497831906271,
+    "5Y": 6.506495121056943,
+    "10Y": 11.349092498622614
   },
   "officialMetrics": {
-    "nav": 13.39733406,
+    "nav": 13.31537518,
     "marketPrice": null,
     "expenseRatio": 0.05,
     "returns": {
-      "YTD": 13.39733406,
+      "YTD": 13.31537518,
       "1Y": 18.6599427205
     }
   },
@@ -712,8 +712,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 824,
-    "asOfDate": "2026-09-24",
+    "totalRows": 825,
+    "asOfDate": "2026-09-25",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }
