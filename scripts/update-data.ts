@@ -127,7 +127,7 @@ function outputCreateReporter(root: URL | string, total: number) {
 }
 // Same bounded worker-pool shape as the iShares/ProShares/Franklin/JPMorgan updaters.
 async function mapWithConcurrency<T, R>(
-  values: T[],
+  values: readonly T[],
   concurrency: number,
   worker: (value: T, index: number) => Promise<R>,
 ): Promise<R[]> {
