@@ -124,6 +124,39 @@ function outputCreateReporter(root: URL | string, total: number) {
     },
   };
 }
+// Same bounded worker-pool shape as the iShares/ProShares/Franklin/JPMorgan updaters.
+async function mapWithConcurrency<T, R>(
+  values: T[],
+  concurrency: number,
+  worker: (value: T, index: number) => Promise<R>,
+): Promise<R[]> {
+  const results = new Array<R>(values.length);
+  let cursor = 0;
+  const runners = Array.from({ length: Math.min(concurrency, values.length) }, async () => {
+    while (true) {
+      const index = cursor++;
+      if (index >= values.length) return;
+      results[index] = await worker(values[index], index);
+    }
+  });
+  await Promise.all(runners);
+  return results;
+}
+// Single source of truth for the catalog-row shape, used for both a freshly
+// fetched fund and a fund that failed this run and falls back to its
+// previously published meta.json (same continue-on-error convention as the
+// sibling updaters: one fund failing doesn't drop it from index.json).
+function catalogEntryFromMeta(meta: any): any {
+  const divRows = meta?.distributions?.rows ?? [];
+  return {
+    ...meta,
+    distributions: divRows.length
+      ? { frequency: meta.distributions.frequency, exDate: divRows[0][1], dividend: divRows[0][4] }
+      : { frequency: meta?.distributions?.frequency ?? null, exDate: null, dividend: null },
+    holdings: meta?.holdings?.totalRows ?? 0,
+    history: meta?.history?.totalRows ?? 0,
+  };
+}
 
 /// <reference types="bun" />
 import { mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
@@ -1236,12 +1269,12 @@ export async function run() {
   const holdingsPageSize = envInt("HOLDINGS_PAGE_SIZE", 250);
   const historyPageSize = envInt("HISTORY_PAGE_SIZE", 1000);
   const requestSleepMs = Math.max(0, Number(env("REQUEST_SLEEP")) || 0) * 1000;
-  outputPrintConfig('Vanguard', { tickers: env("TICKERS"), holdingsPageSize, historyPageSize, requestSleep: requestSleepMs / 1000, maxRetries: Math.min(5, envInt("MAX_RETRIES", 2)) });
+  const concurrency = Math.max(1, envInt("CONCURRENCY", 1));
+  outputPrintConfig('Vanguard', { tickers: env("TICKERS"), holdingsPageSize, historyPageSize, requestSleep: requestSleepMs / 1000, maxRetries: Math.min(5, envInt("MAX_RETRIES", 2)), concurrency });
   const selected = selectedFunds();
   outputPrintFilter(selected.length, FUNDS_SEED.length);
   const output = outputCreateReporter(ROOT, selected.length);
-  const catalog: any[] = [];
-  for (const [ticker, name, category] of selected) {
+  const perFundResults = await mapWithConcurrency(selected, concurrency, async ([ticker, name, category]) => {
     const before = await output.before(ticker);
     try {
     const dir = new URL(`${ticker}/`, FUNDS);
@@ -1367,26 +1400,24 @@ export async function run() {
       },
     };
     await writeFile(new URL("meta.json", dir), JSON.stringify(meta, null, 2) + "\n");
-    // The catalog carries a lightweight distributions summary; full rows live in meta.json.
-    catalog.push({
-      ...meta,
-      distributions: divRows.length
-        ? { frequency, exDate: divRows[0][1], dividend: divRows[0][4] }
-        : { frequency, exDate: null, dividend: null },
-      holdings: holdingsRows.length,
-      history: mergedHistoryRows.length,
-    });
     await output.result(ticker, before, undefined, undefined, {
       officialHistoryCount: officialHistory.length,
       yahooHistoryCount: historyRows.length,
       workplaceRaw: (official as any).workplaceRaw,
     });
     if (requestSleepMs > 0) await sleep(requestSleepMs);
+    // The catalog carries a lightweight distributions summary; full rows live in meta.json.
+    return catalogEntryFromMeta(meta);
     } catch (error) {
+      // Continue past a single fund's failure instead of aborting the whole run
+      // (same convention as the iShares/ProShares/Franklin/JPMorgan updaters):
+      // mark it failed and keep its last successfully published data, if any.
       await output.result(ticker, before, 'failed', String(error));
-      throw error; // Preserve the updater's existing fail-fast behavior.
+      const previousMeta = await readPreviousMeta(ticker);
+      return previousMeta ? catalogEntryFromMeta(previousMeta) : null;
     }
-  }
+  });
+  const catalog = perFundResults.filter((entry): entry is NonNullable<typeof entry> => entry !== null);
   await writeFile(new URL("index.json", ROOT), JSON.stringify({ generatedAt: new Date().toISOString(), provider: "Vanguard", funds: catalog }, null, 2) + "\n");
 }
 if (import.meta.main) await run();
