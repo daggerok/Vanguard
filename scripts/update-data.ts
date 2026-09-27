@@ -616,7 +616,12 @@ async function chart(ticker: string): Promise<{ rows: any[]; dividends: ChartDiv
         high: q.high?.[i] ?? null,
         low: q.low?.[i] ?? null,
         close: q.close?.[i] ?? null,
-        adjClose: adj[i] ?? q.close?.[i] ?? null,
+        // Yahoo recomputes the split/dividend-adjusted close on every
+        // request; the raw float jitters in the last digit or two between
+        // otherwise identical requests, making every history row (and the
+        // fund) look "updated" on every single run. Round to 2 decimals,
+        // well past any meaningful price precision, to absorb that jitter.
+        adjClose: typeof (adj[i] ?? q.close?.[i]) === "number" ? round(adj[i] ?? q.close?.[i], 2) : null,
         volume: q.volume?.[i] ?? null,
       }))
       .filter((row: any) => row.close !== null);
@@ -1418,6 +1423,17 @@ export async function run() {
     }
   });
   const catalog = perFundResults.filter((entry): entry is NonNullable<typeof entry> => entry !== null);
-  await writeFile(new URL("index.json", ROOT), JSON.stringify({ generatedAt: new Date().toISOString(), provider: "Vanguard", funds: catalog }, null, 2) + "\n");
+  const nextIndex = { generatedAt: new Date().toISOString(), provider: "Vanguard", funds: catalog };
+  const nextText = JSON.stringify(nextIndex, null, 2) + "\n";
+  // Comparing raw text would treat a run that only refreshed generatedAt (with
+  // every fund's actual data unchanged) as a real change and rewrite the file
+  // every time. Compare with generatedAt stripped from both sides instead.
+  const previousText = await readFile(new URL("index.json", ROOT), "utf8").catch(() => null);
+  let previousWithoutStamp: unknown;
+  try { previousWithoutStamp = previousText ? { ...JSON.parse(previousText), generatedAt: undefined } : undefined; } catch { previousWithoutStamp = undefined; }
+  const nextWithoutStamp = { ...nextIndex, generatedAt: undefined };
+  if (previousText === null || JSON.stringify(previousWithoutStamp) !== JSON.stringify(nextWithoutStamp)) {
+    await writeFile(new URL("index.json", ROOT), nextText);
+  }
 }
 if (import.meta.main) await run();
