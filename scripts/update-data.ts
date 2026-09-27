@@ -1,4 +1,5 @@
 #!/usr/bin/env bun
+/// <reference types="bun" />
 import { readFile as outputReadFile, readdir as outputReadDir } from 'node:fs/promises';
 import { createHash as outputCreateHash } from 'node:crypto';
 import { join as outputJoin } from 'node:path';
@@ -126,7 +127,7 @@ function outputCreateReporter(root: URL | string, total: number) {
 }
 // Same bounded worker-pool shape as the iShares/ProShares/Franklin/JPMorgan updaters.
 async function mapWithConcurrency<T, R>(
-  values: T[],
+  values: readonly T[],
   concurrency: number,
   worker: (value: T, index: number) => Promise<R>,
 ): Promise<R[]> {
@@ -158,7 +159,6 @@ function catalogEntryFromMeta(meta: any): any {
   };
 }
 
-/// <reference types="bun" />
 import { mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 
 const ROOT = new URL("../api/vanguard/", import.meta.url);
