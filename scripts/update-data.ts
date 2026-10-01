@@ -1,15 +1,5 @@
 #!/usr/bin/env bun
-// Checked-in JSON is the runtime default; any nonblank environment value wins.
-import { readFileSync as readUpdaterConfig } from 'node:fs';
-try {
-  const updaterDefaults = JSON.parse(readUpdaterConfig(new URL('./update-data.config.json', import.meta.url), 'utf8')) as Record<string, unknown>;
-  for (const [key, value] of Object.entries(updaterDefaults)) {
-    const current = process.env[key];
-    if ((current === undefined || current.trim() === '') && value !== null && value !== undefined) process.env[key] = String(value);
-  }
-} catch (error) {
-  if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
-}
+// Checked-in scripts/update-data.config.json is the runtime default; see resolveControls for the layering.
 /// <reference types="bun" />
 import { readFile as outputReadFile, readdir as outputReadDir } from 'node:fs/promises';
 import { createHash as outputCreateHash } from 'node:crypto';
@@ -342,9 +332,9 @@ const FUNDS_SEED = [
 function env(name: string): string {
   return process.env[name]?.trim() ?? "";
 }
-function envInt(name: string, fallback: number): number {
+function envInt(name: string, fallback: number, min = 1): number {
   const value = Number.parseInt(env(name), 10);
-  return Number.isFinite(value) && value > 0 ? value : fallback;
+  return Number.isFinite(value) && value >= min ? value : fallback;
 }
 function selectedFunds() {
   const wanted = env("TICKERS").split(/[\s,;]+/).filter(Boolean).map((x) => x.toUpperCase());
@@ -1008,11 +998,11 @@ export type ParsedNport = {
 };
 
 function secHeaders(): Record<string, string> {
-  return { "User-Agent": UA, Accept: "application/json, application/xml, text/xml, text/plain" };
+  return { "User-Agent": env("SEC_UA") || UA, Accept: "application/json, application/xml, text/xml, text/plain" };
 }
 
 async function fetchSecText(url: string, label: string): Promise<string> {
-  const maxRetries = Math.min(5, envInt("MAX_RETRIES", 2));
+  const maxRetries = Math.min(5, envInt("MAX_RETRIES", 2, 0));
   let attempt = 0;
   for (;;) {
     const response = await fetch(url, { headers: secHeaders() });
@@ -1286,7 +1276,7 @@ export async function run() {
   const historyPageSize = envInt("HISTORY_PAGE_SIZE", 1000);
   const requestSleepMs = Math.max(0, Number(env("REQUEST_SLEEP")) || 0) * 1000;
   const concurrency = Math.max(1, envInt("CONCURRENCY", 1));
-  outputPrintConfig('Vanguard', { tickers: env("TICKERS"), holdingsPageSize, historyPageSize, requestSleep: requestSleepMs / 1000, maxRetries: Math.min(5, envInt("MAX_RETRIES", 2)), concurrency });
+  outputPrintConfig('Vanguard', { tickers: env("TICKERS"), holdingsPageSize, historyPageSize, requestSleep: requestSleepMs / 1000, maxRetries: Math.min(5, envInt("MAX_RETRIES", 2, 0)), concurrency });
   const selected = selectedFunds();
   outputPrintFilter(selected.length, FUNDS_SEED.length);
   const output = outputCreateReporter(ROOT, selected.length);
@@ -1447,4 +1437,90 @@ export async function run() {
     await writeFile(new URL("index.json", ROOT), nextText);
   }
 }
-if (import.meta.main) await run();
+
+// File defaults and explicit overrides, one mechanism for the CLI and GitHub Actions: allowlisted
+// scalar controls only, so the workflow can resolve them without interpolating user input into bash.
+// Precedence: config file < advanced JSON < nonblank named inputs < environment.
+export const CONTROL_NAMES = [
+  "REQUEST_SLEEP", "CONCURRENCY", "TICKERS", "HOLDINGS_PAGE_SIZE", "HISTORY_PAGE_SIZE",
+  "MAX_RETRIES", "SEC_UA", "VERBOSE",
+] as const;
+export type ControlName = (typeof CONTROL_NAMES)[number];
+export const CONFIG_FILE_URL = new URL("./update-data.config.json", import.meta.url);
+
+export function resolveControls(
+  file: unknown = {},
+  advanced: unknown = {},
+  inputs: unknown = {},
+  env: Record<string, string | undefined> = {},
+): Record<string, string> {
+  const result: Record<string, string> = {};
+  const known = new Set<string>(CONTROL_NAMES);
+  const apply = (value: unknown, skipEmpty = false): void => {
+    if (!value || typeof value !== "object" || Array.isArray(value)) throw new Error("Configuration must be a JSON object");
+    for (const [key, raw] of Object.entries(value)) {
+      if (!known.has(key)) throw new Error(`Unknown updater control: ${key}`);
+      if (skipEmpty && (raw === "" || raw === undefined || raw === null)) continue;
+      if (!["string", "number", "boolean"].includes(typeof raw)) throw new Error(`${key}: expected string, number or boolean`);
+      const text = String(raw);
+      if (/[\r\n\0]/.test(text)) throw new Error(`${key}: multiline/control characters are not allowed`);
+      result[key] = text;
+    }
+  };
+  apply(file);
+  apply(advanced);
+  apply(inputs, true);
+  for (const key of CONTROL_NAMES) {
+    const value = env[key];
+    if (value !== undefined) apply({ [key]: value });
+  }
+  for (const key of ["CONCURRENCY", "HOLDINGS_PAGE_SIZE", "HISTORY_PAGE_SIZE", "MAX_RETRIES"]) {
+    const v = result[key];
+    if (v === undefined || v === "") continue;
+    const min = key === "MAX_RETRIES" ? 0 : 1;
+    if (!/^\d+$/.test(v) || !Number.isSafeInteger(Number(v)) || Number(v) < min) throw new Error(`${key}: expected integer >= ${min}`);
+  }
+  if (result.REQUEST_SLEEP && (!Number.isFinite(Number(result.REQUEST_SLEEP)) || Number(result.REQUEST_SLEEP) < 0)) throw new Error("REQUEST_SLEEP: expected nonnegative seconds");
+  if (result.VERBOSE && !/^(0|1|true|false|yes|no|y|n|on|off)$/i.test(result.VERBOSE)) throw new Error("VERBOSE: expected boolean");
+  return result;
+}
+
+export async function runtimeControls(env: Record<string, string | undefined> = process.env): Promise<Record<string, string>> {
+  const file: unknown = JSON.parse(await readFile(CONFIG_FILE_URL, "utf8"));
+  return resolveControls(file, {}, {}, env);
+}
+
+export const USAGE = `Usage: bun scripts/update-data.ts [-h|--help]
+
+Controls (defaults in scripts/update-data.config.json; precedence: file < advanced JSON < nonblank inputs < environment):
+  REQUEST_SLEEP        seconds between fund updates (nonnegative number)
+  CONCURRENCY          parallel fund update workers (integer >= 1)
+  TICKERS              only update these tickers, separated by spaces, commas or semicolons; empty means all
+  HOLDINGS_PAGE_SIZE   rows in each generated current-holdings JSON page (integer >= 1)
+  HISTORY_PAGE_SIZE    rows in each generated daily-history JSON page (integer >= 1)
+  MAX_RETRIES          retries after the initial SEC request (integer >= 0, capped at 5)
+  SEC_UA               SEC User-Agent override; empty uses the declared repository descriptor
+  VERBOSE              print per-fund retry and fallback notices (true/false)
+
+Examples:
+  TICKERS="VTI VOO BND VUG" bun scripts/update-data.ts
+  CONCURRENCY=2 REQUEST_SLEEP=1 bun scripts/update-data.ts
+`;
+
+export async function main(argv: string[] = process.argv.slice(2), env: Record<string, string | undefined> = process.env): Promise<void> {
+  if (argv.some((arg) => arg === "--help" || arg === "-h")) {
+    console.log(USAGE);
+    return;
+  }
+  if (argv.length) throw new Error(`unsupported argument(s): ${argv.join(" ")}. Use --help for usage.`);
+  const controls = await runtimeControls(env);
+  for (const [key, value] of Object.entries(controls)) process.env[key] = value;
+  await run();
+}
+
+if (import.meta.main) {
+  main().catch((error: unknown) => {
+    console.error(`[ error    ] ${cleanText(error instanceof Error ? error.message : error)}`);
+    process.exitCode = 1;
+  });
+}
