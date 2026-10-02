@@ -1,15 +1,5 @@
 #!/usr/bin/env bun
-// Checked-in JSON is the runtime default; any nonblank environment value wins.
-import { readFileSync as readUpdaterConfig } from 'node:fs';
-try {
-  const updaterDefaults = JSON.parse(readUpdaterConfig(new URL('./update-data.config.json', import.meta.url), 'utf8')) as Record<string, unknown>;
-  for (const [key, value] of Object.entries(updaterDefaults)) {
-    const current = process.env[key];
-    if ((current === undefined || current.trim() === '') && value !== null && value !== undefined) process.env[key] = String(value);
-  }
-} catch (error) {
-  if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
-}
+// Checked-in scripts/update-data.config.json is the runtime default; see resolveControls for the layering.
 /// <reference types="bun" />
 import { readFile as outputReadFile, readdir as outputReadDir } from 'node:fs/promises';
 import { createHash as outputCreateHash } from 'node:crypto';
@@ -33,9 +23,9 @@ function outputConfigEntries(config: Record<string, any>): [string, string][] {
     skipVanEck: 'SKIP_VANECK', skipProShares: 'SKIP_PROSHARES',
     skipWisdomTree: 'SKIP_WISDOMTREE', skipGoldmanSachs: 'SKIP_GOLDMANSACHS',
   };
-  const range = (v: any): string => v?.source ?? `${Number.isFinite(v?.min) ? v.min : ''}:${Number.isFinite(v?.max) ? v.max : ''}`;
+  const range = (v: any): string => typeof v === 'string' ? v : v?.source ?? `${Number.isFinite(v?.min) ? v.min : ''}:${Number.isFinite(v?.max) ? v.max : ''}`;
   for (const [key, value] of Object.entries(config)) {
-    const name = aliases[key] ?? key.replace(/([a-z0-9])([A-Z])/g, '$1_$2').toUpperCase();
+    const name = aliases[key] ?? (/^[A-Z0-9_]+$/.test(key) ? key : key.replace(/([a-z0-9])([A-Z])/g, '$1_$2').toUpperCase());
     if (name === 'PERFORMANCE' || name === 'TOTAL_RETURN') {
       for (const period of ['YTD', '1Y', '3Y', '5Y', '10Y']) values.set(`${name}_${period}`, range(value?.[period]));
     } else if (['AUM', 'TER', 'DIVIDEND_YIELD', 'SEC_YIELD'].includes(name)) {
@@ -52,7 +42,7 @@ function outputConfigEntries(config: Record<string, any>): [string, string][] {
 }
 function outputPrintConfig(brand: string, config: Record<string, any>): void {
   const entries: [string, string][] = [...outputConfigEntries(config), ['VERBOSE', String(outputVerbose())]];
-  console.log(`[ config   ] ${brand} updater:\n${entries.map(([key, value]) => `              ${key}=${/TOKEN|PASSWORD|SECRET|COOKIE/i.test(key) ? '<redacted>' : outputClean(value)}`).join('\n')}`);
+  console.log(`[ config   ] ${brand} updater:\n${entries.map(([key, value]) => `              ${key}=${/TOKEN|PASSWORD|SECRET|COOKIE|^SEC_UA$/i.test(key) ? '<redacted>' : outputClean(value)}`).join('\n')}`);
 }
 function outputHasOutputFilters(config: Record<string, any>): boolean {
   return outputConfigEntries(config).some(([name, value]) =>
@@ -174,7 +164,8 @@ import { mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 
 const ROOT = new URL("../api/vanguard/", import.meta.url);
 const FUNDS = new URL("funds/", ROOT);
-const UA = "daggerok/Vanguard ETF research contact=github.com/daggerok";
+export const DEFAULT_SEC_UA = "daggerok ETF feed daggerok@gmail.com";
+const UA = DEFAULT_SEC_UA;
 
 const HISTORY_HEADERS = [
   "Date",
@@ -339,16 +330,231 @@ const FUNDS_SEED = [
   ["VYMI", "Vanguard International High Dividend Yield ETF", "International Equity"],
 ] as const;
 
-function env(name: string): string {
-  return process.env[name]?.trim() ?? "";
+// ---------------------------------------------------------------------------
+// Controls: strict parsing of the resolved (string) control values
+// ---------------------------------------------------------------------------
+
+export type Range = { min: number; max: number; source: string };
+export type ReturnPeriod = "YTD" | "1Y" | "3Y" | "5Y" | "10Y";
+const RETURN_PERIODS: readonly ReturnPeriod[] = ["YTD", "1Y", "3Y", "5Y", "10Y"];
+const AUM_PRESETS = {
+  nano: { min: 0, max: 10_000_000 },
+  micro: { min: 10_000_000, max: 300_000_000 },
+  small: { min: 300_000_000, max: 2_000_000_000 },
+  mid: { min: 2_000_000_000, max: 10_000_000_000 },
+  large: { min: 10_000_000_000, max: Number.POSITIVE_INFINITY },
+} as const;
+type AumPreset = keyof typeof AUM_PRESETS;
+const AMOUNT_SUFFIXES: Record<string, number> = { K: 1e3, M: 1e6, B: 1e9, T: 1e12 };
+
+export type UpdaterConfig = {
+  maxFetches: number;
+  requestSleepSeconds: number;
+  concurrency: number;
+  tickers: string[];
+  category: string;
+  holdingsPageSize: number;
+  historyPageSize: number;
+  maxRetries: number;
+  historyRange: string;
+  secUa: string;
+  skipYahoo: boolean;
+  edgarFallback: boolean;
+  aumRange?: Range;
+  terRange?: Range;
+  dividendYieldRange?: Range;
+  secYieldRange?: Range;
+  performanceRanges: Partial<Record<ReturnPeriod, Range>>;
+  totalReturnRanges: Partial<Record<ReturnPeriod, Range>>;
+};
+
+function parseInteger(label: string, raw: string | undefined, min: number, fallback: number): number {
+  if (raw === undefined || raw.trim() === "") return fallback;
+  const text = raw.trim();
+  if (!/^\d+$/.test(text) || !Number.isSafeInteger(Number(text)) || Number(text) < min) throw new Error(`${label}: expected integer >= ${min}`);
+  return Number(text);
 }
-function envInt(name: string, fallback: number): number {
-  const value = Number.parseInt(env(name), 10);
-  return Number.isFinite(value) && value > 0 ? value : fallback;
+
+function parseBoolean(label: string, raw: string | undefined, fallback: boolean): boolean {
+  const text = (raw ?? "").trim();
+  if (!text) return fallback;
+  if (/^(1|true|yes|y|on)$/i.test(text)) return true;
+  if (/^(0|false|no|n|off)$/i.test(text)) return false;
+  throw new Error(`${label}: expected boolean`);
 }
-function selectedFunds() {
-  const wanted = env("TICKERS").split(/[\s,;]+/).filter(Boolean).map((x) => x.toUpperCase());
-  return wanted.length ? FUNDS_SEED.filter(([ticker]) => wanted.includes(ticker)) : FUNDS_SEED;
+
+export function parseHistoryRange(raw: string | undefined): string {
+  const text = (raw ?? "").trim();
+  if (!text) return "max";
+  if (!/^(max|[1-9]\d*y)$/i.test(text)) throw new Error("HISTORY_RANGE: use max or Ny (e.g. 5y)");
+  return text.toLowerCase();
+}
+
+export function parseRange(raw: string | undefined, label = "range"): Range | undefined {
+  const text = cleanText(raw);
+  if (!text || text === ":") return undefined;
+  const parts = text.split(":");
+  if (parts.length !== 2) throw new Error(`${label}: expected min:max with exactly one colon`);
+  const bound = (value: string, lower: boolean): number => {
+    const cleaned = value.replace(/[$,%\s]/g, "");
+    if (!cleaned) return lower ? Number.NEGATIVE_INFINITY : Number.POSITIVE_INFINITY;
+    const parsed = Number(cleaned);
+    if (!Number.isFinite(parsed)) throw new Error(`${label}: invalid numeric bound ${value}`);
+    return parsed;
+  };
+  const range = { min: bound(parts[0], true), max: bound(parts[1], false), source: text };
+  if (range.min > range.max) throw new Error(`${label}: minimum exceeds maximum`);
+  return range;
+}
+
+function parseAumBound(raw: string): number | undefined {
+  const cleaned = raw.replace(/[$,\s]/g, "");
+  if (!cleaned) return undefined;
+  const match = /^(-?\d+(?:\.\d+)?)([KMBT])?$/i.exec(cleaned);
+  if (!match) throw new Error(`AUM: invalid bound ${raw}`);
+  return Number(match[1]) * (match[2] ? AMOUNT_SUFFIXES[match[2].toUpperCase()] : 1);
+}
+
+export function parseAumRange(raw: string | undefined): Range | undefined {
+  const text = cleanText(raw);
+  if (!text || text === ":") return undefined;
+  const wholePreset = AUM_PRESETS[text.toLowerCase() as AumPreset];
+  if (wholePreset) return { ...wholePreset, source: text };
+  const parts = text.split(":");
+  if (parts.length !== 2) throw new Error("AUM: expected min:max with exactly one colon");
+  const left = AUM_PRESETS[parts[0].replace(/[$,\s]/g, "").toLowerCase() as AumPreset];
+  const right = AUM_PRESETS[parts[1].replace(/[$,\s]/g, "").toLowerCase() as AumPreset];
+  const min = left ? left.min : (parseAumBound(parts[0]) ?? Number.NEGATIVE_INFINITY);
+  const max = right ? right.max : (parseAumBound(parts[1]) ?? Number.POSITIVE_INFINITY);
+  if (min > max) throw new Error("AUM: minimum exceeds maximum");
+  return { min, max, source: text };
+}
+
+function parseReturnRanges(controls: Record<string, string | undefined>, prefix: "PERFORMANCE" | "TOTAL_RETURN") {
+  const result: Partial<Record<ReturnPeriod, Range>> = {};
+  for (const period of RETURN_PERIODS) {
+    const range = parseRange(controls[`${prefix}_${period}`], `${prefix}_${period}`);
+    if (range) result[period] = range;
+  }
+  return result;
+}
+
+export function readConfig(controls: Record<string, string | undefined> = {}): UpdaterConfig {
+  const sleepText = (controls.REQUEST_SLEEP ?? "").trim();
+  if (sleepText && (!Number.isFinite(Number(sleepText)) || Number(sleepText) < 0)) throw new Error("REQUEST_SLEEP: expected nonnegative seconds");
+  return {
+    maxFetches: parseInteger("MAX_FETCHES", controls.MAX_FETCHES, 0, 0),
+    requestSleepSeconds: sleepText ? Number(sleepText) : 0,
+    concurrency: parseInteger("CONCURRENCY", controls.CONCURRENCY, 1, 4),
+    tickers: (controls.TICKERS ?? "").split(/[\s,;]+/).filter(Boolean).map((x) => x.toUpperCase()),
+    category: cleanText(controls.CATEGORY),
+    holdingsPageSize: parseInteger("HOLDINGS_PAGE_SIZE", controls.HOLDINGS_PAGE_SIZE, 1, 250),
+    historyPageSize: parseInteger("HISTORY_PAGE_SIZE", controls.HISTORY_PAGE_SIZE, 1, 1000),
+    maxRetries: Math.min(5, parseInteger("MAX_RETRIES", controls.MAX_RETRIES, 1, 2)),
+    historyRange: parseHistoryRange(controls.HISTORY_RANGE),
+    secUa: (controls.SEC_UA ?? "").trim() || DEFAULT_SEC_UA,
+    skipYahoo: parseBoolean("SKIP_YAHOO", controls.SKIP_YAHOO, false),
+    edgarFallback: parseBoolean("EDGAR_FALLBACK", controls.EDGAR_FALLBACK, true),
+    aumRange: parseAumRange(controls.AUM),
+    terRange: parseRange(controls.TER, "TER"),
+    dividendYieldRange: parseRange(controls.DIVIDEND_YIELD, "DIVIDEND_YIELD"),
+    secYieldRange: parseRange(controls.SEC_YIELD, "SEC_YIELD"),
+    performanceRanges: parseReturnRanges(controls, "PERFORMANCE"),
+    totalReturnRanges: parseReturnRanges(controls, "TOTAL_RETURN"),
+  };
+}
+
+// Active run configuration (set by run(); defaults apply to direct helper calls and tests).
+let activeConfig: UpdaterConfig = readConfig({});
+
+export function hasDeferredFilters(config: UpdaterConfig): boolean {
+  return Boolean(config.aumRange || config.terRange || config.dividendYieldRange || config.secYieldRange ||
+    Object.keys(config.performanceRanges).length || Object.keys(config.totalReturnRanges).length);
+}
+
+/** Numeric dollar amount from Vanguard strings such as "$1.0T", "$123.4 B" or "1234567". */
+export function parseAmount(value: unknown): number | null {
+  if (typeof value === "number") return Number.isFinite(value) ? value : null;
+  const match = /^(-?\d+(?:\.\d+)?)([KMBT])?$/i.exec(String(value ?? "").replace(/[$,\s]/g, ""));
+  if (!match) return null;
+  return Number(match[1]) * (match[2] ? AMOUNT_SUFFIXES[match[2].toUpperCase()] : 1);
+}
+
+export type FilterMetrics = {
+  aum: number | null;
+  ter: number | null;
+  dividendYield: number | null;
+  secYield: number | null;
+  performance: Partial<Record<ReturnPeriod, number | null>>;
+  totalReturn: Partial<Record<ReturnPeriod, number | null>>;
+};
+
+function withinRange(value: number | null | undefined, range: Range | undefined, missingPasses = false): boolean {
+  if (!range) return true;
+  if (value === null || value === undefined || !Number.isFinite(value)) return missingPasses;
+  return value >= range.min && value <= range.max;
+}
+
+/** AUM, TER and yield filters drop funds without the value; return filters keep funds whose return is unavailable. */
+export function passesMetricFilters(metrics: FilterMetrics, config: UpdaterConfig): boolean {
+  if (!withinRange(metrics.aum, config.aumRange)) return false;
+  if (!withinRange(metrics.ter, config.terRange)) return false;
+  if (!withinRange(metrics.dividendYield, config.dividendYieldRange)) return false;
+  if (!withinRange(metrics.secYield, config.secYieldRange)) return false;
+  for (const period of RETURN_PERIODS) {
+    if (!withinRange(metrics.performance[period], config.performanceRanges[period], true)) return false;
+    if (!withinRange(metrics.totalReturn[period], config.totalReturnRanges[period], true)) return false;
+  }
+  return true;
+}
+
+export type BatchState = { cursor?: unknown; tickers?: unknown } | null;
+
+/** MAX_FETCHES batch: 0 selects every fund, a positive value resumes at the saved cursor and wraps to 0 after the last fund. */
+export function selectBatch<T extends readonly [string, ...unknown[]]>(
+  funds: readonly T[],
+  maxFetches: number,
+  state: BatchState,
+): { selected: T[]; startCursor: number; nextCursor: number | null } {
+  if (maxFetches <= 0) return { selected: [...funds], startCursor: 0, nextCursor: null };
+  const tickers = funds.map((fund) => fund[0]);
+  const prior = Array.isArray(state?.tickers) ? (state!.tickers as unknown[]).map(String) : [];
+  const saved = numberOrNull(state?.cursor) ?? 0;
+  const sameScope = tickers.length === prior.length && tickers.every((ticker, index) => ticker === prior[index]);
+  const startCursor = sameScope && tickers.length ? Math.min(Math.max(0, Math.floor(saved)), tickers.length - 1) : 0;
+  const selected = funds.slice(startCursor, startCursor + maxFetches);
+  const nextCursor = tickers.length && startCursor + selected.length < tickers.length ? startCursor + selected.length : 0;
+  return { selected, startCursor, nextCursor };
+}
+
+/** First epoch second of the Yahoo request window: `max` -> 0, `Ny` -> N years before now. */
+export function historyWindowStartEpoch(historyRange: string, nowEpochSeconds: number): number {
+  const years = /^([1-9]\d*)y$/i.exec(historyRange.trim());
+  return years ? Math.max(0, Math.floor(nowEpochSeconds - Number(years[1]) * 365.25 * 86_400)) : 0;
+}
+
+/** `max` keeps the original unbounded request; `Ny` bounds it with period1/period2. */
+export function yahooChartUrl(ticker: string, historyRange = "max", nowEpochSeconds = Math.floor(Date.now() / 1000)): string {
+  if (historyRange === "max") return `${YAHOO_CHART_URL}/${ticker}?range=max&interval=1d&events=div%2Csplits`;
+  const query = new URLSearchParams({
+    period1: String(historyWindowStartEpoch(historyRange, nowEpochSeconds)),
+    period2: String(Math.floor(nowEpochSeconds)),
+    interval: "1d",
+    events: "div,splits",
+    includeAdjustedClose: "true",
+  });
+  return `${YAHOO_CHART_URL}/${ticker}?${query.toString()}`;
+}
+
+/** ISO date of the first published history row for the range, or "" for `max`. */
+export function historyWindowStartDate(historyRange: string, nowEpochSeconds: number): string {
+  return historyRange === "max" ? "" : new Date(historyWindowStartEpoch(historyRange, nowEpochSeconds) * 1000).toISOString().slice(0, 10);
+}
+
+export function passesStaticFilters(fund: readonly [string, string, string], config: UpdaterConfig): boolean {
+  if (config.tickers.length && !config.tickers.includes(fund[0])) return false;
+  if (config.category && !fund[2].toLowerCase().includes(config.category.toLowerCase())) return false;
+  return true;
 }
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -613,7 +819,8 @@ async function officialProfile(ticker: string, name: string) {
 export type ChartDividend = { epoch: number; amount: number };
 
 async function chart(ticker: string): Promise<{ rows: any[]; dividends: ChartDividend[] }> {
-  const url = `${YAHOO_CHART_URL}/${ticker}?range=max&interval=1d&events=div%2Csplits`;
+  if (activeConfig.skipYahoo) return { rows: [], dividends: [] };
+  const url = yahooChartUrl(ticker, activeConfig.historyRange);
   try {
     const data = await fetchJson(url, { Accept: "*/*" });
     const result = data.chart?.result?.[0];
@@ -868,23 +1075,35 @@ function dividendsFromPrevious(meta: any): ChartDividend[] {
   return out.sort((a, b) => a.epoch - b.epoch);
 }
 
-function returnSince(rows: any[], years: number): number | null {
+function returnSince(rows: any[], years: number, strict = false): number | null {
   if (!rows.length) return null;
   const latest = rows[rows.length - 1];
   const cutoff = new Date(`${latest.date}T00:00:00Z`);
   cutoff.setUTCFullYear(cutoff.getUTCFullYear() - years);
+  // A bounded HISTORY_RANGE can end the series short of the period: report unavailable instead of a wrong CAGR.
+  if (strict && new Date(`${rows[0].date}T00:00:00Z`).getTime() > cutoff.getTime() + 7 * 86_400_000) return null;
   let prior = rows[0];
   for (const row of rows) if (new Date(`${row.date}T00:00:00Z`) <= cutoff) prior = row;
   if (!prior?.adjClose || !latest?.adjClose || prior.adjClose <= 0) return null;
   return ((latest.adjClose / prior.adjClose) ** (1 / years) - 1) * 100;
 }
-function summary(rows: any[]) {
+/** Year-to-date return in percent from adjusted closes (last close of the prior calendar year as the base). */
+export function ytdFromRows(rows: any[]): number | null {
+  if (!rows.length) return null;
+  const latest = rows[rows.length - 1];
+  const year = String(latest.date).slice(0, 4);
+  let base: any = null;
+  for (const row of rows) if (String(row.date).slice(0, 4) < year) base = row;
+  if (!base?.adjClose || !latest?.adjClose || base.adjClose <= 0) return null;
+  return (latest.adjClose / base.adjClose - 1) * 100;
+}
+export function summary(rows: any[], strict = false) {
   if (!rows.length) return { nav: null, asOfDate: null, totalReturn: {}, performance: {} };
   const latest = rows[rows.length - 1];
   const performance: Record<string, number> = {};
   const totalReturn: Record<string, number> = {};
   for (const years of [1, 3, 5, 10]) {
-    const annual = returnSince(rows, years);
+    const annual = returnSince(rows, years, strict);
     if (annual !== null) {
       performance[`${years}Y`] = annual;
       totalReturn[`${years}Y`] = ((1 + annual / 100) ** years - 1) * 100;
@@ -1008,11 +1227,11 @@ export type ParsedNport = {
 };
 
 function secHeaders(): Record<string, string> {
-  return { "User-Agent": UA, Accept: "application/json, application/xml, text/xml, text/plain" };
+  return { "User-Agent": activeConfig.secUa, Accept: "application/json, application/xml, text/xml, text/plain" };
 }
 
 async function fetchSecText(url: string, label: string): Promise<string> {
-  const maxRetries = Math.min(5, envInt("MAX_RETRIES", 2));
+  const maxRetries = activeConfig.maxRetries;
   let attempt = 0;
   for (;;) {
     const response = await fetch(url, { headers: secHeaders() });
@@ -1280,21 +1499,65 @@ async function writePages(dir: URL, ticker: string, kind: string, headers: strin
   return { pages: [...kept].sort().map((name) => `${kind}/${name}`), pageSize, totalRows: rows.length };
 }
 
-export async function run() {
+function configLogEntries(config: UpdaterConfig): Record<string, string> {
+  const entries: Record<string, string> = {
+    MAX_FETCHES: String(config.maxFetches),
+    REQUEST_SLEEP: String(config.requestSleepSeconds),
+    CONCURRENCY: String(config.concurrency),
+    AUM: config.aumRange?.source ?? ":",
+    TER: config.terRange?.source ?? ":",
+    DIVIDEND_YIELD: config.dividendYieldRange?.source ?? ":",
+    SEC_YIELD: config.secYieldRange?.source ?? ":",
+    TICKERS: config.tickers.join(","),
+    CATEGORY: config.category,
+    HOLDINGS_PAGE_SIZE: String(config.holdingsPageSize),
+    HISTORY_PAGE_SIZE: String(config.historyPageSize),
+    MAX_RETRIES: String(config.maxRetries),
+    HISTORY_RANGE: config.historyRange,
+    SEC_UA: config.secUa,
+    SKIP_YAHOO: String(config.skipYahoo),
+    EDGAR_FALLBACK: String(config.edgarFallback),
+  };
+  for (const period of RETURN_PERIODS) {
+    entries[`PERFORMANCE_${period}`] = config.performanceRanges[period]?.source ?? ":";
+    entries[`TOTAL_RETURN_${period}`] = config.totalReturnRanges[period]?.source ?? ":";
+  }
+  return entries;
+}
+
+async function readJsonOrNull(url: URL): Promise<any | null> {
+  try {
+    return JSON.parse(await readFile(url, "utf8"));
+  } catch {
+    return null;
+  }
+}
+
+export async function run(config: UpdaterConfig = readConfig({})) {
+  activeConfig = config;
   await mkdir(FUNDS, { recursive: true });
-  const holdingsPageSize = envInt("HOLDINGS_PAGE_SIZE", 250);
-  const historyPageSize = envInt("HISTORY_PAGE_SIZE", 1000);
-  const requestSleepMs = Math.max(0, Number(env("REQUEST_SLEEP")) || 0) * 1000;
-  const concurrency = Math.max(1, envInt("CONCURRENCY", 1));
-  outputPrintConfig('Vanguard', { tickers: env("TICKERS"), holdingsPageSize, historyPageSize, requestSleep: requestSleepMs / 1000, maxRetries: Math.min(5, envInt("MAX_RETRIES", 2)), concurrency });
-  const selected = selectedFunds();
-  outputPrintFilter(selected.length, FUNDS_SEED.length);
+  const holdingsPageSize = config.holdingsPageSize;
+  const historyPageSize = config.historyPageSize;
+  const requestSleepMs = config.requestSleepSeconds * 1000;
+  const concurrency = config.concurrency;
+  outputPrintConfig('Vanguard', configLogEntries(config));
+  const staticSelection = FUNDS_SEED.filter((fund) => passesStaticFilters(fund, config));
+  outputPrintFilter(staticSelection.length, FUNDS_SEED.length, hasDeferredFilters(config));
+  const stateFile = new URL("update-state.json", ROOT);
+  const previousState = config.maxFetches > 0 ? await readJsonOrNull(stateFile) : null;
+  const batch = selectBatch(staticSelection, config.maxFetches, previousState);
+  const selected = batch.selected;
+  if (config.maxFetches > 0) {
+    console.log(`[ ${'cursor'.padEnd(9)}] starting at ${staticSelection.length ? batch.startCursor + 1 : 0} of ${staticSelection.length}; processing ${selected.length}; next ${staticSelection.length ? (batch.nextCursor ?? 0) + 1 : 0}`);
+  } else {
+    await rm(stateFile, { force: true });
+  }
+  const previousIndex = await readJsonOrNull(new URL("index.json", ROOT));
   const output = outputCreateReporter(ROOT, selected.length);
   const perFundResults = await mapWithConcurrency(selected, concurrency, async ([ticker, name, category]) => {
     const before = await output.before(ticker);
     try {
     const dir = new URL(`${ticker}/`, FUNDS);
-    await mkdir(dir, { recursive: true });
     const [chartData, official, vgAdditional] = await Promise.all([
       chart(ticker),
       officialProfile(ticker, name),
@@ -1309,7 +1572,7 @@ export async function run() {
     let holdingsSource = holdingsRows.length
       ? "Vanguard investor profile holdings (IRR AdditionalFundData)"
       : "not available from current public sources";
-    if (!holdingsRows.length) {
+    if (!holdingsRows.length && config.edgarFallback) {
       try {
         const filing = await resolveNportFiling(ticker);
         if (filing) {
@@ -1357,17 +1620,36 @@ export async function run() {
     if (!dividends.length && prevMeta) {
       dividends = dividendsFromPrevious(prevMeta);
     }
-    const metrics = summary(historyRows);
+    const metrics = summary(historyRows, config.historyRange !== "max");
 
-    const mergedHistoryRows = historyPageRows(historyRows, officialHistory);
+    const allHistoryRows = historyPageRows(historyRows, officialHistory);
+    const windowStart = historyWindowStartDate(config.historyRange, Math.floor(Date.now() / 1000));
+    const windowedHistoryRows = windowStart ? allHistoryRows.filter((row) => String(row.Date) >= windowStart) : allHistoryRows;
+    const mergedHistoryRows = windowedHistoryRows.length ? windowedHistoryRows : allHistoryRows;
     const historyAsOfDate = mergedHistoryRows.length
       ? String(mergedHistoryRows[mergedHistoryRows.length - 1].Date)
       : (metrics.asOfDate ?? null);
-    const historyManifest = await writePages(dir, ticker, "history", HISTORY_HEADERS, mergedHistoryRows, historyPageSize);
-    const holdingsManifest = await writePages(dir, ticker, "holdings", holdingsHeaders, holdingsRows, holdingsPageSize);
 
     const expense = official.expense?.value ? Number(official.expense.value) : null;
     const officialYtd = official.ytd?.value ? Number(official.ytd.value) : null;
+    const officialOneYear = official.oneYear?.value ? Number(official.oneYear.value) : null;
+    const ytd = officialYtd ?? ytdFromRows(historyRows);
+    const filterMetrics: FilterMetrics = {
+      aum: parseAmount(official.etfAssets?.value ?? prevMeta?.netAssets),
+      ter: expense ?? numberOrNull(prevMeta?.netExpenseRatio),
+      dividendYield: official.dividend?.value ? numberOrNull(official.dividend.value) : numberOrNull(prevMeta?.trailingYield),
+      secYield: official.sec?.value ? numberOrNull(official.sec.value) : numberOrNull(prevMeta?.secYield),
+      performance: { YTD: ytd, "1Y": officialOneYear ?? metrics.performance["1Y"] ?? null, "3Y": metrics.performance["3Y"] ?? null, "5Y": metrics.performance["5Y"] ?? null, "10Y": metrics.performance["10Y"] ?? null },
+      totalReturn: { YTD: ytd, "1Y": officialOneYear ?? metrics.totalReturn["1Y"] ?? null, "3Y": metrics.totalReturn["3Y"] ?? null, "5Y": metrics.totalReturn["5Y"] ?? null, "10Y": metrics.totalReturn["10Y"] ?? null },
+    };
+    if (!passesMetricFilters(filterMetrics, config)) {
+      // Filtered funds keep their previously published data and catalog row untouched.
+      await output.result(ticker, before, 'filtered', 'metric filters', { yahooHistoryCount: historyRows.length });
+      return prevMeta ? catalogEntryFromMeta(prevMeta) : null;
+    }
+    await mkdir(dir, { recursive: true });
+    const historyManifest = await writePages(dir, ticker, "history", HISTORY_HEADERS, mergedHistoryRows, historyPageSize);
+    const holdingsManifest = await writePages(dir, ticker, "holdings", holdingsHeaders, holdingsRows, holdingsPageSize);
     const frequency = official.distributionFrequency ?? prevMeta?.distributionFrequency ?? null;
     const divRows = distributionRows(frequency, dividends);
     const meta = {
@@ -1404,7 +1686,7 @@ export async function run() {
         nav: officialYtd === null ? null : officialYtd,
         marketPrice: null,
         expenseRatio: expense,
-        returns: { YTD: officialYtd, "1Y": official.oneYear?.value ? Number(official.oneYear.value) : null },
+        returns: { YTD: officialYtd, "1Y": officialOneYear },
       },
       holdings: { ...holdingsManifest, asOfDate: holdingsAsOf, source: holdingsSource },
       history: {
@@ -1433,7 +1715,11 @@ export async function run() {
       return previousMeta ? catalogEntryFromMeta(previousMeta) : null;
     }
   });
-  const catalog = perFundResults.filter((entry): entry is NonNullable<typeof entry> => entry !== null);
+  // Funds outside this run (TICKERS, category or MAX_FETCHES batch) keep their previously published catalog row.
+  const fresh = new Map<string, any>();
+  selected.forEach(([ticker], index) => { if (perFundResults[index]) fresh.set(ticker, perFundResults[index]); });
+  const previousRows = new Map<string, any>((Array.isArray(previousIndex?.funds) ? previousIndex.funds : []).map((entry: any) => [String(entry?.ticker), entry]));
+  const catalog = FUNDS_SEED.map(([ticker]) => fresh.get(ticker) ?? previousRows.get(ticker)).filter((entry) => entry != null);
   const nextIndex = { generatedAt: new Date().toISOString(), provider: "Vanguard", funds: catalog };
   const nextText = JSON.stringify(nextIndex, null, 2) + "\n";
   // Comparing raw text would treat a run that only refreshed generatedAt (with
@@ -1446,5 +1732,109 @@ export async function run() {
   if (previousText === null || JSON.stringify(previousWithoutStamp) !== JSON.stringify(nextWithoutStamp)) {
     await writeFile(new URL("index.json", ROOT), nextText);
   }
+  if (config.maxFetches > 0) {
+    const nextState = { cursor: batch.nextCursor ?? 0, tickers: staticSelection.map(([ticker]) => ticker) };
+    const sameState = previousState && previousState.cursor === nextState.cursor && JSON.stringify(previousState.tickers) === JSON.stringify(nextState.tickers);
+    if (!sameState) await writeFile(stateFile, JSON.stringify({ ...nextState, generatedAt: new Date().toISOString() }, null, 2) + "\n");
+  }
 }
-if (import.meta.main) await run();
+
+// File defaults and explicit overrides, one mechanism for the CLI and GitHub Actions: allowlisted
+// scalar controls only, so the workflow can resolve them without interpolating user input into bash.
+// Precedence: config file < advanced JSON < nonblank named inputs < environment (an explicitly set
+// environment variable wins even when empty) < protected Actions variables (workflow only).
+export const CONTROL_NAMES = [
+  "MAX_FETCHES", "REQUEST_SLEEP", "CONCURRENCY", "AUM", "TER", "DIVIDEND_YIELD", "SEC_YIELD", "TICKERS",
+  "CATEGORY", "HOLDINGS_PAGE_SIZE", "HISTORY_PAGE_SIZE", "MAX_RETRIES", "HISTORY_RANGE", "SEC_UA",
+  "SKIP_YAHOO", "EDGAR_FALLBACK", "VERBOSE",
+  ...["PERFORMANCE", "TOTAL_RETURN"].flatMap((prefix) => ["YTD", "1Y", "3Y", "5Y", "10Y"].map((period) => `${prefix}_${period}`)),
+] as const;
+export type ControlName = (typeof CONTROL_NAMES)[number];
+export const CONFIG_FILE_URL = new URL("./update-data.config.json", import.meta.url);
+
+export function resolveControls(
+  file: unknown = {},
+  advanced: unknown = {},
+  inputs: unknown = {},
+  env: Record<string, string | undefined> = {},
+): Record<string, string> {
+  const result: Record<string, string> = {};
+  const known = new Set<string>(CONTROL_NAMES);
+  const apply = (value: unknown, skipEmpty = false): void => {
+    if (!value || typeof value !== "object" || Array.isArray(value)) throw new Error("Configuration must be a JSON object");
+    for (const [key, raw] of Object.entries(value)) {
+      if (!known.has(key)) throw new Error(`Unknown updater control: ${key}`);
+      if (skipEmpty && (raw === "" || raw === undefined || raw === null)) continue;
+      if (!["string", "number", "boolean"].includes(typeof raw)) throw new Error(`${key}: expected string, number or boolean`);
+      const text = String(raw);
+      if (/[\r\n\0]/.test(text)) throw new Error(`${key}: multiline/control characters are not allowed`);
+      result[key] = text;
+    }
+  };
+  apply(file);
+  apply(advanced);
+  apply(inputs, true);
+  for (const key of CONTROL_NAMES) {
+    const value = env[key];
+    if (value !== undefined) apply({ [key]: value });
+  }
+  if (result.VERBOSE && !/^(0|1|true|false|yes|no|y|n|on|off)$/i.test(result.VERBOSE)) throw new Error("VERBOSE: expected boolean");
+  readConfig(result); // validate every integer, boolean, range and min:max filter before any request or write
+  return result;
+}
+
+export async function runtimeControls(env: Record<string, string | undefined> = process.env): Promise<Record<string, string>> {
+  const file: unknown = JSON.parse(await readFile(CONFIG_FILE_URL, "utf8"));
+  return resolveControls(file, {}, {}, env);
+}
+
+export const USAGE = `Usage: bun scripts/update-data.ts [-h|--help]
+
+Controls (defaults in scripts/update-data.config.json; precedence: file < advanced JSON < nonblank inputs < environment):
+  MAX_FETCHES          0 means all selected funds; a positive value updates that many funds and resumes at the saved cursor next run
+  REQUEST_SLEEP        seconds between fund updates (nonnegative number)
+  CONCURRENCY          parallel fund update workers (integer >= 1)
+  AUM                  fund net assets in dollars, min:max; K/M/B/T suffixes or nano/micro/small/mid/large presets
+  TER                  expense ratio percent, min:max
+  DIVIDEND_YIELD       Vanguard trailing dividend yield percent, min:max
+  SEC_YIELD            30-day SEC yield percent, min:max
+  TICKERS              only update these tickers, separated by spaces, commas or semicolons; empty means all
+  CATEGORY             keep funds whose category contains this text (case-insensitive), e.g. Bond or Sector
+  HOLDINGS_PAGE_SIZE   rows in each generated current-holdings JSON page (integer >= 1)
+  HISTORY_PAGE_SIZE    rows in each generated daily-history JSON page (integer >= 1)
+  MAX_RETRIES          retries after the initial SEC request (integer >= 1, capped at 5)
+  HISTORY_RANGE        Yahoo request window and published history rows: max or Ny (e.g. 5y)
+  SEC_UA               SEC and Vanguard User-Agent (default daggerok ETF feed daggerok@gmail.com)
+  SKIP_YAHOO           do not request Yahoo Finance; previously published history and distributions are kept (true/false)
+  EDGAR_FALLBACK       use SEC N-PORT-P holdings when the Vanguard feed has none (true/false)
+  VERBOSE              print per-fund retry and fallback notices (true/false)
+  PERFORMANCE_YTD|1Y|3Y|5Y|10Y   annualized return percent, min:max
+  TOTAL_RETURN_YTD|1Y|3Y|5Y|10Y  cumulative return percent, min:max
+
+Filters use min:max with exactly one colon; an empty side is unbounded. All filters are ANDed.
+AUM, TER and yield filters skip funds without the value; return filters keep funds whose return is unavailable.
+Filtered funds keep their previously published data.
+
+Examples:
+  TICKERS="VTI VOO BND VUG" bun scripts/update-data.ts
+  CONCURRENCY=2 REQUEST_SLEEP=1 bun scripts/update-data.ts
+  AUM="10B:" TER=":0.1" bun scripts/update-data.ts
+`;
+
+export async function main(argv: string[] = process.argv.slice(2), env: Record<string, string | undefined> = process.env): Promise<void> {
+  if (argv.some((arg) => arg === "--help" || arg === "-h")) {
+    console.log(USAGE);
+    return;
+  }
+  if (argv.length) throw new Error(`unsupported argument(s): ${argv.join(" ")}. Use --help for usage.`);
+  const controls = await runtimeControls(env);
+  if (controls.VERBOSE !== undefined && env === process.env) process.env.VERBOSE = controls.VERBOSE;
+  await run(readConfig(controls));
+}
+
+if (import.meta.main) {
+  main().catch((error: unknown) => {
+    console.error(`[ error    ] ${cleanText(error instanceof Error ? error.message : error)}`);
+    process.exitCode = 1;
+  });
+}

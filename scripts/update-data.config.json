@@ -1,14 +1,21 @@
 {
   "MAX_FETCHES": "0",
   "REQUEST_SLEEP": "0",
-  "AUM": ":",
   "CONCURRENCY": "4",
+  "AUM": ":",
+  "TER": ":",
+  "DIVIDEND_YIELD": ":",
+  "SEC_YIELD": ":",
+  "TICKERS": "",
+  "CATEGORY": "",
   "HOLDINGS_PAGE_SIZE": "250",
   "HISTORY_PAGE_SIZE": "1000",
-  "STORE_RAW_DOWNLOADS": "false",
   "MAX_RETRIES": "2",
-  "TICKERS": "",
-  "DIVIDEND_YIELD": ":",
+  "HISTORY_RANGE": "max",
+  "SEC_UA": "daggerok ETF feed daggerok@gmail.com",
+  "SKIP_YAHOO": "false",
+  "EDGAR_FALLBACK": "true",
+  "VERBOSE": "false",
   "PERFORMANCE_YTD": ":",
   "PERFORMANCE_1Y": ":",
   "PERFORMANCE_3Y": ":",
@@ -18,6 +25,5 @@
   "TOTAL_RETURN_1Y": ":",
   "TOTAL_RETURN_3Y": ":",
   "TOTAL_RETURN_5Y": ":",
-  "TOTAL_RETURN_10Y": ":",
-  "VERBOSE": "false"
+  "TOTAL_RETURN_10Y": ":"
 }

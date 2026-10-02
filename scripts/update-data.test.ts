@@ -1,5 +1,26 @@
+/// <reference types="bun" />
 import { expect, test } from "bun:test";
+import { readFileSync } from "node:fs";
 import {
+  CONTROL_NAMES,
+  DEFAULT_SEC_UA,
+  USAGE,
+  hasDeferredFilters,
+  historyWindowStartDate,
+  historyWindowStartEpoch,
+  parseAmount,
+  parseAumRange,
+  parseRange,
+  passesMetricFilters,
+  passesStaticFilters,
+  readConfig,
+  resolveControls,
+  runtimeControls,
+  selectBatch,
+  summary,
+  yahooChartUrl,
+  ytdFromRows,
+
   DISTRIBUTION_HEADERS,
   distributionRows,
   historyPageRows,
@@ -336,4 +357,232 @@ headerTest('header markup supplies a focusable counter and hidden rich panel wit
   headerExpect(html).toContain("event.key !== 'Escape'");
   headerExpect(html).toContain("trigger.addEventListener('focus', show)");
   headerExpect(html).toContain("trigger.addEventListener('pointerenter'");
+});
+
+// ---------------------------------------------------------------------------
+// Controls, resolver, config/README/workflow parity
+// ---------------------------------------------------------------------------
+
+const read = (path: string) => readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
+const file = () => JSON.parse(read("scripts/update-data.config.json"));
+
+test("configuration precedence: file < advanced < nonblank input < environment", () => {
+  const c = resolveControls({ CONCURRENCY: 2, TICKERS: "VTI" }, { CONCURRENCY: 3, TICKERS: "VOO" }, { CONCURRENCY: "4", TICKERS: "" }, { CONCURRENCY: "5" });
+  expect(c.CONCURRENCY).toBe("5");
+  expect(c.TICKERS).toBe("VOO");
+  expect(resolveControls({ TICKERS: "VTI" }, { TICKERS: "" }, { TICKERS: "" }).TICKERS).toBe("");
+  expect(resolveControls({ CONCURRENCY: 2 }, {}, { CONCURRENCY: "" }).CONCURRENCY).toBe("2");
+  expect(resolveControls({ CONCURRENCY: 2 }, { CONCURRENCY: 3 }, { CONCURRENCY: "4" }).CONCURRENCY).toBe("4");
+  expect(resolveControls({ VERBOSE: true }, {}, {}, { VERBOSE: "false" }).VERBOSE).toBe("false");
+  // an explicitly set empty environment variable clears the control
+  expect(resolveControls({ TICKERS: "VTI" }, {}, {}, { TICKERS: "" }).TICKERS).toBe("");
+  expect(resolveControls({ AUM: "1B:" }, {}, { AUM: "" }).AUM).toBe("1B:");
+});
+
+test("scheduled path (empty inputs and advanced) equals config defaults", () => {
+  const f = file();
+  expect(resolveControls(f, {}, {}, {})).toEqual(Object.fromEntries(Object.entries(f).map(([k, v]) => [k, String(v)])));
+});
+
+test("provider-specific defaults", () => {
+  const f = file();
+  expect(f.MAX_FETCHES).toBe("0");
+  expect(f.REQUEST_SLEEP).toBe("0");
+  expect(f.CONCURRENCY).toBe("4");
+  expect(f.HOLDINGS_PAGE_SIZE).toBe("250");
+  expect(f.HISTORY_PAGE_SIZE).toBe("1000");
+  expect(f.MAX_RETRIES).toBe("2");
+  expect(f.HISTORY_RANGE).toBe("max");
+  expect(f.EDGAR_FALLBACK).toBe("true");
+  expect(f.SKIP_YAHOO).toBe("false");
+  expect(f.SEC_UA).toBe("daggerok ETF feed daggerok@gmail.com");
+  expect(DEFAULT_SEC_UA).toBe(f.SEC_UA);
+  for (const name of CONTROL_NAMES.filter((n) => /^(AUM|TER|DIVIDEND_YIELD|SEC_YIELD|PERFORMANCE_|TOTAL_RETURN_)/.test(n))) expect(f[name]).toBe(":");
+  expect(read("scripts/update-data.ts")).not.toMatch(/example\.com|admin@daggerok/);
+});
+
+test("resolver rejects unknown, invalid, non-scalar and newline values", () => {
+  const bad = [
+    { UNKNOWN: 1 }, { SEC_UA: "x\nEVIL=yes" }, { CONCURRENCY: 0 }, { MAX_RETRIES: 0 }, { MAX_RETRIES: -1 }, { MAX_FETCHES: -1 },
+    { HOLDINGS_PAGE_SIZE: 1.5 }, { REQUEST_SLEEP: "-1" }, { VERBOSE: "maybe" }, { SKIP_YAHOO: "maybe" }, { EDGAR_FALLBACK: "2" },
+    { HISTORY_RANGE: "5" }, { HISTORY_RANGE: "0y" }, { AUM: "5" }, { AUM: "10:1" }, { AUM: "huge:" }, { TER: "a:b" }, { TER: "1:2:3" },
+    { PERFORMANCE_1Y: "x:" }, { TOTAL_RETURN_10Y: "5:1" }, { TICKERS: ["VTI"] }, { TICKERS: { a: 1 } }, null, [],
+  ];
+  for (const value of bad) expect(() => resolveControls(value)).toThrow();
+  expect(() => resolveControls({}, { SEC_UA: "x\rfoo" })).toThrow();
+  expect(() => resolveControls({}, {}, {}, { SEC_UA: "x\0bad" })).toThrow();
+  expect(() => resolveControls({}, {}, {}, { MAX_RETRIES: "0" })).toThrow();
+  expect(() => resolveControls({}, "x")).toThrow();
+  expect(() => JSON.parse("{bad")).toThrow();
+});
+
+test("runtimeControls reads the config file and honors env overrides", async () => {
+  expect((await runtimeControls({})).CONCURRENCY).toBe(file().CONCURRENCY);
+  expect((await runtimeControls({ CONCURRENCY: "7" })).CONCURRENCY).toBe("7");
+  await expect(runtimeControls({ MAX_RETRIES: "0" })).rejects.toThrow();
+});
+
+test("readConfig parses every control strictly", () => {
+  const c = readConfig(resolveControls(file(), { MAX_FETCHES: 3, AUM: "mid", TER: ":0.2", MAX_RETRIES: 9, TICKERS: "voo, vti;bnd", CATEGORY: "bond", HISTORY_RANGE: "5Y", SKIP_YAHOO: "yes", EDGAR_FALLBACK: "off", TOTAL_RETURN_3Y: "10:" }));
+  expect(c.maxFetches).toBe(3);
+  expect(c.aumRange).toMatchObject({ min: 2e9, max: 1e10 });
+  expect(c.terRange).toMatchObject({ min: Number.NEGATIVE_INFINITY, max: 0.2 });
+  expect(c.maxRetries).toBe(5);
+  expect(c.tickers).toEqual(["VOO", "VTI", "BND"]);
+  expect(c.category).toBe("bond");
+  expect(c.historyRange).toBe("5y");
+  expect(c.skipYahoo).toBe(true);
+  expect(c.edgarFallback).toBe(false);
+  expect(c.totalReturnRanges["3Y"]).toMatchObject({ min: 10 });
+  expect(hasDeferredFilters(c)).toBe(true);
+  expect(hasDeferredFilters(readConfig(file()))).toBe(false);
+  expect(readConfig({}).maxRetries).toBe(2);
+});
+
+test("AUM accepts amounts with K/M/B/T suffixes and size presets", () => {
+  expect(parseAumRange("1B:")).toMatchObject({ min: 1e9, max: Number.POSITIVE_INFINITY });
+  expect(parseAumRange("$500M:2.5B")).toMatchObject({ min: 5e8, max: 2.5e9 });
+  expect(parseAumRange("nano")).toMatchObject({ min: 0, max: 1e7 });
+  expect(parseAumRange("small:mid")).toMatchObject({ min: 3e8, max: 1e10 });
+  expect(parseAumRange("large")).toMatchObject({ min: 1e10 });
+  expect(parseAumRange(":")).toBeUndefined();
+  expect(parseRange("-1:5.5")).toMatchObject({ min: -1, max: 5.5 });
+});
+
+test("Vanguard dollar strings parse to numbers", () => {
+  expect(parseAmount("$1.0T")).toBe(1e12);
+  expect(parseAmount("$123.4 B")).toBe(123.4e9);
+  expect(parseAmount("$850M")).toBe(8.5e8);
+  expect(parseAmount("1,234")).toBe(1234);
+  expect(parseAmount(null)).toBeNull();
+  expect(parseAmount("n/a")).toBeNull();
+});
+
+test("metric filters: AUM/TER/yield need a value, returns pass when unavailable", () => {
+  const metrics = (over: any = {}) => ({ aum: 1e11, ter: 0.03, dividendYield: 1.5, secYield: 1.2, performance: { YTD: 10, "1Y": 20, "3Y": 12 }, totalReturn: { "3Y": 40 }, ...over });
+  const cfg = (c: Record<string, string>) => readConfig(resolveControls(file(), c));
+  expect(passesMetricFilters(metrics(), cfg({}))).toBe(true);
+  expect(passesMetricFilters(metrics(), cfg({ AUM: "large" }))).toBe(true);
+  expect(passesMetricFilters(metrics({ aum: 5e8 }), cfg({ AUM: "large" }))).toBe(false);
+  expect(passesMetricFilters(metrics({ aum: null }), cfg({ AUM: "1M:" }))).toBe(false);
+  expect(passesMetricFilters(metrics(), cfg({ TER: ":0.05" }))).toBe(true);
+  expect(passesMetricFilters(metrics({ ter: 0.2 }), cfg({ TER: ":0.05" }))).toBe(false);
+  expect(passesMetricFilters(metrics(), cfg({ DIVIDEND_YIELD: "2:" }))).toBe(false);
+  expect(passesMetricFilters(metrics(), cfg({ SEC_YIELD: "1:2" }))).toBe(true);
+  expect(passesMetricFilters(metrics(), cfg({ PERFORMANCE_1Y: "25:" }))).toBe(false);
+  expect(passesMetricFilters(metrics(), cfg({ PERFORMANCE_5Y: "5:" }))).toBe(true);
+  expect(passesMetricFilters(metrics(), cfg({ TOTAL_RETURN_3Y: "50:" }))).toBe(false);
+  expect(passesMetricFilters(metrics(), cfg({ TOTAL_RETURN_3Y: "30:50", PERFORMANCE_YTD: "5:15" }))).toBe(true);
+});
+
+test("static filters: TICKERS and CATEGORY", () => {
+  const voo = ["VOO", "Vanguard S&P 500 ETF", "US Equity"] as const;
+  const bnd = ["BND", "Vanguard Total Bond Market ETF", "Bond"] as const;
+  const cfg = (c: Record<string, string>) => readConfig(resolveControls(file(), c));
+  expect(passesStaticFilters(voo, cfg({}))).toBe(true);
+  expect(passesStaticFilters(voo, cfg({ TICKERS: "bnd" }))).toBe(false);
+  expect(passesStaticFilters(bnd, cfg({ TICKERS: "bnd" }))).toBe(true);
+  expect(passesStaticFilters(bnd, cfg({ CATEGORY: "BOND" }))).toBe(true);
+  expect(passesStaticFilters(voo, cfg({ CATEGORY: "bond" }))).toBe(false);
+});
+
+test("MAX_FETCHES batches resume at the saved cursor and wrap", () => {
+  const funds = [["A"], ["B"], ["C"], ["D"], ["E"]] as const;
+  const tickers = ["A", "B", "C", "D", "E"];
+  expect(selectBatch(funds, 0, null).selected).toHaveLength(5);
+  expect(selectBatch(funds, 2, null)).toMatchObject({ startCursor: 0, nextCursor: 2 });
+  const second = selectBatch(funds, 2, { cursor: 2, tickers });
+  expect(second.selected.map((f) => f[0])).toEqual(["C", "D"]);
+  expect(second.nextCursor).toBe(4);
+  const last = selectBatch(funds, 2, { cursor: 4, tickers });
+  expect(last.selected.map((f) => f[0])).toEqual(["E"]);
+  expect(last.nextCursor).toBe(0);
+  // a different ticker scope restarts at the beginning
+  expect(selectBatch(funds, 2, { cursor: 2, tickers: ["A", "B"] }).startCursor).toBe(0);
+  expect(selectBatch([], 2, null)).toMatchObject({ selected: [], nextCursor: 0 });
+});
+
+test("HISTORY_RANGE bounds the Yahoo request and the published rows", () => {
+  const now = 1_790_000_000;
+  expect(yahooChartUrl("VOO")).toBe("https://query1.finance.yahoo.com/v8/finance/chart/VOO?range=max&interval=1d&events=div%2Csplits");
+  expect(yahooChartUrl("VOO", "max", now)).toContain("range=max");
+  const url = new URL(yahooChartUrl("VOO", "5y", now));
+  expect(url.searchParams.get("range")).toBeNull();
+  expect(url.searchParams.get("period2")).toBe(String(now));
+  expect(Number(url.searchParams.get("period1"))).toBe(Math.floor(now - 5 * 365.25 * 86400));
+  expect(url.searchParams.get("includeAdjustedClose")).toBe("true");
+  expect(historyWindowStartEpoch("max", now)).toBe(0);
+  expect(historyWindowStartDate("max", now)).toBe("");
+  expect(historyWindowStartDate("1y", now)).toBe(new Date((now - 365.25 * 86400) * 1000).toISOString().slice(0, 10));
+});
+
+test("bounded history yields unavailable long-period returns instead of wrong ones", () => {
+  const rows = [
+    { date: "2024-01-02", adjClose: 100 },
+    { date: "2025-01-02", adjClose: 110 },
+    { date: "2026-01-02", adjClose: 121 },
+    { date: "2026-06-01", adjClose: 133.1 },
+  ];
+  expect(summary(rows, true).performance["1Y"]).toBeCloseTo(((133.1 / 110) ** 1 - 1) * 100, 6);
+  expect(summary(rows, true).performance["5Y"]).toBeUndefined();
+  expect(summary(rows, true).performance["10Y"]).toBeUndefined();
+  expect(summary(rows, false).performance["5Y"]).toBeDefined();
+});
+
+test("YTD return is measured from the last close of the prior year", () => {
+  const rows = [
+    { date: "2025-12-30", adjClose: 100 },
+    { date: "2025-12-31", adjClose: 200 },
+    { date: "2026-03-02", adjClose: 210 },
+    { date: "2026-06-01", adjClose: 250 },
+  ];
+  expect(ytdFromRows(rows)).toBeCloseTo(25, 6);
+  expect(ytdFromRows([{ date: "2026-01-05", adjClose: 10 }])).toBeNull();
+  expect(ytdFromRows([])).toBeNull();
+});
+
+test("config keys, CONTROL_NAMES, --help and README controls stay in sync", () => {
+  expect(Object.keys(file()).sort()).toEqual([...CONTROL_NAMES].sort());
+  const doc = read("README.md");
+  const readmeRows = [...doc.slice(doc.indexOf("### Update controls"), doc.indexOf("### Examples")).matchAll(/^\| `([A-Z0-9_]+)` \|/gm)].map((m) => m[1]);
+  expect(readmeRows.sort()).toEqual([...CONTROL_NAMES].sort());
+  // --help groups the return controls as PERFORMANCE_YTD|1Y|3Y|5Y|10Y
+  for (const name of CONTROL_NAMES) {
+    const [, prefix, period] = /^(PERFORMANCE|TOTAL_RETURN)_(.+)$/.exec(name) ?? [];
+    if (prefix) expect(USAGE).toMatch(new RegExp(`  ${prefix}_YTD\\|1Y\\|3Y\\|5Y\\|10Y .*`)), expect(["YTD", "1Y", "3Y", "5Y", "10Y"]).toContain(period);
+    else expect(USAGE).toContain(`  ${name} `);
+  }
+  expect(doc).toContain("scripts/update-data.config.json");
+});
+
+test("README structure and verification section", () => {
+  const doc = `\n${read("README.md")}`;
+  const order = ["# Vanguard", "## Using Bun", "## Updating the static Vanguard data", "### Data sources", "### Metrics and caveats", "### Update controls", "### Examples", "## TypeScript and verification", "## Brands table", "## Sibling applications", "## License"];
+  let at = -1;
+  for (const heading of order) {
+    const next = doc.indexOf(`\n${heading}\n`, at < 0 ? -1 : at);
+    expect(next).toBeGreaterThan(at);
+    at = next;
+  }
+  for (const command of ["bun install --frozen-lockfile", "bun test", "bun build --target=bun scripts/update-data.ts --outfile=/dev/null", "git diff --check"]) expect(doc).toContain(command);
+  expect(doc).not.toMatch(/worklog|\.prompt|evidence|fixtures|config-docs/i);
+});
+
+test("workflow: one resolver, fixed output dir, inputs map to controls", () => {
+  const actual = read(".github/workflows/update-data.yml");
+  const names = [...actual.slice(actual.indexOf("    inputs:"), actual.indexOf("\npermissions:")).matchAll(/^      (\w+):$/gm)].map((m) => m[1]);
+  expect(names.length).toBeLessThanOrEqual(25);
+  expect(names).toContain("advanced");
+  expect(actual).toContain("default: '{}'");
+  for (const name of names.filter((n) => n !== "advanced")) expect(CONTROL_NAMES).toContain(name.toUpperCase() as any);
+  expect(actual).toContain("cron: '0 0 * * 0'");
+  expect(actual).toContain("toJSON(inputs)");
+  expect(actual).toContain("resolveControls(file, advanced, individual, protectedVars)");
+  expect(actual).toContain("PROTECTED_SEC_UA: ${{ vars.SEC_UA }}");
+  expect(actual).toContain("timeout-minutes: 30");
+  expect(actual).toContain("persist-credentials: false");
+  expect(actual).not.toMatch(/\$\{\{\s*inputs\./);
+  expect(actual).not.toMatch(/OUTPUT_DIR|output_dir/i);
+  expect(actual.match(/git add (\S+)/g)).toEqual(["git add api/vanguard"]);
+  expect(actual.match(/api\/[\w-]+/g)!.every((p) => p === "api/vanguard")).toBe(true);
 });
