@@ -23,7 +23,7 @@ bun scripts/update-data.ts
 
 Run `bun scripts/update-data.ts -h` (or `--help`) to print every control with its default and usage examples.
 
-Defaults live in `scripts/update-data.config.json` (every control as a string). The **Update Vanguard ETF data** GitHub Actions workflow and the command line use the same `resolveControls` function from `scripts/update-data.ts`. Precedence: file defaults < `advanced` JSON < nonblank workflow inputs < protected Actions variable/environment. A blank workflow input inherits the file value, and scheduled runs use the file defaults as-is. Controls without an individual workflow input are set through the `advanced` JSON object, e.g. `{"SEC_UA": "my-tool contact@example.org"}`. All supplied filters use **AND** logic.
+Defaults live in `scripts/update-data.config.json` (every control as a string). The **Update Vanguard ETF data** GitHub Actions workflow and the command line use the same `resolveControls` function from `scripts/update-data.ts`. Precedence: file defaults < `advanced` JSON < nonblank workflow inputs < protected Actions variable/environment. A blank workflow input inherits the file value, and scheduled runs use the file defaults as-is. Controls without an individual workflow input are set through the `advanced` JSON object, e.g. `{"AUM": "10B:", "HISTORY_RANGE": "5y"}`. All supplied filters use **AND** logic.
 
 ### Data sources
 
@@ -52,16 +52,35 @@ Official NAV, market price and premium/discount come from Vanguard; Open/High/Lo
 
 | Environment variable | Default | Meaning |
 | --- | --: | --- |
+| `MAX_FETCHES` | `0` | `0` updates every selected fund; a positive value updates that many funds per run and resumes after the saved cursor (`api/vanguard/update-state.json`) on the next run, wrapping to the start after the last fund. |
 | `REQUEST_SLEEP` | `0` | Seconds to wait after each fund update (nonnegative number). |
 | `CONCURRENCY` | `4` | Number of parallel fund update workers (integer >= 1). |
+| `AUM` | `:` | Fund net assets in dollars, `min:max`; amounts accept `K`/`M`/`B`/`T` suffixes or the `nano`/`micro`/`small`/`mid`/`large` presets. Funds without the value are skipped. |
+| `TER` | `:` | Expense ratio percent, `min:max`. Funds without the value are skipped. |
+| `DIVIDEND_YIELD` | `:` | Vanguard trailing dividend yield percent, `min:max`. Funds without the value are skipped. |
+| `SEC_YIELD` | `:` | 30-day SEC yield percent, `min:max`. Funds without the value are skipped. |
 | `TICKERS` | all | Space-, comma- or semicolon-separated ticker allowlist, e.g. `VTI VOO BND VUG`; empty updates every fund. |
+| `CATEGORY` | empty | Keep funds whose catalog category contains this text, case-insensitive (`Bond`, `US Equity`, `Sector`, `International Equity`, `Global Equity`, `Real Estate`). |
 | `HOLDINGS_PAGE_SIZE` | `250` | Rows in each generated current-holdings JSON page (integer >= 1). |
 | `HISTORY_PAGE_SIZE` | `1000` | Rows in each generated daily-history JSON page (integer >= 1). |
-| `MAX_RETRIES` | `2` | Retries after the initial SEC request (integer >= 0, at most 5 are used). Only HTTP 408/425/429/5xx are retried, with exponential backoff. |
-| `SEC_UA` | empty | Override the SEC User-Agent; empty uses the declared repository descriptor. In Actions the protected `SEC_UA` repository variable wins when nonblank. |
+| `MAX_RETRIES` | `2` | Retries after the initial SEC request (integer >= 1, at most 5 are used). Only HTTP 408/425/429/5xx are retried, with exponential backoff. |
+| `HISTORY_RANGE` | `max` | `max` or `Ny` (e.g. `5y`): limits the Yahoo request window and the published history rows. Returns that need a longer window than the range are left unavailable. |
+| `SEC_UA` | `daggerok ETF feed daggerok@gmail.com` | User-Agent sent to SEC EDGAR and Vanguard endpoints; redacted in the config log. In Actions the protected `SEC_UA` repository variable wins when nonblank. |
+| `SKIP_YAHOO` | `false` | Do not request Yahoo Finance; previously published history rows and distributions are kept (`true`/`false`). |
+| `EDGAR_FALLBACK` | `true` | Use SEC N-PORT-P holdings when the Vanguard feed has none (`true`/`false`). |
 | `VERBOSE` | `false` | Print per-fund retry and fallback notices (`true`/`false`). |
+| `PERFORMANCE_YTD` | `:` | Annualized return percent for the period, `min:max`: YTD is the official Vanguard figure with a Yahoo adjusted-close fallback, 1Y is the official 1-year figure with a Yahoo fallback, 3Y/5Y/10Y are CAGR from Yahoo adjusted closes. Funds with no value for the period pass. |
+| `PERFORMANCE_1Y` | `:` | See `PERFORMANCE_YTD`. |
+| `PERFORMANCE_3Y` | `:` | See `PERFORMANCE_YTD`. |
+| `PERFORMANCE_5Y` | `:` | See `PERFORMANCE_YTD`. |
+| `PERFORMANCE_10Y` | `:` | See `PERFORMANCE_YTD`. |
+| `TOTAL_RETURN_YTD` | `:` | Cumulative total return percent for the period, `min:max` (same sources as `PERFORMANCE_*`; 3Y/5Y/10Y are `(1 + CAGR)^n - 1`). Funds with no value for the period pass. |
+| `TOTAL_RETURN_1Y` | `:` | See `TOTAL_RETURN_YTD`. |
+| `TOTAL_RETURN_3Y` | `:` | See `TOTAL_RETURN_YTD`. |
+| `TOTAL_RETURN_5Y` | `:` | See `TOTAL_RETURN_YTD`. |
+| `TOTAL_RETURN_10Y` | `:` | See `TOTAL_RETURN_YTD`. |
 
-Funds not selected by `TICKERS` keep their prior published metadata and data files. The earlier `MAX_FETCHES`, `AUM`, `DIVIDEND_YIELD`, `PERFORMANCE_*`, `TOTAL_RETURN_*` and `STORE_RAW_DOWNLOADS` settings were never read by the updater and are no longer accepted.
+Filters take `min:max` with exactly one colon (an empty side is unbounded) and are combined with AND. Filter values come from the fund's freshly fetched data, falling back to its last published metadata. A fund that fails the filters, is not selected by `TICKERS`/`CATEGORY`, or falls outside the current `MAX_FETCHES` batch keeps its previously published data and catalog row. Invalid values fail the run before any request. The raw-download setting `STORE_RAW_DOWNLOADS` is not offered because the updater downloads no source files.
 
 ### Examples
 
@@ -69,6 +88,8 @@ Funds not selected by `TICKERS` keep their prior published metadata and data fil
 TICKERS="VTI VOO BND VUG" bun scripts/update-data.ts
 CONCURRENCY=2 REQUEST_SLEEP=1 bun scripts/update-data.ts
 VERBOSE=true TICKERS=VOO bun scripts/update-data.ts
+AUM="10B:" TER=":0.1" CATEGORY=Bond bun scripts/update-data.ts
+MAX_FETCHES=20 HISTORY_RANGE=5y bun scripts/update-data.ts
 ```
 
 ## TypeScript and verification
@@ -83,8 +104,6 @@ bun test
 bun build --target=bun scripts/update-data.ts --outfile=/dev/null
 git diff --check
 ```
-
-`bun test` also checks that the config file, `CONTROL_NAMES`, `--help` and the controls table above agree, and that the workflow inputs map to controls.
 
 ## Brands table
 
@@ -109,7 +128,7 @@ git diff --check
 | **ProShares** | [proshares.com](https://www.proshares.com/our-etfs/find-proshares-etfs) \| [ProShares](https://daggerok.github.io/ProShares/) |
 | **Schwab** | [schwabassetmanagement.com](https://www.schwabassetmanagement.com/products) \| [Schwab](https://daggerok.github.io/Schwab/) |
 | **SPDR** | [ssga.com](https://www.ssga.com/us/en/intermediary/etfs/fund-finder) \| [SPDR](https://daggerok.github.io/SPDR/) |
-| **Sprott ETFs** | [sprottetfs.com](https://sprottetfs.com/) \| [Sprott](https://daggerok.github.io/Sprott/) (deployment pending) |
+| **Sprott ETFs** | [sprottetfs.com](https://sprottetfs.com/) \| [Sprott](https://daggerok.github.io/Sprott/) |
 | **Tema ETFs** | [temaetfs.com](https://temaetfs.com/funds) \| [Tema](https://daggerok.github.io/Tema/) |
 | **Themes ETFs** | [themesetfs.com/etfs](https://themesetfs.com/etfs) \| [Themes](https://daggerok.github.io/Themes/) |
 | **VanEck** | [vaneck.com](https://www.vaneck.com/us/en/etf-mutual-fund-finder/) \| [VanEck](https://daggerok.github.io/VanEck/) |
