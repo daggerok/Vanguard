@@ -2,21 +2,95 @@
   "ticker": "VBCA",
   "name": "Vanguard Target Maturity 2027 Corporate Bond ETF",
   "category": "Bond",
-  "type": "Vanguard ETF",
-  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vbca",
-  "officialPage": "https://advisors.vanguard.com/investments/products/vbca/vanguard-target-maturity-2027-corporate-bond-etf",
-  "portId": "V072",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 75.44999694824219,
-  "netAssets": "$55.9M",
-  "totalFundNetAssets": "$55.9M",
-  "netAssetsAsOf": "2026-08-31",
-  "netExpenseRatio": 0.08,
-  "trailingYield": null,
-  "dividendYieldAsOf": null,
-  "secYield": 4.47,
-  "secYieldAsOf": "2026-09-24",
-  "distributionFrequency": "Monthly",
+  "categoryPath": "Bond",
+  "source": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vbca",
+    "catalog": "https://investor.vanguard.com/etf/list (fund list embedded in the updater)",
+    "officialPage": "https://advisors.vanguard.com/investments/products/vbca/vanguard-target-maturity-2027-corporate-bond-etf",
+    "holdingsDownload": "https://investor.vanguard.com/irr/funds/profile/VBCA-AdditionalFundData",
+    "holdingsSource": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "historySource": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/VBCA",
+    "provider": "Vanguard workplace fundDetails API and investor profile (IRR) data + SEC EDGAR N-PORT-P holdings fallback + Yahoo Finance market-history/dividend data"
+  },
+  "providerIds": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vbca",
+    "officialPage": "https://advisors.vanguard.com/investments/products/vbca/vanguard-target-maturity-2027-corporate-bond-etf",
+    "portId": "V072"
+  },
+  "legalStructure": null,
+  "identifiers": {
+    "cusip": null,
+    "isin": null,
+    "indexTicker": null
+  },
+  "inception": {
+    "fundInceptionDate": null,
+    "shareClassInceptionDate": null,
+    "exchange": ""
+  },
+  "expenseRatio": {
+    "display": "0.08%",
+    "value": 0.08,
+    "gross": null,
+    "net": 0.08
+  },
+  "nav": {
+    "display": "$75.36",
+    "value": 75.36,
+    "asOfDate": "Sep 25 2026"
+  },
+  "marketPrice": {
+    "display": "$75.45",
+    "value": 75.45,
+    "asOfDate": "Sep 25 2026"
+  },
+  "premiumDiscount": {
+    "display": "0.12%",
+    "value": 0.12
+  },
+  "aum": {
+    "display": "$55.9M",
+    "value": 55900000,
+    "asOfDate": "Aug 31 2026",
+    "source": "Vanguard workplace fundDetails API (ETF share class net assets)",
+    "totalFundNetAssets": {
+      "display": "$55.9M",
+      "value": 55900000
+    }
+  },
+  "yields": {
+    "dividendYield": null,
+    "dividendYieldText": "—",
+    "dividendYieldKind": "Vanguard published distribution yield",
+    "dividendYieldAsOf": null,
+    "secYield": 4.47,
+    "secYieldText": "4.47%",
+    "secYieldKind": "official 30-day SEC yield",
+    "secYieldAsOf": "2026-09-24",
+    "unsubsidizedSecYield": null
+  },
+  "returns": {
+    "monthEnd": {
+      "asOfDate": "",
+      "ytd": null,
+      "yr1": null,
+      "yr3": null,
+      "yr5": null,
+      "yr10": null,
+      "sinceInception": null
+    },
+    "quarterEnd": {
+      "asOfDate": "",
+      "ytd": null,
+      "yr1": null,
+      "yr3": null,
+      "yr5": null,
+      "yr10": null,
+      "sinceInception": null
+    },
+    "derivedFrom": "unavailable"
+  },
   "distributions": {
     "frequency": "Monthly",
     "paymentsPerYear": 12,
@@ -77,29 +151,6 @@
       ]
     ]
   },
-  "ytdReturn": 2.02300850299888,
-  "asOfDate": "",
-  "totalReturn": {
-    "1Y": 2.02300850299888,
-    "3Y": 2.023008502998902,
-    "5Y": 2.02300850299888,
-    "10Y": 2.023008502998991
-  },
-  "performance": {
-    "1Y": 2.02300850299888,
-    "3Y": 0.6698393025327709,
-    "5Y": 0.4013668362177647,
-    "10Y": 0.20048245204100645
-  },
-  "officialMetrics": {
-    "nav": null,
-    "marketPrice": null,
-    "expenseRatio": 0.08,
-    "returns": {
-      "YTD": null,
-      "1Y": null
-    }
-  },
   "holdings": {
     "pages": [
       "holdings/001.json",
@@ -109,7 +160,8 @@
     "pageSize": 250,
     "totalRows": 621,
     "asOfDate": "2026-09-24",
-    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "asOf": "Sep 24 2026"
   },
   "history": {
     "pages": [
@@ -118,6 +170,7 @@
     "pageSize": 1000,
     "totalRows": 130,
     "asOfDate": "2026-09-25",
-    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "asOf": "Sep 25 2026"
   }
 }

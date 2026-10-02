@@ -2,21 +2,95 @@
   "ticker": "VCLT",
   "name": "Vanguard Long-Term Corporate Bond ETF",
   "category": "Bond",
-  "type": "Vanguard ETF",
-  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vclt",
-  "officialPage": "https://advisors.vanguard.com/investments/products/vclt/vanguard-long-term-corporate-bond-etf",
-  "portId": "3147",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 69.62000274658203,
-  "netAssets": "$9.0B",
-  "totalFundNetAssets": "$9.8B",
-  "netAssetsAsOf": "2026-08-31",
-  "netExpenseRatio": 0.03,
-  "trailingYield": 6.31368747,
-  "dividendYieldAsOf": "2026-09-01",
-  "secYield": 6.34,
-  "secYieldAsOf": "2026-09-24",
-  "distributionFrequency": "Monthly",
+  "categoryPath": "Bond",
+  "source": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vclt",
+    "catalog": "https://investor.vanguard.com/etf/list (fund list embedded in the updater)",
+    "officialPage": "https://advisors.vanguard.com/investments/products/vclt/vanguard-long-term-corporate-bond-etf",
+    "holdingsDownload": "https://investor.vanguard.com/irr/funds/profile/VCLT-AdditionalFundData",
+    "holdingsSource": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "historySource": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/VCLT",
+    "provider": "Vanguard workplace fundDetails API and investor profile (IRR) data + SEC EDGAR N-PORT-P holdings fallback + Yahoo Finance market-history/dividend data"
+  },
+  "providerIds": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vclt",
+    "officialPage": "https://advisors.vanguard.com/investments/products/vclt/vanguard-long-term-corporate-bond-etf",
+    "portId": "3147"
+  },
+  "legalStructure": null,
+  "identifiers": {
+    "cusip": null,
+    "isin": null,
+    "indexTicker": null
+  },
+  "inception": {
+    "fundInceptionDate": null,
+    "shareClassInceptionDate": null,
+    "exchange": ""
+  },
+  "expenseRatio": {
+    "display": "0.03%",
+    "value": 0.03,
+    "gross": null,
+    "net": 0.03
+  },
+  "nav": {
+    "display": "$69.58",
+    "value": 69.58,
+    "asOfDate": "Sep 25 2026"
+  },
+  "marketPrice": {
+    "display": "$69.62",
+    "value": 69.62,
+    "asOfDate": "Sep 25 2026"
+  },
+  "premiumDiscount": {
+    "display": "0.06%",
+    "value": 0.06
+  },
+  "aum": {
+    "display": "$9.0B",
+    "value": 9000000000,
+    "asOfDate": "Aug 31 2026",
+    "source": "Vanguard workplace fundDetails API (ETF share class net assets)",
+    "totalFundNetAssets": {
+      "display": "$9.8B",
+      "value": 9800000000
+    }
+  },
+  "yields": {
+    "dividendYield": 6.31,
+    "dividendYieldText": "6.31%",
+    "dividendYieldKind": "Vanguard published distribution yield",
+    "dividendYieldAsOf": "2026-09-01",
+    "secYield": 6.34,
+    "secYieldText": "6.34%",
+    "secYieldKind": "official 30-day SEC yield",
+    "secYieldAsOf": "2026-09-24",
+    "unsubsidizedSecYield": null
+  },
+  "returns": {
+    "monthEnd": {
+      "asOfDate": "Sep 25 2026",
+      "ytd": -4.84,
+      "yr1": 0.82,
+      "yr3": 4.49,
+      "yr5": -3.43,
+      "yr10": 1.19,
+      "sinceInception": null
+    },
+    "quarterEnd": {
+      "asOfDate": "",
+      "ytd": null,
+      "yr1": null,
+      "yr3": null,
+      "yr5": null,
+      "yr10": null,
+      "sinceInception": null
+    },
+    "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
+  },
   "distributions": {
     "frequency": "Monthly",
     "paymentsPerYear": 12,
@@ -1841,29 +1915,6 @@
       ]
     ]
   },
-  "ytdReturn": -4.83962101,
-  "asOfDate": "2026-09-25",
-  "totalReturn": {
-    "1Y": -5.3142904221391,
-    "3Y": 14.082959885267353,
-    "5Y": -16.001711772365557,
-    "10Y": 12.519527804899866
-  },
-  "performance": {
-    "1Y": -5.3142904221391,
-    "3Y": 4.48972675433561,
-    "5Y": -3.427363710180764,
-    "10Y": 1.1865503251973664
-  },
-  "officialMetrics": {
-    "nav": -4.83962101,
-    "marketPrice": null,
-    "expenseRatio": 0.03,
-    "returns": {
-      "YTD": -4.83962101,
-      "1Y": 0.8188646622
-    }
-  },
   "holdings": {
     "pages": [
       "holdings/001.json",
@@ -1882,7 +1933,8 @@
     "pageSize": 250,
     "totalRows": 2866,
     "asOfDate": "2026-08-31",
-    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "asOf": "Aug 31 2026"
   },
   "history": {
     "pages": [
@@ -1891,6 +1943,7 @@
     "pageSize": 1000,
     "totalRows": 731,
     "asOfDate": "2026-09-25",
-    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "asOf": "Sep 25 2026"
   }
 }

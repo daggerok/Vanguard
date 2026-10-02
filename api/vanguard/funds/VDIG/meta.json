@@ -2,21 +2,95 @@
   "ticker": "VDIG",
   "name": "Vanguard Wellington Dividend Growth Active ETF",
   "category": "US Equity",
-  "type": "Vanguard ETF",
-  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vdig",
-  "officialPage": "https://advisors.vanguard.com/investments/products/vdig/vanguard-wellington-dividend-growth-active-etf",
-  "portId": "V053",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 62.8120002746582,
-  "netAssets": "$31.9M",
-  "totalFundNetAssets": "$31.9M",
-  "netAssetsAsOf": "2026-08-31",
-  "netExpenseRatio": 0.4,
-  "trailingYield": 1.49764,
-  "dividendYieldAsOf": "2026-08-31",
-  "secYield": 1.01,
-  "secYieldAsOf": "2026-08-31",
-  "distributionFrequency": "Annually",
+  "categoryPath": "US Equity",
+  "source": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vdig",
+    "catalog": "https://investor.vanguard.com/etf/list (fund list embedded in the updater)",
+    "officialPage": "https://advisors.vanguard.com/investments/products/vdig/vanguard-wellington-dividend-growth-active-etf",
+    "holdingsDownload": "https://investor.vanguard.com/irr/funds/profile/VDIG-AdditionalFundData",
+    "holdingsSource": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "historySource": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/VDIG",
+    "provider": "Vanguard workplace fundDetails API and investor profile (IRR) data + SEC EDGAR N-PORT-P holdings fallback + Yahoo Finance market-history/dividend data"
+  },
+  "providerIds": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vdig",
+    "officialPage": "https://advisors.vanguard.com/investments/products/vdig/vanguard-wellington-dividend-growth-active-etf",
+    "portId": "V053"
+  },
+  "legalStructure": null,
+  "identifiers": {
+    "cusip": null,
+    "isin": null,
+    "indexTicker": null
+  },
+  "inception": {
+    "fundInceptionDate": null,
+    "shareClassInceptionDate": null,
+    "exchange": ""
+  },
+  "expenseRatio": {
+    "display": "0.40%",
+    "value": 0.4,
+    "gross": null,
+    "net": 0.4
+  },
+  "nav": {
+    "display": "$62.80",
+    "value": 62.8,
+    "asOfDate": "Sep 25 2026"
+  },
+  "marketPrice": {
+    "display": "$62.81",
+    "value": 62.81,
+    "asOfDate": "Sep 25 2026"
+  },
+  "premiumDiscount": {
+    "display": "0.02%",
+    "value": 0.02
+  },
+  "aum": {
+    "display": "$31.9M",
+    "value": 31900000,
+    "asOfDate": "Aug 31 2026",
+    "source": "Vanguard workplace fundDetails API (ETF share class net assets)",
+    "totalFundNetAssets": {
+      "display": "$31.9M",
+      "value": 31900000
+    }
+  },
+  "yields": {
+    "dividendYield": 1.5,
+    "dividendYieldText": "1.50%",
+    "dividendYieldKind": "Vanguard published distribution yield",
+    "dividendYieldAsOf": "2026-08-31",
+    "secYield": 1.01,
+    "secYieldText": "1.01%",
+    "secYieldKind": "official 30-day SEC yield",
+    "secYieldAsOf": "2026-08-31",
+    "unsubsidizedSecYield": null
+  },
+  "returns": {
+    "monthEnd": {
+      "asOfDate": "Sep 25 2026",
+      "ytd": 2.46,
+      "yr1": null,
+      "yr3": null,
+      "yr5": null,
+      "yr10": null,
+      "sinceInception": null
+    },
+    "quarterEnd": {
+      "asOfDate": "",
+      "ytd": null,
+      "yr1": null,
+      "yr3": null,
+      "yr5": null,
+      "yr10": null,
+      "sinceInception": null
+    },
+    "derivedFrom": "official Vanguard YTD returns"
+  },
   "distributions": {
     "frequency": "Annually",
     "paymentsPerYear": 1,
@@ -41,29 +115,6 @@
       ]
     ]
   },
-  "ytdReturn": 2.46369717,
-  "asOfDate": "2026-09-25",
-  "totalReturn": {
-    "1Y": 6.13363727845786,
-    "3Y": 6.13363727845786,
-    "5Y": 6.133637278457882,
-    "10Y": 6.133637278457882
-  },
-  "performance": {
-    "1Y": 6.13363727845786,
-    "3Y": 2.004112764596,
-    "5Y": 1.1976924393804822,
-    "10Y": 0.5970637938207846
-  },
-  "officialMetrics": {
-    "nav": 2.46369717,
-    "marketPrice": null,
-    "expenseRatio": 0.4,
-    "returns": {
-      "YTD": 2.46369717,
-      "1Y": null
-    }
-  },
   "holdings": {
     "pages": [
       "holdings/001.json"
@@ -71,7 +122,8 @@
     "pageSize": 250,
     "totalRows": 41,
     "asOfDate": "2026-09-24",
-    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "asOf": "Sep 24 2026"
   },
   "history": {
     "pages": [
@@ -80,6 +132,7 @@
     "pageSize": 1000,
     "totalRows": 220,
     "asOfDate": "2026-09-25",
-    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "asOf": "Sep 25 2026"
   }
 }

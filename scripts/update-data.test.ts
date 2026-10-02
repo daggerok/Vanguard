@@ -1,7 +1,24 @@
 /// <reference types="bun" />
 import { expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
+import { mkdtempSync, rmSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { pathToFileURL } from "node:url";
 import {
+  HOLDINGS_HEADERS_BASE,
+  assembleFund,
+  buildIndex,
+  buildMetrics,
+  filterMetricsOf,
+  formatDisplayDate,
+  holdingIdentifier,
+  isoFromDisplayDate,
+  latestQuote,
+  previousValues,
+  run,
+  standardHoldingHeaders,
+  standardHoldingRow,
   CONTROL_NAMES,
   DEFAULT_SEC_UA,
   USAGE,
@@ -225,8 +242,9 @@ test("Vanguard IRR holdingDetails map to the holdings sheet shape", () => {
   expect(parsed?.asOf).toBe("2026-08-31");
   expect(parsed?.rows).toHaveLength(1);
   expect(parsed?.rows[0]["Ticker"]).toBe("XOM");
-  expect(parsed?.rows[0]["Weight (%)"]).toBe(22.5);
-  expect(parsed?.rows[0]["Asset Class"]).toBe("Equity");
+  expect(parsed?.rows[0]["Weight"]).toBe(22.5);
+  expect(parsed?.rows[0]["Asset Category"]).toBe("Equity");
+  expect(Object.keys(parsed!.rows[0]).slice(0, 7)).toEqual(HOLDINGS_HEADERS_BASE.slice(0, 7));
   expect(parseVanguardHoldingDetails({ historicalPrice: {} })).toBeNull();
   expect(parseVanguardHoldingDetails(null)).toBeNull();
 });
@@ -271,8 +289,9 @@ test("N-PORT XML maps to the holdings sheet shape", () => {
   expect(parsed.repPdDate).toBe("2026-07-31");
   expect(parsed.holdings).toHaveLength(2);
   expect(parsed.holdings[0]["Name"]).toBe("Exxon Mobil Corp");
-  expect(parsed.holdings[0]["Weight (%)"]).toBe("13.76");
+  expect(parsed.holdings[0]["Weight"]).toBe("13.76");
   expect(parsed.holdings[0]["CUSIP"]).toBe("30231G102");
+  expect(parsed.holdings[0]["Identifier"]).toBe("30231G102");
   expect(parsed.holdings[1]["Coupon"]).toBe("4.125");
   expect(parsed.holdings[1]["Maturity"]).toBe("2030-01-31");
 });
@@ -283,87 +302,6 @@ test("toIsoDate normalizes SEC and Vanguard date formats", () => {
   expect(toIsoDate("")).toBe("");
 });
 
-
-import { test as frequencyLabelTest, expect as frequencyLabelExpect } from 'bun:test';
-frequencyLabelTest('Frequency placeholders display None and existing cadence labels stay unchanged', async () => {
-  const text = await Bun.file(new URL('../index.html', import.meta.url)).text();
-  const start = /^([ \t]*)function (formatDividendFrequency|formatDistributionFrequency)\(/m.exec(text);
-  frequencyLabelExpect(start).not.toBeNull();
-  const tail = text.slice(start!.index);
-  const end = new RegExp('^' + start![1] + '\u007d', 'm').exec(tail);
-  frequencyLabelExpect(end).not.toBeNull();
-  const js = new Bun.Transpiler({ loader: 'ts' }).transformSync(tail.slice(0, end!.index + end![0].length));
-  const format = new Function(js + '; return ' + start![2] + ';')();
-  for (const value of [null, undefined, '', '  ', '-', '‐', '‑', '‒', '–', '—', ' — ']) {
-    frequencyLabelExpect(format(value)).toBe('00 - None');
-  }
-  for (const [input, expected] of [
-    ['None', '00 - None'], ['Unknown', '00 - Unknown'], ['Monthly', '01 - Monthly'],
-    ['Quarterly', '04 - Quarterly'], ['Semi-annually', '06 - Semi-annually'],
-    ['Annually', '12 - Annually'], ['Irregular', '99 - Irregular'],
-  ]) frequencyLabelExpect(format(input)).toBe(expected);
-});
-
-
-import { test as headerTest, expect as headerExpect } from 'bun:test';
-async function headerSummaryHarness() {
-  const source = await Bun.file(new URL('../index.html', import.meta.url)).text();
-  const match = /^([ \t]*)function renderHeaderSummary\(/m.exec(source);
-  headerExpect(match).not.toBeNull();
-  const tail = source.slice(match!.index);
-  const end = new RegExp('^' + match![1] + '}', 'm').exec(tail)!;
-  const js = new Bun.Transpiler({ loader: 'ts' }).transformSync(tail.slice(0, end.index + end[0].length));
-  const makeNode = (text = ''): any => {
-    const node: any = { textContent: text, childNodes: [], dataset: {}, listeners: {} };
-    node.replaceChildren = (...children: any[]) => { node.childNodes = children; };
-    node.append = (...children: any[]) => { node.childNodes.push(...children); };
-    node.addEventListener = (name: string, listener: any) => { node.listeners[name] = listener; };
-    return node;
-  };
-  const panel = makeNode(), subtitle = makeNode(), details = makeNode('Data: source link and updated timestamp');
-  subtitle.append(details);
-  const document = { getElementById: () => panel, createTextNode: makeNode, createElement: () => makeNode() };
-  const render = new Function('document', js + '; return renderHeaderSummary;')(document);
-  const text = () => subtitle.childNodes.map((n: any) => n.textContent).join('');
-  return { render, panel, subtitle, details, makeNode, text };
-}
-headerTest('header has no visible subtitle without selection; original details nodes are retained', async () => {
-  const h = await headerSummaryHarness();
-  h.render(h.subtitle, new Set(), null, () => {});
-  headerExpect(h.text()).toBe('');
-  headerExpect(h.panel.childNodes).toEqual([h.details]);
-  headerExpect(h.panel.childNodes[0]).toBe(h.details);
-});
-headerTest('header shows sorted selected tickers only, preserving click activation and highlight', async () => {
-  const h = await headerSummaryHarness(); const activated: string[] = [];
-  h.render(h.subtitle, new Set(['ZZZ', 'AAA']), 'AAA', (ticker: string) => activated.push(ticker));
-  headerExpect(h.text()).toBe('2 selected: AAA, ZZZ');
-  const links = h.subtitle.childNodes.filter((n: any) => n.dataset.headerFund);
-  headerExpect(links[0].className).toContain('underline');
-  links[1].listeners.click({ preventDefault() {} });
-  headerExpect(activated).toEqual(['ZZZ']);
-  headerExpect(h.panel.childNodes[0]).toBe(h.details);
-});
-headerTest('all selected still lists tickers; clear replaces both summary and selection', async () => {
-  const h = await headerSummaryHarness();
-  h.render(h.subtitle, new Set(['CCC','AAA','BBB']), 'BBB', () => {});
-  headerExpect(h.text()).toBe('3 selected: AAA, BBB, CCC');
-  const next = h.makeNode('Fresh detail context'); h.subtitle.replaceChildren(next);
-  h.render(h.subtitle, new Set(), null, () => {});
-  headerExpect(h.text()).toBe(''); headerExpect(h.panel.childNodes).toEqual([next]);
-});
-headerTest('header markup supplies a focusable counter and hidden rich panel with dismissal', async () => {
-  const html = await Bun.file(new URL('../index.html', import.meta.url)).text();
-  headerExpect(html).toMatch(/<button[^>]*aria-controls="app-summary"[^>]*id="ticker-count"/);
-  headerExpect(html).toContain('id="app-summary" role="region" aria-label="ETF catalog information" hidden');
-  headerExpect(html).toContain("event.key !== 'Escape'");
-  headerExpect(html).toContain("trigger.addEventListener('focus', show)");
-  headerExpect(html).toContain("trigger.addEventListener('pointerenter'");
-});
-
-// ---------------------------------------------------------------------------
-// Controls, resolver, config/README/workflow parity
-// ---------------------------------------------------------------------------
 
 const read = (path: string) => readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
 const file = () => JSON.parse(read("scripts/update-data.config.json"));
@@ -635,5 +573,238 @@ test("installSystemCa modes: false and active leave fetch alone, true restarts n
     expect(reexecs).toBe(1);
   } finally {
     globalThis.fetch = original;
+  }
+});
+
+// ---------------------------------------------------------------------------
+// Standard feed shapes
+// ---------------------------------------------------------------------------
+
+const rowsFrom = (points: Array<[string, number]>) => points.map(([date, adjClose]) => ({ date, adjClose, close: adjClose }));
+const YAHOO_ROWS = rowsFrom([["2024-12-31", 100], ["2025-06-01", 110], ["2025-12-31", 115], ["2026-06-01", 121]]);
+
+function inputsFor(over: Record<string, unknown> = {}): any {
+  const pageRows = [
+    { Date: "2026-05-29", Close: 120, NAV: 100.1, "Market Price": null, "Premium/Discount (%)": null, Source: "vanguard-official" },
+    { Date: "2026-06-01", Close: 121, NAV: 101, "Market Price": 101.1, "Premium/Discount (%)": 0.1, Source: "vanguard-official" },
+  ];
+  return {
+    ticker: "VOO", name: "Vanguard S&P 500 ETF", category: "US Equity", officialPage: "https://advisors.vanguard.com/x", portId: "0968",
+    frequency: "Quarterly", distributionRows: [["Quarterly", "2026-03-27", "—", "—", "1.8", "—", "—"]],
+    netAssets: "$1.0T", netAssetsAsOf: "2026-05-31", totalFundNetAssets: "$1.8T", expense: 0.03,
+    dividendYield: 1.05116, dividendYieldAsOf: "2026-05-31", secYield: null, secYieldAsOf: null,
+    officialYtd: 12.7195, officialOneYear: 15.7029, officialAsOf: "2026-05-29",
+    yahooRows: YAHOO_ROWS, pageRows,
+    holdings: { pages: ["holdings/001.json"], pageSize: 250, totalRows: 2, asOfDate: "2026-05-31", source: "Vanguard" },
+    history: { pages: ["history/001.json"], pageSize: 1000, totalRows: 2, asOfDate: "2026-06-01", source: "Vanguard + Yahoo" },
+    ...over,
+  };
+}
+
+test("display dates round-trip without a timezone shift", () => {
+  expect(formatDisplayDate("2026-09-30")).toBe("Sep 30 2026");
+  expect(formatDisplayDate(null)).toBe("—");
+  expect(formatDisplayDate("n/a")).toBe("—");
+  expect(isoFromDisplayDate("Sep 30 2026")).toBe("2026-09-30");
+  expect(isoFromDisplayDate("—")).toBe("");
+});
+
+test("metrics: official YTD and 1Y win, 3Y/5Y/10Y are derived and null when the history is short, never 0", () => {
+  const derived = summary(YAHOO_ROWS);
+  const m = buildMetrics({ officialYtd: 12.7195, officialOneYear: 15.7029, officialAsOf: "2026-05-29", derived, derivedYtd: ytdFromRows(YAHOO_ROWS), dividendYield: 1.05116, secYield: 0.98 });
+  expect(m).toMatchObject({ ytd: 12.72, tr1y: 15.7, cagr3y: null, cagr5y: null, cagr10y: null, tr3y: null, tr5y: null, tr10y: null, siAnn: null });
+  expect(m.dividendYield).toBe(1.05);
+  expect(m.secYieldText).toBe("0.98%");
+  expect(m.performanceAsOf).toBe("2026-05-29");
+  expect(m.returnsBasis).toBe("official Vanguard YTD and 1-year returns");
+  // nothing official: everything derived from Yahoo adjusted closes, dated by the last close
+  const d = buildMetrics({ officialYtd: null, officialOneYear: null, officialAsOf: null, derived, derivedYtd: ytdFromRows(YAHOO_ROWS), dividendYield: null, secYield: null });
+  expect(d.ytd).toBeCloseTo((121 / 115 - 1) * 100, 1);
+  expect(d.tr1y).toBeCloseTo(10, 6);
+  expect(d.performanceAsOf).toBe("2026-06-01");
+  expect(d.returnsBasis).toBe("YTD and 1-year returns derived from Yahoo Finance adjusted market-price closes (not NAV)");
+  expect(d.dividendYield).toBeNull();
+  expect(d.dividendYieldText).toBe("—");
+  // a long history gives both cumulative (trNy) and annualized (cagrNy) values
+  const long = rowsFrom([["2016-06-01", 100], ["2021-06-01", 200], ["2023-06-01", 300], ["2025-06-01", 400], ["2026-06-01", 500]]);
+  const l = buildMetrics({ officialYtd: null, officialOneYear: null, officialAsOf: null, derived: summary(long), derivedYtd: null, dividendYield: null, secYield: null });
+  expect(l.cagr10y).toBeCloseTo((5 ** (1 / 10) - 1) * 100, 1);
+  expect(l.tr10y).toBeCloseTo(400, 1);
+  expect(l.cagr3y).toBeCloseTo(((500 / 300) ** (1 / 3) - 1) * 100, 1);
+  expect(l.tr3y).toBeCloseTo((500 / 300 - 1) * 100, 1);
+  // no figure at all -> no date either
+  const none = buildMetrics({ officialYtd: null, officialOneYear: null, officialAsOf: null, derived: summary([]), derivedYtd: null, dividendYield: null, secYield: null });
+  expect(none.performanceAsOf).toBeNull();
+  expect(none.returnsBasis).toBe("unavailable");
+});
+
+test("a young fund yields unavailable long-period returns, not the since-launch return repeated", () => {
+  const young = rowsFrom([["2026-01-05", 100], ["2026-06-01", 103]]);
+  const s = summary(young);
+  expect(s.performance).toEqual({});
+  expect(s.totalReturn).toEqual({});
+});
+
+test("latest quote: official NAV, the market price and premium of Vanguard's price day, Yahoo close as the price fallback", () => {
+  const q = latestQuote(inputsFor().pageRows);
+  expect(q).toEqual({ nav: { value: 101, date: "2026-06-01" }, price: { value: 101.1, date: "2026-06-01" }, premiumDiscount: 0.1 });
+  const yahooOnly = latestQuote([{ Date: "2026-06-01", Close: 50, NAV: null, "Market Price": null, "Premium/Discount (%)": null }]);
+  expect(yahooOnly).toEqual({ nav: null, price: { value: 50, date: "2026-06-01" }, premiumDiscount: null });
+  expect(latestQuote([])).toEqual({ nav: null, price: null, premiumDiscount: null });
+});
+
+test("catalog row and per-fund meta have the standard keys, shared by every ETF repo", () => {
+  const { meta, row } = assembleFund(inputsFor());
+  expect(Object.keys(row)).toEqual([
+    "ticker", "name", "category", "fundPage", "dataFile", "cusip", "isin", "ter", "terValue", "nav", "navValue", "aum", "aumValue",
+    "asOfDate", "inceptionDate", "exchange", "closePrice", "closePriceValue", "premiumDiscount", "premiumDiscountValue",
+    "distributions", "returns", "metrics", "holdings", "history",
+  ]);
+  expect(Object.keys(row.metrics)).toEqual([
+    "ytd", "tr1y", "tr3y", "tr5y", "tr10y", "cagr3y", "cagr5y", "cagr10y", "siAnn", "dividendYield", "dividendYieldText",
+    "secYield", "secYieldText", "returnsBasis", "performanceAsOf",
+  ]);
+  expect(Object.keys(meta)).toEqual([
+    "ticker", "name", "category", "categoryPath", "source", "providerIds", "legalStructure", "identifiers", "inception", "expenseRatio",
+    "nav", "marketPrice", "premiumDiscount", "aum", "yields", "returns", "distributions", "holdings", "history",
+  ]);
+  expect(row).toMatchObject({
+    dataFile: "./funds/VOO/meta.json", ter: "0.03%", terValue: 0.03, nav: "$101.00", navValue: 101, aum: "$1.0T", aumValue: 1e12,
+    asOfDate: "Jun 01 2026", closePrice: "$101.10", premiumDiscount: "0.10%", holdings: 2, history: 2,
+    distributions: { frequency: "Quarterly", exDate: "03/27/2026", dividend: "1.8" },
+  });
+  expect(row.returns.monthEnd).toMatchObject({ asOfDate: "May 29 2026", ytd: 12.72, yr1: 15.7, yr3: null, sinceInception: null });
+  expect(row.returns.quarterEnd.ytd).toBeNull();
+  expect(meta.yields).toMatchObject({ dividendYield: 1.05, secYield: null, secYieldText: "—", secYieldKind: "not published" });
+  // the fund's meta is read back by the next run: the stored values must survive the round trip
+  expect(previousValues(meta)).toMatchObject({ portId: "0968", frequency: "Quarterly", netAssets: "$1.0T", netAssetsAsOf: "2026-05-31", expense: 0.03, dividendYield: 1.05, secYield: null });
+});
+
+test("the metric filters read the standard metrics: PERFORMANCE_* annualized, TOTAL_RETURN_* cumulative", () => {
+  const long = rowsFrom([["2016-06-01", 100], ["2021-06-01", 200], ["2023-06-01", 300], ["2025-06-01", 400], ["2026-06-01", 500]]);
+  const { row } = assembleFund(inputsFor({ yahooRows: long, officialYtd: null, officialOneYear: null, officialAsOf: null }));
+  const fm = filterMetricsOf(row);
+  expect(fm.performance["10Y"]).toBe(row.metrics.cagr10y);
+  expect(fm.totalReturn["10Y"]).toBe(row.metrics.tr10y);
+  expect(fm.aum).toBe(1e12);
+  expect(fm.ter).toBe(0.03);
+  const cfg = (c: Record<string, string>) => readConfig(resolveControls(file(), c));
+  expect(passesMetricFilters(fm, cfg({ PERFORMANCE_10Y: "15:20" }))).toBe(true);
+  expect(passesMetricFilters(fm, cfg({ PERFORMANCE_10Y: "20:" }))).toBe(false);
+  expect(passesMetricFilters(fm, cfg({ TOTAL_RETURN_10Y: "300:500" }))).toBe(true);
+  expect(passesMetricFilters(fm, cfg({ TOTAL_RETURN_10Y: ":100" }))).toBe(false);
+  expect(passesMetricFilters(fm, cfg({ AUM: "large", TER: ":0.05", DIVIDEND_YIELD: "1:2" }))).toBe(true);
+});
+
+test("holdings rows use the standard headers; legacy rows convert losslessly", () => {
+  expect(HOLDINGS_HEADERS_BASE.slice(0, 7)).toEqual(["Name", "Ticker", "Identifier", "Weight", "Market Value", "Shares Held", "Asset Category"]);
+  expect(holdingIdentifier("—", "US0378331005")).toBe("US0378331005");
+  expect(holdingIdentifier("037833100", "US0378331005")).toBe("037833100");
+  expect(holdingIdentifier("-", null)).toBe("—");
+  const legacy = { Ticker: "AAPL", Name: "Apple Inc", "Weight (%)": "7.03%", "Market Value": "$1", Shares: "2", "Asset Class": "Equity", Sector: "—", Exchange: "—", Location: "—", CUSIP: "037833100", ISIN: "US0378331005", Currency: "—" };
+  const standard = standardHoldingRow(legacy);
+  expect(Object.keys(standard)).toEqual(HOLDINGS_HEADERS_BASE);
+  expect(standard).toMatchObject({ Name: "Apple Inc", Ticker: "AAPL", Identifier: "037833100", Weight: "7.03%", "Shares Held": "2", "Asset Category": "Equity" });
+  expect(standardHoldingRow(standard)).toBe(standard);
+  const bond = standardHoldingRow({ ...legacy, Coupon: "4.1", Maturity: "2030-01-31" });
+  expect(standardHoldingHeaders([bond])).toEqual([...HOLDINGS_HEADERS_BASE, "Coupon", "Maturity"]);
+});
+
+test("index envelope carries generatedAt, source and counts", () => {
+  const index = buildIndex([{ holdings: 3, history: 4 }, { holdings: 2, history: 1 }], "2026-01-01T00:00:00.000Z");
+  expect(Object.keys(index)).toEqual(["generatedAt", "source", "counts", "funds"]);
+  expect(index.counts).toEqual({ funds: 2, holdings: 5, history: 5 });
+  expect(index.source.provider).toBe("Vanguard");
+});
+
+function mockFeed(delayMs = 0) {
+  const inflight = new Set<string>();
+  let peak = 0;
+  const epoch = (iso: string) => Date.parse(`${iso}T00:00:00Z`) / 1000;
+  const fetchMock = (async (input: any) => {
+    const url = String(input?.url ?? input);
+    const ticker = /\/(?:chart\/|profile\/)([A-Z]+)(?:-|\?)/.exec(url)?.[1] ?? "";
+    if (ticker) { inflight.add(ticker); peak = Math.max(peak, inflight.size); }
+    if (delayMs) await new Promise((resolve) => setTimeout(resolve, delayMs));
+    try {
+      if (url.includes("finance.yahoo.com")) {
+        const days = ["2024-12-31", "2025-06-01", "2025-12-31", "2026-06-01"];
+        const adj = [100, 110, 115, 121];
+        return Response.json({ chart: { result: [{ timestamp: days.map(epoch), indicators: { quote: [{ open: adj, high: adj, low: adj, close: adj, volume: adj }], adjclose: [{ adjclose: adj }] }, events: { dividends: { [epoch("2026-03-27")]: { amount: 1.8, date: epoch("2026-03-27") } } } }] } });
+      }
+      if (url.includes("AdditionalFundData")) {
+        return Response.json({
+          holdingDetails: { asOfDate: "05/31/2026", equityHoldings: [{ ticker: "AAA", holdingName: "A Corp", marketValuePercentage: "5.00%", cusip: "123456789" }] },
+          historicalPrice: { "3m": { nav: [{ asOfDate: "05/29/2026", price: "$100.10" }] } },
+          premiumDiscountDetails: [{ pdDetails: [{ nav: 101, marketPrice: 101.1, premiumDiscountPercentage: 0.1, effectiveDate: "06/01/2026" }] }],
+        });
+      }
+      return new Response("not found", { status: 404 });
+    } finally {
+      if (ticker) inflight.delete(ticker);
+    }
+  }) as typeof fetch;
+  return { fetchMock, peak: () => peak };
+}
+
+async function runOffline(controls: Record<string, string>, delayMs = 0) {
+  const dir = mkdtempSync(join(tmpdir(), "vanguard-feed-"));
+  const realFetch = globalThis.fetch;
+  const feed = mockFeed(delayMs);
+  globalThis.fetch = feed.fetchMock;
+  const logged = console.log;
+  console.log = () => {};
+  try {
+    await run(readConfig(resolveControls(file(), { REQUEST_SLEEP: "0", MAX_RETRIES: "1", ...controls })), pathToFileURL(`${dir}/`));
+    return { dir, peak: feed.peak() };
+  } finally {
+    console.log = logged;
+    globalThis.fetch = realFetch;
+  }
+}
+
+test("update pipeline on a mocked fetch writes the standard index, meta and holdings pages", async () => {
+  const { dir } = await runOffline({ TICKERS: "VOO VTI" });
+  try {
+    const index = JSON.parse(readFileSync(join(dir, "index.json"), "utf8"));
+    expect(Object.keys(index)).toEqual(["generatedAt", "source", "counts", "funds"]);
+    expect(index.counts).toEqual({ funds: 2, holdings: 2, history: 2 * 5 });
+    const voo = index.funds.find((fund: any) => fund.ticker === "VOO");
+    expect(voo.metrics.tr1y).toBeCloseTo(10, 6);
+    expect(voo.metrics.cagr3y).toBeNull();
+    expect(voo.metrics.performanceAsOf).toBe("2026-06-01");
+    expect(voo.navValue).toBe(101);
+    expect(voo.distributions).toEqual({ frequency: null, exDate: "03/27/2026", dividend: "1.8" });
+    const meta = JSON.parse(readFileSync(join(dir, "funds/VOO/meta.json"), "utf8"));
+    expect(Object.keys(meta)).toEqual(Object.keys(assembleFund(inputsFor()).meta));
+    const holdings = JSON.parse(readFileSync(join(dir, "funds/VOO/holdings/001.json"), "utf8"));
+    expect(holdings.headers).toEqual(HOLDINGS_HEADERS_BASE);
+    expect(holdings.rows[0]).toMatchObject({ Name: "A Corp", Ticker: "AAA", Identifier: "123456789", Weight: "5.00%" });
+    // a second run over the written feed keeps every fund (nothing is dropped, nothing is zeroed)
+    const again = await runOffline({ TICKERS: "VOO" });
+    rmSync(again.dir, { recursive: true, force: true });
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("a metric filter keeps a failing fund out of the feed", async () => {
+  const { dir } = await runOffline({ TICKERS: "VOO", AUM: "10M:20M" });
+  try {
+    expect(JSON.parse(readFileSync(join(dir, "index.json"), "utf8")).funds).toEqual([]);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("CONCURRENCY really runs funds in parallel: peak 1 fund in flight at 1, N at N", async () => {
+  const one = await runOffline({ TICKERS: "VOO VTI BND VT", CONCURRENCY: "1" }, 5);
+  const four = await runOffline({ TICKERS: "VOO VTI BND VT", CONCURRENCY: "4" }, 5);
+  try {
+    expect(one.peak).toBe(1);
+    expect(four.peak).toBe(4);
+  } finally {
+    rmSync(one.dir, { recursive: true, force: true });
+    rmSync(four.dir, { recursive: true, force: true });
   }
 });

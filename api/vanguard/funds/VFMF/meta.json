@@ -2,21 +2,95 @@
   "ticker": "VFMF",
   "name": "Vanguard U.S. Multifactor ETF",
   "category": "US Equity",
-  "type": "Vanguard ETF",
-  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vfmf",
-  "officialPage": "https://advisors.vanguard.com/investments/products/vfmf/vanguard-u-s-multifactor-etf",
-  "portId": "4421",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 181.23800659179688,
-  "netAssets": "$976.2M",
-  "totalFundNetAssets": "$976.2M",
-  "netAssetsAsOf": "2026-08-31",
-  "netExpenseRatio": 0.18,
-  "trailingYield": 1.66082,
-  "dividendYieldAsOf": "2026-08-31",
-  "secYield": 1.43,
-  "secYieldAsOf": "2026-08-31",
-  "distributionFrequency": "Quarterly",
+  "categoryPath": "US Equity",
+  "source": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vfmf",
+    "catalog": "https://investor.vanguard.com/etf/list (fund list embedded in the updater)",
+    "officialPage": "https://advisors.vanguard.com/investments/products/vfmf/vanguard-u-s-multifactor-etf",
+    "holdingsDownload": "https://investor.vanguard.com/irr/funds/profile/VFMF-AdditionalFundData",
+    "holdingsSource": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "historySource": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/VFMF",
+    "provider": "Vanguard workplace fundDetails API and investor profile (IRR) data + SEC EDGAR N-PORT-P holdings fallback + Yahoo Finance market-history/dividend data"
+  },
+  "providerIds": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vfmf",
+    "officialPage": "https://advisors.vanguard.com/investments/products/vfmf/vanguard-u-s-multifactor-etf",
+    "portId": "4421"
+  },
+  "legalStructure": null,
+  "identifiers": {
+    "cusip": null,
+    "isin": null,
+    "indexTicker": null
+  },
+  "inception": {
+    "fundInceptionDate": null,
+    "shareClassInceptionDate": null,
+    "exchange": ""
+  },
+  "expenseRatio": {
+    "display": "0.18%",
+    "value": 0.18,
+    "gross": null,
+    "net": 0.18
+  },
+  "nav": {
+    "display": "$181.06",
+    "value": 181.06,
+    "asOfDate": "Sep 25 2026"
+  },
+  "marketPrice": {
+    "display": "$181.24",
+    "value": 181.24,
+    "asOfDate": "Sep 25 2026"
+  },
+  "premiumDiscount": {
+    "display": "0.10%",
+    "value": 0.1
+  },
+  "aum": {
+    "display": "$976.2M",
+    "value": 976200000,
+    "asOfDate": "Aug 31 2026",
+    "source": "Vanguard workplace fundDetails API (ETF share class net assets)",
+    "totalFundNetAssets": {
+      "display": "$976.2M",
+      "value": 976200000
+    }
+  },
+  "yields": {
+    "dividendYield": 1.66,
+    "dividendYieldText": "1.66%",
+    "dividendYieldKind": "Vanguard published distribution yield",
+    "dividendYieldAsOf": "2026-08-31",
+    "secYield": 1.43,
+    "secYieldText": "1.43%",
+    "secYieldKind": "official 30-day SEC yield",
+    "secYieldAsOf": "2026-08-31",
+    "unsubsidizedSecYield": null
+  },
+  "returns": {
+    "monthEnd": {
+      "asOfDate": "Sep 25 2026",
+      "ytd": 21.73,
+      "yr1": 32.29,
+      "yr3": 22.63,
+      "yr5": 14.35,
+      "yr10": null,
+      "sinceInception": null
+    },
+    "quarterEnd": {
+      "asOfDate": "",
+      "ytd": null,
+      "yr1": null,
+      "yr3": null,
+      "yr5": null,
+      "yr10": null,
+      "sinceInception": null
+    },
+    "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
+  },
   "distributions": {
     "frequency": "Quarterly",
     "paymentsPerYear": 4,
@@ -338,29 +412,6 @@
       ]
     ]
   },
-  "ytdReturn": 21.72708671,
-  "asOfDate": "2026-09-25",
-  "totalReturn": {
-    "1Y": 27.32277006666386,
-    "3Y": 84.43438426408983,
-    "5Y": 95.50699526450468,
-    "10Y": 172.146728467993
-  },
-  "performance": {
-    "1Y": 27.32277006666386,
-    "3Y": 22.634866710413636,
-    "5Y": 14.349023496285461,
-    "10Y": 10.5300360815318
-  },
-  "officialMetrics": {
-    "nav": 21.72708671,
-    "marketPrice": null,
-    "expenseRatio": 0.18,
-    "returns": {
-      "YTD": 21.72708671,
-      "1Y": 32.2891298977
-    }
-  },
   "holdings": {
     "pages": [
       "holdings/001.json",
@@ -370,7 +421,8 @@
     "pageSize": 250,
     "totalRows": 654,
     "asOfDate": "2026-09-24",
-    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "asOf": "Sep 24 2026"
   },
   "history": {
     "pages": [
@@ -379,6 +431,7 @@
     "pageSize": 1000,
     "totalRows": 880,
     "asOfDate": "2026-09-25",
-    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "asOf": "Sep 25 2026"
   }
 }

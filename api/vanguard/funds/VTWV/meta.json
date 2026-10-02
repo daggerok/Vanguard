@@ -2,21 +2,95 @@
   "ticker": "VTWV",
   "name": "Vanguard Russell 2000 Value ETF",
   "category": "US Equity",
-  "type": "Vanguard ETF",
-  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vtwv",
-  "officialPage": "https://advisors.vanguard.com/investments/products/vtwv/vanguard-russell-2000-value-etf",
-  "portId": "3352",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 188.1855010986328,
-  "netAssets": "$1.4B",
-  "totalFundNetAssets": "$1.4B",
-  "netAssetsAsOf": "2026-08-31",
-  "netExpenseRatio": 0.06,
-  "trailingYield": 1.94725,
-  "dividendYieldAsOf": "2026-08-31",
-  "secYield": 1.86,
-  "secYieldAsOf": "2026-08-31",
-  "distributionFrequency": "Quarterly",
+  "categoryPath": "US Equity",
+  "source": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vtwv",
+    "catalog": "https://investor.vanguard.com/etf/list (fund list embedded in the updater)",
+    "officialPage": "https://advisors.vanguard.com/investments/products/vtwv/vanguard-russell-2000-value-etf",
+    "holdingsDownload": "https://investor.vanguard.com/irr/funds/profile/VTWV-AdditionalFundData",
+    "holdingsSource": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "historySource": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/VTWV",
+    "provider": "Vanguard workplace fundDetails API and investor profile (IRR) data + SEC EDGAR N-PORT-P holdings fallback + Yahoo Finance market-history/dividend data"
+  },
+  "providerIds": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vtwv",
+    "officialPage": "https://advisors.vanguard.com/investments/products/vtwv/vanguard-russell-2000-value-etf",
+    "portId": "3352"
+  },
+  "legalStructure": null,
+  "identifiers": {
+    "cusip": null,
+    "isin": null,
+    "indexTicker": null
+  },
+  "inception": {
+    "fundInceptionDate": null,
+    "shareClassInceptionDate": null,
+    "exchange": ""
+  },
+  "expenseRatio": {
+    "display": "0.06%",
+    "value": 0.06,
+    "gross": null,
+    "net": 0.06
+  },
+  "nav": {
+    "display": "$188.07",
+    "value": 188.07,
+    "asOfDate": "Sep 25 2026"
+  },
+  "marketPrice": {
+    "display": "$188.19",
+    "value": 188.19,
+    "asOfDate": "Sep 25 2026"
+  },
+  "premiumDiscount": {
+    "display": "0.06%",
+    "value": 0.06
+  },
+  "aum": {
+    "display": "$1.4B",
+    "value": 1400000000,
+    "asOfDate": "Aug 31 2026",
+    "source": "Vanguard workplace fundDetails API (ETF share class net assets)",
+    "totalFundNetAssets": {
+      "display": "$1.4B",
+      "value": 1400000000
+    }
+  },
+  "yields": {
+    "dividendYield": 1.95,
+    "dividendYieldText": "1.95%",
+    "dividendYieldKind": "Vanguard published distribution yield",
+    "dividendYieldAsOf": "2026-08-31",
+    "secYield": 1.86,
+    "secYieldText": "1.86%",
+    "secYieldKind": "official 30-day SEC yield",
+    "secYieldAsOf": "2026-08-31",
+    "unsubsidizedSecYield": null
+  },
+  "returns": {
+    "monthEnd": {
+      "asOfDate": "Sep 25 2026",
+      "ytd": 19.18,
+      "yr1": 29.95,
+      "yr3": 18.63,
+      "yr5": 8.17,
+      "yr10": 9.59,
+      "sinceInception": null
+    },
+    "quarterEnd": {
+      "asOfDate": "",
+      "ytd": null,
+      "yr1": null,
+      "yr3": null,
+      "yr5": null,
+      "yr10": null,
+      "sinceInception": null
+    },
+    "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
+  },
   "distributions": {
     "frequency": "Quarterly",
     "paymentsPerYear": 4,
@@ -482,29 +556,6 @@
       ]
     ]
   },
-  "ytdReturn": 19.18461321,
-  "asOfDate": "2026-09-25",
-  "totalReturn": {
-    "1Y": 22.927804668294762,
-    "3Y": 66.9687321292413,
-    "5Y": 48.073564181659954,
-    "10Y": 149.78475604976782
-  },
-  "performance": {
-    "1Y": 22.927804668294762,
-    "3Y": 18.634694562136602,
-    "5Y": 8.167179640224731,
-    "10Y": 9.586383045559232
-  },
-  "officialMetrics": {
-    "nav": 19.18461321,
-    "marketPrice": null,
-    "expenseRatio": 0.06,
-    "returns": {
-      "YTD": 19.18461321,
-      "1Y": 29.9505393938
-    }
-  },
   "holdings": {
     "pages": [
       "holdings/001.json",
@@ -517,7 +568,8 @@
     "pageSize": 250,
     "totalRows": 1431,
     "asOfDate": "2026-08-31",
-    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "asOf": "Aug 31 2026"
   },
   "history": {
     "pages": [
@@ -526,6 +578,7 @@
     "pageSize": 1000,
     "totalRows": 721,
     "asOfDate": "2026-09-25",
-    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "asOf": "Sep 25 2026"
   }
 }

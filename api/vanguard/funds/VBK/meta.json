@@ -2,21 +2,95 @@
   "ticker": "VBK",
   "name": "Vanguard Small-Cap Growth ETF",
   "category": "US Equity",
-  "type": "Vanguard ETF",
-  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vbk",
-  "officialPage": "https://advisors.vanguard.com/investments/products/vbk/vanguard-small-cap-growth-etf",
-  "portId": "0938",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 341.3599853515625,
-  "netAssets": "$23.7B",
-  "totalFundNetAssets": "$44.7B",
-  "netAssetsAsOf": "2026-08-31",
-  "netExpenseRatio": 0.05,
-  "trailingYield": 0.42763,
-  "dividendYieldAsOf": "2026-08-31",
-  "secYield": 0.37,
-  "secYieldAsOf": "2026-08-31",
-  "distributionFrequency": "Quarterly",
+  "categoryPath": "US Equity",
+  "source": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vbk",
+    "catalog": "https://investor.vanguard.com/etf/list (fund list embedded in the updater)",
+    "officialPage": "https://advisors.vanguard.com/investments/products/vbk/vanguard-small-cap-growth-etf",
+    "holdingsDownload": "https://investor.vanguard.com/irr/funds/profile/VBK-AdditionalFundData",
+    "holdingsSource": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "historySource": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/VBK",
+    "provider": "Vanguard workplace fundDetails API and investor profile (IRR) data + SEC EDGAR N-PORT-P holdings fallback + Yahoo Finance market-history/dividend data"
+  },
+  "providerIds": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vbk",
+    "officialPage": "https://advisors.vanguard.com/investments/products/vbk/vanguard-small-cap-growth-etf",
+    "portId": "0938"
+  },
+  "legalStructure": null,
+  "identifiers": {
+    "cusip": null,
+    "isin": null,
+    "indexTicker": null
+  },
+  "inception": {
+    "fundInceptionDate": null,
+    "shareClassInceptionDate": null,
+    "exchange": ""
+  },
+  "expenseRatio": {
+    "display": "0.05%",
+    "value": 0.05,
+    "gross": null,
+    "net": 0.05
+  },
+  "nav": {
+    "display": "$341.24",
+    "value": 341.24,
+    "asOfDate": "Sep 25 2026"
+  },
+  "marketPrice": {
+    "display": "$341.36",
+    "value": 341.36,
+    "asOfDate": "Sep 25 2026"
+  },
+  "premiumDiscount": {
+    "display": "0.04%",
+    "value": 0.04
+  },
+  "aum": {
+    "display": "$23.7B",
+    "value": 23700000000,
+    "asOfDate": "Aug 31 2026",
+    "source": "Vanguard workplace fundDetails API (ETF share class net assets)",
+    "totalFundNetAssets": {
+      "display": "$44.7B",
+      "value": 44700000000
+    }
+  },
+  "yields": {
+    "dividendYield": 0.43,
+    "dividendYieldText": "0.43%",
+    "dividendYieldKind": "Vanguard published distribution yield",
+    "dividendYieldAsOf": "2026-08-31",
+    "secYield": 0.37,
+    "secYieldText": "0.37%",
+    "secYieldKind": "official 30-day SEC yield",
+    "secYieldAsOf": "2026-08-31",
+    "unsubsidizedSecYield": null
+  },
+  "returns": {
+    "monthEnd": {
+      "asOfDate": "Sep 25 2026",
+      "ytd": 13.31,
+      "yr1": 20.03,
+      "yr3": 17.45,
+      "yr5": 4.61,
+      "yr10": 10.67,
+      "sinceInception": null
+    },
+    "quarterEnd": {
+      "asOfDate": "",
+      "ytd": null,
+      "yr1": null,
+      "yr3": null,
+      "yr5": null,
+      "yr10": null,
+      "sinceInception": null
+    },
+    "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
+  },
   "distributions": {
     "frequency": "Quarterly",
     "paymentsPerYear": 4,
@@ -599,29 +673,6 @@
       ]
     ]
   },
-  "ytdReturn": 13.31236194,
-  "asOfDate": "2026-09-25",
-  "totalReturn": {
-    "1Y": 15.08959153667362,
-    "3Y": 61.998714517064826,
-    "5Y": 25.28384828734509,
-    "10Y": 175.68260853491728
-  },
-  "performance": {
-    "1Y": 15.08959153667362,
-    "3Y": 17.445718586371008,
-    "5Y": 4.6114006627175685,
-    "10Y": 10.672810013872214
-  },
-  "officialMetrics": {
-    "nav": 13.31236194,
-    "marketPrice": null,
-    "expenseRatio": 0.05,
-    "returns": {
-      "YTD": 13.31236194,
-      "1Y": 20.0286378505
-    }
-  },
   "holdings": {
     "pages": [
       "holdings/001.json",
@@ -631,7 +682,8 @@
     "pageSize": 250,
     "totalRows": 556,
     "asOfDate": "2026-08-31",
-    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "asOf": "Aug 31 2026"
   },
   "history": {
     "pages": [
@@ -640,6 +692,7 @@
     "pageSize": 1000,
     "totalRows": 801,
     "asOfDate": "2026-09-25",
-    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "asOf": "Sep 25 2026"
   }
 }

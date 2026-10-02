@@ -144,26 +144,11 @@ async function mapWithConcurrency<T, R>(
   await Promise.all(runners);
   return results;
 }
-// Single source of truth for the catalog-row shape, used for both a freshly
-// fetched fund and a fund that failed this run and falls back to its
-// previously published meta.json (same continue-on-error convention as the
-// sibling updaters: one fund failing doesn't drop it from index.json).
-function catalogEntryFromMeta(meta: any): any {
-  const divRows = meta?.distributions?.rows ?? [];
-  return {
-    ...meta,
-    distributions: divRows.length
-      ? { frequency: meta.distributions.frequency, exDate: divRows[0][1], dividend: divRows[0][4] }
-      : { frequency: meta?.distributions?.frequency ?? null, exDate: null, dividend: null },
-    holdings: meta?.holdings?.totalRows ?? 0,
-    history: meta?.history?.totalRows ?? 0,
-  };
-}
-
 import { mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 
-const ROOT = new URL("../api/vanguard/", import.meta.url);
-const FUNDS = new URL("funds/", ROOT);
+const DEFAULT_ROOT = new URL("../api/vanguard/", import.meta.url);
+let ROOT = DEFAULT_ROOT;
+let FUNDS = new URL("funds/", ROOT);
 export const DEFAULT_SEC_UA = "daggerok ETF feed daggerok@gmail.com";
 const UA = DEFAULT_SEC_UA;
 
@@ -180,13 +165,14 @@ const HISTORY_HEADERS = [
   "Premium/Discount (%)",
   "Source",
 ];
-const HOLDINGS_HEADERS_BASE = [
-  "Ticker",
+export const HOLDINGS_HEADERS_BASE = [
   "Name",
-  "Weight (%)",
+  "Ticker",
+  "Identifier",
+  "Weight",
   "Market Value",
-  "Shares",
-  "Asset Class",
+  "Shares Held",
+  "Asset Category",
   "Sector",
   "Exchange",
   "Location",
@@ -1027,7 +1013,7 @@ function officialPointsFromPreviousRows(rows: any[]): OfficialPricePoint[] {
     .filter((point: OfficialPricePoint) => point.date);
 }
 
-function internalHistoryRows(pageRows: any[]): any[] {
+export function internalHistoryRows(pageRows: any[]): any[] {
   return (pageRows ?? [])
     .map((row: any) => ({
       date: row?.Date ?? row?.date ?? null,
@@ -1075,12 +1061,12 @@ function dividendsFromPrevious(meta: any): ChartDividend[] {
   return out.sort((a, b) => a.epoch - b.epoch);
 }
 
-function returnSince(rows: any[], years: number, strict = false): number | null {
+function returnSince(rows: any[], years: number, strict = true): number | null {
   if (!rows.length) return null;
   const latest = rows[rows.length - 1];
   const cutoff = new Date(`${latest.date}T00:00:00Z`);
   cutoff.setUTCFullYear(cutoff.getUTCFullYear() - years);
-  // A bounded HISTORY_RANGE can end the series short of the period: report unavailable instead of a wrong CAGR.
+  // A series that starts after the period (a young fund or a bounded HISTORY_RANGE) cannot give that period: report unavailable instead of a wrong CAGR.
   if (strict && new Date(`${rows[0].date}T00:00:00Z`).getTime() > cutoff.getTime() + 7 * 86_400_000) return null;
   let prior = rows[0];
   for (const row of rows) if (new Date(`${row.date}T00:00:00Z`) <= cutoff) prior = row;
@@ -1097,7 +1083,7 @@ export function ytdFromRows(rows: any[]): number | null {
   if (!base?.adjClose || !latest?.adjClose || base.adjClose <= 0) return null;
   return (latest.adjClose / base.adjClose - 1) * 100;
 }
-export function summary(rows: any[], strict = false) {
+export function summary(rows: any[], strict = true) {
   if (!rows.length) return { nav: null, asOfDate: null, totalReturn: {}, performance: {} };
   const latest = rows[rows.length - 1];
   const performance: Record<string, number> = {};
@@ -1110,6 +1096,369 @@ export function summary(rows: any[], strict = false) {
     }
   }
   return { nav: latest.close, asOfDate: latest.date, totalReturn, performance };
+}
+
+// ---------------------------------------------------------------------------
+// Standard feed shapes (the same catalog row, per-fund meta and metrics object
+// in every ETF repo, so one hub app can sort and search all brands alike)
+// ---------------------------------------------------------------------------
+
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+/** "2026-09-30" -> "Sep 30 2026"; anything that is not an ISO date becomes the "—" placeholder. */
+export function formatDisplayDate(iso: unknown): string {
+  const match = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(iso ?? ""));
+  return match ? `${MONTHS[Number(match[2]) - 1] ?? match[2]} ${match[3]} ${match[1]}` : "—";
+}
+
+/** Inverse of formatDisplayDate: "Sep 30 2026" -> "2026-09-30" (no Date parsing, so no timezone shift); "" when unknown. */
+export function isoFromDisplayDate(display: unknown): string {
+  const match = /^([A-Z][a-z]{2}) (\d{2}) (\d{4})$/.exec(String(display ?? ""));
+  const month = match ? MONTHS.indexOf(match[1]) : -1;
+  return match && month >= 0 ? `${match[3]}-${String(month + 1).padStart(2, "0")}-${match[2]}` : "";
+}
+
+/** "09/01/2026" style date used by the catalog `distributions.exDate`; "—" when unknown. */
+export function formatUsDate(iso: unknown): string {
+  const match = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(iso ?? ""));
+  return match ? `${match[2]}/${match[3]}/${match[1]}` : "—";
+}
+
+export function percentText(value: number | null | undefined, minDecimals = 2): string {
+  if (typeof value !== "number" || !Number.isFinite(value)) return "—";
+  const decimals = (String(round(value, 4)).split(".")[1] ?? "").length;
+  return `${value.toFixed(Math.max(minDecimals, decimals))}%`;
+}
+
+export function moneyText(value: number | null | undefined): string {
+  return typeof value === "number" && Number.isFinite(value) ? `$${value.toFixed(2)}` : "—";
+}
+
+const ID_PLACEHOLDERS = new Set(["", "-", "—"]);
+
+/** Watchlist identifier of a holding: its CUSIP, else its ISIN, else the "—" placeholder. */
+export function holdingIdentifier(cusip: unknown, isin: unknown): string {
+  for (const value of [cusip, isin]) {
+    const text = String(value ?? "").trim();
+    if (!ID_PLACEHOLDERS.has(text)) return text;
+  }
+  return "—";
+}
+
+/** Maps a holdings row written under the legacy headers (Weight (%), Shares, Asset Class) onto the standard ones. */
+export function standardHoldingRow(row: Record<string, unknown>): Record<string, unknown> {
+  if (!("Weight (%)" in row) && !("Shares" in row) && !("Asset Class" in row)) return row;
+  const { Coupon, Maturity } = row as any;
+  return {
+    Name: row.Name ?? "—",
+    Ticker: row.Ticker ?? "—",
+    Identifier: row.Identifier ?? holdingIdentifier(row.CUSIP, row.ISIN),
+    Weight: row["Weight (%)"] ?? row.Weight ?? "—",
+    "Market Value": row["Market Value"] ?? "—",
+    "Shares Held": row.Shares ?? row["Shares Held"] ?? "—",
+    "Asset Category": row["Asset Class"] ?? row["Asset Category"] ?? "—",
+    Sector: row.Sector ?? "—",
+    Exchange: row.Exchange ?? "—",
+    Location: row.Location ?? "—",
+    CUSIP: row.CUSIP ?? "—",
+    ISIN: row.ISIN ?? "—",
+    Currency: row.Currency ?? "—",
+    ...(Coupon !== undefined || Maturity !== undefined ? { Coupon: Coupon ?? "-", Maturity: Maturity ?? "-" } : {}),
+  };
+}
+
+/** Header list of a holdings sheet: the standard headers, plus Coupon and Maturity when any row has them. */
+export function standardHoldingHeaders(rows: Record<string, unknown>[]): string[] {
+  return rows.some((row) => "Coupon" in row || "Maturity" in row) ? [...HOLDINGS_HEADERS_BASE, "Coupon", "Maturity"] : [...HOLDINGS_HEADERS_BASE];
+}
+
+export type LatestQuote = {
+  nav: { value: number; date: string } | null;
+  price: { value: number; date: string } | null;
+  premiumDiscount: number | null;
+};
+
+/**
+ * Latest NAV, market price and premium/discount of a history sheet (rows keyed by
+ * HISTORY_HEADERS, ascending by date). NAV only ever comes from Vanguard's official
+ * series; the market price is Vanguard's too and falls back to the last Yahoo close.
+ * The premium/discount is the one Vanguard published for the market-price day, never
+ * computed across different days.
+ */
+export function latestQuote(pageRows: Record<string, unknown>[]): LatestQuote {
+  let nav: LatestQuote["nav"] = null;
+  let official: { value: number; date: string; premium: number | null } | null = null;
+  let close: { value: number; date: string } | null = null;
+  for (const row of pageRows ?? []) {
+    const date = String(row?.Date ?? "");
+    if (!date) continue;
+    const navValue = numberOrNull(row?.NAV);
+    if (navValue !== null) nav = { value: navValue, date };
+    const price = numberOrNull(row?.["Market Price"]);
+    if (price !== null) official = { value: price, date, premium: numberOrNull(row?.["Premium/Discount (%)"]) };
+    const closeValue = numberOrNull(row?.Close);
+    if (closeValue !== null) close = { value: closeValue, date };
+  }
+  const price = official ?? close;
+  return { nav, price: price ? { value: price.value, date: price.date } : null, premiumDiscount: official?.premium ?? null };
+}
+
+export type MetricsInput = {
+  officialYtd: number | null;
+  officialOneYear: number | null;
+  /** ISO date Vanguard attached to the official figures, if any. */
+  officialAsOf: string | null;
+  /** Annualized and cumulative returns derived from Yahoo adjusted closes (see `summary`). */
+  derived: ReturnType<typeof summary>;
+  derivedYtd: number | null;
+  dividendYield: number | null;
+  secYield: number | null;
+};
+
+export type StandardMetrics = {
+  ytd: number | null;
+  tr1y: number | null;
+  tr3y: number | null;
+  tr5y: number | null;
+  tr10y: number | null;
+  cagr3y: number | null;
+  cagr5y: number | null;
+  cagr10y: number | null;
+  siAnn: number | null;
+  dividendYield: number | null;
+  dividendYieldText: string;
+  secYield: number | null;
+  secYieldText: string;
+  returnsBasis: string;
+  performanceAsOf: string | null;
+};
+
+const rounded = (value: number | null | undefined): number | null =>
+  typeof value === "number" && Number.isFinite(value) ? round(value, 2) : null;
+
+function joinWords(items: string[]): string {
+  return items.length < 2 ? items.join("") : `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`;
+}
+
+/**
+ * ytd and tr1y are cumulative total returns in percent (Vanguard's own figure when
+ * published, else derived); tr3y/tr5y/tr10y are cumulative and cagr3y/cagr5y/cagr10y
+ * annualized, both derived from Yahoo adjusted market-price closes and left null when
+ * the history does not cover the period. siAnn is null: no source publishes it here.
+ */
+export function buildMetrics(input: MetricsInput): StandardMetrics {
+  const ytd = rounded(input.officialYtd ?? input.derivedYtd);
+  const tr1y = rounded(input.officialOneYear ?? input.derived.totalReturn["1Y"]);
+  const longer = [3, 5, 10].map((years) => ({
+    total: rounded(input.derived.totalReturn[`${years}Y`]),
+    cagr: rounded(input.derived.performance[`${years}Y`]),
+  }));
+  const official: string[] = [];
+  if (input.officialYtd !== null) official.push("YTD");
+  if (input.officialOneYear !== null) official.push("1-year");
+  const derived: string[] = [];
+  if (input.officialYtd === null && ytd !== null) derived.push("YTD");
+  if (input.officialOneYear === null && tr1y !== null) derived.push("1-year");
+  if (longer.some((item) => item.cagr !== null)) derived.push("3-, 5- and 10-year annualized");
+  const returnsBasis = [
+    official.length ? `official Vanguard ${joinWords(official)} returns` : "",
+    derived.length ? `${joinWords(derived)} returns derived from Yahoo Finance adjusted market-price closes (not NAV)` : "",
+  ].filter(Boolean).join("; ") || "unavailable";
+  const hasReturns = ytd !== null || tr1y !== null || longer.some((item) => item.cagr !== null);
+  const dividendYield = rounded(input.dividendYield);
+  const secYield = rounded(input.secYield);
+  return {
+    ytd,
+    tr1y,
+    tr3y: longer[0].total,
+    tr5y: longer[1].total,
+    tr10y: longer[2].total,
+    cagr3y: longer[0].cagr,
+    cagr5y: longer[1].cagr,
+    cagr10y: longer[2].cagr,
+    siAnn: null,
+    dividendYield,
+    dividendYieldText: dividendYield === null ? "—" : `${dividendYield.toFixed(2)}%`,
+    secYield,
+    secYieldText: secYield === null ? "—" : `${secYield.toFixed(2)}%`,
+    returnsBasis,
+    performanceAsOf: hasReturns ? (input.officialAsOf || input.derived.asOfDate || null) : null,
+  };
+}
+
+/** The values the metric filters (AUM, TER, yields, PERFORMANCE_*, TOTAL_RETURN_*) look at, read off the standard catalog fields. */
+export function filterMetricsOf(row: { aumValue: number | null; terValue: number | null; metrics: StandardMetrics }): FilterMetrics {
+  const m = row.metrics;
+  return {
+    aum: row.aumValue,
+    ter: row.terValue,
+    dividendYield: m.dividendYield,
+    secYield: m.secYield,
+    performance: { YTD: m.ytd, "1Y": m.tr1y, "3Y": m.cagr3y, "5Y": m.cagr5y, "10Y": m.cagr10y },
+    totalReturn: { YTD: m.ytd, "1Y": m.tr1y, "3Y": m.tr3y, "5Y": m.tr5y, "10Y": m.tr10y },
+  };
+}
+
+export type FundInputs = {
+  ticker: string;
+  name: string;
+  category: string;
+  officialPage: string | null;
+  portId: string | null;
+  frequency: string | null;
+  distributionRows: string[][];
+  netAssets: string | null;
+  netAssetsAsOf: string | null;
+  totalFundNetAssets: string | null;
+  expense: number | null;
+  dividendYield: number | null;
+  dividendYieldAsOf: string | null;
+  secYield: number | null;
+  secYieldAsOf: string | null;
+  officialYtd: number | null;
+  officialOneYear: number | null;
+  officialAsOf: string | null;
+  /** Yahoo rows (lowercase keys, ascending) the derived returns are computed from. */
+  yahooRows: any[];
+  /** The merged history sheet as published (header-keyed rows, ascending). */
+  pageRows: Record<string, unknown>[];
+  holdings: { pages: string[]; pageSize: number; totalRows: number; asOfDate: string | null; source: string };
+  history: { pages: string[]; pageSize: number; totalRows: number; asOfDate: string | null; source: string };
+};
+
+export function fundMetrics(input: FundInputs): StandardMetrics {
+  return buildMetrics({
+    officialYtd: input.officialYtd,
+    officialOneYear: input.officialOneYear,
+    officialAsOf: toIsoDate(input.officialAsOf) || null,
+    derived: summary(input.yahooRows),
+    derivedYtd: ytdFromRows(input.yahooRows),
+    dividendYield: input.dividendYield,
+    secYield: input.secYield,
+  });
+}
+
+const ME_KEYS = ["ytd", "yr1", "yr3", "yr5", "yr10", "sinceInception"] as const;
+
+/** One fund's standard per-fund meta.json and catalog row, built from the same inputs by the updater and by any offline migration. */
+export function assembleFund(input: FundInputs): { meta: any; row: any } {
+  const { ticker, name, category } = input;
+  const metrics = fundMetrics(input);
+  const quote = latestQuote(input.pageRows);
+  const fundPage = `https://investor.vanguard.com/investment-products/etfs/profile/${ticker.toLowerCase()}`;
+  const aumValue = parseAmount(input.netAssets);
+  const premium = quote.premiumDiscount;
+  const asOf = metrics.performanceAsOf ? formatDisplayDate(metrics.performanceAsOf) : "";
+  const returnValues = [metrics.ytd, metrics.tr1y, metrics.cagr3y, metrics.cagr5y, metrics.cagr10y, metrics.siAnn];
+  const monthEnd: Record<string, unknown> = { asOfDate: asOf };
+  ME_KEYS.forEach((key, index) => { monthEnd[key] = returnValues[index]; });
+  const quarterEnd: Record<string, unknown> = { asOfDate: "" };
+  ME_KEYS.forEach((key) => { quarterEnd[key] = null; });
+  const latestDividend = input.distributionRows[0];
+  const meta = {
+    ticker,
+    name,
+    category,
+    categoryPath: category,
+    source: {
+      fundPage,
+      catalog: "https://investor.vanguard.com/etf/list (fund list embedded in the updater)",
+      officialPage: input.officialPage,
+      holdingsDownload: `${VANGUARD_IRR_URL}/${ticker}-AdditionalFundData`,
+      holdingsSource: input.holdings.source,
+      historySource: input.history.source,
+      yahooChart: `${YAHOO_CHART_URL}/${ticker}`,
+      provider:
+        "Vanguard workplace fundDetails API and investor profile (IRR) data + SEC EDGAR N-PORT-P holdings fallback + Yahoo Finance market-history/dividend data",
+    },
+    providerIds: { fundPage, officialPage: input.officialPage, portId: input.portId },
+    legalStructure: null,
+    identifiers: { cusip: null, isin: null, indexTicker: null },
+    inception: { fundInceptionDate: null, shareClassInceptionDate: null, exchange: "" },
+    expenseRatio: { display: percentText(input.expense), value: input.expense, gross: null, net: input.expense },
+    nav: { display: moneyText(quote.nav?.value), value: quote.nav ? round(quote.nav.value, 4) : null, asOfDate: formatDisplayDate(quote.nav?.date) },
+    marketPrice: { display: moneyText(quote.price?.value), value: quote.price ? round(quote.price.value, 4) : null, asOfDate: formatDisplayDate(quote.price?.date) },
+    premiumDiscount: { display: percentText(premium), value: premium },
+    aum: {
+      display: input.netAssets ?? "—",
+      value: aumValue,
+      asOfDate: formatDisplayDate(input.netAssetsAsOf),
+      source: "Vanguard workplace fundDetails API (ETF share class net assets)",
+      totalFundNetAssets: { display: input.totalFundNetAssets ?? "—", value: parseAmount(input.totalFundNetAssets) },
+    },
+    yields: {
+      dividendYield: metrics.dividendYield,
+      dividendYieldText: metrics.dividendYieldText,
+      dividendYieldKind: "Vanguard published distribution yield",
+      dividendYieldAsOf: input.dividendYieldAsOf,
+      secYield: metrics.secYield,
+      secYieldText: metrics.secYieldText,
+      secYieldKind: metrics.secYield === null ? "not published" : "official 30-day SEC yield",
+      secYieldAsOf: input.secYieldAsOf,
+      unsubsidizedSecYield: null,
+    },
+    returns: { monthEnd, quarterEnd, derivedFrom: metrics.returnsBasis },
+    distributions: {
+      frequency: input.frequency,
+      paymentsPerYear: paymentsPerYear(input.frequency),
+      headers: DISTRIBUTION_HEADERS,
+      rows: input.distributionRows,
+    },
+    holdings: { ...input.holdings, asOf: formatDisplayDate(input.holdings.asOfDate) },
+    history: { ...input.history, asOf: formatDisplayDate(input.history.asOfDate) },
+  };
+  const row = {
+    ticker,
+    name,
+    category,
+    fundPage,
+    dataFile: `./funds/${ticker}/meta.json`,
+    cusip: meta.identifiers.cusip,
+    isin: meta.identifiers.isin,
+    ter: meta.expenseRatio.display,
+    terValue: input.expense,
+    nav: meta.nav.display,
+    navValue: meta.nav.value,
+    aum: meta.aum.display,
+    aumValue,
+    asOfDate: meta.nav.asOfDate,
+    inceptionDate: "—",
+    exchange: "",
+    closePrice: meta.marketPrice.display,
+    closePriceValue: meta.marketPrice.value,
+    premiumDiscount: meta.premiumDiscount.display,
+    premiumDiscountValue: premium,
+    distributions: {
+      frequency: input.frequency,
+      exDate: latestDividend ? formatUsDate(latestDividend[1]) : "—",
+      dividend: latestDividend ? latestDividend[4] : "—",
+    },
+    returns: meta.returns,
+    metrics,
+    holdings: input.holdings.totalRows,
+    history: input.history.totalRows,
+  };
+  return { meta, row };
+}
+
+/** The standard catalog envelope: generatedAt, source and counts on top of the fund rows. */
+export function buildIndex(funds: any[], generatedAt: string = new Date().toISOString()) {
+  return {
+    generatedAt,
+    source: {
+      provider: "Vanguard",
+      site: "https://investor.vanguard.com",
+      catalog: "https://investor.vanguard.com/etf/list (fund list embedded in the updater)",
+      holdings: "Vanguard investor profile holdings (IRR AdditionalFundData); SEC EDGAR N-PORT-P fallback",
+      history: "Vanguard official NAV/market-price/premium-discount history merged by date with Yahoo Finance daily chart",
+    },
+    counts: {
+      funds: funds.length,
+      holdings: funds.reduce((sum, fund) => sum + (Number(fund.holdings) || 0), 0),
+      history: funds.reduce((sum, fund) => sum + (Number(fund.history) || 0), 0),
+    },
+    funds,
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -1140,35 +1489,31 @@ export function parseVanguardHoldingDetails(data: any): VanguardHoldings | null 
   }
   if (!buckets.length) return null;
   const rows = buckets.flatMap(({ label, items }) =>
-    items.map((item: any) => ({
-      Ticker: item?.ticker ?? item?.holdingTicker ?? item?.symbol ?? "—",
-      Name:
-        item?.holdingName ??
-        item?.securityLongDescription ??
-        item?.securityShortDescription ??
-        item?.name ??
-        item?.ticker ??
-        "—",
-      "Weight (%)": item?.marketValuePercentage ?? item?.weight ?? item?.percentOfAssets ?? "—",
-      "Market Value":
-        item?.marketValueBaseCurrency ??
-        item?.marketValue ??
-        item?.value ??
-        "—",
-      Shares:
-        item?.shareQuantity ??
-        item?.shares ??
-        item?.numberOfShares ??
-        item?.quantity ??
-        "—",
-      "Asset Class": label,
-      Sector: item?.sector ?? item?.gicsSector ?? "—",
-      Exchange: item?.exchange ?? "—",
-      Location: item?.location ?? item?.country ?? "—",
-      CUSIP: item?.cusip ?? item?.securityId ?? "—",
-      ISIN: item?.isin ?? "—",
-      Currency: item?.currency ?? "—",
-    })),
+    items.map((item: any) => {
+      const cusip = item?.cusip ?? item?.securityId ?? "—";
+      const isin = item?.isin ?? "—";
+      return {
+        Name:
+          item?.holdingName ??
+          item?.securityLongDescription ??
+          item?.securityShortDescription ??
+          item?.name ??
+          item?.ticker ??
+          "—",
+        Ticker: item?.ticker ?? item?.holdingTicker ?? item?.symbol ?? "—",
+        Identifier: holdingIdentifier(cusip, isin),
+        Weight: item?.marketValuePercentage ?? item?.weight ?? item?.percentOfAssets ?? "—",
+        "Market Value": item?.marketValueBaseCurrency ?? item?.marketValue ?? item?.value ?? "—",
+        "Shares Held": item?.shareQuantity ?? item?.shares ?? item?.numberOfShares ?? item?.quantity ?? "—",
+        "Asset Category": label,
+        Sector: item?.sector ?? item?.gicsSector ?? "—",
+        Exchange: item?.exchange ?? "—",
+        Location: item?.location ?? item?.country ?? "—",
+        CUSIP: cusip,
+        ISIN: isin,
+        Currency: item?.currency ?? "—",
+      };
+    }),
   );
   if (!rows.length) return null;
   const asOf = toIsoDate(rawAsOf);
@@ -1323,17 +1668,19 @@ export function parseNport(xml: string): ParsedNport {
     const weight = numberOrNull(tagValue(body, "pctVal"));
     if (value !== null) totalValue += value;
     const debt = /<debtSec\b[^>]*>([\s\S]*?)<\/debtSec>/i.exec(body)?.[1] || "";
+    const cusipValue = cusip && !/^n\/?a$/i.test(cusip) ? cusip : identifier;
     holdings.push({
-      Ticker: "-",
       Name: name,
-      "Weight (%)": weight === null ? "—" : String(weight),
+      Ticker: "-",
+      Identifier: holdingIdentifier(cusipValue, isin),
+      Weight: weight === null ? "—" : String(weight),
       "Market Value": value === null ? "—" : String(value),
-      Shares: tagValue(body, "balance") || "-",
-      "Asset Class": tagValue(body, "assetCat") || "-",
+      "Shares Held": tagValue(body, "balance") || "-",
+      "Asset Category": tagValue(body, "assetCat") || "-",
       Sector: "—",
       Exchange: "—",
       Location: "—",
-      CUSIP: cusip && !/^n\/?a$/i.test(cusip) ? cusip : identifier,
+      CUSIP: cusipValue,
       ISIN: isin || "—",
       Currency: tagValue(body, "curCd") || "—",
       ...(debt ? { Coupon: tagValue(debt, "annualizedRt") || "-", Maturity: tagValue(debt, "maturityDt") || "-" } : {}),
@@ -1453,6 +1800,23 @@ async function readPreviousMeta(ticker: string): Promise<any | null> {
   }
 }
 
+/** Last published values a failed or partial fetch falls back to, read from a standard-shape meta.json. */
+export function previousValues(meta: any) {
+  const text = (value: unknown): string | null => (typeof value === "string" && value && value !== "—" ? value : null);
+  return {
+    portId: text(meta?.providerIds?.portId),
+    frequency: text(meta?.distributions?.frequency),
+    netAssets: text(meta?.aum?.display),
+    netAssetsAsOf: isoFromDisplayDate(meta?.aum?.asOfDate) || null,
+    totalFundNetAssets: text(meta?.aum?.totalFundNetAssets?.display),
+    expense: numberOrNull(meta?.expenseRatio?.value),
+    dividendYield: numberOrNull(meta?.yields?.dividendYield),
+    dividendYieldAsOf: text(meta?.yields?.dividendYieldAsOf),
+    secYield: numberOrNull(meta?.yields?.secYield),
+    secYieldAsOf: text(meta?.yields?.secYieldAsOf),
+  };
+}
+
 async function readPreviousSheet(ticker: string, kind: string): Promise<{ headers: string[]; rows: any[] }> {
   try {
     const meta = await readPreviousMeta(ticker);
@@ -1466,6 +1830,10 @@ async function readPreviousSheet(ticker: string, kind: string): Promise<{ header
         if (!headers.length && Array.isArray(data.headers)) headers = data.headers;
         if (Array.isArray(data.rows)) rows.push(...data.rows);
       } catch {}
+    }
+    if (kind === "holdings") {
+      const standard = rows.map(standardHoldingRow);
+      return { headers: standardHoldingHeaders(standard), rows: standard };
     }
     return { headers, rows };
   } catch {
@@ -1533,7 +1901,19 @@ async function readJsonOrNull(url: URL): Promise<any | null> {
   }
 }
 
-export async function run(config: UpdaterConfig = readConfig({})) {
+/** `outputRoot` redirects every read and write (tests); the published feed is always `api/vanguard`. */
+export async function run(config: UpdaterConfig = readConfig({}), outputRoot: URL = DEFAULT_ROOT) {
+  ROOT = outputRoot;
+  FUNDS = new URL("funds/", ROOT);
+  try {
+    await runUpdate(config);
+  } finally {
+    ROOT = DEFAULT_ROOT;
+    FUNDS = new URL("funds/", ROOT);
+  }
+}
+
+async function runUpdate(config: UpdaterConfig) {
   activeConfig = config;
   await mkdir(FUNDS, { recursive: true });
   const holdingsPageSize = config.holdingsPageSize;
@@ -1566,7 +1946,6 @@ export async function run(config: UpdaterConfig = readConfig({})) {
     const vgHoldings = vgAdditional.holdings;
 
     // --- Holdings: Vanguard official feed -> SEC N-PORT-P -> previous sheet ---
-    let holdingsHeaders: string[] = HOLDINGS_HEADERS_BASE;
     let holdingsRows: Record<string, unknown>[] = vgHoldings?.rows ?? [];
     let holdingsAsOf: string | null = vgHoldings?.asOf ?? null;
     let holdingsSource = holdingsRows.length
@@ -1581,9 +1960,6 @@ export async function run(config: UpdaterConfig = readConfig({})) {
           if (seriesMatches && parsed.holdings.length) {
             const names = await loadCompanyTickerTable();
             holdingsRows = fillNportTickers(parsed.holdings, names);
-            if (holdingsRows.some((row) => "Coupon" in row || "Maturity" in row)) {
-              holdingsHeaders = [...HOLDINGS_HEADERS_BASE, "Coupon", "Maturity"];
-            }
             holdingsAsOf = parsed.repPdDate || null;
             holdingsSource = `SEC EDGAR Form N-PORT-P (accession ${filing.accession.accession}, report period ${parsed.repPdDate || "n/a"})`;
           }
@@ -1592,16 +1968,16 @@ export async function run(config: UpdaterConfig = readConfig({})) {
         outputNote(`[ ${'nport'.padEnd(9)}] ${ticker} ${error}`);
       }
     }
+    const prevMeta = await readPreviousMeta(ticker);
     if (!holdingsRows.length) {
       const prev = await readPreviousSheet(ticker, "holdings");
       if (prev.rows.length) {
-        const prevMeta = await readPreviousMeta(ticker);
         holdingsRows = prev.rows;
-        holdingsHeaders = prev.headers.length ? prev.headers : holdingsHeaders;
         holdingsAsOf = prevMeta?.holdings?.asOfDate ?? null;
         holdingsSource = prevMeta?.holdings?.source ?? "previous run";
       }
     }
+    const holdingsHeaders = standardHoldingHeaders(holdingsRows);
 
     // --- History (+ dividends): Vanguard official NAV/market-price/premium-
     // discount (historicalPrice + premiumDiscountDetails) as the primary
@@ -1616,11 +1992,9 @@ export async function run(config: UpdaterConfig = readConfig({})) {
       if (!historyRows.length) historyRows = internalHistoryRows(prev.rows);
       if (!officialHistory.length) officialHistory = officialPointsFromPreviousRows(prev.rows);
     }
-    const prevMeta = await readPreviousMeta(ticker);
     if (!dividends.length && prevMeta) {
       dividends = dividendsFromPrevious(prevMeta);
     }
-    const metrics = summary(historyRows, config.historyRange !== "max");
 
     const allHistoryRows = historyPageRows(historyRows, officialHistory);
     const windowStart = historyWindowStartDate(config.historyRange, Math.floor(Date.now() / 1000));
@@ -1628,91 +2002,70 @@ export async function run(config: UpdaterConfig = readConfig({})) {
     const mergedHistoryRows = windowedHistoryRows.length ? windowedHistoryRows : allHistoryRows;
     const historyAsOfDate = mergedHistoryRows.length
       ? String(mergedHistoryRows[mergedHistoryRows.length - 1].Date)
-      : (metrics.asOfDate ?? null);
+      : (historyRows.length ? String(historyRows[historyRows.length - 1].date) : null);
 
-    const expense = official.expense?.value ? Number(official.expense.value) : null;
-    const officialYtd = official.ytd?.value ? Number(official.ytd.value) : null;
-    const officialOneYear = official.oneYear?.value ? Number(official.oneYear.value) : null;
-    const ytd = officialYtd ?? ytdFromRows(historyRows);
-    const filterMetrics: FilterMetrics = {
-      aum: parseAmount(official.etfAssets?.value ?? prevMeta?.netAssets),
-      ter: expense ?? numberOrNull(prevMeta?.netExpenseRatio),
-      dividendYield: official.dividend?.value ? numberOrNull(official.dividend.value) : numberOrNull(prevMeta?.trailingYield),
-      secYield: official.sec?.value ? numberOrNull(official.sec.value) : numberOrNull(prevMeta?.secYield),
-      performance: { YTD: ytd, "1Y": officialOneYear ?? metrics.performance["1Y"] ?? null, "3Y": metrics.performance["3Y"] ?? null, "5Y": metrics.performance["5Y"] ?? null, "10Y": metrics.performance["10Y"] ?? null },
-      totalReturn: { YTD: ytd, "1Y": officialOneYear ?? metrics.totalReturn["1Y"] ?? null, "3Y": metrics.totalReturn["3Y"] ?? null, "5Y": metrics.totalReturn["5Y"] ?? null, "10Y": metrics.totalReturn["10Y"] ?? null },
-    };
-    if (!passesMetricFilters(filterMetrics, config)) {
-      // Filtered funds keep their previously published data and catalog row untouched.
-      await output.result(ticker, before, 'filtered', 'metric filters', { yahooHistoryCount: historyRows.length });
-      return prevMeta ? catalogEntryFromMeta(prevMeta) : null;
-    }
-    await mkdir(dir, { recursive: true });
-    const historyManifest = await writePages(dir, ticker, "history", HISTORY_HEADERS, mergedHistoryRows, historyPageSize);
-    const holdingsManifest = await writePages(dir, ticker, "holdings", holdingsHeaders, holdingsRows, holdingsPageSize);
-    const frequency = official.distributionFrequency ?? prevMeta?.distributionFrequency ?? null;
-    const divRows = distributionRows(frequency, dividends);
-    const meta = {
+    const prev = previousValues(prevMeta);
+    const frequency = official.distributionFrequency ?? prev.frequency;
+    const inputs: FundInputs = {
       ticker,
       name,
       category,
-      type: "Vanguard ETF",
-      fundPage: `https://investor.vanguard.com/investment-products/etfs/profile/${ticker.toLowerCase()}`,
       officialPage: official.url,
-      portId: (official as any).portId ?? prevMeta?.portId ?? null,
-      source:
-        "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-      nav: metrics.nav,
-      netAssets: official.etfAssets?.value ?? prevMeta?.netAssets ?? null,
-      totalFundNetAssets: official.netAssets?.value ?? prevMeta?.totalFundNetAssets ?? null,
-      netAssetsAsOf: official.etfAssets?.asOf ?? prevMeta?.netAssetsAsOf ?? null,
-      netExpenseRatio: expense ?? prevMeta?.netExpenseRatio ?? null,
-      trailingYield: official.dividend?.value ? Number(official.dividend.value) : (prevMeta?.trailingYield ?? null),
-      dividendYieldAsOf: official.dividend?.asOf ?? prevMeta?.dividendYieldAsOf ?? null,
-      secYield: official.sec?.value ? Number(official.sec.value) : (prevMeta?.secYield ?? null),
-      secYieldAsOf: official.sec?.asOf ?? prevMeta?.secYieldAsOf ?? null,
-      distributionFrequency: frequency,
-      distributions: {
-        frequency,
-        paymentsPerYear: paymentsPerYear(frequency),
-        headers: DISTRIBUTION_HEADERS,
-        rows: divRows,
-      },
-      ytdReturn: officialYtd ?? metrics.totalReturn["1Y"] ?? null,
-      asOfDate: official.ytd?.asOf ?? metrics.asOfDate,
-      totalReturn: metrics.totalReturn,
-      performance: metrics.performance,
-      officialMetrics: {
-        nav: officialYtd === null ? null : officialYtd,
-        marketPrice: null,
-        expenseRatio: expense,
-        returns: { YTD: officialYtd, "1Y": officialOneYear },
-      },
-      holdings: { ...holdingsManifest, asOfDate: holdingsAsOf, source: holdingsSource },
+      portId: (official as any).portId ?? prev.portId,
+      frequency,
+      distributionRows: distributionRows(frequency, dividends),
+      netAssets: official.etfAssets?.value ?? prev.netAssets,
+      netAssetsAsOf: toIsoDate(official.etfAssets?.asOf) || prev.netAssetsAsOf,
+      totalFundNetAssets: official.netAssets?.value ?? prev.totalFundNetAssets,
+      expense: official.expense?.value ? Number(official.expense.value) : prev.expense,
+      dividendYield: official.dividend?.value ? numberOrNull(official.dividend.value) : prev.dividendYield,
+      dividendYieldAsOf: toIsoDate(official.dividend?.asOf) || prev.dividendYieldAsOf,
+      secYield: official.sec?.value ? numberOrNull(official.sec.value) : prev.secYield,
+      secYieldAsOf: toIsoDate(official.sec?.asOf) || prev.secYieldAsOf,
+      officialYtd: official.ytd?.value ? numberOrNull(official.ytd.value) : null,
+      officialOneYear: official.oneYear?.value ? numberOrNull(official.oneYear.value) : null,
+      officialAsOf: official.ytd?.asOf ?? null,
+      yahooRows: historyRows,
+      pageRows: mergedHistoryRows,
+      holdings: { pages: [], pageSize: holdingsPageSize, totalRows: holdingsRows.length, asOfDate: holdingsAsOf, source: holdingsSource },
       history: {
-        ...historyManifest,
+        pages: [],
+        pageSize: historyPageSize,
+        totalRows: mergedHistoryRows.length,
         asOfDate: historyAsOfDate,
         source:
           "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) " +
           "+ Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
       },
     };
+    if (!passesMetricFilters(filterMetricsOf({ aumValue: parseAmount(inputs.netAssets), terValue: inputs.expense, metrics: fundMetrics(inputs) }), config)) {
+      // Filtered funds keep their previously published data and catalog row untouched.
+      await output.result(ticker, before, 'filtered', 'metric filters', { yahooHistoryCount: historyRows.length });
+      return null;
+    }
+    await mkdir(dir, { recursive: true });
+    const historyManifest = await writePages(dir, ticker, "history", HISTORY_HEADERS, mergedHistoryRows, historyPageSize);
+    const holdingsManifest = await writePages(dir, ticker, "holdings", holdingsHeaders, holdingsRows, holdingsPageSize);
+    const { meta, row } = assembleFund({
+      ...inputs,
+      holdings: { ...inputs.holdings, ...holdingsManifest },
+      history: { ...inputs.history, ...historyManifest },
+    });
     await writeFile(new URL("meta.json", dir), JSON.stringify(meta, null, 2) + "\n");
     await output.result(ticker, before, undefined, undefined, {
       officialHistoryCount: officialHistory.length,
       yahooHistoryCount: historyRows.length,
       workplaceRaw: (official as any).workplaceRaw,
+      portId: meta.providerIds.portId,
     });
     if (requestSleepMs > 0) await sleep(requestSleepMs);
-    // The catalog carries a lightweight distributions summary; full rows live in meta.json.
-    return catalogEntryFromMeta(meta);
+    return row;
     } catch (error) {
       // Continue past a single fund's failure instead of aborting the whole run
       // (same convention as the iShares/ProShares/Franklin/JPMorgan updaters):
-      // mark it failed and keep its last successfully published data, if any.
+      // mark it failed and keep its last successfully published data and catalog row.
       await output.result(ticker, before, 'failed', String(error));
-      const previousMeta = await readPreviousMeta(ticker);
-      return previousMeta ? catalogEntryFromMeta(previousMeta) : null;
+      return null;
     }
   });
   // Funds outside this run (TICKERS, category or MAX_FETCHES batch) keep their previously published catalog row.
@@ -1720,7 +2073,7 @@ export async function run(config: UpdaterConfig = readConfig({})) {
   selected.forEach(([ticker], index) => { if (perFundResults[index]) fresh.set(ticker, perFundResults[index]); });
   const previousRows = new Map<string, any>((Array.isArray(previousIndex?.funds) ? previousIndex.funds : []).map((entry: any) => [String(entry?.ticker), entry]));
   const catalog = FUNDS_SEED.map(([ticker]) => fresh.get(ticker) ?? previousRows.get(ticker)).filter((entry) => entry != null);
-  const nextIndex = { generatedAt: new Date().toISOString(), provider: "Vanguard", funds: catalog };
+  const nextIndex = buildIndex(catalog);
   const nextText = JSON.stringify(nextIndex, null, 2) + "\n";
   // Comparing raw text would treat a run that only refreshed generatedAt (with
   // every fund's actual data unchanged) as a real change and rewrite the file

@@ -2,21 +2,95 @@
   "ticker": "VCEB",
   "name": "Vanguard ESG U.S. Corporate Bond ETF",
   "category": "Bond",
-  "type": "Vanguard ETF",
-  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vceb",
-  "officialPage": "https://advisors.vanguard.com/investments/products/vceb/vanguard-esg-u-s-corporate-bond-etf",
-  "portId": "4158",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 60.0099983215332,
-  "netAssets": "$1.2B",
-  "totalFundNetAssets": "$1.2B",
-  "netAssetsAsOf": "2026-08-31",
-  "netExpenseRatio": 0.12,
-  "trailingYield": 5.0717872,
-  "dividendYieldAsOf": "2026-09-01",
-  "secYield": 5.54,
-  "secYieldAsOf": "2026-09-24",
-  "distributionFrequency": "Monthly",
+  "categoryPath": "Bond",
+  "source": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vceb",
+    "catalog": "https://investor.vanguard.com/etf/list (fund list embedded in the updater)",
+    "officialPage": "https://advisors.vanguard.com/investments/products/vceb/vanguard-esg-u-s-corporate-bond-etf",
+    "holdingsDownload": "https://investor.vanguard.com/irr/funds/profile/VCEB-AdditionalFundData",
+    "holdingsSource": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "historySource": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/VCEB",
+    "provider": "Vanguard workplace fundDetails API and investor profile (IRR) data + SEC EDGAR N-PORT-P holdings fallback + Yahoo Finance market-history/dividend data"
+  },
+  "providerIds": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vceb",
+    "officialPage": "https://advisors.vanguard.com/investments/products/vceb/vanguard-esg-u-s-corporate-bond-etf",
+    "portId": "4158"
+  },
+  "legalStructure": null,
+  "identifiers": {
+    "cusip": null,
+    "isin": null,
+    "indexTicker": null
+  },
+  "inception": {
+    "fundInceptionDate": null,
+    "shareClassInceptionDate": null,
+    "exchange": ""
+  },
+  "expenseRatio": {
+    "display": "0.12%",
+    "value": 0.12,
+    "gross": null,
+    "net": 0.12
+  },
+  "nav": {
+    "display": "$59.95",
+    "value": 59.95,
+    "asOfDate": "Sep 25 2026"
+  },
+  "marketPrice": {
+    "display": "$60.01",
+    "value": 60.01,
+    "asOfDate": "Sep 25 2026"
+  },
+  "premiumDiscount": {
+    "display": "0.10%",
+    "value": 0.1
+  },
+  "aum": {
+    "display": "$1.2B",
+    "value": 1200000000,
+    "asOfDate": "Aug 31 2026",
+    "source": "Vanguard workplace fundDetails API (ETF share class net assets)",
+    "totalFundNetAssets": {
+      "display": "$1.2B",
+      "value": 1200000000
+    }
+  },
+  "yields": {
+    "dividendYield": 5.07,
+    "dividendYieldText": "5.07%",
+    "dividendYieldKind": "Vanguard published distribution yield",
+    "dividendYieldAsOf": "2026-09-01",
+    "secYield": 5.54,
+    "secYieldText": "5.54%",
+    "secYieldKind": "official 30-day SEC yield",
+    "secYieldAsOf": "2026-09-24",
+    "unsubsidizedSecYield": null
+  },
+  "returns": {
+    "monthEnd": {
+      "asOfDate": "Sep 25 2026",
+      "ytd": -2.61,
+      "yr1": 1.37,
+      "yr3": 4.99,
+      "yr5": -0.51,
+      "yr10": null,
+      "sinceInception": null
+    },
+    "quarterEnd": {
+      "asOfDate": "",
+      "ytd": null,
+      "yr1": null,
+      "yr3": null,
+      "yr5": null,
+      "yr10": null,
+      "sinceInception": null
+    },
+    "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
+  },
   "distributions": {
     "frequency": "Monthly",
     "paymentsPerYear": 12,
@@ -680,29 +754,6 @@
       ]
     ]
   },
-  "ytdReturn": -2.60961804,
-  "asOfDate": "2026-09-25",
-  "totalReturn": {
-    "1Y": -1.8571346576879089,
-    "3Y": 15.73892274902715,
-    "5Y": -2.524179718116115,
-    "10Y": -0.9952110193755415
-  },
-  "performance": {
-    "1Y": -1.8571346576879089,
-    "3Y": 4.992871095447637,
-    "5Y": -0.5100117182384567,
-    "10Y": -0.09996963185359142
-  },
-  "officialMetrics": {
-    "nav": -2.60961804,
-    "marketPrice": null,
-    "expenseRatio": 0.12,
-    "returns": {
-      "YTD": -2.60961804,
-      "1Y": 1.3728847627
-    }
-  },
   "holdings": {
     "pages": [
       "holdings/001.json",
@@ -721,7 +772,8 @@
     "pageSize": 250,
     "totalRows": 2764,
     "asOfDate": "2026-09-24",
-    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "asOf": "Sep 24 2026"
   },
   "history": {
     "pages": [
@@ -730,6 +782,7 @@
     "pageSize": 1000,
     "totalRows": 717,
     "asOfDate": "2026-09-25",
-    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "asOf": "Sep 25 2026"
   }
 }
