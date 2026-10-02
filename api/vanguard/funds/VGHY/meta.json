@@ -2,21 +2,95 @@
   "ticker": "VGHY",
   "name": "Vanguard High-Yield Active ETF",
   "category": "Bond",
-  "type": "Vanguard ETF",
-  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vghy",
-  "officialPage": "https://advisors.vanguard.com/investments/products/vghy/vanguard-high-yield-active-etf",
-  "portId": "V052",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 72.70500183105469,
-  "netAssets": "$317.1M",
-  "totalFundNetAssets": "$317.1M",
-  "netAssetsAsOf": "2026-08-31",
-  "netExpenseRatio": 0.22,
-  "trailingYield": null,
-  "dividendYieldAsOf": null,
-  "secYield": 6.73,
-  "secYieldAsOf": "2026-09-24",
-  "distributionFrequency": "Monthly",
+  "categoryPath": "Bond",
+  "source": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vghy",
+    "catalog": "https://investor.vanguard.com/etf/list (fund list embedded in the updater)",
+    "officialPage": "https://advisors.vanguard.com/investments/products/vghy/vanguard-high-yield-active-etf",
+    "holdingsDownload": "https://investor.vanguard.com/irr/funds/profile/VGHY-AdditionalFundData",
+    "holdingsSource": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "historySource": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/VGHY",
+    "provider": "Vanguard workplace fundDetails API and investor profile (IRR) data + SEC EDGAR N-PORT-P holdings fallback + Yahoo Finance market-history/dividend data"
+  },
+  "providerIds": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vghy",
+    "officialPage": "https://advisors.vanguard.com/investments/products/vghy/vanguard-high-yield-active-etf",
+    "portId": "V052"
+  },
+  "legalStructure": null,
+  "identifiers": {
+    "cusip": null,
+    "isin": null,
+    "indexTicker": null
+  },
+  "inception": {
+    "fundInceptionDate": null,
+    "shareClassInceptionDate": null,
+    "exchange": ""
+  },
+  "expenseRatio": {
+    "display": "0.22%",
+    "value": 0.22,
+    "gross": null,
+    "net": 0.22
+  },
+  "nav": {
+    "display": "$72.71",
+    "value": 72.71,
+    "asOfDate": "Sep 25 2026"
+  },
+  "marketPrice": {
+    "display": "$72.71",
+    "value": 72.71,
+    "asOfDate": "Sep 25 2026"
+  },
+  "premiumDiscount": {
+    "display": "-0.01%",
+    "value": -0.01
+  },
+  "aum": {
+    "display": "$317.1M",
+    "value": 317100000,
+    "asOfDate": "Aug 31 2026",
+    "source": "Vanguard workplace fundDetails API (ETF share class net assets)",
+    "totalFundNetAssets": {
+      "display": "$317.1M",
+      "value": 317100000
+    }
+  },
+  "yields": {
+    "dividendYield": null,
+    "dividendYieldText": "—",
+    "dividendYieldKind": "Vanguard published distribution yield",
+    "dividendYieldAsOf": null,
+    "secYield": 6.73,
+    "secYieldText": "6.73%",
+    "secYieldKind": "official 30-day SEC yield",
+    "secYieldAsOf": "2026-09-24",
+    "unsubsidizedSecYield": null
+  },
+  "returns": {
+    "monthEnd": {
+      "asOfDate": "Sep 25 2026",
+      "ytd": 0.74,
+      "yr1": 2.27,
+      "yr3": null,
+      "yr5": null,
+      "yr10": null,
+      "sinceInception": null
+    },
+    "quarterEnd": {
+      "asOfDate": "",
+      "ytd": null,
+      "yr1": null,
+      "yr3": null,
+      "yr5": null,
+      "yr10": null,
+      "sinceInception": null
+    },
+    "derivedFrom": "official Vanguard YTD returns; 1-year returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
+  },
   "distributions": {
     "frequency": "Monthly",
     "paymentsPerYear": 12,
@@ -131,29 +205,6 @@
       ]
     ]
   },
-  "ytdReturn": 0.74274022,
-  "asOfDate": "2026-09-25",
-  "totalReturn": {
-    "1Y": 2.268746785854403,
-    "3Y": 2.214349817438177,
-    "5Y": 2.2143498174381326,
-    "10Y": 2.2143498174381326
-  },
-  "performance": {
-    "1Y": 2.268746785854403,
-    "3Y": 0.7327344939257907,
-    "5Y": 0.43899860997975715,
-    "10Y": 0.21925893259227003
-  },
-  "officialMetrics": {
-    "nav": 0.74274022,
-    "marketPrice": null,
-    "expenseRatio": 0.22,
-    "returns": {
-      "YTD": 0.74274022,
-      "1Y": null
-    }
-  },
   "holdings": {
     "pages": [
       "holdings/001.json",
@@ -163,7 +214,8 @@
     "pageSize": 250,
     "totalRows": 613,
     "asOfDate": "2026-09-24",
-    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "asOf": "Sep 24 2026"
   },
   "history": {
     "pages": [
@@ -172,6 +224,7 @@
     "pageSize": 1000,
     "totalRows": 262,
     "asOfDate": "2026-09-25",
-    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "asOf": "Sep 25 2026"
   }
 }

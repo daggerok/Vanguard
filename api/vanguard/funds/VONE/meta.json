@@ -2,21 +2,95 @@
   "ticker": "VONE",
   "name": "Vanguard Russell 1000 ETF",
   "category": "US Equity",
-  "type": "Vanguard ETF",
-  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vone",
-  "officialPage": "https://advisors.vanguard.com/investments/products/vone/vanguard-russell-1000-etf",
-  "portId": "3348",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 348.4100036621094,
-  "netAssets": "$8.7B",
-  "totalFundNetAssets": "$11.9B",
-  "netAssetsAsOf": "2026-08-31",
-  "netExpenseRatio": 0.06,
-  "trailingYield": 1.05049,
-  "dividendYieldAsOf": "2026-08-31",
-  "secYield": 0.96,
-  "secYieldAsOf": "2026-08-31",
-  "distributionFrequency": "Quarterly",
+  "categoryPath": "US Equity",
+  "source": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vone",
+    "catalog": "https://investor.vanguard.com/etf/list (fund list embedded in the updater)",
+    "officialPage": "https://advisors.vanguard.com/investments/products/vone/vanguard-russell-1000-etf",
+    "holdingsDownload": "https://investor.vanguard.com/irr/funds/profile/VONE-AdditionalFundData",
+    "holdingsSource": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "historySource": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/VONE",
+    "provider": "Vanguard workplace fundDetails API and investor profile (IRR) data + SEC EDGAR N-PORT-P holdings fallback + Yahoo Finance market-history/dividend data"
+  },
+  "providerIds": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vone",
+    "officialPage": "https://advisors.vanguard.com/investments/products/vone/vanguard-russell-1000-etf",
+    "portId": "3348"
+  },
+  "legalStructure": null,
+  "identifiers": {
+    "cusip": null,
+    "isin": null,
+    "indexTicker": null
+  },
+  "inception": {
+    "fundInceptionDate": null,
+    "shareClassInceptionDate": null,
+    "exchange": ""
+  },
+  "expenseRatio": {
+    "display": "0.06%",
+    "value": 0.06,
+    "gross": null,
+    "net": 0.06
+  },
+  "nav": {
+    "display": "$348.28",
+    "value": 348.28,
+    "asOfDate": "Sep 25 2026"
+  },
+  "marketPrice": {
+    "display": "$348.41",
+    "value": 348.41,
+    "asOfDate": "Sep 25 2026"
+  },
+  "premiumDiscount": {
+    "display": "0.04%",
+    "value": 0.04
+  },
+  "aum": {
+    "display": "$8.7B",
+    "value": 8700000000,
+    "asOfDate": "Aug 31 2026",
+    "source": "Vanguard workplace fundDetails API (ETF share class net assets)",
+    "totalFundNetAssets": {
+      "display": "$11.9B",
+      "value": 11900000000
+    }
+  },
+  "yields": {
+    "dividendYield": 1.05,
+    "dividendYieldText": "1.05%",
+    "dividendYieldKind": "Vanguard published distribution yield",
+    "dividendYieldAsOf": "2026-08-31",
+    "secYield": 0.96,
+    "secYieldText": "0.96%",
+    "secYieldKind": "official 30-day SEC yield",
+    "secYieldAsOf": "2026-08-31",
+    "unsubsidizedSecYield": null
+  },
+  "returns": {
+    "monthEnd": {
+      "asOfDate": "Sep 25 2026",
+      "ytd": 13.66,
+      "yr1": 19.71,
+      "yr3": 22.9,
+      "yr5": 13.22,
+      "yr10": 15.08,
+      "sinceInception": null
+    },
+    "quarterEnd": {
+      "asOfDate": "",
+      "ytd": null,
+      "yr1": null,
+      "yr3": null,
+      "yr5": null,
+      "yr10": null,
+      "sinceInception": null
+    },
+    "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
+  },
   "distributions": {
     "frequency": "Quarterly",
     "paymentsPerYear": 4,
@@ -599,29 +673,6 @@
       ]
     ]
   },
-  "ytdReturn": 13.65861937,
-  "asOfDate": "2026-09-25",
-  "totalReturn": {
-    "1Y": 16.496108343726966,
-    "3Y": 85.63389581870456,
-    "5Y": 86.02643447157297,
-    "10Y": 307.45054218725
-  },
-  "performance": {
-    "1Y": 16.496108343726966,
-    "3Y": 22.90015380007835,
-    "5Y": 13.21785756590279,
-    "10Y": 15.082023624891594
-  },
-  "officialMetrics": {
-    "nav": 13.65861937,
-    "marketPrice": null,
-    "expenseRatio": 0.06,
-    "returns": {
-      "YTD": 13.65861937,
-      "1Y": 19.7116532556
-    }
-  },
   "holdings": {
     "pages": [
       "holdings/001.json",
@@ -633,7 +684,8 @@
     "pageSize": 250,
     "totalRows": 1032,
     "asOfDate": "2026-08-31",
-    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "asOf": "Aug 31 2026"
   },
   "history": {
     "pages": [
@@ -642,6 +694,7 @@
     "pageSize": 1000,
     "totalRows": 721,
     "asOfDate": "2026-09-25",
-    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "asOf": "Sep 25 2026"
   }
 }

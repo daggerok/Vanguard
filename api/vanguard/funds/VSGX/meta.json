@@ -2,21 +2,95 @@
   "ticker": "VSGX",
   "name": "Vanguard ESG International Stock ETF",
   "category": "International Equity",
-  "type": "Vanguard ETF",
-  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vsgx",
-  "officialPage": "https://advisors.vanguard.com/investments/products/vsgx/vanguard-esg-international-stock-etf",
-  "portId": "4394",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 82.2699966430664,
-  "netAssets": "$6.8B",
-  "totalFundNetAssets": "$6.8B",
-  "netAssetsAsOf": "2026-08-31",
-  "netExpenseRatio": 0.1,
-  "trailingYield": 2.24565,
-  "dividendYieldAsOf": "2026-08-31",
-  "secYield": null,
-  "secYieldAsOf": null,
-  "distributionFrequency": "Quarterly",
+  "categoryPath": "International Equity",
+  "source": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vsgx",
+    "catalog": "https://investor.vanguard.com/etf/list (fund list embedded in the updater)",
+    "officialPage": "https://advisors.vanguard.com/investments/products/vsgx/vanguard-esg-international-stock-etf",
+    "holdingsDownload": "https://investor.vanguard.com/irr/funds/profile/VSGX-AdditionalFundData",
+    "holdingsSource": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "historySource": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/VSGX",
+    "provider": "Vanguard workplace fundDetails API and investor profile (IRR) data + SEC EDGAR N-PORT-P holdings fallback + Yahoo Finance market-history/dividend data"
+  },
+  "providerIds": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vsgx",
+    "officialPage": "https://advisors.vanguard.com/investments/products/vsgx/vanguard-esg-international-stock-etf",
+    "portId": "4394"
+  },
+  "legalStructure": null,
+  "identifiers": {
+    "cusip": null,
+    "isin": null,
+    "indexTicker": null
+  },
+  "inception": {
+    "fundInceptionDate": null,
+    "shareClassInceptionDate": null,
+    "exchange": ""
+  },
+  "expenseRatio": {
+    "display": "0.10%",
+    "value": 0.1,
+    "gross": null,
+    "net": 0.1
+  },
+  "nav": {
+    "display": "$82.18",
+    "value": 82.18,
+    "asOfDate": "Sep 25 2026"
+  },
+  "marketPrice": {
+    "display": "$82.27",
+    "value": 82.27,
+    "asOfDate": "Sep 25 2026"
+  },
+  "premiumDiscount": {
+    "display": "0.11%",
+    "value": 0.11
+  },
+  "aum": {
+    "display": "$6.8B",
+    "value": 6800000000,
+    "asOfDate": "Aug 31 2026",
+    "source": "Vanguard workplace fundDetails API (ETF share class net assets)",
+    "totalFundNetAssets": {
+      "display": "$6.8B",
+      "value": 6800000000
+    }
+  },
+  "yields": {
+    "dividendYield": 2.25,
+    "dividendYieldText": "2.25%",
+    "dividendYieldKind": "Vanguard published distribution yield",
+    "dividendYieldAsOf": "2026-08-31",
+    "secYield": null,
+    "secYieldText": "—",
+    "secYieldKind": "not published",
+    "secYieldAsOf": null,
+    "unsubsidizedSecYield": null
+  },
+  "returns": {
+    "monthEnd": {
+      "asOfDate": "Sep 25 2026",
+      "ytd": 16.99,
+      "yr1": 27.52,
+      "yr3": 21.49,
+      "yr5": 8.59,
+      "yr10": null,
+      "sinceInception": null
+    },
+    "quarterEnd": {
+      "asOfDate": "",
+      "ytd": null,
+      "yr1": null,
+      "yr3": null,
+      "yr5": null,
+      "yr10": null,
+      "sinceInception": null
+    },
+    "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
+  },
   "distributions": {
     "frequency": "Quarterly",
     "paymentsPerYear": 4,
@@ -320,29 +394,6 @@
       ]
     ]
   },
-  "ytdReturn": 16.98725353,
-  "asOfDate": "2026-09-25",
-  "totalReturn": {
-    "1Y": 23.95874836678469,
-    "3Y": 79.3236606842185,
-    "5Y": 50.9638647155249,
-    "10Y": 98.28491792076977
-  },
-  "performance": {
-    "1Y": 23.95874836678469,
-    "3Y": 21.491491935120056,
-    "5Y": 8.586191478103245,
-    "10Y": 7.0850806716706405
-  },
-  "officialMetrics": {
-    "nav": 16.98725353,
-    "marketPrice": null,
-    "expenseRatio": 0.1,
-    "returns": {
-      "YTD": 16.98725353,
-      "1Y": 27.5203183542
-    }
-  },
   "holdings": {
     "pages": [
       "holdings/001.json",
@@ -376,7 +427,8 @@
     "pageSize": 250,
     "totalRows": 6716,
     "asOfDate": "2026-09-24",
-    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "asOf": "Sep 24 2026"
   },
   "history": {
     "pages": [
@@ -385,6 +437,7 @@
     "pageSize": 1000,
     "totalRows": 843,
     "asOfDate": "2026-09-25",
-    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "asOf": "Sep 25 2026"
   }
 }

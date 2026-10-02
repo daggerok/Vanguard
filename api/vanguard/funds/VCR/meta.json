@@ -2,21 +2,95 @@
   "ticker": "VCR",
   "name": "Vanguard Consumer Discretionary ETF",
   "category": "Sector",
-  "type": "Vanguard ETF",
-  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vcr",
-  "officialPage": "https://advisors.vanguard.com/investments/products/vcr/vanguard-consumer-discretionary-etf",
-  "portId": "0954",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 370.94000244140625,
-  "netAssets": "$6.0B",
-  "totalFundNetAssets": "$6.6B",
-  "netAssetsAsOf": "2026-08-31",
-  "netExpenseRatio": 0.09,
-  "trailingYield": 0.84035,
-  "dividendYieldAsOf": "2026-08-31",
-  "secYield": 0.76,
-  "secYieldAsOf": "2026-08-31",
-  "distributionFrequency": "Quarterly",
+  "categoryPath": "Sector",
+  "source": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vcr",
+    "catalog": "https://investor.vanguard.com/etf/list (fund list embedded in the updater)",
+    "officialPage": "https://advisors.vanguard.com/investments/products/vcr/vanguard-consumer-discretionary-etf",
+    "holdingsDownload": "https://investor.vanguard.com/irr/funds/profile/VCR-AdditionalFundData",
+    "holdingsSource": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "historySource": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/VCR",
+    "provider": "Vanguard workplace fundDetails API and investor profile (IRR) data + SEC EDGAR N-PORT-P holdings fallback + Yahoo Finance market-history/dividend data"
+  },
+  "providerIds": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vcr",
+    "officialPage": "https://advisors.vanguard.com/investments/products/vcr/vanguard-consumer-discretionary-etf",
+    "portId": "0954"
+  },
+  "legalStructure": null,
+  "identifiers": {
+    "cusip": null,
+    "isin": null,
+    "indexTicker": null
+  },
+  "inception": {
+    "fundInceptionDate": null,
+    "shareClassInceptionDate": null,
+    "exchange": ""
+  },
+  "expenseRatio": {
+    "display": "0.09%",
+    "value": 0.09,
+    "gross": null,
+    "net": 0.09
+  },
+  "nav": {
+    "display": "$370.79",
+    "value": 370.79,
+    "asOfDate": "Sep 25 2026"
+  },
+  "marketPrice": {
+    "display": "$370.94",
+    "value": 370.94,
+    "asOfDate": "Sep 25 2026"
+  },
+  "premiumDiscount": {
+    "display": "0.04%",
+    "value": 0.04
+  },
+  "aum": {
+    "display": "$6.0B",
+    "value": 6000000000,
+    "asOfDate": "Aug 31 2026",
+    "source": "Vanguard workplace fundDetails API (ETF share class net assets)",
+    "totalFundNetAssets": {
+      "display": "$6.6B",
+      "value": 6600000000
+    }
+  },
+  "yields": {
+    "dividendYield": 0.84,
+    "dividendYieldText": "0.84%",
+    "dividendYieldKind": "Vanguard published distribution yield",
+    "dividendYieldAsOf": "2026-08-31",
+    "secYield": 0.76,
+    "secYieldText": "0.76%",
+    "secYieldKind": "official 30-day SEC yield",
+    "secYieldAsOf": "2026-08-31",
+    "unsubsidizedSecYield": null
+  },
+  "returns": {
+    "monthEnd": {
+      "asOfDate": "Sep 25 2026",
+      "ytd": -5.27,
+      "yr1": 2.19,
+      "yr3": 12.15,
+      "yr5": 4.53,
+      "yr10": 12.69,
+      "sinceInception": null
+    },
+    "quarterEnd": {
+      "asOfDate": "",
+      "ytd": null,
+      "yr1": null,
+      "yr3": null,
+      "yr5": null,
+      "yr10": null,
+      "sinceInception": null
+    },
+    "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
+  },
   "distributions": {
     "frequency": "Quarterly",
     "paymentsPerYear": 4,
@@ -518,29 +592,6 @@
       ]
     ]
   },
-  "ytdReturn": -5.26626198,
-  "asOfDate": "2026-09-25",
-  "totalReturn": {
-    "1Y": -5.62491988186734,
-    "3Y": 41.04467376282373,
-    "5Y": 24.81792750453524,
-    "10Y": 230.32204869880766
-  },
-  "performance": {
-    "1Y": -5.62491988186734,
-    "3Y": 12.146458526071813,
-    "5Y": 4.5334763435277425,
-    "10Y": 12.692173788221716
-  },
-  "officialMetrics": {
-    "nav": -5.26626198,
-    "marketPrice": null,
-    "expenseRatio": 0.09,
-    "returns": {
-      "YTD": -5.26626198,
-      "1Y": 2.1921001829
-    }
-  },
   "holdings": {
     "pages": [
       "holdings/001.json",
@@ -549,7 +600,8 @@
     "pageSize": 250,
     "totalRows": 281,
     "asOfDate": "2026-08-31",
-    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "asOf": "Aug 31 2026"
   },
   "history": {
     "pages": [
@@ -558,6 +610,7 @@
     "pageSize": 1000,
     "totalRows": 801,
     "asOfDate": "2026-09-25",
-    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "asOf": "Sep 25 2026"
   }
 }

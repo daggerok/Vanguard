@@ -2,21 +2,95 @@
   "ticker": "VGUS",
   "name": "Vanguard Ultra-Short Treasury ETF",
   "category": "Bond",
-  "type": "Vanguard ETF",
-  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vgus",
-  "officialPage": "https://advisors.vanguard.com/investments/products/vgus/vanguard-ultra-short-treasury-etf",
-  "portId": "V041",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 75.58499908447266,
-  "netAssets": "$1.1B",
-  "totalFundNetAssets": "$1.1B",
-  "netAssetsAsOf": "2026-08-31",
-  "netExpenseRatio": 0.07,
-  "trailingYield": 3.85057032,
-  "dividendYieldAsOf": "2026-09-01",
-  "secYield": 3.83,
-  "secYieldAsOf": "2026-09-24",
-  "distributionFrequency": "Monthly",
+  "categoryPath": "Bond",
+  "source": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vgus",
+    "catalog": "https://investor.vanguard.com/etf/list (fund list embedded in the updater)",
+    "officialPage": "https://advisors.vanguard.com/investments/products/vgus/vanguard-ultra-short-treasury-etf",
+    "holdingsDownload": "https://investor.vanguard.com/irr/funds/profile/VGUS-AdditionalFundData",
+    "holdingsSource": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "historySource": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/VGUS",
+    "provider": "Vanguard workplace fundDetails API and investor profile (IRR) data + SEC EDGAR N-PORT-P holdings fallback + Yahoo Finance market-history/dividend data"
+  },
+  "providerIds": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vgus",
+    "officialPage": "https://advisors.vanguard.com/investments/products/vgus/vanguard-ultra-short-treasury-etf",
+    "portId": "V041"
+  },
+  "legalStructure": null,
+  "identifiers": {
+    "cusip": null,
+    "isin": null,
+    "indexTicker": null
+  },
+  "inception": {
+    "fundInceptionDate": null,
+    "shareClassInceptionDate": null,
+    "exchange": ""
+  },
+  "expenseRatio": {
+    "display": "0.07%",
+    "value": 0.07,
+    "gross": null,
+    "net": 0.07
+  },
+  "nav": {
+    "display": "$75.58",
+    "value": 75.58,
+    "asOfDate": "Sep 25 2026"
+  },
+  "marketPrice": {
+    "display": "$75.59",
+    "value": 75.59,
+    "asOfDate": "Sep 25 2026"
+  },
+  "premiumDiscount": {
+    "display": "0.01%",
+    "value": 0.01
+  },
+  "aum": {
+    "display": "$1.1B",
+    "value": 1100000000,
+    "asOfDate": "Aug 31 2026",
+    "source": "Vanguard workplace fundDetails API (ETF share class net assets)",
+    "totalFundNetAssets": {
+      "display": "$1.1B",
+      "value": 1100000000
+    }
+  },
+  "yields": {
+    "dividendYield": 3.85,
+    "dividendYieldText": "3.85%",
+    "dividendYieldKind": "Vanguard published distribution yield",
+    "dividendYieldAsOf": "2026-09-01",
+    "secYield": 3.83,
+    "secYieldText": "3.83%",
+    "secYieldKind": "official 30-day SEC yield",
+    "secYieldAsOf": "2026-09-24",
+    "unsubsidizedSecYield": null
+  },
+  "returns": {
+    "monthEnd": {
+      "asOfDate": "Sep 25 2026",
+      "ytd": 2.51,
+      "yr1": 3.74,
+      "yr3": null,
+      "yr5": null,
+      "yr10": null,
+      "sinceInception": null
+    },
+    "quarterEnd": {
+      "asOfDate": "",
+      "ytd": null,
+      "yr1": null,
+      "yr3": null,
+      "yr5": null,
+      "yr10": null,
+      "sinceInception": null
+    },
+    "derivedFrom": "official Vanguard YTD and 1-year returns"
+  },
   "distributions": {
     "frequency": "Monthly",
     "paymentsPerYear": 12,
@@ -194,29 +268,6 @@
       ]
     ]
   },
-  "ytdReturn": 2.51379076,
-  "asOfDate": "2026-09-25",
-  "totalReturn": {
-    "1Y": 3.6057165398072133,
-    "3Y": 6.3744047154407735,
-    "5Y": 6.374404715440729,
-    "10Y": 6.374404715440729
-  },
-  "performance": {
-    "1Y": 3.6057165398072133,
-    "3Y": 2.0811876726636314,
-    "5Y": 1.2435648517574727,
-    "10Y": 0.6198612858105079
-  },
-  "officialMetrics": {
-    "nav": 2.51379076,
-    "marketPrice": null,
-    "expenseRatio": 0.07,
-    "returns": {
-      "YTD": 2.51379076,
-      "1Y": 3.7394530358
-    }
-  },
   "holdings": {
     "pages": [
       "holdings/001.json"
@@ -224,7 +275,8 @@
     "pageSize": 250,
     "totalRows": 90,
     "asOfDate": "2026-09-24",
-    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "asOf": "Sep 24 2026"
   },
   "history": {
     "pages": [
@@ -233,6 +285,7 @@
     "pageSize": 1000,
     "totalRows": 414,
     "asOfDate": "2026-09-25",
-    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "asOf": "Sep 25 2026"
   }
 }

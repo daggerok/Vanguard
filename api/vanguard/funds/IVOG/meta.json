@@ -2,21 +2,95 @@
   "ticker": "IVOG",
   "name": "Vanguard S&P Mid-Cap 400 Growth ETF",
   "category": "US Equity",
-  "type": "Vanguard ETF",
-  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/ivog",
-  "officialPage": "https://advisors.vanguard.com/investments/products/ivog/vanguard-sp-mid-cap-400-growth-etf",
-  "portId": "3343",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 138.03199768066406,
-  "netAssets": "$1.6B",
-  "totalFundNetAssets": "$1.8B",
-  "netAssetsAsOf": "2026-08-31",
-  "netExpenseRatio": 0.1,
-  "trailingYield": 0.68544,
-  "dividendYieldAsOf": "2026-08-31",
-  "secYield": 0.57,
-  "secYieldAsOf": "2026-08-31",
-  "distributionFrequency": "Annually",
+  "categoryPath": "US Equity",
+  "source": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/ivog",
+    "catalog": "https://investor.vanguard.com/etf/list (fund list embedded in the updater)",
+    "officialPage": "https://advisors.vanguard.com/investments/products/ivog/vanguard-sp-mid-cap-400-growth-etf",
+    "holdingsDownload": "https://investor.vanguard.com/irr/funds/profile/IVOG-AdditionalFundData",
+    "holdingsSource": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "historySource": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/IVOG",
+    "provider": "Vanguard workplace fundDetails API and investor profile (IRR) data + SEC EDGAR N-PORT-P holdings fallback + Yahoo Finance market-history/dividend data"
+  },
+  "providerIds": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/ivog",
+    "officialPage": "https://advisors.vanguard.com/investments/products/ivog/vanguard-sp-mid-cap-400-growth-etf",
+    "portId": "3343"
+  },
+  "legalStructure": null,
+  "identifiers": {
+    "cusip": null,
+    "isin": null,
+    "indexTicker": null
+  },
+  "inception": {
+    "fundInceptionDate": null,
+    "shareClassInceptionDate": null,
+    "exchange": ""
+  },
+  "expenseRatio": {
+    "display": "0.10%",
+    "value": 0.1,
+    "gross": null,
+    "net": 0.1
+  },
+  "nav": {
+    "display": "$137.95",
+    "value": 137.95,
+    "asOfDate": "Sep 25 2026"
+  },
+  "marketPrice": {
+    "display": "$138.03",
+    "value": 138.03,
+    "asOfDate": "Sep 25 2026"
+  },
+  "premiumDiscount": {
+    "display": "0.06%",
+    "value": 0.06
+  },
+  "aum": {
+    "display": "$1.6B",
+    "value": 1600000000,
+    "asOfDate": "Aug 31 2026",
+    "source": "Vanguard workplace fundDetails API (ETF share class net assets)",
+    "totalFundNetAssets": {
+      "display": "$1.8B",
+      "value": 1800000000
+    }
+  },
+  "yields": {
+    "dividendYield": 0.69,
+    "dividendYieldText": "0.69%",
+    "dividendYieldKind": "Vanguard published distribution yield",
+    "dividendYieldAsOf": "2026-08-31",
+    "secYield": 0.57,
+    "secYieldText": "0.57%",
+    "secYieldKind": "official 30-day SEC yield",
+    "secYieldAsOf": "2026-08-31",
+    "unsubsidizedSecYield": null
+  },
+  "returns": {
+    "monthEnd": {
+      "asOfDate": "Sep 25 2026",
+      "ytd": 14.66,
+      "yr1": 19.76,
+      "yr3": 16.18,
+      "yr5": 7.87,
+      "yr10": 10.79,
+      "sinceInception": null
+    },
+    "quarterEnd": {
+      "asOfDate": "",
+      "ytd": null,
+      "yr1": null,
+      "yr3": null,
+      "yr5": null,
+      "yr10": null,
+      "sinceInception": null
+    },
+    "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
+  },
   "distributions": {
     "frequency": "Annually",
     "paymentsPerYear": 1,
@@ -176,29 +250,6 @@
       ]
     ]
   },
-  "ytdReturn": 14.66212284,
-  "asOfDate": "2026-09-25",
-  "totalReturn": {
-    "1Y": 16.263077574393826,
-    "3Y": 56.81385180226726,
-    "5Y": 46.06728056681313,
-    "10Y": 178.52265820656808
-  },
-  "performance": {
-    "1Y": 16.263077574393826,
-    "3Y": 16.179135580379224,
-    "5Y": 7.872461478588422,
-    "10Y": 10.786298707941988
-  },
-  "officialMetrics": {
-    "nav": 14.66212284,
-    "marketPrice": null,
-    "expenseRatio": 0.1,
-    "returns": {
-      "YTD": 14.66212284,
-      "1Y": 19.7596558387
-    }
-  },
   "holdings": {
     "pages": [
       "holdings/001.json",
@@ -207,7 +258,8 @@
     "pageSize": 250,
     "totalRows": 251,
     "asOfDate": "2026-08-31",
-    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "asOf": "Aug 31 2026"
   },
   "history": {
     "pages": [
@@ -216,6 +268,7 @@
     "pageSize": 1000,
     "totalRows": 721,
     "asOfDate": "2026-09-25",
-    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "asOf": "Sep 25 2026"
   }
 }

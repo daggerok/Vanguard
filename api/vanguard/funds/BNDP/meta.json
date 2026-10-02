@@ -2,21 +2,95 @@
   "ticker": "BNDP",
   "name": "Vanguard Core-Plus Bond Index ETF",
   "category": "Bond",
-  "type": "Vanguard ETF",
-  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/bndp",
-  "officialPage": "https://advisors.vanguard.com/investments/products/bndp/vanguard-core-plus-bond-index-etf",
-  "portId": "V056",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 71.50599670410156,
-  "netAssets": "$131.6M",
-  "totalFundNetAssets": "$131.6M",
-  "netAssetsAsOf": "2026-08-31",
-  "netExpenseRatio": 0.05,
-  "trailingYield": null,
-  "dividendYieldAsOf": null,
-  "secYield": 5.22,
-  "secYieldAsOf": "2026-09-24",
-  "distributionFrequency": "Monthly",
+  "categoryPath": "Bond",
+  "source": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/bndp",
+    "catalog": "https://investor.vanguard.com/etf/list (fund list embedded in the updater)",
+    "officialPage": "https://advisors.vanguard.com/investments/products/bndp/vanguard-core-plus-bond-index-etf",
+    "holdingsDownload": "https://investor.vanguard.com/irr/funds/profile/BNDP-AdditionalFundData",
+    "holdingsSource": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "historySource": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BNDP",
+    "provider": "Vanguard workplace fundDetails API and investor profile (IRR) data + SEC EDGAR N-PORT-P holdings fallback + Yahoo Finance market-history/dividend data"
+  },
+  "providerIds": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/bndp",
+    "officialPage": "https://advisors.vanguard.com/investments/products/bndp/vanguard-core-plus-bond-index-etf",
+    "portId": "V056"
+  },
+  "legalStructure": null,
+  "identifiers": {
+    "cusip": null,
+    "isin": null,
+    "indexTicker": null
+  },
+  "inception": {
+    "fundInceptionDate": null,
+    "shareClassInceptionDate": null,
+    "exchange": ""
+  },
+  "expenseRatio": {
+    "display": "0.05%",
+    "value": 0.05,
+    "gross": null,
+    "net": 0.05
+  },
+  "nav": {
+    "display": "$71.39",
+    "value": 71.39,
+    "asOfDate": "Sep 25 2026"
+  },
+  "marketPrice": {
+    "display": "$71.51",
+    "value": 71.51,
+    "asOfDate": "Sep 25 2026"
+  },
+  "premiumDiscount": {
+    "display": "0.16%",
+    "value": 0.16
+  },
+  "aum": {
+    "display": "$131.6M",
+    "value": 131600000,
+    "asOfDate": "Aug 31 2026",
+    "source": "Vanguard workplace fundDetails API (ETF share class net assets)",
+    "totalFundNetAssets": {
+      "display": "$131.6M",
+      "value": 131600000
+    }
+  },
+  "yields": {
+    "dividendYield": null,
+    "dividendYieldText": "—",
+    "dividendYieldKind": "Vanguard published distribution yield",
+    "dividendYieldAsOf": null,
+    "secYield": 5.22,
+    "secYieldText": "5.22%",
+    "secYieldKind": "official 30-day SEC yield",
+    "secYieldAsOf": "2026-09-24",
+    "unsubsidizedSecYield": null
+  },
+  "returns": {
+    "monthEnd": {
+      "asOfDate": "Sep 25 2026",
+      "ytd": -1.86,
+      "yr1": null,
+      "yr3": null,
+      "yr5": null,
+      "yr10": null,
+      "sinceInception": null
+    },
+    "quarterEnd": {
+      "asOfDate": "",
+      "ytd": null,
+      "yr1": null,
+      "yr3": null,
+      "yr5": null,
+      "yr10": null,
+      "sinceInception": null
+    },
+    "derivedFrom": "official Vanguard YTD returns"
+  },
   "distributions": {
     "frequency": "Monthly",
     "paymentsPerYear": 12,
@@ -113,29 +187,6 @@
       ]
     ]
   },
-  "ytdReturn": -1.85711423,
-  "asOfDate": "2026-09-25",
-  "totalReturn": {
-    "1Y": -1.786199126910104,
-    "3Y": -1.786199126910104,
-    "5Y": -1.7861991269101263,
-    "10Y": -1.7861991269101263
-  },
-  "performance": {
-    "1Y": -1.786199126910104,
-    "3Y": -0.5989803198518717,
-    "5Y": -0.3598199326055873,
-    "10Y": -0.18007209610176877
-  },
-  "officialMetrics": {
-    "nav": -1.85711423,
-    "marketPrice": null,
-    "expenseRatio": 0.05,
-    "returns": {
-      "YTD": -1.85711423,
-      "1Y": null
-    }
-  },
   "holdings": {
     "pages": [
       "holdings/001.json",
@@ -168,7 +219,8 @@
     "pageSize": 250,
     "totalRows": 6457,
     "asOfDate": "2026-09-24",
-    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "asOf": "Sep 24 2026"
   },
   "history": {
     "pages": [
@@ -177,6 +229,7 @@
     "pageSize": 1000,
     "totalRows": 209,
     "asOfDate": "2026-09-25",
-    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "asOf": "Sep 25 2026"
   }
 }

@@ -2,21 +2,95 @@
   "ticker": "VHT",
   "name": "Vanguard Health Care ETF",
   "category": "Sector",
-  "type": "Vanguard ETF",
-  "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vht",
-  "officialPage": "https://advisors.vanguard.com/investments/products/vht/vanguard-health-care-etf",
-  "portId": "0956",
-  "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 319.6099853515625,
-  "netAssets": "$19.3B",
-  "totalFundNetAssets": "$22.0B",
-  "netAssetsAsOf": "2026-08-31",
-  "netExpenseRatio": 0.09,
-  "trailingYield": 1.32664,
-  "dividendYieldAsOf": "2026-08-31",
-  "secYield": 1.24,
-  "secYieldAsOf": "2026-08-31",
-  "distributionFrequency": "Quarterly",
+  "categoryPath": "Sector",
+  "source": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vht",
+    "catalog": "https://investor.vanguard.com/etf/list (fund list embedded in the updater)",
+    "officialPage": "https://advisors.vanguard.com/investments/products/vht/vanguard-health-care-etf",
+    "holdingsDownload": "https://investor.vanguard.com/irr/funds/profile/VHT-AdditionalFundData",
+    "holdingsSource": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "historySource": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/VHT",
+    "provider": "Vanguard workplace fundDetails API and investor profile (IRR) data + SEC EDGAR N-PORT-P holdings fallback + Yahoo Finance market-history/dividend data"
+  },
+  "providerIds": {
+    "fundPage": "https://investor.vanguard.com/investment-products/etfs/profile/vht",
+    "officialPage": "https://advisors.vanguard.com/investments/products/vht/vanguard-health-care-etf",
+    "portId": "0956"
+  },
+  "legalStructure": null,
+  "identifiers": {
+    "cusip": null,
+    "isin": null,
+    "indexTicker": null
+  },
+  "inception": {
+    "fundInceptionDate": null,
+    "shareClassInceptionDate": null,
+    "exchange": ""
+  },
+  "expenseRatio": {
+    "display": "0.09%",
+    "value": 0.09,
+    "gross": null,
+    "net": 0.09
+  },
+  "nav": {
+    "display": "$319.68",
+    "value": 319.68,
+    "asOfDate": "Sep 25 2026"
+  },
+  "marketPrice": {
+    "display": "$319.61",
+    "value": 319.61,
+    "asOfDate": "Sep 25 2026"
+  },
+  "premiumDiscount": {
+    "display": "-0.02%",
+    "value": -0.02
+  },
+  "aum": {
+    "display": "$19.3B",
+    "value": 19300000000,
+    "asOfDate": "Aug 31 2026",
+    "source": "Vanguard workplace fundDetails API (ETF share class net assets)",
+    "totalFundNetAssets": {
+      "display": "$22.0B",
+      "value": 22000000000
+    }
+  },
+  "yields": {
+    "dividendYield": 1.33,
+    "dividendYieldText": "1.33%",
+    "dividendYieldKind": "Vanguard published distribution yield",
+    "dividendYieldAsOf": "2026-08-31",
+    "secYield": 1.24,
+    "secYieldText": "1.24%",
+    "secYieldKind": "official 30-day SEC yield",
+    "secYieldAsOf": "2026-08-31",
+    "unsubsidizedSecYield": null
+  },
+  "returns": {
+    "monthEnd": {
+      "asOfDate": "Sep 25 2026",
+      "ytd": 12.23,
+      "yr1": 27.58,
+      "yr3": 12.48,
+      "yr5": 6.83,
+      "yr10": 10.8,
+      "sinceInception": null
+    },
+    "quarterEnd": {
+      "asOfDate": "",
+      "ytd": null,
+      "yr1": null,
+      "yr3": null,
+      "yr5": null,
+      "yr10": null,
+      "sinceInception": null
+    },
+    "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
+  },
   "distributions": {
     "frequency": "Quarterly",
     "paymentsPerYear": 4,
@@ -527,29 +601,6 @@
       ]
     ]
   },
-  "ytdReturn": 12.22806518,
-  "asOfDate": "2026-09-25",
-  "totalReturn": {
-    "1Y": 25.099404525458404,
-    "3Y": 42.292366603878364,
-    "5Y": 39.12875977493324,
-    "10Y": 178.76746375823083
-  },
-  "performance": {
-    "1Y": 25.099404525458404,
-    "3Y": 12.476173812882486,
-    "5Y": 6.827578145029056,
-    "10Y": 10.796032343279837
-  },
-  "officialMetrics": {
-    "nav": 12.22806518,
-    "marketPrice": null,
-    "expenseRatio": 0.09,
-    "returns": {
-      "YTD": 12.22806518,
-      "1Y": 27.5778526148
-    }
-  },
   "holdings": {
     "pages": [
       "holdings/001.json",
@@ -558,7 +609,8 @@
     "pageSize": 250,
     "totalRows": 424,
     "asOfDate": "2026-08-31",
-    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)"
+    "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
+    "asOf": "Aug 31 2026"
   },
   "history": {
     "pages": [
@@ -567,6 +619,7 @@
     "pageSize": 1000,
     "totalRows": 801,
     "asOfDate": "2026-09-25",
-    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
+    "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
+    "asOf": "Sep 25 2026"
   }
 }
