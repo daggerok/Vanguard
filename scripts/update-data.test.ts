@@ -5,6 +5,8 @@ import {
   CONTROL_NAMES,
   DEFAULT_SEC_UA,
   USAGE,
+  installSystemCa,
+  isCertError,
   hasDeferredFilters,
   historyWindowStartDate,
   historyWindowStartEpoch,
@@ -404,7 +406,7 @@ test("provider-specific defaults", () => {
 test("resolver rejects unknown, invalid, non-scalar and newline values", () => {
   const bad = [
     { UNKNOWN: 1 }, { SEC_UA: "x\nEVIL=yes" }, { CONCURRENCY: 0 }, { MAX_RETRIES: 0 }, { MAX_RETRIES: -1 }, { MAX_FETCHES: -1 },
-    { HOLDINGS_PAGE_SIZE: 1.5 }, { REQUEST_SLEEP: "-1" }, { VERBOSE: "maybe" }, { SKIP_YAHOO: "maybe" }, { EDGAR_FALLBACK: "2" },
+    { HOLDINGS_PAGE_SIZE: 1.5 }, { REQUEST_SLEEP: "-1" }, { VERBOSE: "maybe" }, { SKIP_YAHOO: "maybe" }, { EDGAR_FALLBACK: "2" }, { USE_SYSTEM_CA: "maybe" },
     { HISTORY_RANGE: "5" }, { HISTORY_RANGE: "0y" }, { AUM: "5" }, { AUM: "10:1" }, { AUM: "huge:" }, { TER: "a:b" }, { TER: "1:2:3" },
     { PERFORMANCE_1Y: "x:" }, { TOTAL_RETURN_10Y: "5:1" }, { TICKERS: ["VTI"] }, { TICKERS: { a: 1 } }, null, [],
   ];
@@ -585,4 +587,53 @@ test("workflow: one resolver, fixed output dir, inputs map to controls", () => {
   expect(actual).not.toMatch(/OUTPUT_DIR|output_dir/i);
   expect(actual.match(/git add (\S+)/g)).toEqual(["git add api/vanguard"]);
   expect(actual.match(/api\/[\w-]+/g)!.every((p) => p === "api/vanguard")).toBe(true);
+});
+
+test("USE_SYSTEM_CA resolver: auto/true/false case-insensitive, default auto, rejects other values", () => {
+  expect(file().USE_SYSTEM_CA).toBe("auto");
+  expect(resolveControls(file()).USE_SYSTEM_CA).toBe("auto");
+  for (const v of ["auto", "true", "false", "AUTO", "True", "FALSE"]) expect(resolveControls({}, {}, {}, { USE_SYSTEM_CA: v }).USE_SYSTEM_CA).toBe(v.toLowerCase());
+  expect(() => resolveControls({ USE_SYSTEM_CA: "maybe" })).toThrow(/USE_SYSTEM_CA/);
+});
+
+test("isCertError detects untrusted-certificate errors, including nested causes", () => {
+  expect(isCertError({ code: "UNABLE_TO_GET_ISSUER_CERT_LOCALLY" })).toBe(true);
+  expect(isCertError(new Error("unable to get local issuer certificate"))).toBe(true);
+  expect(isCertError(Object.assign(new Error("fetch failed"), { cause: new Error("unable to get local issuer certificate") }))).toBe(true);
+  expect(isCertError({ code: "ECONNRESET" })).toBe(false);
+  expect(isCertError(new Error("HTTP 403 Forbidden"))).toBe(false);
+  expect(isCertError(null)).toBe(false);
+});
+
+test("installSystemCa modes: false and active leave fetch alone, true restarts now, auto restarts once on a cert error", async () => {
+  const original = globalThis.fetch;
+  const never = (): never => { throw new Error("unexpected reexec"); };
+  try {
+    installSystemCa("false", never, false);
+    expect(globalThis.fetch).toBe(original);
+    installSystemCa("auto", never, true);
+    expect(globalThis.fetch).toBe(original);
+    let calls = 0;
+    expect(() => installSystemCa("true", () => { calls++; throw new Error("reexec"); }, false)).toThrow("reexec");
+    expect(calls).toBe(1);
+    expect(globalThis.fetch).toBe(original);
+
+    let reexecs = 0;
+    const reexec = (): never => { reexecs++; throw new Error("reexec"); };
+    globalThis.fetch = (async (url: string) => {
+      if (url === "cert") throw Object.assign(new Error("fetch failed"), { cause: { code: "UNABLE_TO_GET_ISSUER_CERT_LOCALLY" } });
+      if (url === "reset") throw Object.assign(new Error("reset"), { code: "ECONNRESET" });
+      return new Response("ok");
+    }) as unknown as typeof fetch;
+    const stub = globalThis.fetch;
+    installSystemCa("auto", reexec, false);
+    expect(globalThis.fetch).not.toBe(stub);
+    expect(await (await fetch("fine")).text()).toBe("ok");
+    await expect(fetch("reset")).rejects.toThrow("reset");
+    expect(reexecs).toBe(0);
+    await expect(fetch("cert")).rejects.toThrow("reexec");
+    expect(reexecs).toBe(1);
+  } finally {
+    globalThis.fetch = original;
+  }
 });
