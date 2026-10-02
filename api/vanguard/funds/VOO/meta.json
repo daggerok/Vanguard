@@ -7,7 +7,7 @@
   "officialPage": "https://advisors.vanguard.com/investments/products/voo/vanguard-sp-500-etf",
   "portId": "0968",
   "source": "Vanguard workplace fundDetails API + Vanguard IRR holdings/NAV/premium-discount history + Yahoo OHLCV history fallback/dividends",
-  "nav": 710.7899780273438,
+  "nav": 700.8599853515625,
   "netAssets": "$1.0T",
   "totalFundNetAssets": "$1.8T",
   "netAssetsAsOf": "2026-08-31",
@@ -30,6 +30,15 @@
       "LT Cap Gains"
     ],
     "rows": [
+      [
+        "Quarterly",
+        "2026-09-28",
+        "—",
+        "—",
+        "1.823",
+        "—",
+        "—"
+      ],
       [
         "Quarterly",
         "2026-06-26",
@@ -599,27 +608,27 @@
       ]
     ]
   },
-  "ytdReturn": 14.06180587,
-  "asOfDate": "2026-09-25",
+  "ytdReturn": 12.71955644,
+  "asOfDate": "2026-09-30",
   "totalReturn": {
-    "1Y": 17.10602607799021,
-    "3Y": 87.53563220056691,
-    "5Y": 92.82166428804473,
-    "10Y": 320.14154038473765
+    "1Y": 15.766174988850533,
+    "3Y": 85.39308009734418,
+    "5Y": 90.61684073107055,
+    "10Y": 315.3490577219393
   },
   "performance": {
-    "1Y": 17.10602607799021,
-    "3Y": 23.31841447183196,
-    "5Y": 14.03316159648349,
-    "10Y": 15.435546233609877
+    "1Y": 15.766174988850533,
+    "3Y": 22.846986253392608,
+    "5Y": 13.771177637489917,
+    "10Y": 15.3031900583263
   },
   "officialMetrics": {
-    "nav": 14.06180587,
+    "nav": 12.71955644,
     "marketPrice": null,
     "expenseRatio": 0.03,
     "returns": {
-      "YTD": 14.06180587,
-      "1Y": 20.3419732987
+      "YTD": 12.71955644,
+      "1Y": 15.7029021373
     }
   },
   "holdings": {
@@ -638,8 +647,8 @@
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 721,
-    "asOfDate": "2026-09-25",
+    "totalRows": 723,
+    "asOfDate": "2026-09-30",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)"
   }
 }
