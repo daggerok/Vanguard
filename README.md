@@ -69,6 +69,7 @@ Official NAV, market price and premium/discount come from Vanguard; Open/High/Lo
 | `SKIP_YAHOO` | `false` | Do not request Yahoo Finance; previously published history rows and distributions are kept (`true`/`false`). |
 | `EDGAR_FALLBACK` | `true` | Use SEC N-PORT-P holdings when the Vanguard feed has none (`true`/`false`). |
 | `VERBOSE` | `false` | Print per-fund retry and fallback notices (`true`/`false`). |
+| `USE_SYSTEM_CA` | `auto` | TLS trust store: `auto` restarts the updater once with Bun's `--use-system-ca` when a request fails with an untrusted-certificate error; `true` always uses the system CA store; `false` never restarts. Not an individual workflow input: use `advanced`, the config file or the CLI environment. |
 | `PERFORMANCE_YTD` | `:` | Annualized return percent for the period, `min:max`: YTD is the official Vanguard figure with a Yahoo adjusted-close fallback, 1Y is the official 1-year figure with a Yahoo fallback, 3Y/5Y/10Y are CAGR from Yahoo adjusted closes. Funds with no value for the period pass. |
 | `PERFORMANCE_1Y` | `:` | See `PERFORMANCE_YTD`. |
 | `PERFORMANCE_3Y` | `:` | See `PERFORMANCE_YTD`. |
