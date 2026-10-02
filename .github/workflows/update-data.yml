@@ -5,8 +5,8 @@ on:
     - cron: '0 0 * * 0'
   workflow_dispatch:
     inputs:
-      tickers:
-        description: "Only update these tickers, separated by spaces or commas; empty means all; blank inherits scripts/update-data.config.json"
+      max_fetches:
+        description: "Funds to update per run, resuming at the saved cursor; 0 means all selected funds; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
@@ -17,6 +17,36 @@ on:
         type: string
       concurrency:
         description: "Parallel fund update workers; blank inherits scripts/update-data.config.json"
+        required: false
+        default: ""
+        type: string
+      aum:
+        description: "Fund net assets min:max in dollars; K/M/B/T suffixes or nano/micro/small/mid/large presets; blank inherits scripts/update-data.config.json"
+        required: false
+        default: ""
+        type: string
+      ter:
+        description: "Expense ratio percent min:max; blank inherits scripts/update-data.config.json"
+        required: false
+        default: ""
+        type: string
+      dividend_yield:
+        description: "Trailing dividend yield percent min:max; blank inherits scripts/update-data.config.json"
+        required: false
+        default: ""
+        type: string
+      sec_yield:
+        description: "30-day SEC yield percent min:max; blank inherits scripts/update-data.config.json"
+        required: false
+        default: ""
+        type: string
+      tickers:
+        description: "Only update these tickers, separated by spaces or commas; empty means all; blank inherits scripts/update-data.config.json"
+        required: false
+        default: ""
+        type: string
+      category:
+        description: "Only funds whose category contains this text, e.g. Bond or Sector; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
@@ -31,12 +61,67 @@ on:
         default: ""
         type: string
       max_retries:
-        description: "Retries after the initial SEC request (0-5 effective); blank inherits scripts/update-data.config.json"
+        description: "Retries after the initial SEC request (integer >= 1, at most 5 used); blank inherits scripts/update-data.config.json"
+        required: false
+        default: ""
+        type: string
+      history_range:
+        description: "Yahoo request window and published history rows: max or Ny (e.g. 5y); blank inherits scripts/update-data.config.json"
+        required: false
+        default: ""
+        type: string
+      skip_yahoo:
+        description: "Do not request Yahoo Finance (true/false); blank inherits scripts/update-data.config.json"
+        required: false
+        default: ""
+        type: string
+      edgar_fallback:
+        description: "Use SEC N-PORT-P holdings when the Vanguard feed has none (true/false); blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
       verbose:
         description: "Print per-fund retry and fallback notices (true/false); blank inherits scripts/update-data.config.json"
+        required: false
+        default: ""
+        type: string
+      performance_ytd:
+        description: "YTD return percent min:max; blank inherits scripts/update-data.config.json"
+        required: false
+        default: ""
+        type: string
+      performance_1y:
+        description: "1Y annualized return percent min:max; blank inherits scripts/update-data.config.json"
+        required: false
+        default: ""
+        type: string
+      performance_3y:
+        description: "3Y annualized return percent min:max; blank inherits scripts/update-data.config.json"
+        required: false
+        default: ""
+        type: string
+      performance_5y:
+        description: "5Y annualized return percent min:max; blank inherits scripts/update-data.config.json"
+        required: false
+        default: ""
+        type: string
+      performance_10y:
+        description: "10Y annualized return percent min:max; blank inherits scripts/update-data.config.json"
+        required: false
+        default: ""
+        type: string
+      total_return_ytd:
+        description: "YTD total return percent min:max; blank inherits scripts/update-data.config.json"
+        required: false
+        default: ""
+        type: string
+      total_return_1y:
+        description: "1Y total return percent min:max; blank inherits scripts/update-data.config.json"
+        required: false
+        default: ""
+        type: string
+      total_return_3y:
+        description: "3Y cumulative total return percent min:max; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
@@ -56,9 +141,12 @@ concurrency:
 jobs:
   update-data:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          persist-credentials: false
       - name: Setup bun
         uses: oven-sh/setup-bun@v2
         with:
@@ -82,7 +170,7 @@ jobs:
               .filter(([key]) => key !== "advanced")
               .map(([key, value]) => [key.toUpperCase(), value]));
             const file = await Bun.file("scripts/update-data.config.json").json();
-            // Protected repository Actions variable: highest precedence, applied only when nonblank (never printed).
+            // Protected repository Actions variables: highest precedence, applied only when nonblank (never printed).
             const protectedVars = {};
             if ((process.env.PROTECTED_SEC_UA ?? "").trim()) protectedVars.SEC_UA = process.env.PROTECTED_SEC_UA.trim();
             const controls = resolveControls(file, advanced, individual, protectedVars);
@@ -93,6 +181,8 @@ jobs:
         run: bun ./scripts/update-data.ts
       - name: Commit updated data
         if: ${{ !cancelled() }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           git add api/vanguard
           if git diff --cached --quiet -- api/vanguard; then
@@ -102,4 +192,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "chore(data): update Vanguard ETF data"
-          git push
+          # Runtime-only auth; no token/header stored in URL, file or Git config.
+          git -c credential.helper= -c credential.helper='!f() { if test "$1" = get; then printf "username=x-access-token\npassword=%s\n" "$GITHUB_TOKEN"; fi; }; f' push
