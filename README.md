@@ -1,6 +1,6 @@
 # Vanguard
 
-One of the app's features lets you select Vanguard ETFs in the Watchlist and aggregate their holdings to see how often each ticker appears across the selected funds. Repeated holdings make overlapping exposure visible: the more selected funds include a ticker, the greater its potential influence on the portfolio; gains in that holding may help, while declines may hurt, and actual impact also depends on each fund's position size.  Another feature makes it faster and easier to find funds with stronger growth over different periods, higher dividend yields or distributions, greater Total Return (price performance plus dividends), and other key performance metrics. A single-file client-side tool that reads the generated `./api/vanguard` static feed (official Vanguard fund metrics and holdings, official NAV/premium-discount history merged by date with Yahoo Finance for OHLC/volume and distributions, SEC EDGAR N-PORT-P as fallback) into a searchable ETF/asset-class catalog with per-fund tabs, watchlist aggregation, ticker copy and CSV/TXT export — the same look, feel, columns and business logic as the sibling applications.
+One of the app's features lets you select Vanguard ETFs in the Watchlist and aggregate their holdings to see how often each ticker appears across the selected funds. Repeated holdings make overlapping exposure visible: the more selected funds include a ticker, the greater its potential influence on the portfolio; gains in that holding may help, while declines may hurt, and actual impact also depends on each fund's position size.  Another feature makes it faster and easier to find funds with stronger growth over different periods, higher dividend yields or distributions, greater Total Return (price performance plus dividends), and other key performance metrics. A single-file client-side tool that reads the generated `./api/vanguard` static feed (official Vanguard fund metrics and holdings, official NAV/premium-discount history merged by date with Yahoo Finance for OHLC/volume and distributions, SEC EDGAR N-PORT-P as fallback) into a searchable ETF/asset-class catalog with per-fund tabs, watchlist aggregation, ticker copy and CSV/TXT export - the same look, feel, columns and business logic as the sibling applications.
 
 ## Using Bun
 
@@ -30,23 +30,37 @@ Defaults live in `scripts/update-data.config.json` (every control as a string). 
 | Block | Source |
 | --- | --- |
 | Catalog (all US Vanguard ETFs) | Fund list embedded in the updater (`FUNDS_SEED`), checked against `https://investor.vanguard.com/etf/list` and `https://api.vanguard.com/rs/gre/gra/1.7.0/datasets/auw-holdings` (official API) |
-| Holdings per fund | `https://investor.vanguard.com/investment-products/etfs/profile/{TICKER}#holdings` (holdings table) |
+| Holdings per fund | `https://investor.vanguard.com/irr/funds/profile/{TICKER}-AdditionalFundData` (the data behind the profile page holdings table) |
 | Daily NAV/market-price/premium-discount history | Same `AdditionalFundData` response's `historicalPrice` + `premiumDiscountDetails` blocks (official, merged by date; ~21 months of daily premium/discount, longer month-end-only NAV) |
 | Daily OHLC/volume; distributions; history fallback | Yahoo Finance chart API - the only source for Open/High/Low/Volume and for dividend/split events, and for any date the official blocks above don't cover |
 | Fallback | SEC EDGAR N-PORT-P for holdings fallback |
 
 ### Metrics and caveats
 
-Each fund carries a derived `metrics` object that powers the catalog columns shared with the sibling sites:
+The feed has exactly the same layout as the sibling ETF repositories, so one shared app can sort and search every brand the same way:
 
-- `ytd` / `tr1y` - official YTD and 1-year returns -> *YTD Return*, *TR 1Y*
-- `cagr3y` / `cagr5y` / `cagr10y` - published annualized 3Y/5Y/10Y figures -> *CAGR 3Y/5Y/10Y*
-- `tr3y` / `tr5y` / `tr10y` - cumulative 3Y/5Y/10Y figures `(1 + CAGR)^n - 1` -> *TR 3Y/5Y/10Y*
-- `siAnn` - since-inception annualized -> *SI Ann.*
-- `dividendYield` - 12-month trailing yield or indicated yield (latest distribution x frequency / price), an estimate derived from Yahoo Finance distributions and price
-- `secYield` - 30-day SEC yield when published; `-` otherwise
+- `api/vanguard/index.json` - `generatedAt`, `source`, `counts` (funds, holdings, history rows) and `funds`, one row per ETF: `ticker`, `name`, `category`, `fundPage`, `dataFile`, `cusip`, `isin`, `ter`/`terValue`, `nav`/`navValue`, `aum`/`aumValue`, `asOfDate`, `inceptionDate`, `exchange`, `closePrice`, `premiumDiscount`, `distributions`, `returns`, `metrics`, `holdings` and `history` row counts
+- `api/vanguard/funds/<TICKER>/meta.json` - the same fields in detail: `source`, `providerIds` (fund page, advisor page, `portId`), `identifiers`, `expenseRatio`, `nav`, `marketPrice`, `premiumDiscount`, `aum` (with `totalFundNetAssets`), `yields`, `returns`, `distributions`, plus the manifests of the paginated `holdings/` and `history/` pages
+- holdings pages use the standard headers `Name`, `Ticker`, `Identifier`, `Weight`, `Market Value`, `Shares Held`, `Asset Category` followed by `Sector`, `Exchange`, `Location`, `CUSIP`, `ISIN`, `Currency` (and `Coupon`, `Maturity` for bonds from N-PORT-P)
 
-Official NAV, market price and premium/discount come from Vanguard; Open/High/Low/Volume and distributions come from Yahoo Finance and are not official fund data. Values a source does not publish are left unavailable, not zero. Each holdings sheet records its as-of date and source, and SEC N-PORT-P is used only when the Vanguard feed has no holdings.
+Each row carries a `metrics` object that powers the catalog columns and the metric filters. Percent numbers, `null` when unavailable, never 0:
+
+- `ytd` and `tr1y` - cumulative YTD and 1-year total return: the figure Vanguard publishes when there is one, else derived from Yahoo adjusted closes
+- `tr3y`, `tr5y`, `tr10y` - cumulative total return over 3, 5 and 10 years, `(1 + CAGR)^n - 1`
+- `cagr3y`, `cagr5y`, `cagr10y` - annualized return over 3, 5 and 10 years, derived from Yahoo adjusted market-price closes (not NAV)
+- `siAnn` - always `null`: Vanguard publishes no since-inception figure in these sources
+- `dividendYield` and `secYield` (with `...Text`) - the distribution yield and the 30-day SEC yield published by Vanguard; `null` where Vanguard publishes none (several newer funds)
+- `returnsBasis` - plain-text label of where this fund's returns come from (official Vanguard figures, derived from Yahoo, or both)
+- `performanceAsOf` - ISO date the returns are as of: the date Vanguard attached to its figures, else the last Yahoo close used. It is not the NAV date
+
+Caveats:
+
+- A 3, 5 or 10-year figure needs a price history that starts at or before the start of the period, so funds younger than the period (and runs with a shorter `HISTORY_RANGE`) get `null` there instead of a since-launch return passed off as a period return
+- `returns.monthEnd` holds the same values as `metrics` in the shape the shared app reads; `returns.quarterEnd` is empty because Vanguard publishes no separate quarter-end series
+- `nav` is Vanguard's official NAV, `closePrice` its official market price (the last Yahoo close when none is published) and `premiumDiscount` the value Vanguard published for the price day, never computed across days; `aum` is the ETF share class net assets as Vanguard rounds them (`$29.0B`), so `aumValue` is only as precise as that text
+- `cusip`, `isin`, `inceptionDate` and `exchange` are not published by the sources used and stay empty
+- Official NAV, market price and premium/discount come from Vanguard; Open/High/Low/Volume, distributions and every derived return come from Yahoo Finance and are not official fund data
+- Each holdings sheet records its as-of date and source, and SEC N-PORT-P is used only when the Vanguard feed has no holdings
 
 ### Update controls
 
@@ -57,7 +71,7 @@ Official NAV, market price and premium/discount come from Vanguard; Open/High/Lo
 | `CONCURRENCY` | `4` | Number of parallel fund update workers (integer >= 1). |
 | `AUM` | `:` | Fund net assets in dollars, `min:max`; amounts accept `K`/`M`/`B`/`T` suffixes or the `nano`/`micro`/`small`/`mid`/`large` presets. Funds without the value are skipped. |
 | `TER` | `:` | Expense ratio percent, `min:max`. Funds without the value are skipped. |
-| `DIVIDEND_YIELD` | `:` | Vanguard trailing dividend yield percent, `min:max`. Funds without the value are skipped. |
+| `DIVIDEND_YIELD` | `:` | Vanguard distribution yield percent (`metrics.dividendYield`), `min:max`. Funds without the value are skipped. |
 | `SEC_YIELD` | `:` | 30-day SEC yield percent, `min:max`. Funds without the value are skipped. |
 | `TICKERS` | all | Space-, comma- or semicolon-separated ticker allowlist, e.g. `VTI VOO BND VUG`; empty updates every fund. |
 | `CATEGORY` | empty | Keep funds whose catalog category contains this text, case-insensitive (`Bond`, `US Equity`, `Sector`, `International Equity`, `Global Equity`, `Real Estate`). |
@@ -70,18 +84,18 @@ Official NAV, market price and premium/discount come from Vanguard; Open/High/Lo
 | `EDGAR_FALLBACK` | `true` | Use SEC N-PORT-P holdings when the Vanguard feed has none (`true`/`false`). |
 | `VERBOSE` | `false` | Print per-fund retry and fallback notices (`true`/`false`). |
 | `USE_SYSTEM_CA` | `auto` | TLS trust store: `auto` restarts the updater once with Bun's `--use-system-ca` when a request fails with an untrusted-certificate error; `true` always uses the system CA store; `false` never restarts. Not an individual workflow input: use `advanced`, the config file or the CLI environment. |
-| `PERFORMANCE_YTD` | `:` | Annualized return percent for the period, `min:max`: YTD is the official Vanguard figure with a Yahoo adjusted-close fallback, 1Y is the official 1-year figure with a Yahoo fallback, 3Y/5Y/10Y are CAGR from Yahoo adjusted closes. Funds with no value for the period pass. |
+| `PERFORMANCE_YTD` | `:` | Annualized return percent for the period, `min:max`, read from the standard metrics: YTD is `ytd` and 1Y is `tr1y` (Vanguard figure with a Yahoo fallback), 3Y, 5Y and 10Y are `cagr3y`, `cagr5y` and `cagr10y`. Funds with no value for the period pass. |
 | `PERFORMANCE_1Y` | `:` | See `PERFORMANCE_YTD`. |
 | `PERFORMANCE_3Y` | `:` | See `PERFORMANCE_YTD`. |
 | `PERFORMANCE_5Y` | `:` | See `PERFORMANCE_YTD`. |
 | `PERFORMANCE_10Y` | `:` | See `PERFORMANCE_YTD`. |
-| `TOTAL_RETURN_YTD` | `:` | Cumulative total return percent for the period, `min:max` (same sources as `PERFORMANCE_*`; 3Y/5Y/10Y are `(1 + CAGR)^n - 1`). Funds with no value for the period pass. |
+| `TOTAL_RETURN_YTD` | `:` | Cumulative total return percent for the period, `min:max`, read from the standard metrics: `ytd`, `tr1y`, `tr3y`, `tr5y`, `tr10y`. Funds with no value for the period pass. |
 | `TOTAL_RETURN_1Y` | `:` | See `TOTAL_RETURN_YTD`. |
 | `TOTAL_RETURN_3Y` | `:` | See `TOTAL_RETURN_YTD`. |
 | `TOTAL_RETURN_5Y` | `:` | See `TOTAL_RETURN_YTD`. |
 | `TOTAL_RETURN_10Y` | `:` | See `TOTAL_RETURN_YTD`. |
 
-Filters take `min:max` with exactly one colon (an empty side is unbounded) and are combined with AND. Filter values come from the fund's freshly fetched data, falling back to its last published metadata. A fund that fails the filters, is not selected by `TICKERS`/`CATEGORY`, or falls outside the current `MAX_FETCHES` batch keeps its previously published data and catalog row. Invalid values fail the run before any request. The raw-download setting `STORE_RAW_DOWNLOADS` is not offered because the updater downloads no source files.
+Filters take `min:max` with exactly one colon (an empty side is unbounded) and are combined with AND. Filter values are the standard `metrics`, `aumValue` and `terValue` of the freshly fetched fund, falling back to its last published metadata. A fund that fails the filters, fails to update, is not selected by `TICKERS`/`CATEGORY`, or falls outside the current `MAX_FETCHES` batch keeps its previously published data and catalog row. Invalid values fail the run before any request. The raw-download setting `STORE_RAW_DOWNLOADS` is not offered because the updater downloads no source files.
 
 ### Examples
 
