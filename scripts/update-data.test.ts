@@ -51,6 +51,11 @@ import {
   parseVanguardOfficialHistory,
   paymentsPerYear,
   toIsoDate,
+  configureLanes,
+  httpFetch,
+  isinFromCusip,
+  paceRequest,
+  REQUEST_TIMEOUT_MS,
 } from "./update-data";
 
 const seed = ["BND", "VOO", "VTI", "VT"];
@@ -363,11 +368,13 @@ test("runtimeControls reads the config file and honors env overrides", async () 
 });
 
 test("readConfig parses every control strictly", () => {
-  const c = readConfig(resolveControls(file(), { MAX_FETCHES: 3, AUM: "mid", TER: ":0.2", MAX_RETRIES: 9, TICKERS: "voo, vti;bnd", CATEGORY: "bond", HISTORY_RANGE: "5Y", SKIP_YAHOO: "yes", EDGAR_FALLBACK: "off", TOTAL_RETURN_3Y: "10:" }));
+  const c = readConfig(resolveControls(file(), { MAX_FETCHES: 3, AUM: "mid", TER: ":0.2", MAX_RETRIES: 4, TICKERS: "voo, vti;bnd", CATEGORY: "bond", HISTORY_RANGE: "5Y", SKIP_YAHOO: "yes", EDGAR_FALLBACK: "off", TOTAL_RETURN_3Y: "10:" }));
   expect(c.maxFetches).toBe(3);
   expect(c.aumRange).toMatchObject({ min: 2e9, max: 1e10 });
   expect(c.terRange).toMatchObject({ min: Number.NEGATIVE_INFINITY, max: 0.2 });
-  expect(c.maxRetries).toBe(5);
+  expect(c.maxRetries).toBe(4);
+  expect(() => readConfig(resolveControls(file(), { MAX_RETRIES: 9 }))).toThrow("MAX_RETRIES");
+  expect(() => readConfig(resolveControls(file(), { MAX_RETRIES: 0 }))).toThrow("MAX_RETRIES");
   expect(c.tickers).toEqual(["VOO", "VTI", "BND"]);
   expect(c.category).toBe("bond");
   expect(c.historyRange).toBe("5y");
@@ -444,8 +451,12 @@ test("MAX_FETCHES batches resume at the saved cursor and wrap", () => {
 
 test("HISTORY_RANGE bounds the Yahoo request and the published rows", () => {
   const now = 1_790_000_000;
-  expect(yahooChartUrl("VOO")).toBe("https://query1.finance.yahoo.com/v8/finance/chart/VOO?range=max&interval=1d&events=div%2Csplits");
-  expect(yahooChartUrl("VOO", "max", now)).toContain("range=max");
+  // Yahoo answers range=max with monthly bars: max must be an explicit period1=0 window of daily bars
+  const maxUrl = new URL(yahooChartUrl("VOO", "max", now));
+  expect(maxUrl.searchParams.get("range")).toBeNull();
+  expect(maxUrl.searchParams.get("interval")).toBe("1d");
+  expect(maxUrl.searchParams.get("period1")).toBe("0");
+  expect(maxUrl.searchParams.get("period2")).toBe(String(now));
   const url = new URL(yahooChartUrl("VOO", "5y", now));
   expect(url.searchParams.get("range")).toBeNull();
   expect(url.searchParams.get("period2")).toBe(String(now));
@@ -717,7 +728,7 @@ test("index envelope carries generatedAt, source and counts", () => {
   expect(index.source.provider).toBe("Vanguard");
 });
 
-function mockFeed(delayMs = 0) {
+function mockFeed(delayMs = 0, opts: { failYahoo?: boolean } = {}) {
   const inflight = new Set<string>();
   let peak = 0;
   const epoch = (iso: string) => Date.parse(`${iso}T00:00:00Z`) / 1000;
@@ -727,7 +738,12 @@ function mockFeed(delayMs = 0) {
     if (ticker) { inflight.add(ticker); peak = Math.max(peak, inflight.size); }
     if (delayMs) await new Promise((resolve) => setTimeout(resolve, delayMs));
     try {
+      if (url.includes("advisors.vanguard.com")) return new Response('<html>"portId": "0970"</html>');
+      if (url.includes("fundDetails")) {
+        return Response.json({ marketData: { body: { fundIdentifiers: { cusip: "922908769" }, exchange: "New York Stock Exchange Arca", fundCharacteristics: { fundInceptionDate: "2001-05-24" } } } });
+      }
       if (url.includes("finance.yahoo.com")) {
+        if (opts.failYahoo) return new Response("down", { status: 404 });
         const days = ["2024-12-31", "2025-06-01", "2025-12-31", "2026-06-01"];
         const adj = [100, 110, 115, 121];
         return Response.json({ chart: { result: [{ timestamp: days.map(epoch), indicators: { quote: [{ open: adj, high: adj, low: adj, close: adj, volume: adj }], adjclose: [{ adjclose: adj }] }, events: { dividends: { [epoch("2026-03-27")]: { amount: 1.8, date: epoch("2026-03-27") } } } }] } });
@@ -747,15 +763,15 @@ function mockFeed(delayMs = 0) {
   return { fetchMock, peak: () => peak };
 }
 
-async function runOffline(controls: Record<string, string>, delayMs = 0) {
-  const dir = mkdtempSync(join(tmpdir(), "vanguard-feed-"));
+async function runOffline(controls: Record<string, string>, delayMs = 0, existingDir?: string, opts: { failYahoo?: boolean } = {}, softDeadlineMs?: number) {
+  const dir = existingDir ?? mkdtempSync(join(tmpdir(), "vanguard-feed-"));
   const realFetch = globalThis.fetch;
-  const feed = mockFeed(delayMs);
+  const feed = mockFeed(delayMs, opts);
   globalThis.fetch = feed.fetchMock;
   const logged = console.log;
   console.log = () => {};
   try {
-    await run(readConfig(resolveControls(file(), { REQUEST_SLEEP: "0", MAX_RETRIES: "1", ...controls })), pathToFileURL(`${dir}/`));
+    await run(readConfig(resolveControls(file(), { REQUEST_SLEEP: "0", MAX_RETRIES: "1", ...controls })), pathToFileURL(`${dir}/`), softDeadlineMs);
     return { dir, peak: feed.peak() };
   } finally {
     console.log = logged;
@@ -780,9 +796,10 @@ test("update pipeline on a mocked fetch writes the standard index, meta and hold
     const holdings = JSON.parse(readFileSync(join(dir, "funds/VOO/holdings/001.json"), "utf8"));
     expect(holdings.headers).toEqual(HOLDINGS_HEADERS_BASE);
     expect(holdings.rows[0]).toMatchObject({ Name: "A Corp", Ticker: "AAA", Identifier: "123456789", Weight: "5.00%" });
-    // a second run over the written feed keeps every fund (nothing is dropped, nothing is zeroed)
-    const again = await runOffline({ TICKERS: "VOO" });
-    rmSync(again.dir, { recursive: true, force: true });
+    expect(voo.cusip).toBe("922908769");
+    expect(voo.isin).toBe("US9229087690");
+    expect(voo.exchange).toBe("New York Stock Exchange Arca");
+    expect(voo.inceptionDate).toBe("May 24 2001");
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
@@ -807,4 +824,101 @@ test("CONCURRENCY really runs funds in parallel: peak 1 fund in flight at 1, N a
     rmSync(one.dir, { recursive: true, force: true });
     rmSync(four.dir, { recursive: true, force: true });
   }
+});
+
+const textOf = (dir: string, path: string) => readFileSync(join(dir, path), "utf8");
+
+test("a one-ticker run over an existing feed keeps every row and every fund's files", async () => {
+  const { dir } = await runOffline({ TICKERS: "VOO VTI" });
+  try {
+    const before = JSON.parse(textOf(dir, "index.json"));
+    const vtiMeta = textOf(dir, "funds/VTI/meta.json");
+    await runOffline({ TICKERS: "VOO" }, 0, dir);
+    const after = JSON.parse(textOf(dir, "index.json"));
+    expect(before.funds.map((f: any) => f.ticker)).toEqual(["VOO", "VTI"]);
+    expect(after.funds.map((f: any) => f.ticker)).toEqual(["VOO", "VTI"]);
+    expect(after.funds.find((f: any) => f.ticker === "VTI")).toEqual(before.funds.find((f: any) => f.ticker === "VTI"));
+    expect(textOf(dir, "funds/VTI/meta.json")).toBe(vtiMeta);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("a rerun with identical upstream data rewrites nothing (index stamp included)", async () => {
+  const { dir } = await runOffline({ TICKERS: "VOO VTI" });
+  try {
+    const files = ["index.json", "funds/VOO/meta.json", "funds/VTI/meta.json", "funds/VOO/history/001.json"];
+    const first = files.map((f) => textOf(dir, f));
+    await new Promise((resolve) => setTimeout(resolve, 15));
+    await runOffline({ TICKERS: "VOO VTI" }, 0, dir);
+    expect(files.map((f) => textOf(dir, f))).toEqual(first);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("a failed required source keeps the whole fund as published, and a run where every fund failed exits with an error", async () => {
+  const { dir } = await runOffline({ TICKERS: "VOO" });
+  try {
+    const metaBefore = textOf(dir, "funds/VOO/meta.json");
+    const historyBefore = textOf(dir, "funds/VOO/history/001.json");
+    const indexBefore = textOf(dir, "index.json");
+    await expect(runOffline({ TICKERS: "VOO" }, 0, dir, { failYahoo: true })).rejects.toThrow("every selected fund failed");
+    expect(textOf(dir, "funds/VOO/meta.json")).toBe(metaBefore);
+    expect(textOf(dir, "funds/VOO/history/001.json")).toBe(historyBefore);
+    expect(textOf(dir, "index.json")).toBe(indexBefore);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("the soft deadline stops taking new funds but still writes the index", async () => {
+  const { dir } = await runOffline({ TICKERS: "VOO VTI" }, 0, undefined, {}, -1);
+  try {
+    expect(JSON.parse(textOf(dir, "index.json")).funds).toEqual([]);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("lanes: the slot is reserved synchronously, so concurrent callers never share a start time", async () => {
+  configureLanes(2, 1);
+  const waits: number[] = [];
+  const clock = () => 1_000;
+  const pause = async (ms: number) => { waits.push(ms); };
+  await Promise.all([paceRequest(clock, pause), paceRequest(clock, pause), paceRequest(clock, pause), paceRequest(clock, pause), paceRequest(clock, pause)]);
+  // two lanes, 1 s apart per lane: starts at +0, +0, +1000, +1000, +2000
+  expect(waits.sort((a, b) => a - b)).toEqual([1000, 1000, 2000]);
+  configureLanes(1, 0);
+});
+
+test("httpFetch applies a timeout signal and retries network errors and transient statuses up to MAX_RETRIES", async () => {
+  const realFetch = globalThis.fetch;
+  const calls: any[] = [];
+  globalThis.fetch = (async (_url: any, init: any) => {
+    calls.push(init);
+    if (calls.length === 1) throw new Error("socket hang up");
+    if (calls.length === 2) return new Response("busy", { status: 503 });
+    return new Response("ok");
+  }) as typeof fetch;
+  try {
+    const response = await httpFetch("https://example.test/x", {}, 3);
+    expect(await response.text()).toBe("ok");
+    expect(calls.length).toBe(3);
+    expect(calls.every((init) => init.signal instanceof AbortSignal)).toBe(true);
+    expect(REQUEST_TIMEOUT_MS).toBe(45_000);
+    calls.length = 0;
+    globalThis.fetch = (async () => { calls.push(1); return new Response("nope", { status: 404 }); }) as typeof fetch;
+    expect((await httpFetch("https://example.test/y", {}, 3)).status).toBe(404);
+    expect(calls.length).toBe(1);
+  } finally {
+    globalThis.fetch = realFetch;
+  }
+}, 20_000);
+
+test("ISIN is derived from a CUSIP with the Luhn check digit and is null for anything else", () => {
+  expect(isinFromCusip("922908769")).toBe("US9229087690");
+  expect(isinFromCusip("037833100")).toBe("US0378331005");
+  expect(isinFromCusip("bad")).toBeNull();
+  expect(isinFromCusip(null)).toBeNull();
 });
