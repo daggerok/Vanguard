@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-03T06:13:41.212Z",
+  "generatedAt": "2026-10-03T06:46:16.519Z",
   "source": {
     "provider": "Vanguard",
     "site": "https://investor.vanguard.com",
@@ -25,8 +25,8 @@
       "terValue": 0.03,
       "nav": "$72.77",
       "navValue": 72.77,
-      "aum": "$29.0B",
-      "aumValue": 29000000000,
+      "aum": "$28.1B",
+      "aumValue": 28100000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Apr 03 2007",
       "exchange": "New York Stock Exchange Arca",
@@ -41,8 +41,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -3.46,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -3.7,
           "yr1": -2.62,
           "yr3": 4.55,
           "yr5": -0.6,
@@ -61,7 +61,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -3.46,
+        "ytd": -3.7,
         "tr1y": -2.62,
         "tr3y": 14.29,
         "tr5y": -2.95,
@@ -72,10 +72,10 @@
         "siAnn": null,
         "dividendYield": 4.75,
         "dividendYieldText": "4.75%",
-        "secYield": 5.38,
-        "secYieldText": "5.38%",
+        "secYield": 5.4,
+        "secYieldText": "5.40%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 2352,
       "history": 4938
@@ -92,8 +92,8 @@
       "terValue": 0.03,
       "nav": "$62.62",
       "navValue": 62.62,
-      "aum": "$5.7B",
-      "aumValue": 5700000000,
+      "aum": "$5.3B",
+      "aumValue": 5300000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Apr 03 2007",
       "exchange": "New York Stock Exchange Arca",
@@ -108,8 +108,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -6.63,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -6.9,
           "yr1": -7.01,
           "yr3": 3.1,
           "yr5": -5.44,
@@ -128,7 +128,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -6.63,
+        "ytd": -6.9,
         "tr1y": -7.01,
         "tr3y": 9.58,
         "tr5y": -24.39,
@@ -139,10 +139,10 @@
         "siAnn": null,
         "dividendYield": 5.34,
         "dividendYieldText": "5.34%",
-        "secYield": 6.01,
-        "secYieldText": "6.01%",
+        "secYield": 6.03,
+        "secYieldText": "6.03%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 2937,
       "history": 4938
@@ -159,8 +159,8 @@
       "terValue": 0.03,
       "nav": "$70.06",
       "navValue": 70.06,
-      "aum": "$163.3B",
-      "aumValue": 163300000000,
+      "aum": "$161.4B",
+      "aumValue": 161400000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Apr 03 2007",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -175,8 +175,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -2.52,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -2.72,
           "yr1": -1.82,
           "yr3": 4.29,
           "yr5": -0.68,
@@ -195,7 +195,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -2.52,
+        "ytd": -2.72,
         "tr1y": -1.82,
         "tr3y": 13.43,
         "tr5y": -3.36,
@@ -206,10 +206,10 @@
         "siAnn": null,
         "dividendYield": 4.4,
         "dividendYieldText": "4.40%",
-        "secYield": 5.06,
-        "secYieldText": "5.06%",
+        "secYield": 5.07,
+        "secYieldText": "5.07%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 16300,
       "history": 4938
@@ -226,8 +226,8 @@
       "terValue": 0.05,
       "nav": "$70.79",
       "navValue": 70.79,
-      "aum": "$131.6M",
-      "aumValue": 131600000,
+      "aum": "$133.0M",
+      "aumValue": 133000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Dec 02 2025",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -242,8 +242,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -2.3,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -2.48,
           "yr1": null,
           "yr3": null,
           "yr5": null,
@@ -262,7 +262,7 @@
         "derivedFrom": "official Vanguard YTD returns"
       },
       "metrics": {
-        "ytd": -2.3,
+        "ytd": -2.48,
         "tr1y": null,
         "tr3y": null,
         "tr5y": null,
@@ -273,10 +273,10 @@
         "siAnn": null,
         "dividendYield": null,
         "dividendYieldText": "—",
-        "secYield": 5.34,
-        "secYieldText": "5.34%",
+        "secYield": 5.35,
+        "secYieldText": "5.35%",
         "returnsBasis": "official Vanguard YTD returns",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 6444,
       "history": 214
@@ -309,8 +309,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -1.8,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -1.83,
           "yr1": -1.38,
           "yr3": 4.23,
           "yr5": -0.36,
@@ -329,7 +329,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -1.8,
+        "ytd": -1.83,
         "tr1y": -1.38,
         "tr3y": 13.23,
         "tr5y": -1.76,
@@ -340,10 +340,10 @@
         "siAnn": null,
         "dividendYield": 3.84,
         "dividendYieldText": "3.84%",
-        "secYield": 4.34,
-        "secYieldText": "4.34%",
+        "secYield": 4.46,
+        "secYieldText": "4.46%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 4,
       "history": 2058
@@ -360,8 +360,8 @@
       "terValue": 0.07,
       "nav": "$46.76",
       "navValue": 46.76,
-      "aum": "$83.4B",
-      "aumValue": 83400000000,
+      "aum": "$82.9B",
+      "aumValue": 82900000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "May 31 2013",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -376,8 +376,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -1.18,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -1.26,
           "yr1": -0.92,
           "yr3": 4.13,
           "yr5": -0.03,
@@ -396,7 +396,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -1.18,
+        "ytd": -1.26,
         "tr1y": -0.92,
         "tr3y": 12.92,
         "tr5y": -0.17,
@@ -410,7 +410,7 @@
         "secYield": 3.83,
         "secYieldText": "3.83%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 8667,
       "history": 3389
@@ -427,8 +427,8 @@
       "terValue": 0.03,
       "nav": "$76.27",
       "navValue": 76.27,
-      "aum": "$46.6B",
-      "aumValue": 46600000000,
+      "aum": "$45.4B",
+      "aumValue": 45400000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Apr 03 2007",
       "exchange": "New York Stock Exchange Arca",
@@ -443,8 +443,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -0.19,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -0.32,
           "yr1": 0.77,
           "yr3": 4.37,
           "yr5": 1.51,
@@ -463,7 +463,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -0.19,
+        "ytd": -0.32,
         "tr1y": 0.77,
         "tr3y": 13.7,
         "tr5y": 7.76,
@@ -474,10 +474,10 @@
         "siAnn": null,
         "dividendYield": 4.36,
         "dividendYieldText": "4.36%",
-        "secYield": 4.85,
-        "secYieldText": "4.85%",
+        "secYield": 4.87,
+        "secYieldText": "4.87%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 3178,
       "history": 4938
@@ -494,8 +494,8 @@
       "terValue": 0.05,
       "nav": "$54.69",
       "navValue": 54.69,
-      "aum": "$3.7B",
-      "aumValue": 3700000000,
+      "aum": "$3.6B",
+      "aumValue": 3600000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Dec 06 2007",
       "exchange": "New York Stock Exchange Arca",
@@ -510,8 +510,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -12.46,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -12.89,
           "yr1": -14.62,
           "yr3": -2.51,
           "yr5": -13.38,
@@ -530,7 +530,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -12.46,
+        "ytd": -12.89,
         "tr1y": -14.62,
         "tr3y": -7.34,
         "tr5y": -51.23,
@@ -541,10 +541,10 @@
         "siAnn": null,
         "dividendYield": null,
         "dividendYieldText": "—",
-        "secYield": 5.91,
-        "secYieldText": "5.91%",
+        "secYield": 5.97,
+        "secYieldText": "5.97%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 83,
       "history": 4735
@@ -561,8 +561,8 @@
       "terValue": 0.09,
       "nav": "$135.63",
       "navValue": 135.63,
-      "aum": "$13.5B",
-      "aumValue": 13500000000,
+      "aum": "$13.4B",
+      "aumValue": 13400000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Sep 18 2018",
       "exchange": "Cboe BZX U.S. Equities Exchange",
@@ -577,8 +577,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 13,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 13.93,
           "yr1": 15.49,
           "yr3": 23.3,
           "yr5": 12.34,
@@ -597,7 +597,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 13,
+        "ytd": 13.93,
         "tr1y": 15.49,
         "tr3y": 87.43,
         "tr5y": 78.92,
@@ -608,10 +608,10 @@
         "siAnn": null,
         "dividendYield": 0.94,
         "dividendYieldText": "0.94%",
-        "secYield": 0.83,
-        "secYieldText": "0.83%",
+        "secYield": 0.85,
+        "secYieldText": "0.85%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 1222,
       "history": 2048
@@ -628,8 +628,8 @@
       "terValue": 0.1,
       "nav": "$138.27",
       "navValue": 138.27,
-      "aum": "$1.6B",
-      "aumValue": 1600000000,
+      "aum": "$1.7B",
+      "aumValue": 1700000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Sep 07 2010",
       "exchange": "New York Stock Exchange Arca",
@@ -644,8 +644,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 14.93,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 15.98,
           "yr1": 15.12,
           "yr3": 17.04,
           "yr5": 7.86,
@@ -664,7 +664,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 14.93,
+        "ytd": 15.98,
         "tr1y": 15.12,
         "tr3y": 60.32,
         "tr5y": 45.97,
@@ -675,10 +675,10 @@
         "siAnn": null,
         "dividendYield": 0.69,
         "dividendYieldText": "0.69%",
-        "secYield": 0.57,
-        "secYieldText": "0.57%",
+        "secYield": 0.64,
+        "secYieldText": "0.64%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 251,
       "history": 4076
@@ -695,8 +695,8 @@
       "terValue": 0.07,
       "nav": "$123.02",
       "navValue": 123.02,
-      "aum": "$3.8B",
-      "aumValue": 3800000000,
+      "aum": "$3.7B",
+      "aumValue": 3700000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Sep 07 2010",
       "exchange": "New York Stock Exchange Arca",
@@ -711,8 +711,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 11.02,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 12.1,
           "yr1": 11.67,
           "yr3": 15.83,
           "yr5": 8.07,
@@ -731,7 +731,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 11.02,
+        "ytd": 12.1,
         "tr1y": 11.67,
         "tr3y": 55.39,
         "tr5y": 47.43,
@@ -742,10 +742,10 @@
         "siAnn": null,
         "dividendYield": 1.24,
         "dividendYieldText": "1.24%",
-        "secYield": 1.17,
-        "secYieldText": "1.17%",
+        "secYield": 1.27,
+        "secYieldText": "1.27%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 408,
       "history": 4076
@@ -762,8 +762,8 @@
       "terValue": 0.1,
       "nav": "$107.97",
       "navValue": 107.97,
-      "aum": "$1.3B",
-      "aumValue": 1300000000,
+      "aum": "$1.2B",
+      "aumValue": 1200000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Sep 07 2010",
       "exchange": "New York Stock Exchange Arca",
@@ -778,8 +778,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 6.96,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 8.06,
           "yr1": 8.08,
           "yr3": 14.33,
           "yr5": 7.98,
@@ -798,7 +798,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 6.96,
+        "ytd": 8.06,
         "tr1y": 8.08,
         "tr3y": 49.45,
         "tr5y": 46.78,
@@ -809,10 +809,10 @@
         "siAnn": null,
         "dividendYield": 1.84,
         "dividendYieldText": "1.84%",
-        "secYield": 1.74,
-        "secYieldText": "1.74%",
+        "secYield": 1.89,
+        "secYieldText": "1.89%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 305,
       "history": 4076
@@ -845,8 +845,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 13.38,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 14.26,
           "yr1": 16.83,
           "yr3": 24.52,
           "yr5": 14.45,
@@ -865,7 +865,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 13.38,
+        "ytd": 14.26,
         "tr1y": 16.83,
         "tr3y": 93.06,
         "tr5y": 96.35,
@@ -876,10 +876,10 @@
         "siAnn": null,
         "dividendYield": 0.95,
         "dividendYieldText": "0.95%",
-        "secYield": 0.85,
-        "secYieldText": "0.85%",
+        "secYield": 0.86,
+        "secYieldText": "0.86%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 180,
       "history": 4756
@@ -896,8 +896,8 @@
       "terValue": 0.05,
       "nav": "$92.75",
       "navValue": 92.75,
-      "aum": "$33.5B",
-      "aumValue": 33500000000,
+      "aum": "$34.9B",
+      "aumValue": 34900000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Dec 17 2007",
       "exchange": "New York Stock Exchange Arca",
@@ -912,8 +912,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 12.65,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 13.75,
           "yr1": 15.51,
           "yr3": 27.42,
           "yr5": 15.09,
@@ -932,7 +932,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 12.65,
+        "ytd": 13.75,
         "tr1y": 15.51,
         "tr3y": 106.89,
         "tr5y": 101.9,
@@ -943,10 +943,10 @@
         "siAnn": null,
         "dividendYield": 0.33,
         "dividendYieldText": "0.33%",
-        "secYield": 0.29,
-        "secYieldText": "0.29%",
+        "secYield": 0.3,
+        "secYieldText": "0.30%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 62,
       "history": 4756
@@ -963,8 +963,8 @@
       "terValue": 0.05,
       "nav": "$161.28",
       "navValue": 161.28,
-      "aum": "$13.8B",
-      "aumValue": 13800000000,
+      "aum": "$13.5B",
+      "aumValue": 13500000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Dec 17 2007",
       "exchange": "New York Stock Exchange Arca",
@@ -979,8 +979,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 15.93,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 16.21,
           "yr1": 19.28,
           "yr3": 19.63,
           "yr5": 12.84,
@@ -999,7 +999,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 15.93,
+        "ytd": 16.21,
         "tr1y": 19.28,
         "tr3y": 71.19,
         "tr5y": 82.97,
@@ -1010,10 +1010,10 @@
         "siAnn": null,
         "dividendYield": 1.88,
         "dividendYieldText": "1.88%",
-        "secYield": 1.72,
-        "secYieldText": "1.72%",
+        "secYield": 1.81,
+        "secYieldText": "1.81%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 129,
       "history": 4756
@@ -1030,8 +1030,8 @@
       "terValue": 0.09,
       "nav": "$97.47",
       "navValue": 97.47,
-      "aum": "$496.0M",
-      "aumValue": 496000000,
+      "aum": "$553.6M",
+      "aumValue": 553600000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "May 20 2025",
       "exchange": "Cboe BZX U.S. Equities Exchange",
@@ -1046,9 +1046,9 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -3.05,
-          "yr1": -2.32,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -3.07,
+          "yr1": -2.3,
           "yr3": null,
           "yr5": null,
           "yr10": null,
@@ -1066,8 +1066,8 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": -3.05,
-        "tr1y": -2.32,
+        "ytd": -3.07,
+        "tr1y": -2.3,
         "tr3y": null,
         "tr5y": null,
         "tr10y": null,
@@ -1077,10 +1077,10 @@
         "siAnn": null,
         "dividendYield": 3.55,
         "dividendYieldText": "3.55%",
-        "secYield": 4.18,
-        "secYieldText": "4.18%",
+        "secYield": 4.17,
+        "secYieldText": "4.17%",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 3744,
       "history": 349
@@ -1113,8 +1113,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 5.98,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 7.11,
           "yr1": 8.02,
           "yr3": 10.64,
           "yr5": 6.35,
@@ -1133,7 +1133,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 5.98,
+        "ytd": 7.11,
         "tr1y": 8.02,
         "tr3y": 35.43,
         "tr5y": 36.05,
@@ -1144,10 +1144,10 @@
         "siAnn": null,
         "dividendYield": 1.44,
         "dividendYieldText": "1.44%",
-        "secYield": 1.29,
-        "secYieldText": "1.29%",
+        "secYield": 1.42,
+        "secYieldText": "1.42%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 114,
       "history": 5740
@@ -1164,8 +1164,8 @@
       "terValue": 0.03,
       "nav": "$286.57",
       "navValue": 286.57,
-      "aum": "$80.7B",
-      "aumValue": 80700000000,
+      "aum": "$76.9B",
+      "aumValue": 76900000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Jan 26 2004",
       "exchange": "New York Stock Exchange Arca",
@@ -1180,8 +1180,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 12.21,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 13.13,
           "yr1": 13.41,
           "yr3": 17.35,
           "yr5": 7,
@@ -1200,7 +1200,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 12.21,
+        "ytd": 13.13,
         "tr1y": 13.41,
         "tr3y": 61.62,
         "tr5y": 40.24,
@@ -1211,10 +1211,10 @@
         "siAnn": null,
         "dividendYield": 1.3,
         "dividendYieldText": "1.30%",
-        "secYield": 1.28,
-        "secYieldText": "1.28%",
+        "secYield": 1.35,
+        "secYieldText": "1.35%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 1317,
       "history": 5740
@@ -1231,8 +1231,8 @@
       "terValue": 0.08,
       "nav": "$75.17",
       "navValue": 75.17,
-      "aum": "$55.9M",
-      "aumValue": 55900000,
+      "aum": "$64.8M",
+      "aumValue": 64800000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Mar 24 2026",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -1278,8 +1278,8 @@
         "siAnn": null,
         "dividendYield": null,
         "dividendYieldText": "—",
-        "secYield": 4.54,
-        "secYieldText": "4.54%",
+        "secYield": 4.56,
+        "secYieldText": "4.56%",
         "returnsBasis": "unavailable",
         "performanceAsOf": null
       },
@@ -1298,8 +1298,8 @@
       "terValue": 0.08,
       "nav": "$74.68",
       "navValue": 74.68,
-      "aum": "$104.1M",
-      "aumValue": 104100000,
+      "aum": "$116.8M",
+      "aumValue": 116800000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Mar 24 2026",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -1345,8 +1345,8 @@
         "siAnn": null,
         "dividendYield": null,
         "dividendYieldText": "—",
-        "secYield": 4.96,
-        "secYieldText": "4.96%",
+        "secYield": 4.98,
+        "secYieldText": "4.98%",
         "returnsBasis": "unavailable",
         "performanceAsOf": null
       },
@@ -1365,8 +1365,8 @@
       "terValue": 0.08,
       "nav": "$73.89",
       "navValue": 73.89,
-      "aum": "$55.6M",
-      "aumValue": 55600000,
+      "aum": "$63.7M",
+      "aumValue": 63700000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Mar 24 2026",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -1412,8 +1412,8 @@
         "siAnn": null,
         "dividendYield": null,
         "dividendYieldText": "—",
-        "secYield": 5.2,
-        "secYieldText": "5.20%",
+        "secYield": 5.22,
+        "secYieldText": "5.22%",
         "returnsBasis": "unavailable",
         "performanceAsOf": null
       },
@@ -1432,8 +1432,8 @@
       "terValue": 0.08,
       "nav": "$73.15",
       "navValue": 73.15,
-      "aum": "$53.8M",
-      "aumValue": 53800000,
+      "aum": "$60.1M",
+      "aumValue": 60100000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Mar 24 2026",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -1479,8 +1479,8 @@
         "siAnn": null,
         "dividendYield": null,
         "dividendYieldText": "—",
-        "secYield": 5.33,
-        "secYieldText": "5.33%",
+        "secYield": 5.35,
+        "secYieldText": "5.35%",
         "returnsBasis": "unavailable",
         "performanceAsOf": null
       },
@@ -1499,8 +1499,8 @@
       "terValue": 0.08,
       "nav": "$72.68",
       "navValue": 72.68,
-      "aum": "$52.2M",
-      "aumValue": 52200000,
+      "aum": "$51.0M",
+      "aumValue": 51000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Mar 24 2026",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -1546,8 +1546,8 @@
         "siAnn": null,
         "dividendYield": null,
         "dividendYieldText": "—",
-        "secYield": 5.47,
-        "secYieldText": "5.47%",
+        "secYield": 5.49,
+        "secYieldText": "5.49%",
         "returnsBasis": "unavailable",
         "performanceAsOf": null
       },
@@ -1566,8 +1566,8 @@
       "terValue": 0.08,
       "nav": "$72.22",
       "navValue": 72.22,
-      "aum": "$43.2M",
-      "aumValue": 43200000,
+      "aum": "$40.5M",
+      "aumValue": 40500000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Mar 24 2026",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -1613,8 +1613,8 @@
         "siAnn": null,
         "dividendYield": null,
         "dividendYieldText": "—",
-        "secYield": 5.58,
-        "secYieldText": "5.58%",
+        "secYield": 5.6,
+        "secYieldText": "5.60%",
         "returnsBasis": "unavailable",
         "performanceAsOf": null
       },
@@ -1633,8 +1633,8 @@
       "terValue": 0.08,
       "nav": "$71.64",
       "navValue": 71.64,
-      "aum": "$13.4M",
-      "aumValue": 13400000,
+      "aum": "$17.2M",
+      "aumValue": 17200000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Mar 24 2026",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -1680,8 +1680,8 @@
         "siAnn": null,
         "dividendYield": null,
         "dividendYieldText": "—",
-        "secYield": 5.74,
-        "secYieldText": "5.74%",
+        "secYield": 5.76,
+        "secYieldText": "5.76%",
         "returnsBasis": "unavailable",
         "performanceAsOf": null
       },
@@ -1700,8 +1700,8 @@
       "terValue": 0.08,
       "nav": "$71.32",
       "navValue": 71.32,
-      "aum": "$11.9M",
-      "aumValue": 11900000,
+      "aum": "$11.4M",
+      "aumValue": 11400000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Mar 24 2026",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -1747,8 +1747,8 @@
         "siAnn": null,
         "dividendYield": null,
         "dividendYieldText": "—",
-        "secYield": 5.85,
-        "secYieldText": "5.85%",
+        "secYield": 5.87,
+        "secYieldText": "5.87%",
         "returnsBasis": "unavailable",
         "performanceAsOf": null
       },
@@ -1767,8 +1767,8 @@
       "terValue": 0.08,
       "nav": "$70.99",
       "navValue": 70.99,
-      "aum": "$11.8M",
-      "aumValue": 11800000,
+      "aum": "$14.2M",
+      "aumValue": 14200000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Mar 24 2026",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -1814,8 +1814,8 @@
         "siAnn": null,
         "dividendYield": null,
         "dividendYieldText": "—",
-        "secYield": 5.92,
-        "secYieldText": "5.92%",
+        "secYield": 5.95,
+        "secYieldText": "5.95%",
         "returnsBasis": "unavailable",
         "performanceAsOf": null
       },
@@ -1834,8 +1834,8 @@
       "terValue": 0.08,
       "nav": "$70.74",
       "navValue": 70.74,
-      "aum": "$17.7M",
-      "aumValue": 17700000,
+      "aum": "$24.1M",
+      "aumValue": 24100000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Mar 24 2026",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -1881,8 +1881,8 @@
         "siAnn": null,
         "dividendYield": null,
         "dividendYieldText": "—",
-        "secYield": 6.03,
-        "secYieldText": "6.03%",
+        "secYield": 6.05,
+        "secYieldText": "6.05%",
         "returnsBasis": "unavailable",
         "performanceAsOf": null
       },
@@ -1901,8 +1901,8 @@
       "terValue": 0.06,
       "nav": "$75.51",
       "navValue": 75.51,
-      "aum": "$11.4B",
-      "aumValue": 11400000000,
+      "aum": "$12.8B",
+      "aumValue": 12800000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Feb 07 2025",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -1917,8 +1917,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 2.74,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 2.76,
           "yr1": 3.74,
           "yr3": null,
           "yr5": null,
@@ -1937,7 +1937,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": 2.74,
+        "ytd": 2.76,
         "tr1y": 3.74,
         "tr3y": null,
         "tr5y": null,
@@ -1948,10 +1948,10 @@
         "siAnn": null,
         "dividendYield": 3.7,
         "dividendYieldText": "3.70%",
-        "secYield": 3.67,
-        "secYieldText": "3.67%",
+        "secYield": 3.68,
+        "secYieldText": "3.68%",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 28,
       "history": 419
@@ -1968,8 +1968,8 @@
       "terValue": 0.05,
       "nav": "$340.37",
       "navValue": 340.37,
-      "aum": "$23.7B",
-      "aumValue": 23700000000,
+      "aum": "$22.8B",
+      "aumValue": 22800000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Jan 26 2004",
       "exchange": "New York Stock Exchange Arca",
@@ -1984,8 +1984,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 13.13,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 14.26,
           "yr1": 13.94,
           "yr3": 18.13,
           "yr5": 4.53,
@@ -2004,7 +2004,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 13.13,
+        "ytd": 14.26,
         "tr1y": 13.94,
         "tr3y": 64.83,
         "tr5y": 24.8,
@@ -2015,10 +2015,10 @@
         "siAnn": null,
         "dividendYield": 0.43,
         "dividendYieldText": "0.43%",
-        "secYield": 0.37,
-        "secYieldText": "0.37%",
+        "secYield": 0.39,
+        "secYieldText": "0.39%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 556,
       "history": 5740
@@ -2035,8 +2035,8 @@
       "terValue": 0.05,
       "nav": "$232.49",
       "navValue": 232.49,
-      "aum": "$37.3B",
-      "aumValue": 37300000000,
+      "aum": "$35.1B",
+      "aumValue": 35100000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Jan 26 2004",
       "exchange": "New York Stock Exchange Arca",
@@ -2051,8 +2051,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 11.38,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 12.12,
           "yr1": 12.85,
           "yr3": 16.63,
           "yr5": 8.57,
@@ -2071,7 +2071,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 11.38,
+        "ytd": 12.12,
         "tr1y": 12.85,
         "tr3y": 58.65,
         "tr5y": 50.87,
@@ -2082,10 +2082,10 @@
         "siAnn": null,
         "dividendYield": 1.94,
         "dividendYieldText": "1.94%",
-        "secYield": 1.9,
-        "secYieldText": "1.90%",
+        "secYield": 2.05,
+        "secYieldText": "2.05%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 854,
       "history": 5740
@@ -2118,8 +2118,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -3.07,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -3.24,
           "yr1": -2.68,
           "yr3": 5,
           "yr5": -0.53,
@@ -2138,7 +2138,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -3.07,
+        "ytd": -3.24,
         "tr1y": -2.68,
         "tr3y": 15.76,
         "tr5y": -2.63,
@@ -2149,10 +2149,10 @@
         "siAnn": null,
         "dividendYield": 5.07,
         "dividendYieldText": "5.07%",
-        "secYield": 5.67,
-        "secYieldText": "5.67%",
+        "secYield": 5.69,
+        "secYieldText": "5.69%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 2763,
       "history": 1535
@@ -2169,8 +2169,8 @@
       "terValue": 0.05,
       "nav": "$72.22",
       "navValue": 72.22,
-      "aum": "$78.7M",
-      "aumValue": 78700000,
+      "aum": "$101.8M",
+      "aumValue": 101800000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Jun 02 2026",
       "exchange": "Cboe BZX U.S. Equities Exchange",
@@ -2236,8 +2236,8 @@
       "terValue": 0.03,
       "nav": "$78.13",
       "navValue": 78.13,
-      "aum": "$70.0B",
-      "aumValue": 70000000000,
+      "aum": "$66.6B",
+      "aumValue": 66599999999.99999,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Nov 19 2009",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -2252,8 +2252,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -3.24,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -3.43,
           "yr1": -2.23,
           "yr3": 6,
           "yr5": 0.26,
@@ -2272,7 +2272,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -3.24,
+        "ytd": -3.43,
         "tr1y": -2.23,
         "tr3y": 19.09,
         "tr5y": 1.29,
@@ -2283,10 +2283,10 @@
         "siAnn": null,
         "dividendYield": 5.27,
         "dividendYieldText": "5.27%",
-        "secYield": 5.86,
-        "secYieldText": "5.86%",
+        "secYield": 5.88,
+        "secYieldText": "5.88%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 2335,
       "history": 4275
@@ -2303,8 +2303,8 @@
       "terValue": 0.03,
       "nav": "$68.33",
       "navValue": 68.33,
-      "aum": "$9.0B",
-      "aumValue": 9000000000,
+      "aum": "$7.5B",
+      "aumValue": 7500000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Nov 19 2009",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -2319,8 +2319,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -6.07,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -6.26,
           "yr1": -6.62,
           "yr3": 4.43,
           "yr5": -3.93,
@@ -2339,7 +2339,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -6.07,
+        "ytd": -6.26,
         "tr1y": -6.62,
         "tr3y": 13.87,
         "tr5y": -18.14,
@@ -2350,10 +2350,10 @@
         "siAnn": null,
         "dividendYield": 6.31,
         "dividendYieldText": "6.31%",
-        "secYield": 6.52,
-        "secYieldText": "6.52%",
+        "secYield": 6.54,
+        "secYieldText": "6.54%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 2866,
       "history": 4275
@@ -2370,8 +2370,8 @@
       "terValue": 0.09,
       "nav": "$365.28",
       "navValue": 365.28,
-      "aum": "$6.0B",
-      "aumValue": 6000000000,
+      "aum": "$5.6B",
+      "aumValue": 5600000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Jan 26 2004",
       "exchange": "New York Stock Exchange Arca",
@@ -2386,8 +2386,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -6.67,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -5.64,
           "yr1": -7.21,
           "yr3": 11.98,
           "yr5": 4.28,
@@ -2406,7 +2406,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -6.67,
+        "ytd": -5.64,
         "tr1y": -7.21,
         "tr3y": 40.42,
         "tr5y": 23.33,
@@ -2417,10 +2417,10 @@
         "siAnn": null,
         "dividendYield": 0.84,
         "dividendYieldText": "0.84%",
-        "secYield": 0.76,
-        "secYieldText": "0.76%",
+        "secYield": 0.82,
+        "secYieldText": "0.82%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 281,
       "history": 5740
@@ -2437,8 +2437,8 @@
       "terValue": 0.1,
       "nav": "$73.42",
       "navValue": 73.42,
-      "aum": "$7.7B",
-      "aumValue": 7700000000,
+      "aum": "$7.6B",
+      "aumValue": 7600000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Dec 12 2023",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -2453,8 +2453,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -2.41,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -2.63,
           "yr1": -1.65,
           "yr3": null,
           "yr5": null,
@@ -2473,7 +2473,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": -2.41,
+        "ytd": -2.63,
         "tr1y": -1.65,
         "tr3y": null,
         "tr5y": null,
@@ -2484,10 +2484,10 @@
         "siAnn": null,
         "dividendYield": 4.99,
         "dividendYieldText": "4.99%",
-        "secYield": 5.18,
-        "secYieldText": "5.18%",
+        "secYield": 5.22,
+        "secYieldText": "5.22%",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 3483,
       "history": 713
@@ -2504,8 +2504,8 @@
       "terValue": 0.12,
       "nav": "$71.72",
       "navValue": 71.72,
-      "aum": "$1.9B",
-      "aumValue": 1900000000,
+      "aum": "$2.2B",
+      "aumValue": 2200000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Nov 19 2024",
       "exchange": "Cboe BZX U.S. Equities Exchange",
@@ -2520,8 +2520,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -2.44,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -2.52,
           "yr1": -1.43,
           "yr3": null,
           "yr5": null,
@@ -2540,7 +2540,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": -2.44,
+        "ytd": -2.52,
         "tr1y": -1.43,
         "tr3y": null,
         "tr5y": null,
@@ -2551,10 +2551,10 @@
         "siAnn": null,
         "dividendYield": 4.14,
         "dividendYieldText": "4.14%",
-        "secYield": 4.54,
-        "secYieldText": "4.54%",
+        "secYield": 4.51,
+        "secYieldText": "4.51%",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 2668,
       "history": 473
@@ -2571,8 +2571,8 @@
       "terValue": 0.03,
       "nav": "$77.12",
       "navValue": 77.12,
-      "aum": "$44.9B",
-      "aumValue": 44900000000,
+      "aum": "$43.9B",
+      "aumValue": 43900000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Nov 19 2009",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -2587,8 +2587,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 0.05,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -0.06,
           "yr1": 1.11,
           "yr3": 5.31,
           "yr5": 2.15,
@@ -2607,7 +2607,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 0.05,
+        "ytd": -0.06,
         "tr1y": 1.11,
         "tr3y": 16.8,
         "tr5y": 11.2,
@@ -2618,10 +2618,10 @@
         "siAnn": null,
         "dividendYield": 4.86,
         "dividendYieldText": "4.86%",
-        "secYield": 5.26,
-        "secYieldText": "5.26%",
+        "secYield": 5.28,
+        "secYieldText": "5.28%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 3037,
       "history": 4275
@@ -2638,8 +2638,8 @@
       "terValue": 0.09,
       "nav": "$217.70",
       "navValue": 217.7,
-      "aum": "$7.9B",
-      "aumValue": 7900000000,
+      "aum": "$7.4B",
+      "aumValue": 7400000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Jan 26 2004",
       "exchange": "New York Stock Exchange Arca",
@@ -2654,8 +2654,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 4.8,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 5.19,
           "yr1": 4.28,
           "yr3": 8.95,
           "yr5": 6.5,
@@ -2674,7 +2674,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 4.8,
+        "ytd": 5.19,
         "tr1y": 4.28,
         "tr3y": 29.33,
         "tr5y": 36.99,
@@ -2685,10 +2685,10 @@
         "siAnn": null,
         "dividendYield": 2.29,
         "dividendYieldText": "2.29%",
-        "secYield": 2.17,
-        "secYieldText": "2.17%",
+        "secYield": 2.29,
+        "secYieldText": "2.29%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 108,
       "history": 5740
@@ -2705,8 +2705,8 @@
       "terValue": 0.09,
       "nav": "$175.56",
       "navValue": 175.56,
-      "aum": "$10.9B",
-      "aumValue": 10900000000,
+      "aum": "$10.4B",
+      "aumValue": 10400000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Sep 23 2004",
       "exchange": "New York Stock Exchange Arca",
@@ -2721,8 +2721,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 42.02,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 42.32,
           "yr1": 40.48,
           "yr3": 15.76,
           "yr5": 22.29,
@@ -2741,7 +2741,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 42.02,
+        "ytd": 42.32,
         "tr1y": 40.48,
         "tr3y": 55.11,
         "tr5y": 173.48,
@@ -2752,10 +2752,10 @@
         "siAnn": null,
         "dividendYield": 2.35,
         "dividendYieldText": "2.35%",
-        "secYield": 1.75,
-        "secYieldText": "1.75%",
+        "secYield": 1.91,
+        "secYieldText": "1.91%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 117,
       "history": 5573
@@ -2772,8 +2772,8 @@
       "terValue": 0.08,
       "nav": "$78.75",
       "navValue": 78.75,
-      "aum": "$32.7M",
-      "aumValue": 32700000.000000004,
+      "aum": "$47.4M",
+      "aumValue": 47400000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Apr 14 2026",
       "exchange": "Cboe BZX U.S. Equities Exchange",
@@ -2839,8 +2839,8 @@
       "terValue": 0.4,
       "nav": "$61.85",
       "navValue": 61.85,
-      "aum": "$31.9M",
-      "aumValue": 31900000,
+      "aum": "$31.6M",
+      "aumValue": 31600000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Nov 14 2025",
       "exchange": "Cboe BZX U.S. Equities Exchange",
@@ -2855,8 +2855,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 0.91,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 1.55,
           "yr1": null,
           "yr3": null,
           "yr5": null,
@@ -2875,7 +2875,7 @@
         "derivedFrom": "official Vanguard YTD returns"
       },
       "metrics": {
-        "ytd": 0.91,
+        "ytd": 1.55,
         "tr1y": null,
         "tr3y": null,
         "tr5y": null,
@@ -2886,10 +2886,10 @@
         "siAnn": null,
         "dividendYield": 1.5,
         "dividendYieldText": "1.50%",
-        "secYield": 1.01,
-        "secYieldText": "1.01%",
+        "secYield": 1.1,
+        "secYieldText": "1.10%",
         "returnsBasis": "official Vanguard YTD returns",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 42,
       "history": 225
@@ -2906,8 +2906,8 @@
       "terValue": 0.08,
       "nav": "$75.38",
       "navValue": 75.38,
-      "aum": "$31.5M",
-      "aumValue": 31500000,
+      "aum": "$45.5M",
+      "aumValue": 45500000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Apr 14 2026",
       "exchange": "Cboe BZX U.S. Equities Exchange",
@@ -2973,8 +2973,8 @@
       "terValue": 0.03,
       "nav": "$70.27",
       "navValue": 70.27,
-      "aum": "$238.1B",
-      "aumValue": 238100000000,
+      "aum": "$231.6B",
+      "aumValue": 231600000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Jul 20 2007",
       "exchange": "New York Stock Exchange Arca",
@@ -2989,8 +2989,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 13.64,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 14.91,
           "yr1": 20.77,
           "yr3": 21.79,
           "yr5": 10.38,
@@ -3009,7 +3009,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 13.64,
+        "ytd": 14.91,
         "tr1y": 20.77,
         "tr3y": 80.67,
         "tr5y": 63.82,
@@ -3023,7 +3023,7 @@
         "secYield": null,
         "secYieldText": "—",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 4061,
       "history": 4863
@@ -3040,8 +3040,8 @@
       "terValue": 0.04,
       "nav": "$82.58",
       "navValue": 82.58,
-      "aum": "$70.4B",
-      "aumValue": 70400000000,
+      "aum": "$68.1B",
+      "aumValue": 68099999999.99999,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Mar 02 2007",
       "exchange": "New York Stock Exchange Arca",
@@ -3056,8 +3056,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 13.27,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 14.42,
           "yr1": 19.12,
           "yr3": 21.15,
           "yr5": 9.71,
@@ -3076,7 +3076,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 13.27,
+        "ytd": 14.42,
         "tr1y": 19.12,
         "tr3y": 77.82,
         "tr5y": 58.95,
@@ -3090,7 +3090,7 @@
         "secYield": null,
         "secYieldText": "—",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 4081,
       "history": 4960
@@ -3107,8 +3107,8 @@
       "terValue": 0.07,
       "nav": "$94.83",
       "navValue": 94.83,
-      "aum": "$269.4M",
-      "aumValue": 269400000,
+      "aum": "$275.8M",
+      "aumValue": 275800000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Sep 30 2025",
       "exchange": "New York Stock Exchange Arca",
@@ -3123,8 +3123,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 21.74,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 23.44,
           "yr1": 29.53,
           "yr3": null,
           "yr5": null,
@@ -3143,7 +3143,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": 21.74,
+        "ytd": 23.44,
         "tr1y": 29.53,
         "tr3y": null,
         "tr5y": null,
@@ -3157,7 +3157,7 @@
         "secYield": null,
         "secYieldText": "—",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 1017,
       "history": 257
@@ -3174,8 +3174,8 @@
       "terValue": 0.09,
       "nav": "$130.35",
       "navValue": 130.35,
-      "aum": "$13.5B",
-      "aumValue": 13500000000,
+      "aum": "$12.7B",
+      "aumValue": 12700000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Jan 26 2004",
       "exchange": "New York Stock Exchange Arca",
@@ -3190,8 +3190,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -1.05,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -0.96,
           "yr1": 0.84,
           "yr3": 20.08,
           "yr5": 8.93,
@@ -3210,7 +3210,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -1.05,
+        "ytd": -0.96,
         "tr1y": 0.84,
         "tr3y": 73.13,
         "tr5y": 53.34,
@@ -3221,10 +3221,10 @@
         "siAnn": null,
         "dividendYield": 1.67,
         "dividendYieldText": "1.67%",
-        "secYield": 1.52,
-        "secYieldText": "1.52%",
+        "secYield": 1.67,
+        "secYieldText": "1.67%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 434,
       "history": 5740
@@ -3241,8 +3241,8 @@
       "terValue": 0.18,
       "nav": "$180.24",
       "navValue": 180.24,
-      "aum": "$976.2M",
-      "aumValue": 976200000,
+      "aum": "$1.1B",
+      "aumValue": 1100000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Feb 13 2018",
       "exchange": "Cboe BZX U.S. Equities Exchange",
@@ -3257,8 +3257,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 21.18,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 21.61,
           "yr1": 25.69,
           "yr3": 22.89,
           "yr5": 14.47,
@@ -3277,7 +3277,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 21.18,
+        "ytd": 21.61,
         "tr1y": 25.69,
         "tr3y": 85.58,
         "tr5y": 96.58,
@@ -3288,10 +3288,10 @@
         "siAnn": null,
         "dividendYield": 1.66,
         "dividendYieldText": "1.66%",
-        "secYield": 1.43,
-        "secYieldText": "1.43%",
+        "secYield": 1.51,
+        "secYieldText": "1.51%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 708,
       "history": 2200
@@ -3324,8 +3324,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 20.24,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 21.54,
           "yr1": 19.23,
           "yr3": 28.14,
           "yr5": 13.34,
@@ -3344,7 +3344,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 20.24,
+        "ytd": 21.54,
         "tr1y": 19.23,
         "tr3y": 110.4,
         "tr5y": 87.03,
@@ -3355,10 +3355,10 @@
         "siAnn": null,
         "dividendYield": 0.81,
         "dividendYieldText": "0.81%",
-        "secYield": 0.6,
-        "secYieldText": "0.60%",
+        "secYield": 0.66,
+        "secYieldText": "0.66%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 701,
       "history": 2199
@@ -3375,8 +3375,8 @@
       "terValue": 0.13,
       "nav": "$141.72",
       "navValue": 141.72,
-      "aum": "$456.4M",
-      "aumValue": 456400000,
+      "aum": "$460.4M",
+      "aumValue": 460400000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Feb 13 2018",
       "exchange": "Cboe BZX U.S. Equities Exchange",
@@ -3391,8 +3391,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 9.71,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 10.35,
           "yr1": 9.45,
           "yr3": 16.21,
           "yr5": 9.82,
@@ -3411,7 +3411,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 9.71,
+        "ytd": 10.35,
         "tr1y": 9.45,
         "tr3y": 56.92,
         "tr5y": 59.75,
@@ -3422,10 +3422,10 @@
         "siAnn": null,
         "dividendYield": 1.65,
         "dividendYieldText": "1.65%",
-        "secYield": 1.48,
-        "secYieldText": "1.48%",
+        "secYield": 1.5,
+        "secYieldText": "1.50%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 221,
       "history": 2200
@@ -3442,8 +3442,8 @@
       "terValue": 0.13,
       "nav": "$171.41",
       "navValue": 171.41,
-      "aum": "$506.9M",
-      "aumValue": 506900000,
+      "aum": "$493.3M",
+      "aumValue": 493300000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Feb 13 2018",
       "exchange": "Cboe BZX U.S. Equities Exchange",
@@ -3458,8 +3458,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 12.54,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 12.77,
           "yr1": 14,
           "yr3": 16.92,
           "yr5": 9.25,
@@ -3478,7 +3478,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 12.54,
+        "ytd": 12.77,
         "tr1y": 14,
         "tr3y": 59.82,
         "tr5y": 55.65,
@@ -3489,10 +3489,10 @@
         "siAnn": null,
         "dividendYield": 1.06,
         "dividendYieldText": "1.06%",
-        "secYield": 0.9,
-        "secYieldText": "0.90%",
+        "secYield": 0.97,
+        "secYieldText": "0.97%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 475,
       "history": 2200
@@ -3509,8 +3509,8 @@
       "terValue": 0.13,
       "nav": "$151.80",
       "navValue": 151.8,
-      "aum": "$957.4M",
-      "aumValue": 957400000,
+      "aum": "$896.7M",
+      "aumValue": 896700000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Feb 13 2018",
       "exchange": "Cboe BZX U.S. Equities Exchange",
@@ -3525,8 +3525,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 16.02,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 16.25,
           "yr1": 20.64,
           "yr3": 18.21,
           "yr5": 11.24,
@@ -3545,7 +3545,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 16.02,
+        "ytd": 16.25,
         "tr1y": 20.64,
         "tr3y": 65.19,
         "tr5y": 70.33,
@@ -3556,10 +3556,10 @@
         "siAnn": null,
         "dividendYield": 1.98,
         "dividendYieldText": "1.98%",
-        "secYield": 1.81,
-        "secYieldText": "1.81%",
+        "secYield": 1.96,
+        "secYieldText": "1.96%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 694,
       "history": 2200
@@ -3576,8 +3576,8 @@
       "terValue": 0.22,
       "nav": "$71.71",
       "navValue": 71.71,
-      "aum": "$317.1M",
-      "aumValue": 317100000,
+      "aum": "$319.2M",
+      "aumValue": 319200000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Sep 16 2025",
       "exchange": "Cboe BZX U.S. Equities Exchange",
@@ -3592,8 +3592,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -0.08,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 0.1,
           "yr1": 1.69,
           "yr3": null,
           "yr5": null,
@@ -3612,7 +3612,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": -0.08,
+        "ytd": 0.1,
         "tr1y": 1.69,
         "tr3y": null,
         "tr5y": null,
@@ -3623,10 +3623,10 @@
         "siAnn": null,
         "dividendYield": null,
         "dividendYieldText": "—",
-        "secYield": 6.92,
-        "secYieldText": "6.92%",
+        "secYield": 6.95,
+        "secYieldText": "6.95%",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 626,
       "history": 267
@@ -3643,8 +3643,8 @@
       "terValue": 0.03,
       "nav": "$56.64",
       "navValue": 56.64,
-      "aum": "$39.8B",
-      "aumValue": 39800000000,
+      "aum": "$39.7B",
+      "aumValue": 39700000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Nov 19 2009",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -3659,8 +3659,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -2.68,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -2.92,
           "yr1": -1.89,
           "yr3": 3.69,
           "yr5": -0.47,
@@ -3679,7 +3679,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -2.68,
+        "ytd": -2.92,
         "tr1y": -1.89,
         "tr3y": 11.48,
         "tr5y": -2.35,
@@ -3690,10 +3690,10 @@
         "siAnn": null,
         "dividendYield": 4.45,
         "dividendYieldText": "4.45%",
-        "secYield": 4.89,
-        "secYieldText": "4.89%",
+        "secYield": 4.91,
+        "secYieldText": "4.91%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 105,
       "history": 4275
@@ -3710,8 +3710,8 @@
       "terValue": 0.06,
       "nav": "$85.48",
       "navValue": 85.48,
-      "aum": "$31.0B",
-      "aumValue": 31000000000,
+      "aum": "$29.6B",
+      "aumValue": 29600000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Mar 04 2005",
       "exchange": "New York Stock Exchange Arca",
@@ -3726,8 +3726,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 4.5,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 5.61,
           "yr1": 11.75,
           "yr3": 18.52,
           "yr5": 9.01,
@@ -3746,7 +3746,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 4.5,
+        "ytd": 5.61,
         "tr1y": 11.75,
         "tr3y": 66.47,
         "tr5y": 53.92,
@@ -3760,7 +3760,7 @@
         "secYield": null,
         "secYieldText": "—",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 1267,
       "history": 5461
@@ -3777,8 +3777,8 @@
       "terValue": 0.03,
       "nav": "$50.04",
       "navValue": 50.04,
-      "aum": "$10.6B",
-      "aumValue": 10600000000,
+      "aum": "$10.4B",
+      "aumValue": 10400000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Nov 19 2009",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -3793,8 +3793,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -7.24,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -7.56,
           "yr1": -7.61,
           "yr3": 1.43,
           "yr5": -7.43,
@@ -3813,7 +3813,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -7.24,
+        "ytd": -7.56,
         "tr1y": -7.61,
         "tr3y": 4.35,
         "tr5y": -32.01,
@@ -3824,10 +3824,10 @@
         "siAnn": null,
         "dividendYield": 5.12,
         "dividendYieldText": "5.12%",
-        "secYield": 5.57,
-        "secYieldText": "5.57%",
+        "secYield": 5.6,
+        "secYieldText": "5.60%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 104,
       "history": 4248
@@ -3844,8 +3844,8 @@
       "terValue": 0.3,
       "nav": "$49.19",
       "navValue": 49.19,
-      "aum": "$272.6M",
-      "aumValue": 272600000,
+      "aum": "$297.6M",
+      "aumValue": 297600000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Jun 09 2025",
       "exchange": "Cboe BZX U.S. Equities Exchange",
@@ -3860,8 +3860,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -0.59,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -0.57,
           "yr1": 1.16,
           "yr3": null,
           "yr5": null,
@@ -3880,7 +3880,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": -0.59,
+        "ytd": -0.57,
         "tr1y": 1.16,
         "tr3y": null,
         "tr5y": null,
@@ -3891,10 +3891,10 @@
         "siAnn": null,
         "dividendYield": 5.65,
         "dividendYieldText": "5.65%",
-        "secYield": 6.05,
-        "secYieldText": "6.05%",
+        "secYield": 6.09,
+        "secYieldText": "6.09%",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 1258,
       "history": 335
@@ -3911,8 +3911,8 @@
       "terValue": 0.03,
       "nav": "$57.48",
       "navValue": 57.48,
-      "aum": "$34.8B",
-      "aumValue": 34800000000,
+      "aum": "$35.1B",
+      "aumValue": 35100000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Nov 19 2009",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -3927,8 +3927,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 0.64,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 0.55,
           "yr1": 1.6,
           "yr3": 4.11,
           "yr5": 1.85,
@@ -3947,7 +3947,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 0.64,
+        "ytd": 0.55,
         "tr1y": 1.6,
         "tr3y": 12.84,
         "tr5y": 9.57,
@@ -3958,10 +3958,10 @@
         "siAnn": null,
         "dividendYield": 3.64,
         "dividendYieldText": "3.64%",
-        "secYield": 4.65,
-        "secYieldText": "4.65%",
+        "secYield": 4.67,
+        "secYieldText": "4.67%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 96,
       "history": 4275
@@ -3978,8 +3978,8 @@
       "terValue": 0.09,
       "nav": "$126.98",
       "navValue": 126.98,
-      "aum": "$147.6B",
-      "aumValue": 147600000000,
+      "aum": "$154.5B",
+      "aumValue": 154500000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Jan 26 2004",
       "exchange": "New York Stock Exchange Arca",
@@ -3994,8 +3994,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 35.27,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 36.69,
           "yr1": 35.19,
           "yr3": 35.56,
           "yr5": 21.11,
@@ -4014,7 +4014,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 35.27,
+        "ytd": 36.69,
         "tr1y": 35.19,
         "tr3y": 149.12,
         "tr5y": 160.55,
@@ -4028,7 +4028,7 @@
         "secYield": 0.33,
         "secYieldText": "0.33%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 324,
       "history": 5740
@@ -4045,8 +4045,8 @@
       "terValue": 0.07,
       "nav": "$75.42",
       "navValue": 75.42,
-      "aum": "$1.1B",
-      "aumValue": 1100000000,
+      "aum": "$1.2B",
+      "aumValue": 1200000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Feb 07 2025",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -4061,8 +4061,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 2.6,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 2.63,
           "yr1": 3.62,
           "yr3": null,
           "yr5": null,
@@ -4081,7 +4081,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": 2.6,
+        "ytd": 2.63,
         "tr1y": 3.62,
         "tr3y": null,
         "tr5y": null,
@@ -4095,7 +4095,7 @@
         "secYield": 3.87,
         "secYieldText": "3.87%",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 91,
       "history": 419
@@ -4112,8 +4112,8 @@
       "terValue": 0.1,
       "nav": "$71.92",
       "navValue": 71.92,
-      "aum": "$36.7M",
-      "aumValue": 36700000,
+      "aum": "$37.5M",
+      "aumValue": 37500000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Jul 07 2025",
       "exchange": "New York Stock Exchange Arca",
@@ -4128,8 +4128,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -2.31,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -2.5,
           "yr1": -1.43,
           "yr3": null,
           "yr5": null,
@@ -4148,7 +4148,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": -2.31,
+        "ytd": -2.5,
         "tr1y": -1.43,
         "tr3y": null,
         "tr5y": null,
@@ -4159,10 +4159,10 @@
         "siAnn": null,
         "dividendYield": 4.53,
         "dividendYieldText": "4.53%",
-        "secYield": 4.54,
-        "secYieldText": "4.54%",
+        "secYield": 4.57,
+        "secYieldText": "4.57%",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 280,
       "history": 317
@@ -4179,8 +4179,8 @@
       "terValue": 0.09,
       "nav": "$311.64",
       "navValue": 311.64,
-      "aum": "$19.3B",
-      "aumValue": 19300000000,
+      "aum": "$19.1B",
+      "aumValue": 19100000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Jan 26 2004",
       "exchange": "New York Stock Exchange Arca",
@@ -4195,8 +4195,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 9.41,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 9.45,
           "yr1": 23.62,
           "yr3": 11.69,
           "yr5": 6.26,
@@ -4215,7 +4215,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 9.41,
+        "ytd": 9.45,
         "tr1y": 23.62,
         "tr3y": 39.35,
         "tr5y": 35.48,
@@ -4226,10 +4226,10 @@
         "siAnn": null,
         "dividendYield": 1.33,
         "dividendYieldText": "1.33%",
-        "secYield": 1.24,
-        "secYieldText": "1.24%",
+        "secYield": 1.26,
+        "secYieldText": "1.26%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 424,
       "history": 5740
@@ -4246,8 +4246,8 @@
       "terValue": 0.04,
       "nav": "$233.50",
       "navValue": 233.5,
-      "aum": "$112.7B",
-      "aumValue": 112700000000,
+      "aum": "$109.1B",
+      "aumValue": 109100000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Apr 21 2006",
       "exchange": "New York Stock Exchange Arca",
@@ -4262,8 +4262,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 7.53,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 8.22,
           "yr1": 9.77,
           "yr3": 16.94,
           "yr5": 10.68,
@@ -4282,7 +4282,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 7.53,
+        "ytd": 8.22,
         "tr1y": 9.77,
         "tr3y": 59.91,
         "tr5y": 66.11,
@@ -4293,10 +4293,10 @@
         "siAnn": null,
         "dividendYield": 1.54,
         "dividendYieldText": "1.54%",
-        "secYield": 1.43,
-        "secYieldText": "1.43%",
+        "secYield": 1.51,
+        "secYieldText": "1.51%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 344,
       "history": 5173
@@ -4313,8 +4313,8 @@
       "terValue": 0.07,
       "nav": "$94.01",
       "navValue": 94.01,
-      "aum": "$9.2B",
-      "aumValue": 9200000000,
+      "aum": "$8.8B",
+      "aumValue": 8800000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Feb 25 2016",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -4329,8 +4329,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 4.82,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 5.38,
           "yr1": 7.6,
           "yr3": 12.58,
           "yr5": 4.92,
@@ -4349,7 +4349,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 4.82,
+        "ytd": 5.38,
         "tr1y": 7.6,
         "tr3y": 42.69,
         "tr5y": 27.13,
@@ -4363,7 +4363,7 @@
         "secYield": null,
         "secYieldText": "—",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 421,
       "history": 2698
@@ -4380,8 +4380,8 @@
       "terValue": 0.1,
       "nav": "$138.50",
       "navValue": 138.5,
-      "aum": "$1.1B",
-      "aumValue": 1100000000,
+      "aum": "$1.0B",
+      "aumValue": 1000000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Sep 07 2010",
       "exchange": "New York Stock Exchange Arca",
@@ -4396,8 +4396,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 14.79,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 16.47,
           "yr1": 14.33,
           "yr3": 15.66,
           "yr5": 5.37,
@@ -4416,7 +4416,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 14.79,
+        "ytd": 16.47,
         "tr1y": 14.33,
         "tr3y": 54.72,
         "tr5y": 29.92,
@@ -4427,10 +4427,10 @@
         "siAnn": null,
         "dividendYield": 0.94,
         "dividendYieldText": "0.94%",
-        "secYield": 0.82,
-        "secYieldText": "0.82%",
+        "secYield": 0.91,
+        "secYieldText": "0.91%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 353,
       "history": 4076
@@ -4447,8 +4447,8 @@
       "terValue": 0.07,
       "nav": "$127.36",
       "navValue": 127.36,
-      "aum": "$4.2B",
-      "aumValue": 4200000000,
+      "aum": "$4.0B",
+      "aumValue": 4000000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Sep 07 2010",
       "exchange": "New York Stock Exchange Arca",
@@ -4463,8 +4463,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 14.81,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 16.2,
           "yr1": 15.98,
           "yr3": 15.98,
           "yr5": 6.13,
@@ -4483,7 +4483,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 14.81,
+        "ytd": 16.2,
         "tr1y": 15.98,
         "tr3y": 56.01,
         "tr5y": 34.66,
@@ -4494,10 +4494,10 @@
         "siAnn": null,
         "dividendYield": 1.5,
         "dividendYieldText": "1.50%",
-        "secYield": 1.43,
-        "secYieldText": "1.43%",
+        "secYield": 1.54,
+        "secYieldText": "1.54%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 613,
       "history": 4076
@@ -4514,8 +4514,8 @@
       "terValue": 0.1,
       "nav": "$110.92",
       "navValue": 110.92,
-      "aum": "$1.9B",
-      "aumValue": 1900000000,
+      "aum": "$1.7B",
+      "aumValue": 1700000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Sep 07 2010",
       "exchange": "New York Stock Exchange Arca",
@@ -4530,8 +4530,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 14.76,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 15.89,
           "yr1": 17.65,
           "yr3": 16.08,
           "yr5": 6.79,
@@ -4550,7 +4550,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 14.76,
+        "ytd": 15.89,
         "tr1y": 17.65,
         "tr3y": 56.39,
         "tr5y": 38.89,
@@ -4561,10 +4561,10 @@
         "siAnn": null,
         "dividendYield": 2.03,
         "dividendYieldText": "2.03%",
-        "secYield": 1.94,
-        "secYieldText": "1.94%",
+        "secYield": 2.08,
+        "secYieldText": "2.08%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 470,
       "history": 4076
@@ -4597,8 +4597,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 9.2,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 10.16,
           "yr1": 9.18,
           "yr3": 20.53,
           "yr5": 12.78,
@@ -4617,7 +4617,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 9.2,
+        "ytd": 10.16,
         "tr1y": 9.18,
         "tr3y": 75.09,
         "tr5y": 82.42,
@@ -4628,10 +4628,10 @@
         "siAnn": null,
         "dividendYield": 1.02,
         "dividendYieldText": "1.02%",
-        "secYield": 0.93,
-        "secYieldText": "0.93%",
+        "secYield": 0.98,
+        "secYieldText": "0.98%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 402,
       "history": 5573
@@ -4648,8 +4648,8 @@
       "terValue": 0.03,
       "nav": "$44.34",
       "navValue": 44.34,
-      "aum": "$15.9B",
-      "aumValue": 15900000000,
+      "aum": "$15.5B",
+      "aumValue": 15500000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Nov 19 2009",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -4664,8 +4664,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -2.64,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -2.9,
           "yr1": -1.44,
           "yr3": 5.01,
           "yr5": -0.28,
@@ -4684,7 +4684,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -2.64,
+        "ytd": -2.9,
         "tr1y": -1.44,
         "tr3y": 15.81,
         "tr5y": -1.4,
@@ -4695,10 +4695,10 @@
         "siAnn": null,
         "dividendYield": 4.55,
         "dividendYieldText": "4.55%",
-        "secYield": 4.56,
-        "secYieldText": "4.56%",
+        "secYield": 4.58,
+        "secYieldText": "4.58%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 4914,
       "history": 4275
@@ -4715,8 +4715,8 @@
       "terValue": 0.13,
       "nav": "$89.10",
       "navValue": 89.1,
-      "aum": "$38.1B",
-      "aumValue": 38100000000,
+      "aum": "$35.9B",
+      "aumValue": 35900000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Sep 23 2004",
       "exchange": "New York Stock Exchange Arca",
@@ -4731,8 +4731,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 3.6,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 4.05,
           "yr1": 1.68,
           "yr3": 10.67,
           "yr5": 1.04,
@@ -4751,7 +4751,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 3.6,
+        "ytd": 4.05,
         "tr1y": 1.68,
         "tr3y": 35.56,
         "tr5y": 5.33,
@@ -4765,7 +4765,7 @@
         "secYield": null,
         "secYieldText": "—",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 155,
       "history": 5573
@@ -4782,8 +4782,8 @@
       "terValue": 0.12,
       "nav": "$42.25",
       "navValue": 42.25,
-      "aum": "$3.5B",
-      "aumValue": 3500000000,
+      "aum": "$3.3B",
+      "aumValue": 3300000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Nov 01 2010",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -4798,8 +4798,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -7.99,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -8.47,
           "yr1": -6.21,
           "yr3": 7.75,
           "yr5": -1.93,
@@ -4818,7 +4818,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -7.99,
+        "ytd": -8.47,
         "tr1y": -6.21,
         "tr3y": 25.1,
         "tr5y": -9.3,
@@ -4832,7 +4832,7 @@
         "secYield": null,
         "secYieldText": "—",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 834,
       "history": 4039
@@ -4849,8 +4849,8 @@
       "terValue": 0.03,
       "nav": "$79.12",
       "navValue": 79.12,
-      "aum": "$107.4B",
-      "aumValue": 107400000000,
+      "aum": "$103.4B",
+      "aumValue": 103400000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Jan 26 2004",
       "exchange": "New York Stock Exchange Arca",
@@ -4865,8 +4865,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 10.25,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 10.88,
           "yr1": 8.36,
           "yr3": 17.33,
           "yr5": 7.41,
@@ -4885,7 +4885,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 10.25,
+        "ytd": 10.88,
         "tr1y": 8.36,
         "tr3y": 61.54,
         "tr5y": 42.97,
@@ -4896,10 +4896,10 @@
         "siAnn": null,
         "dividendYield": 1.4,
         "dividendYieldText": "1.40%",
-        "secYield": 1.38,
-        "secYieldText": "1.38%",
+        "secYield": 1.47,
+        "secYieldText": "1.47%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 296,
       "history": 5740
@@ -4916,8 +4916,8 @@
       "terValue": 0.05,
       "nav": "$197.34",
       "navValue": 197.34,
-      "aum": "$24.2B",
-      "aumValue": 24200000000,
+      "aum": "$22.8B",
+      "aumValue": 22800000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Aug 17 2006",
       "exchange": "New York Stock Exchange Arca",
@@ -4932,8 +4932,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 13.02,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 13.37,
           "yr1": 14.34,
           "yr3": 17.99,
           "yr5": 9.35,
@@ -4952,7 +4952,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 13.02,
+        "ytd": 13.37,
         "tr1y": 14.34,
         "tr3y": 64.27,
         "tr5y": 56.34,
@@ -4963,10 +4963,10 @@
         "siAnn": null,
         "dividendYield": 1.99,
         "dividendYieldText": "1.99%",
-        "secYield": 1.92,
-        "secYieldText": "1.92%",
+        "secYield": 2.07,
+        "secYieldText": "2.07%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 183,
       "history": 5092
@@ -4983,8 +4983,8 @@
       "terValue": 0.06,
       "nav": "$344.83",
       "navValue": 344.83,
-      "aum": "$8.7B",
-      "aumValue": 8700000000,
+      "aum": "$8.9B",
+      "aumValue": 8900000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Sep 20 2010",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -4999,8 +4999,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 12.53,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 13.41,
           "yr1": 14.95,
           "yr3": 22.87,
           "yr5": 12.91,
@@ -5019,7 +5019,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 12.53,
+        "ytd": 13.41,
         "tr1y": 14.95,
         "tr3y": 85.49,
         "tr5y": 83.47,
@@ -5030,10 +5030,10 @@
         "siAnn": null,
         "dividendYield": 1.05,
         "dividendYieldText": "1.05%",
-        "secYield": 0.96,
-        "secYieldText": "0.96%",
+        "secYield": 0.98,
+        "secYieldText": "0.98%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 1032,
       "history": 4067
@@ -5050,8 +5050,8 @@
       "terValue": 0.06,
       "nav": "$129.38",
       "navValue": 129.38,
-      "aum": "$45.9B",
-      "aumValue": 45900000000,
+      "aum": "$47.1B",
+      "aumValue": 47100000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Sep 20 2010",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -5066,8 +5066,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 6.65,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 7.82,
           "yr1": 7.45,
           "yr3": 24.44,
           "yr5": 13.68,
@@ -5086,7 +5086,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 6.65,
+        "ytd": 7.82,
         "tr1y": 7.45,
         "tr3y": 92.72,
         "tr5y": 89.84,
@@ -5097,10 +5097,10 @@
         "siAnn": null,
         "dividendYield": 0.44,
         "dividendYieldText": "0.44%",
-        "secYield": 0.37,
-        "secYieldText": "0.37%",
+        "secYield": 0.38,
+        "secYieldText": "0.38%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 374,
       "history": 4067
@@ -5117,8 +5117,8 @@
       "terValue": 0.06,
       "nav": "$108.82",
       "navValue": 108.82,
-      "aum": "$22.2B",
-      "aumValue": 22200000000,
+      "aum": "$21.7B",
+      "aumValue": 21700000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Sep 20 2010",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -5133,8 +5133,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 19.37,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 19.94,
           "yr1": 23.73,
           "yr3": 20.7,
           "yr5": 11.7,
@@ -5153,7 +5153,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 19.37,
+        "ytd": 19.94,
         "tr1y": 23.73,
         "tr3y": 75.86,
         "tr5y": 73.88,
@@ -5164,10 +5164,10 @@
         "siAnn": null,
         "dividendYield": 1.59,
         "dividendYieldText": "1.59%",
-        "secYield": 1.47,
-        "secYieldText": "1.47%",
+        "secYield": 1.54,
+        "secYieldText": "1.54%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 883,
       "history": 4067
@@ -5200,8 +5200,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 12.94,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 13.78,
           "yr1": 15.7,
           "yr3": 23.24,
           "yr5": 13.72,
@@ -5220,7 +5220,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 12.94,
+        "ytd": 13.78,
         "tr1y": 15.7,
         "tr3y": 87.17,
         "tr5y": 90.16,
@@ -5231,10 +5231,10 @@
         "siAnn": null,
         "dividendYield": 1.05,
         "dividendYieldText": "1.05%",
-        "secYield": 0.98,
-        "secYieldText": "0.98%",
+        "secYield": 1,
+        "secYieldText": "1.00%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 517,
       "history": 4076
@@ -5251,8 +5251,8 @@
       "terValue": 0.07,
       "nav": "$85.64",
       "navValue": 85.64,
-      "aum": "$27.1B",
-      "aumValue": 27100000000,
+      "aum": "$27.8B",
+      "aumValue": 27800000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Sep 07 2010",
       "exchange": "New York Stock Exchange Arca",
@@ -5267,8 +5267,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 16.05,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 17.2,
           "yr1": 18.34,
           "yr3": 28.67,
           "yr5": 14.85,
@@ -5287,7 +5287,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 16.05,
+        "ytd": 17.2,
         "tr1y": 18.34,
         "tr3y": 113,
         "tr5y": 99.86,
@@ -5298,10 +5298,10 @@
         "siAnn": null,
         "dividendYield": 0.5,
         "dividendYieldText": "0.50%",
-        "secYield": 0.41,
-        "secYieldText": "0.41%",
+        "secYield": 0.43,
+        "secYieldText": "0.43%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 159,
       "history": 4076
@@ -5318,8 +5318,8 @@
       "terValue": 0.07,
       "nav": "$220.69",
       "navValue": 220.69,
-      "aum": "$6.8B",
-      "aumValue": 6800000000,
+      "aum": "$6.6B",
+      "aumValue": 6600000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Sep 07 2010",
       "exchange": "New York Stock Exchange Arca",
@@ -5334,8 +5334,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 9.14,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 9.6,
           "yr1": 12.4,
           "yr3": 16.7,
           "yr5": 11.43,
@@ -5354,7 +5354,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 9.14,
+        "ytd": 9.6,
         "tr1y": 12.4,
         "tr3y": 58.94,
         "tr5y": 71.76,
@@ -5365,10 +5365,10 @@
         "siAnn": null,
         "dividendYield": 1.71,
         "dividendYieldText": "1.71%",
-        "secYield": 1.62,
-        "secYieldText": "1.62%",
+        "secYield": 1.7,
+        "secYieldText": "1.70%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 454,
       "history": 4076
@@ -5385,8 +5385,8 @@
       "terValue": 0.05,
       "nav": "$294.80",
       "navValue": 294.8,
-      "aum": "$19.6B",
-      "aumValue": 19600000000,
+      "aum": "$19.2B",
+      "aumValue": 19200000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Aug 17 2006",
       "exchange": "New York Stock Exchange Arca",
@@ -5401,8 +5401,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 6.09,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 7.08,
           "yr1": 0.14,
           "yr3": 16.26,
           "yr5": 5.19,
@@ -5421,7 +5421,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 6.09,
+        "ytd": 7.08,
         "tr1y": 0.14,
         "tr3y": 57.15,
         "tr5y": 28.82,
@@ -5432,10 +5432,10 @@
         "siAnn": null,
         "dividendYield": 0.62,
         "dividendYieldText": "0.62%",
-        "secYield": 0.59,
-        "secYieldText": "0.59%",
+        "secYield": 0.61,
+        "secYieldText": "0.61%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 131,
       "history": 5092
@@ -5452,8 +5452,8 @@
       "terValue": 0.09,
       "nav": "$188.94",
       "navValue": 188.94,
-      "aum": "$5.7B",
-      "aumValue": 5700000000,
+      "aum": "$6.0B",
+      "aumValue": 6000000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Sep 23 2004",
       "exchange": "New York Stock Exchange Arca",
@@ -5468,8 +5468,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -1.75,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -1.13,
           "yr1": 2.55,
           "yr3": 22.84,
           "yr5": 6.93,
@@ -5488,7 +5488,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -1.75,
+        "ytd": -1.13,
         "tr1y": 2.55,
         "tr3y": 85.38,
         "tr5y": 39.78,
@@ -5499,10 +5499,10 @@
         "siAnn": null,
         "dividendYield": 1.01,
         "dividendYieldText": "1.01%",
-        "secYield": 0.94,
-        "secYieldText": "0.94%",
+        "secYield": 0.91,
+        "secYieldText": "0.91%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 116,
       "history": 5573
@@ -5519,8 +5519,8 @@
       "terValue": 0.07,
       "nav": "$116.57",
       "navValue": 116.57,
-      "aum": "$8.6B",
-      "aumValue": 8600000000,
+      "aum": "$9.0B",
+      "aumValue": 9000000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Mar 04 2005",
       "exchange": "New York Stock Exchange Arca",
@@ -5535,8 +5535,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 28.65,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 30.27,
           "yr1": 34.93,
           "yr3": 25.04,
           "yr5": 11.17,
@@ -5555,7 +5555,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 28.65,
+        "ytd": 30.27,
         "tr1y": 34.93,
         "tr3y": 95.48,
         "tr5y": 69.77,
@@ -5569,7 +5569,7 @@
         "secYield": null,
         "secYieldText": "—",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 2392,
       "history": 5461
@@ -5586,8 +5586,8 @@
       "terValue": 0.2,
       "nav": "$73.71",
       "navValue": 73.71,
-      "aum": "$1.9B",
-      "aumValue": 1900000000,
+      "aum": "$2.0B",
+      "aumValue": 2000000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Dec 06 2023",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -5602,8 +5602,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -2.26,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -2.46,
           "yr1": -1.31,
           "yr3": null,
           "yr5": null,
@@ -5622,7 +5622,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": -2.26,
+        "ytd": -2.46,
         "tr1y": -1.31,
         "tr3y": null,
         "tr5y": null,
@@ -5633,10 +5633,10 @@
         "siAnn": null,
         "dividendYield": 4.95,
         "dividendYieldText": "4.95%",
-        "secYield": 5.21,
-        "secYieldText": "5.21%",
+        "secYield": 5.25,
+        "secYieldText": "5.25%",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 3114,
       "history": 718
@@ -5653,8 +5653,8 @@
       "terValue": 0.09,
       "nav": "$171.94",
       "navValue": 171.94,
-      "aum": "$8.2B",
-      "aumValue": 8199999999.999999,
+      "aum": "$7.7B",
+      "aumValue": 7700000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Jan 26 2004",
       "exchange": "New York Stock Exchange Arca",
@@ -5669,8 +5669,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -5.13,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -4.73,
           "yr1": -7.16,
           "yr3": 15.78,
           "yr5": 7.62,
@@ -5689,7 +5689,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -5.13,
+        "ytd": -4.73,
         "tr1y": -7.16,
         "tr3y": 55.22,
         "tr5y": 44.39,
@@ -5700,10 +5700,10 @@
         "siAnn": null,
         "dividendYield": 2.95,
         "dividendYieldText": "2.95%",
-        "secYield": 2.86,
-        "secYieldText": "2.86%",
+        "secYield": 3.08,
+        "secYieldText": "3.08%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 75,
       "history": 5740
@@ -5736,8 +5736,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 0.4,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 0.3,
           "yr1": 1.64,
           "yr3": null,
           "yr5": null,
@@ -5756,7 +5756,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": 0.4,
+        "ytd": 0.3,
         "tr1y": 1.64,
         "tr3y": null,
         "tr5y": null,
@@ -5767,10 +5767,10 @@
         "siAnn": null,
         "dividendYield": 4.72,
         "dividendYieldText": "4.72%",
-        "secYield": 5.22,
-        "secYieldText": "5.22%",
+        "secYield": 5.23,
+        "secYieldText": "5.23%",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 1567,
       "history": 385
@@ -5787,8 +5787,8 @@
       "terValue": 0.12,
       "nav": "$74.41",
       "navValue": 74.41,
-      "aum": "$939.5M",
-      "aumValue": 939500000,
+      "aum": "$1.2B",
+      "aumValue": 1200000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Nov 19 2024",
       "exchange": "Cboe BZX U.S. Equities Exchange",
@@ -5803,8 +5803,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -0.35,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -0.33,
           "yr1": 0.03,
           "yr3": null,
           "yr5": null,
@@ -5823,7 +5823,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": -0.35,
+        "ytd": -0.33,
         "tr1y": 0.03,
         "tr3y": null,
         "tr5y": null,
@@ -5837,7 +5837,7 @@
         "secYield": 3.82,
         "secYieldText": "3.82%",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 3316,
       "history": 473
@@ -5854,8 +5854,8 @@
       "terValue": 0.1,
       "nav": "$80.61",
       "navValue": 80.61,
-      "aum": "$6.8B",
-      "aumValue": 6800000000,
+      "aum": "$6.7B",
+      "aumValue": 6700000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Sep 18 2018",
       "exchange": "Cboe BZX U.S. Equities Exchange",
@@ -5870,8 +5870,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 14.75,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 15.91,
           "yr1": 20.51,
           "yr3": 21.57,
           "yr5": 8.9,
@@ -5890,7 +5890,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 14.75,
+        "ytd": 15.91,
         "tr1y": 20.51,
         "tr3y": 79.65,
         "tr5y": 53.18,
@@ -5904,7 +5904,7 @@
         "secYield": null,
         "secYieldText": "—",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 6710,
       "history": 2048
@@ -5921,8 +5921,8 @@
       "terValue": 0.06,
       "nav": "$154.63",
       "navValue": 154.63,
-      "aum": "$12.1B",
-      "aumValue": 12100000000,
+      "aum": "$11.6B",
+      "aumValue": 11600000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Apr 02 2009",
       "exchange": "New York Stock Exchange Arca",
@@ -5937,8 +5937,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 8.66,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 9.49,
           "yr1": 12.17,
           "yr3": 17.85,
           "yr5": 6.16,
@@ -5957,7 +5957,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 8.66,
+        "ytd": 9.49,
         "tr1y": 12.17,
         "tr3y": 63.67,
         "tr5y": 34.86,
@@ -5971,7 +5971,7 @@
         "secYield": null,
         "secYieldText": "—",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 5016,
       "history": 4436
@@ -5988,8 +5988,8 @@
       "terValue": 0.06,
       "nav": "$157.68",
       "navValue": 157.68,
-      "aum": "$81.9B",
-      "aumValue": 81900000000,
+      "aum": "$81.8B",
+      "aumValue": 81800000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Jun 24 2008",
       "exchange": "New York Stock Exchange Arca",
@@ -6004,8 +6004,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 12.8,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 13.76,
           "yr1": 16.32,
           "yr3": 21.99,
           "yr5": 11.35,
@@ -6024,7 +6024,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 12.8,
+        "ytd": 13.76,
         "tr1y": 16.32,
         "tr3y": 81.55,
         "tr5y": 71.2,
@@ -6038,7 +6038,7 @@
         "secYield": null,
         "secYieldText": "—",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 10241,
       "history": 4631
@@ -6055,8 +6055,8 @@
       "terValue": 0.03,
       "nav": "$72.64",
       "navValue": 72.64,
-      "aum": "$1.7B",
-      "aumValue": 1700000000,
+      "aum": "$1.6B",
+      "aumValue": 1600000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Nov 07 2017",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -6071,8 +6071,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -2.83,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -2.99,
           "yr1": -2.3,
           "yr3": 5.25,
           "yr5": -0.57,
@@ -6091,7 +6091,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -2.83,
+        "ytd": -2.99,
         "tr1y": -2.3,
         "tr3y": 16.59,
         "tr5y": -2.83,
@@ -6102,10 +6102,10 @@
         "siAnn": null,
         "dividendYield": 5.47,
         "dividendYieldText": "5.47%",
-        "secYield": 5.44,
-        "secYieldText": "5.44%",
+        "secYield": 5.85,
+        "secYieldText": "5.85%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 5212,
       "history": 2267
@@ -6122,8 +6122,8 @@
       "terValue": 0.03,
       "nav": "$47.42",
       "navValue": 47.42,
-      "aum": "$46.3B",
-      "aumValue": 46300000000,
+      "aum": "$49.6B",
+      "aumValue": 49600000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Aug 21 2015",
       "exchange": "New York Stock Exchange Arca",
@@ -6138,8 +6138,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -3.21,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -3.25,
           "yr1": -2.31,
           "yr3": 2.98,
           "yr5": -0.07,
@@ -6158,7 +6158,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -3.21,
+        "ytd": -3.25,
         "tr1y": -2.31,
         "tr3y": 9.2,
         "tr5y": -0.34,
@@ -6169,10 +6169,10 @@
         "siAnn": null,
         "dividendYield": 3.64,
         "dividendYieldText": "3.64%",
-        "secYield": 4.28,
-        "secYieldText": "4.28%",
+        "secYield": 4.26,
+        "secYieldText": "4.26%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 10724,
       "history": 2828
@@ -6189,8 +6189,8 @@
       "terValue": 0.06,
       "nav": "$94.34",
       "navValue": 94.34,
-      "aum": "$3.3B",
-      "aumValue": 3300000000,
+      "aum": "$3.6B",
+      "aumValue": 3600000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Jan 26 2024",
       "exchange": "Cboe BZX U.S. Equities Exchange",
@@ -6205,8 +6205,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -3.43,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -3.46,
           "yr1": -2.44,
           "yr3": null,
           "yr5": null,
@@ -6225,7 +6225,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": -3.43,
+        "ytd": -3.46,
         "tr1y": -2.44,
         "tr3y": null,
         "tr5y": null,
@@ -6236,10 +6236,10 @@
         "siAnn": null,
         "dividendYield": 3.32,
         "dividendYieldText": "3.32%",
-        "secYield": 3.99,
-        "secYieldText": "3.99%",
+        "secYield": 3.98,
+        "secYieldText": "3.98%",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 3948,
       "history": 682
@@ -6256,8 +6256,8 @@
       "terValue": 0.08,
       "nav": "$95.59",
       "navValue": 95.59,
-      "aum": "$1.6B",
-      "aumValue": 1600000000,
+      "aum": "$1.7B",
+      "aumValue": 1700000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Jan 26 2024",
       "exchange": "Cboe BZX U.S. Equities Exchange",
@@ -6272,8 +6272,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -2.86,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -2.84,
           "yr1": -2.04,
           "yr3": null,
           "yr5": null,
@@ -6292,7 +6292,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": -2.86,
+        "ytd": -2.84,
         "tr1y": -2.04,
         "tr3y": null,
         "tr5y": null,
@@ -6303,10 +6303,10 @@
         "siAnn": null,
         "dividendYield": 3.32,
         "dividendYieldText": "3.32%",
-        "secYield": 3.89,
-        "secYieldText": "3.89%",
+        "secYield": 3.88,
+        "secYieldText": "3.88%",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 6309,
       "history": 682
@@ -6323,8 +6323,8 @@
       "terValue": 0.09,
       "nav": "$96.23",
       "navValue": 96.23,
-      "aum": "$366.1M",
-      "aumValue": 366100000,
+      "aum": "$417.2M",
+      "aumValue": 417200000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "May 20 2025",
       "exchange": "Cboe BZX U.S. Equities Exchange",
@@ -6339,8 +6339,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -4.23,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -4.3,
           "yr1": -3.01,
           "yr3": null,
           "yr5": null,
@@ -6359,7 +6359,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": -4.23,
+        "ytd": -4.3,
         "tr1y": -3.01,
         "tr3y": null,
         "tr5y": null,
@@ -6370,10 +6370,10 @@
         "siAnn": null,
         "dividendYield": 3.89,
         "dividendYieldText": "3.89%",
-        "secYield": 4.76,
-        "secYieldText": "4.76%",
+        "secYield": 4.72,
+        "secYieldText": "4.72%",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 4949,
       "history": 349
@@ -6390,8 +6390,8 @@
       "terValue": 0.05,
       "nav": "$98.67",
       "navValue": 98.67,
-      "aum": "$2.4B",
-      "aumValue": 2400000000,
+      "aum": "$3.6B",
+      "aumValue": 3600000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Mar 07 2023",
       "exchange": "New York Stock Exchange Arca",
@@ -6406,9 +6406,9 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -0.82,
-          "yr1": -0.64,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -0.79,
+          "yr1": -0.63,
           "yr3": 2.97,
           "yr5": null,
           "yr10": null,
@@ -6426,8 +6426,8 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -0.82,
-        "tr1y": -0.64,
+        "ytd": -0.79,
+        "tr1y": -0.63,
         "tr3y": 9.17,
         "tr5y": null,
         "tr10y": null,
@@ -6437,10 +6437,10 @@
         "siAnn": null,
         "dividendYield": 2.68,
         "dividendYieldText": "2.68%",
-        "secYield": 3.31,
-        "secYieldText": "3.31%",
+        "secYield": 3.32,
+        "secYieldText": "3.32%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 3913,
       "history": 909
@@ -6457,8 +6457,8 @@
       "terValue": 0.03,
       "nav": "$72.17",
       "navValue": 72.17,
-      "aum": "$205.8M",
-      "aumValue": 205800000,
+      "aum": "$227.6M",
+      "aumValue": 227600000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Jul 07 2025",
       "exchange": "New York Stock Exchange Arca",
@@ -6473,8 +6473,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -2.48,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -2.68,
           "yr1": -1.89,
           "yr3": null,
           "yr5": null,
@@ -6493,7 +6493,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": -2.48,
+        "ytd": -2.68,
         "tr1y": -1.89,
         "tr3y": null,
         "tr5y": null,
@@ -6504,10 +6504,10 @@
         "siAnn": null,
         "dividendYield": 4.22,
         "dividendYieldText": "4.22%",
-        "secYield": 4.94,
-        "secYieldText": "4.94%",
+        "secYield": 4.96,
+        "secYieldText": "4.96%",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 288,
       "history": 317
@@ -6524,8 +6524,8 @@
       "terValue": 0.06,
       "nav": "$335.77",
       "navValue": 335.77,
-      "aum": "$4.8B",
-      "aumValue": 4800000000,
+      "aum": "$4.9B",
+      "aumValue": 4900000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Sep 20 2010",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -6540,8 +6540,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 12.67,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 13.56,
           "yr1": 15.08,
           "yr3": 22.72,
           "yr5": 12.53,
@@ -6560,7 +6560,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 12.67,
+        "ytd": 13.56,
         "tr1y": 15.08,
         "tr3y": 84.83,
         "tr5y": 80.43,
@@ -6571,10 +6571,10 @@
         "siAnn": null,
         "dividendYield": 1.06,
         "dividendYieldText": "1.06%",
-        "secYield": 0.97,
-        "secYieldText": "0.97%",
+        "secYield": 0.99,
+        "secYieldText": "0.99%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 2991,
       "history": 4067
@@ -6591,8 +6591,8 @@
       "terValue": 0.03,
       "nav": "$375.13",
       "navValue": 375.13,
-      "aum": "$690.1B",
-      "aumValue": 690100000000,
+      "aum": "$689.2B",
+      "aumValue": 689200000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "May 24 2001",
       "exchange": "New York Stock Exchange Arca",
@@ -6607,8 +6607,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 12.86,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 13.71,
           "yr1": 15.33,
           "yr3": 22.79,
           "yr5": 12.47,
@@ -6627,7 +6627,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 12.86,
+        "ytd": 13.71,
         "tr1y": 15.33,
         "tr3y": 85.14,
         "tr5y": 79.99,
@@ -6638,10 +6638,10 @@
         "siAnn": null,
         "dividendYield": 1.05,
         "dividendYieldText": "1.05%",
-        "secYield": 1.01,
-        "secYieldText": "1.01%",
+        "secYield": 1.03,
+        "secYieldText": "1.03%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 3526,
       "history": 6397
@@ -6658,8 +6658,8 @@
       "terValue": 0.03,
       "nav": "$48.40",
       "navValue": 48.4,
-      "aum": "$20.5B",
-      "aumValue": 20500000000,
+      "aum": "$20.9B",
+      "aumValue": 20900000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Oct 12 2012",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -6674,8 +6674,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 1.2,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 1.08,
           "yr1": 1.33,
           "yr3": 4.89,
           "yr5": 2.89,
@@ -6694,7 +6694,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 1.2,
+        "ytd": 1.08,
         "tr1y": 1.33,
         "tr3y": 15.41,
         "tr5y": 15.33,
@@ -6708,7 +6708,7 @@
         "secYield": 2.29,
         "secYieldText": "2.29%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 27,
       "history": 3545
@@ -6725,8 +6725,8 @@
       "terValue": 0.05,
       "nav": "$72.31",
       "navValue": 72.31,
-      "aum": "$230.8M",
-      "aumValue": 230800000,
+      "aum": "$250.5M",
+      "aumValue": 250500000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Jul 07 2025",
       "exchange": "New York Stock Exchange Arca",
@@ -6741,8 +6741,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -1.81,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -2.04,
           "yr1": -1.99,
           "yr3": null,
           "yr5": null,
@@ -6761,7 +6761,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": -1.81,
+        "ytd": -2.04,
         "tr1y": -1.99,
         "tr3y": null,
         "tr5y": null,
@@ -6775,7 +6775,7 @@
         "secYield": 2.5,
         "secYieldText": "2.50%",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 50,
       "history": 317
@@ -6792,8 +6792,8 @@
       "terValue": 0.03,
       "nav": "$216.69",
       "navValue": 216.69,
-      "aum": "$192.2B",
-      "aumValue": 192200000000,
+      "aum": "$184.2B",
+      "aumValue": 184200000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Jan 26 2004",
       "exchange": "New York Stock Exchange Arca",
@@ -6808,8 +6808,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 15.19,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 15.46,
           "yr1": 18.19,
           "yr3": 19.37,
           "yr5": 12.29,
@@ -6828,7 +6828,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 15.19,
+        "ytd": 15.46,
         "tr1y": 18.19,
         "tr3y": 70.08,
         "tr5y": 78.53,
@@ -6839,10 +6839,10 @@
         "siAnn": null,
         "dividendYield": 1.91,
         "dividendYieldText": "1.91%",
-        "secYield": 1.79,
-        "secYieldText": "1.79%",
+        "secYield": 1.89,
+        "secYieldText": "1.89%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 320,
       "history": 5740
@@ -6859,8 +6859,8 @@
       "terValue": 0.06,
       "nav": "$260.88",
       "navValue": 260.88,
-      "aum": "$1.5B",
-      "aumValue": 1500000000,
+      "aum": "$1.4B",
+      "aumValue": 1400000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Sep 20 2010",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -6875,8 +6875,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 10.99,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 12.11,
           "yr1": 12.14,
           "yr3": 18.59,
           "yr5": 4.7,
@@ -6895,7 +6895,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 10.99,
+        "ytd": 12.11,
         "tr1y": 12.14,
         "tr3y": 66.78,
         "tr5y": 25.81,
@@ -6906,10 +6906,10 @@
         "siAnn": null,
         "dividendYield": 0.47,
         "dividendYieldText": "0.47%",
-        "secYield": 0.41,
-        "secYieldText": "0.41%",
+        "secYield": 0.44,
+        "secYieldText": "0.44%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 1142,
       "history": 4067
@@ -6926,8 +6926,8 @@
       "terValue": 0.06,
       "nav": "$112.62",
       "navValue": 112.62,
-      "aum": "$17.3B",
-      "aumValue": 17300000000,
+      "aum": "$16.6B",
+      "aumValue": 16600000000.000002,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Sep 20 2010",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -6942,8 +6942,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 14.15,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 15.22,
           "yr1": 16.25,
           "yr3": 18.9,
           "yr5": 6.3,
@@ -6962,7 +6962,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 14.15,
+        "ytd": 15.22,
         "tr1y": 16.25,
         "tr3y": 68.1,
         "tr5y": 35.73,
@@ -6973,10 +6973,10 @@
         "siAnn": null,
         "dividendYield": 1.2,
         "dividendYieldText": "1.20%",
-        "secYield": 1.12,
-        "secYieldText": "1.12%",
+        "secYield": 1.21,
+        "secYieldText": "1.21%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 2003,
       "history": 4067
@@ -6993,8 +6993,8 @@
       "terValue": 0.06,
       "nav": "$185.52",
       "navValue": 185.52,
-      "aum": "$1.4B",
-      "aumValue": 1400000000,
+      "aum": "$1.3B",
+      "aumValue": 1300000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Sep 20 2010",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -7009,8 +7009,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 17.57,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 18.58,
           "yr1": 20.76,
           "yr3": 19.25,
           "yr5": 7.63,
@@ -7029,7 +7029,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 17.57,
+        "ytd": 18.58,
         "tr1y": 20.76,
         "tr3y": 69.57,
         "tr5y": 44.43,
@@ -7040,10 +7040,10 @@
         "siAnn": null,
         "dividendYield": 1.95,
         "dividendYieldText": "1.95%",
-        "secYield": 1.86,
-        "secYieldText": "1.86%",
+        "secYield": 1.99,
+        "secYieldText": "1.99%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 1431,
       "history": 4067
@@ -7060,8 +7060,8 @@
       "terValue": 0.03,
       "nav": "$90.19",
       "navValue": 90.19,
-      "aum": "$227.0B",
-      "aumValue": 227000000000,
+      "aum": "$232.9B",
+      "aumValue": 232900000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Jan 26 2004",
       "exchange": "New York Stock Exchange Arca",
@@ -7076,8 +7076,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 11.28,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 12.47,
           "yr1": 13.09,
           "yr3": 26.47,
           "yr5": 13.9,
@@ -7096,7 +7096,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 11.28,
+        "ytd": 12.47,
         "tr1y": 13.09,
         "tr3y": 102.29,
         "tr5y": 91.69,
@@ -7110,7 +7110,7 @@
         "secYield": 0.35,
         "secYieldText": "0.35%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 153,
       "history": 5740
@@ -7127,8 +7127,8 @@
       "terValue": 0.1,
       "nav": "$49.41",
       "navValue": 49.41,
-      "aum": "$10.2B",
-      "aumValue": 10200000000,
+      "aum": "$9.9B",
+      "aumValue": 9900000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Apr 05 2021",
       "exchange": "Cboe BZX U.S. Equities Exchange",
@@ -7143,8 +7143,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 2.39,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 2.35,
           "yr1": 3.49,
           "yr3": 5.18,
           "yr5": 3.59,
@@ -7163,7 +7163,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 2.39,
+        "ytd": 2.35,
         "tr1y": 3.49,
         "tr3y": 16.36,
         "tr5y": 19.29,
@@ -7177,7 +7177,7 @@
         "secYield": 4.67,
         "secYieldText": "4.67%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 1369,
       "history": 1399
@@ -7194,8 +7194,8 @@
       "terValue": 0.35,
       "nav": "$66.99",
       "navValue": 66.99,
-      "aum": "$34.6M",
-      "aumValue": 34600000,
+      "aum": "$36.7M",
+      "aumValue": 36700000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Nov 14 2025",
       "exchange": "Cboe BZX U.S. Equities Exchange",
@@ -7210,8 +7210,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 10.2,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 11.6,
           "yr1": null,
           "yr3": null,
           "yr5": null,
@@ -7230,7 +7230,7 @@
         "derivedFrom": "official Vanguard YTD returns"
       },
       "metrics": {
-        "ytd": 10.2,
+        "ytd": 11.6,
         "tr1y": null,
         "tr3y": null,
         "tr5y": null,
@@ -7241,10 +7241,10 @@
         "siAnn": null,
         "dividendYield": 0.31,
         "dividendYieldText": "0.31%",
-        "secYield": -0.01,
-        "secYieldText": "-0.01%",
+        "secYield": 0.01,
+        "secYieldText": "0.01%",
         "returnsBasis": "official Vanguard YTD returns",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 44,
       "history": 225
@@ -7261,8 +7261,8 @@
       "terValue": 0.3,
       "nav": "$68.75",
       "navValue": 68.75,
-      "aum": "$94.9M",
-      "aumValue": 94900000,
+      "aum": "$92.6M",
+      "aumValue": 92600000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Nov 14 2025",
       "exchange": "Cboe BZX U.S. Equities Exchange",
@@ -7277,8 +7277,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 9.86,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 10.64,
           "yr1": null,
           "yr3": null,
           "yr5": null,
@@ -7297,7 +7297,7 @@
         "derivedFrom": "official Vanguard YTD returns"
       },
       "metrics": {
-        "ytd": 9.86,
+        "ytd": 10.64,
         "tr1y": null,
         "tr3y": null,
         "tr5y": null,
@@ -7308,10 +7308,10 @@
         "siAnn": null,
         "dividendYield": 1.41,
         "dividendYieldText": "1.41%",
-        "secYield": 1.12,
-        "secYieldText": "1.12%",
+        "secYield": 1.17,
+        "secYieldText": "1.17%",
         "returnsBasis": "official Vanguard YTD returns",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 82,
       "history": 225
@@ -7328,8 +7328,8 @@
       "terValue": 0.03,
       "nav": "$352.33",
       "navValue": 352.33,
-      "aum": "$54.3B",
-      "aumValue": 54300000000,
+      "aum": "$54.1B",
+      "aumValue": 54100000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Jan 27 2004",
       "exchange": "New York Stock Exchange Arca",
@@ -7344,8 +7344,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 12.88,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 13.73,
           "yr1": 15.46,
           "yr3": 23.47,
           "yr5": 13.33,
@@ -7364,7 +7364,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 12.88,
+        "ytd": 13.73,
         "tr1y": 15.46,
         "tr3y": 88.22,
         "tr5y": 86.99,
@@ -7375,10 +7375,10 @@
         "siAnn": null,
         "dividendYield": 1.02,
         "dividendYieldText": "1.02%",
-        "secYield": 0.96,
-        "secYieldText": "0.96%",
+        "secYield": 0.98,
+        "secYieldText": "0.98%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 445,
       "history": 5740
@@ -7395,8 +7395,8 @@
       "terValue": 0.06,
       "nav": "$59.21",
       "navValue": 59.21,
-      "aum": "$127.3B",
-      "aumValue": 127300000000,
+      "aum": "$125.4B",
+      "aumValue": 125400000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Mar 04 2005",
       "exchange": "New York Stock Exchange Arca",
@@ -7411,8 +7411,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 10.72,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 11.47,
           "yr1": 12.54,
           "yr3": 18.38,
           "yr5": 6.67,
@@ -7431,7 +7431,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 10.72,
+        "ytd": 11.47,
         "tr1y": 12.54,
         "tr3y": 65.91,
         "tr5y": 38.09,
@@ -7445,7 +7445,7 @@
         "secYield": null,
         "secYieldText": "—",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 6498,
       "history": 5461
@@ -7462,8 +7462,8 @@
       "terValue": 0.15,
       "nav": "$62.66",
       "navValue": 62.66,
-      "aum": "$6.4B",
-      "aumValue": 6400000000,
+      "aum": "$6.1B",
+      "aumValue": 6100000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "May 31 2013",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -7478,10 +7478,10 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": -2.84,
+          "asOfDate": "Oct 02 2026",
+          "ytd": -2.76,
           "yr1": 0.4,
-          "yr3": 8.8,
+          "yr3": 8.81,
           "yr5": 1.32,
           "yr10": 2.5,
           "sinceInception": null
@@ -7498,21 +7498,21 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -2.84,
+        "ytd": -2.76,
         "tr1y": 0.4,
-        "tr3y": 28.79,
+        "tr3y": 28.82,
         "tr5y": 6.79,
         "tr10y": 28.01,
-        "cagr3y": 8.8,
+        "cagr3y": 8.81,
         "cagr5y": 1.32,
         "cagr10y": 2.5,
         "siAnn": null,
         "dividendYield": 6.12,
         "dividendYieldText": "6.12%",
-        "secYield": 6.53,
-        "secYieldText": "6.53%",
+        "secYield": 6.55,
+        "secYieldText": "6.55%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 948,
       "history": 3389
@@ -7529,8 +7529,8 @@
       "terValue": 0.05,
       "nav": "$233.03",
       "navValue": 233.03,
-      "aum": "$31.4B",
-      "aumValue": 31400000000,
+      "aum": "$30.2B",
+      "aumValue": 30200000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Dec 27 2001",
       "exchange": "New York Stock Exchange Arca",
@@ -7545,8 +7545,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 12.35,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 13.44,
           "yr1": 11.78,
           "yr3": 19.88,
           "yr5": 6.24,
@@ -7565,7 +7565,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 12.35,
+        "ytd": 13.44,
         "tr1y": 11.78,
         "tr3y": 72.29,
         "tr5y": 35.35,
@@ -7576,10 +7576,10 @@
         "siAnn": null,
         "dividendYield": 1.03,
         "dividendYieldText": "1.03%",
-        "secYield": 0.99,
-        "secYieldText": "0.99%",
+        "secYield": 1.04,
+        "secYieldText": "1.04%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 3355,
       "history": 6261
@@ -7596,8 +7596,8 @@
       "terValue": 0.05,
       "nav": "$84.44",
       "navValue": 84.44,
-      "aum": "$164.9B",
-      "aumValue": 164900000000,
+      "aum": "$163.2B",
+      "aumValue": 163200000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Jan 26 2011",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -7612,8 +7612,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 12.86,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 13.98,
           "yr1": 18.49,
           "yr3": 20.89,
           "yr5": 9.43,
@@ -7632,7 +7632,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 12.86,
+        "ytd": 13.98,
         "tr1y": 18.49,
         "tr3y": 76.65,
         "tr5y": 56.93,
@@ -7646,7 +7646,7 @@
         "secYield": null,
         "secYieldText": "—",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 9050,
       "history": 3978
@@ -7663,8 +7663,8 @@
       "terValue": 0.04,
       "nav": "$155.33",
       "navValue": 155.33,
-      "aum": "$83.1B",
-      "aumValue": 83100000000,
+      "aum": "$78.9B",
+      "aumValue": 78900000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Nov 10 2006",
       "exchange": "New York Stock Exchange Arca",
@@ -7679,8 +7679,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 10.16,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 10.93,
           "yr1": 12.72,
           "yr3": 18.48,
           "yr5": 11.55,
@@ -7699,7 +7699,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 10.16,
+        "ytd": 10.93,
         "tr1y": 12.72,
         "tr3y": 66.32,
         "tr5y": 72.73,
@@ -7710,10 +7710,10 @@
         "siAnn": null,
         "dividendYield": 2.29,
         "dividendYieldText": "2.29%",
-        "secYield": 2.2,
-        "secYieldText": "2.20%",
+        "secYield": 2.35,
+        "secYieldText": "2.35%",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 620,
       "history": 5034
@@ -7730,8 +7730,8 @@
       "terValue": 0.07,
       "nav": "$99.79",
       "navValue": 99.79,
-      "aum": "$21.8B",
-      "aumValue": 21800000000,
+      "aum": "$21.4B",
+      "aumValue": 21400000000,
       "asOfDate": "Oct 01 2026",
       "inceptionDate": "Feb 25 2016",
       "exchange": "National Association of Securities Dealers Automated Quotations",
@@ -7746,8 +7746,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Oct 01 2026",
-          "ytd": 14.38,
+          "asOfDate": "Oct 02 2026",
+          "ytd": 15,
           "yr1": 23.99,
           "yr3": 23.28,
           "yr5": 13.62,
@@ -7766,7 +7766,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 14.38,
+        "ytd": 15,
         "tr1y": 23.99,
         "tr3y": 87.34,
         "tr5y": 89.39,
@@ -7780,7 +7780,7 @@
         "secYield": null,
         "secYieldText": "—",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-10-01"
+        "performanceAsOf": "2026-10-02"
       },
       "holdings": 1731,
       "history": 2698

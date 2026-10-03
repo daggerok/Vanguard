@@ -52,7 +52,7 @@
   "aum": {
     "display": "$8.0B",
     "value": 8000000000,
-    "asOfDate": "Aug 31 2026",
+    "asOfDate": "Sep 30 2026",
     "source": "Vanguard workplace fundDetails API (ETF share class net assets)",
     "totalFundNetAssets": {
       "display": "$8.6B",
@@ -64,16 +64,16 @@
     "dividendYieldText": "1.02%",
     "dividendYieldKind": "Vanguard published distribution yield",
     "dividendYieldAsOf": "2026-08-31",
-    "secYield": 0.93,
-    "secYieldText": "0.93%",
+    "secYield": 0.98,
+    "secYieldText": "0.98%",
     "secYieldKind": "official 30-day SEC yield",
-    "secYieldAsOf": "2026-08-31",
+    "secYieldAsOf": "2026-09-30",
     "unsubsidizedSecYield": null
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Oct 01 2026",
-      "ytd": 9.2,
+      "asOfDate": "Oct 02 2026",
+      "ytd": 10.16,
       "yr1": 9.18,
       "yr3": 20.53,
       "yr5": 12.78,

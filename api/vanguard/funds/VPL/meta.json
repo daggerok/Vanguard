@@ -50,9 +50,9 @@
     "value": -0.65
   },
   "aum": {
-    "display": "$8.6B",
-    "value": 8600000000,
-    "asOfDate": "Aug 31 2026",
+    "display": "$9.0B",
+    "value": 9000000000,
+    "asOfDate": "Sep 30 2026",
     "source": "Vanguard workplace fundDetails API (ETF share class net assets)",
     "totalFundNetAssets": {
       "display": "$13.8B",
@@ -72,8 +72,8 @@
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Oct 01 2026",
-      "ytd": 28.65,
+      "asOfDate": "Oct 02 2026",
+      "ytd": 30.27,
       "yr1": 34.93,
       "yr3": 25.04,
       "yr5": 11.17,
