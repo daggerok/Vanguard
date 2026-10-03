@@ -58,7 +58,8 @@ Caveats:
 - A 3, 5 or 10-year figure needs a price history that starts at or before the start of the period, so funds younger than the period (and runs with a shorter `HISTORY_RANGE`) get `null` there instead of a since-launch return passed off as a period return
 - `returns.monthEnd` holds the same values as `metrics` in the shape the shared app reads; `returns.quarterEnd` is empty because Vanguard publishes no separate quarter-end series
 - `nav` is Vanguard's official NAV, `closePrice` its official market price (the last Yahoo close when none is published) and `premiumDiscount` the value Vanguard published for the price day, never computed across days; `aum` is the ETF share class net assets as Vanguard rounds them (`$29.0B`), so `aumValue` is only as precise as that text
-- `cusip`, `isin`, `inceptionDate` and `exchange` are not published by the sources used and stay empty
+- `cusip`, `inceptionDate` and `exchange` come from the Vanguard workplace fundDetails API (`inceptionDate` is the fund's inception, not the ETF share class); `isin` is derived from the CUSIP (`US` + CUSIP + check digit). When the API is unreachable the previously published values are kept
+- Yahoo history is requested as daily bars with an explicit `period1`/`period2` window (`range=max` makes Yahoo return monthly bars). Every fund is either fully refreshed or fully kept: if the official profile, the Vanguard AdditionalFundData or the Yahoo chart fails for a fund that already has published data, none of its files are rewritten, and the run exits with an error only when every selected fund failed. The run stops taking new funds after 25 minutes and still writes the index
 - Official NAV, market price and premium/discount come from Vanguard; Open/High/Low/Volume, distributions and every derived return come from Yahoo Finance and are not official fund data
 - Each holdings sheet records its as-of date and source, and SEC N-PORT-P is used only when the Vanguard feed has no holdings
 
@@ -67,7 +68,7 @@ Caveats:
 | Environment variable | Default | Meaning |
 | --- | --: | --- |
 | `MAX_FETCHES` | `0` | `0` updates every selected fund; a positive value updates that many funds per run and resumes after the saved cursor (`api/vanguard/update-state.json`) on the next run, wrapping to the start after the last fund. |
-| `REQUEST_SLEEP` | `0` | Seconds to wait after each fund update (nonnegative number). |
+| `REQUEST_SLEEP` | `0` | Seconds between request starts in each worker's own request lane (nonnegative number). |
 | `CONCURRENCY` | `4` | Number of parallel fund update workers (integer >= 1). |
 | `AUM` | `:` | Fund net assets in dollars, `min:max`; amounts accept `K`/`M`/`B`/`T` suffixes or the `nano`/`micro`/`small`/`mid`/`large` presets. Funds without the value are skipped. |
 | `TER` | `:` | Expense ratio percent, `min:max`. Funds without the value are skipped. |
@@ -77,7 +78,7 @@ Caveats:
 | `CATEGORY` | empty | Keep funds whose catalog category contains this text, case-insensitive (`Bond`, `US Equity`, `Sector`, `International Equity`, `Global Equity`, `Real Estate`). |
 | `HOLDINGS_PAGE_SIZE` | `250` | Rows in each generated current-holdings JSON page (integer >= 1). |
 | `HISTORY_PAGE_SIZE` | `1000` | Rows in each generated daily-history JSON page (integer >= 1). |
-| `MAX_RETRIES` | `2` | Retries after the initial SEC request (integer >= 1, at most 5 are used). Only HTTP 408/425/429/5xx are retried, with exponential backoff. |
+| `MAX_RETRIES` | `2` | Retries after the initial request of every source (integer 1-5, anything else is an error). Network errors, timeouts (45 s) and HTTP 408/425/429/5xx are retried, with exponential backoff. |
 | `HISTORY_RANGE` | `max` | `max` or `Ny` (e.g. `5y`): limits the Yahoo request window and the published history rows. Returns that need a longer window than the range are left unavailable. |
 | `SEC_UA` | `daggerok ETF feed daggerok@gmail.com` | User-Agent sent to SEC EDGAR and Vanguard endpoints; redacted in the config log. In Actions the protected `SEC_UA` repository variable wins when nonblank. |
 | `SKIP_YAHOO` | `false` | Do not request Yahoo Finance; previously published history rows and distributions are kept (`true`/`false`). |

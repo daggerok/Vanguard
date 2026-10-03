@@ -144,7 +144,7 @@ async function mapWithConcurrency<T, R>(
   await Promise.all(runners);
   return results;
 }
-import { mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, rename, rm, writeFile } from "node:fs/promises";
 
 const DEFAULT_ROOT = new URL("../api/vanguard/", import.meta.url);
 let ROOT = DEFAULT_ROOT;
@@ -361,6 +361,12 @@ function parseInteger(label: string, raw: string | undefined, min: number, fallb
   return Number(text);
 }
 
+function parseMaxRetries(raw: string | undefined): number {
+  const value = parseInteger("MAX_RETRIES", raw, 1, 2);
+  if (value > 5) throw new Error("MAX_RETRIES: expected integer between 1 and 5");
+  return value;
+}
+
 function parseBoolean(label: string, raw: string | undefined, fallback: boolean): boolean {
   const text = (raw ?? "").trim();
   if (!text) return fallback;
@@ -436,7 +442,7 @@ export function readConfig(controls: Record<string, string | undefined> = {}): U
     category: cleanText(controls.CATEGORY),
     holdingsPageSize: parseInteger("HOLDINGS_PAGE_SIZE", controls.HOLDINGS_PAGE_SIZE, 1, 250),
     historyPageSize: parseInteger("HISTORY_PAGE_SIZE", controls.HISTORY_PAGE_SIZE, 1, 1000),
-    maxRetries: Math.min(5, parseInteger("MAX_RETRIES", controls.MAX_RETRIES, 1, 2)),
+    maxRetries: parseMaxRetries(controls.MAX_RETRIES),
     historyRange: parseHistoryRange(controls.HISTORY_RANGE),
     secUa: (controls.SEC_UA ?? "").trim() || DEFAULT_SEC_UA,
     skipYahoo: parseBoolean("SKIP_YAHOO", controls.SKIP_YAHOO, false),
@@ -519,9 +525,8 @@ export function historyWindowStartEpoch(historyRange: string, nowEpochSeconds: n
   return years ? Math.max(0, Math.floor(nowEpochSeconds - Number(years[1]) * 365.25 * 86_400)) : 0;
 }
 
-/** `max` keeps the original unbounded request; `Ny` bounds it with period1/period2. */
+/** Always explicit period1/period2 with interval=1d: Yahoo answers `range=max` with monthly bars, never daily. `max` starts at epoch 0. */
 export function yahooChartUrl(ticker: string, historyRange = "max", nowEpochSeconds = Math.floor(Date.now() / 1000)): string {
-  if (historyRange === "max") return `${YAHOO_CHART_URL}/${ticker}?range=max&interval=1d&events=div%2Csplits`;
   const query = new URLSearchParams({
     period1: String(historyWindowStartEpoch(historyRange, nowEpochSeconds)),
     period2: String(Math.floor(nowEpochSeconds)),
@@ -545,8 +550,46 @@ export function passesStaticFilters(fund: readonly [string, string, string], con
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
+
+// One paced request lane per worker. The slot is reserved synchronously BEFORE awaiting, so
+// concurrent callers can never pick the same slot (REQUEST_SLEEP seconds between request starts per lane).
+let requestLanes: number[] = [0];
+let laneSleepMs = 0;
+export function configureLanes(concurrency: number, sleepSeconds: number): void {
+  requestLanes = new Array(Math.max(1, concurrency)).fill(0);
+  laneSleepMs = Math.max(0, sleepSeconds * 1000);
+}
+export async function paceRequest(clock: () => number = Date.now, pause: (ms: number) => Promise<void> = sleep): Promise<void> {
+  const now = clock();
+  let lane = 0;
+  for (let i = 1; i < requestLanes.length; i += 1) if (requestLanes[i] < requestLanes[lane]) lane = i;
+  const start = Math.max(now, requestLanes[lane]);
+  requestLanes[lane] = start + laneSleepMs;
+  if (start > now) await pause(start - now);
+}
+export const REQUEST_TIMEOUT_MS = 45_000;
+const TRANSIENT_STATUSES = [408, 425, 429, 500, 502, 503, 504];
+/** Every network call: paced lane, 45 s timeout covering headers and body, MAX_RETRIES retries on network errors and transient statuses. */
+export async function httpFetch(url: string, init: RequestInit = {}, retries: number = activeConfig.maxRetries): Promise<Response> {
+  for (let attempt = 0; ; attempt += 1) {
+    await paceRequest();
+    try {
+      const response = await fetch(url, { ...init, signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS) });
+      if (response.ok || !TRANSIENT_STATUSES.includes(response.status) || attempt >= retries) return response;
+      await response.body?.cancel();
+    } catch (error) {
+      if (attempt >= retries) throw error;
+    }
+    await sleep(Math.min(30_000, 2 ** attempt * 1000));
+  }
+}
+async function writeAtomic(url: URL, text: string): Promise<void> {
+  const tmp = new URL(`${url.href}.tmp-${process.pid}`);
+  await writeFile(tmp, text);
+  await rename(tmp, url);
+}
 async function fetchJson(url: string, headers: Record<string, string> = {}): Promise<any> {
-  const response = await fetch(url, { headers: { "User-Agent": UA, ...headers } });
+  const response = await httpFetch(url, { headers: { "User-Agent": UA, ...headers } });
   if (!response.ok) throw new Error(`${response.status} ${response.statusText} for ${url}`);
   return response.json();
 }
@@ -618,7 +661,7 @@ export function paymentsPerYear(frequency: unknown): number | null {
 async function getPortId(ticker: string): Promise<string | null> {
   const url = `https://advisors.vanguard.com/investments/products/${ticker.toLowerCase()}`;
   try {
-    const res = await fetch(url, { headers: { "User-Agent": "Mozilla/5.0", Accept: "text/html" } });
+    const res = await httpFetch(url, { headers: { "User-Agent": "Mozilla/5.0", Accept: "text/html" } });
     if (!res.ok) return null;
     const txt = await res.text();
     const m = txt.match(/"portId"\s*:\s*"([^"]+)"/);
@@ -631,7 +674,7 @@ async function getPortId(ticker: string): Promise<string | null> {
 async function fetchWorkplaceFundDetails(portId: string) {
   const url = `https://workplace.vanguard.com/investments/product-details/fund/api/fundDetails?portIds=${portId}`;
   try {
-    const res = await fetch(url, {
+    const res = await httpFetch(url, {
       headers: {
         "User-Agent": UA,
         Referer: `https://workplace.vanguard.com/investments/product-details/fund/${portId}`,
@@ -659,7 +702,7 @@ async function officialProfile(ticker: string, name: string) {
 
   // Step 1: get advisor page for portId and fallback metrics
   try {
-    const response = await fetch(advisorUrl, {
+    const response = await httpFetch(advisorUrl, {
       headers: { "User-Agent": UA, Accept: "text/html" },
     });
     if (response.ok) {
@@ -799,13 +842,19 @@ async function officialProfile(ticker: string, name: string) {
   const ytd = wpYtd ?? (hero?.ytdReturn ? { value: String(hero.ytdReturn.value), asOf: hero.ytdReturn.effectiveDate } : findMetric(text, "YTD Returns (NAV)", true));
   const oneYear = hero?.oneYearReturn ? { value: String(hero.oneYearReturn.value), asOf: hero.oneYearReturn.effectiveDate } : findMetric(text, "1 YR Returns (NAV)", true);
 
-  return { url: advisorUrl, netAssets, etfAssets, expense, dividend, sec, ytd, oneYear, portId, distributionFrequency, workplaceRaw: workplace ? true : false };
+  const wpBody = workplace?.marketData?.body;
+  const wpCusip = typeof wpBody?.fundIdentifiers?.cusip === "string" && /^[0-9A-Z]{9}$/i.test(wpBody.fundIdentifiers.cusip) ? wpBody.fundIdentifiers.cusip.toUpperCase() : null;
+  const wpInception = /^\d{4}-\d{2}-\d{2}$/.test(String(wpBody?.fundCharacteristics?.fundInceptionDate ?? "")) ? String(wpBody.fundCharacteristics.fundInceptionDate) : null;
+  const wpExchange = typeof wpBody?.exchange === "string" && wpBody.exchange.trim() ? wpBody.exchange.trim() : null;
+  // ok: at least one official page answered; a fund whose official profile is unreachable keeps its published state
+  const ok = workplace !== null || raw !== "";
+  return { url: advisorUrl, ok, netAssets, etfAssets, expense, dividend, sec, ytd, oneYear, portId, distributionFrequency, workplaceRaw: workplace ? true : false, cusip: wpCusip, inceptionDate: wpInception, exchange: wpExchange };
 }
 
 export type ChartDividend = { epoch: number; amount: number };
 
-async function chart(ticker: string): Promise<{ rows: any[]; dividends: ChartDividend[] }> {
-  if (activeConfig.skipYahoo) return { rows: [], dividends: [] };
+async function chart(ticker: string): Promise<{ rows: any[]; dividends: ChartDividend[]; ok: boolean }> {
+  if (activeConfig.skipYahoo) return { rows: [], dividends: [], ok: true };
   const url = yahooChartUrl(ticker, activeConfig.historyRange);
   try {
     const data = await fetchJson(url, { Accept: "*/*" });
@@ -838,10 +887,10 @@ async function chart(ticker: string): Promise<{ rows: any[]; dividends: ChartDiv
       if (amount !== null && Number.isFinite(epoch)) dividends.push({ epoch, amount });
     }
     dividends.sort((a, b) => a.epoch - b.epoch);
-    return { rows, dividends };
+    return { rows, dividends, ok: rows.length > 0 };
   } catch (error) {
     outputNote(`[ ${'history'.padEnd(9)}] ${ticker} ${error}`);
-    return { rows: [], dividends: [] };
+    return { rows: [], dividends: [], ok: false };
   }
 }
 
@@ -1318,6 +1367,9 @@ export type FundInputs = {
   officialYtd: number | null;
   officialOneYear: number | null;
   officialAsOf: string | null;
+  cusip?: string | null;
+  exchange?: string | null;
+  inceptionDate?: string | null;
   /** Yahoo rows (lowercase keys, ascending) the derived returns are computed from. */
   yahooRows: any[];
   /** The merged history sheet as published (header-keyed rows, ascending). */
@@ -1373,8 +1425,8 @@ export function assembleFund(input: FundInputs): { meta: any; row: any } {
     },
     providerIds: { fundPage, officialPage: input.officialPage, portId: input.portId },
     legalStructure: null,
-    identifiers: { cusip: null, isin: null, indexTicker: null },
-    inception: { fundInceptionDate: null, shareClassInceptionDate: null, exchange: "" },
+    identifiers: { cusip: input.cusip ?? null, isin: isinFromCusip(input.cusip ?? null), indexTicker: null },
+    inception: { fundInceptionDate: input.inceptionDate ?? null, shareClassInceptionDate: null, exchange: input.exchange ?? "" },
     expenseRatio: { display: percentText(input.expense), value: input.expense, gross: null, net: input.expense },
     nav: { display: moneyText(quote.nav?.value), value: quote.nav ? round(quote.nav.value, 4) : null, asOfDate: formatDisplayDate(quote.nav?.date) },
     marketPrice: { display: moneyText(quote.price?.value), value: quote.price ? round(quote.price.value, 4) : null, asOfDate: formatDisplayDate(quote.price?.date) },
@@ -1422,8 +1474,8 @@ export function assembleFund(input: FundInputs): { meta: any; row: any } {
     aum: meta.aum.display,
     aumValue,
     asOfDate: meta.nav.asOfDate,
-    inceptionDate: "—",
-    exchange: "",
+    inceptionDate: input.inceptionDate ? formatDisplayDate(input.inceptionDate) : "—",
+    exchange: input.exchange ?? "",
     closePrice: meta.marketPrice.display,
     closePriceValue: meta.marketPrice.value,
     premiumDiscount: meta.premiumDiscount.display,
@@ -1439,6 +1491,20 @@ export function assembleFund(input: FundInputs): { meta: any; row: any } {
     history: input.history.totalRows,
   };
   return { meta, row };
+}
+
+/** US ISIN from a 9-character CUSIP: "US" + CUSIP + Luhn check digit over the letters-as-numbers expansion; null for anything else. */
+export function isinFromCusip(cusip: string | null): string | null {
+  if (!cusip || !/^[0-9A-Z]{9}$/i.test(cusip)) return null;
+  const body = `US${cusip.toUpperCase()}`;
+  const digits = [...body].map((ch) => (/[A-Z]/.test(ch) ? String(ch.charCodeAt(0) - 55) : ch)).join("");
+  let sum = 0;
+  for (let i = 0; i < digits.length; i += 1) {
+    let d = Number(digits[digits.length - 1 - i]);
+    if (i % 2 === 0) { d *= 2; if (d > 9) d -= 9; }
+    sum += d;
+  }
+  return `${body}${(10 - (sum % 10)) % 10}`;
 }
 
 /** The standard catalog envelope: generatedAt, source and counts on top of the fund rows. */
@@ -1523,6 +1589,7 @@ export function parseVanguardHoldingDetails(data: any): VanguardHoldings | null 
 export type VanguardAdditionalFundData = {
   holdings: VanguardHoldings | null;
   officialHistory: OfficialPricePoint[];
+  ok: boolean;
 };
 
 /**
@@ -1535,7 +1602,7 @@ export type VanguardAdditionalFundData = {
 async function vanguardAdditionalFundData(ticker: string): Promise<VanguardAdditionalFundData> {
   const url = `${VANGUARD_IRR_URL}/${ticker}-AdditionalFundData`;
   try {
-    const response = await fetch(url, {
+    const response = await httpFetch(url, {
       headers: {
         "User-Agent": UA,
         Accept: "application/json",
@@ -1544,10 +1611,10 @@ async function vanguardAdditionalFundData(ticker: string): Promise<VanguardAddit
     });
     if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
     const data = await response.json();
-    return { holdings: parseVanguardHoldingDetails(data), officialHistory: parseVanguardOfficialHistory(data) };
+    return { holdings: parseVanguardHoldingDetails(data), officialHistory: parseVanguardOfficialHistory(data), ok: true };
   } catch (error) {
     outputNote(`[ ${'holdings'.padEnd(9)}] ${ticker} ${error}`);
-    return { holdings: null, officialHistory: [] };
+    return { holdings: null, officialHistory: [], ok: false };
   }
 }
 
@@ -1576,18 +1643,9 @@ function secHeaders(): Record<string, string> {
 }
 
 async function fetchSecText(url: string, label: string): Promise<string> {
-  const maxRetries = activeConfig.maxRetries;
-  let attempt = 0;
-  for (;;) {
-    const response = await fetch(url, { headers: secHeaders() });
-    if (response.ok) return response.text();
-    if ([408, 425, 429, 500, 502, 503, 504].includes(response.status) && attempt < maxRetries) {
-      attempt += 1;
-      await sleep(Math.min(30000, 2 ** attempt * 1000));
-      continue;
-    }
-    throw new Error(`${response.status} ${response.statusText} for ${label}`);
-  }
+  const response = await httpFetch(url, { headers: secHeaders() });
+  if (response.ok) return response.text();
+  throw new Error(`${response.status} ${response.statusText} for ${label}`);
 }
 
 export function parseFundTickerMap(payload: any): Map<string, SecSeriesRef> {
@@ -1814,6 +1872,9 @@ export function previousValues(meta: any) {
     dividendYieldAsOf: text(meta?.yields?.dividendYieldAsOf),
     secYield: numberOrNull(meta?.yields?.secYield),
     secYieldAsOf: text(meta?.yields?.secYieldAsOf),
+    cusip: text(meta?.identifiers?.cusip),
+    exchange: text(meta?.inception?.exchange),
+    inceptionDate: text(meta?.inception?.fundInceptionDate),
   };
 }
 
@@ -1841,6 +1902,7 @@ async function readPreviousSheet(ticker: string, kind: string): Promise<{ header
   }
 }
 
+/** Writes the pages atomically and returns the manifest plus a cleanup that removes stale pages (call it only after meta.json is written). */
 async function writePages(dir: URL, ticker: string, kind: string, headers: string[], rows: any[], pageSize: number) {
   const target = new URL(`${kind}/`, dir);
   await mkdir(target, { recursive: true });
@@ -1857,14 +1919,16 @@ async function writePages(dir: URL, ticker: string, kind: string, headers: strin
       headers,
       rows: rows.slice(page * pageSize, (page + 1) * pageSize),
     };
-    await writeFile(new URL(name, target), JSON.stringify(payload) + "\n");
+    await writeAtomic(new URL(name, target), JSON.stringify(payload) + "\n");
   }
-  try {
-    for (const name of await readdir(target)) {
-      if (name.endsWith(".json") && !kept.has(name)) await rm(new URL(name, target), { force: true });
-    }
-  } catch {}
-  return { pages: [...kept].sort().map((name) => `${kind}/${name}`), pageSize, totalRows: rows.length };
+  const removeStale = async () => {
+    try {
+      for (const name of await readdir(target)) {
+        if (!kept.has(name) && (name.endsWith(".json") || name.includes(".tmp-"))) await rm(new URL(name, target), { force: true });
+      }
+    } catch {}
+  };
+  return { pages: [...kept].sort().map((name) => `${kind}/${name}`), pageSize, totalRows: rows.length, removeStale };
 }
 
 function configLogEntries(config: UpdaterConfig): Record<string, string> {
@@ -1902,23 +1966,26 @@ async function readJsonOrNull(url: URL): Promise<any | null> {
 }
 
 /** `outputRoot` redirects every read and write (tests); the published feed is always `api/vanguard`. */
-export async function run(config: UpdaterConfig = readConfig({}), outputRoot: URL = DEFAULT_ROOT) {
+export const SOFT_DEADLINE_MS = 25 * 60_000;
+
+export async function run(config: UpdaterConfig = readConfig({}), outputRoot: URL = DEFAULT_ROOT, softDeadlineMs: number = SOFT_DEADLINE_MS) {
   ROOT = outputRoot;
   FUNDS = new URL("funds/", ROOT);
   try {
-    await runUpdate(config);
+    await runUpdate(config, softDeadlineMs);
   } finally {
     ROOT = DEFAULT_ROOT;
     FUNDS = new URL("funds/", ROOT);
   }
 }
 
-async function runUpdate(config: UpdaterConfig) {
+async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
   activeConfig = config;
+  configureLanes(config.concurrency, config.requestSleepSeconds);
+  const deadline = Date.now() + softDeadlineMs;
   await mkdir(FUNDS, { recursive: true });
   const holdingsPageSize = config.holdingsPageSize;
   const historyPageSize = config.historyPageSize;
-  const requestSleepMs = config.requestSleepSeconds * 1000;
   const concurrency = config.concurrency;
   outputPrintConfig('Vanguard', configLogEntries(config));
   const staticSelection = FUNDS_SEED.filter((fund) => passesStaticFilters(fund, config));
@@ -1934,8 +2001,13 @@ async function runUpdate(config: UpdaterConfig) {
   }
   const previousIndex = await readJsonOrNull(new URL("index.json", ROOT));
   const output = outputCreateReporter(ROOT, selected.length);
+  let failedCount = 0;
   const perFundResults = await mapWithConcurrency(selected, concurrency, async ([ticker, name, category]) => {
     const before = await output.before(ticker);
+    if (Date.now() > deadline) {
+      await output.result(ticker, before, 'skipped', 'soft deadline reached; published data kept');
+      return null;
+    }
     try {
     const dir = new URL(`${ticker}/`, FUNDS);
     const [chartData, official, vgAdditional] = await Promise.all([
@@ -1944,6 +2016,18 @@ async function runUpdate(config: UpdaterConfig) {
       vanguardAdditionalFundData(ticker),
     ]);
     const vgHoldings = vgAdditional.holdings;
+    // Fund-level consistency: a fund is either fully refreshed or fully kept. When a required source failed and the
+    // fund already has published data, nothing is rewritten (no new returns next to stale other columns).
+    const failedSources = [
+      ...(official.ok ? [] : ["official profile"]),
+      ...(vgAdditional.ok ? [] : ["Vanguard AdditionalFundData"]),
+      ...(chartData.ok ? [] : ["Yahoo chart"]),
+    ];
+    if (failedSources.length && (await readPreviousMeta(ticker))) {
+      await output.result(ticker, before, 'failed', `${failedSources.join(", ")} unavailable; published data kept`);
+      failedCount += 1;
+      return null;
+    }
 
     // --- Holdings: Vanguard official feed -> SEC N-PORT-P -> previous sheet ---
     let holdingsRows: Record<string, unknown>[] = vgHoldings?.rows ?? [];
@@ -2025,6 +2109,9 @@ async function runUpdate(config: UpdaterConfig) {
       officialYtd: official.ytd?.value ? numberOrNull(official.ytd.value) : null,
       officialOneYear: official.oneYear?.value ? numberOrNull(official.oneYear.value) : null,
       officialAsOf: official.ytd?.asOf ?? null,
+      cusip: official.cusip ?? prev.cusip,
+      exchange: official.exchange ?? prev.exchange,
+      inceptionDate: official.inceptionDate ?? prev.inceptionDate,
       yahooRows: historyRows,
       pageRows: mergedHistoryRows,
       holdings: { pages: [], pageSize: holdingsPageSize, totalRows: holdingsRows.length, asOfDate: holdingsAsOf, source: holdingsSource },
@@ -2044,27 +2131,30 @@ async function runUpdate(config: UpdaterConfig) {
       return null;
     }
     await mkdir(dir, { recursive: true });
-    const historyManifest = await writePages(dir, ticker, "history", HISTORY_HEADERS, mergedHistoryRows, historyPageSize);
-    const holdingsManifest = await writePages(dir, ticker, "holdings", holdingsHeaders, holdingsRows, holdingsPageSize);
+    // Ordered writes: pages first, then meta.json, then stale pages are removed; the index row is written at the end of the run.
+    const { removeStale: removeStaleHistory, ...historyManifest } = await writePages(dir, ticker, "history", HISTORY_HEADERS, mergedHistoryRows, historyPageSize);
+    const { removeStale: removeStaleHoldings, ...holdingsManifest } = await writePages(dir, ticker, "holdings", holdingsHeaders, holdingsRows, holdingsPageSize);
     const { meta, row } = assembleFund({
       ...inputs,
       holdings: { ...inputs.holdings, ...holdingsManifest },
       history: { ...inputs.history, ...historyManifest },
     });
-    await writeFile(new URL("meta.json", dir), JSON.stringify(meta, null, 2) + "\n");
+    await writeAtomic(new URL("meta.json", dir), JSON.stringify(meta, null, 2) + "\n");
+    await removeStaleHistory();
+    await removeStaleHoldings();
     await output.result(ticker, before, undefined, undefined, {
       officialHistoryCount: officialHistory.length,
       yahooHistoryCount: historyRows.length,
       workplaceRaw: (official as any).workplaceRaw,
       portId: meta.providerIds.portId,
     });
-    if (requestSleepMs > 0) await sleep(requestSleepMs);
     return row;
     } catch (error) {
       // Continue past a single fund's failure instead of aborting the whole run
       // (same convention as the iShares/ProShares/Franklin/JPMorgan updaters):
       // mark it failed and keep its last successfully published data and catalog row.
       await output.result(ticker, before, 'failed', String(error));
+      failedCount += 1;
       return null;
     }
   });
@@ -2083,13 +2173,13 @@ async function runUpdate(config: UpdaterConfig) {
   try { previousWithoutStamp = previousText ? { ...JSON.parse(previousText), generatedAt: undefined } : undefined; } catch { previousWithoutStamp = undefined; }
   const nextWithoutStamp = { ...nextIndex, generatedAt: undefined };
   if (previousText === null || JSON.stringify(previousWithoutStamp) !== JSON.stringify(nextWithoutStamp)) {
-    await writeFile(new URL("index.json", ROOT), nextText);
+    await writeAtomic(new URL("index.json", ROOT), nextText);
   }
   if (config.maxFetches > 0) {
     const nextState = { cursor: batch.nextCursor ?? 0, tickers: staticSelection.map(([ticker]) => ticker) };
     const sameState = previousState && previousState.cursor === nextState.cursor && JSON.stringify(previousState.tickers) === JSON.stringify(nextState.tickers);
-    if (!sameState) await writeFile(stateFile, JSON.stringify({ ...nextState, generatedAt: new Date().toISOString() }, null, 2) + "\n");
-  }
+    if (!sameState) await writeAtomic(stateFile, JSON.stringify({ ...nextState, generatedAt: new Date().toISOString() }, null, 2) + "\n");
+  }  if (selected.length > 0 && failedCount === selected.length) throw new Error(`every selected fund failed (${failedCount}); published data kept`);
 }
 
 // --- TLS trust store (identical in every ETF repo) ---
@@ -2196,7 +2286,7 @@ Controls (defaults in scripts/update-data.config.json; precedence: file < advanc
   CATEGORY             keep funds whose category contains this text (case-insensitive), e.g. Bond or Sector
   HOLDINGS_PAGE_SIZE   rows in each generated current-holdings JSON page (integer >= 1)
   HISTORY_PAGE_SIZE    rows in each generated daily-history JSON page (integer >= 1)
-  MAX_RETRIES          retries after the initial SEC request (integer >= 1, capped at 5)
+  MAX_RETRIES          retries after the initial request of every source (integer 1-5, anything else is an error)
   HISTORY_RANGE        Yahoo request window and published history rows: max or Ny (e.g. 5y)
   SEC_UA               SEC and Vanguard User-Agent (default daggerok ETF feed daggerok@gmail.com)
   SKIP_YAHOO           do not request Yahoo Finance; previously published history and distributions are kept (true/false)
