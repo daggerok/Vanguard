@@ -20,14 +20,14 @@
   },
   "legalStructure": null,
   "identifiers": {
-    "cusip": null,
-    "isin": null,
+    "cusip": "92206C714",
+    "isin": "US92206C7149",
     "indexTicker": null
   },
   "inception": {
-    "fundInceptionDate": null,
+    "fundInceptionDate": "2010-09-20",
     "shareClassInceptionDate": null,
-    "exchange": ""
+    "exchange": "National Association of Securities Dealers Automated Quotations"
   },
   "expenseRatio": {
     "display": "0.06%",
@@ -36,18 +36,18 @@
     "net": 0.06
   },
   "nav": {
-    "display": "$110.48",
-    "value": 110.48,
-    "asOfDate": "Sep 25 2026"
+    "display": "$108.82",
+    "value": 108.82,
+    "asOfDate": "Oct 01 2026"
   },
   "marketPrice": {
-    "display": "$110.51",
-    "value": 110.51,
-    "asOfDate": "Sep 25 2026"
+    "display": "$108.83",
+    "value": 108.83,
+    "asOfDate": "Oct 01 2026"
   },
   "premiumDiscount": {
-    "display": "0.03%",
-    "value": 0.03
+    "display": "0.01%",
+    "value": 0.01
   },
   "aum": {
     "display": "$22.2B",
@@ -72,12 +72,12 @@
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Sep 25 2026",
-      "ytd": 21.19,
-      "yr1": 29.63,
-      "yr3": 20.66,
-      "yr5": 12.22,
-      "yr10": 11.53,
+      "asOfDate": "Oct 01 2026",
+      "ytd": 19.37,
+      "yr1": 23.73,
+      "yr3": 20.7,
+      "yr5": 11.7,
+      "yr10": 11.41,
       "sinceInception": null
     },
     "quarterEnd": {
@@ -688,12 +688,16 @@
   },
   "history": {
     "pages": [
-      "history/001.json"
+      "history/001.json",
+      "history/002.json",
+      "history/003.json",
+      "history/004.json",
+      "history/005.json"
     ],
     "pageSize": 1000,
-    "totalRows": 721,
-    "asOfDate": "2026-09-25",
+    "totalRows": 4067,
+    "asOfDate": "2026-10-02",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Sep 25 2026"
+    "asOf": "Oct 02 2026"
   }
 }

@@ -20,14 +20,14 @@
   },
   "legalStructure": null,
   "identifiers": {
-    "cusip": null,
-    "isin": null,
+    "cusip": "921938502",
+    "isin": "US9219385021",
     "indexTicker": null
   },
   "inception": {
-    "fundInceptionDate": null,
+    "fundInceptionDate": "2025-11-14",
     "shareClassInceptionDate": null,
-    "exchange": ""
+    "exchange": "Cboe BZX U.S. Equities Exchange"
   },
   "expenseRatio": {
     "display": "0.35%",
@@ -36,18 +36,18 @@
     "net": 0.35
   },
   "nav": {
-    "display": "$67.21",
-    "value": 67.21,
-    "asOfDate": "Sep 25 2026"
+    "display": "$66.99",
+    "value": 66.99,
+    "asOfDate": "Oct 01 2026"
   },
   "marketPrice": {
-    "display": "$67.20",
-    "value": 67.2,
-    "asOfDate": "Sep 25 2026"
+    "display": "$66.78",
+    "value": 66.78,
+    "asOfDate": "Oct 01 2026"
   },
   "premiumDiscount": {
-    "display": "-0.01%",
-    "value": -0.01
+    "display": "-0.31%",
+    "value": -0.31
   },
   "aum": {
     "display": "$34.6M",
@@ -72,8 +72,8 @@
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Sep 25 2026",
-      "ytd": 10.56,
+      "asOfDate": "Oct 01 2026",
+      "ytd": 10.2,
       "yr1": null,
       "yr3": null,
       "yr5": null,
@@ -121,18 +121,18 @@
     ],
     "pageSize": 250,
     "totalRows": 44,
-    "asOfDate": "2026-09-24",
+    "asOfDate": "2026-10-01",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
-    "asOf": "Sep 24 2026"
+    "asOf": "Oct 01 2026"
   },
   "history": {
     "pages": [
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 220,
-    "asOfDate": "2026-09-25",
+    "totalRows": 225,
+    "asOfDate": "2026-10-02",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Sep 25 2026"
+    "asOf": "Oct 02 2026"
   }
 }

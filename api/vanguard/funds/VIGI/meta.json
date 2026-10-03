@@ -20,14 +20,14 @@
   },
   "legalStructure": null,
   "identifiers": {
-    "cusip": null,
-    "isin": null,
+    "cusip": "921946810",
+    "isin": "US9219468108",
     "indexTicker": null
   },
   "inception": {
-    "fundInceptionDate": null,
+    "fundInceptionDate": "2016-02-25",
     "shareClassInceptionDate": null,
-    "exchange": ""
+    "exchange": "National Association of Securities Dealers Automated Quotations"
   },
   "expenseRatio": {
     "display": "0.07%",
@@ -36,18 +36,18 @@
     "net": 0.07
   },
   "nav": {
-    "display": "$96.00",
-    "value": 96,
-    "asOfDate": "Sep 25 2026"
+    "display": "$94.01",
+    "value": 94.01,
+    "asOfDate": "Oct 01 2026"
   },
   "marketPrice": {
-    "display": "$95.95",
-    "value": 95.95,
-    "asOfDate": "Sep 25 2026"
+    "display": "$93.85",
+    "value": 93.85,
+    "asOfDate": "Oct 01 2026"
   },
   "premiumDiscount": {
-    "display": "-0.05%",
-    "value": -0.05
+    "display": "-0.17%",
+    "value": -0.17
   },
   "aum": {
     "display": "$9.2B",
@@ -72,12 +72,12 @@
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Sep 25 2026",
-      "ytd": 7.04,
-      "yr1": 12.52,
-      "yr3": 12.72,
-      "yr5": 5.27,
-      "yr10": 7.93,
+      "asOfDate": "Oct 01 2026",
+      "ytd": 4.82,
+      "yr1": 7.6,
+      "yr3": 12.58,
+      "yr5": 4.92,
+      "yr10": 7.78,
       "sinceInception": null
     },
     "quarterEnd": {
@@ -497,12 +497,14 @@
   },
   "history": {
     "pages": [
-      "history/001.json"
+      "history/001.json",
+      "history/002.json",
+      "history/003.json"
     ],
     "pageSize": 1000,
-    "totalRows": 655,
-    "asOfDate": "2026-09-25",
+    "totalRows": 2698,
+    "asOfDate": "2026-10-02",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Sep 25 2026"
+    "asOf": "Oct 02 2026"
   }
 }

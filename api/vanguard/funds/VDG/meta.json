@@ -20,14 +20,14 @@
   },
   "legalStructure": null,
   "identifiers": {
-    "cusip": null,
-    "isin": null,
+    "cusip": "921910667",
+    "isin": "US9219106674",
     "indexTicker": null
   },
   "inception": {
-    "fundInceptionDate": null,
+    "fundInceptionDate": "2026-04-14",
     "shareClassInceptionDate": null,
-    "exchange": ""
+    "exchange": "Cboe BZX U.S. Equities Exchange"
   },
   "expenseRatio": {
     "display": "0.08%",
@@ -36,18 +36,18 @@
     "net": 0.08
   },
   "nav": {
-    "display": "$80.13",
-    "value": 80.13,
-    "asOfDate": "Sep 25 2026"
+    "display": "$78.75",
+    "value": 78.75,
+    "asOfDate": "Oct 01 2026"
   },
   "marketPrice": {
-    "display": "$80.26",
-    "value": 80.26,
-    "asOfDate": "Sep 25 2026"
+    "display": "$79.21",
+    "value": 79.21,
+    "asOfDate": "Oct 01 2026"
   },
   "premiumDiscount": {
-    "display": "0.16%",
-    "value": 0.16
+    "display": "0.58%",
+    "value": 0.58
   },
   "aum": {
     "display": "$32.7M",
@@ -131,19 +131,19 @@
       "holdings/003.json"
     ],
     "pageSize": 250,
-    "totalRows": 595,
-    "asOfDate": "2026-09-24",
+    "totalRows": 596,
+    "asOfDate": "2026-10-01",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
-    "asOf": "Sep 24 2026"
+    "asOf": "Oct 01 2026"
   },
   "history": {
     "pages": [
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 116,
-    "asOfDate": "2026-09-25",
+    "totalRows": 121,
+    "asOfDate": "2026-10-02",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Sep 25 2026"
+    "asOf": "Oct 02 2026"
   }
 }

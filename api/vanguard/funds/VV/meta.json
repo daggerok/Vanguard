@@ -20,14 +20,14 @@
   },
   "legalStructure": null,
   "identifiers": {
-    "cusip": null,
-    "isin": null,
+    "cusip": "922908637",
+    "isin": "US9229086379",
     "indexTicker": null
   },
   "inception": {
-    "fundInceptionDate": null,
+    "fundInceptionDate": "2004-01-27",
     "shareClassInceptionDate": null,
-    "exchange": ""
+    "exchange": "New York Stock Exchange Arca"
   },
   "expenseRatio": {
     "display": "0.03%",
@@ -36,18 +36,18 @@
     "net": 0.03
   },
   "nav": {
-    "display": "$356.82",
-    "value": 356.82,
-    "asOfDate": "Sep 25 2026"
+    "display": "$352.33",
+    "value": 352.33,
+    "asOfDate": "Oct 01 2026"
   },
   "marketPrice": {
-    "display": "$356.76",
-    "value": 356.76,
-    "asOfDate": "Sep 25 2026"
+    "display": "$351.85",
+    "value": 351.85,
+    "asOfDate": "Oct 01 2026"
   },
   "premiumDiscount": {
-    "display": "-0.02%",
-    "value": -0.02
+    "display": "-0.14%",
+    "value": -0.14
   },
   "aum": {
     "display": "$54.3B",
@@ -72,12 +72,12 @@
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Sep 25 2026",
-      "ytd": 14.03,
-      "yr1": 20.05,
-      "yr3": 23.59,
-      "yr5": 13.65,
-      "yr10": 15.45,
+      "asOfDate": "Oct 01 2026",
+      "ytd": 12.88,
+      "yr1": 15.46,
+      "yr3": 23.47,
+      "yr5": 13.33,
+      "yr10": 15.43,
       "sinceInception": null
     },
     "quarterEnd": {
@@ -104,6 +104,15 @@
       "LT Cap Gains"
     ],
     "rows": [
+      [
+        "Quarterly",
+        "2026-09-28",
+        "—",
+        "—",
+        "0.9",
+        "—",
+        "—"
+      ],
       [
         "Quarterly",
         "2026-06-26",
@@ -929,12 +938,17 @@
   },
   "history": {
     "pages": [
-      "history/001.json"
+      "history/001.json",
+      "history/002.json",
+      "history/003.json",
+      "history/004.json",
+      "history/005.json",
+      "history/006.json"
     ],
     "pageSize": 1000,
-    "totalRows": 801,
-    "asOfDate": "2026-09-25",
+    "totalRows": 5740,
+    "asOfDate": "2026-10-02",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Sep 25 2026"
+    "asOf": "Oct 02 2026"
   }
 }

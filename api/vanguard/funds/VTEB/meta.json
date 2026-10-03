@@ -20,14 +20,14 @@
   },
   "legalStructure": null,
   "identifiers": {
-    "cusip": null,
-    "isin": null,
+    "cusip": "922907746",
+    "isin": "US9229077469",
     "indexTicker": null
   },
   "inception": {
-    "fundInceptionDate": null,
+    "fundInceptionDate": "2015-08-21",
     "shareClassInceptionDate": null,
-    "exchange": ""
+    "exchange": "New York Stock Exchange Arca"
   },
   "expenseRatio": {
     "display": "0.03%",
@@ -36,18 +36,18 @@
     "net": 0.03
   },
   "nav": {
-    "display": "$47.39",
-    "value": 47.39,
-    "asOfDate": "Sep 25 2026"
+    "display": "$47.42",
+    "value": 47.42,
+    "asOfDate": "Oct 01 2026"
   },
   "marketPrice": {
-    "display": "$47.48",
-    "value": 47.48,
-    "asOfDate": "Sep 25 2026"
+    "display": "$47.36",
+    "value": 47.36,
+    "asOfDate": "Oct 01 2026"
   },
   "premiumDiscount": {
-    "display": "0.19%",
-    "value": 0.19
+    "display": "-0.13%",
+    "value": -0.13
   },
   "aum": {
     "display": "$46.3B",
@@ -64,20 +64,20 @@
     "dividendYieldText": "3.64%",
     "dividendYieldKind": "Vanguard published distribution yield",
     "dividendYieldAsOf": "2026-09-01",
-    "secYield": 4.08,
-    "secYieldText": "4.08%",
+    "secYield": 4.28,
+    "secYieldText": "4.28%",
     "secYieldKind": "official 30-day SEC yield",
-    "secYieldAsOf": "2026-09-24",
+    "secYieldAsOf": "2026-09-30",
     "unsubsidizedSecYield": null
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Sep 25 2026",
-      "ytd": -3.55,
-      "yr1": 4.12,
-      "yr3": 2.85,
-      "yr5": -0.02,
-      "yr10": 1.49,
+      "asOfDate": "Oct 01 2026",
+      "ytd": -3.21,
+      "yr1": -2.31,
+      "yr3": 2.98,
+      "yr5": -0.07,
+      "yr10": 1.47,
       "sinceInception": null
     },
     "quarterEnd": {
@@ -104,6 +104,15 @@
       "LT Cap Gains"
     ],
     "rows": [
+      [
+        "Monthly",
+        "2026-10-01",
+        "—",
+        "—",
+        "0.137",
+        "—",
+        "—"
+      ],
       [
         "Monthly",
         "2026-09-01",
@@ -1348,12 +1357,14 @@
   },
   "history": {
     "pages": [
-      "history/001.json"
+      "history/001.json",
+      "history/002.json",
+      "history/003.json"
     ],
     "pageSize": 1000,
-    "totalRows": 662,
-    "asOfDate": "2026-09-25",
+    "totalRows": 2828,
+    "asOfDate": "2026-10-02",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Sep 25 2026"
+    "asOf": "Oct 02 2026"
   }
 }

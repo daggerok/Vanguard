@@ -20,14 +20,14 @@
   },
   "legalStructure": null,
   "identifiers": {
-    "cusip": null,
-    "isin": null,
+    "cusip": "921932844",
+    "isin": "US9219328443",
     "indexTicker": null
   },
   "inception": {
-    "fundInceptionDate": null,
+    "fundInceptionDate": "2010-09-07",
     "shareClassInceptionDate": null,
-    "exchange": ""
+    "exchange": "New York Stock Exchange Arca"
   },
   "expenseRatio": {
     "display": "0.10%",
@@ -36,18 +36,18 @@
     "net": 0.1
   },
   "nav": {
-    "display": "$109.06",
-    "value": 109.06,
-    "asOfDate": "Sep 25 2026"
+    "display": "$107.97",
+    "value": 107.97,
+    "asOfDate": "Oct 01 2026"
   },
   "marketPrice": {
-    "display": "$109.04",
-    "value": 109.04,
-    "asOfDate": "Sep 25 2026"
+    "display": "$106.88",
+    "value": 106.88,
+    "asOfDate": "Oct 01 2026"
   },
   "premiumDiscount": {
-    "display": "-0.02%",
-    "value": -0.02
+    "display": "-1.01%",
+    "value": -1.01
   },
   "aum": {
     "display": "$1.3B",
@@ -72,11 +72,11 @@
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Sep 25 2026",
-      "ytd": 8.04,
-      "yr1": 14.36,
-      "yr3": 13.75,
-      "yr5": 8.42,
+      "asOfDate": "Oct 01 2026",
+      "ytd": 6.96,
+      "yr1": 8.08,
+      "yr3": 14.33,
+      "yr5": 7.98,
       "yr10": 9.85,
       "sinceInception": null
     },
@@ -263,12 +263,16 @@
   },
   "history": {
     "pages": [
-      "history/001.json"
+      "history/001.json",
+      "history/002.json",
+      "history/003.json",
+      "history/004.json",
+      "history/005.json"
     ],
     "pageSize": 1000,
-    "totalRows": 721,
-    "asOfDate": "2026-09-25",
+    "totalRows": 4076,
+    "asOfDate": "2026-10-02",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Sep 25 2026"
+    "asOf": "Oct 02 2026"
   }
 }

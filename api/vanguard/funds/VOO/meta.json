@@ -20,14 +20,14 @@
   },
   "legalStructure": null,
   "identifiers": {
-    "cusip": null,
-    "isin": null,
+    "cusip": "922908363",
+    "isin": "US9229083632",
     "indexTicker": null
   },
   "inception": {
-    "fundInceptionDate": null,
+    "fundInceptionDate": "2010-09-07",
     "shareClassInceptionDate": null,
-    "exchange": ""
+    "exchange": "New York Stock Exchange Arca"
   },
   "expenseRatio": {
     "display": "0.03%",
@@ -36,18 +36,18 @@
     "net": 0.03
   },
   "nav": {
-    "display": "$700.65",
-    "value": 700.65,
-    "asOfDate": "Sep 30 2026"
+    "display": "$702.03",
+    "value": 702.03,
+    "asOfDate": "Oct 01 2026"
   },
   "marketPrice": {
     "display": "$700.86",
     "value": 700.86,
-    "asOfDate": "Sep 30 2026"
+    "asOfDate": "Oct 01 2026"
   },
   "premiumDiscount": {
-    "display": "0.03%",
-    "value": 0.03
+    "display": "-0.17%",
+    "value": -0.17
   },
   "aum": {
     "display": "$1.0T",
@@ -72,12 +72,12 @@
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Sep 30 2026",
-      "ytd": 12.72,
+      "asOfDate": "Oct 01 2026",
+      "ytd": 12.94,
       "yr1": 15.7,
-      "yr3": 22.85,
-      "yr5": 13.77,
-      "yr10": 15.3,
+      "yr3": 23.24,
+      "yr5": 13.72,
+      "yr10": 15.41,
       "sinceInception": null
     },
     "quarterEnd": {
@@ -696,12 +696,16 @@
   },
   "history": {
     "pages": [
-      "history/001.json"
+      "history/001.json",
+      "history/002.json",
+      "history/003.json",
+      "history/004.json",
+      "history/005.json"
     ],
     "pageSize": 1000,
-    "totalRows": 723,
-    "asOfDate": "2026-09-30",
+    "totalRows": 4076,
+    "asOfDate": "2026-10-02",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Sep 30 2026"
+    "asOf": "Oct 02 2026"
   }
 }
