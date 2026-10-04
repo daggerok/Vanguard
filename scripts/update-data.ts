@@ -583,10 +583,13 @@ export async function httpFetch(url: string, init: RequestInit = {}, retries: nu
     await sleep(Math.min(30_000, 2 ** attempt * 1000));
   }
 }
-async function writeAtomic(url: URL, text: string): Promise<void> {
+/** Writes only on real change: identical content leaves the file (and its mtime) alone. Returns true when written. */
+async function writeAtomic(url: URL, text: string): Promise<boolean> {
+  if ((await readFile(url, "utf8").catch(() => null)) === text) return false;
   const tmp = new URL(`${url.href}.tmp-${process.pid}`);
   await writeFile(tmp, text);
   await rename(tmp, url);
+  return true;
 }
 async function fetchJson(url: string, headers: Record<string, string> = {}): Promise<any> {
   const response = await httpFetch(url, { headers: { "User-Agent": UA, ...headers } });
@@ -1836,6 +1839,15 @@ function fillNportTickers(rows: Record<string, unknown>[], names: Map<string, st
   });
 }
 
+/** True when the filing's report date is strictly after the published as-of; an unknown published date allows it, an unknown filing date does not (unless the Atom entry simply lacks it and `lenient` is set). */
+export function nportIsNewer(reportDate: string | null | undefined, publishedAsOf: string | null | undefined, lenient = false): boolean {
+  const filing = toIsoDate(reportDate);
+  const published = toIsoDate(publishedAsOf);
+  if (!published) return true;
+  if (!filing) return lenient;
+  return filing > published;
+}
+
 async function resolveNportFiling(ticker: string): Promise<{ ref: SecSeriesRef; accession: NportAccession } | null> {
   const table = await loadFundTickerTable();
   const ref = table.get(ticker);
@@ -2035,13 +2047,18 @@ async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
     let holdingsSource = holdingsRows.length
       ? "Vanguard investor profile holdings (IRR AdditionalFundData)"
       : "not available from current public sources";
+    const prevMeta = await readPreviousMeta(ticker);
+    // N-PORT is used only when it is strictly newer than the holdings already published for this fund.
+    const publishedHoldingsAsOf: string = toIsoDate(prevMeta?.holdings?.asOfDate) || "";
     if (!holdingsRows.length && config.edgarFallback) {
       try {
         const filing = await resolveNportFiling(ticker);
-        if (filing) {
+        if (filing && !nportIsNewer(filing.accession.reportDate, publishedHoldingsAsOf, true)) {
+          outputNote(`[ ${'nport'.padEnd(9)}] ${ticker} filing ${filing.accession.reportDate} is not newer than published holdings ${publishedHoldingsAsOf}`);
+        } else if (filing) {
           const parsed = parseNport(await fetchSecText(filing.accession.url, `[nport] ${ticker}`));
-          const seriesMatches = !parsed.seriesId || parsed.seriesId.toUpperCase() === filing.ref.seriesId.toUpperCase();
-          if (seriesMatches && parsed.holdings.length) {
+          const seriesMatches = !!parsed.seriesId && parsed.seriesId.toUpperCase() === filing.ref.seriesId.toUpperCase();
+          if (seriesMatches && parsed.holdings.length && nportIsNewer(parsed.repPdDate, publishedHoldingsAsOf)) {
             const names = await loadCompanyTickerTable();
             holdingsRows = fillNportTickers(parsed.holdings, names);
             holdingsAsOf = parsed.repPdDate || null;
@@ -2052,7 +2069,6 @@ async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
         outputNote(`[ ${'nport'.padEnd(9)}] ${ticker} ${error}`);
       }
     }
-    const prevMeta = await readPreviousMeta(ticker);
     if (!holdingsRows.length) {
       const prev = await readPreviousSheet(ticker, "holdings");
       if (prev.rows.length) {
@@ -2228,6 +2244,8 @@ export const CONTROL_NAMES = [
   "SKIP_YAHOO", "EDGAR_FALLBACK", "VERBOSE", "USE_SYSTEM_CA",
   ...["PERFORMANCE", "TOTAL_RETURN"].flatMap((prefix) => ["YTD", "1Y", "3Y", "5Y", "10Y"].map((period) => `${prefix}_${period}`)),
 ] as const;
+/** Legacy environment names that still work; `VANGUARD_<NAME>` is accepted for every control. The plain name wins, then the brand name, then these. */
+export const ENV_ALIASES: Record<string, string[]> = { HISTORY_PAGE_SIZE: ["HISTORICAL_PAGE_SIZE"] };
 export type ControlName = (typeof CONTROL_NAMES)[number];
 export const CONFIG_FILE_URL = new URL("./update-data.config.json", import.meta.url);
 
@@ -2254,7 +2272,7 @@ export function resolveControls(
   apply(advanced);
   apply(inputs, true);
   for (const key of CONTROL_NAMES) {
-    const value = env[key];
+    const value = [key, `VANGUARD_${key}`, ...(ENV_ALIASES[key] ?? [])].map((name) => env[name]).find((item) => item !== undefined);
     if (value !== undefined) apply({ [key]: value });
   }
   if (result.VERBOSE && !/^(0|1|true|false|yes|no|y|n|on|off)$/i.test(result.VERBOSE)) throw new Error("VERBOSE: expected boolean");
@@ -2275,6 +2293,7 @@ export async function runtimeControls(env: Record<string, string | undefined> = 
 export const USAGE = `Usage: bun scripts/update-data.ts [-h|--help]
 
 Controls (defaults in scripts/update-data.config.json; precedence: file < advanced JSON < nonblank inputs < environment):
+(every control also reads VANGUARD_<NAME> from the environment, the plain name wins when both are set; HISTORICAL_PAGE_SIZE is an alias of HISTORY_PAGE_SIZE)
   MAX_FETCHES          0 means all selected funds; a positive value updates that many funds and resumes at the saved cursor next run
   REQUEST_SLEEP        seconds between fund updates (nonnegative number)
   CONCURRENCY          parallel fund update workers (integer >= 1)

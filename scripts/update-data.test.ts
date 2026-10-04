@@ -8,7 +8,7 @@ import {
   CONTROL_NAMES, DEFAULT_SEC_UA, DISTRIBUTION_HEADERS, HOLDINGS_HEADERS_BASE, REQUEST_TIMEOUT_MS, USAGE,
   assembleFund, buildIndex, buildMetrics, configureLanes, distributionRows, filterMetricsOf, formatDisplayDate, hasDeferredFilters,
   historyPageRows, historyWindowStartDate, historyWindowStartEpoch, holdingIdentifier, httpFetch, installSystemCa, isCertError,
-  isoFromDisplayDate, isinFromCusip, latestQuote, nportUrlFor, paceRequest, parseAmount, parseAumRange, parseEdgarAtomFilings,
+  isoFromDisplayDate, isinFromCusip, latestQuote, nportIsNewer, nportUrlFor, paceRequest, parseAmount, parseAumRange, parseEdgarAtomFilings,
   parseFundTickerMap, parseNport, parseRange, parseVanguardHoldingDetails, parseVanguardOfficialHistory, passesMetricFilters,
   passesStaticFilters, paymentsPerYear, previousValues, readConfig, resolveControls, run, runtimeControls, selectBatch,
   standardHoldingHeaders, standardHoldingRow, summary, toIsoDate, yahooChartUrl, ytdFromRows,
@@ -27,7 +27,7 @@ const realAbortTimeout = AbortSignal.timeout;
 const savedEnv = { ...process.env };
 const tempDirs: string[] = [];
 const isControlVar = (key: string): boolean =>
-  (CONTROL_NAMES as readonly string[]).includes(key) || ["HISTORICAL_PAGE_SIZE", "NODE_USE_SYSTEM_CA", "ETF_UPDATER_SYSTEM_CA", "GITHUB_STEP_SUMMARY"].includes(key);
+  (CONTROL_NAMES as readonly string[]).includes(key) || key.startsWith("VANGUARD_") || ["HISTORICAL_PAGE_SIZE", "NODE_USE_SYSTEM_CA", "ETF_UPDATER_SYSTEM_CA", "GITHUB_STEP_SUMMARY"].includes(key);
 
 beforeEach(() => {
   for (const key of Object.keys(process.env)) if (isControlVar(key)) delete process.env[key];
@@ -78,6 +78,22 @@ describe("controls", () => {
     expect(resolveControls({ TICKERS: "VTI" }, {}, {}, { TICKERS: "" }).TICKERS).toBe("");
     expect(resolveControls({ VERBOSE: true }, {}, {}, { VERBOSE: "false" }).VERBOSE).toBe("false");
     expect(resolveControls({ AUM: "1B:" }, {}, { AUM: "" }).AUM).toBe("1B:");
+  });
+
+  test("brand and legacy env aliases: VANGUARD_<NAME> for every control, plain name wins, explicit empty counts, validation is equal", () => {
+    for (const name of CONTROL_NAMES) {
+      const value = /^(AUM|TER|DIVIDEND_YIELD|SEC_YIELD|PERFORMANCE_|TOTAL_RETURN_)/.test(name) ? "1:2" : name === "VERBOSE" || name === "SKIP_YAHOO" || name === "EDGAR_FALLBACK" ? "true" : name === "USE_SYSTEM_CA" ? "false" : name === "HISTORY_RANGE" ? "5y" : name === "MAX_RETRIES" ? "3" : name === "TICKERS" || name === "CATEGORY" || name === "SEC_UA" ? "x" : "7";
+      expect(resolveControls({}, {}, {}, { [`VANGUARD_${name}`]: value })[name]).toBe(value);
+    }
+    expect(resolveControls({ CONCURRENCY: 2 }, {}, {}, { VANGUARD_CONCURRENCY: "5", CONCURRENCY: "6" }).CONCURRENCY).toBe("6");
+    expect(resolveControls({ CONCURRENCY: 2 }, {}, {}, { CONCURRENCY: "6", VANGUARD_CONCURRENCY: "5" }).CONCURRENCY).toBe("6");
+    expect(resolveControls({ TICKERS: "VTI" }, {}, {}, { VANGUARD_TICKERS: "" }).TICKERS).toBe("");
+    expect(resolveControls({ TICKERS: "VTI" }, {}, {}, { TICKERS: "", VANGUARD_TICKERS: "VOO" }).TICKERS).toBe("");
+    expect(resolveControls({ HISTORY_PAGE_SIZE: 1000 }, {}, {}, { HISTORICAL_PAGE_SIZE: "50" }).HISTORY_PAGE_SIZE).toBe("50");
+    expect(resolveControls({}, {}, {}, { HISTORICAL_PAGE_SIZE: "50", VANGUARD_HISTORY_PAGE_SIZE: "60" }).HISTORY_PAGE_SIZE).toBe("60");
+    expect(resolveControls({}, {}, {}, { HISTORY_PAGE_SIZE: "70", HISTORICAL_PAGE_SIZE: "50" }).HISTORY_PAGE_SIZE).toBe("70");
+    for (const env of [{ VANGUARD_MAX_RETRIES: "0" }, { VANGUARD_SEC_UA: "a\nb" }, { VANGUARD_AUM: "10:1" }, { HISTORICAL_PAGE_SIZE: "1.5" }, { VANGUARD_USE_SYSTEM_CA: "maybe" }]) expect(() => resolveControls({}, {}, {}, env)).toThrow();
+    for (const text of ["VANGUARD_<NAME>", "HISTORICAL_PAGE_SIZE"]) expect(USAGE).toContain(text);
   });
 
   test("strict validation: bad ranges, HISTORY_RANGE, MAX_RETRIES < 1, unknown keys, non-scalars, CR/LF/NUL", () => {
@@ -339,7 +355,7 @@ describe("metrics", () => {
 // ===========================================================================
 // Pipeline: the real run() against a mocked fetch, writing into a per-test temp dir
 // ===========================================================================
-function mockFeed(opts: { delayMs?: number; failYahoo?: boolean; noHoldings?: boolean; nportAsOf?: string; urls?: string[] } = {}) {
+function mockFeed(opts: { delayMs?: number; failYahoo?: boolean; noHoldings?: boolean; nportAsOf?: string; nportSeries?: string; urls?: string[] } = {}) {
   const inflight = new Set<string>();
   let peak = 0;
   const epoch = (iso: string) => Date.parse(`${iso}T00:00:00Z`) / 1000;
@@ -354,7 +370,7 @@ function mockFeed(opts: { delayMs?: number; failYahoo?: boolean; noHoldings?: bo
         if (url.includes("company_tickers_mf")) return Response.json({ fields: ["symbol", "cik", "seriesId", "classId"], data: [["VOO", "36405", "S000002839", "C000007773"]] });
         if (url.includes("company_tickers")) return Response.json({});
         if (url.includes("browse-edgar")) return new Response(`<feed><entry><filing-type>NPORT-P</filing-type><accession-number>0001234567-26-000001</accession-number><filing-date>2026-04-20</filing-date><filing-href>https://www.sec.gov/Archives/edgar/data/36405/000123456726000001/</filing-href></entry></feed>`);
-        if (url.includes("/Archives/edgar/")) return new Response(`<edgarSubmission><formData><genInfo><regCik>0000036405</regCik><seriesName>Vanguard S&amp;P 500 ETF</seriesName><seriesId>S000002839</seriesId><repPdDate>${opts.nportAsOf}</repPdDate></genInfo><fundInfo><netAssets>1000</netAssets></fundInfo><invstOrSec><name>Old Filing Co</name><cusip>999999999</cusip><balance>1</balance><valUSD>5</valUSD><pctVal>5</pctVal><assetCat>EC</assetCat></invstOrSec></formData></edgarSubmission>`);
+        if (url.includes("/Archives/edgar/")) return new Response(`<edgarSubmission><formData><genInfo><regCik>0000036405</regCik><seriesName>Vanguard S&amp;P 500 ETF</seriesName><seriesId>${opts.nportSeries ?? "S000002839"}</seriesId><repPdDate>${opts.nportAsOf}</repPdDate></genInfo><fundInfo><netAssets>1000</netAssets></fundInfo><invstOrSec><name>Old Filing Co</name><cusip>999999999</cusip><balance>1</balance><valUSD>5</valUSD><pctVal>5</pctVal><assetCat>EC</assetCat></invstOrSec></formData></edgarSubmission>`);
       }
       if (url.includes("advisors.vanguard.com")) return new Response('<html>"portId": "0970"</html>');
       if (url.includes("fundDetails")) {
@@ -440,8 +456,8 @@ describe("pipeline", () => {
     const first = filesOf(dir).map((f) => textOf(dir, f));
     await runOffline({ TICKERS: "VOO VTI" }, dir);
     expect(filesOf(dir).map((f) => textOf(dir, f))).toEqual(first);
-    // known updater quirk (reported, not fixed here): per-fund meta and page files are rewritten with identical bytes
-    expect(touched(dir).filter((f) => !f.startsWith("funds/"))).toEqual([]);
+    // write only on change: not even the per-fund meta and page files are rewritten (mtimes stay untouched)
+    expect(touched(dir)).toEqual([]);
   });
 
   test("a failed required source keeps the whole fund as published, and a run where every fund failed exits with an error", async () => {
@@ -452,15 +468,22 @@ describe("pipeline", () => {
     expect(jsonOf(dir, "index.json").funds[0].ticker).toBe("VOO");
   });
 
-  // KNOWN BUG in update-data.ts (reported, not fixed here): when the official feed has no holdings, an N-PORT filing older than the
-  // published sheet replaces it (2026-03-31 over 2026-05-31). test.failing keeps the suite green until the updater is fixed;
-  // when it is, bun reports this test as failing - then change it to a plain test().
-  test.failing("N-PORT freshness: an older filing never replaces the published holdings", async () => {
+  test("N-PORT freshness: only a strictly newer filing with the same series replaces the published holdings", async () => {
     const { dir } = await runOffline({ TICKERS: "VOO" });
-    expect(jsonOf(dir, "funds/VOO/holdings/001.json").rows[0].Name).toBe("A Corp");
-    await runOffline({ TICKERS: "VOO", EDGAR_FALLBACK: "true" }, dir, { noHoldings: true, nportAsOf: "2026-03-31" });
-    expect(jsonOf(dir, "funds/VOO/holdings/001.json").rows.map((r: any) => r.Name)).toEqual(["A Corp"]);
-    expect(jsonOf(dir, "funds/VOO/meta.json").holdings.asOfDate).toBe("2026-05-31");
+    const names = () => jsonOf(dir, "funds/VOO/holdings/001.json").rows.map((r: any) => r.Name);
+    const asOf = () => jsonOf(dir, "funds/VOO/meta.json").holdings.asOfDate;
+    expect(names()).toEqual(["A Corp"]);
+    const nport = (opts: Parameters<typeof mockFeed>[0]) => runOffline({ TICKERS: "VOO", EDGAR_FALLBACK: "true" }, dir, { noHoldings: true, ...opts });
+    await nport({ nportAsOf: "2026-03-31" });
+    expect([names(), asOf()]).toEqual([["A Corp"], "2026-05-31"]);
+    await nport({ nportAsOf: "2026-05-31" });
+    expect([names(), asOf()]).toEqual([["A Corp"], "2026-05-31"]);
+    await nport({ nportAsOf: "2026-06-30", nportSeries: "S000009999" });
+    expect([names(), asOf()]).toEqual([["A Corp"], "2026-05-31"]);
+    await nport({ nportAsOf: "2026-06-30" });
+    expect([names(), asOf()]).toEqual([["Old Filing Co"], "2026-06-30"]);
+    expect(nportIsNewer("2026-06-30", "")).toBe(true);
+    expect([nportIsNewer("2026-03-31", "2026-05-31"), nportIsNewer("2026-05-31", "05/31/2026"), nportIsNewer("", "2026-05-31")]).toEqual([false, false, false]);
   });
 
   test("the soft deadline stops taking new funds but still writes the index", async () => {
