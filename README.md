@@ -65,6 +65,8 @@ Caveats:
 
 ### Update controls
 
+Every control is read from the environment under its plain name or as `VANGUARD_<NAME>` (for example `VANGUARD_CONCURRENCY=8`); when both are set the plain name wins, and an explicitly set empty value counts like any other. `HISTORICAL_PAGE_SIZE` stays accepted as an alias of `HISTORY_PAGE_SIZE`. Invalid values are errors under every name.
+
 | Environment variable | Default | Meaning |
 | --- | --: | --- |
 | `MAX_FETCHES` | `0` | `0` updates every selected fund; a positive value updates that many funds per run and resumes after the saved cursor (`api/vanguard/update-state.json`) on the next run, wrapping to the start after the last fund. |
@@ -82,7 +84,7 @@ Caveats:
 | `HISTORY_RANGE` | `max` | `max` or `Ny` (e.g. `5y`): limits the Yahoo request window and the published history rows. Returns that need a longer window than the range are left unavailable. |
 | `SEC_UA` | `daggerok ETF feed daggerok@gmail.com` | User-Agent sent to SEC EDGAR and Vanguard endpoints; redacted in the config log. In Actions the protected `SEC_UA` repository variable wins when nonblank. |
 | `SKIP_YAHOO` | `false` | Do not request Yahoo Finance; previously published history rows and distributions are kept (`true`/`false`). |
-| `EDGAR_FALLBACK` | `true` | Use SEC N-PORT-P holdings when the Vanguard feed has none (`true`/`false`). |
+| `EDGAR_FALLBACK` | `true` | Use SEC N-PORT-P holdings when the Vanguard feed has none (`true`/`false`). A filing is used only when its report period is strictly newer than the holdings already published for the fund and its series id matches. |
 | `VERBOSE` | `false` | Print per-fund retry and fallback notices (`true`/`false`). |
 | `USE_SYSTEM_CA` | `auto` | TLS trust store: `auto` restarts the updater once with Bun's `--use-system-ca` when a request fails with an untrusted-certificate error; `true` always uses the system CA store; `false` never restarts. Not an individual workflow input: use `advanced`, the config file or the CLI environment. |
 | `PERFORMANCE_YTD` | `:` | Annualized return percent for the period, `min:max`, read from the standard metrics: YTD is `ytd` and 1Y is `tr1y` (Vanguard figure with a Yahoo fallback), 3Y, 5Y and 10Y are `cagr3y`, `cagr5y` and `cagr10y`. Funds with no value for the period pass. |
