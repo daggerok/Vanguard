@@ -18,8 +18,12 @@ import {
 // Shared setup: clean environment, pinned TZ, restored fetch / exit code / console / clock
 // ---------------------------------------------------------------------------
 const read = (path: string) => readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
+// Control override tables share one declared type so the literals do not widen into a union with optional undefined keys.
+const cases = (list: Record<string, string>[]): Record<string, string>[] => list;
 const file = (): Record<string, string> => JSON.parse(read("scripts/update-data.config.json"));
 const realFetch = globalThis.fetch;
+// A mock that ignores its arguments is a valid fetch; the compiler cannot see that through the extra static members of typeof fetch.
+const asFetch = (mock: () => Promise<Response>): typeof fetch => mock as unknown as typeof fetch;
 const realExitCode = process.exitCode;
 const realConsole = { log: console.log, warn: console.warn, error: console.error };
 const realSetTimeout = globalThis.setTimeout;
@@ -151,8 +155,8 @@ describe("controls", () => {
   test("metric filters: AUM, TER and yield need a value (null, never 0), returns pass when unavailable; static filters by ticker and category", () => {
     const metrics = (over: any = {}) => ({ aum: 1e11, ter: 0.03, dividendYield: 1.5, secYield: 1.2, performance: { YTD: 10, "1Y": 20, "3Y": 12 }, totalReturn: { "3Y": 40 }, ...over });
     const cfg = (c: Record<string, string>) => readConfig(resolveControls(file(), c));
-    expect([{}, { AUM: "large" }, { TER: ":0.05" }, { SEC_YIELD: "1:2" }, { PERFORMANCE_5Y: "5:" }, { TOTAL_RETURN_3Y: "30:50", PERFORMANCE_YTD: "5:15" }].map((c) => passesMetricFilters(metrics(), cfg(c)))).toEqual([true, true, true, true, true, true]);
-    expect([{ DIVIDEND_YIELD: "2:" }, { PERFORMANCE_1Y: "25:" }, { TOTAL_RETURN_3Y: "50:" }].map((c) => passesMetricFilters(metrics(), cfg(c)))).toEqual([false, false, false]);
+    expect(cases([{}, { AUM: "large" }, { TER: ":0.05" }, { SEC_YIELD: "1:2" }, { PERFORMANCE_5Y: "5:" }, { TOTAL_RETURN_3Y: "30:50", PERFORMANCE_YTD: "5:15" }]).map((c) => passesMetricFilters(metrics(), cfg(c)))).toEqual([true, true, true, true, true, true]);
+    expect(cases([{ DIVIDEND_YIELD: "2:" }, { PERFORMANCE_1Y: "25:" }, { TOTAL_RETURN_3Y: "50:" }]).map((c) => passesMetricFilters(metrics(), cfg(c)))).toEqual([false, false, false]);
     expect(passesMetricFilters(metrics({ aum: 5e8 }), cfg({ AUM: "large" }))).toBe(false);
     expect(passesMetricFilters(metrics({ aum: null }), cfg({ AUM: "1M:" }))).toBe(false);
     expect(passesMetricFilters(metrics({ ter: 0.2 }), cfg({ TER: ":0.05" }))).toBe(false);
@@ -309,7 +313,8 @@ describe("metrics", () => {
     expect([s.performance, s.totalReturn]).toEqual([{}, {}]);
     const rows = [{ date: "2024-01-02", adjClose: 100 }, { date: "2025-01-02", adjClose: 110 }, { date: "2026-01-02", adjClose: 121 }, { date: "2026-06-01", adjClose: 133.1 }];
     expect(summary(rows, true).performance["1Y"]).toBeCloseTo(((133.1 / 110) ** 1 - 1) * 100, 6);
-    expect([summary(rows, true).performance["5Y"], summary(rows, true).performance["10Y"]]).toEqual([undefined, undefined]);
+    const perf: Record<string, number | undefined> = summary(rows, true).performance;
+    expect([perf["5Y"], perf["10Y"]]).toEqual([undefined, undefined]);
     expect(summary(rows, false).performance["5Y"]).toBeDefined();
   });
 
@@ -357,8 +362,8 @@ describe("metrics", () => {
     const fm = filterMetricsOf(row);
     expect([fm.performance["10Y"], fm.totalReturn["10Y"], fm.aum, fm.ter]).toEqual([row.metrics.cagr10y, row.metrics.tr10y, 1e12, 0.03]);
     const cfg = (c: Record<string, string>) => readConfig(resolveControls(file(), c));
-    expect([{ PERFORMANCE_10Y: "15:20" }, { TOTAL_RETURN_10Y: "300:500" }, { AUM: "large", TER: ":0.05", DIVIDEND_YIELD: "1:2" }].map((c) => passesMetricFilters(fm, cfg(c)))).toEqual([true, true, true]);
-    expect([{ PERFORMANCE_10Y: "20:" }, { TOTAL_RETURN_10Y: ":100" }].map((c) => passesMetricFilters(fm, cfg(c)))).toEqual([false, false]);
+    expect(cases([{ PERFORMANCE_10Y: "15:20" }, { TOTAL_RETURN_10Y: "300:500" }, { AUM: "large", TER: ":0.05", DIVIDEND_YIELD: "1:2" }]).map((c) => passesMetricFilters(fm, cfg(c)))).toEqual([true, true, true]);
+    expect(cases([{ PERFORMANCE_10Y: "20:" }, { TOTAL_RETURN_10Y: ":100" }]).map((c) => passesMetricFilters(fm, cfg(c)))).toEqual([false, false]);
   });
 });
 
@@ -525,11 +530,11 @@ describe("network", () => {
     expect(calls.every((init) => init.signal instanceof AbortSignal)).toBe(true);
     expect(REQUEST_TIMEOUT_MS).toBe(45_000);
     calls.length = 0;
-    globalThis.fetch = (async () => { calls.push(1); return new Response("nope", { status: 404 }); }) as typeof fetch;
+    globalThis.fetch = asFetch(async () => { calls.push(1); return new Response("nope", { status: 404 }); });
     expect((await httpFetch("https://example.test/y", {}, 3)).status).toBe(404);
     expect(calls).toHaveLength(1);
     calls.length = 0;
-    globalThis.fetch = (async () => { calls.push(1); return new Response("busy", { status: 503 }); }) as typeof fetch;
+    globalThis.fetch = asFetch(async () => { calls.push(1); return new Response("busy", { status: 503 }); });
     expect((await httpFetch("https://example.test/z", {}, 2)).status).toBe(503);
     expect(calls).toHaveLength(3);
   });
