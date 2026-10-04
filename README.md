@@ -67,6 +67,13 @@ Each row carries a `metrics` object that powers the catalog columns and the metr
 - `cagr3y`, `cagr5y`, `cagr10y` - annualized return over 3, 5 and 10 years, derived from Yahoo adjusted market-price closes (not NAV)
 - `siAnn` - always `null`: Vanguard publishes no since-inception figure in these sources
 - `dividendYield` and `secYield` (with `...Text`) - the distribution yield and the 30-day SEC yield published by Vanguard; `null` where Vanguard publishes none (several newer funds)
+- `dividendYieldBasis` - code for the definition behind `dividendYield`, `null` exactly when `dividendYield` is `null`:
+
+  | Code | Meaning for Vanguard |
+  | --- | --- |
+  | `official-other` | the distribution yield Vanguard publishes (its definition is not stated in the API); the only code this feed emits |
+  | `official-trailing-12m`, `official-distribution-rate`, `computed-trailing-12m`, `indicated` | part of the shared vocabulary, never produced here |
+
 - `returnsBasis` - plain-text label of where this fund's returns come from (official Vanguard figures, derived from Yahoo, or both)
 - `performanceAsOf` - ISO date the returns are as of: the date Vanguard attached to its figures, else the last Yahoo close used. It is not the NAV date
 

@@ -10,7 +10,7 @@ import {
   historyPageRows, historyWindowStartDate, historyWindowStartEpoch, holdingIdentifier, httpFetch, installSystemCa, isCertError,
   isoFromDisplayDate, isinFromCusip, latestQuote, nportIsNewer, nportUrlFor, paceRequest, parseAmount, parseAumRange, parseEdgarAtomFilings,
   parseFundTickerMap, parseNport, parseRange, parseVanguardHoldingDetails, parseVanguardOfficialHistory, passesMetricFilters,
-  passesStaticFilters, paymentsPerYear, previousValues, readConfig, resolveControls, run, runtimeControls, selectBatch,
+  passesStaticFilters, withYieldBasis, paymentsPerYear, previousValues, readConfig, resolveControls, run, runtimeControls, selectBatch,
   standardHoldingHeaders, standardHoldingRow, summary, toIsoDate, yahooChartUrl, ytdFromRows,
 } from "./update-data";
 
@@ -299,6 +299,7 @@ describe("metrics", () => {
     expect(l.cagr10y).toBeCloseTo((5 ** (1 / 10) - 1) * 100, 1);
     expect(l.tr10y).toBeCloseTo(400, 1);
     expect(l.cagr3y).toBeCloseTo(((500 / 300) ** (1 / 3) - 1) * 100, 1);
+    expect([m.dividendYieldBasis, d.dividendYieldBasis]).toEqual(["official-other", null]);
     const none = buildMetrics({ officialYtd: null, officialOneYear: null, officialAsOf: null, derived: summary([]), derivedYtd: null, dividendYield: null, secYield: null });
     expect([none.performanceAsOf, none.returnsBasis]).toEqual([null, "unavailable"]);
   });
@@ -331,13 +332,22 @@ describe("metrics", () => {
       "asOfDate", "inceptionDate", "exchange", "closePrice", "closePriceValue", "premiumDiscount", "premiumDiscountValue",
       "distributions", "returns", "metrics", "holdings", "history",
     ]);
-    expect(Object.keys(row.metrics)).toEqual(["ytd", "tr1y", "tr3y", "tr5y", "tr10y", "cagr3y", "cagr5y", "cagr10y", "siAnn", "dividendYield", "dividendYieldText", "secYield", "secYieldText", "returnsBasis", "performanceAsOf"]);
+    expect(Object.keys(row.metrics)).toEqual(["ytd", "tr1y", "tr3y", "tr5y", "tr10y", "cagr3y", "cagr5y", "cagr10y", "siAnn", "dividendYield", "dividendYieldText", "dividendYieldBasis", "secYield", "secYieldText", "returnsBasis", "performanceAsOf"]);
     expect(Object.keys(meta)).toEqual(["ticker", "name", "category", "categoryPath", "source", "providerIds", "legalStructure", "identifiers", "inception", "expenseRatio", "nav", "marketPrice", "premiumDiscount", "aum", "yields", "returns", "distributions", "holdings", "history"]);
     expect(row).toMatchObject({ dataFile: "./funds/VOO/meta.json", ter: "0.03%", terValue: 0.03, nav: "$101.00", navValue: 101, aum: "$1.0T", aumValue: 1e12, asOfDate: "Jun 01 2026", closePrice: "$101.10", premiumDiscount: "0.10%", holdings: 2, history: 2, distributions: { frequency: "Quarterly", exDate: "03/27/2026", dividend: "1.8" } });
     expect(row.returns.monthEnd).toMatchObject({ asOfDate: "May 29 2026", ytd: 12.72, yr1: 15.7, yr3: null, sinceInception: null });
     expect(meta.yields).toMatchObject({ dividendYield: 1.05, secYield: null, secYieldText: "—", secYieldKind: "not published" });
     expect(previousValues(meta)).toMatchObject({ portId: "0968", frequency: "Quarterly", netAssets: "$1.0T", netAssetsAsOf: "2026-05-31", expense: 0.03, dividendYield: 1.05, secYield: null });
     expect(Object.keys(assembleFund(inputsFor({ yahooRows: [], pageRows: [] })).row.metrics)).toEqual(Object.keys(row.metrics));
+    // dividendYieldBasis: official-other with a published yield, null exactly when the yield is null, same key set either way
+    const noYield = assembleFund(inputsFor({ dividendYield: null })).row.metrics;
+    expect([row.metrics.dividendYieldBasis, noYield.dividendYieldBasis, noYield.dividendYield]).toEqual(["official-other", null, null]);
+    expect(Object.keys(noYield)).toEqual(Object.keys(row.metrics));
+    // a retained row from before the key existed gets the code beside its own yield, in the same key order
+    const { dividendYieldBasis: _drop, ...legacy } = row.metrics;
+    const kept = withYieldBasis({ ticker: "VOO", metrics: legacy });
+    expect([kept.metrics.dividendYieldBasis, Object.keys(kept.metrics)]).toEqual(["official-other", Object.keys(row.metrics)]);
+    expect(withYieldBasis({ metrics: { ...legacy, dividendYield: null } }).metrics.dividendYieldBasis).toBeNull();
     const index = buildIndex([{ holdings: 3, history: 4 }, { holdings: 2, history: 1 }], "2026-01-01T00:00:00.000Z");
     expect([Object.keys(index), index.counts, index.source.provider]).toEqual([["generatedAt", "source", "counts", "funds"], { funds: 2, holdings: 5, history: 5 }, "Vanguard"]);
   });
