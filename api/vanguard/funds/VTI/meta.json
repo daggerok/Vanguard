@@ -36,18 +36,18 @@
     "net": 0.03
   },
   "nav": {
-    "display": "$375.13",
-    "value": 375.13,
-    "asOfDate": "Oct 01 2026"
+    "display": "$377.96",
+    "value": 377.96,
+    "asOfDate": "Oct 02 2026"
   },
   "marketPrice": {
-    "display": "$374.24",
-    "value": 374.24,
-    "asOfDate": "Oct 01 2026"
+    "display": "$377.99",
+    "value": 377.99,
+    "asOfDate": "Oct 02 2026"
   },
   "premiumDiscount": {
-    "display": "-0.24%",
-    "value": -0.24
+    "display": "0.01%",
+    "value": 0.01
   },
   "aum": {
     "display": "$689.2B",

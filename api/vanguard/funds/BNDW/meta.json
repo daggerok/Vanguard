@@ -36,14 +36,14 @@
     "net": 0.05
   },
   "nav": {
-    "display": "$65.78",
-    "value": 65.78,
-    "asOfDate": "Oct 01 2026"
-  },
-  "marketPrice": {
     "display": "$65.76",
     "value": 65.76,
-    "asOfDate": "Oct 01 2026"
+    "asOfDate": "Oct 02 2026"
+  },
+  "marketPrice": {
+    "display": "$65.75",
+    "value": 65.75,
+    "asOfDate": "Oct 02 2026"
   },
   "premiumDiscount": {
     "display": "-0.02%",
