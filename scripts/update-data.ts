@@ -1267,6 +1267,19 @@ export type MetricsInput = {
   secYield: number | null;
 };
 
+/** Which definition stands behind `dividendYield`: null exactly when the yield is null. */
+export type DividendYieldBasis =
+  | "official-trailing-12m" | "official-distribution-rate" | "official-other" | "computed-trailing-12m" | "indicated";
+
+/** Vanguard's only yield source is the figure it publishes (definition not stated in the API), so every non-null yield is `official-other`. */
+export const DIVIDEND_YIELD_KIND = "Vanguard published distribution yield";
+const DIVIDEND_YIELD_BASIS_BY_KIND: Record<string, DividendYieldBasis> = { [DIVIDEND_YIELD_KIND]: "official-other" };
+
+export function dividendYieldBasisOf(yieldValue: number | null | undefined, kind: string = DIVIDEND_YIELD_KIND): DividendYieldBasis | null {
+  if (typeof yieldValue !== "number" || !Number.isFinite(yieldValue)) return null;
+  return DIVIDEND_YIELD_BASIS_BY_KIND[kind] ?? "official-other";
+}
+
 export type StandardMetrics = {
   ytd: number | null;
   tr1y: number | null;
@@ -1279,6 +1292,7 @@ export type StandardMetrics = {
   siAnn: number | null;
   dividendYield: number | null;
   dividendYieldText: string;
+  dividendYieldBasis: DividendYieldBasis | null;
   secYield: number | null;
   secYieldText: string;
   returnsBasis: string;
@@ -1331,6 +1345,7 @@ export function buildMetrics(input: MetricsInput): StandardMetrics {
     siAnn: null,
     dividendYield,
     dividendYieldText: dividendYield === null ? "—" : `${dividendYield.toFixed(2)}%`,
+    dividendYieldBasis: dividendYieldBasisOf(dividendYield),
     secYield,
     secYieldText: secYield === null ? "—" : `${secYield.toFixed(2)}%`,
     returnsBasis,
@@ -1444,7 +1459,7 @@ export function assembleFund(input: FundInputs): { meta: any; row: any } {
     yields: {
       dividendYield: metrics.dividendYield,
       dividendYieldText: metrics.dividendYieldText,
-      dividendYieldKind: "Vanguard published distribution yield",
+      dividendYieldKind: DIVIDEND_YIELD_KIND,
       dividendYieldAsOf: input.dividendYieldAsOf,
       secYield: metrics.secYield,
       secYieldText: metrics.secYieldText,
@@ -1494,6 +1509,18 @@ export function assembleFund(input: FundInputs): { meta: any; row: any } {
     history: input.history.totalRows,
   };
   return { meta, row };
+}
+
+/** A previously published row keeps its yield, so it gets the code that describes it when it predates `dividendYieldBasis` (same key order as fresh rows). */
+export function withYieldBasis(row: any): any {
+  if (!row || typeof row !== "object" || !row.metrics || "dividendYieldBasis" in row.metrics) return row;
+  const metrics: Record<string, unknown> = {};
+  for (const [key, value] of Object.entries(row.metrics)) {
+    metrics[key] = value;
+    if (key === "dividendYieldText") metrics.dividendYieldBasis = dividendYieldBasisOf(row.metrics.dividendYield as number | null);
+  }
+  if (!("dividendYieldBasis" in metrics)) metrics.dividendYieldBasis = dividendYieldBasisOf(row.metrics.dividendYield as number | null);
+  return { ...row, metrics };
 }
 
 /** US ISIN from a 9-character CUSIP: "US" + CUSIP + Luhn check digit over the letters-as-numbers expansion; null for anything else. */
@@ -2178,7 +2205,7 @@ async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
   const fresh = new Map<string, any>();
   selected.forEach(([ticker], index) => { if (perFundResults[index]) fresh.set(ticker, perFundResults[index]); });
   const previousRows = new Map<string, any>((Array.isArray(previousIndex?.funds) ? previousIndex.funds : []).map((entry: any) => [String(entry?.ticker), entry]));
-  const catalog = FUNDS_SEED.map(([ticker]) => fresh.get(ticker) ?? previousRows.get(ticker)).filter((entry) => entry != null);
+  const catalog = FUNDS_SEED.map(([ticker]) => fresh.get(ticker) ?? withYieldBasis(previousRows.get(ticker))).filter((entry) => entry != null);
   const nextIndex = buildIndex(catalog);
   const nextText = JSON.stringify(nextIndex, null, 2) + "\n";
   // Comparing raw text would treat a run that only refreshed generatedAt (with
