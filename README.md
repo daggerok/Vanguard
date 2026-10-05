@@ -6,8 +6,9 @@ One of the app's features lets you select Vanguard ETFs in the Watchlist and agg
 
 ```bash
 bunx degit daggerok/Vanguard#main ./12345 && cd $_
-bunx serve . -p 1234
-open http://0:1234
+bun install
+bun run serve
+open http://localhost:1234
 ```
 
 The published application is available at <https://daggerok.github.io/Vanguard/>.
@@ -138,7 +139,7 @@ MAX_FETCHES=20 HISTORY_RANGE=5y bun scripts/update-data.ts
 
 ## TypeScript and verification
 
-The browser app is intentionally build-free: `index.html` carries the markup, styles and bootstrap, and `app.tsx` is TypeScript compiled in the browser with Babel standalone - no build step, no bundler, no `tsconfig.json` needed. Bun runs TypeScript out of the box.
+The browser app is built with Parcel and Tailwind v4: `src/index.html` carries the markup, `src/index.css` the styles and `src/main.tsx` is the TypeScript app. `bun run serve` starts the Parcel dev server (it copies `api/` to `dist/api`), `bun run build` writes `./dist` and `bun run build-github-pages` does the same with the `/Vanguard/` public URL used by the GitHub Pages workflow. No `tsconfig.json` is needed, Bun runs the updater TypeScript out of the box.
 
 Verification before every publish:
 
