@@ -909,6 +909,8 @@ async function chart(ticker: string): Promise<{ rows: any[]; dividends: ChartDiv
         // fund) look "updated" on every single run. Round to 2 decimals,
         // well past any meaningful price precision, to absorb that jitter.
         adjClose: typeof (adj[i] ?? q.close?.[i]) === "number" ? round(adj[i] ?? q.close?.[i], 2) : null,
+        // Unrounded value, only used to tell float noise from a real change (never published).
+        adjCloseRaw: typeof (adj[i] ?? q.close?.[i]) === "number" ? adj[i] ?? q.close?.[i] : null,
         volume: q.volume?.[i] ?? null,
       }))
       .filter((row: any) => row.close !== null);
@@ -1108,6 +1110,26 @@ export function internalHistoryRows(pageRows: any[]): any[] {
       volume: numberOrNull(row?.Volume ?? row?.volume),
     }))
     .filter((row: any) => row.date && row.close !== null);
+}
+
+// Yahoo's adjusted close is float32 and its last digits move with the request's period2, so a value
+// sitting on a cent boundary (31.544998 vs 31.545001) flips between runs. Within that noise the
+// published cent is kept: a rerun with the same source data changes nothing. Only the Yahoo rows
+// pass through here; official NAV / market price / premium are merged afterwards.
+export const ADJ_CLOSE_NOISE = 1e-4;
+export function keepPublishedAdjClose(fresh: any[], publishedRows: any[]): any[] {
+  const published = new Map<string, number>();
+  for (const row of publishedRows ?? []) {
+    const date = row?.Date ?? row?.date ?? null;
+    const adjClose = numberOrNull(row?.["Adj Close"] ?? row?.adjClose);
+    if (date && adjClose !== null) published.set(String(date), adjClose);
+  }
+  return (fresh ?? []).map((row: any) => {
+    const prior = published.get(String(row?.date));
+    const raw = typeof row?.adjCloseRaw === "number" ? row.adjCloseRaw : row?.adjClose;
+    if (prior === undefined || typeof row?.adjClose !== "number" || row.adjClose === prior || typeof raw !== "number") return row;
+    return Math.abs(raw - prior) <= 0.005 + ADJ_CLOSE_NOISE ? { ...row, adjClose: prior } : row;
+  });
 }
 
 /**
@@ -2147,11 +2169,9 @@ async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
     let historyRows = chartData.rows;
     let dividends = chartData.dividends;
     let officialHistory = vgAdditional.officialHistory;
-    if (!historyRows.length || !officialHistory.length) {
-      const prev = await readPreviousSheet(ticker, "history");
-      if (!historyRows.length) historyRows = internalHistoryRows(prev.rows);
-      if (!officialHistory.length) officialHistory = officialPointsFromPreviousRows(prev.rows);
-    }
+    const prevHistory = await readPreviousSheet(ticker, "history");
+    historyRows = historyRows.length ? keepPublishedAdjClose(historyRows, prevHistory.rows) : internalHistoryRows(prevHistory.rows);
+    if (!officialHistory.length) officialHistory = officialPointsFromPreviousRows(prevHistory.rows);
     if (!dividends.length && prevMeta) {
       dividends = dividendsFromPrevious(prevMeta);
     }

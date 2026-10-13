@@ -370,7 +370,7 @@ describe("metrics", () => {
 // ===========================================================================
 // Pipeline: the real run() against a mocked fetch, writing into a per-test temp dir
 // ===========================================================================
-function mockFeed(opts: { delayMs?: number; failYahoo?: boolean; noHoldings?: boolean; nportAsOf?: string; nportSeries?: string; urls?: string[] } = {}) {
+function mockFeed(opts: { delayMs?: number; failYahoo?: boolean; noHoldings?: boolean; nportAsOf?: string; nportSeries?: string; urls?: string[]; adjclose?: number[] } = {}) {
   const inflight = new Set<string>();
   let peak = 0;
   const epoch = (iso: string) => Date.parse(`${iso}T00:00:00Z`) / 1000;
@@ -395,7 +395,7 @@ function mockFeed(opts: { delayMs?: number; failYahoo?: boolean; noHoldings?: bo
         if (opts.failYahoo) return new Response("down", { status: 404 });
         const days = ["2024-12-31", "2025-06-01", "2025-12-31", "2026-06-01"];
         const adj = [100, 110, 115, 121];
-        return Response.json({ chart: { result: [{ timestamp: days.map(epoch), indicators: { quote: [{ open: adj, high: adj, low: adj, close: adj, volume: adj }], adjclose: [{ adjclose: adj }] }, events: { dividends: { [epoch("2026-03-27")]: { amount: 1.8, date: epoch("2026-03-27") } } } }] } });
+        return Response.json({ chart: { result: [{ timestamp: days.map(epoch), indicators: { quote: [{ open: adj, high: adj, low: adj, close: adj, volume: adj }], adjclose: [{ adjclose: opts.adjclose ?? adj }] }, events: { dividends: { [epoch("2026-03-27")]: { amount: 1.8, date: epoch("2026-03-27") } } } }] } });
       }
       if (url.includes("AdditionalFundData")) {
         return Response.json({
@@ -473,6 +473,19 @@ describe("pipeline", () => {
     expect(filesOf(dir).map((f) => textOf(dir, f))).toEqual(first);
     // write only on change: not even the per-fund meta and page files are rewritten (mtimes stay untouched)
     expect(touched(dir)).toEqual([]);
+  });
+
+  test("two runs on the same source data write zero changes even when Yahoo adjusted closes jitter across a cent boundary", async () => {
+    // Yahoo float32 noise seen live: AAM SPDV 2024-11-12 came back as 31.544998 and 31.545001 a minute apart
+    const { dir } = await runOffline({ TICKERS: "VOO" }, undefined, { adjclose: [100.005001, 110.004999, 115.005001, 121.004999] });
+    backdate(dir);
+    const first = filesOf(dir).map((f) => textOf(dir, f));
+    await runOffline({ TICKERS: "VOO" }, dir, { adjclose: [100.004998, 110.005002, 115.004999, 121.005002] });
+    expect(filesOf(dir).map((f) => textOf(dir, f))).toEqual(first);
+    expect(touched(dir)).toEqual([]);
+    // a real change beyond the noise is still written
+    await runOffline({ TICKERS: "VOO" }, dir, { adjclose: [99.9, 110.1, 115.2, 121.3] });
+    expect(jsonOf(dir, "funds/VOO/history/001.json").rows.map((row: any) => row["Adj Close"]).filter((v: unknown) => v !== null)).toEqual([99.9, 110.1, 115.2, 121.3]);
   });
 
   test("console output: TICKERS=all, one catalog line, fund lines, two done lines from the reporter", async () => {
