@@ -2021,7 +2021,8 @@ export async function run(config: UpdaterConfig = readConfig({}), outputRoot: UR
 async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
   activeConfig = config;
   configureLanes(config.concurrency, config.requestSleepSeconds);
-  const deadline = Date.now() + softDeadlineMs;
+  const startedAt = Date.now();
+  const deadline = startedAt + softDeadlineMs;
   await mkdir(FUNDS, { recursive: true });
   const holdingsPageSize = config.holdingsPageSize;
   const historyPageSize = config.historyPageSize;
@@ -2041,10 +2042,12 @@ async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
   const previousIndex = await readJsonOrNull(new URL("index.json", ROOT));
   const output = outputCreateReporter(ROOT, selected.length);
   let failedCount = 0;
+  const statusCounts = { updated: 0, unchanged: 0, filtered: 0, skipped: 0, failed: 0 };
   const perFundResults = await mapWithConcurrency(selected, concurrency, async ([ticker, name, category]) => {
     const before = await output.before(ticker);
     if (Date.now() > deadline) {
       await output.result(ticker, before, 'skipped', 'soft deadline reached; published data kept');
+      statusCounts.skipped += 1;
       return null;
     }
     try {
@@ -2065,6 +2068,7 @@ async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
     if (failedSources.length && (await readPreviousMeta(ticker))) {
       await output.result(ticker, before, 'failed', `${failedSources.join(", ")} unavailable; published data kept`);
       failedCount += 1;
+      statusCounts.failed += 1;
       return null;
     }
 
@@ -2171,6 +2175,7 @@ async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
     if (!passesMetricFilters(filterMetricsOf({ aumValue: parseAmount(inputs.netAssets), terValue: inputs.expense, metrics: fundMetrics(inputs) }), config)) {
       // Filtered funds keep their previously published data and catalog row untouched.
       await output.result(ticker, before, 'filtered', 'metric filters', { yahooHistoryCount: historyRows.length });
+      statusCounts.filtered += 1;
       return null;
     }
     await mkdir(dir, { recursive: true });
@@ -2185,7 +2190,9 @@ async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
     await writeAtomic(new URL("meta.json", dir), JSON.stringify(meta, null, 2) + "\n");
     await removeStaleHistory();
     await removeStaleHoldings();
-    await output.result(ticker, before, undefined, undefined, {
+    const status = before.digest === (await outputInspectFund(ROOT, ticker)).digest ? 'unchanged' : 'updated';
+    statusCounts[status] += 1;
+    await output.result(ticker, before, status, undefined, {
       officialHistoryCount: officialHistory.length,
       yahooHistoryCount: historyRows.length,
       workplaceRaw: (official as any).workplaceRaw,
@@ -2198,6 +2205,7 @@ async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
       // mark it failed and keep its last successfully published data and catalog row.
       await output.result(ticker, before, 'failed', String(error));
       failedCount += 1;
+      statusCounts.failed += 1;
       return null;
     }
   });
@@ -2215,14 +2223,19 @@ async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
   let previousWithoutStamp: unknown;
   try { previousWithoutStamp = previousText ? { ...JSON.parse(previousText), generatedAt: undefined } : undefined; } catch { previousWithoutStamp = undefined; }
   const nextWithoutStamp = { ...nextIndex, generatedAt: undefined };
-  if (previousText === null || JSON.stringify(previousWithoutStamp) !== JSON.stringify(nextWithoutStamp)) {
-    await writeAtomic(new URL("index.json", ROOT), nextText);
-  }
+  const indexChanged = previousText === null || JSON.stringify(previousWithoutStamp) !== JSON.stringify(nextWithoutStamp);
+  if (indexChanged) await writeAtomic(new URL("index.json", ROOT), nextText);
   if (config.maxFetches > 0) {
     const nextState = { cursor: batch.nextCursor ?? 0, tickers: staticSelection.map(([ticker]) => ticker) };
     const sameState = previousState && previousState.cursor === nextState.cursor && JSON.stringify(previousState.tickers) === JSON.stringify(nextState.tickers);
     if (!sameState) await writeAtomic(stateFile, JSON.stringify({ ...nextState, generatedAt: new Date().toISOString() }, null, 2) + "\n");
-  }  if (selected.length > 0 && failedCount === selected.length) throw new Error(`every selected fund failed (${failedCount}); published data kept`);
+  }
+  const counts = nextIndex.counts;
+  console.log(
+    `[ ${'done'.padEnd(9)}] processed=${selected.length} updated=${statusCounts.updated} unchanged=${statusCounts.unchanged} filtered=${statusCounts.filtered} skipped=${statusCounts.skipped} failed=${statusCounts.failed} ` +
+      `indexChanged=${indexChanged} · funds=${counts.funds} holdings=${counts.holdings} history=${counts.history} · elapsed=${((Date.now() - startedAt) / 1000).toFixed(1)}s`,
+  );
+  if (selected.length > 0 && failedCount === selected.length) throw new Error(`every selected fund failed (${failedCount}); published data kept`);
 }
 
 // --- TLS trust store (identical in every ETF repo) ---
