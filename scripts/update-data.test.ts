@@ -475,16 +475,23 @@ describe("pipeline", () => {
     expect(touched(dir)).toEqual([]);
   });
 
-  test("the run ends with one [ done ] summary line: status counts, index change, catalog counts", async () => {
+  test("console output: TICKERS=all, one catalog line, fund lines, two done lines from the reporter", async () => {
     const lines: string[] = [];
     const { dir } = await runOffline({ TICKERS: "VOO VTI" }, undefined, { lines });
-    expect(lines.at(-1)).toMatch(/^\[ done {5}\] processed=2 updated=2 unchanged=0 filtered=0 skipped=0 failed=0 indexChanged=true · funds=2 holdings=2 history=10 · elapsed=\d+\.\ds$/);
+    const all = lines.flatMap((line) => line.split("\n"));
+    expect(all.filter((line) => line.startsWith("[ catalog  ] "))).toHaveLength(1);
+    expect(all.some((line) => line === "")).toBe(false);
+    expect(all.at(-2)).toMatch(/^\[ done {5}\] 2 funds: 2 updated, 0 unchanged, 0 kept, 0 skipped, 0 failed in \d+\.\ds$/);
+    expect(all.at(-1)).toBe("[ done     ] counts: 2 funds / 2 holdings rows / 10 history rows");
     lines.length = 0;
     await runOffline({ TICKERS: "VOO VTI" }, dir, { lines });
-    expect(lines.at(-1)).toMatch(/processed=2 updated=0 unchanged=2 filtered=0 skipped=0 failed=0 indexChanged=false /);
+    expect(lines.at(-2)).toMatch(/ 2 funds: 0 updated, 2 unchanged, 0 kept, 0 skipped, 0 failed in /);
     lines.length = 0;
     await runOffline({ TICKERS: "VOO" }, dir, { lines, failYahoo: true }).catch(() => {});
-    expect(lines.at(-1)).toMatch(/processed=1 updated=0 unchanged=0 filtered=0 skipped=0 failed=1 indexChanged=false /);
+    expect(lines.at(-2)).toMatch(/ 1 funds: 0 updated, 0 unchanged, 0 kept, 0 skipped, 1 failed in /);
+    lines.length = 0;
+    await runOffline({ TICKERS: "VOO", AUM: "10M:20M" }, dir, { lines });
+    expect(lines.at(-2)).toMatch(/ 1 funds: 0 updated, 0 unchanged, 0 kept, 0 skipped, 0 failed, 1 filtered in /);
   });
 
   test("a failed required source keeps the whole fund as published, and a run where every fund failed exits with an error", async () => {

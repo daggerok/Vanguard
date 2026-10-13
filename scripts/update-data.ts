@@ -22,6 +22,7 @@ function outputConfigEntries(config: Record<string, any>): [string, string][] {
     performanceRanges: 'PERFORMANCE', totalReturnRanges: 'TOTAL_RETURN',
     skipVanEck: 'SKIP_VANECK', skipProShares: 'SKIP_PROSHARES',
     skipWisdomTree: 'SKIP_WISDOMTREE', skipGoldmanSachs: 'SKIP_GOLDMANSACHS',
+    skipGlobalX: 'SKIP_GLOBALX',
   };
   const range = (v: any): string => typeof v === 'string' ? v : v?.source ?? `${Number.isFinite(v?.min) ? v.min : ''}:${Number.isFinite(v?.max) ? v.max : ''}`;
   for (const [key, value] of Object.entries(config)) {
@@ -40,9 +41,14 @@ function outputConfigEntries(config: Record<string, any>): [string, string][] {
     return (ai < 0 ? first.length : ai) - (bi < 0 ? first.length : bi) || a.localeCompare(b);
   });
 }
+function outputConfigValue(key: string, value: string): string {
+  if (/TOKEN|PASSWORD|SECRET|COOKIE|SEC_UA/i.test(key)) return '<redacted>';
+  if (key === 'TICKERS' && ['', 'null', 'undefined'].includes(value)) return 'all';
+  return outputClean(value);
+}
 function outputPrintConfig(brand: string, config: Record<string, any>): void {
   const entries: [string, string][] = [...outputConfigEntries(config), ['VERBOSE', String(outputVerbose())]];
-  console.log(`[ config   ] ${brand} updater:\n${entries.map(([key, value]) => `              ${key}=${/TOKEN|PASSWORD|SECRET|COOKIE|^SEC_UA$/i.test(key) ? '<redacted>' : outputClean(value)}`).join('\n')}`);
+  console.log(`[ config   ] ${brand} updater:\n${entries.map(([key, value]) => `              ${key}=${outputConfigValue(key, value)}`).join('\n')}`);
 }
 function outputHasOutputFilters(config: Record<string, any>): boolean {
   return outputConfigEntries(config).some(([name, value]) =>
@@ -78,18 +84,29 @@ async function outputInspectFund(root: URL | string, ticker: string): Promise<{ 
 }
 const outputCount = (value: any): unknown => typeof value === 'number' ? value : Array.isArray(value) ? value.length : value?.totalRows ?? value?.rows?.length ?? null;
 const outputScalar = (value: any): any => value && typeof value === 'object' ? value.display ?? value.value ?? null : value;
+const outputUnits: Record<string, number> = { K: 1e3, M: 1e6, B: 1e9, T: 1e12, THOUSAND: 1e3, MILLION: 1e6, BILLION: 1e9, TRILLION: 1e12 };
 function outputMoney(value: any): string {
-  const raw = outputScalar(value);
+  const raw = value && typeof value === 'object' && typeof value.value === 'number' && Number.isFinite(value.value) ? value.value : outputScalar(value);
   if (raw === null || raw === undefined || raw === '—' || raw === '--') return 'null';
   const text = String(raw).replace(/[$,\s]/g, '');
-  const match = text.match(/^([+-]?[\d.]+)([KMBT])?$/i);
+  const match = text.match(/^([+-]?[\d.]+)(K|M|B|T|Thousand|Million|Billion|Trillion)?$/i);
   if (!match) return outputClean(raw);
-  const number = Number(match[1]) * ({ K: 1e3, M: 1e6, B: 1e9, T: 1e12 }[match[2]?.toUpperCase() as 'K' | 'M' | 'B' | 'T'] ?? 1);
+  const number = Number(match[1]) * (outputUnits[match[2]?.toUpperCase() ?? ''] ?? 1);
   if (!Number.isFinite(number)) return 'null';
   for (const [unit, scale] of [['T', 1e12], ['B', 1e9], ['M', 1e6], ['K', 1e3]] as const) {
     if (Math.abs(number) >= scale) return `$${(number / scale).toFixed(1)}${unit}`;
   }
   return `$${number.toFixed(2)}`;
+}
+/** Yields: rounded to 2 decimals without trailing zeros; placeholders are omitted like null. */
+function outputPercent(value: any): unknown {
+  const raw = outputScalar(value);
+  if (raw === null || raw === undefined) return null;
+  if (typeof raw === 'number') return Number.isFinite(raw) ? Number(raw.toFixed(2)) : null;
+  const text = String(raw).trim().replace(/%$/, '').trim();
+  if (['', '-', '—', '--', 'n/a'].includes(text.toLowerCase())) return null;
+  const number = Number(text.replace(/,/g, ''));
+  return Number.isFinite(number) ? Number(number.toFixed(2)) : outputClean(raw);
 }
 function outputFundLine(index: number, total: number, ticker: string, status: string, data: any = {}, reason?: unknown): string {
   const width = Math.max(2, String(total).length);
@@ -110,21 +127,34 @@ function outputFundLine(index: number, total: number, ticker: string, status: st
     field('divs', outputCount(data.worksheets?.Distributions ?? data.distributions)),
     field('netAssets', outputMoney(data.netAssets ?? data.aum)),
     field('total', outputMoney(data.totalFundNetAssets ?? data.totalNetAssets)),
-    field('div', outputScalar(data.trailingYield ?? data.yields?.effectiveYield ?? data.yields?.dividendYield ?? data.dividendYield ?? metrics.dividendYield)),
-    field('sec', outputScalar(data.secYield ?? data.yields?.secYield ?? metrics.secYield)),
+    field('div', outputPercent(data.trailingYield ?? data.yields?.effectiveYield ?? data.yields?.dividendYield ?? data.dividendYield ?? metrics.dividendYield)),
+    field('sec', outputPercent(data.secYield ?? data.yields?.secYield ?? metrics.secYield)),
     field('wp', data.workplaceRaw),
   ].filter(part => part !== '').join(' ');
   return `[ ${String(index).padStart(width)}/${String(total).padEnd(width)}  ] ${outputClean(ticker).padEnd(5)} ${status.padEnd(9)}${detail ? ` ${detail}` : ''}${reason ? ` reason=${outputClean(reason)}` : ''}`;
 }
 function outputCreateReporter(root: URL | string, total: number) {
   let completed = 0;
+  const tally = new Map<string, number>();
   return {
     before: (ticker: string) => outputInspectFund(root, ticker),
     async result(ticker: string, before: { digest: string }, status?: string, reason?: unknown, extra: any = {}) {
       const after = await outputInspectFund(root, ticker);
-      console.log(outputFundLine(++completed, total, ticker, status ?? (before.digest === after.digest ? 'unchanged' : 'updated'), { ...after.meta, ...extra }, reason));
+      const final = status ?? (before.digest === after.digest ? 'unchanged' : 'updated');
+      tally.set(final, (tally.get(final) ?? 0) + 1);
+      console.log(outputFundLine(++completed, total, ticker, final, { ...after.meta, ...extra }, reason));
+    },
+    /** First [ done ] line: the statuses of every fund line this reporter printed. */
+    summary(startedAt: number): string {
+      const order = ['updated', 'unchanged', 'kept', 'skipped', 'failed'];
+      const statuses = [...order, ...[...tally.keys()].filter(status => !order.includes(status))];
+      return `[ done     ] ${completed} funds: ${statuses.map(status => `${tally.get(status) ?? 0} ${status}`).join(', ')} in ${((Date.now() - startedAt) / 1000).toFixed(1)}s`;
     },
   };
+}
+/** Second [ done ] line: published totals. */
+function outputCounts(funds: number, holdings: number, history: number): string {
+  return `[ done     ] counts: ${funds.toLocaleString('en-US')} funds / ${holdings.toLocaleString('en-US')} holdings rows / ${history.toLocaleString('en-US')} history rows`;
 }
 // Same bounded worker-pool shape as the iShares/ProShares/Franklin/JPMorgan updaters.
 async function mapWithConcurrency<T, R>(
@@ -2029,6 +2059,7 @@ async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
   const concurrency = config.concurrency;
   outputPrintConfig('Vanguard', configLogEntries(config));
   const staticSelection = FUNDS_SEED.filter((fund) => passesStaticFilters(fund, config));
+  console.log(`[ catalog  ] ${FUNDS_SEED.length} Vanguard ETFs (built-in Vanguard ETF list, profiles from investor.vanguard.com)`);
   outputPrintFilter(staticSelection.length, FUNDS_SEED.length, hasDeferredFilters(config));
   const stateFile = new URL("update-state.json", ROOT);
   const previousState = config.maxFetches > 0 ? await readJsonOrNull(stateFile) : null;
@@ -2042,12 +2073,10 @@ async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
   const previousIndex = await readJsonOrNull(new URL("index.json", ROOT));
   const output = outputCreateReporter(ROOT, selected.length);
   let failedCount = 0;
-  const statusCounts = { updated: 0, unchanged: 0, filtered: 0, skipped: 0, failed: 0 };
   const perFundResults = await mapWithConcurrency(selected, concurrency, async ([ticker, name, category]) => {
     const before = await output.before(ticker);
     if (Date.now() > deadline) {
       await output.result(ticker, before, 'skipped', 'soft deadline reached; published data kept');
-      statusCounts.skipped += 1;
       return null;
     }
     try {
@@ -2068,7 +2097,6 @@ async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
     if (failedSources.length && (await readPreviousMeta(ticker))) {
       await output.result(ticker, before, 'failed', `${failedSources.join(", ")} unavailable; published data kept`);
       failedCount += 1;
-      statusCounts.failed += 1;
       return null;
     }
 
@@ -2175,7 +2203,6 @@ async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
     if (!passesMetricFilters(filterMetricsOf({ aumValue: parseAmount(inputs.netAssets), terValue: inputs.expense, metrics: fundMetrics(inputs) }), config)) {
       // Filtered funds keep their previously published data and catalog row untouched.
       await output.result(ticker, before, 'filtered', 'metric filters', { yahooHistoryCount: historyRows.length });
-      statusCounts.filtered += 1;
       return null;
     }
     await mkdir(dir, { recursive: true });
@@ -2190,9 +2217,7 @@ async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
     await writeAtomic(new URL("meta.json", dir), JSON.stringify(meta, null, 2) + "\n");
     await removeStaleHistory();
     await removeStaleHoldings();
-    const status = before.digest === (await outputInspectFund(ROOT, ticker)).digest ? 'unchanged' : 'updated';
-    statusCounts[status] += 1;
-    await output.result(ticker, before, status, undefined, {
+    await output.result(ticker, before, undefined, undefined, {
       officialHistoryCount: officialHistory.length,
       yahooHistoryCount: historyRows.length,
       workplaceRaw: (official as any).workplaceRaw,
@@ -2205,7 +2230,6 @@ async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
       // mark it failed and keep its last successfully published data and catalog row.
       await output.result(ticker, before, 'failed', String(error));
       failedCount += 1;
-      statusCounts.failed += 1;
       return null;
     }
   });
@@ -2223,18 +2247,16 @@ async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
   let previousWithoutStamp: unknown;
   try { previousWithoutStamp = previousText ? { ...JSON.parse(previousText), generatedAt: undefined } : undefined; } catch { previousWithoutStamp = undefined; }
   const nextWithoutStamp = { ...nextIndex, generatedAt: undefined };
-  const indexChanged = previousText === null || JSON.stringify(previousWithoutStamp) !== JSON.stringify(nextWithoutStamp);
-  if (indexChanged) await writeAtomic(new URL("index.json", ROOT), nextText);
+  if (previousText === null || JSON.stringify(previousWithoutStamp) !== JSON.stringify(nextWithoutStamp)) {
+    await writeAtomic(new URL("index.json", ROOT), nextText);
+  }
   if (config.maxFetches > 0) {
     const nextState = { cursor: batch.nextCursor ?? 0, tickers: staticSelection.map(([ticker]) => ticker) };
     const sameState = previousState && previousState.cursor === nextState.cursor && JSON.stringify(previousState.tickers) === JSON.stringify(nextState.tickers);
     if (!sameState) await writeAtomic(stateFile, JSON.stringify({ ...nextState, generatedAt: new Date().toISOString() }, null, 2) + "\n");
   }
-  const counts = nextIndex.counts;
-  console.log(
-    `[ ${'done'.padEnd(9)}] processed=${selected.length} updated=${statusCounts.updated} unchanged=${statusCounts.unchanged} filtered=${statusCounts.filtered} skipped=${statusCounts.skipped} failed=${statusCounts.failed} ` +
-      `indexChanged=${indexChanged} · funds=${counts.funds} holdings=${counts.holdings} history=${counts.history} · elapsed=${((Date.now() - startedAt) / 1000).toFixed(1)}s`,
-  );
+  console.log(output.summary(startedAt));
+  console.log(outputCounts(nextIndex.counts.funds, nextIndex.counts.holdings, nextIndex.counts.history));
   if (selected.length > 0 && failedCount === selected.length) throw new Error(`every selected fund failed (${failedCount}); published data kept`);
 }
 
