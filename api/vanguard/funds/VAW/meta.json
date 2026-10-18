@@ -36,18 +36,18 @@
     "net": 0.09
   },
   "nav": {
-    "display": "$221.58",
-    "value": 221.58,
-    "asOfDate": "Oct 09 2026"
+    "display": "$225.15",
+    "value": 225.15,
+    "asOfDate": "Oct 16 2026"
   },
   "marketPrice": {
-    "display": "$221.57",
-    "value": 221.57,
-    "asOfDate": "Oct 09 2026"
+    "display": "$225.12",
+    "value": 225.12,
+    "asOfDate": "Oct 16 2026"
   },
   "premiumDiscount": {
-    "display": "0.00%",
-    "value": 0
+    "display": "-0.01%",
+    "value": -0.01
   },
   "aum": {
     "display": "$3.1B",
@@ -60,10 +60,10 @@
     }
   },
   "yields": {
-    "dividendYield": 1.44,
-    "dividendYieldText": "1.44%",
+    "dividendYield": 1.56,
+    "dividendYieldText": "1.56%",
     "dividendYieldKind": "Vanguard published distribution yield",
-    "dividendYieldAsOf": "2026-08-31",
+    "dividendYieldAsOf": "2026-09-30",
     "secYield": 1.42,
     "secYieldText": "1.42%",
     "secYieldKind": "official 30-day SEC yield",
@@ -72,12 +72,12 @@
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Oct 09 2026",
-      "ytd": 7.92,
+      "asOfDate": "Oct 16 2026",
+      "ytd": 9.66,
       "yr1": 8.02,
-      "yr3": 10.98,
-      "yr5": 6.26,
-      "yr10": 9.81,
+      "yr3": 11.36,
+      "yr5": 5.93,
+      "yr10": 10.03,
       "sinceInception": null
     },
     "quarterEnd": {
@@ -607,9 +607,9 @@
     ],
     "pageSize": 250,
     "totalRows": 114,
-    "asOfDate": "2026-08-31",
+    "asOfDate": "2026-09-30",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
-    "asOf": "Aug 31 2026"
+    "asOf": "Sep 30 2026"
   },
   "history": {
     "pages": [
@@ -621,9 +621,9 @@
       "history/006.json"
     ],
     "pageSize": 1000,
-    "totalRows": 5746,
-    "asOfDate": "2026-10-12",
+    "totalRows": 5750,
+    "asOfDate": "2026-10-16",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Oct 12 2026"
+    "asOf": "Oct 16 2026"
   }
 }

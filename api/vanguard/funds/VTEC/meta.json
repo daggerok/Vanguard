@@ -36,18 +36,18 @@
     "net": 0.06
   },
   "nav": {
-    "display": "$94.16",
-    "value": 94.16,
-    "asOfDate": "Oct 09 2026"
+    "display": "$95.38",
+    "value": 95.38,
+    "asOfDate": "Oct 16 2026"
   },
   "marketPrice": {
-    "display": "$94.28",
-    "value": 94.28,
-    "asOfDate": "Oct 09 2026"
+    "display": "$95.41",
+    "value": 95.41,
+    "asOfDate": "Oct 16 2026"
   },
   "premiumDiscount": {
-    "display": "0.13%",
-    "value": 0.13
+    "display": "0.03%",
+    "value": 0.03
   },
   "aum": {
     "display": "$3.6B",
@@ -64,16 +64,16 @@
     "dividendYieldText": "3.28%",
     "dividendYieldKind": "Vanguard published distribution yield",
     "dividendYieldAsOf": "2026-10-01",
-    "secYield": 4.11,
-    "secYieldText": "4.11%",
+    "secYield": 4.1,
+    "secYieldText": "4.10%",
     "secYieldKind": "official 30-day SEC yield",
-    "secYieldAsOf": "2026-10-08",
+    "secYieldAsOf": "2026-10-15",
     "unsubsidizedSecYield": null
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Oct 09 2026",
-      "ytd": -3.62,
+      "asOfDate": "Oct 16 2026",
+      "ytd": -2.37,
       "yr1": -2.44,
       "yr3": null,
       "yr5": null,
@@ -414,19 +414,19 @@
       "holdings/016.json"
     ],
     "pageSize": 250,
-    "totalRows": 3977,
-    "asOfDate": "2026-10-09",
+    "totalRows": 3982,
+    "asOfDate": "2026-10-15",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
-    "asOf": "Oct 09 2026"
+    "asOf": "Oct 15 2026"
   },
   "history": {
     "pages": [
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 688,
-    "asOfDate": "2026-10-12",
+    "totalRows": 692,
+    "asOfDate": "2026-10-16",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Oct 12 2026"
+    "asOf": "Oct 16 2026"
   }
 }

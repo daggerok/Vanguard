@@ -36,18 +36,18 @@
     "net": 0.03
   },
   "nav": {
-    "display": "$70.19",
-    "value": 70.19,
-    "asOfDate": "Oct 09 2026"
+    "display": "$70.81",
+    "value": 70.81,
+    "asOfDate": "Oct 16 2026"
   },
   "marketPrice": {
-    "display": "$70.22",
-    "value": 70.22,
-    "asOfDate": "Oct 09 2026"
+    "display": "$70.82",
+    "value": 70.82,
+    "asOfDate": "Oct 16 2026"
   },
   "premiumDiscount": {
-    "display": "0.04%",
-    "value": 0.04
+    "display": "0.01%",
+    "value": 0.01
   },
   "aum": {
     "display": "$161.4B",
@@ -67,17 +67,17 @@
     "secYield": 5.14,
     "secYieldText": "5.14%",
     "secYieldKind": "official 30-day SEC yield",
-    "secYieldAsOf": "2026-10-08",
+    "secYieldAsOf": "2026-10-15",
     "unsubsidizedSecYield": null
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Oct 09 2026",
-      "ytd": -2.33,
+      "asOfDate": "Oct 16 2026",
+      "ytd": -1.47,
       "yr1": -1.82,
-      "yr3": 4.43,
-      "yr5": -0.48,
-      "yr10": 1.31,
+      "yr3": 4.74,
+      "yr5": -0.36,
+      "yr10": 1.4,
       "sinceInception": null
     },
     "quarterEnd": {
@@ -2264,10 +2264,10 @@
       "holdings/066.json"
     ],
     "pageSize": 250,
-    "totalRows": 16300,
-    "asOfDate": "2026-08-31",
+    "totalRows": 16327,
+    "asOfDate": "2026-09-30",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
-    "asOf": "Aug 31 2026"
+    "asOf": "Sep 30 2026"
   },
   "history": {
     "pages": [
@@ -2278,9 +2278,9 @@
       "history/005.json"
     ],
     "pageSize": 1000,
-    "totalRows": 4944,
-    "asOfDate": "2026-10-12",
+    "totalRows": 4948,
+    "asOfDate": "2026-10-16",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Oct 12 2026"
+    "asOf": "Oct 16 2026"
   }
 }
