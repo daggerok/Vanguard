@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-18T03:03:18.232Z",
+  "generatedAt": "2026-10-20T04:42:17.163Z",
   "source": {
     "provider": "Vanguard",
     "site": "https://investor.vanguard.com",
@@ -9,8 +9,8 @@
   },
   "counts": {
     "funds": 116,
-    "holdings": 210925,
-    "history": 365807
+    "holdings": 211060,
+    "history": 365923
   },
   "funds": [
     {
@@ -44,9 +44,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": -2.43,
           "yr1": -2.62,
-          "yr3": 4.97,
-          "yr5": -0.18,
-          "yr10": 1.53,
+          "yr3": 5.43,
+          "yr5": -0.17,
+          "yr10": 1.44,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -63,12 +63,12 @@
       "metrics": {
         "ytd": -2.43,
         "tr1y": -2.62,
-        "tr3y": 15.65,
-        "tr5y": -0.89,
-        "tr10y": 16.38,
-        "cagr3y": 4.97,
-        "cagr5y": -0.18,
-        "cagr10y": 1.53,
+        "tr3y": 17.19,
+        "tr5y": -0.84,
+        "tr10y": 15.4,
+        "cagr3y": 5.43,
+        "cagr5y": -0.17,
+        "cagr10y": 1.44,
         "siAnn": null,
         "dividendYield": 4.6,
         "dividendYieldText": "4.60%",
@@ -79,7 +79,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 2382,
-      "history": 4948
+      "history": 4949
     },
     {
       "ticker": "BLV",
@@ -112,9 +112,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": -4.41,
           "yr1": -7.01,
-          "yr3": 4.14,
-          "yr5": -4.92,
-          "yr10": 0.29,
+          "yr3": 5.23,
+          "yr5": -4.86,
+          "yr10": 0.13,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -131,12 +131,12 @@
       "metrics": {
         "ytd": -4.41,
         "tr1y": -7.01,
-        "tr3y": 12.93,
-        "tr5y": -22.29,
-        "tr10y": 2.95,
-        "cagr3y": 4.14,
-        "cagr5y": -4.92,
-        "cagr10y": 0.29,
+        "tr3y": 16.51,
+        "tr5y": -22.06,
+        "tr10y": 1.27,
+        "cagr3y": 5.23,
+        "cagr5y": -4.86,
+        "cagr10y": 0.13,
         "siAnn": null,
         "dividendYield": 5.14,
         "dividendYieldText": "5.14%",
@@ -147,7 +147,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 2906,
-      "history": 4948
+      "history": 4949
     },
     {
       "ticker": "BND",
@@ -180,9 +180,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": -1.47,
           "yr1": -1.82,
-          "yr3": 4.74,
-          "yr5": -0.36,
-          "yr10": 1.4,
+          "yr3": 5.16,
+          "yr5": -0.35,
+          "yr10": 1.32,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -199,12 +199,12 @@
       "metrics": {
         "ytd": -1.47,
         "tr1y": -1.82,
-        "tr3y": 14.89,
-        "tr5y": -1.78,
-        "tr10y": 14.89,
-        "cagr3y": 4.74,
-        "cagr5y": -0.36,
-        "cagr10y": 1.4,
+        "tr3y": 16.29,
+        "tr5y": -1.74,
+        "tr10y": 14.05,
+        "cagr3y": 5.16,
+        "cagr5y": -0.35,
+        "cagr10y": 1.32,
         "siAnn": null,
         "dividendYield": 4.25,
         "dividendYieldText": "4.25%",
@@ -215,7 +215,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 16327,
-      "history": 4948
+      "history": 4949
     },
     {
       "ticker": "BNDP",
@@ -282,8 +282,8 @@
         "returnsBasis": "official Vanguard YTD returns",
         "performanceAsOf": "2026-10-16"
       },
-      "holdings": 6456,
-      "history": 224
+      "holdings": 6459,
+      "history": 225
     },
     {
       "ticker": "BNDW",
@@ -316,8 +316,8 @@
           "asOfDate": "Oct 16 2026",
           "ytd": -0.92,
           "yr1": -1.38,
-          "yr3": 4.46,
-          "yr5": -0.1,
+          "yr3": 4.78,
+          "yr5": -0.07,
           "yr10": null,
           "sinceInception": null
         },
@@ -335,11 +335,11 @@
       "metrics": {
         "ytd": -0.92,
         "tr1y": -1.38,
-        "tr3y": 14,
-        "tr5y": -0.49,
+        "tr3y": 15.03,
+        "tr5y": -0.35,
         "tr10y": null,
-        "cagr3y": 4.46,
-        "cagr5y": -0.1,
+        "cagr3y": 4.78,
+        "cagr5y": -0.07,
         "cagr10y": null,
         "siAnn": null,
         "dividendYield": 3.61,
@@ -351,7 +351,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 4,
-      "history": 2068
+      "history": 2069
     },
     {
       "ticker": "BNDX",
@@ -384,9 +384,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": -0.44,
           "yr1": -0.92,
-          "yr3": 4.18,
-          "yr5": 0.14,
-          "yr10": 1.47,
+          "yr3": 4.4,
+          "yr5": 0.17,
+          "yr10": 1.43,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -403,12 +403,12 @@
       "metrics": {
         "ytd": -0.44,
         "tr1y": -0.92,
-        "tr3y": 13.08,
-        "tr5y": 0.73,
-        "tr10y": 15.74,
-        "cagr3y": 4.18,
-        "cagr5y": 0.14,
-        "cagr10y": 1.47,
+        "tr3y": 13.79,
+        "tr5y": 0.86,
+        "tr10y": 15.21,
+        "cagr3y": 4.4,
+        "cagr5y": 0.17,
+        "cagr10y": 1.43,
         "siAnn": null,
         "dividendYield": 2.95,
         "dividendYieldText": "2.95%",
@@ -419,7 +419,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 8781,
-      "history": 3399
+      "history": 3400
     },
     {
       "ticker": "BSV",
@@ -452,9 +452,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 0.27,
           "yr1": 0.77,
-          "yr3": 4.5,
-          "yr5": 1.71,
-          "yr10": 1.91,
+          "yr3": 4.57,
+          "yr5": 1.7,
+          "yr10": 1.88,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -471,12 +471,12 @@
       "metrics": {
         "ytd": 0.27,
         "tr1y": 0.77,
-        "tr3y": 14.1,
-        "tr5y": 8.83,
-        "tr10y": 20.79,
-        "cagr3y": 4.5,
-        "cagr5y": 1.71,
-        "cagr10y": 1.91,
+        "tr3y": 14.36,
+        "tr5y": 8.78,
+        "tr10y": 20.42,
+        "cagr3y": 4.57,
+        "cagr5y": 1.7,
+        "cagr10y": 1.88,
         "siAnn": null,
         "dividendYield": 4.25,
         "dividendYieldText": "4.25%",
@@ -487,7 +487,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 3167,
-      "history": 4948
+      "history": 4949
     },
     {
       "ticker": "EDV",
@@ -520,9 +520,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": -8.17,
           "yr1": -14.62,
-          "yr3": -0.25,
-          "yr5": -12.47,
-          "yr10": -4.01,
+          "yr3": 1.35,
+          "yr5": -12.46,
+          "yr10": -4.26,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -539,12 +539,12 @@
       "metrics": {
         "ytd": -8.17,
         "tr1y": -14.62,
-        "tr3y": -0.76,
-        "tr5y": -48.63,
-        "tr10y": -33.57,
-        "cagr3y": -0.25,
-        "cagr5y": -12.47,
-        "cagr10y": -4.01,
+        "tr3y": 4.09,
+        "tr5y": -48.58,
+        "tr10y": -35.28,
+        "cagr3y": 1.35,
+        "cagr5y": -12.46,
+        "cagr10y": -4.26,
         "siAnn": null,
         "dividendYield": null,
         "dividendYieldText": "—",
@@ -555,7 +555,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 83,
-      "history": 4745
+      "history": 4746
     },
     {
       "ticker": "ESGV",
@@ -588,8 +588,8 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 12.04,
           "yr1": 15.49,
-          "yr3": 21.88,
-          "yr5": 11.39,
+          "yr3": 23.14,
+          "yr5": 11.27,
           "yr10": null,
           "sinceInception": null
         },
@@ -607,11 +607,11 @@
       "metrics": {
         "ytd": 12.04,
         "tr1y": 15.49,
-        "tr3y": 81.05,
-        "tr5y": 71.51,
+        "tr3y": 86.71,
+        "tr5y": 70.58,
         "tr10y": null,
-        "cagr3y": 21.88,
-        "cagr5y": 11.39,
+        "cagr3y": 23.14,
+        "cagr5y": 11.27,
         "cagr10y": null,
         "siAnn": null,
         "dividendYield": 0.94,
@@ -623,7 +623,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 1221,
-      "history": 2058
+      "history": 2059
     },
     {
       "ticker": "IVOG",
@@ -656,9 +656,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 12.16,
           "yr1": 15.12,
-          "yr3": 15.37,
-          "yr5": 6.62,
-          "yr10": 10.79,
+          "yr3": 16.35,
+          "yr5": 6.46,
+          "yr10": 10.74,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -675,12 +675,12 @@
       "metrics": {
         "ytd": 12.16,
         "tr1y": 15.12,
-        "tr3y": 53.57,
-        "tr5y": 37.78,
-        "tr10y": 178.52,
-        "cagr3y": 15.37,
-        "cagr5y": 6.62,
-        "cagr10y": 10.79,
+        "tr3y": 57.53,
+        "tr5y": 36.78,
+        "tr10y": 177.31,
+        "cagr3y": 16.35,
+        "cagr5y": 6.46,
+        "cagr10y": 10.74,
         "siAnn": null,
         "dividendYield": 0.78,
         "dividendYieldText": "0.78%",
@@ -691,7 +691,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 256,
-      "history": 4086
+      "history": 4087
     },
     {
       "ticker": "IVOO",
@@ -724,9 +724,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 10.52,
           "yr1": 11.67,
-          "yr3": 15.07,
-          "yr5": 7.24,
-          "yr10": 10.67,
+          "yr3": 16.06,
+          "yr5": 7.14,
+          "yr10": 10.59,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -743,12 +743,12 @@
       "metrics": {
         "ytd": 10.52,
         "tr1y": 11.67,
-        "tr3y": 52.35,
-        "tr5y": 41.83,
-        "tr10y": 175.68,
-        "cagr3y": 15.07,
-        "cagr5y": 7.24,
-        "cagr10y": 10.67,
+        "tr3y": 56.32,
+        "tr5y": 41.21,
+        "tr10y": 173.7,
+        "cagr3y": 16.06,
+        "cagr5y": 7.14,
+        "cagr10y": 10.59,
         "siAnn": null,
         "dividendYield": 1.36,
         "dividendYieldText": "1.36%",
@@ -759,7 +759,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 409,
-      "history": 4086
+      "history": 4087
     },
     {
       "ticker": "IVOV",
@@ -792,9 +792,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 8.75,
           "yr1": 8.08,
-          "yr3": 14.53,
-          "yr5": 7.62,
-          "yr10": 10.14,
+          "yr3": 15.53,
+          "yr5": 7.57,
+          "yr10": 9.99,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -811,12 +811,12 @@
       "metrics": {
         "ytd": 8.75,
         "tr1y": 8.08,
-        "tr3y": 50.24,
-        "tr5y": 44.35,
-        "tr10y": 162.75,
-        "cagr3y": 14.53,
-        "cagr5y": 7.62,
-        "cagr10y": 10.14,
+        "tr3y": 54.19,
+        "tr5y": 44.05,
+        "tr10y": 159.04,
+        "cagr3y": 15.53,
+        "cagr5y": 7.57,
+        "cagr10y": 9.99,
         "siAnn": null,
         "dividendYield": 2,
         "dividendYieldText": "2.00%",
@@ -827,7 +827,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 305,
-      "history": 4086
+      "history": 4087
     },
     {
       "ticker": "MGC",
@@ -860,9 +860,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 12.84,
           "yr1": 16.83,
-          "yr3": 23.13,
-          "yr5": 13.54,
-          "yr10": 16.24,
+          "yr3": 24.28,
+          "yr5": 13.42,
+          "yr10": 16.26,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -879,12 +879,12 @@
       "metrics": {
         "ytd": 12.84,
         "tr1y": 16.83,
-        "tr3y": 86.66,
-        "tr5y": 88.67,
-        "tr10y": 350.52,
-        "cagr3y": 23.13,
-        "cagr5y": 13.54,
-        "cagr10y": 16.24,
+        "tr3y": 91.94,
+        "tr5y": 87.72,
+        "tr10y": 351.24,
+        "cagr3y": 24.28,
+        "cagr5y": 13.42,
+        "cagr10y": 16.26,
         "siAnn": null,
         "dividendYield": 0.94,
         "dividendYieldText": "0.94%",
@@ -895,7 +895,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 174,
-      "history": 4766
+      "history": 4767
     },
     {
       "ticker": "MGK",
@@ -928,9 +928,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 9.3,
           "yr1": 15.51,
-          "yr3": 24.61,
-          "yr5": 13.58,
-          "yr10": 18.84,
+          "yr3": 26.15,
+          "yr5": 13.44,
+          "yr10": 18.89,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -947,12 +947,12 @@
       "metrics": {
         "ytd": 9.3,
         "tr1y": 15.51,
-        "tr3y": 93.51,
-        "tr5y": 89.04,
-        "tr10y": 461.8,
-        "cagr3y": 24.61,
-        "cagr5y": 13.58,
-        "cagr10y": 18.84,
+        "tr3y": 100.75,
+        "tr5y": 87.86,
+        "tr10y": 464.39,
+        "cagr3y": 26.15,
+        "cagr5y": 13.44,
+        "cagr10y": 18.89,
         "siAnn": null,
         "dividendYield": 0.32,
         "dividendYieldText": "0.32%",
@@ -963,7 +963,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 58,
-      "history": 4766
+      "history": 4767
     },
     {
       "ticker": "MGV",
@@ -996,9 +996,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 19.09,
           "yr1": 19.28,
-          "yr3": 20.02,
-          "yr5": 12.75,
-          "yr10": 13.07,
+          "yr3": 20.46,
+          "yr5": 12.54,
+          "yr10": 12.98,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -1015,12 +1015,12 @@
       "metrics": {
         "ytd": 19.09,
         "tr1y": 19.28,
-        "tr3y": 72.91,
-        "tr5y": 82.25,
-        "tr10y": 241.54,
-        "cagr3y": 20.02,
-        "cagr5y": 12.75,
-        "cagr10y": 13.07,
+        "tr3y": 74.78,
+        "tr5y": 80.55,
+        "tr10y": 238.93,
+        "cagr3y": 20.46,
+        "cagr5y": 12.54,
+        "cagr10y": 12.98,
         "siAnn": null,
         "dividendYield": 1.97,
         "dividendYieldText": "1.97%",
@@ -1031,7 +1031,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 124,
-      "history": 4766
+      "history": 4767
     },
     {
       "ticker": "MUNY",
@@ -1099,7 +1099,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 4006,
-      "history": 359
+      "history": 360
     },
     {
       "ticker": "VAW",
@@ -1132,9 +1132,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 9.66,
           "yr1": 8.02,
-          "yr3": 11.36,
-          "yr5": 5.93,
-          "yr10": 10.03,
+          "yr3": 12.38,
+          "yr5": 5.89,
+          "yr10": 9.82,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -1151,12 +1151,12 @@
       "metrics": {
         "ytd": 9.66,
         "tr1y": 8.02,
-        "tr3y": 38.09,
-        "tr5y": 33.4,
-        "tr10y": 160.07,
-        "cagr3y": 11.36,
-        "cagr5y": 5.93,
-        "cagr10y": 10.03,
+        "tr3y": 41.93,
+        "tr5y": 33.16,
+        "tr10y": 155.09,
+        "cagr3y": 12.38,
+        "cagr5y": 5.89,
+        "cagr10y": 9.82,
         "siAnn": null,
         "dividendYield": 1.56,
         "dividendYieldText": "1.56%",
@@ -1167,7 +1167,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 114,
-      "history": 5750
+      "history": 5751
     },
     {
       "ticker": "VB",
@@ -1200,9 +1200,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 11.3,
           "yr1": 13.41,
-          "yr3": 16.58,
-          "yr5": 6.21,
-          "yr10": 10.72,
+          "yr3": 17.62,
+          "yr5": 6.11,
+          "yr10": 10.64,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -1219,12 +1219,12 @@
       "metrics": {
         "ytd": 11.3,
         "tr1y": 13.41,
-        "tr3y": 58.44,
-        "tr5y": 35.18,
-        "tr10y": 176.98,
-        "cagr3y": 16.58,
-        "cagr5y": 6.21,
-        "cagr10y": 10.72,
+        "tr3y": 62.73,
+        "tr5y": 34.51,
+        "tr10y": 174.78,
+        "cagr3y": 17.62,
+        "cagr5y": 6.11,
+        "cagr10y": 10.64,
         "siAnn": null,
         "dividendYield": 1.37,
         "dividendYieldText": "1.37%",
@@ -1235,7 +1235,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 1314,
-      "history": 5750
+      "history": 5751
     },
     {
       "ticker": "VBCA",
@@ -1303,7 +1303,7 @@
         "performanceAsOf": null
       },
       "holdings": 621,
-      "history": 145
+      "history": 146
     },
     {
       "ticker": "VBCB",
@@ -1371,7 +1371,7 @@
         "performanceAsOf": null
       },
       "holdings": 666,
-      "history": 145
+      "history": 146
     },
     {
       "ticker": "VBCC",
@@ -1439,7 +1439,7 @@
         "performanceAsOf": null
       },
       "holdings": 654,
-      "history": 145
+      "history": 146
     },
     {
       "ticker": "VBCD",
@@ -1507,7 +1507,7 @@
         "performanceAsOf": null
       },
       "holdings": 677,
-      "history": 145
+      "history": 146
     },
     {
       "ticker": "VBCE",
@@ -1575,7 +1575,7 @@
         "performanceAsOf": null
       },
       "holdings": 616,
-      "history": 145
+      "history": 146
     },
     {
       "ticker": "VBCF",
@@ -1643,7 +1643,7 @@
         "performanceAsOf": null
       },
       "holdings": 387,
-      "history": 145
+      "history": 146
     },
     {
       "ticker": "VBCG",
@@ -1711,7 +1711,7 @@
         "performanceAsOf": null
       },
       "holdings": 389,
-      "history": 145
+      "history": 146
     },
     {
       "ticker": "VBCH",
@@ -1779,7 +1779,7 @@
         "performanceAsOf": null
       },
       "holdings": 354,
-      "history": 145
+      "history": 146
     },
     {
       "ticker": "VBCI",
@@ -1847,7 +1847,7 @@
         "performanceAsOf": null
       },
       "holdings": 376,
-      "history": 145
+      "history": 146
     },
     {
       "ticker": "VBCJ",
@@ -1915,7 +1915,7 @@
         "performanceAsOf": null
       },
       "holdings": 319,
-      "history": 145
+      "history": 146
     },
     {
       "ticker": "VBIL",
@@ -1983,7 +1983,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 24,
-      "history": 429
+      "history": 430
     },
     {
       "ticker": "VBK",
@@ -2016,9 +2016,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 8.55,
           "yr1": 13.94,
-          "yr3": 16.12,
-          "yr5": 3.13,
-          "yr10": 10.57,
+          "yr3": 17.47,
+          "yr5": 3.04,
+          "yr10": 10.56,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -2035,12 +2035,12 @@
       "metrics": {
         "ytd": 8.55,
         "tr1y": 13.94,
-        "tr3y": 56.59,
-        "tr5y": 16.64,
-        "tr10y": 173.05,
-        "cagr3y": 16.12,
-        "cagr5y": 3.13,
-        "cagr10y": 10.57,
+        "tr3y": 62.09,
+        "tr5y": 16.13,
+        "tr10y": 172.95,
+        "cagr3y": 17.47,
+        "cagr5y": 3.04,
+        "cagr10y": 10.56,
         "siAnn": null,
         "dividendYield": 0.43,
         "dividendYieldText": "0.43%",
@@ -2051,7 +2051,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 567,
-      "history": 5750
+      "history": 5751
     },
     {
       "ticker": "VBR",
@@ -2084,9 +2084,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 13.29,
           "yr1": 12.85,
-          "yr3": 16.8,
-          "yr5": 8.32,
-          "yr10": 10.38,
+          "yr3": 17.56,
+          "yr5": 8.17,
+          "yr10": 10.23,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -2103,12 +2103,12 @@
       "metrics": {
         "ytd": 13.29,
         "tr1y": 12.85,
-        "tr3y": 59.35,
-        "tr5y": 49.11,
-        "tr10y": 168.57,
-        "cagr3y": 16.8,
-        "cagr5y": 8.32,
-        "cagr10y": 10.38,
+        "tr3y": 62.46,
+        "tr5y": 48.07,
+        "tr10y": 164.76,
+        "cagr3y": 17.56,
+        "cagr5y": 8.17,
+        "cagr10y": 10.23,
         "siAnn": null,
         "dividendYield": 2.1,
         "dividendYieldText": "2.10%",
@@ -2119,7 +2119,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 839,
-      "history": 5750
+      "history": 5751
     },
     {
       "ticker": "VCEB",
@@ -2152,8 +2152,8 @@
           "asOfDate": "Oct 16 2026",
           "ytd": -2.11,
           "yr1": -2.68,
-          "yr3": 5.35,
-          "yr5": -0.23,
+          "yr3": 5.82,
+          "yr5": -0.21,
           "yr10": null,
           "sinceInception": null
         },
@@ -2171,11 +2171,11 @@
       "metrics": {
         "ytd": -2.11,
         "tr1y": -2.68,
-        "tr3y": 16.93,
-        "tr5y": -1.12,
+        "tr3y": 18.49,
+        "tr5y": -1.06,
         "tr10y": null,
-        "cagr3y": 5.35,
-        "cagr5y": -0.23,
+        "cagr3y": 5.82,
+        "cagr5y": -0.21,
         "cagr10y": null,
         "siAnn": null,
         "dividendYield": 4.92,
@@ -2186,8 +2186,8 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
         "performanceAsOf": "2026-10-16"
       },
-      "holdings": 2782,
-      "history": 1545
+      "holdings": 2785,
+      "history": 1546
     },
     {
       "ticker": "VCHY",
@@ -2255,7 +2255,7 @@
         "performanceAsOf": null
       },
       "holdings": 1835,
-      "history": 97
+      "history": 98
     },
     {
       "ticker": "VCIT",
@@ -2288,9 +2288,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": -2.17,
           "yr1": -2.23,
-          "yr3": 6.41,
-          "yr5": 0.65,
-          "yr10": 2.5,
+          "yr3": 6.94,
+          "yr5": 0.66,
+          "yr10": 2.4,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -2307,12 +2307,12 @@
       "metrics": {
         "ytd": -2.17,
         "tr1y": -2.23,
-        "tr3y": 20.5,
-        "tr5y": 3.31,
-        "tr10y": 27.96,
-        "cagr3y": 6.41,
-        "cagr5y": 0.65,
-        "cagr10y": 2.5,
+        "tr3y": 22.3,
+        "tr5y": 3.35,
+        "tr10y": 26.73,
+        "cagr3y": 6.94,
+        "cagr5y": 0.66,
+        "cagr10y": 2.4,
         "siAnn": null,
         "dividendYield": 5.2,
         "dividendYieldText": "5.20%",
@@ -2323,7 +2323,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 2347,
-      "history": 4285
+      "history": 4286
     },
     {
       "ticker": "VCLT",
@@ -2356,9 +2356,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": -4.06,
           "yr1": -6.62,
-          "yr3": 5.34,
-          "yr5": -3.47,
-          "yr10": 1.44,
+          "yr3": 6.34,
+          "yr5": -3.42,
+          "yr10": 1.27,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -2375,12 +2375,12 @@
       "metrics": {
         "ytd": -4.06,
         "tr1y": -6.62,
-        "tr3y": 16.9,
-        "tr5y": -16.2,
-        "tr10y": 15.33,
-        "cagr3y": 5.34,
-        "cagr5y": -3.47,
-        "cagr10y": 1.44,
+        "tr3y": 20.24,
+        "tr5y": -15.98,
+        "tr10y": 13.48,
+        "cagr3y": 6.34,
+        "cagr5y": -3.42,
+        "cagr10y": 1.27,
         "siAnn": null,
         "dividendYield": 6.03,
         "dividendYieldText": "6.03%",
@@ -2391,7 +2391,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 2587,
-      "history": 4285
+      "history": 4286
     },
     {
       "ticker": "VCR",
@@ -2424,9 +2424,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": -3.95,
           "yr1": -7.21,
-          "yr3": 12.63,
-          "yr5": 3.94,
-          "yr10": 13.03,
+          "yr3": 14.89,
+          "yr5": 4.09,
+          "yr10": 13.16,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -2443,12 +2443,12 @@
       "metrics": {
         "ytd": -3.95,
         "tr1y": -7.21,
-        "tr3y": 42.89,
-        "tr5y": 21.31,
-        "tr10y": 240.21,
-        "cagr3y": 12.63,
-        "cagr5y": 3.94,
-        "cagr10y": 13.03,
+        "tr3y": 51.64,
+        "tr5y": 22.17,
+        "tr10y": 244.44,
+        "cagr3y": 14.89,
+        "cagr5y": 4.09,
+        "cagr10y": 13.16,
         "siAnn": null,
         "dividendYield": 0.9,
         "dividendYieldText": "0.90%",
@@ -2459,7 +2459,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 281,
-      "history": 5750
+      "history": 5751
     },
     {
       "ticker": "VCRB",
@@ -2526,8 +2526,8 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns",
         "performanceAsOf": "2026-10-16"
       },
-      "holdings": 3598,
-      "history": 723
+      "holdings": 3613,
+      "history": 724
     },
     {
       "ticker": "VCRM",
@@ -2594,8 +2594,8 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns",
         "performanceAsOf": "2026-10-16"
       },
-      "holdings": 2859,
-      "history": 483
+      "holdings": 2891,
+      "history": 484
     },
     {
       "ticker": "VCSH",
@@ -2628,9 +2628,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 0.57,
           "yr1": 1.11,
-          "yr3": 5.48,
-          "yr5": 2.37,
-          "yr10": 2.6,
+          "yr3": 5.61,
+          "yr5": 2.36,
+          "yr10": 2.56,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -2647,12 +2647,12 @@
       "metrics": {
         "ytd": 0.57,
         "tr1y": 1.11,
-        "tr3y": 17.37,
-        "tr5y": 12.4,
-        "tr10y": 29.29,
-        "cagr3y": 5.48,
-        "cagr5y": 2.37,
-        "cagr10y": 2.6,
+        "tr3y": 17.79,
+        "tr5y": 12.39,
+        "tr10y": 28.81,
+        "cagr3y": 5.61,
+        "cagr5y": 2.36,
+        "cagr10y": 2.56,
         "siAnn": null,
         "dividendYield": 4.63,
         "dividendYieldText": "4.63%",
@@ -2663,7 +2663,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 3074,
-      "history": 4285
+      "history": 4286
     },
     {
       "ticker": "VDC",
@@ -2696,9 +2696,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 14.37,
           "yr1": 4.28,
-          "yr3": 12.63,
-          "yr5": 7.79,
-          "yr10": 8.48,
+          "yr3": 12.42,
+          "yr5": 7.77,
+          "yr10": 8.5,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -2715,12 +2715,12 @@
       "metrics": {
         "ytd": 14.37,
         "tr1y": 4.28,
-        "tr3y": 42.87,
-        "tr5y": 45.54,
-        "tr10y": 125.72,
-        "cagr3y": 12.63,
-        "cagr5y": 7.79,
-        "cagr10y": 8.48,
+        "tr3y": 42.07,
+        "tr5y": 45.37,
+        "tr10y": 126.14,
+        "cagr3y": 12.42,
+        "cagr5y": 7.77,
+        "cagr10y": 8.5,
         "siAnn": null,
         "dividendYield": 2.38,
         "dividendYieldText": "2.38%",
@@ -2731,7 +2731,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 110,
-      "history": 5750
+      "history": 5751
     },
     {
       "ticker": "VDE",
@@ -2764,9 +2764,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 53.75,
           "yr1": 40.48,
-          "yr3": 18.08,
-          "yr5": 22.67,
-          "yr10": 10.78,
+          "yr3": 17.15,
+          "yr5": 22.21,
+          "yr10": 10.58,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -2783,12 +2783,12 @@
       "metrics": {
         "ytd": 53.75,
         "tr1y": 40.48,
-        "tr3y": 64.65,
-        "tr5y": 177.74,
-        "tr10y": 178.47,
-        "cagr3y": 18.08,
-        "cagr5y": 22.67,
-        "cagr10y": 10.78,
+        "tr3y": 60.79,
+        "tr5y": 172.65,
+        "tr10y": 173.44,
+        "cagr3y": 17.15,
+        "cagr5y": 22.21,
+        "cagr10y": 10.58,
         "siAnn": null,
         "dividendYield": 2.45,
         "dividendYieldText": "2.45%",
@@ -2799,7 +2799,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 116,
-      "history": 5583
+      "history": 5584
     },
     {
       "ticker": "VDG",
@@ -2867,7 +2867,7 @@
         "performanceAsOf": null
       },
       "holdings": 597,
-      "history": 131
+      "history": 132
     },
     {
       "ticker": "VDIG",
@@ -2935,7 +2935,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 42,
-      "history": 235
+      "history": 236
     },
     {
       "ticker": "VDV",
@@ -3003,7 +3003,7 @@
         "performanceAsOf": null
       },
       "holdings": 768,
-      "history": 131
+      "history": 132
     },
     {
       "ticker": "VEA",
@@ -3036,9 +3036,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 12.25,
           "yr1": 20.77,
-          "yr3": 20.3,
-          "yr5": 9.34,
-          "yr10": 9.84,
+          "yr3": 21.23,
+          "yr5": 9.22,
+          "yr10": 9.68,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -3055,12 +3055,12 @@
       "metrics": {
         "ytd": 12.25,
         "tr1y": 20.77,
-        "tr3y": 74.12,
-        "tr5y": 56.26,
-        "tr10y": 155.57,
-        "cagr3y": 20.3,
-        "cagr5y": 9.34,
-        "cagr10y": 9.84,
+        "tr3y": 78.17,
+        "tr5y": 55.45,
+        "tr10y": 151.94,
+        "cagr3y": 21.23,
+        "cagr5y": 9.22,
+        "cagr10y": 9.68,
         "siAnn": null,
         "dividendYield": 2.4,
         "dividendYieldText": "2.40%",
@@ -3071,7 +3071,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 4057,
-      "history": 4873
+      "history": 4874
     },
     {
       "ticker": "VEU",
@@ -3104,9 +3104,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 11.64,
           "yr1": 19.12,
-          "yr3": 19.69,
-          "yr5": 8.64,
-          "yr10": 9.39,
+          "yr3": 20.61,
+          "yr5": 8.49,
+          "yr10": 9.21,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -3123,12 +3123,12 @@
       "metrics": {
         "ytd": 11.64,
         "tr1y": 19.12,
-        "tr3y": 71.48,
-        "tr5y": 51.31,
-        "tr10y": 145.23,
-        "cagr3y": 19.69,
-        "cagr5y": 8.64,
-        "cagr10y": 9.39,
+        "tr3y": 75.44,
+        "tr5y": 50.3,
+        "tr10y": 141.38,
+        "cagr3y": 20.61,
+        "cagr5y": 8.49,
+        "cagr10y": 9.21,
         "siAnn": null,
         "dividendYield": 2.35,
         "dividendYieldText": "2.35%",
@@ -3139,7 +3139,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 3952,
-      "history": 4970
+      "history": 4971
     },
     {
       "ticker": "VEXC",
@@ -3207,7 +3207,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 1012,
-      "history": 267
+      "history": 268
     },
     {
       "ticker": "VFH",
@@ -3240,9 +3240,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 2.33,
           "yr1": 0.84,
-          "yr3": 20.63,
-          "yr5": 8.83,
-          "yr10": 12.82,
+          "yr3": 21.32,
+          "yr5": 8.45,
+          "yr10": 12.6,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -3259,12 +3259,12 @@
       "metrics": {
         "ytd": 2.33,
         "tr1y": 0.84,
-        "tr3y": 75.55,
-        "tr5y": 52.64,
-        "tr10y": 233.95,
-        "cagr3y": 20.63,
-        "cagr5y": 8.83,
-        "cagr10y": 12.82,
+        "tr3y": 78.57,
+        "tr5y": 49.99,
+        "tr10y": 227.53,
+        "cagr3y": 21.32,
+        "cagr5y": 8.45,
+        "cagr10y": 12.6,
         "siAnn": null,
         "dividendYield": 1.78,
         "dividendYieldText": "1.78%",
@@ -3275,7 +3275,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 432,
-      "history": 5750
+      "history": 5751
     },
     {
       "ticker": "VFMF",
@@ -3308,8 +3308,8 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 23.8,
           "yr1": 25.69,
-          "yr3": 23.28,
-          "yr5": 14.37,
+          "yr3": 24.06,
+          "yr5": 14.19,
           "yr10": null,
           "sinceInception": null
         },
@@ -3327,11 +3327,11 @@
       "metrics": {
         "ytd": 23.8,
         "tr1y": 25.69,
-        "tr3y": 87.37,
-        "tr5y": 95.71,
+        "tr3y": 90.95,
+        "tr5y": 94.19,
         "tr10y": null,
-        "cagr3y": 23.28,
-        "cagr5y": 14.37,
+        "cagr3y": 24.06,
+        "cagr5y": 14.19,
         "cagr10y": null,
         "siAnn": null,
         "dividendYield": 1.66,
@@ -3342,8 +3342,8 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
         "performanceAsOf": "2026-10-16"
       },
-      "holdings": 651,
-      "history": 2210
+      "holdings": 650,
+      "history": 2211
     },
     {
       "ticker": "VFMO",
@@ -3376,8 +3376,8 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 14.08,
           "yr1": 19.23,
-          "yr3": 25.46,
-          "yr5": 11.44,
+          "yr3": 26.88,
+          "yr5": 11.33,
           "yr10": null,
           "sinceInception": null
         },
@@ -3395,11 +3395,11 @@
       "metrics": {
         "ytd": 14.08,
         "tr1y": 19.23,
-        "tr3y": 97.46,
-        "tr5y": 71.9,
+        "tr3y": 104.28,
+        "tr5y": 71,
         "tr10y": null,
-        "cagr3y": 25.46,
-        "cagr5y": 11.44,
+        "cagr3y": 26.88,
+        "cagr5y": 11.33,
         "cagr10y": null,
         "siAnn": null,
         "dividendYield": 0.81,
@@ -3410,8 +3410,8 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
         "performanceAsOf": "2026-10-16"
       },
-      "holdings": 699,
-      "history": 2209
+      "holdings": 701,
+      "history": 2210
     },
     {
       "ticker": "VFMV",
@@ -3444,8 +3444,8 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 12.88,
           "yr1": 9.45,
-          "yr3": 16.23,
-          "yr5": 9.93,
+          "yr3": 16.68,
+          "yr5": 9.74,
           "yr10": null,
           "sinceInception": null
         },
@@ -3463,11 +3463,11 @@
       "metrics": {
         "ytd": 12.88,
         "tr1y": 9.45,
-        "tr3y": 57.01,
-        "tr5y": 60.55,
+        "tr3y": 58.85,
+        "tr5y": 59.13,
         "tr10y": null,
-        "cagr3y": 16.23,
-        "cagr5y": 9.93,
+        "cagr3y": 16.68,
+        "cagr5y": 9.74,
         "cagr10y": null,
         "siAnn": null,
         "dividendYield": 1.64,
@@ -3479,7 +3479,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 222,
-      "history": 2210
+      "history": 2211
     },
     {
       "ticker": "VFQY",
@@ -3512,8 +3512,8 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 14.45,
           "yr1": 14,
-          "yr3": 16.93,
-          "yr5": 9.12,
+          "yr3": 17.72,
+          "yr5": 8.9,
           "yr10": null,
           "sinceInception": null
         },
@@ -3531,11 +3531,11 @@
       "metrics": {
         "ytd": 14.45,
         "tr1y": 14,
-        "tr3y": 59.86,
-        "tr5y": 54.71,
+        "tr3y": 63.14,
+        "tr5y": 53.17,
         "tr10y": null,
-        "cagr3y": 16.93,
-        "cagr5y": 9.12,
+        "cagr3y": 17.72,
+        "cagr5y": 8.9,
         "cagr10y": null,
         "siAnn": null,
         "dividendYield": 1.11,
@@ -3547,7 +3547,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 477,
-      "history": 2210
+      "history": 2211
     },
     {
       "ticker": "VFVA",
@@ -3580,8 +3580,8 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 19.86,
           "yr1": 20.64,
-          "yr3": 19.24,
-          "yr5": 11.45,
+          "yr3": 19.64,
+          "yr5": 11.25,
           "yr10": null,
           "sinceInception": null
         },
@@ -3599,11 +3599,11 @@
       "metrics": {
         "ytd": 19.86,
         "tr1y": 20.64,
-        "tr3y": 69.52,
-        "tr5y": 71.94,
+        "tr3y": 71.25,
+        "tr5y": 70.43,
         "tr10y": null,
-        "cagr3y": 19.24,
-        "cagr5y": 11.45,
+        "cagr3y": 19.64,
+        "cagr5y": 11.25,
         "cagr10y": null,
         "siAnn": null,
         "dividendYield": 2.08,
@@ -3615,7 +3615,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 692,
-      "history": 2210
+      "history": 2211
     },
     {
       "ticker": "VGHY",
@@ -3683,7 +3683,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 631,
-      "history": 277
+      "history": 278
     },
     {
       "ticker": "VGIT",
@@ -3716,9 +3716,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": -1.88,
           "yr1": -1.88,
-          "yr3": 4.01,
-          "yr5": -0.1,
-          "yr10": 1.07,
+          "yr3": 4.32,
+          "yr5": -0.09,
+          "yr10": 1.01,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -3735,12 +3735,12 @@
       "metrics": {
         "ytd": -1.88,
         "tr1y": -1.88,
-        "tr3y": 12.5,
-        "tr5y": -0.52,
-        "tr10y": 11.23,
-        "cagr3y": 4.01,
-        "cagr5y": -0.1,
-        "cagr10y": 1.07,
+        "tr3y": 13.52,
+        "tr5y": -0.47,
+        "tr10y": 10.62,
+        "cagr3y": 4.32,
+        "cagr5y": -0.09,
+        "cagr10y": 1.01,
         "siAnn": null,
         "dividendYield": 4.03,
         "dividendYieldText": "4.03%",
@@ -3751,7 +3751,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 105,
-      "history": 4285
+      "history": 4286
     },
     {
       "ticker": "VGK",
@@ -3784,9 +3784,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 6.93,
           "yr1": 11.75,
-          "yr3": 18.12,
-          "yr5": 8.53,
-          "yr10": 9.79,
+          "yr3": 18.84,
+          "yr5": 8.29,
+          "yr10": 9.57,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -3803,12 +3803,12 @@
       "metrics": {
         "ytd": 6.93,
         "tr1y": 11.75,
-        "tr3y": 64.82,
-        "tr5y": 50.58,
-        "tr10y": 154.49,
-        "cagr3y": 18.12,
-        "cagr5y": 8.53,
-        "cagr10y": 9.79,
+        "tr3y": 67.83,
+        "tr5y": 48.94,
+        "tr10y": 149.44,
+        "cagr3y": 18.84,
+        "cagr5y": 8.29,
+        "cagr10y": 9.57,
         "siAnn": null,
         "dividendYield": 2.83,
         "dividendYieldText": "2.83%",
@@ -3819,7 +3819,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 1292,
-      "history": 5471
+      "history": 5472
     },
     {
       "ticker": "VGLT",
@@ -3852,9 +3852,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": -4.82,
           "yr1": -7.61,
-          "yr3": 2.67,
-          "yr5": -6.84,
-          "yr10": -1.5,
+          "yr3": 3.75,
+          "yr5": -6.78,
+          "yr10": -1.66,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -3871,12 +3871,12 @@
       "metrics": {
         "ytd": -4.82,
         "tr1y": -7.61,
-        "tr3y": 8.21,
-        "tr5y": -29.83,
-        "tr10y": -14.02,
-        "cagr3y": 2.67,
-        "cagr5y": -6.84,
-        "cagr10y": -1.5,
+        "tr3y": 11.68,
+        "tr5y": -29.62,
+        "tr10y": -15.41,
+        "cagr3y": 3.75,
+        "cagr5y": -6.78,
+        "cagr10y": -1.66,
         "siAnn": null,
         "dividendYield": 4.83,
         "dividendYieldText": "4.83%",
@@ -3887,7 +3887,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 104,
-      "history": 4258
+      "history": 4259
     },
     {
       "ticker": "VGMS",
@@ -3954,8 +3954,8 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns",
         "performanceAsOf": "2026-10-16"
       },
-      "holdings": 1336,
-      "history": 345
+      "holdings": 1333,
+      "history": 346
     },
     {
       "ticker": "VGSH",
@@ -3988,9 +3988,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 0.95,
           "yr1": 1.6,
-          "yr3": 4.18,
-          "yr5": 1.98,
-          "yr10": 1.78,
+          "yr3": 4.16,
+          "yr5": 1.97,
+          "yr10": 1.76,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -4007,12 +4007,12 @@
       "metrics": {
         "ytd": 0.95,
         "tr1y": 1.6,
-        "tr3y": 13.07,
-        "tr5y": 10.31,
-        "tr10y": 19.24,
-        "cagr3y": 4.18,
-        "cagr5y": 1.98,
-        "cagr10y": 1.78,
+        "tr3y": 13,
+        "tr5y": 10.23,
+        "tr10y": 19.09,
+        "cagr3y": 4.16,
+        "cagr5y": 1.97,
+        "cagr10y": 1.76,
         "siAnn": null,
         "dividendYield": 3.85,
         "dividendYieldText": "3.85%",
@@ -4023,7 +4023,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 98,
-      "history": 4285
+      "history": 4286
     },
     {
       "ticker": "VGT",
@@ -4056,9 +4056,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 26.57,
           "yr1": 35.19,
-          "yr3": 31.18,
-          "yr5": 18.51,
-          "yr10": 24.17,
+          "yr3": 32.84,
+          "yr5": 18.37,
+          "yr10": 24.26,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -4075,12 +4075,12 @@
       "metrics": {
         "ytd": 26.57,
         "tr1y": 35.19,
-        "tr3y": 125.74,
-        "tr5y": 133.78,
-        "tr10y": 771.19,
-        "cagr3y": 31.18,
-        "cagr5y": 18.51,
-        "cagr10y": 24.17,
+        "tr3y": 134.42,
+        "tr5y": 132.43,
+        "tr10y": 777.68,
+        "cagr3y": 32.84,
+        "cagr5y": 18.37,
+        "cagr10y": 24.26,
         "siAnn": null,
         "dividendYield": 0.4,
         "dividendYieldText": "0.40%",
@@ -4091,7 +4091,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 324,
-      "history": 5750
+      "history": 5751
     },
     {
       "ticker": "VGUS",
@@ -4159,7 +4159,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 91,
-      "history": 429
+      "history": 430
     },
     {
       "ticker": "VGVT",
@@ -4226,8 +4226,8 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns",
         "performanceAsOf": "2026-10-16"
       },
-      "holdings": 290,
-      "history": 327
+      "holdings": 294,
+      "history": 328
     },
     {
       "ticker": "VHT",
@@ -4260,9 +4260,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 14.81,
           "yr1": 23.62,
-          "yr3": 12.91,
-          "yr5": 7.22,
-          "yr10": 11.49,
+          "yr3": 13.55,
+          "yr5": 7.03,
+          "yr10": 11.4,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -4279,12 +4279,12 @@
       "metrics": {
         "ytd": 14.81,
         "tr1y": 23.62,
-        "tr3y": 43.95,
-        "tr5y": 41.68,
-        "tr10y": 196.79,
-        "cagr3y": 12.91,
-        "cagr5y": 7.22,
-        "cagr10y": 11.49,
+        "tr3y": 46.42,
+        "tr5y": 40.46,
+        "tr10y": 194.33,
+        "cagr3y": 13.55,
+        "cagr5y": 7.03,
+        "cagr10y": 11.4,
         "siAnn": null,
         "dividendYield": 1.34,
         "dividendYieldText": "1.34%",
@@ -4295,7 +4295,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 419,
-      "history": 5750
+      "history": 5751
     },
     {
       "ticker": "VIG",
@@ -4328,8 +4328,8 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 11.35,
           "yr1": 9.77,
-          "yr3": 17.43,
-          "yr5": 10.58,
+          "yr3": 17.93,
+          "yr5": 10.34,
           "yr10": 13.49,
           "sinceInception": null
         },
@@ -4347,11 +4347,11 @@
       "metrics": {
         "ytd": 11.35,
         "tr1y": 9.77,
-        "tr3y": 61.94,
-        "tr5y": 65.31,
-        "tr10y": 254.61,
-        "cagr3y": 17.43,
-        "cagr5y": 10.58,
+        "tr3y": 64.01,
+        "tr5y": 63.53,
+        "tr10y": 254.35,
+        "cagr3y": 17.93,
+        "cagr5y": 10.34,
         "cagr10y": 13.49,
         "siAnn": null,
         "dividendYield": 1.6,
@@ -4363,7 +4363,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 344,
-      "history": 5183
+      "history": 5184
     },
     {
       "ticker": "VIGI",
@@ -4396,9 +4396,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 7.96,
           "yr1": 7.6,
-          "yr3": 12.56,
-          "yr5": 4.88,
-          "yr10": 8.35,
+          "yr3": 13.34,
+          "yr5": 4.68,
+          "yr10": 8.17,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -4415,12 +4415,12 @@
       "metrics": {
         "ytd": 7.96,
         "tr1y": 7.6,
-        "tr3y": 42.61,
-        "tr5y": 26.91,
-        "tr10y": 123.08,
-        "cagr3y": 12.56,
-        "cagr5y": 4.88,
-        "cagr10y": 8.35,
+        "tr3y": 45.61,
+        "tr5y": 25.71,
+        "tr10y": 119.32,
+        "cagr3y": 13.34,
+        "cagr5y": 4.68,
+        "cagr10y": 8.17,
         "siAnn": null,
         "dividendYield": 2.19,
         "dividendYieldText": "2.19%",
@@ -4431,7 +4431,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 444,
-      "history": 2708
+      "history": 2709
     },
     {
       "ticker": "VIOG",
@@ -4464,8 +4464,8 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 13.35,
           "yr1": 14.33,
-          "yr3": 14.74,
-          "yr5": 4.79,
+          "yr3": 15.68,
+          "yr5": 4.7,
           "yr10": 10.17,
           "sinceInception": null
         },
@@ -4483,11 +4483,11 @@
       "metrics": {
         "ytd": 13.35,
         "tr1y": 14.33,
-        "tr3y": 51.07,
-        "tr5y": 26.34,
-        "tr10y": 163.47,
-        "cagr3y": 14.74,
-        "cagr5y": 4.79,
+        "tr3y": 54.8,
+        "tr5y": 25.82,
+        "tr10y": 163.4,
+        "cagr3y": 15.68,
+        "cagr5y": 4.7,
         "cagr10y": 10.17,
         "siAnn": null,
         "dividendYield": 1,
@@ -4499,7 +4499,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 352,
-      "history": 4086
+      "history": 4087
     },
     {
       "ticker": "VIOO",
@@ -4532,9 +4532,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 14.01,
           "yr1": 15.98,
-          "yr3": 15.34,
-          "yr5": 5.6,
-          "yr10": 10.08,
+          "yr3": 16.21,
+          "yr5": 5.54,
+          "yr10": 10.02,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -4551,12 +4551,12 @@
       "metrics": {
         "ytd": 14.01,
         "tr1y": 15.98,
-        "tr3y": 53.45,
-        "tr5y": 31.34,
-        "tr10y": 161.34,
-        "cagr3y": 15.34,
-        "cagr5y": 5.6,
-        "cagr10y": 10.08,
+        "tr3y": 56.95,
+        "tr5y": 30.97,
+        "tr10y": 159.84,
+        "cagr3y": 16.21,
+        "cagr5y": 5.54,
+        "cagr10y": 10.02,
         "siAnn": null,
         "dividendYield": 1.58,
         "dividendYieldText": "1.58%",
@@ -4567,7 +4567,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 614,
-      "history": 4086
+      "history": 4087
     },
     {
       "ticker": "VIOV",
@@ -4600,9 +4600,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 14.54,
           "yr1": 17.65,
-          "yr3": 15.96,
-          "yr5": 6.34,
-          "yr10": 9.7,
+          "yr3": 16.62,
+          "yr5": 6.26,
+          "yr10": 9.55,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -4619,12 +4619,12 @@
       "metrics": {
         "ytd": 14.54,
         "tr1y": 17.65,
-        "tr3y": 55.94,
-        "tr5y": 35.98,
-        "tr10y": 152.46,
-        "cagr3y": 15.96,
-        "cagr5y": 6.34,
-        "cagr10y": 9.7,
+        "tr3y": 58.6,
+        "tr5y": 35.46,
+        "tr10y": 149.02,
+        "cagr3y": 16.62,
+        "cagr5y": 6.26,
+        "cagr10y": 9.55,
         "siAnn": null,
         "dividendYield": 2.12,
         "dividendYieldText": "2.12%",
@@ -4635,7 +4635,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 473,
-      "history": 4086
+      "history": 4087
     },
     {
       "ticker": "VIS",
@@ -4668,9 +4668,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 8.13,
           "yr1": 9.18,
-          "yr3": 19.03,
-          "yr5": 11.6,
-          "yr10": 13.09,
+          "yr3": 20.08,
+          "yr5": 11.32,
+          "yr10": 12.98,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -4687,12 +4687,12 @@
       "metrics": {
         "ytd": 8.13,
         "tr1y": 9.18,
-        "tr3y": 68.63,
-        "tr5y": 73.1,
-        "tr10y": 242.02,
-        "cagr3y": 19.03,
-        "cagr5y": 11.6,
-        "cagr10y": 13.09,
+        "tr3y": 73.17,
+        "tr5y": 70.97,
+        "tr10y": 238.82,
+        "cagr3y": 20.08,
+        "cagr5y": 11.32,
+        "cagr10y": 12.98,
         "siAnn": null,
         "dividendYield": 1.06,
         "dividendYieldText": "1.06%",
@@ -4703,7 +4703,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 401,
-      "history": 5583
+      "history": 5584
     },
     {
       "ticker": "VMBS",
@@ -4736,9 +4736,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": -1.47,
           "yr1": -1.44,
-          "yr3": 5.59,
-          "yr5": 0.09,
-          "yr10": 1.05,
+          "yr3": 6.19,
+          "yr5": 0.06,
+          "yr10": 1.01,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -4755,12 +4755,12 @@
       "metrics": {
         "ytd": -1.47,
         "tr1y": -1.44,
-        "tr3y": 17.72,
-        "tr5y": 0.45,
-        "tr10y": 11.05,
-        "cagr3y": 5.59,
-        "cagr5y": 0.09,
-        "cagr10y": 1.05,
+        "tr3y": 19.73,
+        "tr5y": 0.31,
+        "tr10y": 10.59,
+        "cagr3y": 6.19,
+        "cagr5y": 0.06,
+        "cagr10y": 1.01,
         "siAnn": null,
         "dividendYield": 4.4,
         "dividendYieldText": "4.40%",
@@ -4771,7 +4771,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 4959,
-      "history": 4285
+      "history": 4286
     },
     {
       "ticker": "VNQ",
@@ -4804,9 +4804,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 6.69,
           "yr1": 1.68,
-          "yr3": 10.56,
-          "yr5": 0.94,
-          "yr10": 5.1,
+          "yr3": 11.87,
+          "yr5": 0.65,
+          "yr10": 4.87,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -4823,12 +4823,12 @@
       "metrics": {
         "ytd": 6.69,
         "tr1y": 1.68,
-        "tr3y": 35.14,
-        "tr5y": 4.78,
-        "tr10y": 64.47,
-        "cagr3y": 10.56,
-        "cagr5y": 0.94,
-        "cagr10y": 5.1,
+        "tr3y": 40.01,
+        "tr5y": 3.28,
+        "tr10y": 60.86,
+        "cagr3y": 11.87,
+        "cagr5y": 0.65,
+        "cagr10y": 4.87,
         "siAnn": null,
         "dividendYield": 3.63,
         "dividendYieldText": "3.63%",
@@ -4839,7 +4839,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 158,
-      "history": 5583
+      "history": 5584
     },
     {
       "ticker": "VNQI",
@@ -4872,9 +4872,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": -7.64,
           "yr1": -6.21,
-          "yr3": 8.12,
-          "yr5": -2.17,
-          "yr10": 1.83,
+          "yr3": 8.96,
+          "yr5": -2.31,
+          "yr10": 1.61,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -4891,12 +4891,12 @@
       "metrics": {
         "ytd": -7.64,
         "tr1y": -6.21,
-        "tr3y": 26.38,
-        "tr5y": -10.4,
-        "tr10y": 19.91,
-        "cagr3y": 8.12,
-        "cagr5y": -2.17,
-        "cagr10y": 1.83,
+        "tr3y": 29.36,
+        "tr5y": -11.04,
+        "tr10y": 17.28,
+        "cagr3y": 8.96,
+        "cagr5y": -2.31,
+        "cagr10y": 1.61,
         "siAnn": null,
         "dividendYield": 4.23,
         "dividendYieldText": "4.23%",
@@ -4907,7 +4907,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 851,
-      "history": 4049
+      "history": 4050
     },
     {
       "ticker": "VO",
@@ -4940,9 +4940,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 12.03,
           "yr1": 8.36,
-          "yr3": 17.09,
-          "yr5": 6.95,
-          "yr10": 11.51,
+          "yr3": 18,
+          "yr5": 6.67,
+          "yr10": 11.37,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -4959,12 +4959,12 @@
       "metrics": {
         "ytd": 12.03,
         "tr1y": 8.36,
-        "tr3y": 60.51,
-        "tr5y": 39.9,
-        "tr10y": 197.23,
-        "cagr3y": 17.09,
-        "cagr5y": 6.95,
-        "cagr10y": 11.51,
+        "tr3y": 64.32,
+        "tr5y": 38.13,
+        "tr10y": 193.59,
+        "cagr3y": 18,
+        "cagr5y": 6.67,
+        "cagr10y": 11.37,
         "siAnn": null,
         "dividendYield": 1.49,
         "dividendYieldText": "1.49%",
@@ -4975,7 +4975,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 285,
-      "history": 5750
+      "history": 5751
     },
     {
       "ticker": "VOE",
@@ -5008,9 +5008,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 17.9,
           "yr1": 14.34,
-          "yr3": 18.8,
-          "yr5": 9.61,
-          "yr10": 10.95,
+          "yr3": 19.57,
+          "yr5": 9.36,
+          "yr10": 10.76,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -5027,12 +5027,12 @@
       "metrics": {
         "ytd": 17.9,
         "tr1y": 14.34,
-        "tr3y": 67.69,
-        "tr5y": 58.25,
-        "tr10y": 182.69,
-        "cagr3y": 18.8,
-        "cagr5y": 9.61,
-        "cagr10y": 10.95,
+        "tr3y": 70.96,
+        "tr5y": 56.45,
+        "tr10y": 177.95,
+        "cagr3y": 19.57,
+        "cagr5y": 9.36,
+        "cagr10y": 10.76,
         "siAnn": null,
         "dividendYield": 2.12,
         "dividendYieldText": "2.12%",
@@ -5043,7 +5043,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 178,
-      "history": 5102
+      "history": 5103
     },
     {
       "ticker": "VONE",
@@ -5076,9 +5076,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 12.49,
           "yr1": 14.95,
-          "yr3": 21.75,
-          "yr5": 12.11,
-          "yr10": 15.18,
+          "yr3": 22.81,
+          "yr5": 11.96,
+          "yr10": 15.15,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -5095,12 +5095,12 @@
       "metrics": {
         "ytd": 12.49,
         "tr1y": 14.95,
-        "tr3y": 80.47,
-        "tr5y": 77.08,
-        "tr10y": 310.9,
-        "cagr3y": 21.75,
-        "cagr5y": 12.11,
-        "cagr10y": 15.18,
+        "tr3y": 85.23,
+        "tr5y": 75.91,
+        "tr10y": 309.99,
+        "cagr3y": 22.81,
+        "cagr5y": 11.96,
+        "cagr10y": 15.15,
         "siAnn": null,
         "dividendYield": 1.06,
         "dividendYieldText": "1.06%",
@@ -5111,7 +5111,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 1036,
-      "history": 4077
+      "history": 4078
     },
     {
       "ticker": "VONG",
@@ -5144,9 +5144,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 3.08,
           "yr1": 7.45,
-          "yr3": 21.52,
-          "yr5": 12.01,
-          "yr10": 17.92,
+          "yr3": 22.96,
+          "yr5": 11.85,
+          "yr10": 17.96,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -5163,12 +5163,12 @@
       "metrics": {
         "ytd": 3.08,
         "tr1y": 7.45,
-        "tr3y": 79.45,
-        "tr5y": 76.29,
-        "tr10y": 419.92,
-        "cagr3y": 21.52,
-        "cagr5y": 12.01,
-        "cagr10y": 17.92,
+        "tr3y": 85.9,
+        "tr5y": 75.05,
+        "tr10y": 421.74,
+        "cagr3y": 22.96,
+        "cagr5y": 11.85,
+        "cagr10y": 17.96,
         "siAnn": null,
         "dividendYield": 0.43,
         "dividendYieldText": "0.43%",
@@ -5179,7 +5179,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 378,
-      "history": 4077
+      "history": 4078
     },
     {
       "ticker": "VONV",
@@ -5212,9 +5212,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 23.03,
           "yr1": 23.73,
-          "yr3": 21.28,
-          "yr5": 11.69,
-          "yr10": 11.87,
+          "yr3": 22,
+          "yr5": 11.56,
+          "yr10": 11.8,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -5231,12 +5231,12 @@
       "metrics": {
         "ytd": 23.03,
         "tr1y": 23.73,
-        "tr3y": 78.38,
-        "tr5y": 73.8,
-        "tr10y": 207.01,
-        "cagr3y": 21.28,
-        "cagr5y": 11.69,
-        "cagr10y": 11.87,
+        "tr3y": 81.58,
+        "tr5y": 72.81,
+        "tr10y": 204.98,
+        "cagr3y": 22,
+        "cagr5y": 11.56,
+        "cagr10y": 11.8,
         "siAnn": null,
         "dividendYield": 1.65,
         "dividendYieldText": "1.65%",
@@ -5247,7 +5247,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 887,
-      "history": 4077
+      "history": 4078
     },
     {
       "ticker": "VOO",
@@ -5280,9 +5280,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 12.89,
           "yr1": 15.7,
-          "yr3": 22.08,
-          "yr5": 12.92,
-          "yr10": 15.49,
+          "yr3": 23.15,
+          "yr5": 12.77,
+          "yr10": 15.48,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -5299,12 +5299,12 @@
       "metrics": {
         "ytd": 12.89,
         "tr1y": 15.7,
-        "tr3y": 81.94,
-        "tr5y": 83.59,
-        "tr10y": 322.28,
-        "cagr3y": 22.08,
-        "cagr5y": 12.92,
-        "cagr10y": 15.49,
+        "tr3y": 86.78,
+        "tr5y": 82.39,
+        "tr10y": 321.69,
+        "cagr3y": 23.15,
+        "cagr5y": 12.77,
+        "cagr10y": 15.48,
         "siAnn": null,
         "dividendYield": 1.05,
         "dividendYieldText": "1.05%",
@@ -5315,7 +5315,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 519,
-      "history": 4086
+      "history": 4087
     },
     {
       "ticker": "VOOG",
@@ -5348,9 +5348,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 13.16,
           "yr1": 18.34,
-          "yr3": 26.15,
-          "yr5": 13.42,
-          "yr10": 17.78,
+          "yr3": 27.55,
+          "yr5": 13.24,
+          "yr10": 17.83,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -5367,12 +5367,12 @@
       "metrics": {
         "ytd": 13.16,
         "tr1y": 18.34,
-        "tr3y": 100.75,
-        "tr5y": 87.71,
-        "tr10y": 413.91,
-        "cagr3y": 26.15,
-        "cagr5y": 13.42,
-        "cagr10y": 17.78,
+        "tr3y": 107.49,
+        "tr5y": 86.21,
+        "tr10y": 415.86,
+        "cagr3y": 27.55,
+        "cagr5y": 13.24,
+        "cagr10y": 17.83,
         "siAnn": null,
         "dividendYield": 0.49,
         "dividendYieldText": "0.49%",
@@ -5383,7 +5383,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 163,
-      "history": 4086
+      "history": 4087
     },
     {
       "ticker": "VOOV",
@@ -5416,9 +5416,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 12.46,
           "yr1": 12.4,
-          "yr3": 17.11,
-          "yr5": 11.47,
-          "yr10": 12.1,
+          "yr3": 17.82,
+          "yr5": 11.34,
+          "yr10": 12.02,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -5435,12 +5435,12 @@
       "metrics": {
         "ytd": 12.46,
         "tr1y": 12.4,
-        "tr3y": 60.63,
-        "tr5y": 72.11,
-        "tr10y": 213.33,
-        "cagr3y": 17.11,
-        "cagr5y": 11.47,
-        "cagr10y": 12.1,
+        "tr3y": 63.55,
+        "tr5y": 71.14,
+        "tr10y": 211.08,
+        "cagr3y": 17.82,
+        "cagr5y": 11.34,
+        "cagr10y": 12.02,
         "siAnn": null,
         "dividendYield": 1.77,
         "dividendYieldText": "1.77%",
@@ -5451,7 +5451,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 453,
-      "history": 4086
+      "history": 4087
     },
     {
       "ticker": "VOT",
@@ -5484,9 +5484,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 3.89,
           "yr1": 0.14,
-          "yr3": 14.52,
-          "yr5": 3.84,
-          "yr10": 11.62,
+          "yr3": 15.67,
+          "yr5": 3.56,
+          "yr10": 11.56,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -5503,12 +5503,12 @@
       "metrics": {
         "ytd": 3.89,
         "tr1y": 0.14,
-        "tr3y": 50.21,
-        "tr5y": 20.73,
-        "tr10y": 200.12,
-        "cagr3y": 14.52,
-        "cagr5y": 3.84,
-        "cagr10y": 11.62,
+        "tr3y": 54.75,
+        "tr5y": 19.12,
+        "tr10y": 198.52,
+        "cagr3y": 15.67,
+        "cagr5y": 3.56,
+        "cagr10y": 11.56,
         "siAnn": null,
         "dividendYield": 0.62,
         "dividendYieldText": "0.62%",
@@ -5519,7 +5519,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 127,
-      "history": 5102
+      "history": 5103
     },
     {
       "ticker": "VOX",
@@ -5552,9 +5552,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": -1.73,
           "yr1": 2.55,
-          "yr3": 21.51,
-          "yr5": 6.9,
-          "yr10": 8.95,
+          "yr3": 22.03,
+          "yr5": 6.62,
+          "yr10": 8.86,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -5571,12 +5571,12 @@
       "metrics": {
         "ytd": -1.73,
         "tr1y": 2.55,
-        "tr3y": 79.4,
-        "tr5y": 39.63,
-        "tr10y": 135.74,
-        "cagr3y": 21.51,
-        "cagr5y": 6.9,
-        "cagr10y": 8.95,
+        "tr3y": 81.72,
+        "tr5y": 37.8,
+        "tr10y": 133.81,
+        "cagr3y": 22.03,
+        "cagr5y": 6.62,
+        "cagr10y": 8.86,
         "siAnn": null,
         "dividendYield": 0.98,
         "dividendYieldText": "0.98%",
@@ -5587,7 +5587,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 117,
-      "history": 5583
+      "history": 5584
     },
     {
       "ticker": "VPL",
@@ -5620,9 +5620,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 20.04,
           "yr1": 34.93,
-          "yr3": 21.64,
-          "yr5": 9.39,
-          "yr10": 9.28,
+          "yr3": 22.84,
+          "yr5": 9.45,
+          "yr10": 9.21,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -5639,12 +5639,12 @@
       "metrics": {
         "ytd": 20.04,
         "tr1y": 34.93,
-        "tr3y": 80,
-        "tr5y": 56.61,
-        "tr10y": 142.92,
-        "cagr3y": 21.64,
-        "cagr5y": 9.39,
-        "cagr10y": 9.28,
+        "tr3y": 85.37,
+        "tr5y": 57.08,
+        "tr10y": 141.43,
+        "cagr3y": 22.84,
+        "cagr5y": 9.45,
+        "cagr10y": 9.21,
         "siAnn": null,
         "dividendYield": 1.98,
         "dividendYieldText": "1.98%",
@@ -5655,7 +5655,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 2460,
-      "history": 5471
+      "history": 5472
     },
     {
       "ticker": "VPLS",
@@ -5722,8 +5722,8 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns",
         "performanceAsOf": "2026-10-16"
       },
-      "holdings": 3301,
-      "history": 728
+      "holdings": 3325,
+      "history": 729
     },
     {
       "ticker": "VPU",
@@ -5756,9 +5756,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 0.66,
           "yr1": -7.16,
-          "yr3": 15.52,
-          "yr5": 8.13,
-          "yr10": 9.07,
+          "yr3": 15.61,
+          "yr5": 7.67,
+          "yr10": 8.74,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -5775,12 +5775,12 @@
       "metrics": {
         "ytd": 0.66,
         "tr1y": -7.16,
-        "tr3y": 54.18,
-        "tr5y": 47.82,
-        "tr10y": 138.32,
-        "cagr3y": 15.52,
-        "cagr5y": 8.13,
-        "cagr10y": 9.07,
+        "tr3y": 54.51,
+        "tr5y": 44.71,
+        "tr10y": 131.1,
+        "cagr3y": 15.61,
+        "cagr5y": 7.67,
+        "cagr10y": 8.74,
         "siAnn": null,
         "dividendYield": 3.14,
         "dividendYieldText": "3.14%",
@@ -5791,7 +5791,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 75,
-      "history": 5750
+      "history": 5751
     },
     {
       "ticker": "VSDB",
@@ -5858,8 +5858,8 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns",
         "performanceAsOf": "2026-10-16"
       },
-      "holdings": 1617,
-      "history": 395
+      "holdings": 1628,
+      "history": 396
     },
     {
       "ticker": "VSDM",
@@ -5926,8 +5926,8 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns",
         "performanceAsOf": "2026-10-16"
       },
-      "holdings": 3545,
-      "history": 483
+      "holdings": 3554,
+      "history": 484
     },
     {
       "ticker": "VSGX",
@@ -5960,8 +5960,8 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 12,
           "yr1": 20.51,
-          "yr3": 19.7,
-          "yr5": 7.67,
+          "yr3": 20.73,
+          "yr5": 7.52,
           "yr10": null,
           "sinceInception": null
         },
@@ -5979,11 +5979,11 @@
       "metrics": {
         "ytd": 12,
         "tr1y": 20.51,
-        "tr3y": 71.51,
-        "tr5y": 44.67,
+        "tr3y": 75.95,
+        "tr5y": 43.71,
         "tr10y": null,
-        "cagr3y": 19.7,
-        "cagr5y": 7.67,
+        "cagr3y": 20.73,
+        "cagr5y": 7.52,
         "cagr10y": null,
         "siAnn": null,
         "dividendYield": 2.27,
@@ -5995,7 +5995,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 6691,
-      "history": 2058
+      "history": 2059
     },
     {
       "ticker": "VSS",
@@ -6028,9 +6028,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 7.1,
           "yr1": 12.17,
-          "yr3": 16.92,
-          "yr5": 5.14,
-          "yr10": 7.6,
+          "yr3": 17.76,
+          "yr5": 4.9,
+          "yr10": 7.39,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -6047,12 +6047,12 @@
       "metrics": {
         "ytd": 7.1,
         "tr1y": 12.17,
-        "tr3y": 59.83,
-        "tr5y": 28.49,
-        "tr10y": 107.97,
-        "cagr3y": 16.92,
-        "cagr5y": 5.14,
-        "cagr10y": 7.6,
+        "tr3y": 63.29,
+        "tr5y": 27.04,
+        "tr10y": 103.94,
+        "cagr3y": 17.76,
+        "cagr5y": 4.9,
+        "cagr10y": 7.39,
         "siAnn": null,
         "dividendYield": 2.51,
         "dividendYieldText": "2.51%",
@@ -6063,7 +6063,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 5239,
-      "history": 4446
+      "history": 4447
     },
     {
       "ticker": "VT",
@@ -6096,9 +6096,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 12.07,
           "yr1": 16.32,
-          "yr3": 20.8,
-          "yr5": 10.44,
-          "yr10": 12.47,
+          "yr3": 21.85,
+          "yr5": 10.3,
+          "yr10": 12.38,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -6115,12 +6115,12 @@
       "metrics": {
         "ytd": 12.07,
         "tr1y": 16.32,
-        "tr3y": 76.28,
-        "tr5y": 64.26,
-        "tr10y": 223.81,
-        "cagr3y": 20.8,
-        "cagr5y": 10.44,
-        "cagr10y": 12.47,
+        "tr3y": 80.9,
+        "tr5y": 63.23,
+        "tr10y": 221.16,
+        "cagr3y": 21.85,
+        "cagr5y": 10.3,
+        "cagr10y": 12.38,
         "siAnn": null,
         "dividendYield": 1.55,
         "dividendYieldText": "1.55%",
@@ -6131,7 +6131,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 10344,
-      "history": 4641
+      "history": 4642
     },
     {
       "ticker": "VTC",
@@ -6164,8 +6164,8 @@
           "asOfDate": "Oct 16 2026",
           "ytd": -1.69,
           "yr1": -2.3,
-          "yr3": 5.7,
-          "yr5": -0.23,
+          "yr3": 6.21,
+          "yr5": -0.2,
           "yr10": null,
           "sinceInception": null
         },
@@ -6183,11 +6183,11 @@
       "metrics": {
         "ytd": -1.69,
         "tr1y": -2.3,
-        "tr3y": 18.11,
-        "tr5y": -1.14,
+        "tr3y": 19.82,
+        "tr5y": -1.01,
         "tr10y": null,
-        "cagr3y": 5.7,
-        "cagr5y": -0.23,
+        "cagr3y": 6.21,
+        "cagr5y": -0.2,
         "cagr10y": null,
         "siAnn": null,
         "dividendYield": 5.3,
@@ -6198,8 +6198,8 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
         "performanceAsOf": "2026-10-16"
       },
-      "holdings": 5099,
-      "history": 2277
+      "holdings": 5101,
+      "history": 2278
     },
     {
       "ticker": "VTEB",
@@ -6232,9 +6232,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": -2.08,
           "yr1": -2.31,
-          "yr3": 3.34,
-          "yr5": 0.27,
-          "yr10": 1.72,
+          "yr3": 3.77,
+          "yr5": 0.28,
+          "yr10": 1.73,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -6251,12 +6251,12 @@
       "metrics": {
         "ytd": -2.08,
         "tr1y": -2.31,
-        "tr3y": 10.37,
-        "tr5y": 1.37,
-        "tr10y": 18.64,
-        "cagr3y": 3.34,
-        "cagr5y": 0.27,
-        "cagr10y": 1.72,
+        "tr3y": 11.73,
+        "tr5y": 1.39,
+        "tr10y": 18.69,
+        "cagr3y": 3.77,
+        "cagr5y": 0.28,
+        "cagr10y": 1.73,
         "siAnn": null,
         "dividendYield": 3.47,
         "dividendYieldText": "3.47%",
@@ -6267,7 +6267,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 11156,
-      "history": 2838
+      "history": 2839
     },
     {
       "ticker": "VTEC",
@@ -6334,8 +6334,8 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns",
         "performanceAsOf": "2026-10-16"
       },
-      "holdings": 3982,
-      "history": 692
+      "holdings": 3984,
+      "history": 693
     },
     {
       "ticker": "VTEI",
@@ -6402,8 +6402,8 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns",
         "performanceAsOf": "2026-10-16"
       },
-      "holdings": 6617,
-      "history": 692
+      "holdings": 6648,
+      "history": 693
     },
     {
       "ticker": "VTEL",
@@ -6470,8 +6470,8 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns",
         "performanceAsOf": "2026-10-16"
       },
-      "holdings": 5249,
-      "history": 359
+      "holdings": 5253,
+      "history": 360
     },
     {
       "ticker": "VTES",
@@ -6504,7 +6504,7 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 0.05,
           "yr1": -0.63,
-          "yr3": 3.15,
+          "yr3": 3.2,
           "yr5": null,
           "yr10": null,
           "sinceInception": null
@@ -6523,10 +6523,10 @@
       "metrics": {
         "ytd": 0.05,
         "tr1y": -0.63,
-        "tr3y": 9.74,
+        "tr3y": 9.92,
         "tr5y": null,
         "tr10y": null,
-        "cagr3y": 3.15,
+        "cagr3y": 3.2,
         "cagr5y": null,
         "cagr10y": null,
         "siAnn": null,
@@ -6538,8 +6538,8 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
         "performanceAsOf": "2026-10-16"
       },
-      "holdings": 3990,
-      "history": 919
+      "holdings": 3992,
+      "history": 920
     },
     {
       "ticker": "VTG",
@@ -6607,7 +6607,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 288,
-      "history": 327
+      "history": 328
     },
     {
       "ticker": "VTHR",
@@ -6640,8 +6640,8 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 12.49,
           "yr1": 15.08,
-          "yr3": 21.55,
-          "yr5": 11.71,
+          "yr3": 22.67,
+          "yr5": 11.58,
           "yr10": 14.81,
           "sinceInception": null
         },
@@ -6659,11 +6659,11 @@
       "metrics": {
         "ytd": 12.49,
         "tr1y": 15.08,
-        "tr3y": 79.59,
-        "tr5y": 74,
-        "tr10y": 297.92,
-        "cagr3y": 21.55,
-        "cagr5y": 11.71,
+        "tr3y": 84.6,
+        "tr5y": 72.99,
+        "tr10y": 297.83,
+        "cagr3y": 22.67,
+        "cagr5y": 11.58,
         "cagr10y": 14.81,
         "siAnn": null,
         "dividendYield": 1.07,
@@ -6675,7 +6675,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 2999,
-      "history": 4077
+      "history": 4078
     },
     {
       "ticker": "VTI",
@@ -6708,9 +6708,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 12.54,
           "yr1": 15.33,
-          "yr3": 21.63,
-          "yr5": 11.69,
-          "yr10": 14.9,
+          "yr3": 22.73,
+          "yr5": 11.53,
+          "yr10": 14.87,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -6727,12 +6727,12 @@
       "metrics": {
         "ytd": 12.54,
         "tr1y": 15.33,
-        "tr3y": 79.93,
-        "tr5y": 73.79,
-        "tr10y": 301.02,
-        "cagr3y": 21.63,
-        "cagr5y": 11.69,
-        "cagr10y": 14.9,
+        "tr3y": 84.86,
+        "tr5y": 72.58,
+        "tr10y": 300.11,
+        "cagr3y": 22.73,
+        "cagr5y": 11.53,
+        "cagr10y": 14.87,
         "siAnn": null,
         "dividendYield": 1.06,
         "dividendYieldText": "1.06%",
@@ -6743,7 +6743,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 3542,
-      "history": 6407
+      "history": 6408
     },
     {
       "ticker": "VTIP",
@@ -6776,9 +6776,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 1.74,
           "yr1": 1.33,
-          "yr3": 4.92,
+          "yr3": 4.94,
           "yr5": 2.97,
-          "yr10": 3.02,
+          "yr10": 3,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -6795,12 +6795,12 @@
       "metrics": {
         "ytd": 1.74,
         "tr1y": 1.33,
-        "tr3y": 15.49,
-        "tr5y": 15.77,
-        "tr10y": 34.7,
-        "cagr3y": 4.92,
+        "tr3y": 15.56,
+        "tr5y": 15.75,
+        "tr10y": 34.33,
+        "cagr3y": 4.94,
         "cagr5y": 2.97,
-        "cagr10y": 3.02,
+        "cagr10y": 3,
         "siAnn": null,
         "dividendYield": null,
         "dividendYieldText": "—",
@@ -6811,7 +6811,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 27,
-      "history": 3555
+      "history": 3556
     },
     {
       "ticker": "VTP",
@@ -6879,7 +6879,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 50,
-      "history": 327
+      "history": 328
     },
     {
       "ticker": "VTV",
@@ -6912,9 +6912,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 18.75,
           "yr1": 18.19,
-          "yr3": 19.89,
-          "yr5": 12.29,
-          "yr10": 12.82,
+          "yr3": 20.35,
+          "yr5": 12.05,
+          "yr10": 12.7,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -6931,12 +6931,12 @@
       "metrics": {
         "ytd": 18.75,
         "tr1y": 18.19,
-        "tr3y": 72.3,
-        "tr5y": 78.5,
-        "tr10y": 234.2,
-        "cagr3y": 19.89,
-        "cagr5y": 12.29,
-        "cagr10y": 12.82,
+        "tr3y": 74.34,
+        "tr5y": 76.6,
+        "tr10y": 230.62,
+        "cagr3y": 20.35,
+        "cagr5y": 12.05,
+        "cagr10y": 12.7,
         "siAnn": null,
         "dividendYield": 2,
         "dividendYieldText": "2.00%",
@@ -6947,7 +6947,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 312,
-      "history": 5750
+      "history": 5751
     },
     {
       "ticker": "VTWG",
@@ -6980,9 +6980,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 5.27,
           "yr1": 12.14,
-          "yr3": 16.55,
-          "yr5": 3.22,
-          "yr10": 9.74,
+          "yr3": 17.98,
+          "yr5": 3.27,
+          "yr10": 9.82,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -6999,12 +6999,12 @@
       "metrics": {
         "ytd": 5.27,
         "tr1y": 12.14,
-        "tr3y": 58.3,
-        "tr5y": 17.16,
-        "tr10y": 153.36,
-        "cagr3y": 16.55,
-        "cagr5y": 3.22,
-        "cagr10y": 9.74,
+        "tr3y": 64.2,
+        "tr5y": 17.46,
+        "tr10y": 155.06,
+        "cagr3y": 17.98,
+        "cagr5y": 3.27,
+        "cagr10y": 9.82,
         "siAnn": null,
         "dividendYield": 0.5,
         "dividendYieldText": "0.50%",
@@ -7015,7 +7015,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 1144,
-      "history": 4077
+      "history": 4078
     },
     {
       "ticker": "VTWO",
@@ -7048,9 +7048,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 10.71,
           "yr1": 16.25,
-          "yr3": 17.56,
+          "yr3": 18.68,
           "yr5": 5.2,
-          "yr10": 9.94,
+          "yr10": 9.88,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -7067,12 +7067,12 @@
       "metrics": {
         "ytd": 10.71,
         "tr1y": 16.25,
-        "tr3y": 62.45,
-        "tr5y": 28.86,
-        "tr10y": 157.97,
-        "cagr3y": 17.56,
+        "tr3y": 67.15,
+        "tr5y": 28.82,
+        "tr10y": 156.61,
+        "cagr3y": 18.68,
         "cagr5y": 5.2,
-        "cagr10y": 9.94,
+        "cagr10y": 9.88,
         "siAnn": null,
         "dividendYield": 1.27,
         "dividendYieldText": "1.27%",
@@ -7083,7 +7083,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 2006,
-      "history": 4077
+      "history": 4078
     },
     {
       "ticker": "VTWV",
@@ -7116,9 +7116,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 16.59,
           "yr1": 20.76,
-          "yr3": 18.52,
-          "yr5": 6.94,
-          "yr10": 9.62,
+          "yr3": 19.2,
+          "yr5": 6.88,
+          "yr10": 9.43,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -7135,12 +7135,12 @@
       "metrics": {
         "ytd": 16.59,
         "tr1y": 20.76,
-        "tr3y": 66.48,
-        "tr5y": 39.88,
-        "tr10y": 150.55,
-        "cagr3y": 18.52,
-        "cagr5y": 6.94,
-        "cagr10y": 9.62,
+        "tr3y": 69.38,
+        "tr5y": 39.47,
+        "tr10y": 146.27,
+        "cagr3y": 19.2,
+        "cagr5y": 6.88,
+        "cagr10y": 9.43,
         "siAnn": null,
         "dividendYield": 2.05,
         "dividendYieldText": "2.05%",
@@ -7151,7 +7151,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 1438,
-      "history": 4077
+      "history": 4078
     },
     {
       "ticker": "VUG",
@@ -7184,9 +7184,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 8.47,
           "yr1": 13.09,
-          "yr3": 23.92,
-          "yr5": 12.44,
-          "yr10": 17.87,
+          "yr3": 25.45,
+          "yr5": 12.29,
+          "yr10": 17.92,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -7203,12 +7203,12 @@
       "metrics": {
         "ytd": 8.47,
         "tr1y": 13.09,
-        "tr3y": 90.28,
-        "tr5y": 79.71,
-        "tr10y": 417.84,
-        "cagr3y": 23.92,
-        "cagr5y": 12.44,
-        "cagr10y": 17.87,
+        "tr3y": 97.42,
+        "tr5y": 78.5,
+        "tr10y": 420.02,
+        "cagr3y": 25.45,
+        "cagr5y": 12.29,
+        "cagr10y": 17.92,
         "siAnn": null,
         "dividendYield": 0.36,
         "dividendYieldText": "0.36%",
@@ -7219,7 +7219,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 141,
-      "history": 5750
+      "history": 5751
     },
     {
       "ticker": "VUSB",
@@ -7252,8 +7252,8 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 2.6,
           "yr1": 3.49,
-          "yr3": 5.16,
-          "yr5": 3.66,
+          "yr3": 5.15,
+          "yr5": 3.65,
           "yr10": null,
           "sinceInception": null
         },
@@ -7271,11 +7271,11 @@
       "metrics": {
         "ytd": 2.6,
         "tr1y": 3.49,
-        "tr3y": 16.3,
-        "tr5y": 19.67,
+        "tr3y": 16.25,
+        "tr5y": 19.65,
         "tr10y": null,
-        "cagr3y": 5.16,
-        "cagr5y": 3.66,
+        "cagr3y": 5.15,
+        "cagr5y": 3.65,
         "cagr10y": null,
         "siAnn": null,
         "dividendYield": 4.45,
@@ -7286,8 +7286,8 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
         "performanceAsOf": "2026-10-16"
       },
-      "holdings": 1360,
-      "history": 1409
+      "holdings": 1355,
+      "history": 1410
     },
     {
       "ticker": "VUSG",
@@ -7355,7 +7355,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 43,
-      "history": 235
+      "history": 236
     },
     {
       "ticker": "VUSV",
@@ -7423,7 +7423,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 81,
-      "history": 235
+      "history": 236
     },
     {
       "ticker": "VV",
@@ -7456,9 +7456,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 12.73,
           "yr1": 15.46,
-          "yr3": 22.26,
-          "yr5": 12.5,
-          "yr10": 15.51,
+          "yr3": 23.36,
+          "yr5": 12.35,
+          "yr10": 15.49,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -7475,12 +7475,12 @@
       "metrics": {
         "ytd": 12.73,
         "tr1y": 15.46,
-        "tr3y": 82.73,
-        "tr5y": 80.19,
-        "tr10y": 322.78,
-        "cagr3y": 22.26,
-        "cagr5y": 12.5,
-        "cagr10y": 15.51,
+        "tr3y": 87.73,
+        "tr5y": 78.97,
+        "tr10y": 322.2,
+        "cagr3y": 23.36,
+        "cagr5y": 12.35,
+        "cagr10y": 15.49,
         "siAnn": null,
         "dividendYield": 1.02,
         "dividendYieldText": "1.02%",
@@ -7491,7 +7491,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 434,
-      "history": 5750
+      "history": 5751
     },
     {
       "ticker": "VWO",
@@ -7524,9 +7524,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 8.48,
           "yr1": 12.54,
-          "yr3": 17.12,
-          "yr5": 5.38,
-          "yr10": 7.44,
+          "yr3": 18.08,
+          "yr5": 5.17,
+          "yr10": 7.22,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -7543,12 +7543,12 @@
       "metrics": {
         "ytd": 8.48,
         "tr1y": 12.54,
-        "tr3y": 60.66,
-        "tr5y": 29.97,
-        "tr10y": 104.91,
-        "cagr3y": 17.12,
-        "cagr5y": 5.38,
-        "cagr10y": 7.44,
+        "tr3y": 64.62,
+        "tr5y": 28.67,
+        "tr10y": 100.73,
+        "cagr3y": 18.08,
+        "cagr5y": 5.17,
+        "cagr10y": 7.22,
         "siAnn": null,
         "dividendYield": 2.26,
         "dividendYieldText": "2.26%",
@@ -7559,7 +7559,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 6673,
-      "history": 5471
+      "history": 5472
     },
     {
       "ticker": "VWOB",
@@ -7592,9 +7592,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": -1.25,
           "yr1": 0.4,
-          "yr3": 9.42,
-          "yr5": 1.61,
-          "yr10": 2.74,
+          "yr3": 9.87,
+          "yr5": 1.57,
+          "yr10": 2.67,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -7611,12 +7611,12 @@
       "metrics": {
         "ytd": -1.25,
         "tr1y": 0.4,
-        "tr3y": 31.01,
-        "tr5y": 8.32,
-        "tr10y": 30.99,
-        "cagr3y": 9.42,
-        "cagr5y": 1.61,
-        "cagr10y": 2.74,
+        "tr3y": 32.61,
+        "tr5y": 8.09,
+        "tr10y": 30.19,
+        "cagr3y": 9.87,
+        "cagr5y": 1.57,
+        "cagr10y": 2.67,
         "siAnn": null,
         "dividendYield": 6.13,
         "dividendYieldText": "6.13%",
@@ -7627,7 +7627,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 949,
-      "history": 3399
+      "history": 3400
     },
     {
       "ticker": "VXF",
@@ -7660,9 +7660,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 9.2,
           "yr1": 11.78,
-          "yr3": 18.21,
-          "yr5": 4.88,
-          "yr10": 11.26,
+          "yr3": 19.46,
+          "yr5": 4.75,
+          "yr10": 11.19,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -7679,12 +7679,12 @@
       "metrics": {
         "ytd": 9.2,
         "tr1y": 11.78,
-        "tr3y": 65.2,
-        "tr5y": 26.91,
-        "tr10y": 190.74,
-        "cagr3y": 18.21,
-        "cagr5y": 4.88,
-        "cagr10y": 11.26,
+        "tr3y": 70.48,
+        "tr5y": 26.11,
+        "tr10y": 188.95,
+        "cagr3y": 19.46,
+        "cagr5y": 4.75,
+        "cagr10y": 11.19,
         "siAnn": null,
         "dividendYield": 1.06,
         "dividendYieldText": "1.06%",
@@ -7695,7 +7695,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 3377,
-      "history": 6271
+      "history": 6272
     },
     {
       "ticker": "VXUS",
@@ -7728,9 +7728,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 11.25,
           "yr1": 18.49,
-          "yr3": 19.44,
-          "yr5": 8.32,
-          "yr10": 9.24,
+          "yr3": 20.37,
+          "yr5": 8.18,
+          "yr10": 9.07,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -7747,12 +7747,12 @@
       "metrics": {
         "ytd": 11.25,
         "tr1y": 18.49,
-        "tr3y": 70.4,
-        "tr5y": 49.14,
-        "tr10y": 141.9,
-        "cagr3y": 19.44,
-        "cagr5y": 8.32,
-        "cagr10y": 9.24,
+        "tr3y": 74.39,
+        "tr5y": 48.18,
+        "tr10y": 138.31,
+        "cagr3y": 20.37,
+        "cagr5y": 8.18,
+        "cagr10y": 9.07,
         "siAnn": null,
         "dividendYield": 2.36,
         "dividendYieldText": "2.36%",
@@ -7763,7 +7763,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 9293,
-      "history": 3988
+      "history": 3989
     },
     {
       "ticker": "VYM",
@@ -7796,9 +7796,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 13.67,
           "yr1": 12.72,
-          "yr3": 18.87,
-          "yr5": 11.54,
-          "yr10": 11.81,
+          "yr3": 19.19,
+          "yr5": 11.29,
+          "yr10": 11.74,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -7815,12 +7815,12 @@
       "metrics": {
         "ytd": 13.67,
         "tr1y": 12.72,
-        "tr3y": 67.96,
-        "tr5y": 72.61,
-        "tr10y": 205.47,
-        "cagr3y": 18.87,
-        "cagr5y": 11.54,
-        "cagr10y": 11.81,
+        "tr3y": 69.3,
+        "tr5y": 70.74,
+        "tr10y": 203.37,
+        "cagr3y": 19.19,
+        "cagr5y": 11.29,
+        "cagr10y": 11.74,
         "siAnn": null,
         "dividendYield": 2.4,
         "dividendYieldText": "2.40%",
@@ -7831,7 +7831,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 610,
-      "history": 5044
+      "history": 5045
     },
     {
       "ticker": "VYMI",
@@ -7864,9 +7864,9 @@
           "asOfDate": "Oct 16 2026",
           "ytd": 16.71,
           "yr1": 23.99,
-          "yr3": 23.2,
-          "yr5": 13.31,
-          "yr10": 10.79,
+          "yr3": 23.91,
+          "yr5": 13.15,
+          "yr10": 10.58,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -7883,12 +7883,12 @@
       "metrics": {
         "ytd": 16.71,
         "tr1y": 23.99,
-        "tr3y": 87,
-        "tr5y": 86.76,
-        "tr10y": 178.64,
-        "cagr3y": 23.2,
-        "cagr5y": 13.31,
-        "cagr10y": 10.79,
+        "tr3y": 90.24,
+        "tr5y": 85.44,
+        "tr10y": 173.46,
+        "cagr3y": 23.91,
+        "cagr5y": 13.15,
+        "cagr10y": 10.58,
         "siAnn": null,
         "dividendYield": 3.78,
         "dividendYieldText": "3.78%",
@@ -7899,7 +7899,7 @@
         "performanceAsOf": "2026-10-16"
       },
       "holdings": 1598,
-      "history": 2708
+      "history": 2709
     }
   ]
 }
