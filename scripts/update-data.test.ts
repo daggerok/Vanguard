@@ -11,7 +11,7 @@ import {
   isoFromDisplayDate, isinFromCusip, latestQuote, nportIsNewer, nportUrlFor, paceRequest, parseAmount, parseAumRange, parseEdgarAtomFilings,
   parseFundTickerMap, parseNport, parseRange, parseVanguardHoldingDetails, parseVanguardOfficialHistory, passesMetricFilters,
   passesStaticFilters, withYieldBasis, paymentsPerYear, previousValues, readConfig, resolveControls, run, runtimeControls, selectBatch,
-  standardHoldingHeaders, standardHoldingRow, summary, toIsoDate, yahooChartUrl, ytdFromRows,
+  standardHoldingHeaders, standardHoldingRow, summary, toIsoDate, yahooChartUrl, ytdFromRows, holdingsGuard,
 } from "./update-data";
 
 // ---------------------------------------------------------------------------
@@ -280,6 +280,21 @@ describe("parsing", () => {
     expect(parsed.holdings[1]).toMatchObject({ Coupon: "4.125", Maturity: "2030-01-31" });
   });
 
+  test('holdings guard: header-only, renamed weight column, broken weights, a bad weight sum and a halved sheet are rejected', () => {
+    const headers = ['Name', 'Ticker', 'Weight'];
+    const rows = [{ Name: 'A', Ticker: 'A', Weight: '60%' }, { Name: 'B', Ticker: 'B', Weight: '40%' }];
+    expect(holdingsGuard(headers, rows, 2)).toBeNull();
+    expect(holdingsGuard(headers, [['A', 'A', '60'], ['B', 'B', '40']], null)).toBeNull();
+    expect(holdingsGuard([], [], 0)).toBeNull(); // nothing published before: an empty sheet is honest
+    expect(holdingsGuard(headers, [], 505)).toContain('no holdings rows');
+    expect(holdingsGuard(['Name', 'Ticker', 'Wt'], rows, 2)).toContain('no weight column');
+    expect(holdingsGuard(headers, rows.map((row) => ({ ...row, Weight: '6\u200B0' })), 2)).toContain('numeric weight');
+    const allocation = [{ Name: 'Cash&Collateral', Ticker: '-', Weight: '100' }, { Name: 'Equities', Ticker: '-', Weight: '476' }];
+    expect(holdingsGuard(headers, allocation, 2)).toContain('outside 50..150');
+    expect(holdingsGuard(headers, allocation, 2, ['sum'])).toBeNull();
+    expect(holdingsGuard(headers, rows, 5)).toContain('less than half');
+  });
+
   test("dates, amounts and ISIN: placeholders stay null, never 0", () => {
     expect([toIsoDate("2026-07-31"), toIsoDate("08/31/2026"), toIsoDate("")]).toEqual(["2026-07-31", "2026-08-31", ""]);
     expect([formatDisplayDate("2026-09-30"), formatDisplayDate(null), formatDisplayDate("n/a"), isoFromDisplayDate("Sep 30 2026"), isoFromDisplayDate("—")]).toEqual(["Sep 30 2026", "—", "—", "2026-09-30", ""]);
@@ -370,7 +385,7 @@ describe("metrics", () => {
 // ===========================================================================
 // Pipeline: the real run() against a mocked fetch, writing into a per-test temp dir
 // ===========================================================================
-function mockFeed(opts: { delayMs?: number; failYahoo?: boolean; noHoldings?: boolean; nportAsOf?: string; nportSeries?: string; urls?: string[]; adjclose?: number[] } = {}) {
+function mockFeed(opts: { delayMs?: number; failYahoo?: boolean; noHoldings?: boolean; nportAsOf?: string; nportSeries?: string; urls?: string[]; adjclose?: number[]; holdingsWeightKey?: string } = {}) {
   const inflight = new Set<string>();
   let peak = 0;
   const epoch = (iso: string) => Date.parse(`${iso}T00:00:00Z`) / 1000;
@@ -385,7 +400,7 @@ function mockFeed(opts: { delayMs?: number; failYahoo?: boolean; noHoldings?: bo
         if (url.includes("company_tickers_mf")) return Response.json({ fields: ["symbol", "cik", "seriesId", "classId"], data: [["VOO", "36405", "S000002839", "C000007773"]] });
         if (url.includes("company_tickers")) return Response.json({});
         if (url.includes("browse-edgar")) return new Response(`<feed><entry><filing-type>NPORT-P</filing-type><accession-number>0001234567-26-000001</accession-number><filing-date>2026-04-20</filing-date><filing-href>https://www.sec.gov/Archives/edgar/data/36405/000123456726000001/</filing-href></entry></feed>`);
-        if (url.includes("/Archives/edgar/")) return new Response(`<edgarSubmission><formData><genInfo><regCik>0000036405</regCik><seriesName>Vanguard S&amp;P 500 ETF</seriesName><seriesId>${opts.nportSeries ?? "S000002839"}</seriesId><repPdDate>${opts.nportAsOf}</repPdDate></genInfo><fundInfo><netAssets>1000</netAssets></fundInfo><invstOrSec><name>Old Filing Co</name><cusip>999999999</cusip><balance>1</balance><valUSD>5</valUSD><pctVal>5</pctVal><assetCat>EC</assetCat></invstOrSec></formData></edgarSubmission>`);
+        if (url.includes("/Archives/edgar/")) return new Response(`<edgarSubmission><formData><genInfo><regCik>0000036405</regCik><seriesName>Vanguard S&amp;P 500 ETF</seriesName><seriesId>${opts.nportSeries ?? "S000002839"}</seriesId><repPdDate>${opts.nportAsOf}</repPdDate></genInfo><fundInfo><netAssets>1000</netAssets></fundInfo><invstOrSec><name>Old Filing Co</name><cusip>999999999</cusip><balance>1</balance><valUSD>5</valUSD><pctVal>100</pctVal><assetCat>EC</assetCat></invstOrSec></formData></edgarSubmission>`);
       }
       if (url.includes("advisors.vanguard.com")) return new Response('<html>"portId": "0970"</html>');
       if (url.includes("fundDetails")) {
@@ -399,7 +414,7 @@ function mockFeed(opts: { delayMs?: number; failYahoo?: boolean; noHoldings?: bo
       }
       if (url.includes("AdditionalFundData")) {
         return Response.json({
-          holdingDetails: { asOfDate: "05/31/2026", equityHoldings: opts.noHoldings ? [] : [{ ticker: "AAA", holdingName: "A Corp", marketValuePercentage: "5.00%", cusip: "123456789" }] },
+          holdingDetails: { asOfDate: "05/31/2026", equityHoldings: opts.noHoldings ? [] : [{ ticker: "AAA", holdingName: "A Corp", [opts.holdingsWeightKey ?? "marketValuePercentage"]: "100.00%", cusip: "123456789" }] },
           historicalPrice: { "3m": { nav: [{ asOfDate: "05/29/2026", price: "$100.10" }] } },
           premiumDiscountDetails: [{ pdDetails: [{ nav: 101, marketPrice: 101.1, premiumDiscountPercentage: 0.1, effectiveDate: "06/01/2026" }] }],
         });
@@ -446,7 +461,7 @@ describe("pipeline", () => {
     expect(Object.keys(jsonOf(dir, "funds/VOO/meta.json"))).toEqual(Object.keys(assembleFund(inputsFor()).meta));
     const holdings = jsonOf(dir, "funds/VOO/holdings/001.json");
     expect(holdings.headers).toEqual(HOLDINGS_HEADERS_BASE);
-    expect(holdings.rows[0]).toMatchObject({ Name: "A Corp", Ticker: "AAA", Identifier: "123456789", Weight: "5.00%" });
+    expect(holdings.rows[0]).toMatchObject({ Name: "A Corp", Ticker: "AAA", Identifier: "123456789", Weight: "100.00%" });
   });
 
   test("a metric filter keeps a failing fund out of the feed", async () => {
@@ -513,6 +528,16 @@ describe("pipeline", () => {
     await expect(runOffline({ TICKERS: "VOO" }, dir, { failYahoo: true })).rejects.toThrow("every selected fund failed");
     expect(touched(dir)).toEqual([]);
     expect(jsonOf(dir, "index.json").funds[0].ticker).toBe("VOO");
+  });
+
+  test("holdings that fail the guard keep the fund exactly as published and report it failed", async () => {
+    const { dir } = await runOffline({ TICKERS: "VOO" });
+    backdate(dir);
+    const published = filesOf(dir).map((f) => [f, textOf(dir, f)]);
+    // Vanguard renames marketValuePercentage in the IRR holdings: every Weight becomes "—"
+    await expect(runOffline({ TICKERS: "VOO" }, dir, { holdingsWeightKey: "marketValuePct" })).rejects.toThrow("every selected fund failed");
+    expect(touched(dir)).toEqual([]);
+    expect(filesOf(dir).map((f) => [f, textOf(dir, f)])).toEqual(published);
   });
 
   test("N-PORT freshness: only a strictly newer filing with the same series replaces the published holdings", async () => {
