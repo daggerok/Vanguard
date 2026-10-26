@@ -213,6 +213,8 @@ export const HOLDINGS_HEADERS_BASE = [
 ];
 /** Funds whose holdings legitimately fail a holdingsGuard check (geared, futures, look-through, top-N lists): ticker, or '*' for every fund -> relaxed checks. */
 const HOLDINGS_GUARD_RELAX: Record<string, string[]> = {};
+/** Funds the issuer closed, each confirmed from an SEC filing or the issuer notice (`source`): never fetched or guarded, last published data kept, index row marked closed. */
+export const CLOSED_FUNDS: ClosedFund[] = [];
 export const DISTRIBUTION_HEADERS = [
   "Frequency",
   "Ex-Date",
@@ -1592,6 +1594,17 @@ export function isinFromCusip(cusip: string | null): string | null {
   return `${body}${(10 - (sum % 10)) % 10}`;
 }
 
+/** Index row of a catalog fund with no published meta.json (new, its first refresh failed): dataFile null, 0 holdings and history rows, every metric null plus returnsBasis. */
+export function catalogOnlyRow([ticker, name, category]: readonly [string, string, string]): any {
+  const sheet = (pageSize: number) => ({ pages: [], pageSize, totalRows: 0, asOfDate: null, source: "not published yet" });
+  const { row } = assembleFund({
+    ticker, name, category, officialPage: null, portId: null, frequency: null, distributionRows: [], netAssets: null, netAssetsAsOf: null,
+    totalFundNetAssets: null, expense: null, dividendYield: null, dividendYieldAsOf: null, secYield: null, secYieldAsOf: null,
+    officialYtd: null, officialOneYear: null, officialAsOf: null, yahooRows: [], pageRows: [], holdings: sheet(250), history: sheet(1000),
+  });
+  return { ...row, dataFile: null };
+}
+
 /** The standard catalog envelope: generatedAt, source and counts on top of the fund rows. */
 export function buildIndex(funds: any[], generatedAt: string = new Date().toISOString()) {
   return {
@@ -2083,8 +2096,9 @@ async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
   const historyPageSize = config.historyPageSize;
   const concurrency = config.concurrency;
   outputPrintConfig('Vanguard', configLogEntries(config));
-  const staticSelection = FUNDS_SEED.filter((fund) => passesStaticFilters(fund, config));
   console.log(`[ catalog  ] ${FUNDS_SEED.length} Vanguard ETFs (built-in Vanguard ETF list, profiles from investor.vanguard.com)`);
+  // A closed fund leaves the run here, before the MAX_FETCHES batch and any request: never fetched, guarded or reported.
+  const staticSelection = withoutClosedFunds(FUNDS_SEED.filter((fund) => passesStaticFilters(fund, config)), (fund) => fund[0], CLOSED_FUNDS);
   outputPrintFilter(staticSelection.length, FUNDS_SEED.length, hasDeferredFilters(config));
   const stateFile = new URL("update-state.json", ROOT);
   const previousState = config.maxFetches > 0 ? await readJsonOrNull(stateFile) : null;
@@ -2098,6 +2112,8 @@ async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
   const previousIndex = await readJsonOrNull(new URL("index.json", ROOT));
   const output = outputCreateReporter(ROOT, selected.length);
   let failedCount = 0;
+  // Failed funds with no published meta.json (new, first refresh failed): listed with a catalog-only row, never with files.
+  const catalogOnly = new Map<string, any>();
   const perFundResults = await mapWithConcurrency(selected, concurrency, async ([ticker, name, category]) => {
     const before = await output.before(ticker);
     if (Date.now() > deadline) {
@@ -2121,6 +2137,13 @@ async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
     ];
     if (failedSources.length && (await readPreviousMeta(ticker))) {
       await output.result(ticker, before, 'failed', `${failedSources.join(", ")} unavailable; published data kept`);
+      failedCount += 1;
+      return null;
+    }
+    // A new fund no source answered is never published as an empty meta.json: it fails with a catalog-only row.
+    if (!official.ok && !vgAdditional.ok && !chartData.rows.length) {
+      await output.result(ticker, before, 'failed', 'no source answered; no data published for this fund yet');
+      catalogOnly.set(ticker, catalogOnlyRow([ticker, name, category]));
       failedCount += 1;
       return null;
     }
@@ -2158,6 +2181,7 @@ async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
     const holdingsProblem = holdingsRows.length ? holdingsGuard(standardHoldingHeaders(holdingsRows), holdingsRows, numberOrNull(prevMeta?.holdings?.totalRows), HOLDINGS_GUARD_RELAX[ticker] ?? HOLDINGS_GUARD_RELAX['*'] ?? []) : null;
     if (holdingsProblem) {
       await output.result(ticker, before, 'failed', `holdings guard: ${holdingsProblem}; ${prevMeta ? 'published data kept' : 'no data published for this fund yet'}`);
+      if (!prevMeta) catalogOnly.set(ticker, catalogOnlyRow([ticker, name, category]));
       failedCount += 1;
       return null;
     }
@@ -2260,6 +2284,7 @@ async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
       // (same convention as the iShares/ProShares/Franklin/JPMorgan updaters):
       // mark it failed and keep its last successfully published data and catalog row.
       await output.result(ticker, before, 'failed', String(error));
+      if (!(await readPreviousMeta(ticker))) catalogOnly.set(ticker, catalogOnlyRow([ticker, name, category]));
       failedCount += 1;
       return null;
     }
@@ -2268,8 +2293,12 @@ async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
   const fresh = new Map<string, any>();
   selected.forEach(([ticker], index) => { if (perFundResults[index]) fresh.set(ticker, perFundResults[index]); });
   const previousRows = new Map<string, any>((Array.isArray(previousIndex?.funds) ? previousIndex.funds : []).map((entry: any) => [String(entry?.ticker), entry]));
-  const catalog = FUNDS_SEED.map(([ticker]) => fresh.get(ticker) ?? withYieldBasis(previousRows.get(ticker))).filter((entry) => entry != null);
-  const nextIndex = buildIndex(catalog);
+  const listed = new Set<string>(FUNDS_SEED.map(([ticker]) => ticker));
+  // A closed fund keeps its published row even when it is no longer in the built-in list (closed funds are never pruned).
+  const closedRows = CLOSED_FUNDS.filter((fund) => !listed.has(fund.ticker) && previousRows.has(fund.ticker)).map((fund) => withYieldBasis(previousRows.get(fund.ticker)));
+  const catalog = FUNDS_SEED.map(([ticker]) => fresh.get(ticker) ?? withYieldBasis(previousRows.get(ticker)) ?? catalogOnly.get(ticker)).filter((entry) => entry != null)
+    .concat(closedRows).sort((a, b) => (String(a.ticker) < String(b.ticker) ? -1 : String(a.ticker) > String(b.ticker) ? 1 : 0));
+  const nextIndex = buildIndex(markClosedFunds(catalog, CLOSED_FUNDS));
   const nextText = JSON.stringify(nextIndex, null, 2) + "\n";
   // Comparing raw text would treat a run that only refreshed generatedAt (with
   // every fund's actual data unchanged) as a real change and rewrite the file
@@ -2445,7 +2474,7 @@ if (import.meta.main) {
  * Weight (%) or Market Weight) are required, >= 80% of the rows carry a numeric weight, the weights add up to
  * 50..150 and the sheet keeps >= 50% of the previously published rows. `relax` switches off the checks a fund
  * legitimately fails: 'numeric' and 'sum' (geared, inverse, futures, look-through, top-N lists) and 'count'.
- * Rows are arrays in header order or objects keyed by the header text.
+ * Rows are arrays in header order or objects keyed by the header text. A fund in the brand's CLOSED_FUNDS never reaches the guard.
  */
 export function holdingsGuard(headers: ReadonlyArray<string>, rows: ReadonlyArray<unknown>, previousRows: number | null | undefined, relax: ReadonlyArray<string> = []): string | null {
   const previous = Number(previousRows) > 0 ? Number(previousRows) : 0;
@@ -2480,5 +2509,44 @@ function holdingsGuardNumber(value: unknown): number | null {
   if (negative) text = text.slice(1, -1);
   if (!/^[-+]?(\d+\.?\d*|\.\d+)(e[-+]?\d+)?$/i.test(text)) return null;
   return negative ? -Number(text) : Number(text);
+}
+
+/** A fund its issuer closed (liquidated, delisted or merged away), confirmed from an official source: an SEC filing or the issuer's notice. */
+export type ClosedFund = { ticker: string; closed: string; source: string };
+
+/**
+ * The brand's CLOSED_FUNDS entry for a ticker, or null. A closed fund is never fetched, never guarded and never reported failed: it keeps
+ * its last published data and its index row carries `status: 'closed'`, `closedDate` and `closedSource`. A malformed entry throws, so a
+ * typo (no ISO date, no https source) never ships.
+ */
+export function closedFund(list: ReadonlyArray<ClosedFund>, ticker: unknown): ClosedFund | null {
+  const wanted = String(ticker === null || ticker === undefined ? '' : ticker).trim().toUpperCase();
+  let found: ClosedFund | null = null;
+  for (let i = 0; i < list.length; i++) {
+    const fund = list[i];
+    if (!/^[A-Z0-9][A-Z0-9.-]{0,9}$/.test(fund.ticker) || !/^\d{4}-\d{2}-\d{2}$/.test(fund.closed) || !/^https:\/\/\S+$/.test(fund.source)) throw new Error(`CLOSED_FUNDS: ${fund.ticker} needs an upper-case ticker, an ISO closing date and an https source`);
+    if (fund.ticker === wanted) found = fund;
+  }
+  return found;
+}
+
+/** The index rows with every closed fund marked (`status: 'closed'`, `closedDate`, `closedSource`); other rows are returned as they are. */
+export function markClosedFunds<T extends object>(rows: ReadonlyArray<T>, list: ReadonlyArray<ClosedFund>): T[] {
+  return rows.map((row) => {
+    const fund = closedFund(list, (row as { ticker?: unknown }).ticker);
+    return fund ? ({ ...row, status: 'closed', closedDate: fund.closed, closedSource: fund.source } as T) : row;
+  });
+}
+
+/** A run's queue without the closed funds, which are named once in the log: they are neither fetched nor counted as failed. */
+export function withoutClosedFunds<T>(queue: ReadonlyArray<T>, tickerOf: (item: T) => string, list: ReadonlyArray<ClosedFund>): T[] {
+  const closed: string[] = [];
+  const open: T[] = [];
+  for (let i = 0; i < queue.length; i++) {
+    if (closedFund(list, tickerOf(queue[i]))) closed.push(tickerOf(queue[i]));
+    else open.push(queue[i]);
+  }
+  if (closed.length) console.log(`[ closed   ] ${closed.join(', ')}: closed by the issuer, published data kept`);
+  return open;
 }
 // </holdings-guard>

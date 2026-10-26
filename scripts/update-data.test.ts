@@ -1,12 +1,12 @@
 /// <reference types="bun" />
 import { afterEach, beforeEach, describe, expect, test } from "bun:test";
-import { mkdtempSync, readFileSync, readdirSync, rmSync, statSync, utimesSync } from "node:fs";
+import { mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, statSync, utimesSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { pathToFileURL } from "node:url";
 import {
-  CONTROL_NAMES, DEFAULT_SEC_UA, DISTRIBUTION_HEADERS, HOLDINGS_HEADERS_BASE, REQUEST_TIMEOUT_MS, USAGE,
-  assembleFund, buildIndex, buildMetrics, configureLanes, distributionRows, filterMetricsOf, formatDisplayDate, hasDeferredFilters,
+  CLOSED_FUNDS, CONTROL_NAMES, DEFAULT_SEC_UA, DISTRIBUTION_HEADERS, HOLDINGS_HEADERS_BASE, REQUEST_TIMEOUT_MS, USAGE,
+  assembleFund, buildIndex, catalogOnlyRow, closedFund, buildMetrics, configureLanes, distributionRows, filterMetricsOf, formatDisplayDate, hasDeferredFilters,
   historyPageRows, historyWindowStartDate, historyWindowStartEpoch, holdingIdentifier, httpFetch, installSystemCa, isCertError,
   isoFromDisplayDate, isinFromCusip, latestQuote, nportIsNewer, nportUrlFor, paceRequest, parseAmount, parseAumRange, parseEdgarAtomFilings,
   parseFundTickerMap, parseNport, parseRange, parseVanguardHoldingDetails, parseVanguardOfficialHistory, passesMetricFilters,
@@ -138,7 +138,9 @@ describe("controls", () => {
     expect(read("scripts/update-data.ts")).not.toMatch(/example\.com|admin@daggerok/);
     expect(resolveControls(file(), { SEC_UA: "adv" }, { SEC_UA: "in" }, { SEC_UA: "protected" }).SEC_UA).toBe("protected");
   });
+});
 
+describe("controls 2", () => {
   test("readConfig parses every control strictly; AUM takes K/M/B/T suffixes and size presets", () => {
     const c = readConfig(resolveControls(file(), { MAX_FETCHES: 3, AUM: "mid", TER: ":0.2", MAX_RETRIES: 4, TICKERS: "voo, vti;bnd", CATEGORY: "bond", HISTORY_RANGE: "5Y", SKIP_YAHOO: "yes", EDGAR_FALLBACK: "off", TOTAL_RETURN_3Y: "10:" }));
     expect([c.maxFetches, c.maxRetries, c.tickers, c.category, c.historyRange, c.skipYahoo, c.edgarFallback]).toEqual([3, 4, ["VOO", "VTI", "BND"], "bond", "5y", true, false]);
@@ -249,7 +251,9 @@ describe("parsing", () => {
     expect(rows[1][1]).toBe("2026-03-24");
     expect(["Monthly", "Quarterly", "Semi-annually", "Annually", "Irregular", null].map(paymentsPerYear)).toEqual([12, 4, 2, 1, null, null]);
   });
+});
 
+describe("parsing 2", () => {
   test("IRR holdingDetails map to the holdings sheet shape; rows use the standard headers, legacy rows convert losslessly", () => {
     const parsed = parseVanguardHoldingDetails({ holdingDetails: { asOfDate: "08/31/2026", equityHoldings: [{ ticker: "XOM", holdingName: "Exxon Mobil Corp", marketValuePercentage: 22.5, sector: "Energy" }] } });
     expect([parsed?.asOf, parsed?.rows.length, parsed?.rows[0]["Ticker"], parsed?.rows[0]["Weight"], parsed?.rows[0]["Asset Category"]]).toEqual(["2026-08-31", 1, "XOM", 22.5, "Equity"]);
@@ -338,7 +342,9 @@ describe("metrics", () => {
     expect(ytdFromRows(rows)).toBeCloseTo(25, 6);
     expect([ytdFromRows([{ date: "2026-01-05", adjClose: 10 }]), ytdFromRows([])]).toEqual([null, null]);
   });
+});
 
+describe("metrics 2", () => {
   test("latest quote: official NAV, the price and premium of Vanguard's price day, Yahoo close as the price fallback", () => {
     expect(latestQuote(inputsFor().pageRows)).toEqual({ nav: { value: 101, date: "2026-06-01" }, price: { value: 101.1, date: "2026-06-01" }, premiumDiscount: 0.1 });
     expect(latestQuote([{ Date: "2026-06-01", Close: 50, NAV: null, "Market Price": null, "Premium/Discount (%)": null }])).toEqual({ nav: null, price: { value: 50, date: "2026-06-01" }, premiumDiscount: null });
@@ -385,7 +391,7 @@ describe("metrics", () => {
 // ===========================================================================
 // Pipeline: the real run() against a mocked fetch, writing into a per-test temp dir
 // ===========================================================================
-function mockFeed(opts: { delayMs?: number; failYahoo?: boolean; noHoldings?: boolean; nportAsOf?: string; nportSeries?: string; urls?: string[]; adjclose?: number[]; holdingsWeightKey?: string } = {}) {
+function mockFeed(opts: { delayMs?: number; failYahoo?: boolean; noHoldings?: boolean; nportAsOf?: string; nportSeries?: string; urls?: string[]; adjclose?: number[]; holdingsWeightKey?: string; down?: boolean } = {}) {
   const inflight = new Set<string>();
   let peak = 0;
   const epoch = (iso: string) => Date.parse(`${iso}T00:00:00Z`) / 1000;
@@ -396,6 +402,7 @@ function mockFeed(opts: { delayMs?: number; failYahoo?: boolean; noHoldings?: bo
     if (ticker) { inflight.add(ticker); peak = Math.max(peak, inflight.size); }
     if (opts.delayMs) await new Promise((resolve) => realSetTimeout(resolve, opts.delayMs));
     try {
+      if (opts.down) return new Response("down", { status: 404 });
       if (opts.nportAsOf) {
         if (url.includes("company_tickers_mf")) return Response.json({ fields: ["symbol", "cik", "seriesId", "classId"], data: [["VOO", "36405", "S000002839", "C000007773"]] });
         if (url.includes("company_tickers")) return Response.json({});
@@ -502,7 +509,9 @@ describe("pipeline", () => {
     await runOffline({ TICKERS: "VOO" }, dir, { adjclose: [99.9, 110.1, 115.2, 121.3] });
     expect(jsonOf(dir, "funds/VOO/history/001.json").rows.map((row: any) => row["Adj Close"]).filter((v: unknown) => v !== null)).toEqual([99.9, 110.1, 115.2, 121.3]);
   });
+});
 
+describe("pipeline 2", () => {
   test("console output: TICKERS=all, one catalog line, fund lines, two done lines from the reporter", async () => {
     const lines: string[] = [];
     const { dir } = await runOffline({ TICKERS: "VOO VTI" }, undefined, { lines });
@@ -538,6 +547,66 @@ describe("pipeline", () => {
     await expect(runOffline({ TICKERS: "VOO" }, dir, { holdingsWeightKey: "marketValuePct" })).rejects.toThrow("every selected fund failed");
     expect(touched(dir)).toEqual([]);
     expect(filesOf(dir).map((f) => [f, textOf(dir, f)])).toEqual(published);
+  });
+
+  test("a new fund that fails (holdings guard, no source answered, a write error) gets a catalog-only row and no files; that row is never read as published state", async () => {
+    const { dir: clean } = await runOffline({ TICKERS: "VOO" });
+    const published = jsonOf(clean, "index.json").funds[0];
+    const catalogOnly = catalogOnlyRow(["VOO", published.name, published.category]);
+    expect([catalogOnly.dataFile, catalogOnly.holdings, Object.keys(catalogOnly.metrics), catalogOnly.metrics.returnsBasis]).toEqual([null, 0, Object.keys(published.metrics), "unavailable"]);
+    const dirs: string[] = [];
+    for (const opts of [{ holdingsWeightKey: "marketValuePct" }, { down: true }, {}]) {
+      const dir = mkdtempSync(join(tmpdir(), "vanguard-feed-"));
+      tempDirs.push(dir);
+      dirs.push(dir);
+      const blocked = !Object.keys(opts).length;
+      if (blocked) { mkdirSync(join(dir, "funds")); writeFileSync(join(dir, "funds/VOO"), ""); } // the fund folder cannot be created
+      const lines: string[] = [];
+      await expect(runOffline({ TICKERS: "VOO" }, dir, { ...opts, lines })).rejects.toThrow("every selected fund failed");
+      expect(lines[lines.length - 2]).toMatch(/ 1 fund: 0 updated, 0 unchanged, 0 kept, 0 skipped, 1 failed in /);
+      expect(filesOf(dir)).toEqual(blocked ? ["funds/VOO", "index.json"] : ["index.json"]);
+      expect(jsonOf(dir, "index.json").funds).toEqual([catalogOnly]);
+    }
+    // the next good run publishes the fund exactly like a first run on an empty feed
+    await runOffline({ TICKERS: "VOO" }, dirs[0]);
+    expect(jsonOf(dirs[0], "index.json").funds).toEqual([published]);
+    expect(textOf(dirs[0], "funds/VOO/meta.json")).toBe(textOf(clean, "funds/VOO/meta.json"));
+  });
+});
+
+describe("pipeline 3", () => {
+  test("a closed fund is never fetched or reported failed: its files stay as published, its index row says closed (also off the built-in list), a rerun writes nothing", async () => {
+    const entry = { ticker: "VTI", closed: "2026-10-01", source: "https://www.sec.gov/Archives/edgar/data/1/notice.htm" };
+    const delisted = { ticker: "VZZZ", closed: "2026-09-01", source: "https://investor.vanguard.com/notice" };
+    expect(() => closedFund([{ ...entry, closed: "soon" }], "VTI")).toThrow("CLOSED_FUNDS");
+    expect(closedFund([entry], "vti")).toEqual(entry);
+    const { dir } = await runOffline({ TICKERS: "VOO VTI" });
+    // VZZZ stands for a closed fund the built-in list no longer names: its published row must not be pruned
+    const index = jsonOf(dir, "index.json");
+    index.funds.push({ ...index.funds[1], ticker: "VZZZ", dataFile: "./funds/VZZZ/meta.json" });
+    writeFileSync(join(dir, "index.json"), JSON.stringify(index, null, 2) + "\n");
+    backdate(dir);
+    const first = filesOf(dir).map((path) => [path, textOf(dir, path)]);
+    CLOSED_FUNDS.push(entry, delisted);
+    try {
+      const urls: string[] = [];
+      const lines: string[] = [];
+      await runOffline({ TICKERS: "VTI" }, dir, { urls, lines, holdingsWeightKey: "marketValuePct" }); // the guard would reject these holdings
+      expect(urls.filter((url) => /vti/i.test(url))).toEqual([]);
+      expect(lines[lines.length - 2]).toMatch(/ 0 failed in /);
+      expect(touched(dir)).toEqual(["index.json"]);
+      for (const [path, text] of first) if (path !== "index.json") expect([path, textOf(dir, path)]).toEqual([path, text]);
+      const rows = jsonOf(dir, "index.json").funds;
+      expect(rows.map((row: any) => row.ticker)).toEqual(["VOO", "VTI", "VZZZ"]);
+      expect(rows[0]).toEqual(index.funds[0]);
+      expect(rows[1]).toMatchObject({ status: "closed", closedDate: "2026-10-01", closedSource: entry.source, dataFile: "./funds/VTI/meta.json" });
+      expect(rows[2]).toMatchObject({ status: "closed", closedDate: "2026-09-01", dataFile: "./funds/VZZZ/meta.json" });
+      backdate(dir);
+      await runOffline({ TICKERS: "VOO VTI" }, dir);
+      expect(touched(dir)).toEqual([]);
+    } finally {
+      CLOSED_FUNDS.splice(0, CLOSED_FUNDS.length);
+    }
   });
 
   test("N-PORT freshness: only a strictly newer filing with the same series replaces the published holdings", async () => {
