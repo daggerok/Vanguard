@@ -251,6 +251,15 @@ describe("parsing", () => {
     expect(rows[1][1]).toBe("2026-03-24");
     expect(["Monthly", "Quarterly", "Semi-annually", "Annually", "Irregular", null].map(paymentsPerYear)).toEqual([12, 4, 2, 1, null, null]);
   });
+
+  test("dates written as text are calendar dates: the same ISO date in every timezone", () => {
+    const texts = ["Oct 01 2026", "October 1, 2026", "01 Oct 2026", "Wed, 01 Oct 2026 04:00:00 GMT", "2026-10-01T00:00:00-04:00", "10/01/2026"];
+    for (const tz of ["UTC", "America/New_York", "Asia/Tokyo", "Europe/Berlin"]) {
+      process.env.TZ = tz;
+      expect(texts.map(toIsoDate)).toEqual(texts.map(() => "2026-10-01"));
+      expect([toIsoDate("garbage"), toIsoDate("")]).toEqual(["", ""]);
+    }
+  });
 });
 
 describe("parsing 2", () => {
@@ -265,6 +274,19 @@ describe("parsing 2", () => {
     expect(Object.keys(standard)).toEqual(HOLDINGS_HEADERS_BASE);
     expect(standard).toMatchObject({ Name: "Apple Inc", Ticker: "AAPL", Identifier: "037833100", Weight: "7.03%", "Shares Held": "2", "Asset Category": "Equity" });
     expect(standardHoldingHeaders([standardHoldingRow({ ...legacy, Coupon: "4.1", Maturity: "2030-01-31" })])).toEqual([...HOLDINGS_HEADERS_BASE, "Coupon", "Maturity"]);
+  });
+
+  test("IRR weights rounded to 0.00% or left out are refilled from the market value on the published % of net assets basis", () => {
+    const row = (name: string, weight: unknown, value: string) => ({ holdingName: name, marketValuePercentage: weight, marketValueBaseCurrency: value });
+    const weights = (holdings: unknown[]) => parseVanguardHoldingDetails({ holdingDetails: { asOfDate: "09/30/2026", bondHoldings: holdings } })!.rows.map((r) => r.Weight);
+    // k = (4 + 3 + 2 + 0.5) / 950,000 = 1e-5 from the rows of at least 0.10%, a negative one included by its absolute value
+    expect(weights([row("A", "4.00%", "$400,000"), row("B", "3.00%", "$300,000"), row("C", "2.00%", "$200,000"), row("Cash", "-0.50%", "-$50,000"),
+      row("D", "0.00%", "$500"), row("E", undefined, "$1,000"), row("F", "0.01%", "$400"), row("G", "0.00%", "—")]))
+      .toEqual(["4.00%", "3.00%", "2.00%", "-0.50%", "0.0050%", "0.0100%", "0.0040%", "0.00%"]);
+    // a levered sheet keeps its own total: k comes from its published weights, not from 100 / total market value
+    expect(weights([row("A", "60.00%", "$600"), row("B", "50.00%", "$500"), row("C", "10.00%", "$100"), row("D", "0.00%", "$0.40")])).toEqual(["60.00%", "50.00%", "10.00%", "0.0400%"]);
+    // fewer than three calibration rows (a fund of two funds): unchanged
+    expect(weights([row("BND", "51.31%", "$100"), row("BNDX", "48.69%", "$95"), row("Cash", "0.00%", "$1")])).toEqual(["51.31%", "48.69%", "0.00%"]);
   });
 
   test("SEC: fund ticker map, N-PORT accession URL, Atom feed keeps NPORT-P only, N-PORT XML maps to the sheet", () => {
