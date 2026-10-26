@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25T03:13:58.679Z",
+  "generatedAt": "2026-10-26T19:41:17.185Z",
   "source": {
     "provider": "Vanguard",
     "site": "https://investor.vanguard.com",
@@ -10,7 +10,7 @@
   "counts": {
     "funds": 116,
     "holdings": 211432,
-    "history": 366387
+    "history": 366388
   },
   "funds": [
     {
@@ -44,9 +44,9 @@
           "asOfDate": "Oct 23 2026",
           "ytd": -2,
           "yr1": -2.62,
-          "yr3": 5.4,
-          "yr5": 0.02,
-          "yr10": 1.53,
+          "yr3": 5.36,
+          "yr5": -0.03,
+          "yr10": 1.57,
           "sinceInception": null
         },
         "quarterEnd": {
@@ -63,12 +63,12 @@
       "metrics": {
         "ytd": -2,
         "tr1y": -2.62,
-        "tr3y": 17.09,
-        "tr5y": 0.12,
-        "tr10y": 16.43,
-        "cagr3y": 5.4,
-        "cagr5y": 0.02,
-        "cagr10y": 1.53,
+        "tr3y": 16.96,
+        "tr5y": -0.15,
+        "tr10y": 16.87,
+        "cagr3y": 5.36,
+        "cagr5y": -0.03,
+        "cagr10y": 1.57,
         "siAnn": null,
         "dividendYield": 4.6,
         "dividendYieldText": "4.60%",
@@ -79,7 +79,7 @@
         "performanceAsOf": "2026-10-23"
       },
       "holdings": 2382,
-      "history": 4953
+      "history": 4954
     },
     {
       "ticker": "BLV",
