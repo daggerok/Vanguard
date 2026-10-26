@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T19:41:17.185Z",
+  "generatedAt": "2026-10-26T23:39:00.758Z",
   "source": {
     "provider": "Vanguard",
     "site": "https://investor.vanguard.com",
@@ -44,8 +44,8 @@
           "asOfDate": "Oct 23 2026",
           "ytd": -2,
           "yr1": -2.62,
-          "yr3": 5.36,
-          "yr5": -0.03,
+          "yr3": 5.37,
+          "yr5": -0.02,
           "yr10": 1.57,
           "sinceInception": null
         },
@@ -63,11 +63,11 @@
       "metrics": {
         "ytd": -2,
         "tr1y": -2.62,
-        "tr3y": 16.96,
-        "tr5y": -0.15,
-        "tr10y": 16.87,
-        "cagr3y": 5.36,
-        "cagr5y": -0.03,
+        "tr3y": 16.99,
+        "tr5y": -0.12,
+        "tr10y": 16.9,
+        "cagr3y": 5.37,
+        "cagr5y": -0.02,
         "cagr10y": 1.57,
         "siAnn": null,
         "dividendYield": 4.6,
