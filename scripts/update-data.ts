@@ -679,7 +679,10 @@ export function toIsoDate(value: unknown): string {
   if (/^\d{4}-\d{2}-\d{2}/.test(text)) return text.slice(0, 10);
   const mdy = text.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/);
   if (mdy) return `${mdy[3]}-${mdy[1].padStart(2, "0")}-${mdy[2].padStart(2, "0")}`;
-  const parsed = new Date(text);
+  // "Oct 01 2026" / "October 1, 2026" are calendar dates: read them as UTC, never in the machine's timezone
+  // (a run east of UTC turned them into the previous day). A text with its own zone keeps it.
+  const calendar = new Date(`${text} UTC`);
+  const parsed = Number.isNaN(calendar.getTime()) && /(?:GMT|UTC|Z|[+-]\d{2}:?\d{2})\s*$/i.test(text) ? new Date(text) : calendar;
   return Number.isNaN(parsed.getTime()) ? "" : parsed.toISOString().slice(0, 10);
 }
 
@@ -1681,7 +1684,36 @@ export function parseVanguardHoldingDetails(data: any): VanguardHoldings | null 
   );
   if (!rows.length) return null;
   const asOf = toIsoDate(rawAsOf);
-  return { rows, asOf: asOf || (typeof rawAsOf === "string" ? rawAsOf : null) };
+  return { rows: fillRoundedWeights(rows), asOf: asOf || (typeof rawAsOf === "string" ? rawAsOf : null) };
+}
+
+/** Rows whose published weight is at least this (in %) calibrate the market value -> weight factor; smaller ones are refilled. */
+export const WEIGHT_CALIBRATION_MIN = 0.1;
+
+/**
+ * Vanguard rounds `marketValuePercentage` to two decimals and leaves it out for tiny positions: BND had 12,028 rows at
+ * "0.00%" and 1,176 at "—", and many more rounded up to "0.01%", so its weights added up to 83.49%. Every such row
+ * carries its market value, so a weight below WEIGHT_CALIBRATION_MIN (or a missing one) is recomputed as
+ * market value x k with four decimals, where k = sum |weight| / sum |market value| over the rows of at least that weight
+ * (same sign only). k keeps the published "% of net assets" basis, so a levered or cash-heavy fund keeps its own total.
+ * Fewer than three calibration rows -> the rows are returned unchanged.
+ */
+export function fillRoundedWeights<T extends Record<string, unknown>>(rows: T[]): T[] {
+  let weights = 0, values = 0, count = 0;
+  for (const row of rows) {
+    const weight = numberOrNull(row.Weight), value = numberOrNull(row["Market Value"]);
+    if (weight === null || value === null || Math.abs(weight) < WEIGHT_CALIBRATION_MIN || Math.sign(weight) !== Math.sign(value)) continue;
+    weights += Math.abs(weight);
+    values += Math.abs(value);
+    count++;
+  }
+  if (count < 3 || !(values > 0)) return rows;
+  const k = weights / values;
+  return rows.map((row) => {
+    const weight = numberOrNull(row.Weight), value = numberOrNull(row["Market Value"]);
+    if (value === null || value === 0 || (weight !== null && Math.abs(weight) >= WEIGHT_CALIBRATION_MIN)) return row;
+    return { ...row, Weight: `${(value * k).toFixed(4)}%` };
+  });
 }
 
 export type VanguardAdditionalFundData = {
