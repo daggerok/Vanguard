@@ -307,6 +307,9 @@ describe("parsing 2", () => {
     // the Treasury note keeps no ticker (a bond is no "T" for AT&T) and the placeholder weight, never 0; the future keeps its own id, not XLE's
     expect(rows.slice(1).map((row) => [row.Ticker, row.Identifier, row.Weight, row.CUSIP, row.Coupon, row.Maturity])).toEqual([["—", "91282CKP5", "—", "91282CKP5", "4.125", "2030-01-31"], ["—", "BBG01VKPGXL9", "0.005", "—", undefined, undefined]]);
     expect(standardHoldingHeaders(rows)).toEqual([...HOLDINGS_HEADERS_BASE, "Coupon", "Maturity"]);
+    // SEC names carry an EDGAR state suffix ("BANK OF AMERICA CORP /DE/") that the filing's issuer name lacks
+    const bac = parseNportFiling(`<invstOrSec><name>Bank of America Corp</name><cusip>060505104</cusip><valUSD>1</valUSD><pctVal>1</pctVal><assetCat>EC</assetCat><curCd>USD</curCd></invstOrSec>`);
+    expect(nportTickers(bac.positions, parseSecCompanyNames({ 0: { ticker: "BAC", title: "BANK OF AMERICA CORP /DE/" } }))).toEqual(["BAC"]);
   });
 
   test('holdings guard: header-only, renamed weight column, broken weights, a bad weight sum and a halved sheet are rejected', () => {
