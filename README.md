@@ -61,9 +61,9 @@ The feed has exactly the same layout as the sibling ETF repositories, so one sha
 
 - `api/vanguard/index.json` - `generatedAt`, `source`, `counts` (funds, holdings, history rows) and `funds`, one row per ETF: `ticker`, `name`, `category`, `fundPage`, `dataFile`, `cusip`, `isin`, `ter`/`terValue`, `nav`/`navValue`, `aum`/`aumValue`, `asOfDate`, `inceptionDate`, `exchange`, `closePrice`, `premiumDiscount`, `distributions`, `returns`, `metrics`, `holdings` and `history` row counts
 - `api/vanguard/funds/<TICKER>/meta.json` - the same fields in detail: `source`, `providerIds` (fund page, advisor page, `portId`), `identifiers`, `expenseRatio`, `nav`, `marketPrice`, `premiumDiscount`, `aum` (with `totalFundNetAssets`), `yields`, `returns`, `distributions`, plus the manifests of the paginated `holdings/` and `history/` pages
-- holdings pages use the standard headers `Name`, `Ticker`, `Identifier`, `Weight`, `Market Value`, `Shares Held`, `Asset Category` followed by `Sector`, `Exchange`, `Location`, `CUSIP`, `ISIN`, `Currency` (and `Coupon`, `Maturity` for bonds from N-PORT-P)
+- holdings pages use the standard headers `Name`, `Ticker`, `Identifier`, `Weight`, `Market Value`, `Shares Held`, `Asset Category` followed by `Sector`, `Exchange`, `Location`, `CUSIP`, `ISIN`, `Currency` (and `Coupon`, `Maturity` for bonds from N-PORT-P); a bond row has Ticker `—` (Vanguard gives every Treasury AT&T's `T`, so debt stays keyed by its CUSIP)
 - `Weight` is Vanguard's percent of net assets. Vanguard rounds it to two decimals and leaves it out for tiny positions (BND summed to 83.49%), so a weight below 0.10% or a missing one is recomputed from the row's market value with four decimals, using the factor weight / market value of the rows of at least 0.10% (a levered fund keeps its own total); a sheet with fewer than three such rows is kept as published
-- dates published as text (`Oct 01 2026`, `October 1, 2026`) are read as calendar dates, never in the machine's timezone, so a run gives the same output in any timezone
+- dates published as text (`Oct 01 2026`, `October 1, 2026`, `10/01/2026`) are read as plain calendar text, never through the machine's timezone, so a run gives the same output in any timezone
 
 Each row carries a `metrics` object that powers the catalog columns and the metric filters. Percent numbers, `null` when unavailable, never 0:
 
@@ -84,13 +84,15 @@ Each row carries a `metrics` object that powers the catalog columns and the metr
 
 Caveats:
 
-- A 3, 5 or 10-year figure needs a price history that starts at or before the start of the period, so funds younger than the period (and runs with a shorter `HISTORY_RANGE`) get `null` there instead of a since-launch return passed off as a period return
+- A 3, 5 or 10-year figure needs a price history that starts at or before the start of the period, so funds younger than the period get `null` there instead of a since-launch return passed off as a period return
+- A fund younger than one year (calendar anniversary of its inception, inclusive) publishes no 1-year return, and no 3, 5 or 10-year one before those anniversaries, official or derived
 - `returns.monthEnd` holds the same values as `metrics` in the shape the shared app reads; `returns.quarterEnd` is empty because Vanguard publishes no separate quarter-end series
 - `nav` is Vanguard's official NAV, `closePrice` its official market price (the last Yahoo close when none is published) and `premiumDiscount` the value Vanguard published for the price day, never computed across days; `aum` is the ETF share class net assets as Vanguard rounds them (`$29.0B`), so `aumValue` is only as precise as that text
 - `cusip`, `inceptionDate` and `exchange` come from the Vanguard workplace fundDetails API (`inceptionDate` is the fund's inception, not the ETF share class); `isin` is derived from the CUSIP (`US` + CUSIP + check digit). When the API is unreachable the previously published values are kept
 - Yahoo history is requested as daily bars with an explicit `period1`/`period2` window (`range=max` makes Yahoo return monthly bars). Every fund is either fully refreshed or fully kept: if the official profile, the Vanguard AdditionalFundData or the Yahoo chart fails for a fund that already has published data, none of its files are rewritten, and the run exits with an error only when every selected fund failed. The run stops taking new funds after 25 minutes and still writes the index
 - Official NAV, market price and premium/discount come from Vanguard; Open/High/Low/Volume, distributions and every derived return come from Yahoo Finance and are not official fund data
-- Each holdings sheet records its as-of date and source, and SEC N-PORT-P is used only when the Vanguard feed has no holdings
+- Each holdings sheet records its as-of date and source, and SEC N-PORT-P is used only when the Vanguard feed has no holdings, the filing names the fund's own series and its report period is strictly newer than the published holdings (the newest report period first, `primary_doc.xml` from the trust's own EDGAR folder). N-PORT identifiers are the position's own (a derivative never takes its reference security's CUSIP or ticker), a ticker is set only for a U.S. equity traded in USD and never on two different securities, and a missing number is `—`, never `0`
+- `NEW FUNDS: ...` is printed (and added to the step summary) when a fund is published for the first time, also when its first read failed and a later run succeeds; `NEW FUNDS (not published yet): ...` names new funds whose first read failed
 
 ### Update controls
 
@@ -105,15 +107,15 @@ Every control is read from the environment under its plain name or as `VANGUARD_
 | `TER` | `:` | Expense ratio percent, `min:max`. Funds without the value are skipped. |
 | `DIVIDEND_YIELD` | `:` | Vanguard distribution yield percent (`metrics.dividendYield`), `min:max`. Funds without the value are skipped. |
 | `SEC_YIELD` | `:` | 30-day SEC yield percent, `min:max`. Funds without the value are skipped. |
-| `TICKERS` | all | Space-, comma- or semicolon-separated ticker allowlist, e.g. `VTI VOO BND VUG`; empty updates every fund. |
+| `TICKERS` | all | Space-, comma- or semicolon-separated ticker allowlist, e.g. `VTI VOO BND VUG`; empty updates every fund. A ticker that is neither in the built-in fund list nor a published fund is an error before any request (nothing is written). |
 | `CATEGORY` | empty | Keep funds whose catalog category contains this text, case-insensitive (`Bond`, `US Equity`, `Sector`, `International Equity`, `Global Equity`, `Real Estate`). |
 | `HOLDINGS_PAGE_SIZE` | `250` | Rows in each generated current-holdings JSON page (integer >= 1). |
 | `HISTORY_PAGE_SIZE` | `1000` | Rows in each generated daily-history JSON page (integer >= 1). |
 | `MAX_RETRIES` | `2` | Retries after the initial request of every source (integer 1-5, anything else is an error). Network errors, timeouts (45 s) and HTTP 408/425/429/5xx are retried, with exponential backoff. |
-| `HISTORY_RANGE` | `max` | `max` or `Ny` (e.g. `5y`): limits the Yahoo request window and the published history rows. Returns that need a longer window than the range are left unavailable. |
+| `HISTORY_RANGE` | `max` | `max` or `Ny` (e.g. `5y`): limits the Yahoo request window; the older published history and distributions are kept (rescaled by the overlapping days), and a window that does not join them keeps the fund as published. |
 | `SEC_UA` | `daggerok ETF feed daggerok@gmail.com` | User-Agent sent to SEC EDGAR and Vanguard endpoints; redacted in the config log. In Actions the protected `SEC_UA` repository variable wins when nonblank. |
 | `SKIP_YAHOO` | `false` | Do not request Yahoo Finance; previously published history rows and distributions are kept (`true`/`false`). |
-| `EDGAR_FALLBACK` | `true` | Use SEC N-PORT-P holdings when the Vanguard feed has none (`true`/`false`). A filing is used only when its report period is strictly newer than the holdings already published for the fund and its series id matches. |
+| `EDGAR_FALLBACK` | `true` | Use SEC N-PORT-P holdings when the Vanguard feed has none (`true`/`false`). A filing is used only when it names the fund's own series and its report period is strictly newer than the holdings already published for the fund (an unknown published date keeps them). |
 | `VERBOSE` | `false` | Print per-fund retry and fallback notices (`true`/`false`). |
 | `USE_SYSTEM_CA` | `auto` | TLS trust store: `auto` restarts the updater once with Bun's `--use-system-ca` when a request fails with an untrusted-certificate error; `true` always uses the system CA store; `false` never restarts. Not an individual workflow input: use `advanced`, the config file or the CLI environment. |
 | `PERFORMANCE_YTD` | `:` | Annualized return percent for the period, `min:max`, read from the standard metrics: YTD is `ytd` and 1Y is `tr1y` (Vanguard figure with a Yahoo fallback), 3Y, 5Y and 10Y are `cagr3y`, `cagr5y` and `cagr10y`. Funds with no value for the period pass. |
