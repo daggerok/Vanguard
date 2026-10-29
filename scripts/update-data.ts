@@ -132,7 +132,7 @@ function outputFundLine(index: number, total: number, ticker: string, status: st
     field('sec', outputPercent(data.secYield ?? data.yields?.secYield ?? metrics.secYield)),
     field('wp', data.workplaceRaw),
   ].filter(part => part !== '').join(' ');
-  return `[ ${String(index).padStart(width)}/${String(total).padEnd(width)}  ] ${outputClean(ticker).padEnd(5)} ${status.padEnd(9)}${detail ? ` ${detail}` : ''}${reason ? ` reason=${outputClean(reason)}` : ''}`;
+  return `[ ${`${String(index).padStart(width)}/${total}`.padEnd(8)} ] ${outputClean(ticker).padEnd(5)} ${status.padEnd(9)}${detail ? ` ${detail}` : ''}${reason ? ` reason=${outputClean(reason)}` : ''}`;
 }
 function outputCreateReporter(root: URL | string, total: number) {
   let completed = 0;
@@ -713,7 +713,7 @@ async function fetchWorkplaceFundDetails(portId: string) {
     const data = await res.json();
     return data;
   } catch (e) {
-    outputNote(`[ ${'workplace'.padEnd(9)}] ${portId} ${e}`);
+    outputNote(`[ ${'workplc'.padEnd(8)} ] ${portId} ${e}`);
     return null;
   }
 }
@@ -774,7 +774,7 @@ async function officialProfile(ticker: string, name: string) {
       if (m) portId = m[1];
     }
   } catch (e) {
-    outputNote(`[ ${'official'.padEnd(9)}] ${ticker} ${e}`);
+    outputNote(`[ ${'official'.padEnd(8)} ] ${ticker} ${e}`);
   }
 
   // If still no portId, try direct advisors products page (without slug)
@@ -919,7 +919,7 @@ async function chart(ticker: string): Promise<{ rows: any[]; dividends: ChartDiv
     dividends.sort((a, b) => a.epoch - b.epoch);
     return { rows, dividends, ok: rows.length > 0 };
   } catch (error) {
-    outputNote(`[ ${'history'.padEnd(9)}] ${ticker} ${error}`);
+    outputNote(`[ ${'history'.padEnd(8)} ] ${ticker} ${error}`);
     return { rows: [], dividends: [], ok: false };
   }
 }
@@ -936,7 +936,7 @@ async function withPublishedHistory(ticker: string, fetched: { rows: any[]; divi
   const distributions = dividendsFromPrevious(await readPreviousMeta(ticker)).map((item) => [new Date(item.epoch * 1000).toISOString().slice(0, 10), item.amount]);
   const merged = mergeWindowedChart({ days: fetched.rows, dividends: fetched.dividends }, published, distributions);
   if (!merged) {
-    outputNote(`[ ${'history'.padEnd(9)}] ${ticker} chart window does not join the published history (${activeConfig.historyRange})`);
+    outputNote(`[ ${'history'.padEnd(8)} ] ${ticker} chart window does not join the published history (${activeConfig.historyRange})`);
     return { rows: [], dividends: [], ok: false };
   }
   const byDate = new Map<string, any>(published.map((row: any) => [String(row?.Date), row] as [string, any]));
@@ -1758,7 +1758,7 @@ async function vanguardAdditionalFundData(ticker: string): Promise<VanguardAddit
     const data = await response.json();
     return { holdings: parseVanguardHoldingDetails(data), officialHistory: parseVanguardOfficialHistory(data), ok: true };
   } catch (error) {
-    outputNote(`[ ${'holdings'.padEnd(9)}] ${ticker} ${error}`);
+    outputNote(`[ ${'holdings'.padEnd(8)} ] ${ticker} ${error}`);
     return { holdings: null, officialHistory: [], ok: false };
   }
 }
@@ -1791,7 +1791,7 @@ export function resetSecState(): void {
 /** SEC's ticker -> registrant CIK + series id table, loaded once per run (a failed load is asked again by the next fund). */
 function loadFundTickerTable(): Promise<Map<string, NportSeriesRef>> {
   if (!secState.funds) {
-    const loading = fetchSecText(SEC_FUND_TICKERS_URL, "[edgar] fund ticker table").then((text) => parseSecFundTickers(JSON.parse(text)));
+    const loading = fetchSecText(SEC_FUND_TICKERS_URL, "[ edgar    ] fund ticker table").then((text) => parseSecFundTickers(JSON.parse(text)));
     secState.funds = loading;
     loading.catch(() => { if (secState.funds === loading) secState.funds = null; });
   }
@@ -1801,7 +1801,7 @@ function loadFundTickerTable(): Promise<Map<string, NportSeriesRef>> {
 /** SEC's company name -> ticker table for the N-PORT rows, loaded once per run. */
 function loadCompanyNames(): Promise<Map<string, string>> {
   if (!secState.names) {
-    const loading = fetchSecText(SEC_COMPANY_TICKERS_URL, "[edgar] company ticker table").then((text) => parseSecCompanyNames(JSON.parse(text)));
+    const loading = fetchSecText(SEC_COMPANY_TICKERS_URL, "[ edgar    ] company ticker table").then((text) => parseSecCompanyNames(JSON.parse(text)));
     secState.names = loading;
     loading.catch(() => { if (secState.names === loading) secState.names = null; });
   }
@@ -1997,7 +1997,7 @@ async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
   const batch = selectBatch(staticSelection, config.maxFetches, previousState);
   const selected = batch.selected;
   if (config.maxFetches > 0) {
-    console.log(`[ ${'cursor'.padEnd(9)}] starting at ${staticSelection.length ? batch.startCursor + 1 : 0} of ${staticSelection.length}; processing ${selected.length}; next ${staticSelection.length ? (batch.nextCursor ?? 0) + 1 : 0}`);
+    console.log(`[ ${'cursor'.padEnd(8)} ] starting at ${staticSelection.length ? batch.startCursor + 1 : 0} of ${staticSelection.length}; processing ${selected.length}; next ${staticSelection.length ? (batch.nextCursor ?? 0) + 1 : 0}`);
   } else {
     await rm(stateFile, { force: true });
   }
@@ -2052,16 +2052,16 @@ async function runUpdate(config: UpdaterConfig, softDeadlineMs: number) {
         // the fund's own newest filing, read only when strictly newer than the published holdings (shared nport-reader block)
         const ref = (await loadFundTickerTable()).get(ticker);
         const read = ref
-          ? await readNportHoldings({ ticker, cik: ref.cik, seriesId: ref.seriesId }, { asOf: toIsoDate(prevMeta?.holdings?.asOfDate), rows: numberOrNull(prevMeta?.holdings?.totalRows) ?? 0 }, (url, label) => fetchSecText(url, `[nport] ${label}`), { cache: secState.reader })
+          ? await readNportHoldings({ ticker, cik: ref.cik, seriesId: ref.seriesId }, { asOf: toIsoDate(prevMeta?.holdings?.asOfDate), rows: numberOrNull(prevMeta?.holdings?.totalRows) ?? 0 }, (url, label) => fetchSecText(url, `[ nport    ] ${label}`), { cache: secState.reader })
           : { problem: `${ticker}: not in the SEC fund ticker table` };
-        if ("problem" in read) outputNote(`[ ${'nport'.padEnd(9)}] ${read.problem}`);
+        if ("problem" in read) outputNote(`[ ${'nport'.padEnd(8)} ] ${read.problem}`);
         else {
-          holdingsRows = nportHoldingRows(read.filing, nportTickers(read.filing.positions, await loadCompanyNames().catch(() => null), await loadUsListings((url, label) => fetchSecText(url, `[nport] ${label}`))));
+          holdingsRows = nportHoldingRows(read.filing, nportTickers(read.filing.positions, await loadCompanyNames().catch(() => null), await loadUsListings((url, label) => fetchSecText(url, `[ nport    ] ${label}`))));
           holdingsAsOf = read.filing.repPdDate || null;
           holdingsSource = `SEC EDGAR Form N-PORT-P (accession ${read.candidate.accession}, report period ${read.filing.repPdDate || "n/a"})`;
         }
       } catch (error) {
-        outputNote(`[ ${'nport'.padEnd(9)}] ${ticker} ${error}`);
+        outputNote(`[ ${'nport'.padEnd(8)} ] ${ticker} ${error}`);
       }
     }
     // Fresh holdings (Vanguard IRR or N-PORT) that look broken (no weight column, non-numeric weights, a bad weight sum,
