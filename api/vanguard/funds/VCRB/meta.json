@@ -36,18 +36,18 @@
     "net": 0.1
   },
   "nav": {
-    "display": "$74.49",
-    "value": 74.49,
-    "asOfDate": "Oct 23 2026"
+    "display": "$74.53",
+    "value": 74.53,
+    "asOfDate": "Oct 28 2026"
   },
   "marketPrice": {
-    "display": "$74.60",
-    "value": 74.6,
-    "asOfDate": "Oct 23 2026"
+    "display": "$74.57",
+    "value": 74.57,
+    "asOfDate": "Oct 28 2026"
   },
   "premiumDiscount": {
-    "display": "0.15%",
-    "value": 0.15
+    "display": "0.05%",
+    "value": 0.05
   },
   "aum": {
     "display": "$7.6B",
@@ -64,16 +64,16 @@
     "dividendYieldText": "4.77%",
     "dividendYieldKind": "Vanguard published distribution yield",
     "dividendYieldAsOf": "2026-10-01",
-    "secYield": 5.25,
-    "secYieldText": "5.25%",
+    "secYield": 5.2,
+    "secYieldText": "5.20%",
     "secYieldKind": "official 30-day SEC yield",
-    "secYieldAsOf": "2026-10-22",
+    "secYieldAsOf": "2026-10-27",
     "unsubsidizedSecYield": null
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Oct 23 2026",
-      "ytd": -0.98,
+      "asOfDate": "Oct 28 2026",
+      "ytd": -0.93,
       "yr1": -1.65,
       "yr3": null,
       "yr5": null,
@@ -422,19 +422,19 @@
       "holdings/015.json"
     ],
     "pageSize": 250,
-    "totalRows": 3637,
-    "asOfDate": "2026-10-22",
+    "totalRows": 3681,
+    "asOfDate": "2026-10-28",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
-    "asOf": "Oct 22 2026"
+    "asOf": "Oct 28 2026"
   },
   "history": {
     "pages": [
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 728,
-    "asOfDate": "2026-10-23",
+    "totalRows": 732,
+    "asOfDate": "2026-10-29",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Oct 23 2026"
+    "asOf": "Oct 29 2026"
   }
 }

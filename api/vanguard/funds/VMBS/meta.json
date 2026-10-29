@@ -36,18 +36,18 @@
     "net": 0.03
   },
   "nav": {
-    "display": "$45.14",
-    "value": 45.14,
-    "asOfDate": "Oct 23 2026"
+    "display": "$45.22",
+    "value": 45.22,
+    "asOfDate": "Oct 28 2026"
   },
   "marketPrice": {
-    "display": "$45.23",
-    "value": 45.23,
-    "asOfDate": "Oct 23 2026"
+    "display": "$45.25",
+    "value": 45.25,
+    "asOfDate": "Oct 28 2026"
   },
   "premiumDiscount": {
-    "display": "0.20%",
-    "value": 0.2
+    "display": "0.07%",
+    "value": 0.07
   },
   "aum": {
     "display": "$15.5B",
@@ -64,20 +64,20 @@
     "dividendYieldText": "4.40%",
     "dividendYieldKind": "Vanguard published distribution yield",
     "dividendYieldAsOf": "2026-10-01",
-    "secYield": 4.46,
-    "secYieldText": "4.46%",
+    "secYield": 4.4,
+    "secYieldText": "4.40%",
     "secYieldKind": "official 30-day SEC yield",
-    "secYieldAsOf": "2026-10-22",
+    "secYieldAsOf": "2026-10-27",
     "unsubsidizedSecYield": null
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Oct 23 2026",
-      "ytd": -0.88,
+      "asOfDate": "Oct 28 2026",
+      "ytd": -0.7,
       "yr1": -1.44,
-      "yr3": 6.34,
-      "yr5": 0.28,
-      "yr10": 1.11,
+      "yr3": 6.31,
+      "yr5": 0.33,
+      "yr10": 1.18,
       "sinceInception": null
     },
     "quarterEnd": {
@@ -1971,9 +1971,9 @@
       "history/005.json"
     ],
     "pageSize": 1000,
-    "totalRows": 4290,
-    "asOfDate": "2026-10-23",
+    "totalRows": 4294,
+    "asOfDate": "2026-10-29",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Oct 23 2026"
+    "asOf": "Oct 29 2026"
   }
 }

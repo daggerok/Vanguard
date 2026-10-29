@@ -36,18 +36,18 @@
     "net": 0.06
   },
   "nav": {
-    "display": "$75.70",
-    "value": 75.7,
-    "asOfDate": "Oct 23 2026"
+    "display": "$75.73",
+    "value": 75.73,
+    "asOfDate": "Oct 28 2026"
   },
   "marketPrice": {
-    "display": "$75.71",
-    "value": 75.71,
-    "asOfDate": "Oct 23 2026"
+    "display": "$75.73",
+    "value": 75.73,
+    "asOfDate": "Oct 28 2026"
   },
   "premiumDiscount": {
-    "display": "0.01%",
-    "value": 0.01
+    "display": "0.00%",
+    "value": 0
   },
   "aum": {
     "display": "$12.8B",
@@ -64,16 +64,16 @@
     "dividendYieldText": "3.50%",
     "dividendYieldKind": "Vanguard published distribution yield",
     "dividendYieldAsOf": "2026-10-01",
-    "secYield": 3.8,
-    "secYieldText": "3.80%",
+    "secYield": 3.82,
+    "secYieldText": "3.82%",
     "secYieldKind": "official 30-day SEC yield",
-    "secYieldAsOf": "2026-10-22",
+    "secYieldAsOf": "2026-10-27",
     "unsubsidizedSecYield": null
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Oct 23 2026",
-      "ytd": 3,
+      "asOfDate": "Oct 28 2026",
+      "ytd": 3.04,
       "yr1": 3.74,
       "yr3": null,
       "yr5": null,
@@ -282,19 +282,19 @@
       "holdings/001.json"
     ],
     "pageSize": 250,
-    "totalRows": 26,
-    "asOfDate": "2026-10-22",
+    "totalRows": 29,
+    "asOfDate": "2026-10-28",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
-    "asOf": "Oct 22 2026"
+    "asOf": "Oct 28 2026"
   },
   "history": {
     "pages": [
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 434,
-    "asOfDate": "2026-10-23",
+    "totalRows": 438,
+    "asOfDate": "2026-10-29",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Oct 23 2026"
+    "asOf": "Oct 29 2026"
   }
 }
