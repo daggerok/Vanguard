@@ -11,7 +11,7 @@ import {
   isoFromDisplayDate, isinFromCusip, latestQuote, nportHoldingRows, nportIsFresh, nportTickers, paceRequest, parseAmount, parseAumRange,
   parseNportFiling, parseRange, parseSecCompanyNames, parseSecFundTickers, parseVanguardHoldingDetails, parseVanguardOfficialHistory, passesMetricFilters,
   passesStaticFilters, withYieldBasis, paymentsPerYear, previousValues, readConfig, resolveControls, run, runtimeControls, selectBatch,
-  standardHoldingHeaders, standardHoldingRow, summary, toIsoDate, yahooChartUrl, ytdFromRows, holdingsGuard,
+  standardHoldingHeaders, standardHoldingRow, summary, toIsoDate, yahooChartUrl, ytdFromRows, holdingsGuard, withRange52w,
 } from "./update-data";
 
 // ---------------------------------------------------------------------------
@@ -502,6 +502,9 @@ describe("pipeline", () => {
     expect(voo.metrics.tr1y).toBeCloseTo(10, 6);
     expect(voo.distributions).toEqual({ frequency: null, exDate: "03/27/2026", dividend: "1.8" });
     for (const fund of index.funds) expect(Object.keys(fund.metrics)).toEqual(Object.keys(voo.metrics));
+    // every row carries the 52-week keys from its history pages (range-52w block)
+    const RANGE_KEYS = ["week52Low", "week52High", "range52w", "range52wClose", "range52wAsOf", "range52wSince", "range52wBasis"];
+    for (const fund of index.funds) expect(Object.keys(fund.metrics)).toEqual(expect.arrayContaining(RANGE_KEYS));
     expect(Object.keys(jsonOf(dir, "funds/VOO/meta.json"))).toEqual(Object.keys(assembleFund(inputsFor()).meta));
     const holdings = jsonOf(dir, "funds/VOO/holdings/001.json");
     expect(holdings.headers).toEqual(HOLDINGS_HEADERS_BASE);
@@ -589,7 +592,8 @@ describe("pipeline 2", () => {
   test("a new fund that fails (holdings guard, no source answered, a write error) gets a catalog-only row and no files; that row is never read as published state", async () => {
     const { dir: clean } = await runOffline({ TICKERS: "VOO" });
     const published = jsonOf(clean, "index.json").funds[0];
-    const catalogOnly = catalogOnlyRow(["VOO", published.name, published.category]);
+    // the catalog-only row as written: the range-52w block adds its seven keys (all null without dataFile)
+    const [catalogOnly] = await withRange52w(clean, [catalogOnlyRow(["VOO", published.name, published.category])]);
     expect([catalogOnly.dataFile, catalogOnly.holdings, Object.keys(catalogOnly.metrics), catalogOnly.metrics.returnsBasis]).toEqual([null, 0, Object.keys(published.metrics), "unavailable"]);
     const dirs: string[] = [];
     for (const opts of [{ holdingsWeightKey: "marketValuePct" }, { down: true }, {}]) {
