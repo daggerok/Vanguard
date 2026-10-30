@@ -925,18 +925,19 @@ async function chart(ticker: string): Promise<{ rows: any[]; dividends: ChartDiv
 }
 
 /**
- * A HISTORY_RANGE window never shrinks the published history, and with it the 3y, 5y and 10y returns (open-items etfs Q25,
- * shared windowed-chart block): the published rows older than the first fresh Yahoo day go in front of it (Open, High, Low
- * and Volume as published, Adj Close rescaled by the overlapping days) and older published distributions are kept. A window
+ * A fresh chart never shrinks the published history, and with it the 3y, 5y and 10y returns (open-items etfs Q25,
+ * shared windowed-chart block): a HISTORY_RANGE window and also a truncated `max` answer (2026-10-29: Yahoo returned 2 bars
+ * for Franklin DVAL and USFI). A full `max` answer starts at inception: nothing older is published, so it comes back unchanged. The published rows older than the first fresh Yahoo day go in front of it (Open, High, Low
+ * and Volume as published, Adj Close rescaled by the overlapping days) and older published distributions are kept. A chart
  * that cannot be joined counts as a failed chart, so the fund is kept as published.
  */
 async function withPublishedHistory(ticker: string, fetched: { rows: any[]; dividends: ChartDividend[]; ok: boolean }): Promise<{ rows: any[]; dividends: ChartDividend[]; ok: boolean }> {
-  if (activeConfig.historyRange === "max" || !fetched.rows.length) return fetched;
+  if (!fetched.rows.length) return fetched;
   const published = (await readPreviousSheet(ticker, "history")).rows;
   const distributions = dividendsFromPrevious(await readPreviousMeta(ticker)).map((item) => [new Date(item.epoch * 1000).toISOString().slice(0, 10), item.amount]);
   const merged = mergeWindowedChart({ days: fetched.rows, dividends: fetched.dividends }, published, distributions);
   if (!merged) {
-    outputNote(`[ ${'history'.padEnd(8)} ] ${ticker} chart window does not join the published history (${activeConfig.historyRange})`);
+    outputNote(`[ ${'history'.padEnd(8)} ] ${ticker} chart does not join the published history (${activeConfig.historyRange}, ${fetched.rows.length} days)`);
     return { rows: [], dividends: [], ok: false };
   }
   const byDate = new Map<string, any>(published.map((row: any) => [String(row?.Date), row] as [string, any]));

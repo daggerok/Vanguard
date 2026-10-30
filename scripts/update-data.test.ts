@@ -694,6 +694,12 @@ describe("pipeline 4", () => {
     // a window that does not overlap the published history keeps the fund as published (the chart counts as failed)
     await expect(runOffline({ TICKERS: "VOO", HISTORY_RANGE: "1y" }, dir, { chartDays: 2, adjclose: [50, 60] })).rejects.toThrow("every selected fund failed");
     expect(touched(dir)).toEqual([]);
+    // a truncated default-range (max) answer never shrinks the history either: one that joins the published days keeps them all,
+    // one that does not join keeps the fund as published
+    await runOffline({ TICKERS: "VOO" }, dir, { chartDays: 2 });
+    expect(filesOf(dir).map((f) => [f, textOf(dir, f)])).toEqual(first);
+    await expect(runOffline({ TICKERS: "VOO" }, dir, { chartDays: 2, adjclose: [50, 60] })).rejects.toThrow("every selected fund failed");
+    expect(jsonOf(dir, "funds/VOO/meta.json").history.totalRows).toBe(5);
   });
 
   test("a relaxed guard still keeps numeric published weights from an all-dash sheet (Q24)", async () => {
