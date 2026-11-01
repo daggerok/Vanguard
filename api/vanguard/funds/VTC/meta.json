@@ -36,18 +36,18 @@
     "net": 0.03
   },
   "nav": {
-    "display": "$73.85",
-    "value": 73.85,
-    "asOfDate": "Oct 28 2026"
+    "display": "$74.09",
+    "value": 74.09,
+    "asOfDate": "Oct 30 2026"
   },
   "marketPrice": {
-    "display": "$73.91",
-    "value": 73.91,
-    "asOfDate": "Oct 28 2026"
+    "display": "$74.07",
+    "value": 74.07,
+    "asOfDate": "Oct 30 2026"
   },
   "premiumDiscount": {
-    "display": "0.08%",
-    "value": 0.08
+    "display": "-0.03%",
+    "value": -0.03
   },
   "aum": {
     "display": "$1.6B",
@@ -72,11 +72,11 @@
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Oct 28 2026",
-      "ytd": -1.21,
-      "yr1": -2.3,
-      "yr3": 6.19,
-      "yr5": -0.13,
+      "asOfDate": "Oct 30 2026",
+      "ytd": -0.89,
+      "yr1": -0.57,
+      "yr3": 6.35,
+      "yr5": -0.11,
       "yr10": null,
       "sinceInception": null
     },
@@ -1094,10 +1094,10 @@
       "holdings/021.json"
     ],
     "pageSize": 250,
-    "totalRows": 5099,
-    "asOfDate": "2026-10-28",
+    "totalRows": 5098,
+    "asOfDate": "2026-10-29",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
-    "asOf": "Oct 28 2026"
+    "asOf": "Oct 29 2026"
   },
   "history": {
     "pages": [
@@ -1106,9 +1106,9 @@
       "history/003.json"
     ],
     "pageSize": 1000,
-    "totalRows": 2286,
-    "asOfDate": "2026-10-29",
+    "totalRows": 2287,
+    "asOfDate": "2026-10-30",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Oct 29 2026"
+    "asOf": "Oct 30 2026"
   }
 }

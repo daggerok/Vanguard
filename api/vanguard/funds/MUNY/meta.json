@@ -36,18 +36,18 @@
     "net": 0.09
   },
   "nav": {
-    "display": "$100.00",
-    "value": 100,
-    "asOfDate": "Oct 28 2026"
+    "display": "$100.31",
+    "value": 100.31,
+    "asOfDate": "Oct 30 2026"
   },
   "marketPrice": {
-    "display": "$100.05",
-    "value": 100.05,
-    "asOfDate": "Oct 28 2026"
+    "display": "$100.37",
+    "value": 100.37,
+    "asOfDate": "Oct 30 2026"
   },
   "premiumDiscount": {
-    "display": "0.05%",
-    "value": 0.05
+    "display": "0.06%",
+    "value": 0.06
   },
   "aum": {
     "display": "$553.6M",
@@ -64,17 +64,17 @@
     "dividendYieldText": "3.37%",
     "dividendYieldKind": "Vanguard published distribution yield",
     "dividendYieldAsOf": "2026-10-01",
-    "secYield": 4.1,
-    "secYieldText": "4.10%",
+    "secYield": 4.08,
+    "secYieldText": "4.08%",
     "secYieldKind": "official 30-day SEC yield",
-    "secYieldAsOf": "2026-10-27",
+    "secYieldAsOf": "2026-10-29",
     "unsubsidizedSecYield": null
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Oct 28 2026",
-      "ytd": -0.54,
-      "yr1": -2.3,
+      "asOfDate": "Oct 30 2026",
+      "ytd": -0.23,
+      "yr1": 0.16,
       "yr3": null,
       "yr5": null,
       "yr10": null,
@@ -271,19 +271,19 @@
       "holdings/017.json"
     ],
     "pageSize": 250,
-    "totalRows": 4018,
-    "asOfDate": "2026-10-28",
+    "totalRows": 4027,
+    "asOfDate": "2026-10-29",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
-    "asOf": "Oct 28 2026"
+    "asOf": "Oct 29 2026"
   },
   "history": {
     "pages": [
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 368,
-    "asOfDate": "2026-10-29",
+    "totalRows": 369,
+    "asOfDate": "2026-10-30",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Oct 29 2026"
+    "asOf": "Oct 30 2026"
   }
 }
