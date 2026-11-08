@@ -36,27 +36,27 @@
     "net": 0.07
   },
   "nav": {
-    "display": "$89.18",
-    "value": 89.18,
-    "asOfDate": "Oct 30 2026"
+    "display": "$87.28",
+    "value": 87.28,
+    "asOfDate": "Nov 06 2026"
   },
   "marketPrice": {
-    "display": "$89.11",
-    "value": 89.11,
-    "asOfDate": "Oct 30 2026"
+    "display": "$87.36",
+    "value": 87.36,
+    "asOfDate": "Nov 06 2026"
   },
   "premiumDiscount": {
-    "display": "-0.08%",
-    "value": -0.08
+    "display": "0.09%",
+    "value": 0.09
   },
   "aum": {
-    "display": "$275.8M",
-    "value": 275800000,
-    "asOfDate": "Sep 30 2026",
+    "display": "$267.5M",
+    "value": 267500000,
+    "asOfDate": "Oct 31 2026",
     "source": "Vanguard workplace fundDetails API (ETF share class net assets)",
     "totalFundNetAssets": {
-      "display": "$275.8M",
-      "value": 275800000
+      "display": "$267.5M",
+      "value": 267500000
     }
   },
   "yields": {
@@ -72,8 +72,8 @@
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Oct 30 2026",
-      "ytd": 14.49,
+      "asOfDate": "Nov 06 2026",
+      "ytd": 12.05,
       "yr1": 16.49,
       "yr3": null,
       "yr5": null,
@@ -151,19 +151,19 @@
       "holdings/005.json"
     ],
     "pageSize": 250,
-    "totalRows": 1012,
-    "asOfDate": "2026-10-29",
+    "totalRows": 1010,
+    "asOfDate": "2026-11-05",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
-    "asOf": "Oct 29 2026"
+    "asOf": "Nov 05 2026"
   },
   "history": {
     "pages": [
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 277,
-    "asOfDate": "2026-10-30",
+    "totalRows": 283,
+    "asOfDate": "2026-11-06",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Oct 30 2026"
+    "asOf": "Nov 06 2026"
   }
 }

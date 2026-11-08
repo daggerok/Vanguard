@@ -36,27 +36,27 @@
     "net": 0.08
   },
   "nav": {
-    "display": "$75.50",
-    "value": 75.5,
-    "asOfDate": "Oct 30 2026"
+    "display": "$75.33",
+    "value": 75.33,
+    "asOfDate": "Nov 06 2026"
   },
   "marketPrice": {
-    "display": "$75.54",
-    "value": 75.54,
-    "asOfDate": "Oct 30 2026"
+    "display": "$75.42",
+    "value": 75.42,
+    "asOfDate": "Nov 06 2026"
   },
   "premiumDiscount": {
-    "display": "0.05%",
-    "value": 0.05
+    "display": "0.12%",
+    "value": 0.12
   },
   "aum": {
-    "display": "$64.8M",
-    "value": 64800000,
-    "asOfDate": "Sep 30 2026",
+    "display": "$83.1M",
+    "value": 83100000,
+    "asOfDate": "Oct 31 2026",
     "source": "Vanguard workplace fundDetails API (ETF share class net assets)",
     "totalFundNetAssets": {
-      "display": "$64.8M",
-      "value": 64800000
+      "display": "$83.1M",
+      "value": 83100000
     }
   },
   "yields": {
@@ -64,10 +64,10 @@
     "dividendYieldText": "—",
     "dividendYieldKind": "Vanguard published distribution yield",
     "dividendYieldAsOf": null,
-    "secYield": 4.69,
-    "secYieldText": "4.69%",
+    "secYield": 4.68,
+    "secYieldText": "4.68%",
     "secYieldKind": "official 30-day SEC yield",
-    "secYieldAsOf": "2026-10-29",
+    "secYieldAsOf": "2026-11-05",
     "unsubsidizedSecYield": null
   },
   "returns": {
@@ -168,18 +168,18 @@
     ],
     "pageSize": 250,
     "totalRows": 620,
-    "asOfDate": "2026-10-29",
+    "asOfDate": "2026-11-05",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
-    "asOf": "Oct 29 2026"
+    "asOf": "Nov 05 2026"
   },
   "history": {
     "pages": [
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 155,
-    "asOfDate": "2026-10-30",
+    "totalRows": 161,
+    "asOfDate": "2026-11-06",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Oct 30 2026"
+    "asOf": "Nov 06 2026"
   }
 }

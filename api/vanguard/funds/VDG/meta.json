@@ -36,27 +36,27 @@
     "net": 0.08
   },
   "nav": {
-    "display": "$75.96",
-    "value": 75.96,
-    "asOfDate": "Oct 30 2026"
+    "display": "$73.86",
+    "value": 73.86,
+    "asOfDate": "Nov 06 2026"
   },
   "marketPrice": {
-    "display": "$76.02",
-    "value": 76.02,
-    "asOfDate": "Oct 30 2026"
+    "display": "$73.86",
+    "value": 73.86,
+    "asOfDate": "Nov 06 2026"
   },
   "premiumDiscount": {
-    "display": "0.08%",
-    "value": 0.08
+    "display": "0.00%",
+    "value": 0
   },
   "aum": {
-    "display": "$47.4M",
-    "value": 47400000,
-    "asOfDate": "Sep 30 2026",
+    "display": "$45.6M",
+    "value": 45600000,
+    "asOfDate": "Oct 31 2026",
     "source": "Vanguard workplace fundDetails API (ETF share class net assets)",
     "totalFundNetAssets": {
-      "display": "$47.4M",
-      "value": 47400000
+      "display": "$45.6M",
+      "value": 45600000
     }
   },
   "yields": {
@@ -131,19 +131,19 @@
       "holdings/003.json"
     ],
     "pageSize": 250,
-    "totalRows": 599,
-    "asOfDate": "2026-10-29",
+    "totalRows": 597,
+    "asOfDate": "2026-11-05",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
-    "asOf": "Oct 29 2026"
+    "asOf": "Nov 05 2026"
   },
   "history": {
     "pages": [
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 141,
-    "asOfDate": "2026-10-30",
+    "totalRows": 147,
+    "asOfDate": "2026-11-06",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Oct 30 2026"
+    "asOf": "Nov 06 2026"
   }
 }

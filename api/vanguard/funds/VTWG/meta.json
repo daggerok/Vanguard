@@ -36,23 +36,23 @@
     "net": 0.06
   },
   "nav": {
-    "display": "$257.02",
-    "value": 257.02,
-    "asOfDate": "Oct 30 2026"
+    "display": "$251.10",
+    "value": 251.1,
+    "asOfDate": "Nov 06 2026"
   },
   "marketPrice": {
-    "display": "$256.79",
-    "value": 256.79,
-    "asOfDate": "Oct 30 2026"
+    "display": "$251.08",
+    "value": 251.08,
+    "asOfDate": "Nov 06 2026"
   },
   "premiumDiscount": {
-    "display": "-0.09%",
-    "value": -0.09
+    "display": "-0.01%",
+    "value": -0.01
   },
   "aum": {
     "display": "$1.4B",
     "value": 1400000000,
-    "asOfDate": "Sep 30 2026",
+    "asOfDate": "Oct 31 2026",
     "source": "Vanguard workplace fundDetails API (ETF share class net assets)",
     "totalFundNetAssets": {
       "display": "$1.6B",
@@ -64,20 +64,20 @@
     "dividendYieldText": "0.50%",
     "dividendYieldKind": "Vanguard published distribution yield",
     "dividendYieldAsOf": "2026-09-30",
-    "secYield": 0.44,
-    "secYieldText": "0.44%",
+    "secYield": 0.45,
+    "secYieldText": "0.45%",
     "secYieldKind": "official 30-day SEC yield",
-    "secYieldAsOf": "2026-09-30",
+    "secYieldAsOf": "2026-10-31",
     "unsubsidizedSecYield": null
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Oct 30 2026",
-      "ytd": 9.34,
+      "asOfDate": "Nov 06 2026",
+      "ytd": 6.82,
       "yr1": 7.21,
-      "yr3": 20.67,
-      "yr5": 3.51,
-      "yr10": 10.5,
+      "yr3": 17.8,
+      "yr5": 1.86,
+      "yr10": 10.52,
       "sinceInception": null
     },
     "quarterEnd": {
@@ -579,9 +579,9 @@
       "history/005.json"
     ],
     "pageSize": 1000,
-    "totalRows": 4087,
-    "asOfDate": "2026-10-30",
+    "totalRows": 4093,
+    "asOfDate": "2026-11-06",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Oct 30 2026"
+    "asOf": "Nov 06 2026"
   }
 }

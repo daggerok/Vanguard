@@ -36,27 +36,27 @@
     "net": 0.05
   },
   "nav": {
-    "display": "$168.92",
-    "value": 168.92,
-    "asOfDate": "Oct 30 2026"
+    "display": "$165.31",
+    "value": 165.31,
+    "asOfDate": "Nov 06 2026"
   },
   "marketPrice": {
-    "display": "$169.00",
-    "value": 169,
-    "asOfDate": "Oct 30 2026"
+    "display": "$165.33",
+    "value": 165.33,
+    "asOfDate": "Nov 06 2026"
   },
   "premiumDiscount": {
-    "display": "0.05%",
-    "value": 0.05
+    "display": "0.01%",
+    "value": 0.01
   },
   "aum": {
-    "display": "$13.5B",
-    "value": 13500000000,
-    "asOfDate": "Sep 30 2026",
+    "display": "$14.2B",
+    "value": 14200000000,
+    "asOfDate": "Oct 31 2026",
     "source": "Vanguard workplace fundDetails API (ETF share class net assets)",
     "totalFundNetAssets": {
-      "display": "$13.6B",
-      "value": 13600000000
+      "display": "$14.4B",
+      "value": 14400000000
     }
   },
   "yields": {
@@ -64,20 +64,20 @@
     "dividendYieldText": "1.97%",
     "dividendYieldKind": "Vanguard published distribution yield",
     "dividendYieldAsOf": "2026-09-30",
-    "secYield": 1.81,
-    "secYieldText": "1.81%",
+    "secYield": 1.74,
+    "secYieldText": "1.74%",
     "secYieldKind": "official 30-day SEC yield",
-    "secYieldAsOf": "2026-09-30",
+    "secYieldAsOf": "2026-10-31",
     "unsubsidizedSecYield": null
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Oct 30 2026",
-      "ytd": 21.42,
+      "asOfDate": "Nov 06 2026",
+      "ytd": 18.82,
       "yr1": 25.56,
-      "yr3": 22.53,
-      "yr5": 12.93,
-      "yr10": 13.34,
+      "yr3": 20.25,
+      "yr5": 12.15,
+      "yr10": 13.27,
       "sinceInception": null
     },
     "quarterEnd": {
@@ -791,9 +791,9 @@
       "history/005.json"
     ],
     "pageSize": 1000,
-    "totalRows": 4776,
-    "asOfDate": "2026-10-30",
+    "totalRows": 4782,
+    "asOfDate": "2026-11-06",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Oct 30 2026"
+    "asOf": "Nov 06 2026"
   }
 }
