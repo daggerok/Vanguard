@@ -11,7 +11,7 @@ import {
   isoFromDisplayDate, isinFromCusip, latestQuote, nportHoldingRows, nportIsFresh, nportTickers, paceRequest, parseAmount, parseAumRange,
   parseNportFiling, parseRange, parseSecCompanyNames, parseSecFundTickers, parseVanguardHoldingDetails, parseVanguardOfficialHistory, passesMetricFilters,
   passesStaticFilters, withYieldBasis, paymentsPerYear, previousValues, readConfig, resolveControls, run, runtimeControls, selectBatch,
-  standardHoldingHeaders, standardHoldingRow, summary, toIsoDate, yahooChartUrl, ytdFromRows, holdingsGuard, withRange52w,
+  standardHoldingHeaders, standardHoldingRow, summary, toIsoDate, yahooChartUrl, ytdFromRows, holdingsGuard, withRange52w, withSwing,
 } from "./update-data";
 
 // ---------------------------------------------------------------------------
@@ -505,6 +505,9 @@ describe("pipeline", () => {
     // every row carries the 52-week keys from its history pages (range-52w block)
     const RANGE_KEYS = ["week52Low", "week52High", "range52w", "range52wClose", "range52wAsOf", "range52wSince", "range52wBasis"];
     for (const fund of index.funds) expect(Object.keys(fund.metrics)).toEqual(expect.arrayContaining(RANGE_KEYS));
+    // the swing keys from the Close column of the same pages (shared swing block): ATH and its basis from the first close
+    for (const fund of index.funds) expect(Object.keys(fund.metrics).slice(-11, -2)).toEqual(["pctFrom52wHigh", "athPrice", "athDate", "athBasis", "pctFromAth", "volatility1y", "sigmaFromMean60d", "high60d", "low60d"]);
+    expect([typeof voo.metrics.athPrice, voo.metrics.athBasis]).toEqual(["number", expect.stringMatching(/^daily closes since \d{4}-\d{2}-\d{2}$/)]);
     expect(Object.keys(jsonOf(dir, "funds/VOO/meta.json"))).toEqual(Object.keys(assembleFund(inputsFor()).meta));
     const holdings = jsonOf(dir, "funds/VOO/holdings/001.json");
     expect(holdings.headers).toEqual(HOLDINGS_HEADERS_BASE);
@@ -593,7 +596,7 @@ describe("pipeline 2", () => {
     const { dir: clean } = await runOffline({ TICKERS: "VOO" });
     const published = jsonOf(clean, "index.json").funds[0];
     // the catalog-only row as written: the range-52w block adds its seven keys (all null without dataFile)
-    const [catalogOnly] = await withRange52w(clean, [catalogOnlyRow(["VOO", published.name, published.category])]);
+    const [catalogOnly] = await withSwing(clean, await withRange52w(clean, [catalogOnlyRow(["VOO", published.name, published.category])]));
     expect([catalogOnly.dataFile, catalogOnly.holdings, Object.keys(catalogOnly.metrics), catalogOnly.metrics.returnsBasis]).toEqual([null, 0, Object.keys(published.metrics), "unavailable"]);
     const dirs: string[] = [];
     for (const opts of [{ holdingsWeightKey: "marketValuePct" }, { down: true }, {}]) {

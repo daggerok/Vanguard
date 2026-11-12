@@ -79,6 +79,13 @@ Each row carries a `metrics` object that powers the catalog columns and the metr
   | `official-other` | the distribution yield Vanguard publishes (its definition is not stated in the API); the only code this feed emits |
   | `official-trailing-12m`, `official-distribution-rate`, `computed-trailing-12m`, `indicated` | part of the shared vocabulary, never produced here |
 
+- Swing metrics (shared `swing` block, the formulas of the Stocks feed) from the daily `Close` column of the published history (the split-adjusted, not dividend-adjusted Yahoo close, Vanguard's official market price where it publishes one; NAV-only rows have no `Close` and are skipped), with the last close as the price; `null` (never `0`) when the history is too short:
+  - `pctFrom52wHigh` - last close against the highest close of the last 52 weeks, in percent
+  - `athPrice`, `athDate`, `athBasis` - highest close of the whole history, its date and the history it covers (`daily closes since <first date>`)
+  - `pctFromAth` - last close against `athPrice`, in percent
+  - `volatility1y` - annualized volatility of the last 252 daily log returns, in percent (needs 253 closes)
+  - `sigmaFromMean60d` - distance of the last close from the mean of the last 60 closes, in sample standard deviations
+  - `high60d`, `low60d` - highest and lowest of the last 60 closes
 - `returnsBasis` - plain-text label of where this fund's returns come from (official Vanguard figures, derived from Yahoo, or both)
 - `performanceAsOf` - ISO date the returns are as of: the date Vanguard attached to its figures, else the last Yahoo close used. It is not the NAV date
 
