@@ -11,7 +11,7 @@ import {
   isoFromDisplayDate, isinFromCusip, latestQuote, nportHoldingRows, nportIsFresh, nportTickers, paceRequest, parseAmount, parseAumRange,
   parseNportFiling, parseRange, parseSecCompanyNames, parseSecFundTickers, parseVanguardHoldingDetails, parseVanguardOfficialHistory, passesMetricFilters,
   passesStaticFilters, withYieldBasis, paymentsPerYear, previousValues, readConfig, resolveControls, run, runtimeControls, selectBatch,
-  standardHoldingHeaders, standardHoldingRow, summary, toIsoDate, yahooChartUrl, ytdFromRows, holdingsGuard, withRange52w, withSwing,
+  standardHoldingHeaders, standardHoldingRow, summary, toIsoDate, yahooChartUrl, ytdFromRows, holdingsGuard, withRange52w, withSwing, withDividends,
 } from "./update-data";
 
 // ---------------------------------------------------------------------------
@@ -454,7 +454,7 @@ function mockFeed(opts: { delayMs?: number; failYahoo?: boolean; noHoldings?: bo
         if (opts.failYahoo) return new Response("down", { status: 404 });
         const days = ["2024-12-31", "2025-06-01", "2025-12-31", "2026-06-01"].slice(-(opts.chartDays ?? 4));
         const adj = [100, 110, 115, 121].slice(-(opts.chartDays ?? 4));
-        return Response.json({ chart: { result: [{ timestamp: days.map(epoch), indicators: { quote: [{ open: adj, high: adj, low: adj, close: adj, volume: adj }], adjclose: [{ adjclose: opts.adjclose ?? adj }] }, events: { dividends: { [epoch("2026-03-27")]: { amount: 1.8, date: epoch("2026-03-27") } } } }] } });
+        return Response.json({ chart: { result: [{ meta: { dataGranularity: "1d", firstTradeDate: epoch("2024-12-31") }, timestamp: days.map(epoch), indicators: { quote: [{ open: adj, high: adj, low: adj, close: adj, volume: adj }], adjclose: [{ adjclose: opts.adjclose ?? adj }] }, events: { dividends: { [epoch("2026-03-27")]: { amount: 1.8, date: epoch("2026-03-27") } } } }] } });
       }
       if (url.includes("AdditionalFundData")) {
         return Response.json({
@@ -493,9 +493,13 @@ const touched = (dir: string): string[] => filesOf(dir).filter((f) => statSync(j
 
 describe("pipeline", () => {
   test("a run writes the standard index, meta and holdings pages with the same metrics key set on every row", async () => {
-    const { dir } = await runOffline({ TICKERS: "VOO VTI" });
+    const urls: string[] = [];
+    const { dir } = await runOffline({ TICKERS: "VOO VTI" }, undefined, { urls });
     const index = jsonOf(dir, "index.json");
     expect(Object.keys(index)).toEqual(["generatedAt", "source", "counts", "funds"]);
+    // the dividends block asks for the dividend events of each updated fund once (daily chart without pre/post), never for an unselected one
+    expect(urls.filter((url) => /chart\/VOO\?period1=0&.*includePrePost=false/.test(url))).toHaveLength(1);
+    expect(urls.some((url) => /chart\/BND\?period1=0&.*includePrePost=false/.test(url))).toBe(false);
     expect(index.counts).toEqual({ funds: 2, holdings: 2, history: 10 });
     const voo = index.funds.find((fund: any) => fund.ticker === "VOO");
     expect([voo.metrics.cagr3y, voo.metrics.performanceAsOf, voo.navValue, voo.cusip, voo.isin, voo.exchange, voo.inceptionDate, voo.dataFile]).toEqual([null, "2026-06-01", 101, "922908769", "US9229087690", "New York Stock Exchange Arca", "May 24 2001", "./funds/VOO/meta.json"]);
@@ -506,7 +510,10 @@ describe("pipeline", () => {
     const RANGE_KEYS = ["week52Low", "week52High", "range52w", "range52wClose", "range52wAsOf", "range52wSince", "range52wBasis"];
     for (const fund of index.funds) expect(Object.keys(fund.metrics)).toEqual(expect.arrayContaining(RANGE_KEYS));
     // the swing keys from the Close column of the same pages (shared swing block): ATH and its basis from the first close
-    for (const fund of index.funds) expect(Object.keys(fund.metrics).slice(-11, -2)).toEqual(["pctFrom52wHigh", "athPrice", "athDate", "athBasis", "pctFromAth", "volatility1y", "sigmaFromMean60d", "high60d", "low60d"]);
+    for (const fund of index.funds) expect(Object.keys(fund.metrics).slice(-17, -8)).toEqual(["pctFrom52wHigh", "athPrice", "athDate", "athBasis", "pctFromAth", "volatility1y", "sigmaFromMean60d", "high60d", "low60d"]);
+    // the six dividend keys of the dividends block follow the swing keys; the updated fund reads the dividend events of its own daily chart (0.25 is not in the mock, 1.8 on 2026-03-27 is): dividendRate 1.8, the five growth keys null (never 0)
+    for (const fund of index.funds) expect(Object.keys(fund.metrics).slice(-8, -2)).toEqual(["dividendRate", "dividendGrowth", "dividendGrowth3y", "dividendGrowth5y", "dividendStreak", "dividendCut10y"]);
+    for (const fund of index.funds) expect([fund.metrics.dividendRate, fund.metrics.dividendGrowth, fund.metrics.dividendGrowth3y, fund.metrics.dividendGrowth5y, fund.metrics.dividendStreak, fund.metrics.dividendCut10y]).toEqual([1.8, null, null, null, null, null]);
     expect([typeof voo.metrics.athPrice, voo.metrics.athBasis]).toEqual(["number", expect.stringMatching(/^daily closes since \d{4}-\d{2}-\d{2}$/)]);
     expect(Object.keys(jsonOf(dir, "funds/VOO/meta.json"))).toEqual(Object.keys(assembleFund(inputsFor()).meta));
     const holdings = jsonOf(dir, "funds/VOO/holdings/001.json");
@@ -595,8 +602,8 @@ describe("pipeline 2", () => {
   test("a new fund that fails (holdings guard, no source answered, a write error) gets a catalog-only row and no files; that row is never read as published state", async () => {
     const { dir: clean } = await runOffline({ TICKERS: "VOO" });
     const published = jsonOf(clean, "index.json").funds[0];
-    // the catalog-only row as written: the range-52w block adds its seven keys (all null without dataFile)
-    const [catalogOnly] = await withSwing(clean, await withRange52w(clean, [catalogOnlyRow(["VOO", published.name, published.category])]));
+    // the catalog-only row as written: the range-52w, swing and dividends blocks add their keys (all null without dataFile)
+    const [catalogOnly] = await withDividends(clean, await withSwing(clean, await withRange52w(clean, [catalogOnlyRow(["VOO", published.name, published.category])])));
     expect([catalogOnly.dataFile, catalogOnly.holdings, Object.keys(catalogOnly.metrics), catalogOnly.metrics.returnsBasis]).toEqual([null, 0, Object.keys(published.metrics), "unavailable"]);
     const dirs: string[] = [];
     for (const opts of [{ holdingsWeightKey: "marketValuePct" }, { down: true }, {}]) {
