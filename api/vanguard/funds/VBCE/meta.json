@@ -36,18 +36,18 @@
     "net": 0.08
   },
   "nav": {
-    "display": "$73.67",
-    "value": 73.67,
-    "asOfDate": "Nov 06 2026"
+    "display": "$72.88",
+    "value": 72.88,
+    "asOfDate": "Nov 13 2026"
   },
   "marketPrice": {
-    "display": "$73.77",
-    "value": 73.77,
-    "asOfDate": "Nov 06 2026"
+    "display": "$72.97",
+    "value": 72.97,
+    "asOfDate": "Nov 13 2026"
   },
   "premiumDiscount": {
-    "display": "0.14%",
-    "value": 0.14
+    "display": "0.12%",
+    "value": 0.12
   },
   "aum": {
     "display": "$69.3M",
@@ -64,10 +64,10 @@
     "dividendYieldText": "—",
     "dividendYieldKind": "Vanguard published distribution yield",
     "dividendYieldAsOf": null,
-    "secYield": 5.56,
-    "secYieldText": "5.56%",
+    "secYield": 5.55,
+    "secYieldText": "5.55%",
     "secYieldKind": "official 30-day SEC yield",
-    "secYieldAsOf": "2026-11-05",
+    "secYieldAsOf": "2026-11-12",
     "unsubsidizedSecYield": null
   },
   "returns": {
@@ -104,6 +104,15 @@
       "LT Cap Gains"
     ],
     "rows": [
+      [
+        "Monthly",
+        "2026-11-02",
+        "—",
+        "—",
+        "0.282",
+        "—",
+        "—"
+      ],
       [
         "Monthly",
         "2026-10-01",
@@ -168,18 +177,18 @@
     ],
     "pageSize": 250,
     "totalRows": 631,
-    "asOfDate": "2026-11-05",
+    "asOfDate": "2026-11-12",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
-    "asOf": "Nov 05 2026"
+    "asOf": "Nov 12 2026"
   },
   "history": {
     "pages": [
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 161,
-    "asOfDate": "2026-11-06",
+    "totalRows": 166,
+    "asOfDate": "2026-11-13",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Nov 06 2026"
+    "asOf": "Nov 13 2026"
   }
 }

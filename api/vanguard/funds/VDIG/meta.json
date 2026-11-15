@@ -36,18 +36,18 @@
     "net": 0.4
   },
   "nav": {
-    "display": "$64.67",
-    "value": 64.67,
-    "asOfDate": "Nov 06 2026"
+    "display": "$66.74",
+    "value": 66.74,
+    "asOfDate": "Nov 13 2026"
   },
   "marketPrice": {
-    "display": "$64.71",
-    "value": 64.71,
-    "asOfDate": "Nov 06 2026"
+    "display": "$66.74",
+    "value": 66.74,
+    "asOfDate": "Nov 13 2026"
   },
   "premiumDiscount": {
-    "display": "0.06%",
-    "value": 0.06
+    "display": "0.00%",
+    "value": 0
   },
   "aum": {
     "display": "$32.8M",
@@ -60,10 +60,10 @@
     }
   },
   "yields": {
-    "dividendYield": 1.55,
-    "dividendYieldText": "1.55%",
+    "dividendYield": 1.4,
+    "dividendYieldText": "1.40%",
     "dividendYieldKind": "Vanguard published distribution yield",
-    "dividendYieldAsOf": "2026-09-30",
+    "dividendYieldAsOf": "2026-10-31",
     "secYield": 1.02,
     "secYieldText": "1.02%",
     "secYieldKind": "official 30-day SEC yield",
@@ -72,8 +72,8 @@
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Nov 06 2026",
-      "ytd": 5.51,
+      "asOfDate": "Nov 13 2026",
+      "ytd": 8.89,
       "yr1": null,
       "yr3": null,
       "yr5": null,
@@ -89,7 +89,7 @@
       "yr10": null,
       "sinceInception": null
     },
-    "derivedFrom": "official Vanguard YTD returns"
+    "derivedFrom": "official Vanguard YTD returns; 1-year returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
   },
   "distributions": {
     "frequency": "Annually",
@@ -121,18 +121,18 @@
     ],
     "pageSize": 250,
     "totalRows": 43,
-    "asOfDate": "2026-11-05",
+    "asOfDate": "2026-11-12",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
-    "asOf": "Nov 05 2026"
+    "asOf": "Nov 12 2026"
   },
   "history": {
     "pages": [
       "history/001.json"
     ],
     "pageSize": 1000,
-    "totalRows": 251,
-    "asOfDate": "2026-11-06",
+    "totalRows": 255,
+    "asOfDate": "2026-11-13",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Nov 06 2026"
+    "asOf": "Nov 13 2026"
   }
 }

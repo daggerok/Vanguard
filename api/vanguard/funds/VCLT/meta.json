@@ -36,18 +36,18 @@
     "net": 0.03
   },
   "nav": {
-    "display": "$70.70",
-    "value": 70.7,
-    "asOfDate": "Nov 06 2026"
+    "display": "$69.16",
+    "value": 69.16,
+    "asOfDate": "Nov 13 2026"
   },
   "marketPrice": {
-    "display": "$70.82",
-    "value": 70.82,
-    "asOfDate": "Nov 06 2026"
+    "display": "$69.22",
+    "value": 69.22,
+    "asOfDate": "Nov 13 2026"
   },
   "premiumDiscount": {
-    "display": "0.17%",
-    "value": 0.17
+    "display": "0.09%",
+    "value": 0.09
   },
   "aum": {
     "display": "$8.6B",
@@ -64,20 +64,20 @@
     "dividendYieldText": "6.00%",
     "dividendYieldKind": "Vanguard published distribution yield",
     "dividendYieldAsOf": "2026-11-02",
-    "secYield": 6.38,
-    "secYieldText": "6.38%",
+    "secYield": 6.41,
+    "secYieldText": "6.41%",
     "secYieldKind": "official 30-day SEC yield",
-    "secYieldAsOf": "2026-11-05",
+    "secYieldAsOf": "2026-11-12",
     "unsubsidizedSecYield": null
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Nov 06 2026",
-      "ytd": -2.31,
+      "asOfDate": "Nov 13 2026",
+      "ytd": -4.43,
       "yr1": -3.7,
-      "yr3": 5.47,
-      "yr5": -3.66,
-      "yr10": 1.68,
+      "yr3": 4.4,
+      "yr5": -3.65,
+      "yr10": 1.92,
       "sinceInception": null
     },
     "quarterEnd": {
@@ -104,6 +104,15 @@
       "LT Cap Gains"
     ],
     "rows": [
+      [
+        "Monthly",
+        "2026-11-02",
+        "—",
+        "—",
+        "0.366",
+        "—",
+        "—"
+      ],
       [
         "Monthly",
         "2026-10-01",
@@ -1939,10 +1948,10 @@
       "holdings/011.json"
     ],
     "pageSize": 250,
-    "totalRows": 2587,
-    "asOfDate": "2026-09-30",
+    "totalRows": 2658,
+    "asOfDate": "2026-10-31",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
-    "asOf": "Sep 30 2026"
+    "asOf": "Oct 31 2026"
   },
   "history": {
     "pages": [
@@ -1953,9 +1962,9 @@
       "history/005.json"
     ],
     "pageSize": 1000,
-    "totalRows": 4301,
-    "asOfDate": "2026-11-06",
+    "totalRows": 4306,
+    "asOfDate": "2026-11-13",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Nov 06 2026"
+    "asOf": "Nov 13 2026"
   }
 }

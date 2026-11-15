@@ -36,14 +36,14 @@
     "net": 0.05
   },
   "nav": {
-    "display": "$59.55",
-    "value": 59.55,
-    "asOfDate": "Nov 06 2026"
+    "display": "$56.85",
+    "value": 56.85,
+    "asOfDate": "Nov 13 2026"
   },
   "marketPrice": {
-    "display": "$59.70",
-    "value": 59.7,
-    "asOfDate": "Nov 06 2026"
+    "display": "$56.99",
+    "value": 56.99,
+    "asOfDate": "Nov 13 2026"
   },
   "premiumDiscount": {
     "display": "0.25%",
@@ -64,20 +64,20 @@
     "dividendYieldText": "—",
     "dividendYieldKind": "Vanguard published distribution yield",
     "dividendYieldAsOf": null,
-    "secYield": 5.48,
-    "secYieldText": "5.48%",
+    "secYield": 5.6,
+    "secYieldText": "5.60%",
     "secYieldKind": "official 30-day SEC yield",
-    "secYieldAsOf": "2026-11-05",
+    "secYieldAsOf": "2026-11-12",
     "unsubsidizedSecYield": null
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Nov 06 2026",
-      "ytd": -4.68,
+      "asOfDate": "Nov 13 2026",
+      "ytd": -9,
       "yr1": -9.27,
-      "yr3": 0.5,
-      "yr5": -12.47,
-      "yr10": -3.69,
+      "yr3": -1.59,
+      "yr5": -13.01,
+      "yr10": -3.09,
       "sinceInception": null
     },
     "quarterEnd": {
@@ -778,9 +778,9 @@
     ],
     "pageSize": 250,
     "totalRows": 83,
-    "asOfDate": "2026-09-30",
+    "asOfDate": "2026-10-31",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
-    "asOf": "Sep 30 2026"
+    "asOf": "Oct 31 2026"
   },
   "history": {
     "pages": [
@@ -791,9 +791,9 @@
       "history/005.json"
     ],
     "pageSize": 1000,
-    "totalRows": 4761,
-    "asOfDate": "2026-11-06",
+    "totalRows": 4766,
+    "asOfDate": "2026-11-13",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Nov 06 2026"
+    "asOf": "Nov 13 2026"
   }
 }
