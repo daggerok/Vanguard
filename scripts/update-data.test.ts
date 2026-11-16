@@ -11,7 +11,7 @@ import {
   isoFromDisplayDate, isinFromCusip, latestQuote, nportHoldingRows, nportIsFresh, nportTickers, paceRequest, parseAmount, parseAumRange,
   parseNportFiling, parseRange, parseSecCompanyNames, parseSecFundTickers, parseVanguardHoldingDetails, parseVanguardOfficialHistory, passesMetricFilters,
   passesStaticFilters, withYieldBasis, paymentsPerYear, previousValues, readConfig, resolveControls, run, runtimeControls, selectBatch,
-  standardHoldingHeaders, standardHoldingRow, summary, toIsoDate, yahooChartUrl, ytdFromRows, holdingsGuard, withRange52w, withSwing, withDividends,
+  standardHoldingHeaders, standardHoldingRow, summary, toIsoDate, yahooChartUrl, ytdFromRows, holdingsGuard, withRange52w, withSwing, withDividends, withBenchmark,
 } from "./update-data";
 
 // ---------------------------------------------------------------------------
@@ -428,6 +428,10 @@ describe("metrics 2", () => {
 // ===========================================================================
 // Pipeline: the real run() against a mocked fetch, writing into a per-test temp dir
 // ===========================================================================
+const DIVIDEND_KEYS = ["dividendRate", "dividendGrowth", "dividendGrowth3y", "dividendGrowth5y", "dividendStreak", "dividendCut10y", "paymentsPerYear", "payFrequency"];
+const BENCHMARK_KEYS = ["perf1y", "perf3y", "perf5y", "perf10y", "perfSi", "maxDrawdown1y", "maxDrawdown3y", "maxDrawdown5y", "maxDrawdown10y",
+  "vsSpy1y", "vsSpy3y", "vsSpy5y", "vsSpy10y", "beta1ySpy", "corr1ySpy", "upCapture3ySpy", "downCapture3ySpy", "relStrength3mSpy", "stressReturnSpy", "stressBasisSpy",
+  "vsQqq1y", "vsQqq3y", "vsQqq5y", "vsQqq10y", "beta1yQqq", "corr1yQqq", "upCapture3yQqq", "downCapture3yQqq", "relStrength3mQqq", "stressReturnQqq", "stressBasisQqq", "benchmarkAsOf"];
 function mockFeed(opts: { delayMs?: number; failYahoo?: boolean; noHoldings?: boolean; nportAsOf?: string; nportSeries?: string; urls?: string[]; adjclose?: number[]; holdingsWeightKey?: string; down?: boolean; downTicker?: string; chartDays?: number; inception?: string } = {}) {
   const inflight = new Set<string>();
   let peak = 0;
@@ -510,10 +514,16 @@ describe("pipeline", () => {
     const RANGE_KEYS = ["week52Low", "week52High", "range52w", "range52wClose", "range52wAsOf", "range52wSince", "range52wBasis"];
     for (const fund of index.funds) expect(Object.keys(fund.metrics)).toEqual(expect.arrayContaining(RANGE_KEYS));
     // the swing keys from the Close column of the same pages (shared swing block): ATH and its basis from the first close
-    for (const fund of index.funds) expect(Object.keys(fund.metrics).slice(-17, -8)).toEqual(["pctFrom52wHigh", "athPrice", "athDate", "athBasis", "pctFromAth", "volatility1y", "sigmaFromMean60d", "high60d", "low60d"]);
-    // the six dividend keys of the dividends block follow the swing keys; the updated fund reads the dividend events of its own daily chart (0.25 is not in the mock, 1.8 on 2026-03-27 is): dividendRate 1.8, the five growth keys null (never 0)
-    for (const fund of index.funds) expect(Object.keys(fund.metrics).slice(-8, -2)).toEqual(["dividendRate", "dividendGrowth", "dividendGrowth3y", "dividendGrowth5y", "dividendStreak", "dividendCut10y"]);
-    for (const fund of index.funds) expect([fund.metrics.dividendRate, fund.metrics.dividendGrowth, fund.metrics.dividendGrowth3y, fund.metrics.dividendGrowth5y, fund.metrics.dividendStreak, fund.metrics.dividendCut10y]).toEqual([1.8, null, null, null, null, null]);
+    for (const fund of index.funds) expect(Object.keys(fund.metrics).slice(-51, -42)).toEqual(["pctFrom52wHigh", "athPrice", "athDate", "athBasis", "pctFromAth", "volatility1y", "sigmaFromMean60d", "high60d", "low60d"]);
+    // the eight dividend keys of the dividends block follow the swing keys; the updated fund reads the dividend events of its own daily chart (0.25 is not in the mock, 1.8 on 2026-03-27 is): dividendRate 1.8, the five growth keys null (never 0)
+    for (const fund of index.funds) expect(Object.keys(fund.metrics).slice(-42, -34)).toEqual(DIVIDEND_KEYS);
+    for (const fund of index.funds) expect(DIVIDEND_KEYS.map((key) => fund.metrics[key])).toEqual([1.8, null, null, null, null, null, 1, "annual"]);
+    // the 32 benchmark keys against SPY and QQQ sit before the two tail keys (benchmark block, tap mode); the mock gives SPY and QQQ the
+    // same 4 bars as the fund (17 months): horizons of a year and more null, payFrequency annual
+    for (const fund of index.funds) expect(Object.keys(fund.metrics).slice(-34, -2)).toEqual(BENCHMARK_KEYS);
+    // one request per updated fund feeds swing, dividends and benchmark; SPY and QQQ are read once more as the benchmarks
+    expect(urls.filter((url) => /chart\/(SPY|QQQ)\?period1=0&.*includePrePost=false/.test(url)).map((url) => /chart\/(\w+)\?/.exec(url)![1]).sort()).toEqual(["QQQ", "SPY"]);
+    expect(urls.filter((url) => /chart\/\w+\?period1=0&.*includePrePost=false/.test(url))).toHaveLength(4);
     expect([typeof voo.metrics.athPrice, voo.metrics.athBasis]).toEqual(["number", expect.stringMatching(/^daily closes since \d{4}-\d{2}-\d{2}$/)]);
     expect(Object.keys(jsonOf(dir, "funds/VOO/meta.json"))).toEqual(Object.keys(assembleFund(inputsFor()).meta));
     const holdings = jsonOf(dir, "funds/VOO/holdings/001.json");
@@ -602,8 +612,8 @@ describe("pipeline 2", () => {
   test("a new fund that fails (holdings guard, no source answered, a write error) gets a catalog-only row and no files; that row is never read as published state", async () => {
     const { dir: clean } = await runOffline({ TICKERS: "VOO" });
     const published = jsonOf(clean, "index.json").funds[0];
-    // the catalog-only row as written: the range-52w, swing and dividends blocks add their keys (all null without dataFile)
-    const [catalogOnly] = await withDividends(clean, await withSwing(clean, await withRange52w(clean, [catalogOnlyRow(["VOO", published.name, published.category])])));
+    // the catalog-only row as written: the range-52w, swing, dividends and benchmark blocks add their keys (all null without dataFile)
+    const [catalogOnly] = await withBenchmark(clean, await withDividends(clean, await withSwing(clean, await withRange52w(clean, [catalogOnlyRow(["VOO", published.name, published.category])]))));
     expect([catalogOnly.dataFile, catalogOnly.holdings, Object.keys(catalogOnly.metrics), catalogOnly.metrics.returnsBasis]).toEqual([null, 0, Object.keys(published.metrics), "unavailable"]);
     const dirs: string[] = [];
     for (const opts of [{ holdingsWeightKey: "marketValuePct" }, { down: true }, {}]) {
