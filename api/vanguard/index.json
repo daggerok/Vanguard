@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-25T05:52:14.254Z",
+  "generatedAt": "2026-11-25T07:25:57.298Z",
   "source": {
     "provider": "Vanguard",
     "site": "https://investor.vanguard.com",
@@ -41,8 +41,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": -1.22,
+          "asOfDate": "Nov 23 2026",
+          "ytd": -1.19,
           "yr1": -0.74,
           "yr3": 4.54,
           "yr5": 0.26,
@@ -61,7 +61,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -1.22,
+        "ytd": -1.19,
         "tr1y": -0.74,
         "tr3y": 14.24,
         "tr5y": 1.32,
@@ -132,7 +132,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 2398,
       "history": 4976
@@ -165,8 +165,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": -2.7,
+          "asOfDate": "Nov 24 2026",
+          "ytd": -2.91,
           "yr1": -3.85,
           "yr3": 2.93,
           "yr5": -4.63,
@@ -185,7 +185,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -2.7,
+        "ytd": -2.91,
         "tr1y": -3.85,
         "tr3y": 9.05,
         "tr5y": -21.1,
@@ -256,7 +256,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 2916,
       "history": 4976
@@ -289,8 +289,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": -0.38,
+          "asOfDate": "Nov 23 2026",
+          "ytd": -0.34,
           "yr1": -0.08,
           "yr3": 4.29,
           "yr5": -0.02,
@@ -309,7 +309,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -0.38,
+        "ytd": -0.34,
         "tr1y": -0.08,
         "tr3y": 13.43,
         "tr5y": -0.11,
@@ -380,7 +380,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 16189,
       "history": 4976
@@ -537,8 +537,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": 0.15,
+          "asOfDate": "Nov 24 2026",
+          "ytd": 0.16,
           "yr1": -0.32,
           "yr3": 4.06,
           "yr5": 0.17,
@@ -557,7 +557,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 0.15,
+        "ytd": 0.16,
         "tr1y": -0.32,
         "tr3y": 12.67,
         "tr5y": 0.84,
@@ -628,7 +628,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 4,
       "history": 2096
@@ -785,8 +785,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": 0.96,
+          "asOfDate": "Nov 23 2026",
+          "ytd": 0.97,
           "yr1": 1.62,
           "yr3": 4.31,
           "yr5": 1.98,
@@ -805,7 +805,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 0.96,
+        "ytd": 0.97,
         "tr1y": 1.62,
         "tr3y": 13.51,
         "tr5y": 10.32,
@@ -876,7 +876,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 3182,
       "history": 4976
@@ -1157,8 +1157,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": 8.18,
+          "asOfDate": "Nov 24 2026",
+          "ytd": 7.4,
           "yr1": 13.06,
           "yr3": 12.74,
           "yr5": 4.71,
@@ -1177,7 +1177,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 8.18,
+        "ytd": 7.4,
         "tr1y": 13.06,
         "tr3y": 43.29,
         "tr5y": 25.88,
@@ -1248,7 +1248,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 256,
       "history": 4114
@@ -1281,8 +1281,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": 8.4,
+          "asOfDate": "Nov 24 2026",
+          "ytd": 8.15,
           "yr1": 14.33,
           "yr3": 12.98,
           "yr5": 5.85,
@@ -1301,7 +1301,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 8.4,
+        "ytd": 8.15,
         "tr1y": 14.33,
         "tr3y": 44.21,
         "tr5y": 32.88,
@@ -1372,7 +1372,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 408,
       "history": 4114
@@ -1405,8 +1405,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": 8.47,
+          "asOfDate": "Nov 24 2026",
+          "ytd": 8.75,
           "yr1": 15.64,
           "yr3": 12.99,
           "yr5": 6.69,
@@ -1425,7 +1425,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 8.47,
+        "ytd": 8.75,
         "tr1y": 15.64,
         "tr3y": 44.25,
         "tr5y": 38.22,
@@ -1496,7 +1496,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 304,
       "history": 4114
@@ -1529,8 +1529,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": 5.33,
+          "asOfDate": "Nov 23 2026",
+          "ytd": 6.01,
           "yr1": 11.21,
           "yr3": 18.61,
           "yr5": 10.96,
@@ -1549,7 +1549,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 5.33,
+        "ytd": 6.01,
         "tr1y": 11.21,
         "tr3y": 66.87,
         "tr5y": 68.21,
@@ -1620,7 +1620,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 174,
       "history": 4794
@@ -1777,8 +1777,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": 17.18,
+          "asOfDate": "Nov 23 2026",
+          "ytd": 16.74,
           "yr1": 25.56,
           "yr3": 18.56,
           "yr5": 11.88,
@@ -1797,7 +1797,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 17.18,
+        "ytd": 16.74,
         "tr1y": 25.56,
         "tr3y": 66.65,
         "tr5y": 75.26,
@@ -1868,7 +1868,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 124,
       "history": 4794
@@ -2025,8 +2025,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": 5.92,
+          "asOfDate": "Nov 23 2026",
+          "ytd": 5.82,
           "yr1": 18.9,
           "yr3": 8.65,
           "yr5": 4.24,
@@ -2045,7 +2045,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 5.92,
+        "ytd": 5.82,
         "tr1y": 18.9,
         "tr3y": 28.25,
         "tr5y": 23.1,
@@ -2116,7 +2116,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 114,
       "history": 5778
@@ -3513,8 +3513,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": 3.33,
+          "asOfDate": "Nov 23 2026",
+          "ytd": 3.32,
           "yr1": 3.73,
           "yr3": null,
           "yr5": null,
@@ -3533,7 +3533,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": 3.33,
+        "ytd": 3.32,
         "tr1y": 3.73,
         "tr3y": null,
         "tr5y": null,
@@ -3604,7 +3604,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 28,
       "history": 457
@@ -4133,8 +4133,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": -1.24,
+          "asOfDate": "Nov 24 2026",
+          "ytd": -1.33,
           "yr1": -0.52,
           "yr3": 5.52,
           "yr5": 1.1,
@@ -4153,7 +4153,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -1.24,
+        "ytd": -1.33,
         "tr1y": -0.52,
         "tr3y": 17.49,
         "tr5y": 5.61,
@@ -4224,7 +4224,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 2342,
       "history": 4313
@@ -4381,8 +4381,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": -0.15,
+          "asOfDate": "Nov 23 2026",
+          "ytd": -0.77,
           "yr1": -1.76,
           "yr3": 12.19,
           "yr5": 2.99,
@@ -4401,7 +4401,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -0.15,
+        "ytd": -0.77,
         "tr1y": -1.76,
         "tr3y": 41.2,
         "tr5y": 15.89,
@@ -4472,7 +4472,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 279,
       "history": 5778
@@ -4505,8 +4505,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": -0.4,
+          "asOfDate": "Nov 23 2026",
+          "ytd": -0.35,
           "yr1": 0.04,
           "yr3": null,
           "yr5": null,
@@ -4525,7 +4525,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": -0.4,
+        "ytd": -0.35,
         "tr1y": 0.04,
         "tr3y": null,
         "tr5y": null,
@@ -4596,7 +4596,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 3905,
       "history": 751
@@ -4753,8 +4753,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": 1.15,
+          "asOfDate": "Nov 24 2026",
+          "ytd": 1.11,
           "yr1": 1.96,
           "yr3": 5.1,
           "yr5": 2.64,
@@ -4773,7 +4773,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 1.15,
+        "ytd": 1.11,
         "tr1y": 1.96,
         "tr3y": 16.11,
         "tr5y": 13.93,
@@ -4844,7 +4844,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 3124,
       "history": 4313
@@ -4877,8 +4877,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": 20.78,
+          "asOfDate": "Nov 23 2026",
+          "ytd": 18.91,
           "yr1": 18.95,
           "yr3": 13.14,
           "yr5": 8.26,
@@ -4897,7 +4897,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 20.78,
+        "ytd": 18.91,
         "tr1y": 18.95,
         "tr3y": 44.84,
         "tr5y": 48.72,
@@ -4968,7 +4968,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 111,
       "history": 5778
@@ -5249,8 +5249,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": 4.06,
+          "asOfDate": "Nov 24 2026",
+          "ytd": 4.89,
           "yr1": 6.58,
           "yr3": null,
           "yr5": null,
@@ -5269,7 +5269,7 @@
         "derivedFrom": "official Vanguard YTD returns; 1-year returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 4.06,
+        "ytd": 4.89,
         "tr1y": 6.58,
         "tr3y": null,
         "tr5y": null,
@@ -5340,7 +5340,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD returns; 1-year returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 43,
       "history": 261
@@ -5621,8 +5621,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": 4.85,
+          "asOfDate": "Nov 24 2026",
+          "ytd": 4.42,
           "yr1": 13.67,
           "yr3": 15.35,
           "yr5": 7.49,
@@ -5641,7 +5641,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 4.85,
+        "ytd": 4.42,
         "tr1y": 13.67,
         "tr3y": 53.47,
         "tr5y": 43.52,
@@ -5712,7 +5712,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 3955,
       "history": 4998
@@ -5869,8 +5869,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": 2.97,
+          "asOfDate": "Nov 23 2026",
+          "ytd": 2.12,
           "yr1": 9.64,
           "yr3": 18.7,
           "yr5": 8.46,
@@ -5889,7 +5889,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 2.97,
+        "ytd": 2.12,
         "tr1y": 9.64,
         "tr3y": 67.24,
         "tr5y": 50.09,
@@ -5960,7 +5960,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 431,
       "history": 5778
@@ -5993,8 +5993,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": 19.24,
+          "asOfDate": "Nov 24 2026",
+          "ytd": 19.39,
           "yr1": 32.91,
           "yr3": 20.64,
           "yr5": 12.38,
@@ -6013,7 +6013,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 19.24,
+        "ytd": 19.39,
         "tr1y": 32.91,
         "tr3y": 75.57,
         "tr5y": 79.22,
@@ -6084,7 +6084,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 637,
       "history": 2238
@@ -6241,8 +6241,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": 11.54,
+          "asOfDate": "Nov 24 2026",
+          "ytd": 11.89,
           "yr1": 16.94,
           "yr3": 14.6,
           "yr5": 8.95,
@@ -6261,7 +6261,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 11.54,
+        "ytd": 11.89,
         "tr1y": 16.94,
         "tr3y": 50.52,
         "tr5y": 53.54,
@@ -6332,7 +6332,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 265,
       "history": 2238
@@ -6365,8 +6365,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": 11.13,
+          "asOfDate": "Nov 24 2026",
+          "ytd": 11.43,
           "yr1": 18.35,
           "yr3": 14.62,
           "yr5": 7.34,
@@ -6385,7 +6385,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 11.13,
+        "ytd": 11.43,
         "tr1y": 18.35,
         "tr3y": 50.58,
         "tr5y": 42.49,
@@ -6456,7 +6456,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 465,
       "history": 2238
@@ -6613,8 +6613,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": 0.35,
+          "asOfDate": "Nov 23 2026",
+          "ytd": 0.52,
           "yr1": 2.06,
           "yr3": null,
           "yr5": null,
@@ -6633,7 +6633,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": 0.35,
+        "ytd": 0.52,
         "tr1y": 2.06,
         "tr3y": null,
         "tr5y": null,
@@ -6704,7 +6704,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 648,
       "history": 305
@@ -6861,8 +6861,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": 3.13,
+          "asOfDate": "Nov 24 2026",
+          "ytd": 3.45,
           "yr1": 12.34,
           "yr3": 14.69,
           "yr5": 8.22,
@@ -6881,7 +6881,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 3.13,
+        "ytd": 3.45,
         "tr1y": 12.34,
         "tr3y": 50.85,
         "tr5y": 48.42,
@@ -6952,7 +6952,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 1312,
       "history": 5499
@@ -7109,8 +7109,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": 0.27,
+          "asOfDate": "Nov 23 2026",
+          "ytd": 0.37,
           "yr1": 1.74,
           "yr3": null,
           "yr5": null,
@@ -7129,7 +7129,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": 0.27,
+        "ytd": 0.37,
         "tr1y": 1.74,
         "tr3y": null,
         "tr5y": null,
@@ -7200,7 +7200,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 1480,
       "history": 373
@@ -7233,8 +7233,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": 1.53,
+          "asOfDate": "Nov 23 2026",
+          "ytd": 1.55,
           "yr1": 2.2,
           "yr3": 4.08,
           "yr5": 2.15,
@@ -7253,7 +7253,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 1.53,
+        "ytd": 1.55,
         "tr1y": 2.2,
         "tr3y": 12.75,
         "tr5y": 11.24,
@@ -7324,7 +7324,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 99,
       "history": 4313
@@ -7357,8 +7357,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": 13.36,
+          "asOfDate": "Nov 24 2026",
+          "ytd": 10.04,
           "yr1": 18.51,
           "yr3": 22.24,
           "yr5": 13.54,
@@ -7377,7 +7377,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 13.36,
+        "ytd": 10.04,
         "tr1y": 18.51,
         "tr3y": 82.67,
         "tr5y": 88.68,
@@ -7448,7 +7448,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 321,
       "history": 5778
@@ -7481,8 +7481,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": 3.19,
+          "asOfDate": "Nov 23 2026",
+          "ytd": 3.18,
           "yr1": 3.66,
           "yr3": null,
           "yr5": null,
@@ -7501,7 +7501,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": 3.19,
+        "ytd": 3.18,
         "tr1y": 3.66,
         "tr3y": null,
         "tr5y": null,
@@ -7572,7 +7572,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 90,
       "history": 457
@@ -7605,8 +7605,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": -0.06,
+          "asOfDate": "Nov 24 2026",
+          "ytd": -0.08,
           "yr1": 0.15,
           "yr3": null,
           "yr5": null,
@@ -7625,7 +7625,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": -0.06,
+        "ytd": -0.08,
         "tr1y": 0.15,
         "tr3y": null,
         "tr5y": null,
@@ -7696,7 +7696,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 267,
       "history": 355
@@ -7729,8 +7729,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": 19.99,
+          "asOfDate": "Nov 23 2026",
+          "ytd": 16.43,
           "yr1": 28.77,
           "yr3": 14.55,
           "yr5": 7.67,
@@ -7749,7 +7749,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 19.99,
+        "ytd": 16.43,
         "tr1y": 28.77,
         "tr3y": 50.31,
         "tr5y": 44.72,
@@ -7809,7 +7809,7 @@
         "stressBasisSpy": "SPY -11% 2026-10-06 to 2026-11-20",
         "vsQqq1y": 13.96,
         "vsQqq3y": -4,
-        "vsQqq5y": -2.84,
+        "vsQqq5y": -2.85,
         "vsQqq10y": -7.17,
         "beta1yQqq": 0.09,
         "corr1yQqq": 0.12,
@@ -7820,7 +7820,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 417,
       "history": 5778
@@ -7853,8 +7853,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": 11.46,
+          "asOfDate": "Nov 23 2026",
+          "ytd": 10.88,
           "yr1": 16.02,
           "yr3": 15.87,
           "yr5": 9.63,
@@ -7873,7 +7873,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 11.46,
+        "ytd": 10.88,
         "tr1y": 16.02,
         "tr3y": 55.57,
         "tr5y": 58.36,
@@ -7944,7 +7944,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 344,
       "history": 5211
@@ -7977,8 +7977,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": 5.91,
+          "asOfDate": "Nov 24 2026",
+          "ytd": 6.78,
           "yr1": 12.5,
           "yr3": 10.69,
           "yr5": 4.84,
@@ -7997,7 +7997,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 5.91,
+        "ytd": 6.78,
         "tr1y": 12.5,
         "tr3y": 35.61,
         "tr5y": 26.69,
@@ -8068,7 +8068,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 425,
       "history": 2736
@@ -8101,7 +8101,7 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
+          "asOfDate": "Nov 23 2026",
           "ytd": 13.42,
           "yr1": 18.89,
           "yr3": 13.35,
@@ -8175,7 +8175,7 @@
         "beta1ySpy": 0.97,
         "corr1ySpy": 0.81,
         "upCapture3ySpy": 89.55,
-        "downCapture3ySpy": 121.96,
+        "downCapture3ySpy": 121.97,
         "relStrength3mSpy": -2.05,
         "stressReturnSpy": -6.33,
         "stressBasisSpy": "SPY -11% 2026-10-06 to 2026-11-20",
@@ -8192,7 +8192,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 355,
       "history": 4114
@@ -8969,8 +8969,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": 9.3,
+          "asOfDate": "Nov 24 2026",
+          "ytd": 9.53,
           "yr1": 13.68,
           "yr3": 15.04,
           "yr5": 5.79,
@@ -8989,7 +8989,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 9.3,
+        "ytd": 9.53,
         "tr1y": 13.68,
         "tr3y": 52.25,
         "tr5y": 32.51,
@@ -9060,7 +9060,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 284,
       "history": 5778
@@ -9217,8 +9217,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": 6.16,
+          "asOfDate": "Nov 23 2026",
+          "ytd": 6.63,
           "yr1": 11.75,
           "yr3": 17.76,
           "yr5": 9.84,
@@ -9237,7 +9237,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 6.16,
+        "ytd": 6.63,
         "tr1y": 11.75,
         "tr3y": 63.32,
         "tr5y": 59.89,
@@ -9308,7 +9308,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 1035,
       "history": 4105
@@ -9341,8 +9341,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": -8.45,
+          "asOfDate": "Nov 23 2026",
+          "ytd": -6.78,
           "yr1": -2.63,
           "yr3": 14.72,
           "yr5": 7.89,
@@ -9361,7 +9361,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -8.45,
+        "ytd": -6.78,
         "tr1y": -2.63,
         "tr3y": 50.96,
         "tr5y": 46.2,
@@ -9432,7 +9432,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 380,
       "history": 4105
@@ -9589,8 +9589,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": 6.78,
+          "asOfDate": "Nov 24 2026",
+          "ytd": 6.25,
           "yr1": 12.07,
           "yr3": 17.94,
           "yr5": 10.43,
@@ -9609,7 +9609,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 6.78,
+        "ytd": 6.25,
         "tr1y": 12.07,
         "tr3y": 64.05,
         "tr5y": 64.24,
@@ -9680,7 +9680,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 517,
       "history": 4114
@@ -9713,8 +9713,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": 2.97,
+          "asOfDate": "Nov 24 2026",
+          "ytd": 1.45,
           "yr1": 8.28,
           "yr3": 20.37,
           "yr5": 9.21,
@@ -9733,7 +9733,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 2.97,
+        "ytd": 1.45,
         "tr1y": 8.28,
         "tr3y": 74.38,
         "tr5y": 55.35,
@@ -9804,7 +9804,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 164,
       "history": 4114
@@ -10085,8 +10085,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": -8.71,
+          "asOfDate": "Nov 23 2026",
+          "ytd": -8.96,
           "yr1": -7.24,
           "yr3": 16.83,
           "yr5": 5.97,
@@ -10105,7 +10105,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -8.71,
+        "ytd": -8.96,
         "tr1y": -7.24,
         "tr3y": 59.45,
         "tr5y": 33.61,
@@ -10176,7 +10176,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 114,
       "history": 5611
@@ -10581,8 +10581,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": 1.34,
+          "asOfDate": "Nov 24 2026",
+          "ytd": 1.3,
           "yr1": 2.25,
           "yr3": null,
           "yr5": null,
@@ -10601,7 +10601,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": 1.34,
+        "ytd": 1.3,
         "tr1y": 2.25,
         "tr3y": null,
         "tr5y": null,
@@ -10672,7 +10672,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 1644,
       "history": 423
@@ -10705,8 +10705,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": 1.53,
+          "asOfDate": "Nov 23 2026",
+          "ytd": 1.45,
           "yr1": 2.09,
           "yr3": null,
           "yr5": null,
@@ -10725,7 +10725,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": 1.53,
+        "ytd": 1.45,
         "tr1y": 2.09,
         "tr3y": null,
         "tr5y": null,
@@ -10796,7 +10796,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 3818,
       "history": 511
@@ -10953,8 +10953,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": -2.21,
+          "asOfDate": "Nov 24 2026",
+          "ytd": -2.54,
           "yr1": 6.79,
           "yr3": 11.52,
           "yr5": 3.6,
@@ -10973,7 +10973,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -2.21,
+        "ytd": -2.54,
         "tr1y": 6.79,
         "tr3y": 38.7,
         "tr5y": 19.36,
@@ -11044,7 +11044,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 5203,
       "history": 4474
@@ -11077,8 +11077,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": 5.36,
+          "asOfDate": "Nov 23 2026",
+          "ytd": 5.81,
           "yr1": 12.31,
           "yr3": 16.64,
           "yr5": 8.65,
@@ -11097,7 +11097,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 5.36,
+        "ytd": 5.81,
         "tr1y": 12.31,
         "tr3y": 58.68,
         "tr5y": 51.39,
@@ -11168,7 +11168,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 10364,
       "history": 4669
@@ -11201,8 +11201,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": -0.85,
+          "asOfDate": "Nov 24 2026",
+          "ytd": -0.98,
           "yr1": -0.56,
           "yr3": 4.74,
           "yr5": 0.1,
@@ -11221,7 +11221,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -0.85,
+        "ytd": -0.98,
         "tr1y": -0.56,
         "tr3y": 14.91,
         "tr5y": 0.5,
@@ -11292,7 +11292,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 5150,
       "history": 2305
@@ -11573,8 +11573,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": -0.03,
+          "asOfDate": "Nov 24 2026",
+          "ytd": 0.16,
           "yr1": 0.52,
           "yr3": null,
           "yr5": null,
@@ -11593,7 +11593,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": -0.03,
+        "ytd": 0.16,
         "tr1y": 0.52,
         "tr3y": null,
         "tr5y": null,
@@ -11664,7 +11664,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 7182,
       "history": 720
@@ -11821,8 +11821,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": 0.98,
+          "asOfDate": "Nov 23 2026",
+          "ytd": 0.9,
           "yr1": 1.63,
           "yr3": 2.9,
           "yr5": null,
@@ -11841,7 +11841,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 0.98,
+        "ytd": 0.9,
         "tr1y": 1.63,
         "tr3y": 8.94,
         "tr5y": null,
@@ -11912,7 +11912,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 4095,
       "history": 947
@@ -11945,8 +11945,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": -0.26,
+          "asOfDate": "Nov 24 2026",
+          "ytd": -0.3,
           "yr1": -0.21,
           "yr3": null,
           "yr5": null,
@@ -11965,7 +11965,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": -0.26,
+        "ytd": -0.3,
         "tr1y": -0.21,
         "tr3y": null,
         "tr5y": null,
@@ -12036,7 +12036,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 288,
       "history": 355
@@ -12069,8 +12069,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": 6.35,
+          "asOfDate": "Nov 23 2026",
+          "ytd": 6.78,
           "yr1": 11.94,
           "yr3": 17.61,
           "yr5": 9.53,
@@ -12089,7 +12089,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 6.35,
+        "ytd": 6.78,
         "tr1y": 11.94,
         "tr3y": 62.67,
         "tr5y": 57.67,
@@ -12160,7 +12160,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 2992,
       "history": 4105
@@ -12193,8 +12193,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": 6.41,
+          "asOfDate": "Nov 23 2026",
+          "ytd": 6.86,
           "yr1": 12.06,
           "yr3": 17.72,
           "yr5": 9.48,
@@ -12213,7 +12213,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 6.41,
+        "ytd": 6.86,
         "tr1y": 12.06,
         "tr3y": 63.12,
         "tr5y": 57.25,
@@ -12284,7 +12284,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 3529,
       "history": 6435
@@ -12317,8 +12317,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": 1.74,
+          "asOfDate": "Nov 24 2026",
+          "ytd": 1.72,
           "yr1": 2.66,
           "yr3": 4.71,
           "yr5": 2.81,
@@ -12337,7 +12337,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 1.74,
+        "ytd": 1.72,
         "tr1y": 2.66,
         "tr3y": 14.81,
         "tr5y": 14.89,
@@ -12408,7 +12408,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 27,
       "history": 3583
@@ -12441,8 +12441,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": -0.57,
+          "asOfDate": "Nov 23 2026",
+          "ytd": -0.47,
           "yr1": 0.18,
           "yr3": null,
           "yr5": null,
@@ -12461,7 +12461,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns"
       },
       "metrics": {
-        "ytd": -0.57,
+        "ytd": -0.47,
         "tr1y": 0.18,
         "tr3y": null,
         "tr5y": null,
@@ -12532,7 +12532,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 50,
       "history": 355
@@ -12565,8 +12565,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": 16.94,
+          "asOfDate": "Nov 23 2026",
+          "ytd": 16.32,
           "yr1": 25.3,
           "yr3": 18.27,
           "yr5": 11.37,
@@ -12585,7 +12585,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 16.94,
+        "ytd": 16.32,
         "tr1y": 25.3,
         "tr3y": 65.41,
         "tr5y": 71.31,
@@ -12656,7 +12656,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 310,
       "history": 5778
@@ -12689,8 +12689,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": 3.94,
+          "asOfDate": "Nov 24 2026",
+          "ytd": 4.44,
           "yr1": 7.21,
           "yr3": 15.13,
           "yr5": 2.57,
@@ -12709,7 +12709,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 3.94,
+        "ytd": 4.44,
         "tr1y": 7.21,
         "tr3y": 52.6,
         "tr5y": 13.54,
@@ -12780,7 +12780,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 1148,
       "history": 4105
@@ -12937,8 +12937,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": 13.94,
+          "asOfDate": "Nov 24 2026",
+          "ytd": 14.71,
           "yr1": 23.48,
           "yr3": 16.33,
           "yr5": 5.91,
@@ -12957,7 +12957,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 13.94,
+        "ytd": 14.71,
         "tr1y": 23.48,
         "tr3y": 57.44,
         "tr5y": 33.25,
@@ -13028,7 +13028,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 1436,
       "history": 4105
@@ -13061,8 +13061,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": -1.58,
+          "asOfDate": "Nov 23 2026",
+          "ytd": -0.29,
           "yr1": 2.72,
           "yr3": 17.6,
           "yr5": 8.87,
@@ -13081,7 +13081,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -1.58,
+        "ytd": -0.29,
         "tr1y": 2.72,
         "tr3y": 62.63,
         "tr5y": 52.96,
@@ -13152,7 +13152,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 141,
       "history": 5778
@@ -13185,8 +13185,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": 3,
+          "asOfDate": "Nov 24 2026",
+          "ytd": 2.98,
           "yr1": 3.71,
           "yr3": 5.01,
           "yr5": 3.76,
@@ -13205,7 +13205,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 3,
+        "ytd": 2.98,
         "tr1y": 3.71,
         "tr3y": 15.8,
         "tr5y": 20.27,
@@ -13276,7 +13276,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 1377,
       "history": 1437
@@ -13433,8 +13433,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": 12.66,
+          "asOfDate": "Nov 23 2026",
+          "ytd": 11.98,
           "yr1": 17.22,
           "yr3": null,
           "yr5": null,
@@ -13453,7 +13453,7 @@
         "derivedFrom": "official Vanguard YTD returns; 1-year returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 12.66,
+        "ytd": 11.98,
         "tr1y": 17.22,
         "tr3y": null,
         "tr5y": null,
@@ -13524,7 +13524,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD returns; 1-year returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 76,
       "history": 261
@@ -13681,8 +13681,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": -0.57,
+          "asOfDate": "Nov 24 2026",
+          "ytd": -1.58,
           "yr1": 3.74,
           "yr3": 12.32,
           "yr5": 3.95,
@@ -13701,7 +13701,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -0.57,
+        "ytd": -1.58,
         "tr1y": 3.74,
         "tr3y": 41.7,
         "tr5y": 21.4,
@@ -13772,7 +13772,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 6644,
       "history": 5499
@@ -13805,8 +13805,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": -2.07,
+          "asOfDate": "Nov 23 2026",
+          "ytd": -1.93,
           "yr1": -0.15,
           "yr3": 7.38,
           "yr5": 1.73,
@@ -13825,7 +13825,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": -2.07,
+        "ytd": -1.93,
         "tr1y": -0.15,
         "tr3y": 23.8,
         "tr5y": 8.95,
@@ -13896,7 +13896,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 957,
       "history": 3427
@@ -14053,8 +14053,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": 4.22,
+          "asOfDate": "Nov 24 2026",
+          "ytd": 3.81,
           "yr1": 13.08,
           "yr3": 15.04,
           "yr5": 7.15,
@@ -14073,7 +14073,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 4.22,
+        "ytd": 3.81,
         "tr1y": 13.08,
         "tr3y": 52.23,
         "tr5y": 41.25,
@@ -14144,7 +14144,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 9339,
       "history": 4016
@@ -14177,8 +14177,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 24 2026",
-          "ytd": 11.57,
+          "asOfDate": "Nov 23 2026",
+          "ytd": 11.21,
           "yr1": 19.37,
           "yr3": 17.21,
           "yr5": 10.45,
@@ -14197,7 +14197,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 11.57,
+        "ytd": 11.21,
         "tr1y": 19.37,
         "tr3y": 61.04,
         "tr5y": 64.41,
@@ -14268,7 +14268,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-24"
+        "performanceAsOf": "2026-11-23"
       },
       "holdings": 607,
       "history": 5072
@@ -14301,8 +14301,8 @@
       },
       "returns": {
         "monthEnd": {
-          "asOfDate": "Nov 23 2026",
-          "ytd": 10.9,
+          "asOfDate": "Nov 24 2026",
+          "ytd": 11.2,
           "yr1": 23.48,
           "yr3": 19.95,
           "yr5": 12.76,
@@ -14321,7 +14321,7 @@
         "derivedFrom": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)"
       },
       "metrics": {
-        "ytd": 10.9,
+        "ytd": 11.2,
         "tr1y": 23.48,
         "tr3y": 72.59,
         "tr5y": 82.28,
@@ -14392,7 +14392,7 @@
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
         "benchmarkAsOf": "2026-11-24",
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
-        "performanceAsOf": "2026-11-23"
+        "performanceAsOf": "2026-11-24"
       },
       "holdings": 1600,
       "history": 2736
