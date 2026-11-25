@@ -36,14 +36,14 @@
     "net": 0.03
   },
   "nav": {
-    "display": "$64.98",
-    "value": 64.98,
-    "asOfDate": "Nov 23 2026"
+    "display": "$64.84",
+    "value": 64.84,
+    "asOfDate": "Nov 24 2026"
   },
   "marketPrice": {
-    "display": "$64.99",
-    "value": 64.99,
-    "asOfDate": "Nov 23 2026"
+    "display": "$64.85",
+    "value": 64.85,
+    "asOfDate": "Nov 24 2026"
   },
   "premiumDiscount": {
     "display": "0.02%",
@@ -64,10 +64,10 @@
     "dividendYieldText": "4.96%",
     "dividendYieldKind": "Vanguard published distribution yield",
     "dividendYieldAsOf": "2026-11-02",
-    "secYield": 5.91,
-    "secYieldText": "5.91%",
+    "secYield": 5.85,
+    "secYieldText": "5.85%",
     "secYieldKind": "official 30-day SEC yield",
-    "secYieldAsOf": "2026-11-20",
+    "secYieldAsOf": "2026-11-23",
     "unsubsidizedSecYield": null
   },
   "returns": {
@@ -75,9 +75,9 @@
       "asOfDate": "Nov 24 2026",
       "ytd": -2.91,
       "yr1": -3.85,
-      "yr3": 2.93,
-      "yr5": -4.63,
-      "yr10": 1.15,
+      "yr3": 3.2,
+      "yr5": -4.48,
+      "yr10": 1.2,
       "sinceInception": null
     },
     "quarterEnd": {
@@ -2242,9 +2242,9 @@
       "history/005.json"
     ],
     "pageSize": 1000,
-    "totalRows": 4976,
-    "asOfDate": "2026-11-24",
+    "totalRows": 4977,
+    "asOfDate": "2026-11-25",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Nov 24 2026"
+    "asOf": "Nov 25 2026"
   }
 }
