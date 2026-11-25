@@ -36,18 +36,18 @@
     "net": 0.09
   },
   "nav": {
-    "display": "$104.99",
-    "value": 104.99,
-    "asOfDate": "Nov 19 2026"
+    "display": "$106.42",
+    "value": 106.42,
+    "asOfDate": "Nov 23 2026"
   },
   "marketPrice": {
-    "display": "$104.99",
-    "value": 104.99,
-    "asOfDate": "Nov 19 2026"
+    "display": "$106.41",
+    "value": 106.41,
+    "asOfDate": "Nov 23 2026"
   },
   "premiumDiscount": {
-    "display": "0.00%",
-    "value": 0
+    "display": "-0.01%",
+    "value": -0.01
   },
   "aum": {
     "display": "$145.1B",
@@ -72,12 +72,12 @@
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Nov 19 2026",
-      "ytd": 11.84,
+      "asOfDate": "Nov 23 2026",
+      "ytd": 13.36,
       "yr1": 18.51,
-      "yr3": 19.74,
-      "yr5": 12.01,
-      "yr10": 21.61,
+      "yr3": 22.24,
+      "yr5": 13.54,
+      "yr10": 22.21,
       "sinceInception": null
     },
     "quarterEnd": {
@@ -622,9 +622,9 @@
       "history/006.json"
     ],
     "pageSize": 1000,
-    "totalRows": 5776,
-    "asOfDate": "2026-11-20",
+    "totalRows": 5778,
+    "asOfDate": "2026-11-24",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Nov 20 2026"
+    "asOf": "Nov 24 2026"
   }
 }
