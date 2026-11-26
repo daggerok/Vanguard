@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-26T09:39:36.000Z",
+  "generatedAt": "2026-11-26T21:55:01.833Z",
   "source": {
     "provider": "Vanguard",
     "site": "https://investor.vanguard.com",
@@ -9,7 +9,7 @@
   },
   "counts": {
     "funds": 116,
-    "holdings": 213927,
+    "holdings": 213937,
     "history": 369165
   },
   "funds": [
@@ -3606,7 +3606,7 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns",
         "performanceAsOf": "2026-11-25"
       },
-      "holdings": 27,
+      "holdings": 29,
       "history": 458
     },
     {
@@ -4327,7 +4327,7 @@
         "vsSpy1y": -10.97,
         "vsSpy3y": -13.82,
         "vsSpy5y": -13.33,
-        "vsSpy10y": -12.05,
+        "vsSpy10y": -12.04,
         "beta1ySpy": 0.22,
         "corr1ySpy": 0.38,
         "upCapture3ySpy": 40.1,
@@ -4598,7 +4598,7 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns",
         "performanceAsOf": "2026-11-25"
       },
-      "holdings": 3898,
+      "holdings": 3897,
       "history": 752
     },
     {
@@ -6086,7 +6086,7 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
         "performanceAsOf": "2026-11-25"
       },
-      "holdings": 638,
+      "holdings": 659,
       "history": 2239
     },
     {
@@ -6210,7 +6210,7 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
         "performanceAsOf": "2026-11-25"
       },
-      "holdings": 664,
+      "holdings": 663,
       "history": 2238
     },
     {
@@ -6706,7 +6706,7 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns",
         "performanceAsOf": "2026-11-25"
       },
-      "holdings": 650,
+      "holdings": 647,
       "history": 306
     },
     {
@@ -7202,7 +7202,7 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns",
         "performanceAsOf": "2026-11-25"
       },
-      "holdings": 1475,
+      "holdings": 1471,
       "history": 374
     },
     {
@@ -7698,7 +7698,7 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns",
         "performanceAsOf": "2026-11-25"
       },
-      "holdings": 263,
+      "holdings": 262,
       "history": 356
     },
     {
@@ -10426,7 +10426,7 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns",
         "performanceAsOf": "2026-11-25"
       },
-      "holdings": 3592,
+      "holdings": 3588,
       "history": 757
     },
     {
@@ -10674,7 +10674,7 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns",
         "performanceAsOf": "2026-11-25"
       },
-      "holdings": 1633,
+      "holdings": 1636,
       "history": 424
     },
     {
@@ -12650,7 +12650,7 @@
         "beta1yQqq": 0.27,
         "corr1yQqq": 0.57,
         "upCapture3yQqq": 45.08,
-        "downCapture3yQqq": -22.97,
+        "downCapture3yQqq": -22.96,
         "relStrength3mQqq": 10.13,
         "stressReturnQqq": -2.19,
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
@@ -13278,7 +13278,7 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns; 3-, 5- and 10-year annualized returns derived from Yahoo Finance adjusted market-price closes (not NAV)",
         "performanceAsOf": "2026-11-25"
       },
-      "holdings": 1373,
+      "holdings": 1371,
       "history": 1438
     },
     {
@@ -14242,7 +14242,7 @@
         "perfSi": 213.83,
         "maxDrawdown1y": -7.37,
         "maxDrawdown3y": -14.46,
-        "maxDrawdown5y": -15.85,
+        "maxDrawdown5y": -15.84,
         "maxDrawdown10y": -35.21,
         "vsSpy1y": 6.04,
         "vsSpy3y": -0.27,
@@ -14262,7 +14262,7 @@
         "beta1yQqq": 0.28,
         "corr1yQqq": 0.58,
         "upCapture3yQqq": 43.45,
-        "downCapture3yQqq": -20.89,
+        "downCapture3yQqq": -20.88,
         "relStrength3mQqq": 8.41,
         "stressReturnQqq": -2.84,
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
