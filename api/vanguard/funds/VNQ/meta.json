@@ -36,14 +36,14 @@
     "net": 0.13
   },
   "nav": {
-    "display": "$94.78",
-    "value": 94.78,
-    "asOfDate": "Nov 24 2026"
+    "display": "$95.66",
+    "value": 95.66,
+    "asOfDate": "Nov 25 2026"
   },
   "marketPrice": {
-    "display": "$94.78",
-    "value": 94.78,
-    "asOfDate": "Nov 24 2026"
+    "display": "$95.66",
+    "value": 95.66,
+    "asOfDate": "Nov 25 2026"
   },
   "premiumDiscount": {
     "display": "0.00%",
@@ -72,8 +72,8 @@
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Nov 24 2026",
-      "ytd": 10.2,
+      "asOfDate": "Nov 25 2026",
+      "ytd": 11.23,
       "yr1": 9.36,
       "yr3": 10.5,
       "yr5": 0.91,

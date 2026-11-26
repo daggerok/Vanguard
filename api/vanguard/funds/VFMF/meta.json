@@ -36,18 +36,18 @@
     "net": 0.18
   },
   "nav": {
-    "display": "$177.59",
-    "value": 177.59,
-    "asOfDate": "Nov 24 2026"
+    "display": "$178.20",
+    "value": 178.2,
+    "asOfDate": "Nov 25 2026"
   },
   "marketPrice": {
-    "display": "$177.91",
-    "value": 177.91,
-    "asOfDate": "Nov 24 2026"
+    "display": "$178.26",
+    "value": 178.26,
+    "asOfDate": "Nov 25 2026"
   },
   "premiumDiscount": {
-    "display": "0.18%",
-    "value": 0.18
+    "display": "0.03%",
+    "value": 0.03
   },
   "aum": {
     "display": "$1.1B",

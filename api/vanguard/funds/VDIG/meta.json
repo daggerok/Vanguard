@@ -36,18 +36,18 @@
     "net": 0.4
   },
   "nav": {
-    "display": "$64.29",
-    "value": 64.29,
-    "asOfDate": "Nov 24 2026"
+    "display": "$64.58",
+    "value": 64.58,
+    "asOfDate": "Nov 25 2026"
   },
   "marketPrice": {
-    "display": "$64.26",
-    "value": 64.26,
-    "asOfDate": "Nov 24 2026"
+    "display": "$64.68",
+    "value": 64.68,
+    "asOfDate": "Nov 25 2026"
   },
   "premiumDiscount": {
-    "display": "-0.04%",
-    "value": -0.04
+    "display": "0.16%",
+    "value": 0.16
   },
   "aum": {
     "display": "$32.8M",
@@ -72,8 +72,8 @@
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Nov 24 2026",
-      "ytd": 4.89,
+      "asOfDate": "Nov 25 2026",
+      "ytd": 5.37,
       "yr1": 5.63,
       "yr3": null,
       "yr5": null,
@@ -121,9 +121,9 @@
     ],
     "pageSize": 250,
     "totalRows": 43,
-    "asOfDate": "2026-11-24",
+    "asOfDate": "2026-11-25",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
-    "asOf": "Nov 24 2026"
+    "asOf": "Nov 25 2026"
   },
   "history": {
     "pages": [

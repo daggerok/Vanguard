@@ -36,14 +36,14 @@
     "net": 0.03
   },
   "nav": {
-    "display": "$45.38",
-    "value": 45.38,
-    "asOfDate": "Nov 24 2026"
+    "display": "$45.53",
+    "value": 45.53,
+    "asOfDate": "Nov 25 2026"
   },
   "marketPrice": {
-    "display": "$45.43",
-    "value": 45.43,
-    "asOfDate": "Nov 24 2026"
+    "display": "$45.58",
+    "value": 45.58,
+    "asOfDate": "Nov 25 2026"
   },
   "premiumDiscount": {
     "display": "0.11%",
@@ -67,7 +67,7 @@
     "secYield": 4.49,
     "secYieldText": "4.49%",
     "secYieldKind": "official 30-day SEC yield",
-    "secYieldAsOf": "2026-11-23",
+    "secYieldAsOf": "2026-11-24",
     "unsubsidizedSecYield": null
   },
   "returns": {

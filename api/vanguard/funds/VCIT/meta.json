@@ -36,18 +36,18 @@
     "net": 0.03
   },
   "nav": {
-    "display": "$79.32",
-    "value": 79.32,
-    "asOfDate": "Nov 24 2026"
+    "display": "$79.61",
+    "value": 79.61,
+    "asOfDate": "Nov 25 2026"
   },
   "marketPrice": {
-    "display": "$79.39",
-    "value": 79.39,
-    "asOfDate": "Nov 24 2026"
+    "display": "$79.67",
+    "value": 79.67,
+    "asOfDate": "Nov 25 2026"
   },
   "premiumDiscount": {
-    "display": "0.09%",
-    "value": 0.09
+    "display": "0.08%",
+    "value": 0.08
   },
   "aum": {
     "display": "$68.6B",
@@ -64,10 +64,10 @@
     "dividendYieldText": "5.07%",
     "dividendYieldKind": "Vanguard published distribution yield",
     "dividendYieldAsOf": "2026-11-02",
-    "secYield": 5.91,
-    "secYieldText": "5.91%",
+    "secYield": 5.9,
+    "secYieldText": "5.90%",
     "secYieldKind": "official 30-day SEC yield",
-    "secYieldAsOf": "2026-11-23",
+    "secYieldAsOf": "2026-11-24",
     "unsubsidizedSecYield": null
   },
   "returns": {
