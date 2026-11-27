@@ -75,8 +75,8 @@
       "asOfDate": "Nov 25 2026",
       "ytd": -1.13,
       "yr1": -1.12,
-      "yr3": 4.51,
-      "yr5": 0.18,
+      "yr3": 4.25,
+      "yr5": 0.01,
       "yr10": null,
       "sinceInception": null
     },
@@ -789,9 +789,9 @@
     ],
     "pageSize": 250,
     "totalRows": 2811,
-    "asOfDate": "2026-11-25",
+    "asOfDate": "2026-11-26",
     "source": "Vanguard investor profile holdings (IRR AdditionalFundData)",
-    "asOf": "Nov 25 2026"
+    "asOf": "Nov 26 2026"
   },
   "history": {
     "pages": [
@@ -799,9 +799,9 @@
       "history/002.json"
     ],
     "pageSize": 1000,
-    "totalRows": 1574,
-    "asOfDate": "2026-11-25",
+    "totalRows": 1575,
+    "asOfDate": "2026-11-27",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Nov 25 2026"
+    "asOf": "Nov 27 2026"
   }
 }

@@ -75,9 +75,9 @@
       "asOfDate": "Nov 25 2026",
       "ytd": 4.84,
       "yr1": 11.21,
-      "yr3": 18.38,
-      "yr5": 10.83,
-      "yr10": 14.99,
+      "yr3": 19.14,
+      "yr5": 11.66,
+      "yr10": 15.18,
       "sinceInception": null
     },
     "quarterEnd": {
@@ -791,9 +791,9 @@
       "history/005.json"
     ],
     "pageSize": 1000,
-    "totalRows": 4795,
-    "asOfDate": "2026-11-25",
+    "totalRows": 4796,
+    "asOfDate": "2026-11-27",
     "source": "Vanguard IRR AdditionalFundData historicalPrice + premiumDiscountDetails (official NAV/market price/premium-discount, primary) + Yahoo Finance public chart API (OHLC/adjusted close/volume, and any date range the official windows don't cover; per-row provenance in the `Source` column)",
-    "asOf": "Nov 25 2026"
+    "asOf": "Nov 27 2026"
   }
 }
