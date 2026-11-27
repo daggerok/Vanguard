@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-26T23:17:07.176Z",
+  "generatedAt": "2026-11-27T09:45:25.960Z",
   "source": {
     "provider": "Vanguard",
     "site": "https://investor.vanguard.com",
@@ -9,7 +9,7 @@
   },
   "counts": {
     "funds": 116,
-    "holdings": 213937,
+    "holdings": 213941,
     "history": 369165
   },
   "funds": [
@@ -1107,7 +1107,7 @@
         "beta1ySpy": 1.11,
         "corr1ySpy": 0.99,
         "upCapture3ySpy": 106.39,
-        "downCapture3ySpy": 123.38,
+        "downCapture3ySpy": 123.39,
         "relStrength3mSpy": -0.78,
         "stressReturnSpy": -12.66,
         "stressBasisSpy": "SPY -11% 2026-10-06 to 2026-11-20",
@@ -4327,7 +4327,7 @@
         "vsSpy1y": -10.97,
         "vsSpy3y": -13.82,
         "vsSpy5y": -13.33,
-        "vsSpy10y": -12.04,
+        "vsSpy10y": -12.05,
         "beta1ySpy": 0.22,
         "corr1ySpy": 0.38,
         "upCapture3ySpy": 40.1,
@@ -8175,7 +8175,7 @@
         "beta1ySpy": 0.97,
         "corr1ySpy": 0.81,
         "upCapture3ySpy": 89.55,
-        "downCapture3ySpy": 121.96,
+        "downCapture3ySpy": 121.97,
         "relStrength3mSpy": -0.41,
         "stressReturnSpy": -6.33,
         "stressBasisSpy": "SPY -11% 2026-10-06 to 2026-11-20",
@@ -8678,7 +8678,7 @@
         "vsQqq1y": -4.16,
         "vsQqq3y": -12.96,
         "vsQqq5y": -9.77,
-        "vsQqq10y": -17.59,
+        "vsQqq10y": -17.58,
         "beta1yQqq": 0.04,
         "corr1yQqq": 0.2,
         "upCapture3yQqq": 14.99,
@@ -11542,7 +11542,7 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns",
         "performanceAsOf": "2026-11-25"
       },
-      "holdings": 4140,
+      "holdings": 4141,
       "history": 721
     },
     {
@@ -11666,7 +11666,7 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns",
         "performanceAsOf": "2026-11-25"
       },
-      "holdings": 7224,
+      "holdings": 7226,
       "history": 721
     },
     {
@@ -11790,7 +11790,7 @@
         "returnsBasis": "official Vanguard YTD and 1-year returns",
         "performanceAsOf": "2026-11-25"
       },
-      "holdings": 5262,
+      "holdings": 5263,
       "history": 388
     },
     {
@@ -12143,7 +12143,7 @@
         "beta1ySpy": 1,
         "corr1ySpy": 0.99,
         "upCapture3ySpy": 99.98,
-        "downCapture3ySpy": 102.67,
+        "downCapture3ySpy": 102.68,
         "relStrength3mSpy": -0.08,
         "stressReturnSpy": -11.04,
         "stressBasisSpy": "SPY -11% 2026-10-06 to 2026-11-20",
@@ -12349,8 +12349,8 @@
         "dividendYield": null,
         "dividendYieldText": "—",
         "dividendYieldBasis": null,
-        "secYield": 2.46,
-        "secYieldText": "2.46%",
+        "secYield": 2.56,
+        "secYieldText": "2.56%",
         "week52Low": 48.38,
         "week52High": 50.46,
         "range52w": 16.35,
@@ -12473,8 +12473,8 @@
         "dividendYield": null,
         "dividendYieldText": "—",
         "dividendYieldBasis": null,
-        "secYield": 2.59,
-        "secYieldText": "2.59%",
+        "secYield": 2.62,
+        "secYieldText": "2.62%",
         "week52Low": 72.1,
         "week52High": 77.115,
         "range52w": 29.31,
@@ -13270,7 +13270,7 @@
         "beta1yQqq": 0,
         "corr1yQqq": 0.11,
         "upCapture3yQqq": 9.7,
-        "downCapture3yQqq": -10.37,
+        "downCapture3yQqq": -10.36,
         "relStrength3mQqq": 11.61,
         "stressReturnQqq": 0.59,
         "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
