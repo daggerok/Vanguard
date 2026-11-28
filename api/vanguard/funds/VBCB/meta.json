@@ -36,14 +36,14 @@
     "net": 0.08
   },
   "nav": {
-    "display": "$74.99",
-    "value": 74.99,
-    "asOfDate": "Nov 25 2026"
+    "display": "$74.97",
+    "value": 74.97,
+    "asOfDate": "Nov 27 2026"
   },
   "marketPrice": {
-    "display": "$75.09",
-    "value": 75.09,
-    "asOfDate": "Nov 25 2026"
+    "display": "$75.07",
+    "value": 75.07,
+    "asOfDate": "Nov 27 2026"
   },
   "premiumDiscount": {
     "display": "0.13%",
