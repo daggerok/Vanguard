@@ -64,16 +64,16 @@
     "dividendYieldText": "3.09%",
     "dividendYieldKind": "Vanguard published distribution yield",
     "dividendYieldAsOf": "2026-11-02",
-    "secYield": 3.76,
-    "secYieldText": "3.76%",
+    "secYield": 3.75,
+    "secYieldText": "3.75%",
     "secYieldKind": "official 30-day SEC yield",
-    "secYieldAsOf": "2026-11-24",
+    "secYieldAsOf": "2026-11-25",
     "unsubsidizedSecYield": null
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Nov 25 2026",
-      "ytd": -0.07,
+      "asOfDate": "Nov 27 2026",
+      "ytd": -0.09,
       "yr1": -0.16,
       "yr3": null,
       "yr5": null,

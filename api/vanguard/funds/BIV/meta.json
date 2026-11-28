@@ -67,13 +67,13 @@
     "secYield": 5.34,
     "secYieldText": "5.34%",
     "secYieldKind": "official 30-day SEC yield",
-    "secYieldAsOf": "2026-11-24",
+    "secYieldAsOf": "2026-11-25",
     "unsubsidizedSecYield": null
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Nov 25 2026",
-      "ytd": -0.86,
+      "asOfDate": "Nov 27 2026",
+      "ytd": -1.16,
       "yr1": -0.74,
       "yr3": 4.34,
       "yr5": 0.11,

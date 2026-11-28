@@ -72,8 +72,8 @@
   },
   "returns": {
     "monthEnd": {
-      "asOfDate": "Nov 25 2026",
-      "ytd": -0.62,
+      "asOfDate": "Nov 27 2026",
+      "ytd": -0.9,
       "yr1": -0.56,
       "yr3": 4.68,
       "yr5": 0.04,
